@@ -1,3 +1,5 @@
+use crate::*;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum BinaryShortcuitLogicOpr {
     And,
@@ -16,6 +18,16 @@ impl BinaryShortcuitLogicOpr {
         match self {
             BinaryShortcuitLogicOpr::And => todo!(),
             BinaryShortcuitLogicOpr::Or => todo!(),
+        }
+    }
+}
+
+impl HasPrecedence for BinaryShortcuitLogicOpr {
+    #[inline(always)]
+    fn precedence(self) -> Precedence {
+        match self {
+            BinaryShortcuitLogicOpr::And => Precedence::And,
+            BinaryShortcuitLogicOpr::Or => Precedence::Or,
         }
     }
 }

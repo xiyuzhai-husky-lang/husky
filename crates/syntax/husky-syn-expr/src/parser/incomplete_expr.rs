@@ -13,11 +13,11 @@ use super::*;
 pub(super) enum IncompleteSynExpr {
     Binary {
         lopd: SynExprData,
-        punctuation: BinaryOpr,
+        punctuation: SynBinaryOpr,
         punctuation_regional_token_idx: RegionalTokenIdx,
     },
     Prefix {
-        punctuation: PrefixOpr,
+        punctuation: SynPrefixOpr,
         punctuation_regional_token_idx: RegionalTokenIdx,
     },
     /// list separated by commas
@@ -27,7 +27,7 @@ pub(super) enum IncompleteSynExpr {
     CommaList {
         opr: IncompleteCommaListOpr,
         // todo: move this into opr
-        bra: Bracket,
+        bra: SynBracket,
         // todo: move this into opr
         bra_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
@@ -98,7 +98,7 @@ where
 impl IncompleteSynExpr {
     pub(super) fn precedence(&self) -> Precedence {
         match self {
-            IncompleteSynExpr::Binary { punctuation, .. } => (*punctuation).into(),
+            IncompleteSynExpr::Binary { punctuation, .. } => punctuation.precedence(),
             IncompleteSynExpr::Prefix { .. } => Precedence::Prefix,
             IncompleteSynExpr::CommaList { .. } | IncompleteSynExpr::CallList { .. } => {
                 Precedence::List

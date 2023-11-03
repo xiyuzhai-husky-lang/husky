@@ -9,8 +9,9 @@ impl<'a> SemaExprEngine<'a> {
         ropd: SynExprIdx,
     ) -> (
         SemaExprIdx,
+        SemaBinaryOpr,
         SemaExprIdx,
-        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         // let expr_eval_lifetime = self
@@ -73,8 +74,9 @@ impl<'a> SemaExprEngine<'a> {
         };
         (
             lopd_sema_expr_idx,
+            SemaBinaryOpr::AssignClosed(opr),
             ropd_sema_expr_idx,
-            Ok(BinaryOprDynamicDispatch::builtin()),
+            Ok(SemaBinaryOprDynamicDispatch::builtin()),
             Ok(self.term_menu.unit_ty_ontology().into()),
         )
     }

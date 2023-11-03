@@ -1,15 +1,15 @@
 use super::*;
-use crate::signature::binary_opr::BinaryOprFluffySignature;
+use crate::signature::binary_opr::SemaBinaryOprFluffySignature;
 
-pub type BinaryOprDynamicDispatch = FluffyDynamicDispatch<BinaryOprFluffySignature>;
+pub type SemaBinaryOprDynamicDispatch = FluffyDynamicDispatch<SemaBinaryOprFluffySignature>;
 
-impl BinaryOprDynamicDispatch {
+impl SemaBinaryOprDynamicDispatch {
     // ad hoc
     #[deprecated]
     pub fn builtin() -> Self {
-        BinaryOprDynamicDispatch::new(
+        SemaBinaryOprDynamicDispatch::new(
             FluffyTermDynamicDispatchIndirections::new(Place::Transient),
-            BinaryOprFluffySignature::Builtin,
+            SemaBinaryOprFluffySignature::Builtin,
         )
     }
 }

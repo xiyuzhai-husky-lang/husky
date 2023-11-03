@@ -10,7 +10,6 @@ pub mod helpers;
 mod obelisks;
 mod parser;
 mod pattern;
-mod precedence;
 mod range;
 mod region;
 mod snippet;
@@ -32,19 +31,17 @@ pub use self::region::*;
 pub use self::stmt::*;
 pub use self::symbol::*;
 
+use self::snippet::*;
 use husky_coword::*;
 use husky_entity_path::{
     EntityPath, ItemPath, MajorEntityPath, MajorItemPath, PrincipalEntityPath,
 };
 use husky_entity_syn_tree::{helpers::tokra_region::*, *};
-use husky_opr::*;
 use husky_regional_token::*;
+use husky_syn_opr::*;
 use husky_term_prelude::*;
 use husky_token_data::*;
-use precedence::*;
-use range::*;
 use smallvec::SmallVec;
-use snippet::*;
 #[cfg(test)]
 use tests::*;
 

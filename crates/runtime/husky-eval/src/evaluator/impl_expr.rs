@@ -131,7 +131,7 @@ impl<'temp> Evaluator<'temp> {
         //     FeatureLazyExprVariant::BePattern { ref this, ref patt } => {
         //         self.eval_be_pattern(this, patt)
         //     }
-        //     FeatureLazyExprVariant::PrefixOpr {
+        //     FeatureLazyExprVariant::SynPrefixOpr {
         //         opr,
         //         ref opds,
         //         linkage,

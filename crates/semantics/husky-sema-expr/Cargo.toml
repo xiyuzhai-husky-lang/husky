@@ -37,6 +37,7 @@ husky-opr = { path = "../../kernel/husky-opr" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
+husky-syn-opr = { path = "../../syntax/husky-syn-opr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

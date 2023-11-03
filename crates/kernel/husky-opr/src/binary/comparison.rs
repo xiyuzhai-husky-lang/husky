@@ -1,3 +1,5 @@
+use crate::*;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum BinaryComparisonOpr {
     Eq,
@@ -38,6 +40,19 @@ impl BinaryComparisonOpr {
             BinaryComparisonOpr::Greater => todo!(),
             BinaryComparisonOpr::Leq => todo!(),
             BinaryComparisonOpr::Less => todo!(),
+        }
+    }
+}
+
+impl HasPrecedence for BinaryComparisonOpr {
+    #[inline(always)]
+    fn precedence(self) -> Precedence {
+        match self {
+            BinaryComparisonOpr::Eq | BinaryComparisonOpr::Neq => Precedence::EqComparison,
+            BinaryComparisonOpr::Leq
+            | BinaryComparisonOpr::Less
+            | BinaryComparisonOpr::Geq
+            | BinaryComparisonOpr::Greater => Precedence::OrdComparison,
         }
     }
 }

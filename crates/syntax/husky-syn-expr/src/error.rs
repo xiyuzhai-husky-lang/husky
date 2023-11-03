@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_syn_tree::EntitySynTreeError;
-use husky_opr::Bracket;
+use husky_syn_opr::SynBracket;
 use original_error::OriginalError;
 use parsec::*;
 use thiserror::Error;
@@ -38,7 +38,7 @@ pub enum OriginalSynExprError {
     ExpectedRightParenthesis(RegionalTokenStreamState),
     #[error("no matching bracket")]
     NoMatchingBra {
-        ket: Bracket,
+        ket: SynBracket,
         ket_regional_token_idx: RegionalTokenIdx,
     },
     #[error("expected item before `,`")]
@@ -85,9 +85,9 @@ pub enum OriginalSynExprError {
     ExpectedConstantImplicitParameterType(RegionalTokenStreamState),
     #[error("mismatching bracket")]
     MismatchingBracket {
-        bra: Bracket,
+        bra: SynBracket,
         bra_regional_token_idx: RegionalTokenIdx,
-        ket: Bracket,
+        ket: SynBracket,
         ket_regional_token_idx: RegionalTokenIdx,
     },
     #[error("expected let variables type")]
@@ -132,12 +132,12 @@ pub enum OriginalSynExprError {
     },
     #[error("no right operand for binary operator")]
     NoRightOperandForBinaryOperator {
-        punctuation: BinaryOpr,
+        punctuation: SynBinaryOpr,
         punctuation_regional_token_idx: RegionalTokenIdx,
     },
     #[error("no operand for prefix operator")]
     NoOperandForPrefixOperator {
-        prefix: PrefixOpr,
+        prefix: SynPrefixOpr,
         prefix_regional_token_idx: RegionalTokenIdx,
     },
     #[error("unexpected `$`")]

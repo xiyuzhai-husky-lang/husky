@@ -19,7 +19,6 @@ use husky_entity_syn_tree::helpers::{
     TraitInUseItemsTable,
 };
 use husky_ethereal_signature::HasEtherealSignatureTemplate;
-use husky_opr::PrefixOpr;
 use husky_print_utils::p;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
 use husky_token_data::{IntegerLikeLiteralData, LiteralData, TokenData};

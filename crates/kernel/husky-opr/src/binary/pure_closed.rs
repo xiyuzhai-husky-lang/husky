@@ -1,3 +1,5 @@
+use crate::*;
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum BinaryClosedOpr {
     Add,
@@ -54,3 +56,39 @@ impl BinaryClosedOpr {
         }
     }
 }
+
+impl HasPrecedence for BinaryClosedOpr {
+    #[inline(always)]
+    fn precedence(self) -> Precedence {
+        match self {
+            BinaryClosedOpr::BitAnd => Precedence::BitAnd,
+            BinaryClosedOpr::BitOr => Precedence::BitOr,
+            BinaryClosedOpr::BitXor => Precedence::BitXor,
+            BinaryClosedOpr::Mul | BinaryClosedOpr::Div | BinaryClosedOpr::RemEuclid => {
+                Precedence::Multiplicative
+            }
+            BinaryClosedOpr::Add | BinaryClosedOpr::Sub => Precedence::Additive,
+            BinaryClosedOpr::Power => Precedence::Power,
+        }
+    }
+}
+
+// impl From<SynBinaryOpr> for Precedence {
+//     fn from(binary: SynBinaryOpr) -> Self {
+//         match binary {
+//             SynBinaryOpr::Closed(opr) => todo!(),
+//             SynBinaryOpr::Shift(opr) => match opr {
+//                 BinaryShiftOpr::Shl | BinaryShiftOpr::Shr => Precedence::Shift,
+//             },
+//             SynBinaryOpr::Comparison(cmp_opr) =>
+//             SynBinaryOpr::Assign | SynBinaryOpr::AssignClosed(_) | SynBinaryOpr::AssignShift(_) => {
+//                 Precedence::Assign
+//             }
+//             SynBinaryOpr::ScopeResolution => Precedence::ScopeResolution,
+//             SynBinaryOpr::Curry => Precedence::Curry,
+//             SynBinaryOpr::As => Precedence::As,
+//             SynBinaryOpr::Ins => Precedence::Is,
+//             SynBinaryOpr::In => todo!(),
+//         }
+//     }
+// }

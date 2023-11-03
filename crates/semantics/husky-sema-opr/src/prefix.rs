@@ -4,7 +4,7 @@ pub enum SemaPrefixOpr {
     Minus,
     Not,
     BitNot,
-    Leash,
-    Ref,
+    LeashType,
+    RefType,
     Option,
 }

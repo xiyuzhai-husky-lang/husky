@@ -1,5 +1,6 @@
 use super::*;
 use husky_entity_kind::{EntityKind, FugitiveKind, MajorItemKind};
+use husky_opr::*;
 use husky_print_utils::p;
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;
@@ -87,7 +88,7 @@ where
             TokenData::Label(_) => todo!(),
             TokenData::Punctuation(punct) => match punct.mapped() {
                 PunctuationMapped::Binary(binary) => {
-                    DisambiguatedTokenData::BinaryOpr(regional_token_idx, binary)
+                    DisambiguatedTokenData::SynBinaryOpr(regional_token_idx, binary)
                 }
                 PunctuationMapped::Bra(bra) => DisambiguatedTokenData::Bra(regional_token_idx, bra),
                 PunctuationMapped::Ket(ket) => match self.last_bra() {
@@ -100,7 +101,7 @@ where
                     None => return TokenDisambiguationResult::Break(()),
                 },
                 PunctuationMapped::Suffix(suffix) => {
-                    DisambiguatedTokenData::SuffixOpr(regional_token_idx, suffix)
+                    DisambiguatedTokenData::SynSuffixOpr(regional_token_idx, suffix)
                 }
                 PunctuationMapped::LaOrLt => match self.top_expr() {
                     TopExprRef::Incomplete(_) => todo!(),
@@ -108,9 +109,10 @@ where
                         match expr.base_item_path(self.db(), &self.context().syn_expr_arena()) {
                             BaseEntityPath::Uncertain {
                                 inclination: BaseEntityPathInclination::TypeOrVariant,
-                            } => {
-                                DisambiguatedTokenData::Bra(regional_token_idx, Bracket::TurboFish)
-                            }
+                            } => DisambiguatedTokenData::Bra(
+                                regional_token_idx,
+                                SynBracket::TurboFish,
+                            ),
                             BaseEntityPath::Some(item_path) => {
                                 match item_path.item_kind(self.db()) {
                                     EntityKind::Module => todo!(),
@@ -119,7 +121,7 @@ where
                                         connection,
                                     } => match module_item_kind {
                                         MajorItemKind::Fugitive(FugitiveKind::Val) => {
-                                            DisambiguatedTokenData::BinaryOpr(
+                                            DisambiguatedTokenData::SynBinaryOpr(
                                                 regional_token_idx,
                                                 BinaryComparisonOpr::Less.into(),
                                             )
@@ -128,7 +130,7 @@ where
                                         | MajorItemKind::Fugitive(_)
                                         | MajorItemKind::Trait => DisambiguatedTokenData::Bra(
                                             regional_token_idx,
-                                            Bracket::TurboFish,
+                                            SynBracket::TurboFish,
                                         ),
                                     },
                                     EntityKind::AssociatedItem {
@@ -139,23 +141,25 @@ where
                                     EntityKind::Attr => todo!(),
                                 }
                             }
-                            _ => DisambiguatedTokenData::BinaryOpr(
+                            _ => DisambiguatedTokenData::SynBinaryOpr(
                                 regional_token_idx,
-                                BinaryOpr::Comparison(BinaryComparisonOpr::Less),
+                                SynBinaryOpr::Comparison(BinaryComparisonOpr::Less),
                             ),
                         }
                     }
                     TopExprRef::None => {
-                        DisambiguatedTokenData::Bra(regional_token_idx, Bracket::HtmlAngle)
+                        DisambiguatedTokenData::Bra(regional_token_idx, SynBracket::HtmlAngle)
                     }
                 },
                 PunctuationMapped::ColonColonLa => todo!(),
                 PunctuationMapped::RaOrGt => match (self.last_bra(), self.env_bra()) {
-                    (Some(Bracket::TurboFish), _) => {
-                        DisambiguatedTokenData::Ket(regional_token_idx, Bracket::TurboFish)
+                    (Some(SynBracket::TurboFish), _) => {
+                        DisambiguatedTokenData::Ket(regional_token_idx, SynBracket::TurboFish)
                     }
-                    (None, Some(Bracket::TurboFish)) => return TokenDisambiguationResult::Break(()),
-                    _ => DisambiguatedTokenData::BinaryOpr(
+                    (None, Some(SynBracket::TurboFish)) => {
+                        return TokenDisambiguationResult::Break(())
+                    }
+                    _ => DisambiguatedTokenData::SynBinaryOpr(
                         regional_token_idx,
                         BinaryComparisonOpr::Greater.into(),
                     ),
@@ -163,17 +167,17 @@ where
                 PunctuationMapped::Sheba => DisambiguatedTokenData::Err(
                     OriginalSynExprError::UnexpectedSheba(regional_token_idx).into(),
                 ),
-                PunctuationMapped::Shr => DisambiguatedTokenData::BinaryOpr(
+                PunctuationMapped::Shr => DisambiguatedTokenData::SynBinaryOpr(
                     regional_token_idx,
-                    BinaryOpr::Shift(BinaryShiftOpr::Shr),
+                    SynBinaryOpr::Shift(BinaryShiftOpr::Shr),
                 ),
                 PunctuationMapped::DeriveAssign => return TokenDisambiguationResult::Break(()),
                 PunctuationMapped::Minus => {
-                    DisambiguatedTokenData::PrefixOpr(regional_token_idx, PrefixOpr::Minus)
+                    DisambiguatedTokenData::SynPrefixOpr(regional_token_idx, SynPrefixOpr::Minus)
                 }
                 PunctuationMapped::DoubleVertical => todo!(),
                 PunctuationMapped::Tilde => {
-                    DisambiguatedTokenData::PrefixOpr(regional_token_idx, PrefixOpr::Tilde)
+                    DisambiguatedTokenData::SynPrefixOpr(regional_token_idx, SynPrefixOpr::Tilde)
                 }
                 PunctuationMapped::Dot => DisambiguatedTokenData::Dot(regional_token_idx),
                 PunctuationMapped::Colon => match self.last_incomplete_expr() {
@@ -187,18 +191,19 @@ where
                         } else {
                             match self.token_stream.is_empty() {
                                 true => return TokenDisambiguationResult::Break(()),
-                                false => DisambiguatedTokenData::BinaryOpr(
+                                false => DisambiguatedTokenData::SynBinaryOpr(
                                     regional_token_idx,
-                                    BinaryOpr::Ins,
+                                    SynBinaryOpr::Ins,
                                 ),
                             }
                         }
                     }
                     _ => match self.peek() {
                         // not end of token group
-                        Some(_) => {
-                            DisambiguatedTokenData::BinaryOpr(regional_token_idx, BinaryOpr::Ins)
-                        }
+                        Some(_) => DisambiguatedTokenData::SynBinaryOpr(
+                            regional_token_idx,
+                            SynBinaryOpr::Ins,
+                        ),
                         // end of token group
                         None => return TokenDisambiguationResult::Break(()),
                     },
@@ -218,15 +223,17 @@ where
                 }
                 PunctuationMapped::Vertical => match self.last_incomplete_expr() {
                     Some(IncompleteSynExpr::CommaList {
-                        bra: Bracket::Vertical,
+                        bra: SynBracket::Vertical,
                         ..
-                    }) => DisambiguatedTokenData::Ket(regional_token_idx, Bracket::Vertical),
+                    }) => DisambiguatedTokenData::Ket(regional_token_idx, SynBracket::Vertical),
                     _ => match self.complete_expr().is_some() {
-                        true => DisambiguatedTokenData::BinaryOpr(
+                        true => DisambiguatedTokenData::SynBinaryOpr(
                             regional_token_idx,
-                            BinaryOpr::Closed(BinaryClosedOpr::BitOr),
+                            SynBinaryOpr::Closed(BinaryClosedOpr::BitOr),
                         ),
-                        false => DisambiguatedTokenData::Bra(regional_token_idx, Bracket::Vertical),
+                        false => {
+                            DisambiguatedTokenData::Bra(regional_token_idx, SynBracket::Vertical)
+                        }
                     },
                 },
                 PunctuationMapped::DoubleExclamation => todo!(),
@@ -236,34 +243,34 @@ where
                 PunctuationMapped::AtEq => return TokenDisambiguationResult::Break(()),
                 PunctuationMapped::Exclamation => self.resolve_prefix_or_other(
                     regional_token_idx,
-                    PrefixOpr::Not,
-                    DisambiguatedTokenData::SuffixOpr(
+                    SynPrefixOpr::Not,
+                    DisambiguatedTokenData::SynSuffixOpr(
                         regional_token_idx,
-                        SuffixOpr::UnwrapOrComposeWithNot,
+                        SynSuffixOpr::UnwrapOrComposeWithNot,
                     ),
                 ),
                 PunctuationMapped::Question => self.resolve_prefix_or_other(
                     regional_token_idx,
-                    PrefixOpr::Option,
-                    DisambiguatedTokenData::SuffixOpr(
+                    SynPrefixOpr::Option,
+                    DisambiguatedTokenData::SynSuffixOpr(
                         regional_token_idx,
-                        SuffixOpr::UnveilOrComposeWithOption,
+                        SynSuffixOpr::UnveilOrComposeWithOption,
                     ),
                 ),
                 PunctuationMapped::Pound => return TokenDisambiguationResult::Break(()),
                 PunctuationMapped::Ambersand => self.resolve_prefix_or_other(
                     regional_token_idx,
-                    PrefixOpr::Ref,
-                    DisambiguatedTokenData::BinaryOpr(
+                    SynPrefixOpr::Ref,
+                    DisambiguatedTokenData::SynBinaryOpr(
                         regional_token_idx,
-                        BinaryOpr::Closed(BinaryClosedOpr::BitOr),
+                        SynBinaryOpr::Closed(BinaryClosedOpr::BitOr),
                     ),
                 ),
                 PunctuationMapped::DotDot => todo!(),
                 PunctuationMapped::DotDotDot => return TokenDisambiguationResult::Break(()),
-                PunctuationMapped::Star => DisambiguatedTokenData::BinaryOpr(
+                PunctuationMapped::Star => DisambiguatedTokenData::SynBinaryOpr(
                     regional_token_idx,
-                    BinaryOpr::Closed(BinaryClosedOpr::Mul),
+                    SynBinaryOpr::Closed(BinaryClosedOpr::Mul),
                 ),
                 PunctuationMapped::Eq => match self.env() {
                     Some(env) => match env {
@@ -275,24 +282,27 @@ where
                         },
                         ExprEnvironment::Condition(_) => todo!(),
                     },
-                    None => {
-                        DisambiguatedTokenData::BinaryOpr(regional_token_idx, BinaryOpr::Assign)
-                    }
+                    None => DisambiguatedTokenData::SynBinaryOpr(
+                        regional_token_idx,
+                        SynBinaryOpr::Assign,
+                    ),
                 },
                 PunctuationMapped::ForAll => todo!(),
                 PunctuationMapped::Exists => todo!(),
                 PunctuationMapped::HeavyArrow => return TokenDisambiguationResult::Break(()),
             },
             TokenData::WordOpr(opr) => match opr {
-                WordOpr::And => DisambiguatedTokenData::BinaryOpr(
+                WordOpr::And => DisambiguatedTokenData::SynBinaryOpr(
                     regional_token_idx,
-                    BinaryOpr::ShortCircuitLogic(BinaryShortcuitLogicOpr::And),
+                    SynBinaryOpr::ShortCircuitLogic(BinaryShortcuitLogicOpr::And),
                 ),
-                WordOpr::Or => DisambiguatedTokenData::BinaryOpr(
+                WordOpr::Or => DisambiguatedTokenData::SynBinaryOpr(
                     regional_token_idx,
-                    BinaryOpr::ShortCircuitLogic(BinaryShortcuitLogicOpr::Or),
+                    SynBinaryOpr::ShortCircuitLogic(BinaryShortcuitLogicOpr::Or),
                 ),
-                WordOpr::As => DisambiguatedTokenData::BinaryOpr(regional_token_idx, BinaryOpr::As),
+                WordOpr::As => {
+                    DisambiguatedTokenData::SynBinaryOpr(regional_token_idx, SynBinaryOpr::As)
+                }
                 WordOpr::Be => DisambiguatedTokenData::Be(regional_token_idx),
             },
             TokenData::Literal(literal) => {
@@ -307,12 +317,12 @@ where
     fn resolve_prefix_or_other(
         &mut self,
         regional_token_idx: RegionalTokenIdx,
-        prefix_opr: PrefixOpr,
+        prefix_opr: SynPrefixOpr,
         other: DisambiguatedTokenData,
     ) -> DisambiguatedTokenData {
         match self.complete_expr() {
             Some(SynExprData::List { .. }) | Some(SynExprData::BoxColonList { .. }) | None => {
-                DisambiguatedTokenData::PrefixOpr(regional_token_idx, prefix_opr)
+                DisambiguatedTokenData::SynPrefixOpr(regional_token_idx, prefix_opr)
             }
             Some(_) => other,
         }
@@ -331,7 +341,7 @@ where
         if let Some(opn) = self.last_incomplete_expr() {
             match opn {
                 IncompleteSynExpr::Binary {
-                    punctuation: BinaryOpr::ScopeResolution,
+                    punctuation: SynBinaryOpr::ScopeResolution,
                     lopd,
                     ..
                 } => match lopd.base_item_path(self.db(), &self.context().syn_expr_arena()) {
@@ -495,7 +505,7 @@ where
                     }
                     BaseEntityPath::Err => todo!(),
                     BaseEntityPath::SelfType => todo!(),
-                    // DisambiguatedToken::BinaryOpr(regional_token_idx, BinaryOpr::Scop),
+                    // DisambiguatedToken::SynBinaryOpr(regional_token_idx, SynBinaryOpr::Scop),
                 },
                 _ => (),
             }
@@ -578,11 +588,11 @@ pub(crate) enum DisambiguatedTokenData {
         ident: Ident,
     },
     Err(SynExprError),
-    BinaryOpr(RegionalTokenIdx, BinaryOpr),
-    PrefixOpr(RegionalTokenIdx, PrefixOpr),
-    SuffixOpr(RegionalTokenIdx, SuffixOpr),
-    Bra(RegionalTokenIdx, Bracket),
-    Ket(RegionalTokenIdx, Bracket),
+    SynBinaryOpr(RegionalTokenIdx, SynBinaryOpr),
+    SynPrefixOpr(RegionalTokenIdx, SynPrefixOpr),
+    SynSuffixOpr(RegionalTokenIdx, SynSuffixOpr),
+    Bra(RegionalTokenIdx, SynBracket),
+    Ket(RegionalTokenIdx, SynBracket),
     Dot(RegionalTokenIdx),
     Comma(RegionalTokenIdx),
     Be(RegionalTokenIdx),

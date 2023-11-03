@@ -17,10 +17,11 @@ vec-like = { path = "../../abstractions/vec-like" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-opr = { path = "../../kernel/husky-opr" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
+# hir
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
+husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 # semantics
 husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }

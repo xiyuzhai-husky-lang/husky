@@ -89,7 +89,9 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                 .collect::<Vec<_>>();
             let colon = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
             let ty_expr_idx = ctx.parse_expr_expected2(
-                Some(ExprEnvironment::WithinBracketedParameterList(Bracket::Par)),
+                Some(ExprEnvironment::WithinBracketedParameterList(
+                    SynBracket::Par,
+                )),
                 ExprRootKind::ExplicitParameterType,
                 OriginalSynExprError::ExpectedParameterType,
             );
@@ -113,7 +115,9 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                     todo!()
                 } else {
                     Right(ctx.parse_expr_expected2(
-                        Some(ExprEnvironment::WithinBracketedParameterList(Bracket::Par)),
+                        Some(ExprEnvironment::WithinBracketedParameterList(
+                            SynBracket::Par,
+                        )),
                         ExprRootKind::ExplicitParameterDefaultValue {
                             ty_syn_expr_idx: ty_expr_idx,
                         },
@@ -156,7 +160,9 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
             );
             let colon = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
             let ty = ctx.parse_expr_expected2(
-                Some(ExprEnvironment::WithinBracketedParameterList(Bracket::Par)),
+                Some(ExprEnvironment::WithinBracketedParameterList(
+                    SynBracket::Par,
+                )),
                 ExprRootKind::ExplicitParameterType,
                 OriginalSynExprError::ExpectedParameterType,
             );

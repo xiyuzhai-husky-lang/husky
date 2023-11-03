@@ -1,3 +1,5 @@
+use husky_opr::BinaryComparisonOpr;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -242,7 +244,7 @@ impl<'a> SynStmtContext<'a> {
         match self.syn_expr_arena()[expr] {
             SynExprData::Binary {
                 lopd,
-                opr: BinaryOpr::Comparison(comparison_opr),
+                opr: SynBinaryOpr::Comparison(comparison_opr),
                 opr_regional_token_idx,
                 ropd,
             } => {
@@ -288,7 +290,7 @@ impl<'a> SynStmtContext<'a> {
             }
             SynExprData::Binary {
                 lopd,
-                opr: BinaryOpr::In,
+                opr: SynBinaryOpr::In,
                 opr_regional_token_idx,
                 ropd,
             } => SynStmtData::ForIn {
@@ -345,7 +347,7 @@ impl<'a> SynStmtContext<'a> {
             match lopd_expr {
                 SynExprData::Binary {
                     lopd: llopd,
-                    opr: BinaryOpr::Comparison(initial_comparison),
+                    opr: SynBinaryOpr::Comparison(initial_comparison),
                     opr_regional_token_idx,
                     ropd: lropd,
                 } => {
@@ -383,7 +385,7 @@ impl<'a> SynStmtContext<'a> {
     ) -> SynStmtData {
         let SynExprData::Binary {
             lopd: forext_loop_var_expr_idx,
-            opr: BinaryOpr::Comparison(opr),
+            opr: SynBinaryOpr::Comparison(opr),
             opr_regional_token_idx,
             ropd: bound_expr,
         } = self.syn_expr_arena()[expr]

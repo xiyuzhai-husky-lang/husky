@@ -67,8 +67,8 @@ impl Eq for FeatureLazyExpr {}
 #[derive(PartialEq, Eq, Clone)]
 pub enum FeatureLazyExprVariant {
     Literal(__RegularValue),
-    PrefixOpr {
-        opr: PrefixOpr,
+    SynPrefixOpr {
+        opr: SynPrefixOpr,
         opds: Vec<ValExpr>,
         linkage: __LinkageGroup,
     },

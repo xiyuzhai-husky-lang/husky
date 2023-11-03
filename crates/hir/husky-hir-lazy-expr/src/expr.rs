@@ -6,7 +6,7 @@ pub use self::html::*;
 
 use crate::*;
 use husky_entity_path::PrincipalEntityPath;
-use husky_opr::{BinaryOpr, PrefixOpr, SuffixOpr};
+use husky_hir_opr::binary::HirBinaryOpr;
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
 use husky_sema_opr::prefix::SemaPrefixOpr;
 use husky_sema_opr::suffix::SemaSuffixOpr;
@@ -42,7 +42,7 @@ pub enum HirLazyExpr {
     SelfValue,
     Binary {
         lopd: HirLazyExprIdx,
-        opr: BinaryOpr,
+        opr: HirBinaryOpr,
         ropd: HirLazyExprIdx,
     },
     Be {
@@ -148,11 +148,11 @@ impl ToHirLazy for SemaExprIdx {
             } => todo!(),
             SemaExprData::SelfType(_) => todo!(),
             SemaExprData::SelfValue(_) => todo!(),
-            SemaExprData::Binary {
+            &SemaExprData::Binary {
                 lopd, opr, ropd, ..
             } => HirLazyExpr::Binary {
                 lopd: lopd.to_hir_lazy(builder),
-                opr: *opr,
+                opr: HirBinaryOpr::from_sema(opr),
                 ropd: ropd.to_hir_lazy(builder),
             },
             SemaExprData::Be {

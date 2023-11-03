@@ -1,5 +1,3 @@
-use husky_opr::SuffixOpr;
-
 use super::*;
 
 impl<'a> SemaExprEngine<'a> {

@@ -9,16 +9,16 @@ pub use self::template_argument::*;
 use crate::*;
 use husky_coword::{Ident, IdentMap};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
-use husky_fluffy_term::dispatch::dynamic_dispatch::binary_opr::BinaryOprDynamicDispatch;
-use husky_opr::{BinaryOpr, PrefixOpr, SuffixOpr};
+use husky_fluffy_term::dispatch::dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch;
 use husky_regional_token::{
     ColonColonRegionalToken, EmptyHtmlKetRegionalToken, IdentRegionalToken,
     LightArrowRegionalToken, LparRegionalToken, PlaceLabelRegionalToken, RegionalTokenIdx,
 };
-use husky_sema_opr::{prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
+use husky_sema_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{
     SynInheritedSymbolIdx, SynInheritedSymbolKind, SynPrincipalEntityPathExprIdx,
 };
+use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr, SynSuffixOpr};
 use husky_term_prelude::RitchieKind;
 use husky_token_data::LiteralData;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
@@ -61,8 +61,8 @@ pub enum SemaExprData {
     SelfValue(RegionalTokenIdx),
     Binary {
         lopd: SemaExprIdx,
-        opr: BinaryOpr,
-        dispatch: BinaryOprDynamicDispatch,
+        opr: SemaBinaryOpr,
+        dispatch: SemaBinaryOprDynamicDispatch,
         opr_regional_token_idx: RegionalTokenIdx,
         ropd: SemaExprIdx,
     },

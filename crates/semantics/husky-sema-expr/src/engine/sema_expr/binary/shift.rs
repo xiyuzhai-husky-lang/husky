@@ -9,8 +9,9 @@ impl<'a> SemaExprEngine<'a> {
         menu: &EtherealTermMenu,
     ) -> (
         SemaExprIdx,
+        SemaBinaryOpr,
         SemaExprIdx,
-        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         // todo: don't use resolved
@@ -35,6 +36,7 @@ impl<'a> SemaExprEngine<'a> {
             let ropd_sema_expr_idx = self.build_sema_expr(ropd, ExpectAnyDerived);
             return (
                 lopd_sema_expr_idx,
+                SemaBinaryOpr::Shift(opr),
                 ropd_sema_expr_idx,
                 todo!(),
                 Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
@@ -49,8 +51,9 @@ impl<'a> SemaExprEngine<'a> {
                 let ropd_sema_expr_idx = self.build_sema_expr(ropd, ExpectIntType);
                 (
                     lopd_sema_expr_idx,
+                    SemaBinaryOpr::Shift(opr),
                     ropd_sema_expr_idx,
-                    Ok(BinaryOprDynamicDispatch::builtin()),
+                    Ok(SemaBinaryOprDynamicDispatch::builtin()),
                     Ok(lopd_ty),
                 )
             }

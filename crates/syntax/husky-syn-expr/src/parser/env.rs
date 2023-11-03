@@ -1,11 +1,11 @@
 use super::*;
-use husky_opr::Bracket;
 use husky_print_utils::p;
+use husky_syn_opr::SynBracket;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ExprEnvironment {
     TypeBeforeEq,
-    WithinBracketedParameterList(Bracket),
+    WithinBracketedParameterList(SynBracket),
     Condition(RegionalTokenIdxRangeEnd),
 }
 
@@ -32,7 +32,7 @@ where
     pub(super) fn env(&self) -> Option<ExprEnvironment> {
         self.env_stack.0.last().copied()
     }
-    pub(super) fn env_bra(&self) -> Option<Bracket> {
+    pub(super) fn env_bra(&self) -> Option<SynBracket> {
         match self.env()? {
             ExprEnvironment::WithinBracketedParameterList(bra) => Some(bra),
             ExprEnvironment::TypeBeforeEq => None,
