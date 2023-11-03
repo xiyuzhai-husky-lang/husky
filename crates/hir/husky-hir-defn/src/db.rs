@@ -18,8 +18,8 @@ pub struct HirDefnJar(
     // fugitive
     fugitive_hir_defn,
     ValHirDefn,
-    FnHirDefn,
-    GnHirDefn,
+    FunctionFnHirDefn,
+    FunctionGnHirDefn,
     // morphism_defn,
     TypeAliasHirDefn,
     // type_alias_defn,

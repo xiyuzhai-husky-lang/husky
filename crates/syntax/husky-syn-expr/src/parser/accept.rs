@@ -559,7 +559,7 @@ where
                     OriginalSynExprError::UnexpectedLeftCurlyBrace(bra_regional_token_idx).into(),
                 )
                 .into(),
-                Bracket::Lambda => todo!(),
+                Bracket::Vertical => todo!(),
                 Bracket::HtmlAngle => {
                     let function_ident = match parser.try_parse_expected(
                         OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra,

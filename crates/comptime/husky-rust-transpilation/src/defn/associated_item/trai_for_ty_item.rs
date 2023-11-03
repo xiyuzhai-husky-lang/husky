@@ -31,14 +31,12 @@ impl TranspileToRust for TraitForTypeMethodFnHirDefn {
         self.path(db).ident(db).transpile_to_rust(builder);
         let hir_decl = self.hir_decl(db);
         hir_decl.template_parameters(db).transpile_to_rust(builder);
-        builder.heterogeneous_bracketed_comma_list(Bracket::Par, |builder| {
+        builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
             builder.heterogeneous_comma_list_item(hir_decl.self_value_parameter(db));
             builder.heterogeneous_comma_list_items(hir_decl.parenate_parameters(db).iter())
         });
-        builder.curly_block(|builder| {
-            builder.with_hir_expr_region(hir_eager_expr_region, |builder| {
-                body.transpile_to_rust(builder)
-            })
+        builder.curly_block_with_hir_expr_region(hir_eager_expr_region, |builder| {
+            body.transpile_to_rust(builder)
         })
     }
 }

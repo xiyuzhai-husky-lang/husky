@@ -1,7 +1,7 @@
-mod binary;
-mod bracket;
-mod prefix;
-mod suffix;
+pub mod binary;
+pub mod bracket;
+pub mod prefix;
+pub mod suffix;
 
 pub use self::binary::*;
 pub use self::bracket::*;

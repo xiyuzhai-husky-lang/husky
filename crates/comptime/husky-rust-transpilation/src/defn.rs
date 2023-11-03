@@ -13,7 +13,6 @@ use husky_hir_ty::{
     template_parameter::{HirTemplateParameter, HirTemplateParameters},
     HirTemplateSymbol, HirTypeSymbol,
 };
-use husky_syn_opr::Bracket;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
 pub fn module_defn_rust_transpilation(
@@ -45,12 +44,12 @@ impl TranspileToRust for HirDefn {
     }
 }
 
-impl TranspileToRust for HirTemplateParameters {
+impl<'a> TranspileToRust for HirTemplateParameters {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         if self.is_empty() {
             return;
         }
-        builder.bracketed_comma_list(Bracket::TemplateAngle, self.as_ref())
+        builder.bracketed_comma_list(RustBracket::Angle, self.as_ref())
     }
 }
 

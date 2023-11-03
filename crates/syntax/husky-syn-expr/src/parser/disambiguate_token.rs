@@ -218,15 +218,15 @@ where
                 }
                 PunctuationMapped::Vertical => match self.last_incomplete_expr() {
                     Some(IncompleteSynExpr::CommaList {
-                        bra: Bracket::Lambda,
+                        bra: Bracket::Vertical,
                         ..
-                    }) => DisambiguatedTokenData::Ket(regional_token_idx, Bracket::Lambda),
+                    }) => DisambiguatedTokenData::Ket(regional_token_idx, Bracket::Vertical),
                     _ => match self.complete_expr().is_some() {
                         true => DisambiguatedTokenData::BinaryOpr(
                             regional_token_idx,
                             BinaryOpr::Closed(BinaryClosedOpr::BitOr),
                         ),
-                        false => DisambiguatedTokenData::Bra(regional_token_idx, Bracket::Lambda),
+                        false => DisambiguatedTokenData::Bra(regional_token_idx, Bracket::Vertical),
                     },
                 },
                 PunctuationMapped::DoubleExclamation => todo!(),

@@ -5,7 +5,7 @@ pub enum Bracket {
     Box,
     TurboFish,
     Curl,
-    Lambda,
+    Vertical,
     HtmlAngle,
 }
 
@@ -16,7 +16,7 @@ impl Bracket {
             Bracket::Box => "[",
             Bracket::TurboFish => "::<",
             Bracket::Curl => "{",
-            Bracket::Lambda => "|",
+            Bracket::Vertical => "|",
             Bracket::HtmlAngle => "<",
         }
     }
@@ -27,7 +27,7 @@ impl Bracket {
             Bracket::Box => "]",
             Bracket::TurboFish => ">",
             Bracket::Curl => "}",
-            Bracket::Lambda => "|",
+            Bracket::Vertical => "|",
             Bracket::HtmlAngle => "/>",
         }
     }

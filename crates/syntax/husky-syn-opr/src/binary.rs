@@ -9,7 +9,7 @@ pub use self::pure_closed::*;
 pub use self::shift::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum BinaryOpr {
+pub enum SynBinaryOpr {
     Closed(BinaryClosedOpr),
     Shift(BinaryShiftOpr),
     Assign,
@@ -24,19 +24,19 @@ pub enum BinaryOpr {
     In,    // in
 }
 
-impl From<BinaryComparisonOpr> for BinaryOpr {
+impl From<BinaryComparisonOpr> for SynBinaryOpr {
     fn from(v: BinaryComparisonOpr) -> Self {
         Self::Comparison(v)
     }
 }
 
-impl BinaryOpr {
+impl SynBinaryOpr {
     pub fn code(self) -> &'static str {
         match self {
-            BinaryOpr::Closed(opr) => opr.husky_code(),
-            BinaryOpr::Shift(opr) => opr.husky_code(),
-            BinaryOpr::Assign => "=",
-            BinaryOpr::AssignClosed(opr) => match opr {
+            SynBinaryOpr::Closed(opr) => opr.husky_code(),
+            SynBinaryOpr::Shift(opr) => opr.husky_code(),
+            SynBinaryOpr::Assign => "=",
+            SynBinaryOpr::AssignClosed(opr) => match opr {
                 BinaryClosedOpr::Add => "+=",
                 BinaryClosedOpr::BitAnd => "&=",
                 BinaryClosedOpr::BitOr => "|=",
@@ -47,28 +47,28 @@ impl BinaryOpr {
                 BinaryClosedOpr::Power => "**=",
                 BinaryClosedOpr::Sub => "-=",
             },
-            BinaryOpr::AssignShift(opr) => match opr {
+            SynBinaryOpr::AssignShift(opr) => match opr {
                 BinaryShiftOpr::Shl => "<<=",
                 BinaryShiftOpr::Shr => ">>=",
             },
-            BinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
-            BinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.husky_code(),
-            BinaryOpr::Curry => "->",
-            BinaryOpr::As => todo!(),
-            BinaryOpr::Ins => todo!(),
-            BinaryOpr::ScopeResolution => todo!(),
-            BinaryOpr::In => "in",
+            SynBinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
+            SynBinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.husky_code(),
+            SynBinaryOpr::Curry => "->",
+            SynBinaryOpr::As => todo!(),
+            SynBinaryOpr::Ins => todo!(),
+            SynBinaryOpr::ScopeResolution => todo!(),
+            SynBinaryOpr::In => "in",
         }
     }
 
     pub fn spaced_code(self) -> &'static str {
         match self {
-            BinaryOpr::Closed(opr) => opr.spaced_husky_code(),
-            BinaryOpr::Shift(opr) => opr.spaced_husky_code(),
-            BinaryOpr::Comparison(opr) => opr.spaced_husky_code(),
-            BinaryOpr::ShortCircuitLogic(opr) => opr.spaced_husky_code(),
-            BinaryOpr::Assign => " = ",
-            BinaryOpr::AssignClosed(opr) => match opr {
+            SynBinaryOpr::Closed(opr) => opr.spaced_husky_code(),
+            SynBinaryOpr::Shift(opr) => opr.spaced_husky_code(),
+            SynBinaryOpr::Comparison(opr) => opr.spaced_husky_code(),
+            SynBinaryOpr::ShortCircuitLogic(opr) => opr.spaced_husky_code(),
+            SynBinaryOpr::Assign => " = ",
+            SynBinaryOpr::AssignClosed(opr) => match opr {
                 BinaryClosedOpr::Add => " += ",
                 BinaryClosedOpr::BitAnd => " &= ",
                 BinaryClosedOpr::BitOr => " |= ",
@@ -79,15 +79,15 @@ impl BinaryOpr {
                 BinaryClosedOpr::Power => " **= ",
                 BinaryClosedOpr::Sub => " -= ",
             },
-            BinaryOpr::AssignShift(opr) => match opr {
+            SynBinaryOpr::AssignShift(opr) => match opr {
                 BinaryShiftOpr::Shl => " <<= ",
                 BinaryShiftOpr::Shr => " >>= ",
             },
-            BinaryOpr::Curry => " -> ",
-            BinaryOpr::As => " as ",
-            BinaryOpr::Ins => " : ",
-            BinaryOpr::ScopeResolution => " :: ",
-            BinaryOpr::In => " in ",
+            SynBinaryOpr::Curry => " -> ",
+            SynBinaryOpr::As => " as ",
+            SynBinaryOpr::Ins => " : ",
+            SynBinaryOpr::ScopeResolution => " :: ",
+            SynBinaryOpr::In => " in ",
         }
     }
 }

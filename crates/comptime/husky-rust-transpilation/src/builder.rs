@@ -1,12 +1,17 @@
 pub(crate) mod keyword;
+mod punctuation;
+
+pub(crate) use self::keyword::*;
+pub(crate) use self::punctuation::*;
 
 use crate::*;
 use husky_coword::Ident;
-use husky_hir_eager_expr::HirEagerExprArena;
+use husky_entity_path::{PreludeTypePath, PrincipalEntityPath};
+use husky_hir_eager_expr::{HirEagerExprArena, HirEagerPatternExprArena, HirEagerStmtArena};
 use husky_hir_expr::HirExprRegion;
-use husky_hir_lazy_expr::HirLazyExprArena;
-use husky_hir_ty::{HirTemplateSymbol, HirTypeSymbol};
-use husky_syn_opr::Bracket;
+use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyStmtArena};
+use husky_hir_ty::{HirTemplateSymbol, HirType, HirTypeSymbol};
+use husky_term_prelude::TermLiteral;
 
 const INDENT_UNIT: u32 = 4;
 
@@ -57,9 +62,14 @@ impl<'a> RustTranspilationBuilder<'a> {
         self.result += s
     }
 
+    fn display_copyable(&mut self, t: impl std::fmt::Display + Copy) {
+        use std::fmt::Write;
+        write!(self.result, "{}", t);
+    }
+
     pub(crate) fn bracketed_comma_list<A: TranspileToRust>(
         &mut self,
-        bracket: Bracket,
+        bracket: RustBracket,
         items: impl IntoIterator<Item = A>,
     ) {
         self.write_str(bracket.bra_code());
@@ -77,7 +87,7 @@ impl<'a> RustTranspilationBuilder<'a> {
 
     pub(crate) fn heterogeneous_bracketed_comma_list(
         &mut self,
-        bracket: Bracket,
+        bracket: RustBracket,
         items: impl FnOnce(&mut Self),
     ) {
         self.write_str(bracket.bra_code());
@@ -118,7 +128,15 @@ impl<'a> RustTranspilationBuilder<'a> {
         self.write_str("}\n");
     }
 
-    pub(crate) fn with_hir_expr_region(
+    pub(crate) fn curly_block_with_hir_expr_region(
+        &mut self,
+        hir_expr_region: impl Into<HirExprRegion>,
+        f: impl FnOnce(&mut Self),
+    ) {
+        self.curly_block(|builder| builder.with_hir_expr_region(hir_expr_region, f))
+    }
+
+    fn with_hir_expr_region(
         &mut self,
         hir_expr_region: impl Into<HirExprRegion>,
         f: impl FnOnce(&mut Self),
@@ -129,18 +147,44 @@ impl<'a> RustTranspilationBuilder<'a> {
         self.hir_expr_region = None
     }
 
-    pub(crate) fn hir_eager_expr_arena(&self) -> &HirEagerExprArena {
+    // todo: there is room for optimization
+    pub(crate) fn hir_eager_expr_arena(&self) -> &'a HirEagerExprArena {
         let Some(HirExprRegion::Eager(hir_eager_expr_region)) = self.hir_expr_region else {
             unreachable!()
         };
         hir_eager_expr_region.hir_eager_expr_arena(self.db)
     }
 
-    pub(crate) fn hir_lazy_expr_arena(&self) -> &HirLazyExprArena {
+    // todo: there is room for optimization
+    pub(crate) fn hir_eager_pattern_expr_arena(&self) -> &'a HirEagerPatternExprArena {
+        let Some(HirExprRegion::Eager(hir_eager_expr_region)) = self.hir_expr_region else {
+            unreachable!()
+        };
+        hir_eager_expr_region.hir_eager_pattern_expr_arena(self.db)
+    }
+
+    // todo: there is room for optimization
+    pub(crate) fn hir_eager_stmt_arena(&self) -> &'a HirEagerStmtArena {
+        let Some(HirExprRegion::Eager(hir_eager_expr_region)) = self.hir_expr_region else {
+            unreachable!()
+        };
+        hir_eager_expr_region.hir_eager_stmt_arena(self.db)
+    }
+
+    // todo: there is room for optimization
+    pub(crate) fn hir_lazy_expr_arena(&self) -> &'a HirLazyExprArena {
         let Some(HirExprRegion::Lazy(hir_lazy_expr_region)) = self.hir_expr_region else {
             unreachable!()
         };
         hir_lazy_expr_region.hir_lazy_expr_arena(self.db)
+    }
+
+    // todo: there is room for optimization
+    pub(crate) fn hir_lazy_stmt_arena(&self) -> &'a HirLazyStmtArena {
+        let Some(HirExprRegion::Lazy(hir_lazy_expr_region)) = self.hir_expr_region else {
+            unreachable!()
+        };
+        hir_lazy_expr_region.hir_lazy_stmt_arena(self.db)
     }
 }
 
@@ -154,6 +198,18 @@ where
 {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         <T as TranspileToRust>::transpile_to_rust(self, builder)
+    }
+}
+
+impl<T> TranspileToRust for Option<T>
+where
+    T: TranspileToRust,
+{
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        match self {
+            Some(t) => t.transpile_to_rust(builder),
+            None => (),
+        }
     }
 }
 
@@ -185,5 +241,71 @@ impl TranspileToRust for HirTemplateSymbol {
             HirTemplateSymbol::Lifetime(_) => todo!(),
             HirTemplateSymbol::Place(_) => todo!(),
         }
+    }
+}
+
+impl TranspileToRust for HirType {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        todo!()
+    }
+}
+
+impl TranspileToRust for PrincipalEntityPath {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        let db = builder.db;
+        match self {
+            PrincipalEntityPath::Module(path) => path.ident(db).transpile_to_rust(builder),
+            PrincipalEntityPath::MajorItem(path) => path.ident(db).transpile_to_rust(builder),
+            PrincipalEntityPath::TypeVariant(path) => {
+                match path.parent_ty_path(db).prelude_ty_path(db) {
+                    Some(PreludeTypePath::Option | PreludeTypePath::Result) => (),
+                    _ => {
+                        path.parent_ty_path(db).ident(db).transpile_to_rust(builder);
+                        builder.punctuation(RustPunctuation::ColonColon);
+                    }
+                }
+                path.ident(db).transpile_to_rust(builder)
+            }
+        }
+    }
+}
+
+impl TranspileToRust for TermLiteral {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        let db = builder.db();
+        match self {
+            TermLiteral::Unit => todo!(),
+            TermLiteral::Bool(_) => todo!(),
+            TermLiteral::I8(_) => todo!(),
+            TermLiteral::I16(_) => todo!(),
+            TermLiteral::I32(_) => todo!(),
+            TermLiteral::I64(_) => todo!(),
+            TermLiteral::I128(_) => todo!(),
+            TermLiteral::ISize(lit) => builder.display_copyable(lit.value(db)),
+            TermLiteral::U8(_) => todo!(),
+            TermLiteral::U16(_) => todo!(),
+            TermLiteral::U32(_) => todo!(),
+            TermLiteral::U64(_) => todo!(),
+            TermLiteral::U128(_) => todo!(),
+            TermLiteral::USize(lit) => builder.display_copyable(lit.value(db)),
+            TermLiteral::R8(_) => todo!(),
+            TermLiteral::R16(_) => todo!(),
+            TermLiteral::R32(_) => todo!(),
+            TermLiteral::R64(_) => todo!(),
+            TermLiteral::R128(_) => todo!(),
+            TermLiteral::RSize(_) => todo!(),
+            TermLiteral::Nat(_) => todo!(),
+            TermLiteral::F32(_) => todo!(),
+            TermLiteral::F64(_) => todo!(),
+            TermLiteral::String(_) => todo!(),
+            TermLiteral::StaticLifetime => todo!(),
+        }
+    }
+}
+
+impl TranspileToRust for husky_opr::binary::BinaryOpr {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        // ad hoc
+        builder.write_str(self.code())
     }
 }
