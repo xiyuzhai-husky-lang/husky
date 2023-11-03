@@ -5,12 +5,12 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerIfBranch {
-    pub condition: HirEagerExprIdx,
+    pub condition: HirEagerCondition,
     pub stmts: HirEagerStmtIdxRange,
 }
 
 impl HirEagerIfBranch {
-    pub fn condition(&self) -> HirEagerExprIdx {
+    pub fn condition(&self) -> HirEagerCondition {
         self.condition
     }
 
@@ -24,7 +24,7 @@ impl ToHirEager for SemaIfBranch {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerIfBranch {
-            condition: self.condition().to_hir_eager(builder),
+            condition: HirEagerCondition(self.condition().to_hir_eager(builder)),
             stmts: self.stmts().to_hir_eager(builder),
         }
     }
@@ -32,12 +32,12 @@ impl ToHirEager for SemaIfBranch {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerElifBranch {
-    pub condition: HirEagerExprIdx,
+    pub condition: HirEagerCondition,
     pub stmts: HirEagerStmtIdxRange,
 }
 
 impl HirEagerElifBranch {
-    pub fn condition(&self) -> HirEagerExprIdx {
+    pub fn condition(&self) -> HirEagerCondition {
         self.condition
     }
 
@@ -51,7 +51,7 @@ impl ToHirEager for SemaElifBranch {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerElifBranch {
-            condition: self.condition().to_hir_eager(builder),
+            condition: HirEagerCondition(self.condition().to_hir_eager(builder)),
             stmts: self.stmts().to_hir_eager(builder),
         }
     }

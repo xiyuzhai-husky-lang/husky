@@ -143,7 +143,9 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: 6,
+                                            condition: HirEagerCondition(
+                                                6,
+                                            ),
                                         },
                                         Eval {
                                             expr_idx: 9,
@@ -367,10 +369,14 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: 6,
+                                            condition: HirEagerCondition(
+                                                6,
+                                            ),
                                         },
                                         Require {
-                                            condition: 11,
+                                            condition: HirEagerCondition(
+                                                11,
+                                            ),
                                         },
                                         Eval {
                                             expr_idx: 14,
@@ -604,10 +610,14 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: 6,
+                                            condition: HirEagerCondition(
+                                                6,
+                                            ),
                                         },
                                         Require {
-                                            condition: 11,
+                                            condition: HirEagerCondition(
+                                                11,
+                                            ),
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -617,7 +627,9 @@
                                             initial_value: 15,
                                         },
                                         Require {
-                                            condition: 18,
+                                            condition: HirEagerCondition(
+                                                18,
+                                            ),
                                         },
                                         Eval {
                                             expr_idx: 19,

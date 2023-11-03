@@ -2279,7 +2279,9 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: 13,
+                                                condition: HirEagerCondition(
+                                                    13,
+                                                ),
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -2305,7 +2307,9 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: 12,
+                                                condition: HirEagerCondition(
+                                                    12,
+                                                ),
                                                 stmts: ArenaIdxRange(
                                                     3..4,
                                                 ),
@@ -2904,7 +2908,9 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: 25,
+                                                condition: HirEagerCondition(
+                                                    25,
+                                                ),
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -2936,7 +2942,9 @@
                                             initial_value: 2,
                                         },
                                         Assert {
-                                            condition: 5,
+                                            condition: HirEagerCondition(
+                                                5,
+                                            ),
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -2946,7 +2954,9 @@
                                             initial_value: 7,
                                         },
                                         Assert {
-                                            condition: 10,
+                                            condition: HirEagerCondition(
+                                                10,
+                                            ),
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -2957,7 +2967,9 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: 24,
+                                                condition: HirEagerCondition(
+                                                    24,
+                                                ),
                                                 stmts: ArenaIdxRange(
                                                     3..4,
                                                 ),
@@ -3329,7 +3341,9 @@
                                 hir_eager_stmt_arena: Arena {
                                     data: [
                                         Assert {
-                                            condition: 5,
+                                            condition: HirEagerCondition(
+                                                5,
+                                            ),
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {

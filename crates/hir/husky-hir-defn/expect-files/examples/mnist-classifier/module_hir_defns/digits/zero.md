@@ -147,7 +147,9 @@
                                 hir_eager_stmt_arena: Arena {
                                     data: [
                                         Require {
-                                            condition: 7,
+                                            condition: HirEagerCondition(
+                                                7,
+                                            ),
                                         },
                                         Eval {
                                             expr_idx: 12,

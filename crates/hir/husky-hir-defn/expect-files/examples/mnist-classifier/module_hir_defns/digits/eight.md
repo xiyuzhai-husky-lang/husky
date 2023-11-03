@@ -285,11 +285,15 @@
                                 hir_eager_stmt_arena: Arena {
                                     data: [
                                         Require {
-                                            condition: 18,
+                                            condition: HirEagerCondition(
+                                                18,
+                                            ),
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: 5,
+                                                condition: HirEagerCondition(
+                                                    5,
+                                                ),
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),

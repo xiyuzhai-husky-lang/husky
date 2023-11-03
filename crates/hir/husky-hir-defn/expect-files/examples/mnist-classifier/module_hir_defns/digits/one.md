@@ -172,7 +172,9 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: 6,
+                                            condition: HirEagerCondition(
+                                                6,
+                                            ),
                                         },
                                         Eval {
                                             expr_idx: 8,
@@ -322,7 +324,9 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: 6,
+                                            condition: HirEagerCondition(
+                                                6,
+                                            ),
                                         },
                                         Eval {
                                             expr_idx: 10,
@@ -519,10 +523,14 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: 6,
+                                            condition: HirEagerCondition(
+                                                6,
+                                            ),
                                         },
                                         Require {
-                                            condition: 10,
+                                            condition: HirEagerCondition(
+                                                10,
+                                            ),
                                         },
                                         Eval {
                                             expr_idx: 16,

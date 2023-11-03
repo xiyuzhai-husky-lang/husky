@@ -205,7 +205,9 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: 6,
+                                            condition: HirEagerCondition(
+                                                6,
+                                            ),
                                         },
                                         Eval {
                                             expr_idx: 8,
@@ -567,7 +569,9 @@
                                 hir_eager_stmt_arena: Arena {
                                     data: [
                                         Require {
-                                            condition: 15,
+                                            condition: HirEagerCondition(
+                                                15,
+                                            ),
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -578,7 +582,9 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: 7,
+                                                condition: HirEagerCondition(
+                                                    7,
+                                                ),
                                                 stmts: ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -587,7 +593,9 @@
                                             else_branch: None,
                                         },
                                         Require {
-                                            condition: 20,
+                                            condition: HirEagerCondition(
+                                                20,
+                                            ),
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -597,7 +605,9 @@
                                             initial_value: 26,
                                         },
                                         Require {
-                                            condition: 30,
+                                            condition: HirEagerCondition(
+                                                30,
+                                            ),
                                         },
                                         Eval {
                                             expr_idx: 34,
