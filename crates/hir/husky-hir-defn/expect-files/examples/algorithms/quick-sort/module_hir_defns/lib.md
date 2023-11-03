@@ -442,7 +442,9 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: 3,
+                                                condition: HirEagerCondition(
+                                                    3,
+                                                ),
                                                 stmts: ArenaIdxRange(
                                                     1..4,
                                                 ),
@@ -1051,7 +1053,9 @@
                                             expr_idx: 11,
                                         },
                                         While {
-                                            condition: 20,
+                                            condition: HirEagerCondition(
+                                                20,
+                                            ),
                                             stmts: ArenaIdxRange(
                                                 1..2,
                                             ),
@@ -1060,14 +1064,18 @@
                                             expr_idx: 26,
                                         },
                                         While {
-                                            condition: 39,
+                                            condition: HirEagerCondition(
+                                                39,
+                                            ),
                                             stmts: ArenaIdxRange(
                                                 2..3,
                                             ),
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: 45,
+                                                condition: HirEagerCondition(
+                                                    45,
+                                                ),
                                                 stmts: ArenaIdxRange(
                                                     3..4,
                                                 ),
@@ -1103,7 +1111,9 @@
                                             initial_value: 7,
                                         },
                                         While {
-                                            condition: 8,
+                                            condition: HirEagerCondition(
+                                                8,
+                                            ),
                                             stmts: ArenaIdxRange(
                                                 5..10,
                                             ),

@@ -1,16 +1,18 @@
 pub(crate) mod keyword;
+mod macro_name;
 mod punctuation;
 
 pub(crate) use self::keyword::*;
+pub(crate) use self::macro_name::*;
 pub(crate) use self::punctuation::*;
 
 use crate::*;
 use husky_coword::Ident;
-use husky_entity_path::{PreludeTypePath, PrincipalEntityPath};
+use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
 use husky_hir_eager_expr::{HirEagerExprArena, HirEagerPatternExprArena, HirEagerStmtArena};
 use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyStmtArena};
-use husky_hir_ty::{HirTemplateSymbol, HirType, HirTypeSymbol};
+use husky_hir_ty::{HirTemplateArgument, HirTemplateSymbol, HirType, HirTypeSymbol};
 use husky_term_prelude::TermLiteral;
 
 const INDENT_UNIT: u32 = 4;
@@ -42,10 +44,19 @@ impl<'a> RustTranspilationBuilder<'a> {
         self.db
     }
 
-    pub(crate) fn new_semicolon_line(&mut self, f: impl FnOnce(&mut Self)) {
+    pub(crate) fn on_new_semicolon_line(&mut self, f: impl FnOnce(&mut Self)) {
+        if !self.result.ends_with("\n") {
+            self.result += "\n"
+        }
         self.write_indent();
         f(self);
-        self.write_token_str(";\n")
+        self.write_token_str(";")
+    }
+
+    pub(crate) fn on_new_line(&mut self, f: impl FnOnce(&mut Self)) {
+        self.write_indent();
+        f(self);
+        self.write_token_str(";")
     }
 
     fn write_indent(&mut self) {
@@ -246,7 +257,20 @@ impl TranspileToRust for HirTemplateSymbol {
 
 impl TranspileToRust for HirType {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        todo!()
+        let db = builder.db;
+        match self {
+            HirType::PathLeading(path_leading_hir_ty) => {
+                path_leading_hir_ty.ty_path(db).transpile_to_rust(builder);
+                let template_arguments = path_leading_hir_ty.template_arguments(db);
+                if !template_arguments.is_empty() {
+                    builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
+                }
+            }
+            HirType::Symbol(_) => todo!(),
+            HirType::TypeAssociatedType(_) => todo!(),
+            HirType::TraitAssociatedType(_) => todo!(),
+            HirType::Ritchie() => todo!(),
+        }
     }
 }
 
@@ -270,23 +294,42 @@ impl TranspileToRust for PrincipalEntityPath {
     }
 }
 
+impl TranspileToRust for TypePath {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        let db = builder.db();
+        self.ident(db).transpile_to_rust(builder)
+    }
+}
+
+impl TranspileToRust for HirTemplateArgument {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        match self {
+            HirTemplateArgument::Vacant => todo!(),
+            HirTemplateArgument::Type(hir_ty) => hir_ty.transpile_to_rust(builder),
+            HirTemplateArgument::Constant(_) => todo!(),
+            HirTemplateArgument::Lifetime(_) => todo!(),
+            HirTemplateArgument::Place(_) => todo!(),
+        }
+    }
+}
+
 impl TranspileToRust for TermLiteral {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         match self {
-            TermLiteral::Unit => todo!(),
-            TermLiteral::Bool(_) => todo!(),
-            TermLiteral::I8(_) => todo!(),
-            TermLiteral::I16(_) => todo!(),
-            TermLiteral::I32(_) => todo!(),
-            TermLiteral::I64(_) => todo!(),
-            TermLiteral::I128(_) => todo!(),
+            TermLiteral::Unit => builder.write_str("()"),
+            TermLiteral::Bool(value) => builder.display_copyable(value),
+            TermLiteral::I8(value) => builder.display_copyable(value),
+            TermLiteral::I16(value) => builder.display_copyable(value),
+            TermLiteral::I32(value) => builder.display_copyable(value),
+            TermLiteral::I64(lit) => builder.display_copyable(lit.value(db)),
+            TermLiteral::I128(lit) => builder.display_copyable(lit.value(db)),
             TermLiteral::ISize(lit) => builder.display_copyable(lit.value(db)),
-            TermLiteral::U8(_) => todo!(),
-            TermLiteral::U16(_) => todo!(),
-            TermLiteral::U32(_) => todo!(),
-            TermLiteral::U64(_) => todo!(),
-            TermLiteral::U128(_) => todo!(),
+            TermLiteral::U8(value) => builder.display_copyable(value),
+            TermLiteral::U16(value) => builder.display_copyable(value),
+            TermLiteral::U32(value) => builder.display_copyable(value),
+            TermLiteral::U64(lit) => builder.display_copyable(lit.value(db)),
+            TermLiteral::U128(lit) => builder.display_copyable(lit.value(db)),
             TermLiteral::USize(lit) => builder.display_copyable(lit.value(db)),
             TermLiteral::R8(_) => todo!(),
             TermLiteral::R16(_) => todo!(),

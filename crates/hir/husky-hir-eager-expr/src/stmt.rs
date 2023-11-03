@@ -23,10 +23,10 @@ pub enum HirEagerStmt {
         result: HirEagerExprIdx,
     },
     Require {
-        condition: HirEagerExprIdx,
+        condition: HirEagerCondition,
     },
     Assert {
-        condition: HirEagerExprIdx,
+        condition: HirEagerCondition,
     },
     Break,
     Eval {
@@ -46,11 +46,11 @@ pub enum HirEagerStmt {
         block: HirEagerStmtIdxRange,
     },
     While {
-        condition: HirEagerExprIdx,
+        condition: HirEagerCondition,
         stmts: HirEagerStmtIdxRange,
     },
     DoWhile {
-        condition: HirEagerExprIdx,
+        condition: HirEagerCondition,
         block: HirEagerStmtIdxRange,
     },
     IfElse {
@@ -90,13 +90,13 @@ impl ToHirEager for SemaStmtIdx {
                 require_token,
                 condition,
             } => HirEagerStmt::Require {
-                condition: condition.to_hir_eager(builder),
+                condition: HirEagerCondition(condition.to_hir_eager(builder)),
             },
             SemaStmtData::Assert {
                 assert_token,
                 condition,
             } => HirEagerStmt::Assert {
-                condition: condition.to_hir_eager(builder),
+                condition: HirEagerCondition(condition.to_hir_eager(builder)),
             },
             SemaStmtData::Break { break_token } => HirEagerStmt::Break,
             SemaStmtData::Eval {
@@ -133,13 +133,13 @@ impl ToHirEager for SemaStmtIdx {
             SemaStmtData::While {
                 condition, block, ..
             } => HirEagerStmt::While {
-                condition: condition.to_hir_eager(builder),
+                condition: HirEagerCondition(condition.to_hir_eager(builder)),
                 stmts: block.to_hir_eager(builder),
             },
             SemaStmtData::DoWhile {
                 condition, block, ..
             } => HirEagerStmt::DoWhile {
-                condition: condition.to_hir_eager(builder),
+                condition: HirEagerCondition(condition.to_hir_eager(builder)),
                 block: block.to_hir_eager(builder),
             },
             SemaStmtData::IfElse {
@@ -177,5 +177,15 @@ impl ToHirEager for SemaStmtIdxRange {
             }
         }
         builder.alloc_stmts(sema_stmt_indices, hir_eager_stmts)
+    }
+}
+
+// todo: add field for coversion
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct HirEagerCondition(HirEagerExprIdx);
+
+impl HirEagerCondition {
+    pub fn hir_eager_expr_idx(self) -> HirEagerExprIdx {
+        self.0
     }
 }

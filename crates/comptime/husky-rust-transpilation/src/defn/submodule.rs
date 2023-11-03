@@ -4,7 +4,7 @@ use husky_vfs::SubmodulePath;
 
 impl TranspileToRust for SubmoduleHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        builder.new_semicolon_line(|builder| {
+        builder.on_new_semicolon_line(|builder| {
             builder.keyword(RustKeyword::Pub);
             builder.keyword(RustKeyword::Mod);
             let db = builder.db();

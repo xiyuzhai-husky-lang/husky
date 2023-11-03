@@ -1,7 +1,9 @@
 use crate::*;
 use husky_hir_eager_expr::{
-    HirEagerCallListItemGroup, HirEagerExpr, HirEagerExprIdx, HirEagerLetVariablesPattern,
+    HirEagerCallListItemGroup, HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch,
+    HirEagerExpr, HirEagerExprIdx, HirEagerIfBranch, HirEagerLetVariablesPattern,
     HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmt, HirEagerStmtIdx,
+    HirEagerStmtIdxRange,
 };
 use husky_term_prelude::TermLiteral;
 
@@ -26,7 +28,9 @@ impl TranspileToRust for HirEagerExprIdx {
             HirEagerExpr::Prefix {
                 opr,
                 opd_hir_expr_idx,
-            } => todo!(),
+            } => {
+                todo!()
+            }
             HirEagerExpr::Suffix {
                 opd_hir_expr_idx,
                 opr,
@@ -66,8 +70,14 @@ impl TranspileToRust for HirEagerExprIdx {
             HirEagerExpr::Index {
                 owner_hir_expr_idx,
                 items,
-            } => todo!(),
-            HirEagerExpr::NewList { items } => todo!(),
+            } => {
+                owner_hir_expr_idx.transpile_to_rust(builder);
+                builder.bracketed_comma_list(RustBracket::Box, items)
+            }
+            HirEagerExpr::NewList { items } => {
+                builder.macro_name(RustMacroName::Vec);
+                builder.bracketed_comma_list(RustBracket::Box, items)
+            }
             HirEagerExpr::Block { stmts } => {
                 for stmt in stmts {
                     stmt.transpile_to_rust(builder)
@@ -127,7 +137,7 @@ impl TranspileToRust for HirEagerStmtIdx {
             HirEagerStmt::Let {
                 pattern,
                 initial_value,
-            } => builder.new_semicolon_line(|builder| {
+            } => builder.on_new_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Let);
                 pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Eq);
@@ -136,21 +146,73 @@ impl TranspileToRust for HirEagerStmtIdx {
             HirEagerStmt::Return { result } => todo!(),
             HirEagerStmt::Require { condition } => todo!(),
             HirEagerStmt::Assert { condition } => todo!(),
-            HirEagerStmt::Break => todo!(),
-            HirEagerStmt::Eval { expr_idx } => builder.new_semicolon_line(|builder| {
+            HirEagerStmt::Break => {
+                builder.on_new_semicolon_line(|builder| builder.keyword(RustKeyword::Break))
+            }
+            HirEagerStmt::Eval { expr_idx } => builder.on_new_semicolon_line(|builder| {
                 expr_idx.transpile_to_rust(builder);
             }),
             HirEagerStmt::ForBetween { particulars, block } => todo!(),
             HirEagerStmt::ForExt { particulars, block } => todo!(),
             HirEagerStmt::ForIn { condition, block } => todo!(),
-            HirEagerStmt::While { condition, stmts } => todo!(),
+            HirEagerStmt::While { condition, stmts } => {
+                builder.keyword(RustKeyword::While);
+                condition.transpile_to_rust(builder);
+                stmts.transpile_to_rust(builder)
+            }
             HirEagerStmt::DoWhile { condition, block } => todo!(),
             HirEagerStmt::IfElse {
                 if_branch,
                 elif_branches,
                 else_branch,
-            } => todo!(),
+            } => builder.on_new_line(|builder| {
+                if_branch.transpile_to_rust(builder);
+                for elif_branch in elif_branches {
+                    elif_branch.transpile_to_rust(builder)
+                }
+                else_branch.transpile_to_rust(builder)
+            }),
             HirEagerStmt::Match {} => todo!(),
         }
+    }
+}
+
+impl TranspileToRust for HirEagerCondition {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        self.hir_eager_expr_idx().transpile_to_rust(builder)
+    }
+}
+
+impl TranspileToRust for HirEagerIfBranch {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        builder.keyword(RustKeyword::If);
+        self.condition.transpile_to_rust(builder);
+        self.stmts.transpile_to_rust(builder)
+    }
+}
+
+impl TranspileToRust for HirEagerElifBranch {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        builder.keyword(RustKeyword::Else);
+        builder.keyword(RustKeyword::If);
+        self.condition.transpile_to_rust(builder);
+        self.stmts.transpile_to_rust(builder)
+    }
+}
+
+impl TranspileToRust for HirEagerElseBranch {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        builder.keyword(RustKeyword::Else);
+        self.stmts.transpile_to_rust(builder)
+    }
+}
+
+impl TranspileToRust for HirEagerStmtIdxRange {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        builder.curly_block(|builder| {
+            for stmt in self {
+                stmt.transpile_to_rust(builder)
+            }
+        })
     }
 }

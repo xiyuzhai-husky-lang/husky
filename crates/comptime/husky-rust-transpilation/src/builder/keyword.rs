@@ -8,6 +8,10 @@ pub enum RustKeyword {
     Mod,
     Trait,
     Let,
+    If,
+    Else,
+    While,
+    Break,
 }
 
 impl RustKeyword {
@@ -20,12 +24,17 @@ impl RustKeyword {
             RustKeyword::Mod => "mod",
             RustKeyword::Trait => "trait",
             RustKeyword::Let => "let",
+            RustKeyword::If => "if",
+            RustKeyword::Else => "else",
+            RustKeyword::While => "while",
+            RustKeyword::Break => "break",
         }
     }
 }
 
 impl<'a> RustTranspilationBuilder<'a> {
     pub(crate) fn keyword(&mut self, keyword: RustKeyword) {
-        self.write_token_str(keyword.code())
+        self.write_token_str(keyword.code());
+        self.write_str("!")
     }
 }
