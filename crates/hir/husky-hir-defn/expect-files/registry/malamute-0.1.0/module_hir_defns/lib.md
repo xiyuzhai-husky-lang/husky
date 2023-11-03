@@ -133,7 +133,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionGn(
-                GnHirDefn {
+                FunctionGnHirDefn {
                     path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                     hir_decl: GnFugitiveHirDecl {
                         path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),

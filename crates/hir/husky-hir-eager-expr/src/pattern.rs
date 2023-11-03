@@ -4,11 +4,21 @@ use husky_syn_expr::{BePatternSynObelisk, LetPatternSynObelisk};
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerLetVariablesPattern {
     pattern_expr_idx: HirEagerPatternExprIdx,
     // variables: CurrentHirEagerSymbolIdxRange,
     ty: Option<HirType>,
+}
+
+impl HirEagerLetVariablesPattern {
+    pub fn pattern_expr_idx(self) -> HirEagerPatternExprIdx {
+        self.pattern_expr_idx
+    }
+
+    pub fn ty(self) -> Option<HirType> {
+        self.ty
+    }
 }
 
 impl<'a> HirEagerExprBuilder<'a> {

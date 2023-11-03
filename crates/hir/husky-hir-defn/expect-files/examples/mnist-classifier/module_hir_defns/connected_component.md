@@ -108,7 +108,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FnHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
@@ -272,7 +272,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FnHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
@@ -672,7 +672,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FnHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),

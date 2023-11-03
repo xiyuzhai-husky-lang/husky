@@ -50,7 +50,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FnHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                     hir_decl: FnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),

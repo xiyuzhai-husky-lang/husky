@@ -54,7 +54,7 @@ impl BinaryOpr {
             BinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
             BinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.husky_code(),
             BinaryOpr::Curry => "->",
-            BinaryOpr::As => todo!(),
+            BinaryOpr::As => "as",
             BinaryOpr::Ins => todo!(),
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::In => "in",

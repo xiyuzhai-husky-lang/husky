@@ -7,6 +7,7 @@ pub enum RustKeyword {
     Type,
     Mod,
     Trait,
+    Let,
 }
 
 impl RustKeyword {
@@ -18,6 +19,7 @@ impl RustKeyword {
             RustKeyword::Type => "type",
             RustKeyword::Mod => "mod",
             RustKeyword::Trait => "trait",
+            RustKeyword::Let => "let",
         }
     }
 }

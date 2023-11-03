@@ -14,10 +14,10 @@ use super::*;
 #[salsa::debug_with_db(db = HirDefnDb)]
 #[enum_class::from_variants]
 pub enum FugitiveHirDefn {
-    FunctionFn(FnHirDefn),
+    FunctionFn(FunctionFnHirDefn),
     // Function(FunctionDefn),
     Val(ValHirDefn),
-    FunctionGn(GnHirDefn),
+    FunctionGn(FunctionGnHirDefn),
     // AliasType(TypeAliasDefn)
 }
 
@@ -63,9 +63,13 @@ impl HasHirDefn for FugitivePath {
 #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn fugitive_hir_defn(db: &dyn HirDefnDb, path: FugitivePath) -> Option<FugitiveHirDefn> {
     match path.hir_decl(db)? {
-        FugitiveHirDecl::FunctionFn(hir_decl) => Some(FnHirDefn::new(db, path, hir_decl).into()),
+        FugitiveHirDecl::FunctionFn(hir_decl) => {
+            Some(FunctionFnHirDefn::new(db, path, hir_decl).into())
+        }
         FugitiveHirDecl::Val(hir_decl) => Some(ValHirDefn::new(db, path, hir_decl).into()),
-        FugitiveHirDecl::FunctionGn(hir_decl) => Some(GnHirDefn::new(db, path, hir_decl).into()),
+        FugitiveHirDecl::FunctionGn(hir_decl) => {
+            Some(FunctionGnHirDefn::new(db, path, hir_decl).into())
+        }
         FugitiveHirDecl::TypeAlias(_) => todo!(),
     }
 }
