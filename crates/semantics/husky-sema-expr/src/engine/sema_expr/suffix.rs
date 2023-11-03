@@ -8,6 +8,7 @@ pub(crate) use self::unveil::*;
 
 use super::*;
 use husky_sema_opr::suffix::SemaSuffixOpr;
+use husky_syn_opr::SynSuffixOpr;
 use maybe_result::*;
 
 impl<'a> SemaExprEngine<'a> {
@@ -15,14 +16,14 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         opd_syn_expr_idx: SynExprIdx,
-        opr: SuffixOpr,
+        opr: SynSuffixOpr,
         final_destination: FinalDestination,
     ) -> (
         SemaExprDataResult<(SemaExprIdx, SemaSuffixOpr)>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         match opr {
-            SuffixOpr::Incr => {
+            SynSuffixOpr::Incr => {
                 let (opd_sema_expr_idx, opd_ty) =
                     self.build_sema_expr_with_its_ty_returned(opd_syn_expr_idx, ExpectAnyOriginal);
                 (
@@ -30,7 +31,7 @@ impl<'a> SemaExprEngine<'a> {
                     self.calc_incr_or_decr_expr_ty(opd_ty),
                 )
             }
-            SuffixOpr::Decr => {
+            SynSuffixOpr::Decr => {
                 let (opd_sema_expr_idx, opd_ty) =
                     self.build_sema_expr_with_its_ty_returned(opd_syn_expr_idx, ExpectAnyOriginal);
                 (
@@ -38,7 +39,7 @@ impl<'a> SemaExprEngine<'a> {
                     self.calc_incr_or_decr_expr_ty(opd_ty),
                 )
             }
-            SuffixOpr::UnveilOrComposeWithOption => {
+            SynSuffixOpr::UnveilOrComposeWithOption => {
                 // self.calc_unveil_or_compose_with_option_expr_ty(opd, final_destination)
                 self.calc_ambiguous_suffix_expr_ty(
                     opd_syn_expr_idx,
@@ -48,7 +49,7 @@ impl<'a> SemaExprEngine<'a> {
                     Self::calc_compose_with_option_expr_ty_given_opd_ty,
                 )
             }
-            SuffixOpr::UnwrapOrComposeWithNot => self.calc_ambiguous_suffix_expr_ty(
+            SynSuffixOpr::UnwrapOrComposeWithNot => self.calc_ambiguous_suffix_expr_ty(
                 opd_syn_expr_idx,
                 final_destination,
                 Self::calc_unwrap_expr_ty_given_opd_ty,

@@ -44,7 +44,7 @@ pub enum SynExprData {
     SelfValue(RegionalTokenIdx),
     Binary {
         lopd: SynExprIdx,
-        opr: BinaryOpr,
+        opr: SynBinaryOpr,
         opr_regional_token_idx: RegionalTokenIdx,
         ropd: SynExprIdx,
     },
@@ -54,13 +54,13 @@ pub enum SynExprData {
         target: SynExprResult<BePatternSynObelisk>,
     },
     Prefix {
-        opr: PrefixOpr,
+        opr: SynPrefixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
         opd: SynExprIdx,
     },
     Suffix {
         opd: SynExprIdx,
-        opr: SuffixOpr,
+        opr: SynSuffixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
     },
     /// we shall need the exact type of `f` to disambiguate the following:

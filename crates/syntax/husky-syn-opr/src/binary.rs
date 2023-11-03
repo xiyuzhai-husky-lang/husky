@@ -1,12 +1,15 @@
-mod comparison;
-mod logic;
-mod pure_closed;
-mod shift;
+// mod comparison;
+// mod logic;
+// mod pure_closed;
+// mod shift;
 
-pub use self::comparison::*;
-pub use self::logic::*;
-pub use self::pure_closed::*;
-pub use self::shift::*;
+use husky_opr::precedence::{HasPrecedence, Precedence};
+
+// pub use self::comparison::*;
+// pub use self::logic::*;
+// pub use self::pure_closed::*;
+// pub use self::shift::*;
+use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum SynBinaryOpr {
@@ -18,10 +21,10 @@ pub enum SynBinaryOpr {
     Comparison(BinaryComparisonOpr),
     ShortCircuitLogic(BinaryShortcuitLogicOpr),
     ScopeResolution,
-    Curry, // ->
-    As,    // as
-    Ins,   // :
-    In,    // in
+    CurryType, // ->
+    As,        // as
+    Ins,       // :
+    In,        // in
 }
 
 impl From<BinaryComparisonOpr> for SynBinaryOpr {
@@ -53,7 +56,7 @@ impl SynBinaryOpr {
             },
             SynBinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
             SynBinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.husky_code(),
-            SynBinaryOpr::Curry => "->",
+            SynBinaryOpr::CurryType => "->",
             SynBinaryOpr::As => todo!(),
             SynBinaryOpr::Ins => todo!(),
             SynBinaryOpr::ScopeResolution => todo!(),
@@ -83,11 +86,32 @@ impl SynBinaryOpr {
                 BinaryShiftOpr::Shl => " <<= ",
                 BinaryShiftOpr::Shr => " >>= ",
             },
-            SynBinaryOpr::Curry => " -> ",
+            SynBinaryOpr::CurryType => " -> ",
             SynBinaryOpr::As => " as ",
             SynBinaryOpr::Ins => " : ",
             SynBinaryOpr::ScopeResolution => " :: ",
             SynBinaryOpr::In => " in ",
+        }
+    }
+}
+
+impl HasPrecedence for SynBinaryOpr {
+    fn precedence(self) -> precedence::Precedence {
+        match self {
+            SynBinaryOpr::Closed(opr) => opr.precedence(),
+            SynBinaryOpr::Shift(opr) => match opr {
+                BinaryShiftOpr::Shl | BinaryShiftOpr::Shr => Precedence::Shift,
+            },
+            SynBinaryOpr::Comparison(opr) => opr.precedence(),
+            SynBinaryOpr::Assign | SynBinaryOpr::AssignClosed(_) | SynBinaryOpr::AssignShift(_) => {
+                Precedence::Assign
+            }
+            SynBinaryOpr::ScopeResolution => Precedence::ScopeResolution,
+            SynBinaryOpr::CurryType => Precedence::Curry,
+            SynBinaryOpr::As => Precedence::As,
+            SynBinaryOpr::Ins => Precedence::Is,
+            SynBinaryOpr::In => todo!(),
+            SynBinaryOpr::ShortCircuitLogic(opr) => opr.precedence(),
         }
     }
 }

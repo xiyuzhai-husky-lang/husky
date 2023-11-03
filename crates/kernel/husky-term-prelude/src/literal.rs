@@ -58,7 +58,8 @@ pub enum TermLiteral {
 
 #[salsa::tracked(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct StringLiteralData {
-    data: String,
+    #[return_ref]
+    pub data: String,
 }
 
 #[test]

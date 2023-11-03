@@ -209,14 +209,14 @@ impl<'a> FeatureExprBuilder<'a> {
     fn compile_prefix_opn(
         &self,
         opd: ValExpr,
-        opr: PrefixOpr,
+        opr: SynPrefixOpr,
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
-        let feature = self.feature_interner.intern(Feature::PrefixOpr {
+        let feature = self.feature_interner.intern(Feature::SynPrefixOpr {
             opr,
             opd: opd.feature,
         });
         (
-            FeatureLazyExprVariant::PrefixOpr {
+            FeatureLazyExprVariant::SynPrefixOpr {
                 opr,
                 linkage: resolve_primitive_prefix_opr_linkage(opr, opd.expr.intrinsic_ty().root()),
                 opds: vec![opd],

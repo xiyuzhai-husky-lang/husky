@@ -3,7 +3,7 @@ use husky_entity_kind::{
     TypeItemKind, TypeKind,
 };
 use husky_entity_path::*;
-use husky_opr::{BinaryOpr, Bracket};
+use husky_opr::Bracket;
 use husky_print_utils::p;
 use husky_token::{EntityKindKeywordGroup, TokenStreamParser};
 use parsec::{IsStreamParser, TryParseOptionFromStream};

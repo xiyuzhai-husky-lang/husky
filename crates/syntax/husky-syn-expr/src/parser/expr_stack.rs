@@ -556,7 +556,7 @@ where
             .map(|expr| self.context_mut().alloc_expr(expr))
     }
 
-    pub(super) fn last_bra(&self) -> Option<Bracket> {
+    pub(super) fn last_bra(&self) -> Option<SynBracket> {
         for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {
                 IncompleteSynExpr::CommaList {
@@ -565,14 +565,14 @@ where
                     bra_regional_token_idx,
                     items,
                 } => return Some(*bra),
-                IncompleteSynExpr::CallList { .. } => return Some(Bracket::Par),
+                IncompleteSynExpr::CallList { .. } => return Some(SynBracket::Par),
                 _ => (),
             }
         }
         None
     }
 
-    pub(super) fn last_two_bras(&self) -> Vec<Bracket> {
+    pub(super) fn last_two_bras(&self) -> Vec<SynBracket> {
         let mut bras = vec![];
         for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {

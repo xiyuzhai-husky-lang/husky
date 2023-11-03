@@ -4,11 +4,13 @@ impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_binary_comparison_expr_ty(
         &mut self,
         lopd: SynExprIdx,
+        opr: BinaryComparisonOpr,
         ropd: SynExprIdx,
     ) -> (
         SemaExprIdx,
+        SemaBinaryOpr,
         SemaExprIdx,
-        SemaExprDataResult<BinaryOprDynamicDispatch>,
+        SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
         let (lopd_sema_expr_idx, lopd_ty) =
@@ -21,8 +23,9 @@ impl<'a> SemaExprEngine<'a> {
         };
         (
             lopd_sema_expr_idx,
+            SemaBinaryOpr::Comparison(opr),
             ropd_sema_expr_idx,
-            Ok(BinaryOprDynamicDispatch::builtin()),
+            Ok(SemaBinaryOprDynamicDispatch::builtin()),
             Ok(self.term_menu.bool_ty_ontology().into()),
         )
     }

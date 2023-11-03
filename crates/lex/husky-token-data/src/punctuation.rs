@@ -1,8 +1,10 @@
 use crate::*;
-use husky_opr::{
-    BinaryClosedOpr, BinaryComparisonOpr, BinaryOpr, BinaryShiftOpr, BinaryShortcuitLogicOpr,
-    Bracket, SuffixOpr,
-};
+// use husky_opr::{
+//     BinaryClosedOpr, BinaryComparisonOpr, SynBinaryOpr, BinaryShiftOpr, BinaryShortcuitLogicOpr,
+//     Bracket, SynSuffixOpr,
+// };
+use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr, BinaryShiftOpr, BinaryShortcuitLogicOpr};
+use husky_syn_opr::{SynBinaryOpr, SynBracket, SynSuffixOpr};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = TokenDataDb)]
@@ -56,31 +58,31 @@ impl Punctuation {
     }
 
     /// `->`
-    pub const LIGHT_ARROW: Self = Self(PunctuationMapped::Binary(BinaryOpr::Curry));
+    pub const LIGHT_ARROW: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::CurryType));
     /// `=>`
     pub const HEAVY_ARROW: Self = Self(PunctuationMapped::HeavyArrow);
     /// `:`
     pub const COLON: Self = Self(PunctuationMapped::Colon);
     /// `::`
-    pub const COLON_COLON: Self = Self(PunctuationMapped::Binary(BinaryOpr::ScopeResolution));
+    pub const COLON_COLON: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::ScopeResolution));
     /// `;`
     pub const SEMICOLON: Self = Self(PunctuationMapped::Semicolon);
     /// `(`
-    pub const LPAR: Self = Self(PunctuationMapped::Bra(Bracket::Par));
+    pub const LPAR: Self = Self(PunctuationMapped::Bra(SynBracket::Par));
     /// `[`
-    pub const LBOX: Self = Self(PunctuationMapped::Bra(Bracket::Box));
+    pub const LBOX: Self = Self(PunctuationMapped::Bra(SynBracket::Box));
     /// `{`
-    pub const LCURL: Self = Self(PunctuationMapped::Bra(Bracket::Curl));
+    pub const LCURL: Self = Self(PunctuationMapped::Bra(SynBracket::Curl));
     /// `<`
     pub const LA_OR_LT: Self = Self(PunctuationMapped::LaOrLt);
     /// `::<`
     pub const COLON_COLON_LA: Self = Self(PunctuationMapped::ColonColonLa);
     /// `)`
-    pub const RPAR: Self = Self(PunctuationMapped::Ket(Bracket::Par));
+    pub const RPAR: Self = Self(PunctuationMapped::Ket(SynBracket::Par));
     /// `]`
-    pub const RBOX: Self = Self(PunctuationMapped::Ket(Bracket::Box));
+    pub const RBOX: Self = Self(PunctuationMapped::Ket(SynBracket::Box));
     /// `}`
-    pub const RCURL: Self = Self(PunctuationMapped::Ket(Bracket::Curl));
+    pub const RCURL: Self = Self(PunctuationMapped::Ket(SynBracket::Curl));
     /// `>`
     pub const RA_OR_GT: Self = Self(PunctuationMapped::RaOrGt);
     /// `|`
@@ -94,73 +96,73 @@ impl Punctuation {
     /// `~`
     pub const TILDE: Self = Self(PunctuationMapped::Tilde);
     /// `%`
-    pub const REM_EUCLID: Self = Self(PunctuationMapped::Binary(BinaryOpr::Closed(
+    pub const REM_EUCLID: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Closed(
         BinaryClosedOpr::RemEuclid,
     )));
-    pub const BITOR: Self = Self(PunctuationMapped::Binary(BinaryOpr::AssignClosed(
+    pub const BITOR: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::AssignClosed(
         BinaryClosedOpr::BitOr,
     )));
     pub const AMBERSAND: Self = Self(PunctuationMapped::Ambersand);
     /// `.`
     pub const DOT: Self = Self(PunctuationMapped::Dot);
 
-    pub const ADD: Self = Self(PunctuationMapped::Binary(BinaryOpr::Closed(
+    pub const ADD: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Closed(
         BinaryClosedOpr::Add,
     )));
-    pub const SUB: Self = Self(PunctuationMapped::Binary(BinaryOpr::Closed(
+    pub const SUB: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Closed(
         BinaryClosedOpr::Sub,
     )));
-    pub const DIV: Self = Self(PunctuationMapped::Binary(BinaryOpr::Closed(
+    pub const DIV: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Closed(
         BinaryClosedOpr::Div,
     )));
     pub const MINUS: Self = Self(PunctuationMapped::Minus);
-    pub const STAR_STAR: Self = Self(PunctuationMapped::Binary(BinaryOpr::Closed(
+    pub const STAR_STAR: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Closed(
         BinaryClosedOpr::Power,
     )));
     /// `=`
     pub const EQ: Self = Self(PunctuationMapped::Eq);
-    pub const ADD_ASSIGN: Self = Self(PunctuationMapped::Binary(BinaryOpr::AssignClosed(
+    pub const ADD_ASSIGN: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::AssignClosed(
         BinaryClosedOpr::Add,
     )));
-    pub const SUB_ASSIGN: Self = Self(PunctuationMapped::Binary(BinaryOpr::AssignClosed(
+    pub const SUB_ASSIGN: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::AssignClosed(
         BinaryClosedOpr::Sub,
     )));
     /// `*=`
-    pub const MUL_ASSIGN: Self = Self(PunctuationMapped::Binary(BinaryOpr::AssignClosed(
+    pub const MUL_ASSIGN: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::AssignClosed(
         BinaryClosedOpr::Mul,
     )));
     /// `*=`
-    pub const BIT_AND_ASSIGN: Self = Self(PunctuationMapped::Binary(BinaryOpr::AssignClosed(
+    pub const BIT_AND_ASSIGN: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::AssignClosed(
         BinaryClosedOpr::BitAnd,
     )));
     /// `>>`
-    pub const SHL: Self = Self(PunctuationMapped::Binary(BinaryOpr::Shift(
+    pub const SHL: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Shift(
         BinaryShiftOpr::Shl,
     )));
     /// `>>`
     pub const SHR: Self = Self(PunctuationMapped::Shr);
     /// `/=`
-    pub const DIV_ASSIGN: Self = Self(PunctuationMapped::Binary(BinaryOpr::AssignClosed(
+    pub const DIV_ASSIGN: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::AssignClosed(
         BinaryClosedOpr::Div,
     )));
     /// `==`
-    pub const EQ_EQ: Self = Self(PunctuationMapped::Binary(BinaryOpr::Comparison(
+    pub const EQ_EQ: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Comparison(
         BinaryComparisonOpr::Eq,
     )));
     /// `!=`
-    pub const NEQ: Self = Self(PunctuationMapped::Binary(BinaryOpr::Comparison(
+    pub const NEQ: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Comparison(
         BinaryComparisonOpr::Neq,
     )));
     /// `>=`
-    pub const LEQ: Self = Self(PunctuationMapped::Binary(BinaryOpr::Comparison(
+    pub const LEQ: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Comparison(
         BinaryComparisonOpr::Leq,
     )));
     /// `>=`
-    pub const GEQ: Self = Self(PunctuationMapped::Binary(BinaryOpr::Comparison(
+    pub const GEQ: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::Comparison(
         BinaryComparisonOpr::Geq,
     )));
-    pub const INCR: Self = Self(PunctuationMapped::Suffix(SuffixOpr::Incr));
-    pub const DECR: Self = Self(PunctuationMapped::Suffix(SuffixOpr::Decr));
+    pub const INCR: Self = Self(PunctuationMapped::Suffix(SynSuffixOpr::Incr));
+    pub const DECR: Self = Self(PunctuationMapped::Suffix(SynSuffixOpr::Decr));
     /// `!`
     pub const EXCLAMATION: Self = Self(PunctuationMapped::Exclamation);
     /// `!!`
@@ -184,7 +186,7 @@ impl Punctuation {
     /// `$`
     pub const SHEBA: Self = Self(PunctuationMapped::Sheba);
     /// `&&`
-    pub const LOGIC_AND: Self = Self(PunctuationMapped::Binary(BinaryOpr::ShortCircuitLogic(
+    pub const LOGIC_AND: Self = Self(PunctuationMapped::Binary(SynBinaryOpr::ShortCircuitLogic(
         BinaryShortcuitLogicOpr::And,
     )));
     /// `*`
@@ -206,10 +208,10 @@ impl std::fmt::Display for Punctuation {
 #[salsa::debug_with_db(db = TokenDataDb)]
 pub enum PunctuationMapped {
     // predetermined
-    Binary(BinaryOpr),
-    Bra(Bracket),
-    Ket(Bracket),
-    Suffix(SuffixOpr),
+    Binary(SynBinaryOpr),
+    Bra(SynBracket),
+    Ket(SynBracket),
+    Suffix(SynSuffixOpr),
     /// `=`
     ///
     /// assignment, attributes, various type definitions
@@ -297,9 +299,9 @@ impl PunctuationMapped {
         }
     }
 
-    pub fn opt_bra(self) -> Option<Bracket> {
+    pub fn opt_bra(self) -> Option<SynBracket> {
         match self {
-            PunctuationMapped::LaOrLt => Some(Bracket::TurboFish),
+            PunctuationMapped::LaOrLt => Some(SynBracket::TurboFish),
             PunctuationMapped::Bra(bracket) => Some(bracket),
             _ => None,
         }

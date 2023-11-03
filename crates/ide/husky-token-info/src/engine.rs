@@ -406,7 +406,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 SemaPrefixOpr::Minus => (),
                 SemaPrefixOpr::Not => (),
                 SemaPrefixOpr::BitNot => (),
-                SemaPrefixOpr::Leash | SemaPrefixOpr::Ref | SemaPrefixOpr::Option => {
+                SemaPrefixOpr::LeashType | SemaPrefixOpr::RefType | SemaPrefixOpr::Option => {
                     self.add(
                         *opr_regional_token_idx,
                         sema_expr_idx,

@@ -24,7 +24,7 @@ husky-regional-token = { path = "../../lex/husky-regional-token" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
-husky-opr = { path = "../../kernel/husky-opr" }
+husky-syn-opr = { path = "../../syntax/husky-syn-opr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

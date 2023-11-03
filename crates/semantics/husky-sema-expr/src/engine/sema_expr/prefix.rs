@@ -1,11 +1,12 @@
 use super::*;
 use husky_sema_opr::prefix::SemaPrefixOpr;
+use husky_syn_opr::SynPrefixOpr;
 
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn build_prefix_sema_expr(
         &mut self,
         expr_idx: SynExprIdx,
-        opr: PrefixOpr,
+        opr: SynPrefixOpr,
         opd: SynExprIdx,
         final_destination: FinalDestination,
     ) -> (
@@ -13,7 +14,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprTypeResult<FluffyTerm>,
     ) {
         match opr {
-            PrefixOpr::Minus => {
+            SynPrefixOpr::Minus => {
                 let (opd_sema_expr_idx, opd_ty) =
                     self.build_sema_expr_with_its_ty_returned(opd, ExpectAnyOriginal);
                 let Some(opd_ty) = opd_ty else {
@@ -62,7 +63,7 @@ impl<'a> SemaExprEngine<'a> {
                     FluffyTermData::TypeVariant { path } => todo!(),
                 }
             }
-            PrefixOpr::Not => {
+            SynPrefixOpr::Not => {
                 let opd_sema_expr_idx = self.build_sema_expr(opd, ExpectConditionType);
                 // here we differs from Rust, but agrees with C
                 (
@@ -70,7 +71,7 @@ impl<'a> SemaExprEngine<'a> {
                     Ok(self.term_menu.bool_ty_ontology().into()),
                 )
             }
-            PrefixOpr::Tilde => match final_destination {
+            SynPrefixOpr::Tilde => match final_destination {
                 FinalDestination::Sort => {
                     let (opd_sema_expr_idx, ty_result) = self
                         .calc_function_application_expr_ty_aux(
@@ -81,7 +82,7 @@ impl<'a> SemaExprEngine<'a> {
                             self.term_menu.ty0().into(),
                             opd,
                         );
-                    (Ok((opd_sema_expr_idx, SemaPrefixOpr::Leash)), ty_result)
+                    (Ok((opd_sema_expr_idx, SemaPrefixOpr::LeashType)), ty_result)
                 }
                 FinalDestination::TypeOntology
                 | FinalDestination::AnyOriginal
@@ -95,15 +96,15 @@ impl<'a> SemaExprEngine<'a> {
                 }
                 FinalDestination::Ritchie(_) => todo!(),
             },
-            PrefixOpr::Ref => {
+            SynPrefixOpr::Ref => {
                 let opd_sema_expr_idx = self.build_sema_expr(opd, self.expect_ty0_subtype());
                 // Should consider more cases, could also be taking references
                 (
-                    Ok((opd_sema_expr_idx, SemaPrefixOpr::Ref)),
+                    Ok((opd_sema_expr_idx, SemaPrefixOpr::RefType)),
                     Ok(self.term_menu.ty0().into()),
                 )
             }
-            PrefixOpr::Option => {
+            SynPrefixOpr::Option => {
                 // todo!("consider universe");
                 let opd_sema_expr_idx = self.build_sema_expr(opd, self.expect_ty0_subtype());
                 (

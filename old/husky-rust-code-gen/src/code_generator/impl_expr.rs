@@ -45,8 +45,8 @@ impl<'a> RustCodeGenerator<'a> {
             } => match opn_variant {
                 EagerOpnVariant::Binary { opr, .. } => {
                     match opr {
-                        BinaryOpr::PureClosed(_) => (),
-                        BinaryOpr::Assign(_) => match opds[0].variant {
+                        SynBinaryOpr::PureClosed(_) => (),
+                        SynBinaryOpr::Assign(_) => match opds[0].variant {
                             EagerExprVariant::Variable { .. } => (),
                             EagerExprVariant::Opn {
                                 ref opn_variant, ..
@@ -57,20 +57,20 @@ impl<'a> RustCodeGenerator<'a> {
                             },
                             _ => self.write("*"),
                         },
-                        BinaryOpr::ScopeResolution => todo!(),
-                        BinaryOpr::Curry => todo!(),
-                        BinaryOpr::As => todo!(),
-                        BinaryOpr::Comparison(_) => todo!(),
-                        BinaryOpr::ShortcuitLogic(_) => todo!(),
+                        SynBinaryOpr::ScopeResolution => todo!(),
+                        SynBinaryOpr::Curry => todo!(),
+                        SynBinaryOpr::As => todo!(),
+                        SynBinaryOpr::Comparison(_) => todo!(),
+                        SynBinaryOpr::ShortcuitLogic(_) => todo!(),
                     }
                     self.gen_expr(indent, &opds[0]);
                     match opr {
-                        BinaryOpr::PureClosed(BinaryClosedOpr::RemEuclid) => {
+                        SynBinaryOpr::PureClosed(BinaryClosedOpr::RemEuclid) => {
                             self.write(".rem_euclid(");
                             self.gen_expr(indent, &opds[1]);
                             self.write(")")
                         }
-                        BinaryOpr::Assign(Some(BinaryClosedOpr::RemEuclid)) => todo!(),
+                        SynBinaryOpr::Assign(Some(BinaryClosedOpr::RemEuclid)) => todo!(),
                         _ => {
                             self.write(opr.spaced_code());
                             self.gen_expr(indent, &opds[1]);
@@ -78,7 +78,7 @@ impl<'a> RustCodeGenerator<'a> {
                     }
                 }
                 EagerOpnVariant::Prefix { opr, .. } => match opr {
-                    PrefixOpr::Not => match opds[0].intrinsic_ty() {
+                    SynPrefixOpr::Not => match opds[0].intrinsic_ty() {
                         EtherealTerm::Root(RootBuiltinIdent::Bool) => {
                             self.write("!");
                             self.gen_expr(indent, &opds[0]);

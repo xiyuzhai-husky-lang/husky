@@ -56,7 +56,7 @@ impl<Task: IsTask> Devtime<Task> {
         //     FeatureLazyExprVariant::NewVecFromList { .. } => todo!(),
         //     FeatureLazyExprVariant::CustomBinaryOpr { .. } => todo!(),
         //     FeatureLazyExprVariant::BePattern { .. } => todo!(),
-        //     FeatureLazyExprVariant::PrefixOpr { .. } => todo!(),
+        //     FeatureLazyExprVariant::SynPrefixOpr { .. } => todo!(),
         // }
     }
 }

@@ -7,6 +7,7 @@ pub use self::html::*;
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::StaticDispatch;
+use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr};
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_sema_opr::{prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{IdentifiableEntityPathExpr, SynExprData, SynExprIdx, SynStmtIdx};
@@ -41,7 +42,7 @@ pub enum HirEagerExpr {
     SelfValue,
     Binary {
         lopd: HirEagerExprIdx,
-        opr: BinaryOpr,
+        opr: HirBinaryOpr,
         ropd: HirEagerExprIdx,
     },
     Be {
@@ -50,7 +51,7 @@ pub enum HirEagerExpr {
     },
     Prefix {
         // ad hoc, should have a type HirPrefixOpr
-        opr: SemaPrefixOpr,
+        opr: HirPrefixOpr,
         opd_hir_expr_idx: HirEagerExprIdx,
     },
     Suffix {
@@ -149,15 +150,15 @@ impl ToHirEager for SemaExprIdx {
             } => todo!(),
             SemaExprData::SelfType(_) => HirEagerExpr::SelfType,
             SemaExprData::SelfValue(_) => HirEagerExpr::SelfValue,
-            SemaExprData::Binary {
+            &SemaExprData::Binary {
                 lopd,
                 opr,
                 opr_regional_token_idx,
-                dispatch,
+                ref dispatch,
                 ropd,
             } => HirEagerExpr::Binary {
                 lopd: lopd.to_hir_eager(builder),
-                opr: *opr,
+                opr: HirBinaryOpr::from_sema(opr),
                 ropd: ropd.to_hir_eager(builder),
             },
             SemaExprData::Be {
@@ -168,12 +169,12 @@ impl ToHirEager for SemaExprIdx {
                 src: src.to_hir_eager(builder),
                 target: target.to_hir_eager(builder),
             },
-            SemaExprData::Prefix {
+            &SemaExprData::Prefix {
                 opr,
                 opr_regional_token_idx,
                 opd_sema_expr_idx,
             } => HirEagerExpr::Prefix {
-                opr: *opr,
+                opr: HirPrefixOpr::from_sema(opr),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
             SemaExprData::Suffix {

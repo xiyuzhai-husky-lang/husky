@@ -22,7 +22,7 @@ pub enum ExprHir {
     SelfValue,
     BinaryOpn {
         lopd: ExprHirIdx,
-        opr: BinaryOpr,
+        opr: SynBinaryOpr,
         ropd: ExprHirIdx,
     },
     Be {
@@ -30,12 +30,12 @@ pub enum ExprHir {
         target: BeVariableDeclPatternHir,
     },
     PrefixOpn {
-        opr: PrefixOpr,
+        opr: SynPrefixOpr,
         opd: ExprHirIdx,
     },
     SuffixOpn {
         opd: ExprHirIdx,
-        punctuation: SuffixOpr,
+        punctuation: SynSuffixOpr,
     },
     ApplicationOrFunctionCall {
         function: ExprHirIdx,

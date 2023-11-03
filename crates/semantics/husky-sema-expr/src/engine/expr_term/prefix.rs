@@ -16,8 +16,8 @@ impl<'a> SemaExprEngine<'a> {
             SemaPrefixOpr::Minus => todo!(),
             SemaPrefixOpr::Not => todo!(),
             SemaPrefixOpr::BitNot => todo!(),
-            SemaPrefixOpr::Leash => Ok(FluffyTerm::new_leashed(self, opd_term)?),
-            SemaPrefixOpr::Ref => {
+            SemaPrefixOpr::LeashType => Ok(FluffyTerm::new_leashed(self, opd_term)?),
+            SemaPrefixOpr::RefType => {
                 // let opd_ty = self.infer
                 // match
                 todo!()

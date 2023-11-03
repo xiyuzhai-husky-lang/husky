@@ -1,3 +1,5 @@
+use crate::*;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
 pub enum BinaryShiftOpr {
@@ -25,5 +27,12 @@ impl BinaryShiftOpr {
             BinaryShiftOpr::Shl => " << ",
             BinaryShiftOpr::Shr => " >> ",
         }
+    }
+}
+
+impl HasPrecedence for BinaryShiftOpr {
+    #[inline(always)]
+    fn precedence(self) -> Precedence {
+        Precedence::Shift
     }
 }

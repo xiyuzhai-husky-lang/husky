@@ -1,33 +1,35 @@
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
-pub enum Bracket {
-    Par,
-    Box,
-    TemplateAngle,
-    Curl,
-    Lambda,
-    HtmlAngle,
-}
+pub type SynBracket = husky_opr::Bracket;
 
-impl Bracket {
-    pub fn bra_code(&self) -> &'static str {
-        match self {
-            Bracket::Par => "(",
-            Bracket::Box => "[",
-            Bracket::TemplateAngle => "::<",
-            Bracket::Curl => "{",
-            Bracket::Lambda => "|",
-            Bracket::HtmlAngle => "<",
-        }
-    }
+// #[derive(Debug, Copy, Clone, PartialEq, Eq)]
+// pub enum Bracket {
+//     Par,
+//     Box,
+//     TemplateAngle,
+//     Curl,
+//     Lambda,
+//     HtmlAngle,
+// }
 
-    pub fn ket_code(&self) -> &'static str {
-        match self {
-            Bracket::Par => ")",
-            Bracket::Box => "]",
-            Bracket::TemplateAngle => ">",
-            Bracket::Curl => "}",
-            Bracket::Lambda => "|",
-            Bracket::HtmlAngle => "/>",
-        }
-    }
-}
+// impl Bracket {
+//     pub fn bra_code(&self) -> &'static str {
+//         match self {
+//             Bracket::Par => "(",
+//             Bracket::Box => "[",
+//             Bracket::TemplateAngle => "::<",
+//             Bracket::Curl => "{",
+//             Bracket::Lambda => "|",
+//             Bracket::HtmlAngle => "<",
+//         }
+//     }
+
+//     pub fn ket_code(&self) -> &'static str {
+//         match self {
+//             Bracket::Par => ")",
+//             Bracket::Box => "]",
+//             Bracket::TemplateAngle => ">",
+//             Bracket::Curl => "}",
+//             Bracket::Lambda => "|",
+//             Bracket::HtmlAngle => "/>",
+//         }
+//     }
+// }

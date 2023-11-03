@@ -14,6 +14,7 @@ use self::incomplete_expr::*;
 use crate::symbol::*;
 use crate::*;
 use husky_entity_syn_tree::*;
+use husky_opr::{precedence::*, *};
 use husky_token_data::db::{HasTokenDataDb, TokenDataDb};
 use husky_vfs::{ModulePath, Toolchain};
 use original_error::OriginalError;

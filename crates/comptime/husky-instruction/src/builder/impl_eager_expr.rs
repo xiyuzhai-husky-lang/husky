@@ -505,7 +505,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_binary_opn(
         &mut self,
-        opr: BinaryOpr,
+        opr: SynBinaryOpr,
         opds: &[HirEagerExprIdx],
         expr: HirEagerExprIdx,
         discard: bool,
@@ -515,7 +515,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //     EtherealTerm::Root(_) => {
         //         let ins_kind = InstructionData::CallRoutine {
         //             resolved_linkage: match opr {
-        //                 BinaryOpr::PureClosed(pure_binary_opr) => {
+        //                 SynBinaryOpr::PureClosed(pure_binary_opr) => {
         //                     resolve_primitive_pure_binary_opr_linkage(
         //                         opds[0].intrinsic_ty().root(),
         //                         pure_binary_opr,
@@ -523,9 +523,9 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                     )
         //                     .transfer()
         //                 }
-        //                 BinaryOpr::Comparison(_) => todo!(),
-        //                 BinaryOpr::ShortcuitLogic(_) => todo!(),
-        //                 BinaryOpr::Assign(opt_binary_opr) => {
+        //                 SynBinaryOpr::Comparison(_) => todo!(),
+        //                 SynBinaryOpr::ShortcuitLogic(_) => todo!(),
+        //                 SynBinaryOpr::Assign(opt_binary_opr) => {
         //                     resolve_primitive_assign_binary_opr_linkage(
         //                         opds[0].intrinsic_ty().root(),
         //                         opt_binary_opr,
@@ -533,9 +533,9 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                     )
         //                     .transfer()
         //                 }
-        //                 BinaryOpr::ScopeResolution => todo!(),
-        //                 BinaryOpr::Curry => todo!(),
-        //                 BinaryOpr::As => todo!(),
+        //                 SynBinaryOpr::ScopeResolution => todo!(),
+        //                 SynBinaryOpr::Curry => todo!(),
+        //                 SynBinaryOpr::As => todo!(),
         //             },
         //             nargs: 2,
         //             return_ty: expr.intrinsic_ty(),
@@ -546,7 +546,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //     }
         //     EtherealTerm::Custom(_) => {
         //         let ins_variant = match opr {
-        //             BinaryOpr::PureClosed(pure_binary_opr) => match pure_binary_opr {
+        //             SynBinaryOpr::PureClosed(pure_binary_opr) => match pure_binary_opr {
         //                 BinaryClosedOpr::Add => todo!(),
         //                 BinaryClosedOpr::BitAnd => todo!(),
         //                 BinaryClosedOpr::BitOr => todo!(),
@@ -559,8 +559,8 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                 BinaryClosedOpr::Shr => todo!(),
         //                 BinaryClosedOpr::Sub => todo!(),
         //             },
-        //             BinaryOpr::Comparison(_) => todo!(),
-        //             BinaryOpr::ShortcuitLogic(_) => todo!(),
+        //             SynBinaryOpr::Comparison(_) => todo!(),
+        //             SynBinaryOpr::ShortcuitLogic(_) => todo!(),
         //             // BinaryShortcuitLogicOpr::And => todo!(),
         //             // BinaryComparisonOpr::Neq => InstructionData::CallRoutine {
         //             //     resolved_linkage: __NEQ_LINKAGE.transfer(),
@@ -579,7 +579,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //             // BinaryComparisonOpr::Greater => todo!(),
         //             // BinaryComparisonOpr::Leq => todo!(),
         //             // BinaryComparisonOpr::Less => todo!(),
-        //             BinaryOpr::Assign(opt_binary_opr) => {
+        //             SynBinaryOpr::Assign(opt_binary_opr) => {
         //                 if let Some(_binary_opr) = opt_binary_opr {
         //                     todo!()
         //                 } else {
@@ -591,9 +591,9 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                     }
         //                 }
         //             }
-        //             BinaryOpr::ScopeResolution => todo!(),
-        //             BinaryOpr::Curry => todo!(),
-        //             BinaryOpr::As => todo!(),
+        //             SynBinaryOpr::ScopeResolution => todo!(),
+        //             SynBinaryOpr::Curry => todo!(),
+        //             SynBinaryOpr::As => todo!(),
         //         };
         //         let instruction = Instruction::new(ins_variant, expr.clone());
         //         self.push_instruction(instruction)
@@ -603,7 +603,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_prefix_opn(
         &mut self,
-        prefix: PrefixOpr,
+        prefix: SynPrefixOpr,
         opds: &[HirEagerExprIdx],
         expr: HirEagerExprIdx,
         discard: bool,

@@ -3,9 +3,9 @@ mod pattern_ty;
 pub(crate) use self::pattern_ty::*;
 
 use crate::*;
-use husky_opr::{BinaryOpr, PrefixOpr};
 use husky_print_utils::p;
 use husky_syn_expr::*;
+use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
 use husky_token_data::{IntegerLikeLiteralData, LiteralData};
 use salsa::DebugWithDb;
 
@@ -433,15 +433,15 @@ impl<'a> DeclarativeTermEngine<'a> {
                     );
                 };
                 match opr {
-                    BinaryOpr::Closed(_) => todo!(),
-                    BinaryOpr::Shift(_) => todo!(),
-                    BinaryOpr::Comparison(_) => todo!(),
-                    BinaryOpr::ShortCircuitLogic(_) => todo!(),
-                    BinaryOpr::Assign => todo!(),
-                    BinaryOpr::AssignClosed(_) => todo!(),
-                    BinaryOpr::AssignShift(_) => todo!(),
-                    BinaryOpr::ScopeResolution => todo!(),
-                    BinaryOpr::Curry => Ok(DeclarativeTermCurry::new_nondependent(
+                    SynBinaryOpr::Closed(_) => todo!(),
+                    SynBinaryOpr::Shift(_) => todo!(),
+                    SynBinaryOpr::Comparison(_) => todo!(),
+                    SynBinaryOpr::ShortCircuitLogic(_) => todo!(),
+                    SynBinaryOpr::Assign => todo!(),
+                    SynBinaryOpr::AssignClosed(_) => todo!(),
+                    SynBinaryOpr::AssignShift(_) => todo!(),
+                    SynBinaryOpr::ScopeResolution => todo!(),
+                    SynBinaryOpr::CurryType => Ok(DeclarativeTermCurry::new_nondependent(
                         self.db,
                         CurryKind::Explicit, // ad hoc
                         Variance::Invariant, // ad hoc
@@ -449,9 +449,9 @@ impl<'a> DeclarativeTermEngine<'a> {
                         ropd,
                     )
                     .into()),
-                    BinaryOpr::As => todo!(),
-                    BinaryOpr::Ins => todo!(),
-                    BinaryOpr::In => todo!(),
+                    SynBinaryOpr::As => todo!(),
+                    SynBinaryOpr::Ins => todo!(),
+                    SynBinaryOpr::In => todo!(),
                 }
             }
             SynExprData::Be { .. } => todo!(),
@@ -463,13 +463,13 @@ impl<'a> DeclarativeTermEngine<'a> {
                     );
                 };
                 let tmpl = match opr {
-                    PrefixOpr::Minus => todo!(),
-                    PrefixOpr::Not => todo!(),
-                    PrefixOpr::Tilde => DeclarativeTerm::LeashOrBitNot(
+                    SynPrefixOpr::Minus => todo!(),
+                    SynPrefixOpr::Not => todo!(),
+                    SynPrefixOpr::Tilde => DeclarativeTerm::LeashOrBitNot(
                         self.syn_expr_region_data.path().toolchain(self.db),
                     ),
-                    PrefixOpr::Ref => todo!(),
-                    PrefixOpr::Option => self.declarative_term_menu.option_ty_path(),
+                    SynPrefixOpr::Ref => todo!(),
+                    SynPrefixOpr::Option => self.declarative_term_menu.option_ty_path(),
                 };
                 Ok(DeclarativeTermExplicitApplication::new(self.db, tmpl, opd).into())
             }

@@ -12,6 +12,7 @@ use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
 use husky_hir_eager_expr::{HirEagerExprArena, HirEagerPatternExprArena, HirEagerStmtArena};
 use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyStmtArena};
+use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{HirTemplateArgument, HirTemplateSymbol, HirType, HirTypeSymbol};
 use husky_term_prelude::TermLiteral;
 
@@ -73,7 +74,7 @@ impl<'a> RustTranspilationBuilder<'a> {
         self.result += s
     }
 
-    fn display_copyable(&mut self, t: impl std::fmt::Display + Copy) {
+    fn write_display_copyable(&mut self, t: impl std::fmt::Display + Copy) {
         use std::fmt::Write;
         write!(self.result, "{}", t);
     }
@@ -318,19 +319,19 @@ impl TranspileToRust for TermLiteral {
         let db = builder.db();
         match self {
             TermLiteral::Unit => builder.write_str("()"),
-            TermLiteral::Bool(value) => builder.display_copyable(value),
-            TermLiteral::I8(value) => builder.display_copyable(value),
-            TermLiteral::I16(value) => builder.display_copyable(value),
-            TermLiteral::I32(value) => builder.display_copyable(value),
-            TermLiteral::I64(lit) => builder.display_copyable(lit.value(db)),
-            TermLiteral::I128(lit) => builder.display_copyable(lit.value(db)),
-            TermLiteral::ISize(lit) => builder.display_copyable(lit.value(db)),
-            TermLiteral::U8(value) => builder.display_copyable(value),
-            TermLiteral::U16(value) => builder.display_copyable(value),
-            TermLiteral::U32(value) => builder.display_copyable(value),
-            TermLiteral::U64(lit) => builder.display_copyable(lit.value(db)),
-            TermLiteral::U128(lit) => builder.display_copyable(lit.value(db)),
-            TermLiteral::USize(lit) => builder.display_copyable(lit.value(db)),
+            TermLiteral::Bool(value) => builder.write_display_copyable(value),
+            TermLiteral::I8(value) => builder.write_display_copyable(value),
+            TermLiteral::I16(value) => builder.write_display_copyable(value),
+            TermLiteral::I32(value) => builder.write_display_copyable(value),
+            TermLiteral::I64(lit) => builder.write_display_copyable(lit.value(db)),
+            TermLiteral::I128(lit) => builder.write_display_copyable(lit.value(db)),
+            TermLiteral::ISize(lit) => builder.write_display_copyable(lit.value(db)),
+            TermLiteral::U8(value) => builder.write_display_copyable(value),
+            TermLiteral::U16(value) => builder.write_display_copyable(value),
+            TermLiteral::U32(value) => builder.write_display_copyable(value),
+            TermLiteral::U64(lit) => builder.write_display_copyable(lit.value(db)),
+            TermLiteral::U128(lit) => builder.write_display_copyable(lit.value(db)),
+            TermLiteral::USize(lit) => builder.write_display_copyable(lit.value(db)),
             TermLiteral::R8(_) => todo!(),
             TermLiteral::R16(_) => todo!(),
             TermLiteral::R32(_) => todo!(),
@@ -340,15 +341,43 @@ impl TranspileToRust for TermLiteral {
             TermLiteral::Nat(_) => todo!(),
             TermLiteral::F32(_) => todo!(),
             TermLiteral::F64(_) => todo!(),
-            TermLiteral::String(_) => todo!(),
+            TermLiteral::String(lit) => {
+                use std::fmt::Write;
+                write!(builder.result, "{:?}", lit.data(db)).unwrap();
+            }
             TermLiteral::StaticLifetime => todo!(),
         }
     }
 }
 
-impl TranspileToRust for husky_opr::binary::BinaryOpr {
+impl TranspileToRust for HirBinaryOpr {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         // ad hoc
         builder.write_str(self.code())
+    }
+}
+
+impl TranspileToRust for HirPrefixOpr {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        let s = match self {
+            HirPrefixOpr::Minus => "-",
+            HirPrefixOpr::Not => "!",
+            HirPrefixOpr::BitNot => "!",
+            HirPrefixOpr::TakeRef => todo!(),
+            HirPrefixOpr::Deref => todo!(),
+        };
+        builder.write_str(s)
+    }
+}
+
+impl TranspileToRust for HirSuffixOpr {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        let s = match self {
+            HirSuffixOpr::Incr => "+= 1",
+            HirSuffixOpr::Decr => "-= 1",
+            HirSuffixOpr::Unveil => "?",
+            HirSuffixOpr::Unwrap => ".unwrap()",
+        };
+        builder.write_str(s)
     }
 }

@@ -66,13 +66,13 @@ where
             )),
             DisambiguatedTokenData::Err(e) => self.accept_atom(SynExprData::Err(e)),
             // self.accept_atom(atom),
-            DisambiguatedTokenData::BinaryOpr(regional_token_idx, opr) => {
+            DisambiguatedTokenData::SynBinaryOpr(regional_token_idx, opr) => {
                 self.accept_binary_opr(opr, regional_token_idx)
             }
-            DisambiguatedTokenData::PrefixOpr(regional_token_idx, opr) => {
+            DisambiguatedTokenData::SynPrefixOpr(regional_token_idx, opr) => {
                 self.accept_prefix_opr(opr, regional_token_idx)
             }
-            DisambiguatedTokenData::SuffixOpr(regional_token_idx, opr) => {
+            DisambiguatedTokenData::SynSuffixOpr(regional_token_idx, opr) => {
                 self.accept_suffix_opr(opr, regional_token_idx)
             }
             DisambiguatedTokenData::Bra(regional_token_idx, bra) => {
@@ -105,7 +105,7 @@ where
         }
     }
 
-    fn accept_list_end(&mut self, ket: Bracket, ket_regional_token_idx: RegionalTokenIdx) {
+    fn accept_list_end(&mut self, ket: SynBracket, ket_regional_token_idx: RegionalTokenIdx) {
         self.reduce(Precedence::ListItem);
         let last_incomplete_expr = self.take_last_incomplete_expr().unwrap();
         match last_incomplete_expr {
@@ -300,7 +300,7 @@ where
 
     fn accept_prefix_opr(
         &mut self,
-        prefix: PrefixOpr,
+        prefix: SynPrefixOpr,
         prefix_regional_token_idx: RegionalTokenIdx,
     ) {
         self.push_top_syn_expr(
@@ -314,7 +314,7 @@ where
 
     fn accept_suffix_opr(
         &mut self,
-        punctuation: SuffixOpr,
+        punctuation: SynSuffixOpr,
         punctuation_regional_token_idx: RegionalTokenIdx,
     ) {
         self.take_complete_and_push_to_top(|this, top_expr| match top_expr {
@@ -341,7 +341,7 @@ where
                                 ident_token,
                                 generic_arguments: None,
                             },
-                            bra: Bracket::Par,
+                            bra: SynBracket::Par,
                             bra_regional_token_idx: lpar.regional_token_idx(),
                             items: smallvec![],
                         }
@@ -353,7 +353,7 @@ where
                                     dot_regional_token_idx,
                                     ident_token,
                                 },
-                                bra: Bracket::TurboFish,
+                                bra: SynBracket::TurboFish,
                                 bra_regional_token_idx: langle.regional_token_idx(),
                                 items: smallvec![],
                             }
@@ -467,10 +467,10 @@ where
 
     fn accept_binary_opr(
         &mut self,
-        binary: BinaryOpr,
+        binary: SynBinaryOpr,
         binary_regional_token_idx: RegionalTokenIdx,
     ) {
-        self.reduce(binary.into());
+        self.reduce(binary.precedence());
         let lopd = self.take_complete_expr().unwrap_or(SynExprData::Err(
             OriginalSynExprError::NoLeftOperandForBinaryOperator {
                 binary_regional_token_idx,
@@ -513,11 +513,11 @@ where
         }
     }
 
-    fn accept_list_start(&mut self, bra: Bracket, bra_regional_token_idx: RegionalTokenIdx) {
+    fn accept_list_start(&mut self, bra: SynBracket, bra_regional_token_idx: RegionalTokenIdx) {
         self.take_complete_and_push_to_top(|parser, finished_expr| -> TopSynExpr {
             let finished_expr = finished_expr.map(|expr| parser.context_mut().alloc_expr(expr));
             match bra {
-                Bracket::Par => match finished_expr {
+                SynBracket::Par => match finished_expr {
                     Some(function) => IncompleteSynExpr::CommaList {
                         opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
                         bra,
@@ -533,7 +533,7 @@ where
                     }
                     .into(),
                 },
-                Bracket::Box => IncompleteSynExpr::CommaList {
+                SynBracket::Box => IncompleteSynExpr::CommaList {
                     opr: match finished_expr {
                         Some(finished_expr) => IncompleteCommaListOpr::Index {
                             owner: finished_expr,
@@ -545,7 +545,7 @@ where
                     items: smallvec![],
                 }
                 .into(),
-                Bracket::TurboFish => match finished_expr {
+                SynBracket::TurboFish => match finished_expr {
                     Some(template) => IncompleteSynExpr::CommaList {
                         opr: IncompleteCommaListOpr::TemplateInstantiation { template },
                         bra,
@@ -555,12 +555,12 @@ where
                     .into(),
                     None => todo!(),
                 },
-                Bracket::Curl => SynExprData::Err(
+                SynBracket::Curl => SynExprData::Err(
                     OriginalSynExprError::UnexpectedLeftCurlyBrace(bra_regional_token_idx).into(),
                 )
                 .into(),
-                Bracket::Vertical => todo!(),
-                Bracket::HtmlAngle => {
+                SynBracket::Vertical => todo!(),
+                SynBracket::HtmlAngle => {
                     let function_ident = match parser.try_parse_expected(
                         OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra,
                     ) {
@@ -600,7 +600,7 @@ where
                         ritchie_kind,
                         lpar_token,
                     },
-                    bra: Bracket::Par,
+                    bra: SynBracket::Par,
                     bra_regional_token_idx: lpar_token.regional_token_idx(),
                     items: smallvec![],
                 }
