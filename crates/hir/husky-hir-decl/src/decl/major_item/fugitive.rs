@@ -3,6 +3,8 @@ mod gn;
 mod ty_alias;
 mod val;
 
+use husky_syn_decl::FugitiveSynDecl;
+
 pub use self::gn::*;
 pub use self::r#fn::*;
 pub use self::ty_alias::*;
@@ -58,21 +60,28 @@ impl HasHirDecl for FugitivePath {
 
 #[salsa::tracked(jar = HirDeclJar)]
 fn fugitive_hir_decl(db: &dyn HirDeclDb, path: FugitivePath) -> Option<FugitiveHirDecl> {
-    match path
-        .ethereal_signature_template(db)
-        .expect("no errors for hir stage")
-    {
-        FugitiveEtherealSignatureTemplate::FunctionFn(ethereal_signature_template) => {
-            Some(FnFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
+    match path.syn_decl(db).expect("no errors for hir stage") {
+        FugitiveSynDecl::FunctionFn(syn_decl) => {
+            Some(FnFugitiveHirDecl::from_syn(path, syn_decl, db).into())
         }
-        FugitiveEtherealSignatureTemplate::FunctionGn(ethereal_signature_template) => {
-            Some(GnFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
-        }
-        FugitiveEtherealSignatureTemplate::TypeAlias(ethereal_signature_template) => Some(
-            TypeAliasFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into(),
-        ),
-        FugitiveEtherealSignatureTemplate::Val(ethereal_signature_template) => {
-            Some(ValFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
-        }
+        FugitiveSynDecl::Val(_) => todo!(),
+        FugitiveSynDecl::FunctionGn(_) => todo!(),
     }
+    // match path
+    //     .ethereal_signature_template(db)
+    //     .expect("no errors for hir stage")
+    // {
+    //     FugitiveEtherealSignatureTemplate::FunctionFn(ethereal_signature_template) => {
+    //         Some(FnFugitiveHirDecl::from_syn(path, ethereal_signature_template, db).into())
+    //     }
+    //     FugitiveEtherealSignatureTemplate::FunctionGn(ethereal_signature_template) => {
+    //         Some(GnFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
+    //     }
+    //     FugitiveEtherealSignatureTemplate::TypeAlias(ethereal_signature_template) => Some(
+    //         TypeAliasFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into(),
+    //     ),
+    //     FugitiveEtherealSignatureTemplate::Val(ethereal_signature_template) => {
+    //         Some(ValFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
+    //     }
+    // }
 }

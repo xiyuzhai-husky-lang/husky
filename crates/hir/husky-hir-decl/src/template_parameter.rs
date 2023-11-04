@@ -1,1 +1,1 @@
-pub type TemplateParameterHirDecl = ();
+pub type TemplateParameterObelisk = ();

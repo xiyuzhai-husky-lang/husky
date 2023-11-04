@@ -79,7 +79,7 @@ impl<'a> DeclParser<'a, FugitiveSynNodePath> {
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum FugitiveSynDecl {
-    FunctionFn(FnSynDecl),
+    FunctionFn(FunctionFnSynDecl),
     Val(ValSynDecl),
     FunctionGn(GnSynDecl),
     // todo: AliasType
@@ -93,7 +93,7 @@ impl FugitiveSynDecl {
     ) -> DeclResult<Self> {
         Ok(match syn_node_decl {
             FugitiveSynNodeDecl::FunctionFn(syn_node_decl) => {
-                FnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                FunctionFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             FugitiveSynNodeDecl::Val(syn_node_decl) => {
                 ValSynDecl::from_node_decl(db, path, syn_node_decl)?.into()

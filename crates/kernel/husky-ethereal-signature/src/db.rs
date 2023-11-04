@@ -34,7 +34,7 @@ pub struct EtherealSignatureJar(
     trai_ethereal_signature_template,
     // fugitive
     fugitive_ethereal_signature_template,
-    FnFugitiveEtherealSignatureTemplate,
+    FunctionFnEtherealSignatureTemplate,
     GnFugitiveEtherealSignatureTemplate,
     TypeAliasFugitiveEtherealSignatureTemplate,
     ValFugitiveEtherealSignatureTemplate,

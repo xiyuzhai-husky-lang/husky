@@ -66,18 +66,18 @@ impl<'a> DeclParser<'a, FugitiveSynNodePath> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct FnSynDecl {
+pub struct FunctionFnSynDecl {
     #[id]
     pub path: FugitivePath,
     #[return_ref]
     pub template_parameters: TemplateParameterObelisks,
     #[return_ref]
-    pub parenate_parameters: ExplicitParameterDeclPatterns,
+    pub parenate_parameters: ParenateParameterObelisks,
     pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
     pub syn_expr_region: SynExprRegion,
 }
 
-impl FnSynDecl {
+impl FunctionFnSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn SynDeclDb,
         path: FugitivePath,
@@ -91,14 +91,14 @@ impl FnSynDecl {
             .unwrap_or_default();
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
-        let parenate_parameters: ExplicitParameterDeclPatterns = parenate_parameter_decl_list
+        let parenate_parameters: ParenateParameterObelisks = parenate_parameter_decl_list
             .parenate_parameters()
             .iter()
             .map(Clone::clone)
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(FnSynDecl::new(
+        Ok(FunctionFnSynDecl::new(
             db,
             path,
             template_parameters,

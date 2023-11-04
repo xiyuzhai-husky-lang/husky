@@ -81,7 +81,7 @@ pub struct TraitForTypeMethodFnSynDecl {
     pub template_parameters: TemplateParameterObelisks,
     pub self_value_parameter: Option<SelfParameterObelisk>,
     #[return_ref]
-    pub parenate_parameters: ExplicitParameterDeclPatterns,
+    pub parenate_parameters: ParenateParameterObelisks,
     pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
     pub syn_expr_region: SynExprRegion,
 }
@@ -101,7 +101,7 @@ impl TraitForTypeMethodFnSynDecl {
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
         let self_value_parameter = *parenate_parameter_decl_list.self_value_parameter();
-        let parenate_parameters: ExplicitParameterDeclPatterns = parenate_parameter_decl_list
+        let parenate_parameters: ParenateParameterObelisks = parenate_parameter_decl_list
             .parenate_parameters()
             .iter()
             .map(Clone::clone)

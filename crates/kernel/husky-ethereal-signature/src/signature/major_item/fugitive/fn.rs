@@ -1,13 +1,13 @@
 use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct FnFugitiveEtherealSignatureTemplate {
+pub struct FunctionFnEtherealSignatureTemplate {
     pub path: FugitivePath,
     #[return_ref]
     pub template_parameters: EtherealTermTemplateParameters,
 }
 
-impl FnFugitiveEtherealSignatureTemplate {
+impl FunctionFnEtherealSignatureTemplate {
     pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
         path: FugitivePath,

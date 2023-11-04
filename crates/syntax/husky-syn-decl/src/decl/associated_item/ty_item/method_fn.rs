@@ -75,7 +75,7 @@ pub struct TypeMethodFnSynDecl {
     pub template_parameters: TemplateParameterObelisks,
     pub self_value_parameter: Option<SelfParameterObelisk>,
     #[return_ref]
-    pub parenate_parameters: ExplicitParameterDeclPatterns,
+    pub parenate_parameters: ParenateParameterObelisks,
     pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
     pub syn_expr_region: SynExprRegion,
 }
@@ -94,7 +94,7 @@ impl TypeMethodFnSynDecl {
             .unwrap_or_default();
         let parenate_parameters = syn_node_decl.parenate_parameters(db).as_ref()?;
         let self_value_parameter = *parenate_parameters.self_value_parameter();
-        let parenate_parameters: ExplicitParameterDeclPatterns = parenate_parameters
+        let parenate_parameters: ParenateParameterObelisks = parenate_parameters
             .parenate_parameters()
             .iter()
             .map(Clone::clone)

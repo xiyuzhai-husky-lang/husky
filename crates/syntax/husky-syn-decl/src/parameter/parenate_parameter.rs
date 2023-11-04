@@ -1,7 +1,7 @@
 use super::*;
 use parsec::{parse_separated_list2, parse_separated_small_list2};
 
-pub(crate) type ExplicitParameterDeclPatterns = SmallVec<[SpecificParameterObelisk; 2]>;
+pub(crate) type ParenateParameterObelisks = SmallVec<[SpecificParameterObelisk; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
@@ -10,7 +10,7 @@ pub struct ParenateParameters<const ALLOW_SELF_PARAMETER: bool> {
     lpar: LparRegionalToken,
     self_value_parameter: Option<SelfParameterObelisk>,
     comma_after_self_parameter: Option<CommaRegionalToken>,
-    parenate_parameters: ExplicitParameterDeclPatterns,
+    parenate_parameters: ParenateParameterObelisks,
     commas: CommaRegionalTokens,
     rpar: RparRegionalToken,
 }

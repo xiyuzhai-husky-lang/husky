@@ -33,12 +33,12 @@ impl FnSynNodeDefn {
 pub struct FnSynDefn {
     #[id]
     pub path: FugitivePath,
-    pub decl: FnSynDecl,
+    pub decl: FunctionFnSynDecl,
     pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl FnSynDefn {
-    pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: FnSynDecl) -> Self {
+    pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: FunctionFnSynDecl) -> Self {
         let FugitiveSynNodeDefn::FunctionFn(syn_node_defn) =
             path.syn_node_path(db).syn_node_defn(db)
         else {

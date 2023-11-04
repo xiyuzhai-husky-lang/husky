@@ -14,7 +14,7 @@ use super::*;
 #[enum_class::from_variants]
 #[salsa::debug_with_db(db = EtherealSignatureDb)]
 pub enum FugitiveEtherealSignatureTemplate {
-    FunctionFn(FnFugitiveEtherealSignatureTemplate),
+    FunctionFn(FunctionFnEtherealSignatureTemplate),
     FunctionGn(GnFugitiveEtherealSignatureTemplate),
     TypeAlias(TypeAliasFugitiveEtherealSignatureTemplate),
     Val(ValFugitiveEtherealSignatureTemplate),
@@ -58,7 +58,7 @@ fn fugitive_ethereal_signature_template(
 ) -> EtherealSignatureResult<FugitiveEtherealSignatureTemplate> {
     Ok(match path.declarative_signature_template(db)? {
         FugitiveDeclarativeSignatureTemplate::FunctionFn(declarative_signature_template) => {
-            FnFugitiveEtherealSignatureTemplate::from_declarative(
+            FunctionFnEtherealSignatureTemplate::from_declarative(
                 db,
                 path,
                 declarative_signature_template,
