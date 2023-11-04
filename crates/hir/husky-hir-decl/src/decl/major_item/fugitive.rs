@@ -75,13 +75,13 @@ fn fugitive_hir_decl(db: &dyn HirDeclDb, path: FugitivePath) -> Option<FugitiveH
     //         Some(FnFugitiveHirDecl::from_syn(path, ethereal_signature_template, db).into())
     //     }
     //     FugitiveEtherealSignatureTemplate::FunctionGn(ethereal_signature_template) => {
-    //         Some(GnFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
+    //         Some(GnFugitiveHirDecl::from_syn(path, ethereal_signature_template, db).into())
     //     }
     //     FugitiveEtherealSignatureTemplate::TypeAlias(ethereal_signature_template) => Some(
-    //         TypeAliasFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into(),
+    //         TypeAliasFugitiveHirDecl::from_syn(path, ethereal_signature_template, db).into(),
     //     ),
     //     FugitiveEtherealSignatureTemplate::Val(ethereal_signature_template) => {
-    //         Some(ValFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
+    //         Some(ValFugitiveHirDecl::from_syn(path, ethereal_signature_template, db).into())
     //     }
     // }
 }

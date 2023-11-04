@@ -1,7 +1,7 @@
 use super::*;
 use parsec::{parse_separated_list2, parse_separated_small_list2};
 
-pub(crate) type ParenateParameterObelisks = SmallVec<[SpecificParameterObelisk; 2]>;
+pub(crate) type ParenateParameterObelisks = SmallVec<[SynParenateParameterObelisk; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]

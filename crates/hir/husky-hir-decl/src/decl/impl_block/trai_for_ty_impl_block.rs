@@ -27,14 +27,12 @@ fn trai_for_ty_impl_block_hir_decl(
 ) -> Option<TraitForTypeImplBlockHirDecl> {
     let ethereal_signature_template = path.ethereal_signature_template(db).expect("ok");
     let self_ty = match ethereal_signature_template.self_ty_refined(db) {
-        EtherealSelfTypeInTraitImpl::PathLeading(self_ty) => HirType::from_ethereal(self_ty, db),
+        EtherealSelfTypeInTraitImpl::PathLeading(self_ty) => HirType::from_syn(self_ty, db),
         EtherealSelfTypeInTraitImpl::DeriveAny(_) => return None, // maybe we shouldn't do this???
     };
-    let template_parameters = HirTemplateParameters::from_ethereal(
-        ethereal_signature_template.template_parameters(db),
-        db,
-    );
-    let trai = HirTrait::from_ethereal(ethereal_signature_template.trai(db), db);
+    let template_parameters =
+        HirTemplateParameters::from_syn(ethereal_signature_template.template_parameters(db), db);
+    let trai = HirTrait::from_syn(ethereal_signature_template.trai(db), db);
     Some(TraitForTypeImplBlockHirDecl::new(
         db,
         path,

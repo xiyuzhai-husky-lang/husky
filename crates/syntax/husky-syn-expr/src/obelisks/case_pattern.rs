@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct CasePatternSynObelisk {
+pub struct CasePatternObelisk {
     syn_pattern_root: SynPatternRoot,
     variables: SynCurrentSymbolIdxRange,
 }
@@ -16,7 +16,7 @@ where
     pub(crate) fn parse_case_pattern_expected(
         &mut self,
         access_end: RegionalTokenIdxRangeEnd,
-    ) -> SynExprResult<CasePatternSynObelisk> {
+    ) -> SynExprResult<CasePatternObelisk> {
         let state = self.save_state();
         let Some(syn_pattern_root) = self.try_parse_option()? else {
             Err(OriginalSynExprError::ExpectedCasePattern(state))?
@@ -40,14 +40,14 @@ where
             })
             .collect::<Vec<_>>();
         let variables = self.define_symbols(symbols, None);
-        Ok(CasePatternSynObelisk {
+        Ok(CasePatternObelisk {
             syn_pattern_root,
             variables,
         })
     }
 }
 
-impl CasePatternSynObelisk {
+impl CasePatternObelisk {
     pub fn syn_pattern_root(&self) -> SynPatternRoot {
         self.syn_pattern_root
     }

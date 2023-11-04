@@ -14,7 +14,7 @@ pub struct TypeAssociatedFnHirDecl {
 }
 
 impl TypeAssociatedFnHirDecl {
-    pub(super) fn from_ethereal(
+    pub(super) fn from_syn(
         path: TypeItemPath,
         ethereal_signature_template: TypeAssociatedFnEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
@@ -22,15 +22,13 @@ impl TypeAssociatedFnHirDecl {
         let TypeItemSynDecl::AssociatedFn(syn_decl) = path.syn_decl(db).expect("ok") else {
             unreachable!()
         };
-        let template_parameters = HirTemplateParameters::from_ethereal(
+        let template_parameters = HirTemplateParameters::from_syn(
             ethereal_signature_template.template_parameters(db),
             db,
         );
-        let parenate_parameters = HirRitchieParameters::from_ethereal(
-            ethereal_signature_template.parenate_parameters(db),
-            db,
-        );
-        let return_ty = HirType::from_ethereal(ethereal_signature_template.return_ty(db), db);
+        let parenate_parameters =
+            HirRitchieParameters::from_syn(ethereal_signature_template.parenate_parameters(db), db);
+        let return_ty = HirType::from_syn(ethereal_signature_template.return_ty(db), db);
         Self::new(
             db,
             path,

@@ -1,13 +1,13 @@
 use super::*;
 use parsec::parse_separated_small2_list_expected;
 
-pub(crate) type SynTemplateParameterObelisks = SmallVec<[SynTemplateParameterObelisk; 2]>;
+pub(crate) type TemplateParameterObelisks = SmallVec<[SynTemplateParameterObelisk; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 pub struct SynTemplateParameterObeliskList {
     langle: LaOrLtRegionalToken,
-    template_parameters: SynTemplateParameterObelisks,
+    template_parameters: TemplateParameterObelisks,
     commas: CommaRegionalTokens,
     decl_list_result: Result<(), SynNodeDeclError>,
     rangle: RaOrGtRegionalToken,

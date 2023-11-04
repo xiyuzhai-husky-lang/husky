@@ -9,7 +9,7 @@ pub struct ValFugitiveHirDecl {
 }
 
 impl ValFugitiveHirDecl {
-    pub(super) fn from_ethereal(
+    pub(super) fn from_syn(
         path: FugitivePath,
         ethereal_signature_template: ValFugitiveEtherealSignatureTemplate,
         db: &dyn HirDeclDb,

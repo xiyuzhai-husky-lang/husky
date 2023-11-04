@@ -21,7 +21,7 @@ impl CasePatternSemaObelisk {
 impl<'a> SemaExprEngine<'a> {
     pub(crate) fn build_case_pattern_sema_obelisk(
         &mut self,
-        case_pattern_syn_obelisk: &CasePatternSynObelisk,
+        case_pattern_syn_obelisk: &CasePatternObelisk,
         match_target_ty: FluffyTerm,
     ) -> CasePatternSemaObelisk {
         self.infer_pattern_root_and_symbols_ty(

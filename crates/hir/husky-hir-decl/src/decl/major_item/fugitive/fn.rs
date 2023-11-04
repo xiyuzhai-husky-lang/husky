@@ -15,7 +15,7 @@ impl FnFugitiveHirDecl {
         db: &dyn HirDeclDb,
     ) -> Self {
         let template_parameters =
-            HirTemplateParameters::from_ethereal(syn_decl.template_parameters(db), db);
+            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
         Self::new(db, path, template_parameters)
     }
 }

@@ -1,3 +1,6 @@
+use husky_syn_decl::TupleStructTypeSynDecl;
+use husky_syn_expr::TupleFieldObelisk;
+
 use super::*;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
@@ -17,37 +20,34 @@ pub struct TupleFieldHirDecl {
 }
 
 impl TupleStructTypeHirDecl {
-    pub(super) fn from_ethereal(
+    pub(super) fn from_syn(
         path: TypePath,
-        ethereal_signature_template: TupleStructTypeEtherealSignatureTemplate,
+        syn_decl: TupleStructTypeSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
         let TypeSynDecl::TupleStruct(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()
         };
-        let template_parameters = HirTemplateParameters::from_ethereal(
-            ethereal_signature_template.template_parameters(db),
-            db,
-        );
-        let fields = ethereal_signature_template
+        let hir_eager_expr_region = hir_eager_expr_region(syn_decl.syn_expr_region(db), db);
+        let template_parameters =
+            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
+        let fields = syn_decl
             .fields(db)
             .iter()
-            .map(|field| TupleFieldHirDecl::from_ethereal(field, db))
+            .map(|field| TupleFieldHirDecl::from_syn(field, db, hir_eager_expr_region))
             .collect();
-        Self::new(
-            db,
-            path,
-            template_parameters,
-            fields,
-            hir_eager_expr_region(syn_decl.syn_expr_region(db), db),
-        )
+        Self::new(db, path, template_parameters, fields, hir_eager_expr_region)
     }
 }
 
 impl TupleFieldHirDecl {
-    fn from_ethereal(field: &TupleFieldEtherealSignatureTemplate, db: &dyn HirDeclDb) -> Self {
+    fn from_syn(
+        field: &TupleFieldObelisk,
+        db: &dyn HirDeclDb,
+        hir_eager_expr_region: HirEagerExprRegion,
+    ) -> Self {
         Self {
-            ty: HirType::from_ethereal(field.ty(), db),
+            ty: HirType::from_syn(field.ty(), db),
         }
     }
 }

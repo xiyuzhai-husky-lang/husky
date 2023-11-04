@@ -18,7 +18,7 @@ pub struct PropsFieldHirDecl {
 }
 
 impl PropsStructTypeHirDecl {
-    pub(super) fn from_ethereal(
+    pub(super) fn from_syn(
         path: TypePath,
         ethereal_signature_template: PropsStructTypeEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
@@ -26,14 +26,14 @@ impl PropsStructTypeHirDecl {
         let TypeSynDecl::PropsStruct(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()
         };
-        let template_parameters = HirTemplateParameters::from_ethereal(
+        let template_parameters = HirTemplateParameters::from_syn(
             ethereal_signature_template.template_parameters(db),
             db,
         );
         let fields = ethereal_signature_template
             .fields(db)
             .iter()
-            .map(|field| PropsFieldHirDecl::from_ethereal(field, db))
+            .map(|field| PropsFieldHirDecl::from_syn(field, db))
             .collect();
         Self::new(
             db,
@@ -46,10 +46,10 @@ impl PropsStructTypeHirDecl {
 }
 
 impl PropsFieldHirDecl {
-    fn from_ethereal(field: &PropsFieldEtherealSignatureTemplate, db: &dyn HirDeclDb) -> Self {
+    fn from_syn(field: &PropsFieldEtherealSignatureTemplate, db: &dyn HirDeclDb) -> Self {
         Self {
             ident: field.ident(),
-            ty: HirType::from_ethereal(field.ty(), db),
+            ty: HirType::from_syn(field.ty(), db),
         }
     }
 }
