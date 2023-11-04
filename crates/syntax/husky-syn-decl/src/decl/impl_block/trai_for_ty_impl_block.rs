@@ -8,7 +8,7 @@ pub struct TraitForTypeImplBlockSynNodeDecl {
     pub syn_node_path: TraitForTypeImplBlockSynNodePath,
     pub impl_regional_token: ImplRegionalToken,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
     pub trai_expr: TraitObelisk,
     pub for_token: ConnectionForRegionalToken,
     pub self_ty_decl: SelfTypeDecl,
@@ -114,7 +114,7 @@ pub struct TraitForTypeImplBlockSynDecl {
     #[id]
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: SynTemplateParameterObelisks,
     pub trai_expr: TraitObelisk,
     pub self_ty_decl: SelfTypeDecl,
     pub syn_expr_region: SynExprRegion,
@@ -147,7 +147,7 @@ impl TraitForTypeImplBlockSynDecl {
             .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.template_parameters().to_smallvec())
+            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
             .unwrap_or_default();
         let trai_expr = syn_node_decl.trai_expr(db);
         let self_ty_decl = syn_node_decl.self_ty_decl(db);

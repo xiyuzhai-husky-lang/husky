@@ -7,7 +7,7 @@ pub struct TraitForTypeAssociatedTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
     #[return_ref]
-    pub generics: SynNodeDeclResult<Option<TemplateParameters>>,
+    pub generics: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
     #[return_ref]
     pub eq_token: SynNodeDeclResult<EqRegionalToken>,
     // todo: change this to NodeDeclResult??
@@ -63,7 +63,7 @@ pub struct TraitForTypeAssociatedTypeSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: SynTemplateParameterObelisks,
     pub ty_term_expr_idx: SynExprIdx,
     pub syn_expr_region: SynExprRegion,
 }
@@ -78,7 +78,7 @@ impl TraitForTypeAssociatedTypeSynDecl {
             .generics(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.template_parameters().to_smallvec())
+            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
             .unwrap_or_default();
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
         let ty_term_expr_idx = syn_node_decl.ty_term_expr_idx(db);

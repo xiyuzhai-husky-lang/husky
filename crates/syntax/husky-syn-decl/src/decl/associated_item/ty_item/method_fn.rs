@@ -7,9 +7,9 @@ pub struct TypeMethodFnSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     #[return_ref]
-    template_parameters: SynNodeDeclResult<Option<TemplateParameters>>,
+    template_parameters: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
     #[return_ref]
-    pub parenate_parameters: SynNodeDeclResult<ParenateParameters<true>>,
+    pub parenate_parameters: SynNodeDeclResult<ParenateParameterObeliskList<true>>,
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
@@ -72,7 +72,7 @@ pub struct TypeMethodFnSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: SynTemplateParameterObelisks,
     pub self_value_parameter: Option<SelfParameterObelisk>,
     #[return_ref]
     pub parenate_parameters: ParenateParameterObelisks,
@@ -90,7 +90,7 @@ impl TypeMethodFnSynDecl {
             .template_parameters(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.template_parameters().to_smallvec())
+            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
             .unwrap_or_default();
         let parenate_parameters = syn_node_decl.parenate_parameters(db).as_ref()?;
         let self_value_parameter = *parenate_parameters.self_value_parameter();

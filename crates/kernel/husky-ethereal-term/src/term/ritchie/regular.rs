@@ -2,17 +2,17 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb)]
-pub struct EtherealTermRitchieRegularParameter {
+pub struct EtherealRitchieRegularParameter {
     contract: Contract,
     ty: EtherealTerm,
 }
 
-impl EtherealTermRitchieRegularParameter {
+impl EtherealRitchieRegularParameter {
     pub fn from_declarative(
         db: &dyn EtherealTermDb,
-        param: DeclarativeTermRitchieRegularParameter,
+        param: DeclarativeRitchieRegularParameter,
     ) -> EtherealTermResult<Self> {
-        Ok(EtherealTermRitchieRegularParameter {
+        Ok(EtherealRitchieRegularParameter {
             contract: param.contract(),
             ty: EtherealTerm::ty_from_declarative(db, param.ty())?,
         })
@@ -38,7 +38,7 @@ impl EtherealTermRitchieRegularParameter {
     }
 }
 
-impl EtherealTermInstantiate for EtherealTermRitchieRegularParameter {
+impl EtherealTermInstantiate for EtherealRitchieRegularParameter {
     type Target = Self;
 
     fn instantiate(
@@ -53,7 +53,7 @@ impl EtherealTermInstantiate for EtherealTermRitchieRegularParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for EtherealTermRitchieRegularParameter
+impl<Db> salsa::DisplayWithDb<Db> for EtherealRitchieRegularParameter
 where
     Db: EtherealTermDb + ?Sized,
 {
@@ -68,7 +68,7 @@ where
     }
 }
 
-impl EtherealTermRitchieRegularParameter {
+impl EtherealRitchieRegularParameter {
     pub fn new(contract: Contract, ty: EtherealTerm) -> Self {
         Self { contract, ty }
     }

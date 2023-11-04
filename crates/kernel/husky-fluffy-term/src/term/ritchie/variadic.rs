@@ -6,8 +6,8 @@ pub struct FluffyTermRitchieVariadicParameter {
     ty: FluffyTerm,
 }
 
-impl From<EtherealTermRitchieVariadicParameter> for FluffyTermRitchieVariadicParameter {
-    fn from(param: EtherealTermRitchieVariadicParameter) -> Self {
+impl From<EtherealRitchieVariadicParameter> for FluffyTermRitchieVariadicParameter {
+    fn from(param: EtherealRitchieVariadicParameter) -> Self {
         Self {
             contract: param.contract(),
             ty: param.ty().into(),

@@ -1,15 +1,23 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct StructureTypeSynNodeDecl {
+pub struct EnumTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
     pub syn_expr_region: SynExprRegion,
 }
 
-impl StructureTypeSynNodeDecl {
+impl EnumTypeSynNodeDecl {
+    pub fn template_parameters(self, db: &dyn SynDeclDb) -> &[SynTemplateParameterObelisk] {
+        todo!()
+        // self.template_parameter_decl_list(db)
+        //     .as_ref()
+        //     .map(ImplicitParameterDeclList::template_parameters)
+        //     .unwrap_or(&[])
+    }
+
     pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
@@ -21,47 +29,42 @@ impl StructureTypeSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a, TypeSynNodePath> {
-    pub(super) fn parse_structure_ty_node_decl(&self) -> TypeSynNodeDecl {
-        let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::True, None);
+    pub(super) fn parse_enum_ty_node_decl(&self) -> EnumTypeSynNodeDecl {
+        let db = self.db();
+        let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();
-        StructureTypeSynNodeDecl::new(
-            self.db(),
+        EnumTypeSynNodeDecl::new(
+            db,
             self.syn_node_path(),
             template_parameters,
             parser.finish(),
         )
-        .into()
     }
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct StructureTypeSynDecl {
+pub struct EnumTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: SynTemplateParameterObelisks,
     pub syn_expr_region: SynExprRegion,
 }
 
-impl StructureTypeSynDecl {
+impl EnumTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &dyn SynDeclDb,
         path: TypePath,
-        syn_node_decl: StructureTypeSynNodeDecl,
+        syn_node_decl: EnumTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.template_parameters().to_smallvec())
+            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
             .unwrap_or_default();
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(StructureTypeSynDecl::new(
-            db,
-            path,
-            template_parameters,
-            syn_expr_region,
-        ))
+        Ok(Self::new(db, path, template_parameters, syn_expr_region))
     }
 }

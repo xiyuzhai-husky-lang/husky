@@ -1,16 +1,19 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct EnumTypeSynNodeDecl {
+pub struct InductiveTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
     pub syn_expr_region: SynExprRegion,
 }
 
-impl EnumTypeSynNodeDecl {
-    pub fn template_parameters(self, db: &dyn SynDeclDb) -> &[TemplateParameterObelisk] {
+impl InductiveTypeSynNodeDecl {
+    pub fn template_parameters<'a>(
+        self,
+        db: &'a dyn SynDeclDb,
+    ) -> &'a [SynTemplateParameterObelisk] {
         todo!()
         // self.template_parameter_decl_list(db)
         //     .as_ref()
@@ -29,40 +32,39 @@ impl EnumTypeSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a, TypeSynNodePath> {
-    pub(super) fn parse_enum_ty_node_decl(&self) -> EnumTypeSynNodeDecl {
-        let db = self.db();
+    pub(super) fn parse_inductive_ty_node_decl(&self) -> InductiveTypeSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
-        let template_parameters = parser.try_parse_option();
-        EnumTypeSynNodeDecl::new(
-            db,
+        let template_parameter_decl_list = parser.try_parse_option();
+        InductiveTypeSynNodeDecl::new(
+            self.db(),
             self.syn_node_path(),
-            template_parameters,
+            template_parameter_decl_list,
             parser.finish(),
         )
     }
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct EnumTypeSynDecl {
+pub struct InductiveTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: SynTemplateParameterObelisks,
     pub syn_expr_region: SynExprRegion,
 }
 
-impl EnumTypeSynDecl {
+impl InductiveTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &dyn SynDeclDb,
         path: TypePath,
-        syn_node_decl: EnumTypeSynNodeDecl,
+        syn_node_decl: InductiveTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.template_parameters().to_smallvec())
+            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
             .unwrap_or_default();
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(Self::new(db, path, template_parameters, syn_expr_region))

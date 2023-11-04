@@ -5,7 +5,7 @@ pub struct TraitForTypeMethodFnEtherealSignatureTemplate {
     pub self_ty: EtherealTerm,
     #[return_ref]
     pub template_parameters: EtherealTermTemplateParameters,
-    pub self_value_parameter: EtherealTermRitchieRegularParameter,
+    pub self_value_parameter: EtherealRitchieRegularParameter,
     #[return_ref]
     pub parenate_parameters: EtherealTermParenateParameters,
     pub return_ty: EtherealTerm,
@@ -22,7 +22,7 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
             db,
             dec_sig_tmpl.template_parameters(db),
         )?;
-        let self_value_parameter = EtherealTermRitchieRegularParameter::from_declarative(
+        let self_value_parameter = EtherealRitchieRegularParameter::from_declarative(
             db,
             dec_sig_tmpl.self_value_parameter(db),
         )?;
@@ -94,7 +94,7 @@ fn trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_
         parenate_parameters: template
             .parenate_parameters(db)
             .iter()
-            .map(|param| -> EtherealTermRitchieParameter {
+            .map(|param| -> EtherealRitchieParameter {
                 param.instantiate(db, &instantiation).into()
             })
             .collect(),
@@ -104,13 +104,13 @@ fn trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitForTypeMethodFnEtherealSignature {
-    self_value_parameter: EtherealTermRitchieParameter,
-    parenate_parameters: SmallVec<[EtherealTermRitchieParameter; 4]>,
+    self_value_parameter: EtherealRitchieParameter,
+    parenate_parameters: SmallVec<[EtherealRitchieParameter; 4]>,
     return_ty: EtherealTerm,
 }
 
 impl TraitForTypeMethodFnEtherealSignature {
-    pub fn parenate_parameters(&self) -> &[EtherealTermRitchieParameter] {
+    pub fn parenate_parameters(&self) -> &[EtherealRitchieParameter] {
         &self.parenate_parameters
     }
 

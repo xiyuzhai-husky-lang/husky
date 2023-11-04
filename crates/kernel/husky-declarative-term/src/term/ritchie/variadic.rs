@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = DeclarativeTermDb)]
-pub struct DeclarativeTermRitchieVariadicParameter {
+pub struct DeclarativeRitchieVariadicParameter {
     contract: Contract,
     ty: DeclarativeTerm,
 }
 
-impl DeclarativeTermRitchieVariadicParameter {
+impl DeclarativeRitchieVariadicParameter {
     pub fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
         Self { contract, ty }
     }
@@ -37,7 +37,7 @@ impl DeclarativeTermRitchieVariadicParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for DeclarativeTermRitchieVariadicParameter
+impl<Db> salsa::DisplayWithDb<Db> for DeclarativeRitchieVariadicParameter
 where
     Db: DeclarativeTermDb + ?Sized,
 {

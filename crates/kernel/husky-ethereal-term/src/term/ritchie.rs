@@ -13,7 +13,7 @@ use super::*;
 pub struct EtherealTermRitchie {
     pub ritchie_kind: RitchieKind,
     #[return_ref]
-    pub parameter_contracted_tys: Vec<EtherealTermRitchieParameter>,
+    pub parameter_contracted_tys: Vec<EtherealRitchieParameter>,
     pub return_ty: EtherealTerm,
 }
 
@@ -31,7 +31,7 @@ impl EtherealTermRitchie {
     pub fn new(
         db: &dyn EtherealTermDb,
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: impl IntoIterator<Item = EtherealTermRitchieParameter>,
+        parameter_contracted_tys: impl IntoIterator<Item = EtherealRitchieParameter>,
         return_ty: EtherealTerm,
     ) -> EtherealTermResult<EtherealTermRitchie> {
         // todo!("check_application_validity(db, function, argument, shift)?");
@@ -49,7 +49,7 @@ impl EtherealTermRitchie {
     pub(crate) fn new_unchecked(
         db: &dyn EtherealTermDb,
         ritchie_kind: RitchieKind,
-        parameter_tys: impl IntoIterator<Item = EtherealTermRitchieParameter>,
+        parameter_tys: impl IntoIterator<Item = EtherealRitchieParameter>,
         return_ty: EtherealTerm,
     ) -> EtherealTermRitchie {
         Self::new_inner(
@@ -68,7 +68,7 @@ impl EtherealTermRitchie {
     fn new_unchecked2<E>(
         db: &dyn EtherealTermDb,
         ritchie_kind: RitchieKind,
-        parameter_tys: impl IntoIterator<Item = Result<EtherealTermRitchieParameter, E>>,
+        parameter_tys: impl IntoIterator<Item = Result<EtherealRitchieParameter, E>>,
         return_ty: EtherealTerm,
     ) -> EtherealTermResult<EtherealTermRitchie>
     where
@@ -133,32 +133,32 @@ pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
             .params(db)
             .iter()
             .map(|&param| -> EtherealTermResult<_> {
-                EtherealTermRitchieParameter::from_declarative(db, param)
+                EtherealRitchieParameter::from_declarative(db, param)
             }),
         EtherealTerm::ty_from_declarative(db, declarative_term_ritchie.return_ty(db))?,
     )
 }
 
-impl EtherealTermRitchieParameter {
+impl EtherealRitchieParameter {
     pub fn from_declarative(
         db: &dyn EtherealTermDb,
-        param: DeclarativeTermRitchieParameter,
+        param: DeclarativeRitchieParameter,
     ) -> EtherealTermResult<Self> {
         Ok(match param {
-            DeclarativeTermRitchieParameter::Regular(param) => {
-                EtherealTermRitchieRegularParameter::from_declarative(db, param)?.into()
+            DeclarativeRitchieParameter::Regular(param) => {
+                EtherealRitchieRegularParameter::from_declarative(db, param)?.into()
             }
-            DeclarativeTermRitchieParameter::Variadic(param) => {
-                EtherealTermRitchieVariadicParameter::from_declarative(db, param)?.into()
+            DeclarativeRitchieParameter::Variadic(param) => {
+                EtherealRitchieVariadicParameter::from_declarative(db, param)?.into()
             }
-            DeclarativeTermRitchieParameter::Keyed(param) => {
-                EtherealTermRitchieKeyedParameter::from_declarative(db, param)?.into()
+            DeclarativeRitchieParameter::Keyed(param) => {
+                EtherealRitchieKeyedParameter::from_declarative(db, param)?.into()
             }
         })
     }
 }
 
-impl EtherealTermInstantiate for EtherealTermRitchieParameter {
+impl EtherealTermInstantiate for EtherealRitchieParameter {
     type Target = Self;
 
     fn instantiate(
@@ -201,18 +201,18 @@ where
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb)]
 #[enum_class::from_variants]
-pub enum EtherealTermRitchieParameter {
-    Regular(EtherealTermRitchieRegularParameter),
-    Variadic(EtherealTermRitchieVariadicParameter),
-    Keyed(EtherealTermRitchieKeyedParameter),
+pub enum EtherealRitchieParameter {
+    Regular(EtherealRitchieRegularParameter),
+    Variadic(EtherealRitchieVariadicParameter),
+    Keyed(EtherealRitchieKeyedParameter),
 }
 
-impl EtherealTermRitchieParameter {
+impl EtherealRitchieParameter {
     fn reduce(self, db: &dyn EtherealTermDb) -> Self {
         match self {
-            EtherealTermRitchieParameter::Regular(param) => param.reduce(db).into(),
-            EtherealTermRitchieParameter::Variadic(param) => param.reduce(db).into(),
-            EtherealTermRitchieParameter::Keyed(param) => param.reduce(db).into(),
+            EtherealRitchieParameter::Regular(param) => param.reduce(db).into(),
+            EtherealRitchieParameter::Variadic(param) => param.reduce(db).into(),
+            EtherealRitchieParameter::Keyed(param) => param.reduce(db).into(),
         }
     }
 
@@ -223,14 +223,14 @@ impl EtherealTermRitchieParameter {
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         match self {
-            EtherealTermRitchieParameter::Regular(param) => param.show_with_db_fmt(f, db, ctx),
-            EtherealTermRitchieParameter::Variadic(param) => param.show_with_db_fmt(f, db, ctx),
-            EtherealTermRitchieParameter::Keyed(param) => param.show_with_db_fmt(f, db, ctx),
+            EtherealRitchieParameter::Regular(param) => param.show_with_db_fmt(f, db, ctx),
+            EtherealRitchieParameter::Variadic(param) => param.show_with_db_fmt(f, db, ctx),
+            EtherealRitchieParameter::Keyed(param) => param.show_with_db_fmt(f, db, ctx),
         }
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for EtherealTermRitchieParameter
+impl<Db> salsa::DisplayWithDb<Db> for EtherealRitchieParameter
 where
     Db: EtherealTermDb + ?Sized,
 {
@@ -241,16 +241,14 @@ where
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         match self {
-            EtherealTermRitchieParameter::Regular(param) => param.display_with_db_fmt(f, db, level),
-            EtherealTermRitchieParameter::Variadic(param) => {
-                param.display_with_db_fmt(f, db, level)
-            }
-            EtherealTermRitchieParameter::Keyed(param) => param.display_with_db_fmt(f, db, level),
+            EtherealRitchieParameter::Regular(param) => param.display_with_db_fmt(f, db, level),
+            EtherealRitchieParameter::Variadic(param) => param.display_with_db_fmt(f, db, level),
+            EtherealRitchieParameter::Keyed(param) => param.display_with_db_fmt(f, db, level),
         }
     }
 }
 
-impl EtherealTermRitchieParameter {
+impl EtherealRitchieParameter {
     // pub fn new(contract: Contract, ty: EtherealTerm) -> Self {
     //     Self { contract, ty }
     // }
@@ -261,9 +259,9 @@ impl EtherealTermRitchieParameter {
 
     pub fn ty(&self) -> EtherealTerm {
         match self {
-            EtherealTermRitchieParameter::Regular(param) => param.ty(),
-            EtherealTermRitchieParameter::Variadic(param) => param.ty(),
-            EtherealTermRitchieParameter::Keyed(param) => param.ty(),
+            EtherealRitchieParameter::Regular(param) => param.ty(),
+            EtherealRitchieParameter::Variadic(param) => param.ty(),
+            EtherealRitchieParameter::Keyed(param) => param.ty(),
         }
     }
 }

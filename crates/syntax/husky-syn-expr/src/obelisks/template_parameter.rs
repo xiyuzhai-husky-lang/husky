@@ -4,18 +4,18 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct TemplateParameterObelisk {
+pub struct SynTemplateParameterObelisk {
     annotated_variance_token: Option<VarianceRegionalToken>,
     symbol: SynCurrentSymbolIdx,
-    data: TemplateParameterObeliskData,
+    data: SynTemplateParameterObeliskData,
 }
 
-impl TemplateParameterObelisk {
+impl SynTemplateParameterObelisk {
     pub fn symbol(&self) -> SynCurrentSymbolIdx {
         self.symbol
     }
 
-    pub fn data(&self) -> &TemplateParameterObeliskData {
+    pub fn data(&self) -> &SynTemplateParameterObeliskData {
         &self.data
     }
 
@@ -26,7 +26,7 @@ impl TemplateParameterObelisk {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum TemplateParameterObeliskData {
+pub enum SynTemplateParameterObeliskData {
     Type {
         ident_token: IdentRegionalToken,
         traits: Option<(ColonRegionalToken, SynExprIdx)>,
@@ -45,7 +45,7 @@ pub enum TemplateParameterObeliskData {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParameterObelisk {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplateParameterObelisk {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -71,11 +71,11 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 [parameter_symbol],
                 Some(ObeliskTypeConstraint::TemplateTypeParameter),
             );
-            Ok(Some(TemplateParameterObelisk {
+            Ok(Some(SynTemplateParameterObelisk {
                 // todo: maybe we don't need to put it there, it's redundant
                 annotated_variance_token,
                 symbol: symbols.start(),
-                data: TemplateParameterObeliskData::Type {
+                data: SynTemplateParameterObeliskData::Type {
                     ident_token,
                     traits: if let Some(colon) = ctx.try_parse_option::<ColonRegionalToken>()? {
                         Some((
@@ -109,10 +109,10 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 )],
                 Some(ObeliskTypeConstraint::TemplateTypeParameter),
             );
-            Ok(Some(TemplateParameterObelisk {
+            Ok(Some(SynTemplateParameterObelisk {
                 annotated_variance_token,
                 symbol: symbols.start(),
-                data: TemplateParameterObeliskData::Lifetime { label_token },
+                data: SynTemplateParameterObeliskData::Lifetime { label_token },
             }))
         } else if let Some(label_token) = ctx.try_parse_option::<PlaceLabelRegionalToken>()? {
             let access_start = ctx.save_state().next_regional_token_idx();
@@ -132,10 +132,10 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                     Some(ObeliskTypeConstraint::TemplateTypeParameter),
                 )
                 .start();
-            Ok(Some(TemplateParameterObelisk {
+            Ok(Some(SynTemplateParameterObelisk {
                 annotated_variance_token,
                 symbol,
-                data: TemplateParameterObeliskData::Place { label_token },
+                data: SynTemplateParameterObeliskData::Place { label_token },
             }))
         } else if let Some(const_token) = ctx.try_parse_option::<ConstRegionalToken>()? {
             let ident_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedIdent)?;
@@ -168,10 +168,10 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                     Some(ObeliskTypeConstraint::TemplateTypeParameter),
                 )
                 .start(); // take start because there is only one symbol to define
-            Ok(Some(TemplateParameterObelisk {
+            Ok(Some(SynTemplateParameterObelisk {
                 annotated_variance_token,
                 symbol,
-                data: TemplateParameterObeliskData::Constant {
+                data: SynTemplateParameterObeliskData::Constant {
                     const_token,
                     ident_token,
                     colon_token,

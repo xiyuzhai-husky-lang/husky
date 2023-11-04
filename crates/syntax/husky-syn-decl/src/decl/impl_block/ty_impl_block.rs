@@ -7,7 +7,7 @@ pub struct TypeImplBlockSynNodeDecl {
     pub syn_node_path: TypeImplBlockSynNodePath,
     pub impl_regional_token: ImplRegionalToken,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
     pub self_ty_expr: SelfTypeObelisk,
     #[return_ref]
     pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
@@ -68,7 +68,7 @@ pub struct TypeImplBlockSynDecl {
     #[id]
     pub path: TypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: SynTemplateParameterObelisks,
     pub self_ty_expr: SelfTypeObelisk,
     pub syn_expr_region: SynExprRegion,
 }
@@ -89,7 +89,7 @@ impl TypeImplBlockSynDecl {
             .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.template_parameters().to_smallvec())
+            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
             .unwrap_or_default();
         let self_ty_expr = syn_node_decl.self_ty_expr(db);
         let syn_expr_region = syn_node_decl.syn_expr_region(db);

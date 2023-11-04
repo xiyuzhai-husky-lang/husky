@@ -583,7 +583,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     .into_iter()
                     .map(|parameter_ty_item| {
                         // todo: support variadic, and keyed??
-                        Ok(DeclarativeTermRitchieRegularParameter::new(
+                        Ok(DeclarativeRitchieRegularParameter::new(
                             // todo: handle &mut !!
                             Contract::None,
                             self.infer_new_expr_term(parameter_ty_item.syn_expr_idx())?,

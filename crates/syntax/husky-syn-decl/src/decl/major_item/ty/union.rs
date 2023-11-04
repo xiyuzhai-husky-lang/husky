@@ -1,15 +1,15 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct UnitStructTypeSynNodeDecl {
+pub struct UnionTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
-    pub syn_expr_region: SynExprRegion,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
+    pub syn_expr_region: SynExprRegion,
 }
 
-impl UnitStructTypeSynNodeDecl {
+impl UnionTypeSynNodeDecl {
     pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
@@ -21,20 +21,20 @@ impl UnitStructTypeSynNodeDecl {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct UnitStructTypeSynDecl {
+pub struct UnionTypeSynDecl {
     #[id]
     pub path: TypePath,
-    pub syn_expr_region: SynExprRegion,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: SynTemplateParameterObelisks,
+    pub syn_expr_region: SynExprRegion,
 }
 
-impl UnitStructTypeSynDecl {
+impl UnionTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &dyn SynDeclDb,
         path: TypePath,
-        syn_node_decl: UnitStructTypeSynNodeDecl,
+        syn_node_decl: UnionTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         todo!()
     }

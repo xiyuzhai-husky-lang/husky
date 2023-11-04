@@ -66,9 +66,9 @@ impl PropsStructFieldDeclarativeSignatureTemplate {
         self.ty
     }
 
-    pub fn into_ritchie_parameter_contracted_ty(self) -> Option<DeclarativeTermRitchieParameter> {
+    pub fn into_ritchie_parameter_contracted_ty(self) -> Option<DeclarativeRitchieParameter> {
         (!self.has_initialization)
-            .then_some(DeclarativeTermRitchieRegularParameter::new(Contract::Move, self.ty).into())
+            .then_some(DeclarativeRitchieRegularParameter::new(Contract::Move, self.ty).into())
     }
 }
 

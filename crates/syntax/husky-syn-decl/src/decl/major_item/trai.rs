@@ -5,7 +5,7 @@ pub struct TraitSynNodeDecl {
     #[id]
     pub syn_node_path: TraitSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -54,7 +54,7 @@ pub struct TraitSynDecl {
     #[id]
     pub path: TraitPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: SynTemplateParameterObelisks,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -68,7 +68,7 @@ impl TraitSynDecl {
             .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.template_parameters().to_smallvec())
+            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
             .unwrap_or_default();
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(TraitSynDecl::new(

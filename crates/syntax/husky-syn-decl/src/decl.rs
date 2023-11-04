@@ -1,14 +1,14 @@
 mod associated_item;
 mod attr;
 mod impl_block;
-mod module_item;
+mod major_item;
 mod submodule;
 mod ty_variant;
 
 pub use self::associated_item::*;
 pub use self::attr::*;
 pub use self::impl_block::*;
-pub use self::module_item::*;
+pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
 
@@ -86,7 +86,10 @@ pub enum SynDecl {
 }
 
 impl SynDecl {
-    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterObelisk] {
+    pub fn template_parameters<'a>(
+        self,
+        db: &'a dyn SynDeclDb,
+    ) -> &'a [SynTemplateParameterObelisk] {
         match self {
             SynDecl::Submodule(_) => todo!(),
             SynDecl::MajorItem(decl) => decl.template_parameters(db),

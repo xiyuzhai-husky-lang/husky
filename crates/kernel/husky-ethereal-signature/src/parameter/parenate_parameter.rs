@@ -5,7 +5,7 @@ use husky_term_prelude::Contract;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = EtherealSignatureDb)]
 pub struct EtherealTermParenateParameters {
-    data: SmallVec<[EtherealTermRitchieParameter; 4]>,
+    data: SmallVec<[EtherealRitchieParameter; 4]>,
 }
 
 impl EtherealTermParenateParameters {
@@ -17,18 +17,18 @@ impl EtherealTermParenateParameters {
             data: params
                 .iter()
                 .copied()
-                .map(|param| EtherealTermRitchieParameter::from_declarative(db, param))
+                .map(|param| EtherealRitchieParameter::from_declarative(db, param))
                 .collect::<EtherealTermResult<_>>()?,
         })
     }
 
-    pub fn data(&self) -> &[EtherealTermRitchieParameter] {
+    pub fn data(&self) -> &[EtherealRitchieParameter] {
         &self.data
     }
 }
 
 impl std::ops::Deref for EtherealTermParenateParameters {
-    type Target = [EtherealTermRitchieParameter];
+    type Target = [EtherealRitchieParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data

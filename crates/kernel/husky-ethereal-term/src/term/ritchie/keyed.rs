@@ -2,46 +2,34 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 // #[salsa::derive_debug_with_db(db = EtherealTermDb)]
-pub struct EtherealTermRitchieKeyedParameter {
+pub struct EtherealRitchieKeyedParameter {
     key: Ident,
     contract: Contract,
     ty: EtherealTerm,
-    default: Option<EtherealTerm>,
+    has_default: bool,
 }
 
-impl EtherealTermRitchieKeyedParameter {
-    pub fn new(
-        key: Ident,
-        contract: Contract,
-        ty: EtherealTerm,
-        default: Option<EtherealTerm>,
-    ) -> Self {
+impl EtherealRitchieKeyedParameter {
+    pub fn new(key: Ident, contract: Contract, ty: EtherealTerm, has_default: bool) -> Self {
         Self {
             key,
             contract,
             ty,
-            default,
+            has_default,
         }
     }
 
     pub(super) fn from_declarative(
         db: &dyn EtherealTermDb,
-        param: DeclarativeTermRitchieKeyedParameter,
+        param: DeclarativeRitchieKeyedParameter,
     ) -> EtherealTermResult<Self> {
         let ty = EtherealTerm::ty_from_declarative(db, param.ty())?;
-        let default = match param.default() {
-            Some(default) => Some(EtherealTerm::from_declarative(
-                db,
-                default,
-                ty.ty_expectation(db)?,
-            )?),
-            None => None,
-        };
-        Ok(EtherealTermRitchieKeyedParameter {
+        let has_default = param.has_default();
+        Ok(EtherealRitchieKeyedParameter {
             key: param.key(),
             contract: param.contract(),
             ty,
-            default,
+            has_default,
         })
     }
 
@@ -57,8 +45,8 @@ impl EtherealTermRitchieKeyedParameter {
         self.ty
     }
 
-    pub fn default(&self) -> Option<EtherealTerm> {
-        self.default
+    pub fn has_default(&self) -> bool {
+        self.has_default
     }
 
     pub(super) fn reduce(self, db: &dyn EtherealTermDb) -> Self {
@@ -66,7 +54,7 @@ impl EtherealTermRitchieKeyedParameter {
             key: self.key,
             contract: self.contract,
             ty: self.ty.reduce(db),
-            default: self.default.map(|default| default.reduce(db)),
+            has_default: self.has_default,
         }
     }
 
@@ -81,7 +69,7 @@ impl EtherealTermRitchieKeyedParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for EtherealTermRitchieKeyedParameter
+impl<Db> salsa::DisplayWithDb<Db> for EtherealRitchieKeyedParameter
 where
     Db: EtherealTermDb + ?Sized,
 {

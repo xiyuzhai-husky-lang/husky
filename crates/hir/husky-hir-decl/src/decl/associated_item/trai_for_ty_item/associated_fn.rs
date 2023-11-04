@@ -6,7 +6,7 @@ pub struct TraitForTypeAssociatedFnHirDecl {
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     #[return_ref]
-    pub parenate_parameters: HirRitchieParameters,
+    pub parenate_parameters: HirParenateParameters,
     pub return_ty: HirType,
 }
 
@@ -17,9 +17,9 @@ impl TraitForTypeAssociatedFnHirDecl {
         db: &dyn HirDeclDb,
     ) -> Self {
         let template_parameters =
-            HirTemplateParameters::from_ethereal(template.template_parameters(db), db);
+            HirTemplateParameters::from_syn(template.template_parameters(db), db);
         let parenate_parameters =
-            HirRitchieParameters::from_ethereal(template.parenate_parameters(db), db);
+            HirParenateParameters::from_syn(template.parenate_parameters(db), db);
         let return_ty = HirType::from_ethereal(template.return_ty(db), db);
         Self::new(
             db,
