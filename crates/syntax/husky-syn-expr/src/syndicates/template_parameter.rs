@@ -4,13 +4,13 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct SynTemplateParameterSyndicate {
+pub struct TemplateParameterSyndicate {
     annotated_variance_token: Option<VarianceRegionalToken>,
     symbol: SynCurrentSymbolIdx,
     data: SynTemplateParameterSyndicateData,
 }
 
-impl SynTemplateParameterSyndicate {
+impl TemplateParameterSyndicate {
     pub fn symbol(&self) -> SynCurrentSymbolIdx {
         self.symbol
     }
@@ -45,7 +45,7 @@ pub enum SynTemplateParameterSyndicateData {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplateParameterSyndicate {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParameterSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -71,7 +71,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplatePara
                 [parameter_symbol],
                 Some(SyndicateTypeConstraint::TemplateTypeParameter),
             );
-            Ok(Some(SynTemplateParameterSyndicate {
+            Ok(Some(TemplateParameterSyndicate {
                 // todo: maybe we don't need to put it there, it's redundant
                 annotated_variance_token,
                 symbol: symbols.start(),
@@ -109,7 +109,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplatePara
                 )],
                 Some(SyndicateTypeConstraint::TemplateTypeParameter),
             );
-            Ok(Some(SynTemplateParameterSyndicate {
+            Ok(Some(TemplateParameterSyndicate {
                 annotated_variance_token,
                 symbol: symbols.start(),
                 data: SynTemplateParameterSyndicateData::Lifetime { label_token },
@@ -132,7 +132,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplatePara
                     Some(SyndicateTypeConstraint::TemplateTypeParameter),
                 )
                 .start();
-            Ok(Some(SynTemplateParameterSyndicate {
+            Ok(Some(TemplateParameterSyndicate {
                 annotated_variance_token,
                 symbol,
                 data: SynTemplateParameterSyndicateData::Place { label_token },
@@ -168,7 +168,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplatePara
                     Some(SyndicateTypeConstraint::TemplateTypeParameter),
                 )
                 .start(); // take start because there is only one symbol to define
-            Ok(Some(SynTemplateParameterSyndicate {
+            Ok(Some(TemplateParameterSyndicate {
                 annotated_variance_token,
                 symbol,
                 data: SynTemplateParameterSyndicateData::Constant {

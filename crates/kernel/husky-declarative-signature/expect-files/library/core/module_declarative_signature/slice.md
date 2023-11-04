@@ -135,7 +135,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::slice::Slice t`),
                             },
@@ -198,20 +198,20 @@
                                     },
                                 ],
                             },
-                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: BorrowMut,
                                 ty: DeclarativeTerm(`core::slice::Slice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::usize`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::usize`),
                                         },
@@ -374,7 +374,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
@@ -427,7 +427,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
@@ -480,7 +480,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
@@ -533,7 +533,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
@@ -586,7 +586,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },

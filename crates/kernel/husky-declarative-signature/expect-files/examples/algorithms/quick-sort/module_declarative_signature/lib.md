@@ -25,8 +25,8 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: DeclarativeTerm(`core::slice::Slice t`),
                                         },
@@ -66,20 +66,20 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: DeclarativeTerm(`core::slice::Slice t`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::isize`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::isize`),
                                         },
@@ -119,20 +119,20 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: Move,
                                             ty: DeclarativeTerm(`core::slice::Slice t`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::isize`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::isize`),
                                         },

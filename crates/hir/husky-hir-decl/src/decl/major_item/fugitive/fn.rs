@@ -16,7 +16,7 @@ impl FnFugitiveHirDecl {
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
-            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
+            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
         let return_ty = syn_decl
             .return_ty(db)
             .map(|syndicate| builder.hir_ty(syndicate.syn_expr_idx()))

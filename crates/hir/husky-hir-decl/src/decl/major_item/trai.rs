@@ -18,9 +18,10 @@ impl HasHirDecl for TraitPath {
 #[salsa::tracked(jar = HirDeclJar)]
 fn trai_hir_decl(db: &dyn HirDeclDb, path: TraitPath) -> TraitHirDecl {
     let syn_decl = path.syn_decl(db).expect("ok");
+    let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
     TraitHirDecl::new(
         db,
         path,
-        HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db),
+        HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder),
     )
 }

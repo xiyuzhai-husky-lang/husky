@@ -69,14 +69,14 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                         },
@@ -106,14 +106,14 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                         },
@@ -143,14 +143,14 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                         },
@@ -180,20 +180,20 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                         },
@@ -223,14 +223,14 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
                                         },
@@ -260,26 +260,26 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
                                         },
@@ -342,8 +342,8 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`[] mnist_classifier::geom2d::Point2d`),
                                         },
@@ -373,8 +373,8 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
                                         },
@@ -451,7 +451,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
@@ -645,20 +645,20 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                         },

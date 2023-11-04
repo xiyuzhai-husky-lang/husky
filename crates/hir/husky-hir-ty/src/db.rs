@@ -1,9 +1,23 @@
-use crate::{trai::HirTrait, *};
+use crate::{
+    menu::{hir_ty_menu, HirTypeMenu},
+    trai::HirTrait,
+    *,
+};
 use husky_ethereal_signature::EtherealSignatureDb;
+use husky_vfs::Toolchain;
 
-pub trait HirTypeDb: salsa::DbWithJar<HirTypeJar> + EtherealSignatureDb {}
+pub trait HirTypeDb: salsa::DbWithJar<HirTypeJar> + EtherealSignatureDb {
+    fn hir_ty_menu(&self, toolchain: Toolchain) -> &HirTypeMenu;
+}
 
-impl<Db> HirTypeDb for Db where Db: salsa::DbWithJar<HirTypeJar> + EtherealSignatureDb {}
+impl<Db> HirTypeDb for Db
+where
+    Db: salsa::DbWithJar<HirTypeJar> + EtherealSignatureDb,
+{
+    fn hir_ty_menu(&self, toolchain: Toolchain) -> &HirTypeMenu {
+        hir_ty_menu(self, toolchain)
+    }
+}
 
 #[salsa::jar(db = HirTypeDb)]
 pub struct HirTypeJar(
@@ -16,4 +30,5 @@ pub struct HirTypeJar(
     hir_ty_from_ethereal_term_application,
     HirTrait,
     crate::trai::hir_trai_from_ethereal_term_application,
+    crate::menu::hir_ty_menu,
 );

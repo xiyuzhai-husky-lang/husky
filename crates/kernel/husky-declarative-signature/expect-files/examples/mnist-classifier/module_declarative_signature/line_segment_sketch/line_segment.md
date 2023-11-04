@@ -84,7 +84,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                             },
@@ -127,14 +127,14 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Regular(
-                                        DeclarativeTermRitchieRegularParameter {
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                                         },

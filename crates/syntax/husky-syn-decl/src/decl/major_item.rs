@@ -70,7 +70,7 @@ impl MajorItemSynDecl {
     pub fn template_parameters<'a>(
         self,
         db: &'a dyn SynDeclDb,
-    ) -> &'a [SynTemplateParameterSyndicate] {
+    ) -> &'a [TemplateParameterSyndicate] {
         match self {
             MajorItemSynDecl::Type(decl) => decl.template_parameters(db),
             MajorItemSynDecl::Fugitive(decl) => decl.template_parameters(db),

@@ -26,7 +26,7 @@ impl FugitiveHirDecl {
     pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
         match self {
             FugitiveHirDecl::FunctionFn(decl) => decl.template_parameters(db),
-            FugitiveHirDecl::Val(_decl) => Default::default(),
+            FugitiveHirDecl::Val(_decl) => &[],
             FugitiveHirDecl::FunctionGn(decl) => decl.template_parameters(db),
             FugitiveHirDecl::TypeAlias(_) => todo!(),
         }

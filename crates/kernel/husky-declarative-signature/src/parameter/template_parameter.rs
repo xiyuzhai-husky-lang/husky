@@ -9,7 +9,7 @@ pub struct DeclarativeTemplateParameter {
 
 impl DeclarativeTemplateParameter {
     fn new_explicit_from_decl(
-        parameter_decl_pattern: &SynTemplateParameterSyndicate,
+        parameter_decl_pattern: &TemplateParameterSyndicate,
         region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
     ) -> DeclarativeTemplateParameter {
@@ -106,7 +106,7 @@ pub struct DeclarativeTemplateParameterTemplates {
 
 impl DeclarativeTemplateParameterTemplates {
     pub(crate) fn from_decl(
-        template_parameter_obelisks: &[SynTemplateParameterSyndicate],
+        template_parameter_obelisks: &[TemplateParameterSyndicate],
         declarative_term_region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
     ) -> Self {
