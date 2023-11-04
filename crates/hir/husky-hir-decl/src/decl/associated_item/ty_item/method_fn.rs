@@ -14,25 +14,23 @@ pub struct TypeMethodFnHirDecl {
 }
 
 impl TypeMethodFnHirDecl {
-    pub(super) fn from_ethereal(
+    pub(super) fn from_syn(
         path: TypeItemPath,
         ethereal_signature_template: TypeMethodFnEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let self_ty = HirType::from_ethereal(ethereal_signature_template.self_ty(db), db);
-        let template_parameters = HirTemplateParameters::from_ethereal(
+        let self_ty = HirType::from_syn(ethereal_signature_template.self_ty(db), db);
+        let template_parameters = HirTemplateParameters::from_syn(
             ethereal_signature_template.template_parameters(db),
             db,
         );
-        let self_value_parameter = HirRitchieParameter::from_ethereal_regular(
+        let self_value_parameter = HirRitchieParameter::from_syn_regular(
             ethereal_signature_template.self_value_parameter(db),
             db,
         );
-        let parenate_parameters = HirRitchieParameters::from_ethereal(
-            ethereal_signature_template.parenate_parameters(db),
-            db,
-        );
-        let return_ty = HirType::from_ethereal(ethereal_signature_template.return_ty(db), db);
+        let parenate_parameters =
+            HirRitchieParameters::from_syn(ethereal_signature_template.parenate_parameters(db), db);
+        let return_ty = HirType::from_syn(ethereal_signature_template.return_ty(db), db);
         TypeMethodFnHirDecl::new(
             db,
             path,

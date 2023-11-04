@@ -63,7 +63,7 @@ pub struct TraitForTypeAssociatedTypeSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: SynTemplateParameterObelisks,
+    pub template_parameters: TemplateParameterObelisks,
     pub ty_term_expr_idx: SynExprIdx,
     pub syn_expr_region: SynExprRegion,
 }

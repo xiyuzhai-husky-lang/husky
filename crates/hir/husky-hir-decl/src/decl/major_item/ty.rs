@@ -85,17 +85,17 @@ fn ty_hir_decl(db: &dyn HirDeclDb, path: TypePath) -> Option<TypeHirDecl> {
         .expect("no errors for hir stage")
     {
         TypeEtherealSignatureTemplate::Enum(ethereal_signature_template) => {
-            Some(EnumTypeHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
+            Some(EnumTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
         }
-        TypeEtherealSignatureTemplate::PropsStruct(ethereal_signature_template) => Some(
-            PropsStructTypeHirDecl::from_ethereal(path, ethereal_signature_template, db).into(),
-        ),
+        TypeEtherealSignatureTemplate::PropsStruct(ethereal_signature_template) => {
+            Some(PropsStructTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
+        }
         TypeEtherealSignatureTemplate::UnitStruct(ethereal_signature_template) => {
-            Some(UnitStructTypeHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
+            Some(UnitStructTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
         }
-        TypeEtherealSignatureTemplate::TupleStruct(ethereal_signature_template) => Some(
-            TupleStructTypeHirDecl::from_ethereal(path, ethereal_signature_template, db).into(),
-        ),
+        TypeEtherealSignatureTemplate::TupleStruct(ethereal_signature_template) => {
+            Some(TupleStructTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
+        }
         TypeEtherealSignatureTemplate::Record(_) => todo!(),
         TypeEtherealSignatureTemplate::Inductive(_)
         | TypeEtherealSignatureTemplate::Structure(_) => None,

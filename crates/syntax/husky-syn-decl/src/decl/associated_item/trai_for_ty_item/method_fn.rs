@@ -78,7 +78,7 @@ pub struct TraitForTypeMethodFnSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: SynTemplateParameterObelisks,
+    pub template_parameters: TemplateParameterObelisks,
     pub self_value_parameter: Option<SelfParameterObelisk>,
     #[return_ref]
     pub parenate_parameters: ParenateParameterObelisks,

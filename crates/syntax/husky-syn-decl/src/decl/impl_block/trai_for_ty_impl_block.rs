@@ -114,7 +114,7 @@ pub struct TraitForTypeImplBlockSynDecl {
     #[id]
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: SynTemplateParameterObelisks,
+    pub template_parameters: TemplateParameterObelisks,
     pub trai_expr: TraitObelisk,
     pub self_ty_decl: SelfTypeDecl,
     pub syn_expr_region: SynExprRegion,

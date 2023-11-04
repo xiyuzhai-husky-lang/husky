@@ -68,7 +68,7 @@ pub struct TypeImplBlockSynDecl {
     #[id]
     pub path: TypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: SynTemplateParameterObelisks,
+    pub template_parameters: TemplateParameterObelisks,
     pub self_ty_expr: SelfTypeObelisk,
     pub syn_expr_region: SynExprRegion,
 }

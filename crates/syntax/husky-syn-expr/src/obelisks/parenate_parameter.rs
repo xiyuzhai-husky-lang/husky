@@ -4,36 +4,7 @@ use parsec::{HasStreamState, TryParseOptionFromStream};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum VariadicVariant {
-    Default,
-    Vec {
-        lbox_token: LboxRegionalToken,
-        rbox_token: RboxRegionalToken,
-    },
-}
-
-impl<'a, 'b> TryParseFromStream<SynDeclExprParser<'a>> for VariadicVariant {
-    type Error = SynExprError;
-
-    fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
-        if let Some(lbox_token) = sp.try_parse_option::<LboxRegionalToken>()? {
-            if let Some(rbox_token) = sp.try_parse_option::<RboxRegionalToken>()? {
-                Ok(VariadicVariant::Vec {
-                    lbox_token,
-                    rbox_token,
-                })
-            } else {
-                todo!()
-            }
-        } else {
-            Ok(VariadicVariant::Default)
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum SpecificParameterObelisk {
+pub enum SynParenateParameterObelisk {
     Regular {
         syn_pattern_root: SynPatternRoot,
         variables: SynCurrentSymbolIdxRange,
@@ -42,7 +13,7 @@ pub enum SpecificParameterObelisk {
     },
     Variadic {
         dot_dot_dot_token: DotDotDotRegionalToken,
-        variadic_variant: VariadicVariant,
+        variadic_variant: SynVariadicParameterVariant,
         symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
         variable: SynCurrentSymbolIdx,
@@ -62,7 +33,17 @@ pub enum SpecificParameterObelisk {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParameterObelisk {
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
+pub enum SynVariadicParameterVariant {
+    Default,
+    Vec {
+        lbox_token: LboxRegionalToken,
+        rbox_token: RboxRegionalToken,
+    },
+}
+
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynParenateParameterObelisk {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -124,7 +105,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                         OriginalSynExprError::ExpectedExplicitParameterDefaultValue,
                     ))
                 };
-                Ok(Some(SpecificParameterObelisk::Keyed {
+                Ok(Some(SynParenateParameterObelisk::Keyed {
                     syn_pattern_root,
                     symbol_modifier_keyword_group,
                     ident_token,
@@ -135,7 +116,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                     default,
                 }))
             } else {
-                Ok(Some(SpecificParameterObelisk::Regular {
+                Ok(Some(SynParenateParameterObelisk::Regular {
                     syn_pattern_root: syn_pattern_root,
                     variables,
                     colon,
@@ -170,7 +151,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
                 variable,
                 Some(ObeliskTypeConstraint::ExplicitVariadicParameter { ty }),
             );
-            Ok(Some(SpecificParameterObelisk::Variadic {
+            Ok(Some(SynParenateParameterObelisk::Variadic {
                 dot_dot_dot_token,
                 variadic_variant,
                 symbol_modifier_keyword_group,
@@ -181,6 +162,25 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SpecificParamet
             }))
         } else {
             Ok(None)
+        }
+    }
+}
+
+impl<'a, 'b> TryParseFromStream<SynDeclExprParser<'a>> for SynVariadicParameterVariant {
+    type Error = SynExprError;
+
+    fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
+        if let Some(lbox_token) = sp.try_parse_option::<LboxRegionalToken>()? {
+            if let Some(rbox_token) = sp.try_parse_option::<RboxRegionalToken>()? {
+                Ok(SynVariadicParameterVariant::Vec {
+                    lbox_token,
+                    rbox_token,
+                })
+            } else {
+                todo!()
+            }
+        } else {
+            Ok(SynVariadicParameterVariant::Default)
         }
     }
 }

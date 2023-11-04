@@ -9,7 +9,7 @@ pub struct EnumTypeHirDecl {
 }
 
 impl EnumTypeHirDecl {
-    pub(super) fn from_ethereal(
+    pub(super) fn from_syn(
         path: TypePath,
         ethereal_signature_template: EnumTypeEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
@@ -17,7 +17,7 @@ impl EnumTypeHirDecl {
         let TypeSynDecl::Enum(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()
         };
-        let template_parameters = HirTemplateParameters::from_ethereal(
+        let template_parameters = HirTemplateParameters::from_syn(
             ethereal_signature_template.template_parameters(db),
             db,
         );

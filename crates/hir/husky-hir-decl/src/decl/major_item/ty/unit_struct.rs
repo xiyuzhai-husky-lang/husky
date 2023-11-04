@@ -9,7 +9,7 @@ pub struct UnitStructTypeHirDecl {
 }
 
 impl UnitStructTypeHirDecl {
-    pub(super) fn from_ethereal(
+    pub(super) fn from_syn(
         path: TypePath,
         ethereal_signature_template: UnitStructTypeEtherealSignatureTemplate,
         db: &dyn HirDeclDb,

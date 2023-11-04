@@ -17,7 +17,7 @@ impl ExternTypeHirDecl {
         let TypeSynDecl::Extern(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()
         };
-        let template_parameters = HirTemplateParameters::from_ethereal(
+        let template_parameters = HirTemplateParameters::from_syn(
             ethereal_signature_template.template_parameters(db),
             db,
         );

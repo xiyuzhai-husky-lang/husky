@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_decl::TraitForTypeAssociatedFnSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct TraitForTypeAssociatedFnHirDecl {
@@ -11,16 +12,16 @@ pub struct TraitForTypeAssociatedFnHirDecl {
 }
 
 impl TraitForTypeAssociatedFnHirDecl {
-    pub(super) fn from_ethereal(
+    pub(super) fn from_syn(
         path: TraitForTypeItemPath,
-        template: TraitForTypeAssociatedFnEtherealSignatureTemplate,
+        syn_decl: TraitForTypeAssociatedFnSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
         let template_parameters =
-            HirTemplateParameters::from_syn(template.template_parameters(db), db);
+            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
         let parenate_parameters =
-            HirParenateParameters::from_syn(template.parenate_parameters(db), db);
-        let return_ty = HirType::from_ethereal(template.return_ty(db), db);
+            HirParenateParameters::from_syn(syn_decl.parenate_parameters(db), db);
+        let return_ty = HirType::from_syn(syn_decl.return_ty(db), db);
         Self::new(
             db,
             path,

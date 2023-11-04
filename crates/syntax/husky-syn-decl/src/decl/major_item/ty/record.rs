@@ -25,7 +25,7 @@ pub struct RecordTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: SynTemplateParameterObelisks,
+    pub template_parameters: TemplateParameterObelisks,
     pub syn_expr_region: SynExprRegion,
 }
 

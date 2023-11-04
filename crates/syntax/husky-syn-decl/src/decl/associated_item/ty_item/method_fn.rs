@@ -72,7 +72,7 @@ pub struct TypeMethodFnSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
-    pub template_parameters: SynTemplateParameterObelisks,
+    pub template_parameters: TemplateParameterObelisks,
     pub self_value_parameter: Option<SelfParameterObelisk>,
     #[return_ref]
     pub parenate_parameters: ParenateParameterObelisks,

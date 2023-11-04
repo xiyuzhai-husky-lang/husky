@@ -8,12 +8,12 @@ pub struct GnFugitiveHirDecl {
 }
 
 impl GnFugitiveHirDecl {
-    pub(super) fn from_ethereal(
+    pub(super) fn from_syn(
         path: FugitivePath,
         ethereal_signature_template: GnFugitiveEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let template_parameters = HirTemplateParameters::from_ethereal(
+        let template_parameters = HirTemplateParameters::from_syn(
             ethereal_signature_template.template_parameters(db),
             db,
         );

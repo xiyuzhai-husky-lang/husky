@@ -21,9 +21,6 @@ fn trai_hir_decl(db: &dyn HirDeclDb, path: TraitPath) -> TraitHirDecl {
     TraitHirDecl::new(
         db,
         path,
-        HirTemplateParameters::from_ethereal(
-            ethereal_signature_template.template_parameters(db),
-            db,
-        ),
+        HirTemplateParameters::from_syn(ethereal_signature_template.template_parameters(db), db),
     )
 }
