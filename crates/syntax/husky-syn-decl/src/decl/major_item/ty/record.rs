@@ -5,7 +5,7 @@ pub struct RecordTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -25,7 +25,7 @@ pub struct RecordTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: TemplateParameterSyndicates,
     pub syn_expr_region: SynExprRegion,
 }
 

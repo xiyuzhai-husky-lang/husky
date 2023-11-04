@@ -42,7 +42,7 @@ pub struct DeclarativeSignatureJar(
     ValFugitiveDeclarativeSignatureTemplate,
     FnFugitiveDeclarativeSignatureTemplate,
     GnFugitiveDeclarativeSignatureTemplate,
-    TypeAliasFugitiveDeclarativeSignatureTemplate,
+    TypeAliasDeclarativeSignatureTemplate,
     // impl block
     // impl_block_signature_from_decl,
     TypeImplBlockDeclarativeSignatureTemplate,

@@ -19,8 +19,8 @@ impl HasHirDecl for TypeImplBlockPath {
 #[salsa::tracked(jar = HirDeclJar)]
 fn ty_impl_block_hir_decl(db: &dyn HirDeclDb, path: TypeImplBlockPath) -> TypeImplBlockHirDecl {
     let ethereal_signature_template = path.ethereal_signature_template(db).expect("ok");
-    let self_ty = HirType::from_syn(ethereal_signature_template.self_ty(db), db);
-    let template_parameters =
-        HirTemplateParameters::from_syn(ethereal_signature_template.template_parameters(db), db);
+    let syn_decl = path.syn_decl(db).expect("ok");
+    let self_ty = HirType::from_ethereal(ethereal_signature_template.self_ty(db), db);
+    let template_parameters = HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
     TypeImplBlockHirDecl::new(db, path, template_parameters, self_ty)
 }

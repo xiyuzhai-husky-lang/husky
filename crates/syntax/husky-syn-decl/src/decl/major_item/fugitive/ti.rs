@@ -4,6 +4,9 @@ use super::*;
 pub struct TypeAliasSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
+    #[return_ref]
+    pub template_parameter_obelisk_list:
+        SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -11,5 +14,7 @@ pub struct TypeAliasSynNodeDecl {
 pub struct TypeAliasSynDecl {
     #[id]
     pub path: FugitivePath,
+    #[return_ref]
+    pub template_parameters: TemplateParameterSyndicates,
     pub syn_expr_region: SynExprRegion,
 }

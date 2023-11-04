@@ -15,13 +15,13 @@ use husky_regional_token::{
 use husky_token_data::TokenDataResult;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 
-use crate::{obelisks::let_pattern_obelisk::LetPatternSemaObelisk, *};
+use crate::{obelisks::let_pattern_obelisk::LetPatternSemaSyndicate, *};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum SemaStmtData {
     Let {
         let_token: LetRegionalToken,
-        let_pattern_sema_obelisk: LetPatternSemaObelisk,
+        let_pattern_sema_obelisk: LetPatternSemaSyndicate,
         eq_token: EqRegionalToken,
         initial_value_sema_expr_idx: SemaExprIdx,
     },

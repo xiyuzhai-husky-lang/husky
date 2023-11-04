@@ -1,22 +1,22 @@
 use super::*;
 use parsec::{parse_separated_list2, parse_separated_small_list2};
 
-pub(crate) type ParenateParameterObelisks = SmallVec<[SynParenateParameterObelisk; 2]>;
+pub(crate) type ParenateParameterSyndicates = SmallVec<[ParenateParameterSyndicate; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[derive(Getters)]
-pub struct ParenateParameterObeliskList<const ALLOW_SELF_PARAMETER: bool> {
+pub struct ParenateParameterSyndicateList<const ALLOW_SELF_PARAMETER: bool> {
     lpar: LparRegionalToken,
-    self_value_parameter: Option<SelfParameterObelisk>,
+    self_value_parameter: Option<SelfParameterSyndicate>,
     comma_after_self_parameter: Option<CommaRegionalToken>,
-    parenate_parameters: ParenateParameterObelisks,
+    parenate_parameters: ParenateParameterSyndicates,
     commas: CommaRegionalTokens,
     rpar: RparRegionalToken,
 }
 
 impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<SynDeclExprParser<'a>>
-    for ParenateParameterObeliskList<ALLOW_SELF_PARAMETER>
+    for ParenateParameterSyndicateList<ALLOW_SELF_PARAMETER>
 {
     type Error = SynNodeDeclError;
 
@@ -26,7 +26,7 @@ impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<SynDeclExprP
         let Some(lpar) = ctx.try_parse_option::<LparRegionalToken>()? else {
             return Ok(None);
         };
-        let self_value_parameter: Option<SelfParameterObelisk> = ctx.try_parse_option()?;
+        let self_value_parameter: Option<SelfParameterSyndicate> = ctx.try_parse_option()?;
         let comma_after_self_parameter = if self_value_parameter.is_some() {
             ctx.try_parse_err_as_none::<CommaRegionalToken>()
         } else {

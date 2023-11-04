@@ -1,24 +1,24 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct ReturnTypeBeforeColonObelisk {
-    expr: SynExprIdx,
+pub struct ReturnTypeBeforeColonSyndicate {
+    syn_expr_idx: SynExprIdx,
 }
 
-impl ReturnTypeBeforeColonObelisk {
-    pub fn expr(&self) -> SynExprIdx {
-        self.expr
+impl ReturnTypeBeforeColonSyndicate {
+    pub fn syn_expr_idx(&self) -> SynExprIdx {
+        self.syn_expr_idx
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ReturnTypeBeforeColonObelisk {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ReturnTypeBeforeColonSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(expr) = ctx.parse_expr_root(None, ExprRootKind::ReturnType) {
-            Ok(Some(ReturnTypeBeforeColonObelisk { expr }))
+            Ok(Some(ReturnTypeBeforeColonSyndicate { syn_expr_idx: expr }))
         } else {
             Ok(None)
         }
@@ -26,17 +26,17 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ReturnTypeBefor
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct ReturnTypeBeforeEqObelisk {
+pub struct ReturnTypeBeforeEqSyndicate {
     expr: SynExprIdx,
 }
 
-impl ReturnTypeBeforeEqObelisk {
+impl ReturnTypeBeforeEqSyndicate {
     pub fn expr(&self) -> SynExprIdx {
         self.expr
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ReturnTypeBeforeEqObelisk {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ReturnTypeBeforeEqSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -45,7 +45,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ReturnTypeBefor
         if let Some(expr) =
             ctx.parse_expr_root(ExprEnvironment::TypeBeforeEq, ExprRootKind::ReturnType)
         {
-            Ok(Some(ReturnTypeBeforeEqObelisk { expr }))
+            Ok(Some(ReturnTypeBeforeEqSyndicate { expr }))
         } else {
             Ok(None)
         }

@@ -1,3 +1,5 @@
+use husky_syn_decl::UnitStructTypeSynDecl;
+
 use super::*;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
@@ -11,9 +13,10 @@ pub struct UnitStructTypeHirDecl {
 impl UnitStructTypeHirDecl {
     pub(super) fn from_syn(
         path: TypePath,
-        ethereal_signature_template: UnitStructTypeEtherealSignatureTemplate,
+        syn_decl: UnitStructTypeSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
+        let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         todo!()
     }
 }

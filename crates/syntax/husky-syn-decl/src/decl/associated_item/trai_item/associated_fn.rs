@@ -5,12 +5,12 @@ pub struct TraitAssociatedFnSynNodeDecl {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     #[return_ref]
-    pub template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
+    pub template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
-    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameterObeliskList<false>>,
+    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameterSyndicateList<false>>,
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
-    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
+    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonSyndicate>>,
     #[return_ref]
     pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
     pub syn_expr_region: SynExprRegion,
@@ -39,7 +39,7 @@ pub struct TraitAssociatedFnSynDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
-    pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
+    pub template_parameters: TemplateParameterSyndicates,
+    pub return_ty: Option<ReturnTypeBeforeColonSyndicate>,
     pub syn_expr_region: SynExprRegion,
 }

@@ -3,14 +3,14 @@ use husky_regional_token::ColonRegionalToken;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LetPatternSemaObelisk {
+pub struct LetPatternSemaSyndicate {
     syn_pattern_root: SynPatternRoot,
     variables: SynCurrentSymbolIdxRange,
     colon_token: Option<ColonRegionalToken>,
     ty_sema_expr_idx: Option<SemaExprIdx>,
 }
 
-impl LetPatternSemaObelisk {
+impl LetPatternSemaSyndicate {
     pub fn syn_pattern_root(&self) -> SynPatternRoot {
         self.syn_pattern_root
     }
@@ -31,9 +31,9 @@ impl LetPatternSemaObelisk {
 impl<'a> SemaExprEngine<'a> {
     pub(crate) fn build_let_pattern_sema_obelisk(
         &mut self,
-        let_pattern_syn_obelisk: &'a LetPatternSynObelisk,
-    ) -> SynExprResultRef<'a, LetPatternSemaObelisk> {
-        Ok(LetPatternSemaObelisk {
+        let_pattern_syn_obelisk: &'a LetPatternSynSyndicate,
+    ) -> SynExprResultRef<'a, LetPatternSemaSyndicate> {
+        Ok(LetPatternSemaSyndicate {
             syn_pattern_root: let_pattern_syn_obelisk.syn_pattern_root(),
             variables: let_pattern_syn_obelisk.variables(),
             colon_token: let_pattern_syn_obelisk.colon_token()?,

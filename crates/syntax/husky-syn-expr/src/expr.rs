@@ -51,7 +51,7 @@ pub enum SynExprData {
     Be {
         src: SynExprIdx,
         be_regional_token_idx: RegionalTokenIdx,
-        target: SynExprResult<BePatternSynObelisk>,
+        target: SynExprResult<BePatternSynSyndicate>,
     },
     Prefix {
         opr: SynPrefixOpr,

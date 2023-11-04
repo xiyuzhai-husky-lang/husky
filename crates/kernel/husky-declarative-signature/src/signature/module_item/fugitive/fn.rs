@@ -31,7 +31,7 @@ impl FnFugitiveDeclarativeSignatureTemplate {
             declarative_term_region,
         )?;
         let return_ty = match decl.return_ty(db) {
-            Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
+            Some(return_ty) => declarative_term_region.expr_term(return_ty.syn_expr_idx())?,
             None => declarative_term_menu.unit(),
         };
         Ok(FnFugitiveDeclarativeSignatureTemplate::new(

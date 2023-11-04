@@ -16,7 +16,7 @@ use crate::*;
 pub enum FugitiveDeclarativeSignatureTemplate {
     FunctionFn(FnFugitiveDeclarativeSignatureTemplate),
     FunctionGn(GnFugitiveDeclarativeSignatureTemplate),
-    TypeAlias(TypeAliasFugitiveDeclarativeSignatureTemplate),
+    TypeAlias(TypeAliasDeclarativeSignatureTemplate),
     Val(ValFugitiveDeclarativeSignatureTemplate),
 }
 

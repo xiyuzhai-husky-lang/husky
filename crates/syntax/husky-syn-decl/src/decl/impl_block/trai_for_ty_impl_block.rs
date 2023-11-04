@@ -8,8 +8,8 @@ pub struct TraitForTypeImplBlockSynNodeDecl {
     pub syn_node_path: TraitForTypeImplBlockSynNodePath,
     pub impl_regional_token: ImplRegionalToken,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
-    pub trai_expr: TraitObelisk,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
+    pub trai_expr: TraitSyndicate,
     pub for_token: ConnectionForRegionalToken,
     pub self_ty_decl: SelfTypeDecl,
     #[return_ref]
@@ -19,7 +19,7 @@ pub struct TraitForTypeImplBlockSynNodeDecl {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SelfTypeDecl {
-    PathLeadingExpr(SelfTypeObelisk),
+    PathLeadingExpr(SelfTypeSyndicate),
     DeriveAny {
         pound_token: PoundRegionalToken,
         derive_token: DeriveRegionalToken,
@@ -66,7 +66,7 @@ impl<'a> DeclParser<'a, TraitForTypeImplBlockSynNodePath> {
         let impl_token = parser.try_parse_option().unwrap().unwrap();
         let template_parameter_decl_list = parser.try_parse_option();
         // ad hoc
-        let trai: TraitObelisk = parser.try_parse_option().unwrap().unwrap();
+        let trai: TraitSyndicate = parser.try_parse_option().unwrap().unwrap();
         let for_token = parser
             .try_parse_option()
             .expect("guaranteed by parsing")
@@ -114,8 +114,8 @@ pub struct TraitForTypeImplBlockSynDecl {
     #[id]
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
-    pub trai_expr: TraitObelisk,
+    pub template_parameters: TemplateParameterSyndicates,
+    pub trai_expr: TraitSyndicate,
     pub self_ty_decl: SelfTypeDecl,
     pub syn_expr_region: SynExprRegion,
 }

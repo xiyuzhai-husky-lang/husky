@@ -19,7 +19,7 @@ pub enum FugitiveHirDecl {
     FunctionFn(FnFugitiveHirDecl),
     Val(ValFugitiveHirDecl),
     FunctionGn(GnFugitiveHirDecl),
-    TypeAlias(TypeAliasFugitiveHirDecl),
+    TypeAlias(TypeAliasHirDecl),
 }
 
 impl FugitiveHirDecl {
@@ -78,7 +78,7 @@ fn fugitive_hir_decl(db: &dyn HirDeclDb, path: FugitivePath) -> Option<FugitiveH
     //         Some(GnFugitiveHirDecl::from_syn(path, ethereal_signature_template, db).into())
     //     }
     //     FugitiveEtherealSignatureTemplate::TypeAlias(ethereal_signature_template) => Some(
-    //         TypeAliasFugitiveHirDecl::from_syn(path, ethereal_signature_template, db).into(),
+    //         TypeAliasHirDecl::from_syn(path, ethereal_signature_template, db).into(),
     //     ),
     //     FugitiveEtherealSignatureTemplate::Val(ethereal_signature_template) => {
     //         Some(ValFugitiveHirDecl::from_syn(path, ethereal_signature_template, db).into())

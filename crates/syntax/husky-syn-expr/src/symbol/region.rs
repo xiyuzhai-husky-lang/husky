@@ -39,11 +39,11 @@ pub struct SynSymbolRegion {
     current_symbol_arena: SynCurrentSymbolArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
-    pattern_ty_constraints: Vec<(ObeliskTypeConstraint, SynCurrentSymbolIdxRange)>,
+    pattern_ty_constraints: Vec<(SyndicateTypeConstraint, SynCurrentSymbolIdxRange)>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum ObeliskTypeConstraint {
+pub enum SyndicateTypeConstraint {
     TemplateTypeParameter,
     ExplicitRegularParameter {
         syn_pattern_root: SynPatternRoot,
@@ -101,7 +101,7 @@ impl SynSymbolRegion {
     pub(crate) fn define_symbol(
         &mut self,
         variable: SynCurrentSymbol,
-        ty_constraint: Option<ObeliskTypeConstraint>,
+        ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> SynCurrentSymbolIdx {
         let symbol = self.current_symbol_arena.alloc_one(variable);
         self.pattern_ty_constraints.extend(
@@ -116,7 +116,7 @@ impl SynSymbolRegion {
     pub(crate) fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = SynCurrentSymbol>,
-        ty_constraint: Option<ObeliskTypeConstraint>,
+        ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> SynCurrentSymbolIdxRange {
         let symbols = self.current_symbol_arena.alloc_batch(variables);
         self.pattern_ty_constraints.extend(
@@ -241,7 +241,7 @@ impl SynSymbolRegion {
     //     self.pattern_ty_constraints
     //         .iter()
     //         .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
-    //             ObeliskTypeConstraint::ExplicitRegularParameter {
+    //             SyndicateTypeConstraint::ExplicitRegularParameter {
     //                 pattern_expr_idx: pattern,
     //                 ty_expr_idx: ty,
     //             } if *pattern == target => Some(*ty),
@@ -249,7 +249,7 @@ impl SynSymbolRegion {
     //         })
     // }
 
-    pub fn pattern_ty_constraints(&self) -> &[(ObeliskTypeConstraint, SynCurrentSymbolIdxRange)] {
+    pub fn pattern_ty_constraints(&self) -> &[(SyndicateTypeConstraint, SynCurrentSymbolIdxRange)] {
         &self.pattern_ty_constraints
     }
 }

@@ -9,7 +9,7 @@ pub struct DeclarativeTemplateParameter {
 
 impl DeclarativeTemplateParameter {
     fn new_explicit_from_decl(
-        parameter_decl_pattern: &SynTemplateParameterObelisk,
+        parameter_decl_pattern: &SynTemplateParameterSyndicate,
         region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
     ) -> DeclarativeTemplateParameter {
@@ -23,7 +23,7 @@ impl DeclarativeTemplateParameter {
                     VarianceRegionalToken::Invariant(_) => Variance::Invariant,
                 });
         match parameter_decl_pattern.data() {
-            SynTemplateParameterObeliskData::Type { .. } => {
+            SynTemplateParameterSyndicateData::Type { .. } => {
                 DeclarativeTemplateParameter {
                     symbol: region
                         .current_symbol_signature(symbol)
@@ -35,7 +35,7 @@ impl DeclarativeTemplateParameter {
                     annotated_variance,
                 }
             }
-            SynTemplateParameterObeliskData::Constant { .. } => DeclarativeTemplateParameter {
+            SynTemplateParameterSyndicateData::Constant { .. } => DeclarativeTemplateParameter {
                 symbol: region
                     .current_symbol_signature(symbol)
                     .expect("not none")
@@ -44,7 +44,7 @@ impl DeclarativeTemplateParameter {
                 annotated_traits: vec![],
                 annotated_variance,
             },
-            SynTemplateParameterObeliskData::Lifetime { .. } => {
+            SynTemplateParameterSyndicateData::Lifetime { .. } => {
                 DeclarativeTemplateParameter {
                     symbol: region
                         .current_symbol_signature(symbol)
@@ -56,7 +56,7 @@ impl DeclarativeTemplateParameter {
                     annotated_variance,
                 }
             }
-            SynTemplateParameterObeliskData::Place { .. } => {
+            SynTemplateParameterSyndicateData::Place { .. } => {
                 DeclarativeTemplateParameter {
                     symbol: region
                         .current_symbol_signature(symbol)
@@ -106,7 +106,7 @@ pub struct DeclarativeTemplateParameterTemplates {
 
 impl DeclarativeTemplateParameterTemplates {
     pub(crate) fn from_decl(
-        template_parameter_obelisks: &[SynTemplateParameterObelisk],
+        template_parameter_obelisks: &[SynTemplateParameterSyndicate],
         declarative_term_region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
     ) -> Self {

@@ -10,13 +10,14 @@ pub struct TypeMemoizedFieldHirDecl {
 impl TypeMemoizedFieldHirDecl {
     pub(super) fn from_syn(
         path: TypeItemPath,
-        ethereal_signature_template: TypeMemoizedFieldEtherealSignatureTemplate,
+        syn_decl: TypeMemoizedFieldEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
     ) -> Self {
         let TypeItemSynDecl::MemoizedField(syn_decl) = path.syn_decl(db).expect("ok") else {
             unreachable!()
         };
-        let return_ty = HirType::from_syn(ethereal_signature_template.return_ty(db), db);
+        let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
+        let return_ty = builder.return_ty(syn_decl.return_ty(db));
         Self::new(
             db,
             path,

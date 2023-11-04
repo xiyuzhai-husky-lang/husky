@@ -5,7 +5,7 @@ pub struct TraitAssociatedTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     #[return_ref]
-    pub generics: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
+    pub generics: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
     pub eq_token: SynNodeDeclResult<EqRegionalToken>,
     pub ty_term_expr_idx: SynExprIdx,
@@ -61,6 +61,6 @@ pub struct TraitAssociatedTypeSynDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: TemplateParameterSyndicates,
     pub syn_expr_region: SynExprRegion,
 }

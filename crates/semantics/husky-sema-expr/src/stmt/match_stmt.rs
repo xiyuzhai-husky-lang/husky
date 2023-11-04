@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaCaseBranch {
     pub vertical_token: VerticalRegionalToken,
-    pub case_pattern_sema_obelisk: CasePatternSemaObelisk,
+    pub case_pattern_sema_obelisk: CasePatternSemaSyndicate,
     pub heavy_arrow_token: HeavyArrowRegionalToken,
     pub stmts: SemaStmtIdxRange,
 }

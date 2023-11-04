@@ -2,10 +2,10 @@ use parsec::HasStreamState;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct CasePatternObelisk {
-    syn_pattern_root: SynPatternRoot,
+pub struct BePatternSynSyndicate {
+    pattern_expr: SynPatternRoot,
     variables: SynCurrentSymbolIdxRange,
 }
 
@@ -13,17 +13,17 @@ impl<'a, C> SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    pub(crate) fn parse_case_pattern_expected(
+    pub(crate) fn parse_be_variables_pattern_expected(
         &mut self,
         access_end: RegionalTokenIdxRangeEnd,
-    ) -> SynExprResult<CasePatternObelisk> {
+    ) -> SynExprResult<BePatternSynSyndicate> {
         let state = self.save_state();
-        let Some(syn_pattern_root) = self.try_parse_option()? else {
-            Err(OriginalSynExprError::ExpectedCasePattern(state))?
+        let Some(pattern_expr) = self.try_parse_option()? else {
+            Err(OriginalSynExprError::ExpectedBePattern(state))?
         };
         let symbols = self
             .pattern_expr_region()
-            .pattern_expr_symbols(syn_pattern_root);
+            .pattern_expr_symbols(pattern_expr);
         let access_start = self.save_state().next_regional_token_idx();
         let symbols = symbols
             .iter()
@@ -32,7 +32,7 @@ where
                     self.pattern_expr_region(),
                     access_start,
                     Some(access_end),
-                    SynCurrentSymbolVariant::CaseVariable {
+                    SynCurrentSymbolVariant::BeVariable {
                         ident: *ident,
                         pattern_symbol_idx: *pattern_symbol,
                     },
@@ -40,16 +40,16 @@ where
             })
             .collect::<Vec<_>>();
         let variables = self.define_symbols(symbols, None);
-        Ok(CasePatternObelisk {
-            syn_pattern_root,
+        Ok(BePatternSynSyndicate {
+            pattern_expr,
             variables,
         })
     }
 }
 
-impl CasePatternObelisk {
+impl BePatternSynSyndicate {
     pub fn syn_pattern_root(&self) -> SynPatternRoot {
-        self.syn_pattern_root
+        self.pattern_expr
     }
 
     pub fn variables(&self) -> SynCurrentSymbolIdxRange {

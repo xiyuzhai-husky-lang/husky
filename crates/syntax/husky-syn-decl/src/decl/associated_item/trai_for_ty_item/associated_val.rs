@@ -19,6 +19,6 @@ pub struct TraitForTypeAssociatedValSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: TemplateParameterSyndicates,
     pub syn_expr_region: SynExprRegion,
 }

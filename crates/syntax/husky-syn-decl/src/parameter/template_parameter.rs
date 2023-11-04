@@ -1,24 +1,24 @@
 use super::*;
 use parsec::parse_separated_small2_list_expected;
 
-pub(crate) type TemplateParameterObelisks = SmallVec<[SynTemplateParameterObelisk; 2]>;
+pub(crate) type TemplateParameterSyndicates = SmallVec<[SynTemplateParameterSyndicate; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
-pub struct SynTemplateParameterObeliskList {
+pub struct SynTemplateParameterSyndicateList {
     langle: LaOrLtRegionalToken,
-    template_parameters: TemplateParameterObelisks,
+    template_parameters: TemplateParameterSyndicates,
     commas: CommaRegionalTokens,
     decl_list_result: Result<(), SynNodeDeclError>,
     rangle: RaOrGtRegionalToken,
 }
 
-impl SynTemplateParameterObeliskList {
+impl SynTemplateParameterSyndicateList {
     pub fn lcurl(&self) -> LaOrLtRegionalToken {
         self.langle
     }
 
-    pub fn syn_template_parameter_obelisks(&self) -> &[SynTemplateParameterObelisk] {
+    pub fn syn_template_parameter_obelisks(&self) -> &[SynTemplateParameterSyndicate] {
         &self.template_parameters
     }
 
@@ -27,7 +27,7 @@ impl SynTemplateParameterObeliskList {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplateParameterObeliskList {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplateParameterSyndicateList {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(

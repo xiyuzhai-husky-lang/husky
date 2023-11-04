@@ -5,13 +5,13 @@ pub struct TraitMethodFnSynNodeDecl {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     #[return_ref]
-    pub template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
+    pub template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
-    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameterObeliskList<true>>,
+    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameterSyndicateList<true>>,
     #[return_ref]
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
-    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
+    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonSyndicate>>,
     #[return_ref]
     pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
     pub syn_expr_region: SynExprRegion,
@@ -85,11 +85,11 @@ pub struct TraitMethodFnSynDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
-    pub self_value_parameter: Option<SelfParameterObelisk>,
+    pub template_parameters: TemplateParameterSyndicates,
+    pub self_value_parameter: Option<SelfParameterSyndicate>,
     #[return_ref]
-    pub parenate_parameters: ParenateParameterObelisks,
-    pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
+    pub parenate_parameters: ParenateParameterSyndicates,
+    pub return_ty: Option<ReturnTypeBeforeColonSyndicate>,
     pub syn_expr_region: SynExprRegion,
 }
 

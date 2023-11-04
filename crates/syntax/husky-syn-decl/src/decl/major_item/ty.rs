@@ -179,7 +179,7 @@ impl TypeSynDecl {
     pub fn template_parameters<'a>(
         self,
         db: &'a dyn SynDeclDb,
-    ) -> &'a [SynTemplateParameterObelisk] {
+    ) -> &'a [SynTemplateParameterSyndicate] {
         match self {
             TypeSynDecl::Enum(decl) => decl.template_parameters(db),
             TypeSynDecl::UnitStruct(decl) => decl.template_parameters(db),

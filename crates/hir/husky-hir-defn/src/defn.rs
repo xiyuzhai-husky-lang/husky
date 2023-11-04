@@ -14,10 +14,7 @@ pub use self::ty_variant::*;
 
 use crate::*;
 use husky_hir_eager_expr::helpers::hir_eager_body_with_expr_region;
-use husky_hir_ty::{
-    template_parameter::{HirTemplateParameter, HirTemplateParameters},
-    *,
-};
+use husky_hir_ty::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = HirDefnDb)]

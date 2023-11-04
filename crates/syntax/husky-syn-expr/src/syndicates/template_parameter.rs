@@ -4,18 +4,18 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct SynTemplateParameterObelisk {
+pub struct SynTemplateParameterSyndicate {
     annotated_variance_token: Option<VarianceRegionalToken>,
     symbol: SynCurrentSymbolIdx,
-    data: SynTemplateParameterObeliskData,
+    data: SynTemplateParameterSyndicateData,
 }
 
-impl SynTemplateParameterObelisk {
+impl SynTemplateParameterSyndicate {
     pub fn symbol(&self) -> SynCurrentSymbolIdx {
         self.symbol
     }
 
-    pub fn data(&self) -> &SynTemplateParameterObeliskData {
+    pub fn data(&self) -> &SynTemplateParameterSyndicateData {
         &self.data
     }
 
@@ -26,7 +26,7 @@ impl SynTemplateParameterObelisk {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum SynTemplateParameterObeliskData {
+pub enum SynTemplateParameterSyndicateData {
     Type {
         ident_token: IdentRegionalToken,
         traits: Option<(ColonRegionalToken, SynExprIdx)>,
@@ -45,7 +45,7 @@ pub enum SynTemplateParameterObeliskData {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplateParameterObelisk {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplateParameterSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -69,13 +69,13 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplatePara
             );
             let symbols = ctx.define_symbols(
                 [parameter_symbol],
-                Some(ObeliskTypeConstraint::TemplateTypeParameter),
+                Some(SyndicateTypeConstraint::TemplateTypeParameter),
             );
-            Ok(Some(SynTemplateParameterObelisk {
+            Ok(Some(SynTemplateParameterSyndicate {
                 // todo: maybe we don't need to put it there, it's redundant
                 annotated_variance_token,
                 symbol: symbols.start(),
-                data: SynTemplateParameterObeliskData::Type {
+                data: SynTemplateParameterSyndicateData::Type {
                     ident_token,
                     traits: if let Some(colon) = ctx.try_parse_option::<ColonRegionalToken>()? {
                         Some((
@@ -107,12 +107,12 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplatePara
                             CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token },
                     },
                 )],
-                Some(ObeliskTypeConstraint::TemplateTypeParameter),
+                Some(SyndicateTypeConstraint::TemplateTypeParameter),
             );
-            Ok(Some(SynTemplateParameterObelisk {
+            Ok(Some(SynTemplateParameterSyndicate {
                 annotated_variance_token,
                 symbol: symbols.start(),
-                data: SynTemplateParameterObeliskData::Lifetime { label_token },
+                data: SynTemplateParameterSyndicateData::Lifetime { label_token },
             }))
         } else if let Some(label_token) = ctx.try_parse_option::<PlaceLabelRegionalToken>()? {
             let access_start = ctx.save_state().next_regional_token_idx();
@@ -129,13 +129,13 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplatePara
                                 CurrentTemplateParameterSynSymbolVariant::Place { label_token },
                         },
                     )],
-                    Some(ObeliskTypeConstraint::TemplateTypeParameter),
+                    Some(SyndicateTypeConstraint::TemplateTypeParameter),
                 )
                 .start();
-            Ok(Some(SynTemplateParameterObelisk {
+            Ok(Some(SynTemplateParameterSyndicate {
                 annotated_variance_token,
                 symbol,
-                data: SynTemplateParameterObeliskData::Place { label_token },
+                data: SynTemplateParameterSyndicateData::Place { label_token },
             }))
         } else if let Some(const_token) = ctx.try_parse_option::<ConstRegionalToken>()? {
             let ident_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedIdent)?;
@@ -165,13 +165,13 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplatePara
                                 },
                         },
                     )],
-                    Some(ObeliskTypeConstraint::TemplateTypeParameter),
+                    Some(SyndicateTypeConstraint::TemplateTypeParameter),
                 )
                 .start(); // take start because there is only one symbol to define
-            Ok(Some(SynTemplateParameterObelisk {
+            Ok(Some(SynTemplateParameterSyndicate {
                 annotated_variance_token,
                 symbol,
-                data: SynTemplateParameterObeliskData::Constant {
+                data: SynTemplateParameterSyndicateData::Constant {
                     const_token,
                     ident_token,
                     colon_token,

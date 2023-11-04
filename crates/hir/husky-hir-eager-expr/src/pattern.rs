@@ -1,6 +1,6 @@
 use husky_hir_ty::HirType;
-use husky_sema_expr::LetPatternSemaObelisk;
-use husky_syn_expr::{BePatternSynObelisk, LetPatternSynObelisk};
+use husky_sema_expr::LetPatternSemaSyndicate;
+use husky_syn_expr::{BePatternSynSyndicate, LetPatternSynSyndicate};
 
 use crate::*;
 
@@ -24,7 +24,7 @@ impl HirEagerLetVariablesPattern {
 impl<'a> HirEagerExprBuilder<'a> {
     pub(super) fn new_let_variables_pattern(
         &mut self,
-        let_pattern_sema_obelisk: &LetPatternSemaObelisk,
+        let_pattern_sema_obelisk: &LetPatternSemaSyndicate,
     ) -> HirEagerLetVariablesPattern {
         HirEagerLetVariablesPattern {
             pattern_expr_idx: self.new_pattern_expr(let_pattern_sema_obelisk.syn_pattern_root()),
@@ -41,7 +41,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerBeVariablesPattern {}
 
-impl ToHirEager for BePatternSynObelisk {
+impl ToHirEager for BePatternSynSyndicate {
     type Output = HirEagerBeVariablesPattern;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {

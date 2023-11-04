@@ -81,7 +81,7 @@ impl<'a> DeclParser<'a, FugitiveSynNodePath> {
 pub enum FugitiveSynDecl {
     FunctionFn(FunctionFnSynDecl),
     Val(ValSynDecl),
-    FunctionGn(GnSynDecl),
+    FunctionGn(FunctionGnSynDecl),
     // todo: AliasType
 }
 
@@ -99,7 +99,7 @@ impl FugitiveSynDecl {
                 ValSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             FugitiveSynNodeDecl::FunctionGn(syn_node_decl) => {
-                GnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                FunctionGnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
         })
     }
@@ -107,7 +107,7 @@ impl FugitiveSynDecl {
     pub fn template_parameters<'a>(
         self,
         db: &'a dyn SynDeclDb,
-    ) -> &'a [SynTemplateParameterObelisk] {
+    ) -> &'a [SynTemplateParameterSyndicate] {
         match self {
             FugitiveSynDecl::FunctionFn(decl) => decl.template_parameters(db),
             FugitiveSynDecl::Val(_decl) => &[],

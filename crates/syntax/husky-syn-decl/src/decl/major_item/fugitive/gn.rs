@@ -6,12 +6,12 @@ pub struct GnSynNodeDecl {
     pub syn_node_path: FugitiveSynNodePath,
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
-    parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameterObeliskList<false>>,
+    parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameterSyndicateList<false>>,
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
-    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
+    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonSyndicate>>,
     #[return_ref]
     pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
 }
@@ -65,18 +65,18 @@ impl<'a> DeclParser<'a, FugitiveSynNodePath> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct GnSynDecl {
+pub struct FunctionGnSynDecl {
     #[id]
     pub path: FugitivePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: TemplateParameterSyndicates,
     #[return_ref]
-    pub parenate_parameters: ParenateParameterObelisks,
-    pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
+    pub parenate_parameters: ParenateParameterSyndicates,
+    pub return_ty: Option<ReturnTypeBeforeColonSyndicate>,
     pub syn_expr_region: SynExprRegion,
 }
 
-impl GnSynDecl {
+impl FunctionGnSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn SynDeclDb,
         path: FugitivePath,
@@ -90,14 +90,14 @@ impl GnSynDecl {
             .unwrap_or_default();
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
-        let parenate_parameters: ParenateParameterObelisks = parenate_parameter_decl_list
+        let parenate_parameters: ParenateParameterSyndicates = parenate_parameter_decl_list
             .parenate_parameters()
             .iter()
             .map(Clone::clone)
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(GnSynDecl::new(
+        Ok(FunctionGnSynDecl::new(
             db,
             path,
             template_parameters,

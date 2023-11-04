@@ -17,10 +17,10 @@ impl HasHirDecl for TraitPath {
 
 #[salsa::tracked(jar = HirDeclJar)]
 fn trai_hir_decl(db: &dyn HirDeclDb, path: TraitPath) -> TraitHirDecl {
-    let ethereal_signature_template = path.ethereal_signature_template(db).expect("ok");
+    let syn_decl = path.syn_decl(db).expect("ok");
     TraitHirDecl::new(
         db,
         path,
-        HirTemplateParameters::from_syn(ethereal_signature_template.template_parameters(db), db),
+        HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db),
     )
 }

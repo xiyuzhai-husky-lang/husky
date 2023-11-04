@@ -1,16 +1,18 @@
 #![feature(trait_upcasting)]
+mod builder;
 pub mod db;
 mod decl;
-mod parenate_parameter;
-mod template_parameter;
+pub mod parenate_parameter;
+pub mod template_parameter;
 #[cfg(test)]
 mod tests;
 
-pub use crate::decl::*;
-pub use crate::ritchie_parameter::*;
-pub use crate::template_parameter::*;
+pub use self::decl::*;
+pub use self::ritchie_parameter::*;
+pub use self::template_parameter::*;
 
-use crate::db::*;
+use self::builder::*;
+use self::db::*;
 use husky_coword::*;
 use husky_entity_path::*;
 use husky_ethereal_signature::*;

@@ -17,7 +17,7 @@ impl std::ops::Deref for DeclarativeParenateParameters {
 
 impl DeclarativeParenateParameters {
     pub(crate) fn from_decl(
-        parameters: &[SynParenateParameterObelisk],
+        parameters: &[ParenateParameterSyndicate],
         expr_region_data: &SynExprRegionData,
         signature_region: &DeclarativeTermRegion,
     ) -> DeclarativeSignatureResult<Self> {
@@ -27,7 +27,7 @@ impl DeclarativeParenateParameters {
                 .enumerate()
                 .map(|(i, parameter)| {
                     Ok(match parameter {
-                        SynParenateParameterObelisk::Regular {
+                        ParenateParameterSyndicate::Regular {
                             syn_pattern_root,
                             variables,
                             colon,
@@ -42,7 +42,7 @@ impl DeclarativeParenateParameters {
                             })?,
                         )
                         .into(),
-                        SynParenateParameterObelisk::Variadic {
+                        ParenateParameterSyndicate::Variadic {
                             symbol_modifier_keyword_group,
                             ty,
                             ..
@@ -55,7 +55,7 @@ impl DeclarativeParenateParameters {
                             })?,
                         )
                         .into(),
-                        SynParenateParameterObelisk::Keyed {
+                        ParenateParameterSyndicate::Keyed {
                             symbol_modifier_keyword_group,
                             ident_token,
                             ty,

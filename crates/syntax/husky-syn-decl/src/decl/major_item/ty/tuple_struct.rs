@@ -7,11 +7,11 @@ pub struct TupleStructTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     lpar: LparRegionalToken,
     #[return_ref]
     field_comma_list: SynNodeDeclResult<
-        PunctuatedSmallList<TupleFieldObelisk, CommaRegionalToken, SynNodeDeclError, true, 4>,
+        PunctuatedSmallList<TupleFieldSyndicate, CommaRegionalToken, SynNodeDeclError, true, 4>,
     >,
     #[return_ref]
     rpar: SynNodeDeclResult<TupleStructRparRegionalToken>,
@@ -51,9 +51,9 @@ pub struct TupleStructTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: TemplateParameterSyndicates,
     #[return_ref]
-    pub fields: SmallVec<[TupleFieldObelisk; 4]>,
+    pub fields: SmallVec<[TupleFieldSyndicate; 4]>,
     pub syn_expr_region: SynExprRegion,
 }
 
