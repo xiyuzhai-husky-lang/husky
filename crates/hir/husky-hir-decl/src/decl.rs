@@ -1,14 +1,14 @@
 mod associated_item;
 mod attr;
 mod impl_block;
-mod module_item;
+mod major_item;
 mod submodule;
 mod ty_variant;
 
 pub use self::associated_item::*;
 pub use self::attr::*;
 pub use self::impl_block::*;
-pub use self::module_item::*;
+pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
 

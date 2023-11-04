@@ -8,7 +8,7 @@ pub struct TypeAssociatedFnHirDecl {
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     #[return_ref]
-    pub parenate_parameters: HirParenateParameters,
+    pub parenate_parameters: HirRitchieParameters,
     pub return_ty: HirType,
     pub hir_expr_region: HirEagerExprRegion,
 }
@@ -26,7 +26,7 @@ impl TypeAssociatedFnHirDecl {
             ethereal_signature_template.template_parameters(db),
             db,
         );
-        let parenate_parameters = HirParenateParameters::from_ethereal(
+        let parenate_parameters = HirRitchieParameters::from_ethereal(
             ethereal_signature_template.parenate_parameters(db),
             db,
         );

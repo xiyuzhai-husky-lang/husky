@@ -37,6 +37,7 @@ impl TranspileToRust for FunctionGnHirDefn {
 
 impl TranspileToRust for ValHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        builder.keyword(RustKeyword::Fn);
         todo!()
     }
 }

@@ -8,7 +8,7 @@ pub struct TraitForTypeMethodFnHirDecl {
     pub template_parameters: HirTemplateParameters,
     pub self_value_parameter: HirRitchieParameter,
     #[return_ref]
-    pub parenate_parameters: HirParenateParameters,
+    pub parenate_parameters: HirRitchieParameters,
     pub return_ty: HirType,
 }
 
@@ -23,7 +23,7 @@ impl TraitForTypeMethodFnHirDecl {
         let self_value_parameter =
             HirRitchieParameter::from_ethereal_regular(template.self_value_parameter(db), db);
         let parenate_parameters =
-            HirParenateParameters::from_ethereal(template.parenate_parameters(db), db);
+            HirRitchieParameters::from_ethereal(template.parenate_parameters(db), db);
         let return_ty = HirType::from_ethereal(template.return_ty(db), db);
         TraitForTypeMethodFnHirDecl::new(
             db,
