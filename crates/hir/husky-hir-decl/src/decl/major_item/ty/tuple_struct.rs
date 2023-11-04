@@ -1,5 +1,5 @@
 use husky_syn_decl::TupleStructTypeSynDecl;
-use husky_syn_expr::TupleFieldObelisk;
+use husky_syn_expr::TupleFieldSyndicate;
 
 use super::*;
 
@@ -10,7 +10,7 @@ pub struct TupleStructTypeHirDecl {
     pub template_parameters: HirTemplateParameters,
     #[return_ref]
     pub fields: SmallVec<[TupleFieldHirDecl; 2]>,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -28,26 +28,28 @@ impl TupleStructTypeHirDecl {
         let TypeSynDecl::TupleStruct(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()
         };
-        let hir_eager_expr_region = hir_eager_expr_region(syn_decl.syn_expr_region(db), db);
+        let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
         let fields = syn_decl
             .fields(db)
             .iter()
-            .map(|field| TupleFieldHirDecl::from_syn(field, db, hir_eager_expr_region))
+            .map(|field| TupleFieldHirDecl::from_syn(field, &builder))
             .collect();
-        Self::new(db, path, template_parameters, fields, hir_eager_expr_region)
+        Self::new(
+            db,
+            path,
+            template_parameters,
+            fields,
+            builder.finish().eager(),
+        )
     }
 }
 
 impl TupleFieldHirDecl {
-    fn from_syn(
-        field: &TupleFieldObelisk,
-        db: &dyn HirDeclDb,
-        hir_eager_expr_region: HirEagerExprRegion,
-    ) -> Self {
+    fn from_syn(field: &TupleFieldSyndicate, builder: &HirDeclBuilder) -> Self {
         Self {
-            ty: HirType::from_syn(field.ty(), db),
+            ty: builder.hir_ty(field.ty()),
         }
     }
 }

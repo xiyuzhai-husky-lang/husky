@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_decl::EnumTypeSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar, constructor = new)]
 pub struct EnumTypeHirDecl {
@@ -9,18 +10,13 @@ pub struct EnumTypeHirDecl {
 }
 
 impl EnumTypeHirDecl {
-    pub(super) fn from_syn(
-        path: TypePath,
-        ethereal_signature_template: EnumTypeEtherealSignatureTemplate,
-        db: &dyn HirDeclDb,
-    ) -> Self {
+    pub(super) fn from_syn(path: TypePath, syn_decl: EnumTypeSynDecl, db: &dyn HirDeclDb) -> Self {
         let TypeSynDecl::Enum(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()
         };
-        let template_parameters = HirTemplateParameters::from_syn(
-            ethereal_signature_template.template_parameters(db),
-            db,
-        );
+        let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
+        let template_parameters =
+            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
         Self::new(
             db,
             path,

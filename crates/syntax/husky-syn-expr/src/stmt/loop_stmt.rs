@@ -268,7 +268,7 @@ impl<'a> SynStmtContext<'a> {
                 let frame_var_symbol_idx = self
                     .define_symbols(
                         vec![frame_var_symbol],
-                        Some(ObeliskTypeConstraint::FrameVariable),
+                        Some(SyndicateTypeConstraint::FrameVariable),
                     )
                     .start();
                 self.syn_expr_arena_mut().set(

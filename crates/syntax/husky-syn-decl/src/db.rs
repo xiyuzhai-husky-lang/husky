@@ -71,7 +71,7 @@ pub struct SynDeclJar(
     FnSynNodeDecl,
     FunctionFnSynDecl,
     GnSynNodeDecl,
-    GnSynDecl,
+    FunctionGnSynDecl,
     TypeAliasSynNodeDecl,
     TypeAliasSynDecl,
     // - impl block

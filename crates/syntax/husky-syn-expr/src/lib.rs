@@ -7,7 +7,6 @@ mod entity_path;
 mod error;
 mod expr;
 pub mod helpers;
-mod obelisks;
 mod parser;
 mod pattern;
 mod range;
@@ -15,6 +14,7 @@ mod region;
 mod snippet;
 mod stmt;
 pub mod symbol;
+mod syndicates;
 #[cfg(test)]
 mod tests;
 
@@ -23,13 +23,13 @@ pub use self::db::*;
 pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::expr::*;
-pub use self::obelisks::*;
 pub use self::parser::*;
 pub use self::pattern::*;
 pub use self::range::*;
 pub use self::region::*;
 pub use self::stmt::*;
 pub use self::symbol::*;
+pub use self::syndicates::*;
 
 use self::snippet::*;
 use husky_coword::*;

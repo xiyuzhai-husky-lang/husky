@@ -7,12 +7,12 @@ pub struct TypeMethodFnSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     #[return_ref]
-    template_parameters: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
+    template_parameters: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
-    pub parenate_parameters: SynNodeDeclResult<ParenateParameterObeliskList<true>>,
+    pub parenate_parameters: SynNodeDeclResult<ParenateParameterSyndicateList<true>>,
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
-    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
+    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonSyndicate>>,
     #[return_ref]
     pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
     pub syn_expr_region: SynExprRegion,
@@ -72,11 +72,11 @@ pub struct TypeMethodFnSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
-    pub self_value_parameter: Option<SelfParameterObelisk>,
+    pub template_parameters: TemplateParameterSyndicates,
+    pub self_value_parameter: Option<SelfParameterSyndicate>,
     #[return_ref]
-    pub parenate_parameters: ParenateParameterObelisks,
-    pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
+    pub parenate_parameters: ParenateParameterSyndicates,
+    pub return_ty: Option<ReturnTypeBeforeColonSyndicate>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -94,7 +94,7 @@ impl TypeMethodFnSynDecl {
             .unwrap_or_default();
         let parenate_parameters = syn_node_decl.parenate_parameters(db).as_ref()?;
         let self_value_parameter = *parenate_parameters.self_value_parameter();
-        let parenate_parameters: ParenateParameterObelisks = parenate_parameters
+        let parenate_parameters: ParenateParameterSyndicates = parenate_parameters
             .parenate_parameters()
             .iter()
             .map(Clone::clone)

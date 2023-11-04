@@ -7,7 +7,7 @@ pub use self::loop_stmt::*;
 use crate::*;
 use husky_sema_expr::{SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 use husky_syn_expr::{
-    LetPatternSynObelisk, LoopBoundaryKind, LoopStep, SynForBetweenLoopBoundary,
+    LetPatternSynSyndicate, LoopBoundaryKind, LoopStep, SynForBetweenLoopBoundary,
     SynForBetweenParticulars, SynForBetweenRange, SynStmtData, SynStmtIdx, SynStmtIdxRange,
 };
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};

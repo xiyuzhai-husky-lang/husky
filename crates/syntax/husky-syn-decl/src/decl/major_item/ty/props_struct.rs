@@ -7,12 +7,12 @@ pub struct PropsStructTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
     lcurl: SynNodeDeclResult<PropsStructLcurlRegionalToken>,
     #[return_ref]
     fields: SynNodeDeclResult<
-        PunctuatedSmallList<PropsFieldDeclPattern, CommaRegionalToken, SynNodeDeclError, true, 4>,
+        PunctuatedSmallList<PropsFieldSyndicate, CommaRegionalToken, SynNodeDeclError, true, 4>,
     >,
     #[return_ref]
     rcurl: SynNodeDeclResult<PropsStructRcurlRegionalToken>,
@@ -69,9 +69,9 @@ pub struct PropsStructTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: TemplateParameterSyndicates,
     #[return_ref]
-    pub fields: SmallVec<[PropsFieldDeclPattern; 4]>,
+    pub fields: SmallVec<[PropsFieldSyndicate; 4]>,
     pub syn_expr_region: SynExprRegion,
 }
 

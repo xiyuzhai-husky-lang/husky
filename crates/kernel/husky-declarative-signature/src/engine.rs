@@ -88,7 +88,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             .pattern_ty_constraints()
         {
             match pattern_ty_constraint {
-                ObeliskTypeConstraint::TemplateTypeParameter => {
+                SyndicateTypeConstraint::TemplateTypeParameter => {
                     let (current_symbol_idx, current_symbol) = current_symbol_indexed_iter
                         .next()
                         .expect("ty constraint should match with current symbols");
@@ -169,7 +169,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                             term_symbol,
                         )
                 }
-                ObeliskTypeConstraint::ExplicitRegularParameter {
+                SyndicateTypeConstraint::ExplicitRegularParameter {
                     syn_pattern_root,
                     ty_expr_idx: ty,
                 } => self.init_current_symbol_signatures_in_parenate_parameter(
@@ -177,7 +177,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     *ty,
                     *symbols,
                 ),
-                ObeliskTypeConstraint::FieldVariable {
+                SyndicateTypeConstraint::FieldVariable {
                     ident_token,
                     ty_expr_idx,
                 } => {
@@ -185,11 +185,12 @@ impl<'a> DeclarativeTermEngine<'a> {
                     self.symbol_declarative_term_region
                         .add_new_field_variable_symbol_signature(self.db, symbols.start(), ty)
                 }
-                ObeliskTypeConstraint::LetPattern { .. } | ObeliskTypeConstraint::FrameVariable => {
+                SyndicateTypeConstraint::LetPattern { .. }
+                | SyndicateTypeConstraint::FrameVariable => {
                     // need only to compute for decl region
                     return;
                 }
-                ObeliskTypeConstraint::ExplicitVariadicParameter { ty } => {
+                SyndicateTypeConstraint::ExplicitVariadicParameter { ty } => {
                     let ty = self.infer_new_expr_term(*ty).map_err(|_| todo!());
                     let symbol = DeclarativeTermSymbol::new_ephem(
                         self.db,

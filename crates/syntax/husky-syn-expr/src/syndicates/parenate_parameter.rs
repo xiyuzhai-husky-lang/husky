@@ -4,7 +4,7 @@ use parsec::{HasStreamState, TryParseOptionFromStream};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum SynParenateParameterObelisk {
+pub enum ParenateParameterSyndicate {
     Regular {
         syn_pattern_root: SynPatternRoot,
         variables: SynCurrentSymbolIdxRange,
@@ -43,7 +43,7 @@ pub enum SynVariadicParameterVariant {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynParenateParameterObelisk {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -78,7 +78,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynParenatePara
             );
             let variables = ctx.define_symbols(
                 variables,
-                Some(ObeliskTypeConstraint::ExplicitRegularParameter {
+                Some(SyndicateTypeConstraint::ExplicitRegularParameter {
                     syn_pattern_root,
                     ty_expr_idx,
                 }),
@@ -105,7 +105,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynParenatePara
                         OriginalSynExprError::ExpectedExplicitParameterDefaultValue,
                     ))
                 };
-                Ok(Some(SynParenateParameterObelisk::Keyed {
+                Ok(Some(ParenateParameterSyndicate::Keyed {
                     syn_pattern_root,
                     symbol_modifier_keyword_group,
                     ident_token,
@@ -116,7 +116,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynParenatePara
                     default,
                 }))
             } else {
-                Ok(Some(SynParenateParameterObelisk::Regular {
+                Ok(Some(ParenateParameterSyndicate::Regular {
                     syn_pattern_root: syn_pattern_root,
                     variables,
                     colon,
@@ -149,9 +149,9 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynParenatePara
             );
             let variable = ctx.define_symbol(
                 variable,
-                Some(ObeliskTypeConstraint::ExplicitVariadicParameter { ty }),
+                Some(SyndicateTypeConstraint::ExplicitVariadicParameter { ty }),
             );
-            Ok(Some(SynParenateParameterObelisk::Variadic {
+            Ok(Some(ParenateParameterSyndicate::Variadic {
                 dot_dot_dot_token,
                 variadic_variant,
                 symbol_modifier_keyword_group,

@@ -3,6 +3,8 @@ mod associated_ty;
 mod associated_val;
 mod method_fn;
 
+use husky_syn_decl::TraitForTypeItemSynDecl;
+
 pub use self::associated_fn::*;
 pub use self::associated_ty::*;
 pub use self::associated_val::*;
@@ -61,14 +63,18 @@ fn trai_for_ty_item_hir_decl(
     db: &dyn HirDeclDb,
     path: TraitForTypeItemPath,
 ) -> Option<TraitForTypeItemHirDecl> {
-    match path.ethereal_signature_template(db).expect("ok") {
-        TraitForTypeItemEtherealSignatureTemplate::AssociatedType(template) => {
-            Some(TraitForTypeAssociatedTypeHirDecl::from_syn(path, template, db).into())
-        }
-        TraitForTypeItemEtherealSignatureTemplate::MethodFn(template) => {
-            Some(TraitForTypeMethodFnHirDecl::from_syn(path, template, db).into())
-        }
-        TraitForTypeItemEtherealSignatureTemplate::AssociatedFn(_) => todo!(),
-        TraitForTypeItemEtherealSignatureTemplate::AssociatedVal(_) => todo!(),
+    match path.syn_decl(db).expect("ok") {
+        TraitForTypeItemSynDecl::AssociatedFn(_) => todo!(),
+        TraitForTypeItemSynDecl::MethodFn(_) => todo!(),
+        TraitForTypeItemSynDecl::AssociatedType(_) => todo!(),
+        TraitForTypeItemSynDecl::AssociatedVal(_) => todo!(),
     }
 }
+// TraitForTypeItemEtherealSignatureTemplate::AssociatedType(template) => {
+//     Some(TraitForTypeAssociatedTypeHirDecl::from_syn(path, template, db).into())
+// }
+// TraitForTypeItemEtherealSignatureTemplate::MethodFn(template) => {
+//     Some(TraitForTypeMethodFnHirDecl::from_syn(path, template, db).into())
+// }
+// TraitForTypeItemEtherealSignatureTemplate::AssociatedFn(_) => todo!(),
+// TraitForTypeItemEtherealSignatureTemplate::AssociatedVal(_) => todo!(),

@@ -1,22 +1,21 @@
 use super::*;
+use husky_syn_decl::TypeAliasSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
-pub struct TypeAliasFugitiveHirDecl {
+pub struct TypeAliasHirDecl {
     pub path: FugitivePath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
 }
 
-impl TypeAliasFugitiveHirDecl {
+impl TypeAliasHirDecl {
     pub(super) fn from_syn(
         path: FugitivePath,
-        ethereal_signature_template: TypeAliasFugitiveEtherealSignatureTemplate,
+        syn_decl: TypeAliasSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let template_parameters = HirTemplateParameters::from_syn(
-            ethereal_signature_template.template_parameters(db),
-            db,
-        );
+        let template_parameters =
+            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
         Self::new(db, path, template_parameters)
     }
 }

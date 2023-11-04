@@ -1,6 +1,6 @@
 use crate::*;
 use husky_hir_ty::trai::HirTrait;
-use husky_syn_expr::SynTemplateParameterObelisk;
+use husky_syn_expr::SynTemplateParameterSyndicate;
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -22,7 +22,7 @@ pub enum HirTemplateParameterData {
 pub struct HirTemplateParameters(SmallVec<[HirTemplateParameter; 2]>);
 
 impl HirTemplateParameters {
-    pub fn from_syn(obelisks: &[SynTemplateParameterObelisk], db: &dyn HirDeclDb) -> Self {
+    pub fn from_syn(obelisks: &[SynTemplateParameterSyndicate], db: &dyn HirDeclDb) -> Self {
         todo!()
     }
 }

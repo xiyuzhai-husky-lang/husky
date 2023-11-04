@@ -41,7 +41,7 @@ impl PropsStructTypeDeclarativeSignatureTemplate {
             .map(|(i, field)| {
                 Ok(PropsStructFieldDeclarativeSignatureTemplate {
                     ident: field.ident(),
-                    ty: match declarative_term_region.expr_term(field.ty_expr_idx()) {
+                    ty: match declarative_term_region.expr_term(field.ty_syn_expr_idx()) {
                         Ok(ty) => ty,
                         Err(_) => {
                             return Err(DeclarativeSignatureError::FieldTypeDeclarativeTermError(

@@ -12,7 +12,7 @@ pub struct DeriveAttrSynNodeDecl {
     pub lpar_token: SynNodeDeclResult<LparRegionalToken>,
     #[return_ref]
     pub trais: SynNodeDeclResult<
-        PunctuatedSmallList<TraitObelisk, CommaRegionalToken, SynNodeDeclError, true, 8>,
+        PunctuatedSmallList<TraitSyndicate, CommaRegionalToken, SynNodeDeclError, true, 8>,
     >,
     #[return_ref]
     pub rpar_token: SynNodeDeclResult<RparRegionalToken>,
@@ -62,7 +62,7 @@ pub struct DeriveAttrSynDecl {
     #[id]
     pub path: AttrPath,
     #[return_ref]
-    pub trais: SmallVec<[TraitObelisk; 8]>,
+    pub trais: SmallVec<[TraitSyndicate; 8]>,
     pub syn_expr_region: SynExprRegion,
 }
 

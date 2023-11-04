@@ -69,7 +69,7 @@ pub enum SemaExprData {
     Be {
         src: SemaExprIdx,
         be_regional_token_idx: RegionalTokenIdx,
-        target: BePatternSynObelisk,
+        target: BePatternSynSyndicate,
     },
     Prefix {
         opr: SemaPrefixOpr,

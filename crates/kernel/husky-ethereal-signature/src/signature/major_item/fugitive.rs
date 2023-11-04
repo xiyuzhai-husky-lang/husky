@@ -16,7 +16,7 @@ use super::*;
 pub enum FugitiveEtherealSignatureTemplate {
     FunctionFn(FunctionFnEtherealSignatureTemplate),
     FunctionGn(GnFugitiveEtherealSignatureTemplate),
-    TypeAlias(TypeAliasFugitiveEtherealSignatureTemplate),
+    TypeAlias(TypeAliasEtherealSignatureTemplate),
     Val(ValFugitiveEtherealSignatureTemplate),
 }
 
@@ -74,7 +74,7 @@ fn fugitive_ethereal_signature_template(
             .into()
         }
         FugitiveDeclarativeSignatureTemplate::TypeAlias(declarative_signature_template) => {
-            TypeAliasFugitiveEtherealSignatureTemplate::from_declarative(
+            TypeAliasEtherealSignatureTemplate::from_declarative(
                 db,
                 path,
                 declarative_signature_template,

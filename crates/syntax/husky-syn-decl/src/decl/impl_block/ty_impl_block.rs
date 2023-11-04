@@ -7,8 +7,8 @@ pub struct TypeImplBlockSynNodeDecl {
     pub syn_node_path: TypeImplBlockSynNodePath,
     pub impl_regional_token: ImplRegionalToken,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
-    pub self_ty_expr: SelfTypeObelisk,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
+    pub self_ty_expr: SelfTypeSyndicate,
     #[return_ref]
     pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
     pub syn_expr_region: SynExprRegion,
@@ -68,8 +68,8 @@ pub struct TypeImplBlockSynDecl {
     #[id]
     pub path: TypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
-    pub self_ty_expr: SelfTypeObelisk,
+    pub template_parameters: TemplateParameterSyndicates,
+    pub self_ty_expr: SelfTypeSyndicate,
     pub syn_expr_region: SynExprRegion,
 }
 

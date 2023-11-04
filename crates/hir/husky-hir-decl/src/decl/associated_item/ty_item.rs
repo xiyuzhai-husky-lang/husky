@@ -67,19 +67,24 @@ impl HasHirDecl for TypeItemPath {
 #[salsa::tracked(jar = HirDeclJar)]
 pub(crate) fn ty_item_hir_decl(db: &dyn HirDeclDb, path: TypeItemPath) -> Option<TypeItemHirDecl> {
     use salsa::DebugWithDb;
-    match path.ethereal_signature_template(db).expect("ok") {
-        TypeItemEtherealSignatureTemplate::AssociatedFn(ethereal_signature_template) => {
-            Some(TypeAssociatedFnHirDecl::from_syn(path, ethereal_signature_template, db).into())
-        }
-        TypeItemEtherealSignatureTemplate::MethodFn(ethereal_signature_template) => {
-            Some(TypeMethodFnHirDecl::from_syn(path, ethereal_signature_template, db).into())
-        }
-        TypeItemEtherealSignatureTemplate::MethodFunction(_) => None,
-        TypeItemEtherealSignatureTemplate::MemoizedField(ethereal_signature_template) => {
-            Some(TypeMemoizedFieldHirDecl::from_syn(path, ethereal_signature_template, db).into())
-        }
+    match path.syn_decl(db).expect("ok") {
+        TypeItemSynDecl::AssociatedFn(_) => todo!(),
+        TypeItemSynDecl::MethodFn(_) => todo!(),
+        TypeItemSynDecl::AssociatedType(_) => todo!(),
+        TypeItemSynDecl::AssociatedVal(_) => todo!(),
+        TypeItemSynDecl::MemoizedField(_) => todo!(),
     }
 }
+// TypeItemEtherealSignatureTemplate::AssociatedFn(ethereal_signature_template) => {
+//     Some(TypeAssociatedFnHirDecl::from_syn(path, ethereal_signature_template, db).into())
+// }
+// TypeItemEtherealSignatureTemplate::MethodFn(syn_decl) => {
+//     Some(TypeMethodFnHirDecl::from_syn(path, syn_decl, db).into())
+// }
+// TypeItemEtherealSignatureTemplate::MethodFunction(_) => None,
+// TypeItemEtherealSignatureTemplate::MemoizedField(ethereal_signature_template) => {
+//     Some(TypeMemoizedFieldHirDecl::from_syn(path, ethereal_signature_template, db).into())
+// }
 
 // TypeItemDeclarativeSignatureTemplate::AssociatedFn(template) => {
 //     TypeAssociatedFnHirDecl::from_declarative(db, path, template)?.into()

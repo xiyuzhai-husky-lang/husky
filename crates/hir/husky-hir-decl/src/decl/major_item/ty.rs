@@ -61,7 +61,7 @@ impl TypeHirDecl {
         match self {
             TypeHirDecl::Enum(decl) => decl.hir_expr_region(db).into(),
             TypeHirDecl::UnitStruct(decl) => decl.hir_expr_region(db).into(),
-            TypeHirDecl::TupleStruct(decl) => decl.hir_expr_region(db).into(),
+            TypeHirDecl::TupleStruct(decl) => decl.hir_eager_expr_region(db).into(),
             TypeHirDecl::PropsStruct(decl) => decl.hir_expr_region(db).into(),
             TypeHirDecl::Record(decl) => decl.hir_expr_region(db).into(),
             TypeHirDecl::Extern(decl) => decl.hir_expr_region(db).into(),
@@ -80,31 +80,37 @@ impl HasHirDecl for TypePath {
 
 #[salsa::tracked(jar = HirDeclJar)]
 fn ty_hir_decl(db: &dyn HirDeclDb, path: TypePath) -> Option<TypeHirDecl> {
-    match path
-        .ethereal_signature_template(db)
-        .expect("no errors for hir stage")
-    {
-        TypeEtherealSignatureTemplate::Enum(ethereal_signature_template) => {
-            Some(EnumTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
-        }
-        TypeEtherealSignatureTemplate::PropsStruct(ethereal_signature_template) => {
-            Some(PropsStructTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
-        }
-        TypeEtherealSignatureTemplate::UnitStruct(ethereal_signature_template) => {
-            Some(UnitStructTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
-        }
-        TypeEtherealSignatureTemplate::TupleStruct(ethereal_signature_template) => {
-            Some(TupleStructTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
-        }
-        TypeEtherealSignatureTemplate::Record(_) => todo!(),
-        TypeEtherealSignatureTemplate::Inductive(_)
-        | TypeEtherealSignatureTemplate::Structure(_) => None,
-        TypeEtherealSignatureTemplate::Extern(ethereal_signature_template) => {
-            Some(ExternTypeHirDecl::new(path, ethereal_signature_template, db).into())
-        }
-        TypeEtherealSignatureTemplate::Union(_) => todo!(),
+    match path.syn_decl(db).expect("no errors for hir stage") {
+        TypeSynDecl::Enum(_) => todo!(),
+        TypeSynDecl::PropsStruct(_) => todo!(),
+        TypeSynDecl::UnitStruct(_) => todo!(),
+        TypeSynDecl::TupleStruct(_) => todo!(),
+        TypeSynDecl::Record(_) => todo!(),
+        TypeSynDecl::Inductive(_) => todo!(),
+        TypeSynDecl::Structure(_) => todo!(),
+        TypeSynDecl::Extern(_) => todo!(),
+        TypeSynDecl::Union(_) => todo!(),
     }
 }
+// TypeEtherealSignatureTemplate::Enum(ethereal_signature_template) => {
+//     Some(EnumTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
+// }
+// TypeEtherealSignatureTemplate::PropsStruct(ethereal_signature_template) => {
+//     Some(PropsStructTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
+// }
+// TypeEtherealSignatureTemplate::UnitStruct(ethereal_signature_template) => {
+//     Some(UnitStructTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
+// }
+// TypeEtherealSignatureTemplate::TupleStruct(ethereal_signature_template) => {
+//     Some(TupleStructTypeHirDecl::from_syn(path, ethereal_signature_template, db).into())
+// }
+// TypeEtherealSignatureTemplate::Record(_) => todo!(),
+// TypeEtherealSignatureTemplate::Inductive(_)
+// | TypeEtherealSignatureTemplate::Structure(_) => None,
+// TypeEtherealSignatureTemplate::Extern(ethereal_signature_template) => {
+//     Some(ExternTypeHirDecl::new(path, ethereal_signature_template, db).into())
+// }
+// TypeEtherealSignatureTemplate::Union(_) => todo!(),
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = HirDeclDb)]

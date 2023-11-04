@@ -6,7 +6,7 @@ impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_let_stmt(
         &mut self,
         let_token: LetRegionalToken,
-        let_pattern_syn_obelisk: &'a SynExprResult<LetPatternSynObelisk>,
+        let_pattern_syn_obelisk: &'a SynExprResult<LetPatternSynSyndicate>,
         eq_token: &SynExprResult<EqRegionalToken>,
         initial_value: SynExprIdx,
     ) -> (

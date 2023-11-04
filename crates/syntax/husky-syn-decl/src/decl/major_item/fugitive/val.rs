@@ -7,7 +7,7 @@ pub struct ValSynNodeDecl {
     pub syn_node_path: FugitiveSynNodePath,
     pub colon_token: TokenDataResult<Option<ColonRegionalToken>>,
     #[return_ref]
-    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeEqObelisk>>,
+    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeEqSyndicate>>,
     #[return_ref]
     pub eq_token: SynNodeDeclResult<EqRegionalToken>,
     pub expr: Option<SynExprIdx>,
@@ -56,7 +56,7 @@ impl<'a> DeclParser<'a, FugitiveSynNodePath> {
 pub struct ValSynDecl {
     #[id]
     pub path: FugitivePath,
-    pub return_ty: Option<ReturnTypeBeforeEqObelisk>,
+    pub return_ty: Option<ReturnTypeBeforeEqSyndicate>,
     pub expr: Option<SynExprIdx>,
     pub syn_expr_region: SynExprRegion,
 }

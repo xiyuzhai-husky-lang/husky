@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct PropsFieldDeclPattern {
+pub struct PropsFieldSyndicate {
     decorators: Vec<FieldDecorator>,
     visibility: Option<FieldVisibilityExpr>,
     ident_token: IdentRegionalToken,
@@ -23,7 +23,7 @@ pub enum PropsFieldInitialization {
     Default {},
 }
 
-impl PropsFieldDeclPattern {
+impl PropsFieldSyndicate {
     pub fn ident(&self) -> Ident {
         self.ident_token.ident()
     }
@@ -32,7 +32,7 @@ impl PropsFieldDeclPattern {
         self.colon
     }
 
-    pub fn ty_expr_idx(&self) -> SynExprIdx {
+    pub fn ty_syn_expr_idx(&self) -> SynExprIdx {
         self.ty_expr_idx
     }
 
@@ -41,7 +41,7 @@ impl PropsFieldDeclPattern {
     }
 }
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFieldDeclPattern {
+impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFieldSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -85,12 +85,12 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
         );
         let variable = ctx.define_symbol(
             symbol,
-            Some(ObeliskTypeConstraint::FieldVariable {
+            Some(SyndicateTypeConstraint::FieldVariable {
                 ident_token,
                 ty_expr_idx,
             }),
         );
-        Ok(Some(PropsFieldDeclPattern {
+        Ok(Some(PropsFieldSyndicate {
             decorators,
             visibility,
             ident_token,

@@ -7,13 +7,13 @@ pub struct TraitForTypeMethodFnSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
     #[return_ref]
-    pub template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
+    pub template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
-    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameterObeliskList<true>>,
+    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameterSyndicateList<true>>,
     #[return_ref]
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
-    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
+    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonSyndicate>>,
     #[return_ref]
     pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
     pub syn_expr_region: SynExprRegion,
@@ -78,11 +78,11 @@ pub struct TraitForTypeMethodFnSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
-    pub self_value_parameter: Option<SelfParameterObelisk>,
+    pub template_parameters: TemplateParameterSyndicates,
+    pub self_value_parameter: Option<SelfParameterSyndicate>,
     #[return_ref]
-    pub parenate_parameters: ParenateParameterObelisks,
-    pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
+    pub parenate_parameters: ParenateParameterSyndicates,
+    pub return_ty: Option<ReturnTypeBeforeColonSyndicate>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -101,7 +101,7 @@ impl TraitForTypeMethodFnSynDecl {
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
         let self_value_parameter = *parenate_parameter_decl_list.self_value_parameter();
-        let parenate_parameters: ParenateParameterObelisks = parenate_parameter_decl_list
+        let parenate_parameters: ParenateParameterSyndicates = parenate_parameter_decl_list
             .parenate_parameters()
             .iter()
             .map(Clone::clone)

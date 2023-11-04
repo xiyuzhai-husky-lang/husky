@@ -33,12 +33,12 @@ impl GnSynNodeDefn {
 pub struct GnSynDefn {
     #[id]
     pub path: FugitivePath,
-    pub decl: GnSynDecl,
+    pub decl: FunctionGnSynDecl,
     pub body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
 }
 
 impl GnSynDefn {
-    pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: GnSynDecl) -> Self {
+    pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: FunctionGnSynDecl) -> Self {
         let FugitiveSynNodeDefn::Gn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db)
         else {
             unreachable!()

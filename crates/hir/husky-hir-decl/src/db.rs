@@ -44,7 +44,7 @@ pub struct HirDeclJar(
     fugitive_hir_decl,
     FnFugitiveHirDecl,
     GnFugitiveHirDecl,
-    TypeAliasFugitiveHirDecl,
+    TypeAliasHirDecl,
     ValFugitiveHirDecl,
     // ty variant
     ty_variant_hir_decl,

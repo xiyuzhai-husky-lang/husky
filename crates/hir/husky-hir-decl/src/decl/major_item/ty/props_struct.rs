@@ -1,4 +1,6 @@
 use super::*;
+use husky_syn_decl::PropsStructTypeSynDecl;
+use husky_syn_expr::PropsFieldSyndicate;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct PropsStructTypeHirDecl {
@@ -20,20 +22,19 @@ pub struct PropsFieldHirDecl {
 impl PropsStructTypeHirDecl {
     pub(super) fn from_syn(
         path: TypePath,
-        ethereal_signature_template: PropsStructTypeEtherealSignatureTemplate,
+        syn_decl: PropsStructTypeSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
         let TypeSynDecl::PropsStruct(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()
         };
-        let template_parameters = HirTemplateParameters::from_syn(
-            ethereal_signature_template.template_parameters(db),
-            db,
-        );
-        let fields = ethereal_signature_template
+        let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
+        let template_parameters =
+            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
+        let fields = syn_decl
             .fields(db)
             .iter()
-            .map(|field| PropsFieldHirDecl::from_syn(field, db))
+            .map(|field| PropsFieldHirDecl::from_syn(field, &builder))
             .collect();
         Self::new(
             db,
@@ -46,10 +47,10 @@ impl PropsStructTypeHirDecl {
 }
 
 impl PropsFieldHirDecl {
-    fn from_syn(field: &PropsFieldEtherealSignatureTemplate, db: &dyn HirDeclDb) -> Self {
+    fn from_syn(field: &PropsFieldSyndicate, builder: &HirDeclBuilder) -> Self {
         Self {
             ident: field.ident(),
-            ty: HirType::from_syn(field.ty(), db),
+            ty: builder.hir_ty(field.ty_syn_expr_idx()),
         }
     }
 }

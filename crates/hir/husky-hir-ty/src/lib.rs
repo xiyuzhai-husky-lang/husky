@@ -1,5 +1,6 @@
 #![feature(trait_upcasting)]
 pub mod db;
+pub mod menu;
 pub mod ritchie_parameter;
 pub mod symbol;
 pub mod template_argument;

@@ -6,13 +6,14 @@ pub struct FnSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     #[return_ref]
-    template_parameter_obelisk_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
+    pub template_parameter_obelisk_list:
+        SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
-    parenate_parameter_obelisk_list: SynNodeDeclResult<ParenateParameterObeliskList<false>>,
+    parenate_parameter_obelisk_list: SynNodeDeclResult<ParenateParameterSyndicateList<false>>,
     #[return_ref]
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
-    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
+    pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonSyndicate>>,
     #[return_ref]
     pub eol_colon: SynNodeDeclResult<EolRegionalToken>,
     pub syn_expr_region: SynExprRegion,
@@ -70,10 +71,10 @@ pub struct FunctionFnSynDecl {
     #[id]
     pub path: FugitivePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: TemplateParameterSyndicates,
     #[return_ref]
-    pub parenate_parameters: ParenateParameterObelisks,
-    pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
+    pub parenate_parameters: ParenateParameterSyndicates,
+    pub return_ty: Option<ReturnTypeBeforeColonSyndicate>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -91,7 +92,7 @@ impl FunctionFnSynDecl {
             .unwrap_or_default();
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_obelisk_list(db).as_ref()?;
-        let parenate_parameters: ParenateParameterObelisks = parenate_parameter_decl_list
+        let parenate_parameters: ParenateParameterSyndicates = parenate_parameter_decl_list
             .parenate_parameters()
             .iter()
             .map(Clone::clone)
