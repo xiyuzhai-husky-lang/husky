@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_decl::FunctionFnSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct FnFugitiveHirDecl {
@@ -8,15 +9,13 @@ pub struct FnFugitiveHirDecl {
 }
 
 impl FnFugitiveHirDecl {
-    pub(super) fn from_ethereal(
+    pub(super) fn from_syn(
         path: FugitivePath,
-        ethereal_signature_template: FnFugitiveEtherealSignatureTemplate,
+        syn_decl: FunctionFnSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let template_parameters = HirTemplateParameters::from_ethereal(
-            ethereal_signature_template.template_parameters(db),
-            db,
-        );
+        let template_parameters =
+            HirTemplateParameters::from_ethereal(syn_decl.template_parameters(db), db);
         Self::new(db, path, template_parameters)
     }
 }

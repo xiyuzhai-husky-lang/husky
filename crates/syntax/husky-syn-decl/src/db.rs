@@ -69,7 +69,7 @@ pub struct SynDeclJar(
     ValSynNodeDecl,
     ValSynDecl,
     FnSynNodeDecl,
-    FnSynDecl,
+    FunctionFnSynDecl,
     GnSynNodeDecl,
     GnSynDecl,
     TypeAliasSynNodeDecl,

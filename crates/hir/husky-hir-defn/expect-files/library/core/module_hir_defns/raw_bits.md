@@ -91,7 +91,7 @@
                                 ),
                             ),
                         },
-                        parenate_parameters: HirParenateParameters {
+                        parenate_parameters: HirRitchieParameters {
                             data: [
                                 HirRitchieParameter {
                                     contract: None,
@@ -161,7 +161,7 @@
                                 ),
                             ),
                         },
-                        parenate_parameters: HirParenateParameters {
+                        parenate_parameters: HirRitchieParameters {
                             data: [],
                         },
                         return_ty: PathLeading(
@@ -220,7 +220,7 @@
                                 ),
                             ),
                         },
-                        parenate_parameters: HirParenateParameters {
+                        parenate_parameters: HirRitchieParameters {
                             data: [],
                         },
                         return_ty: PathLeading(
@@ -279,7 +279,7 @@
                                 ),
                             ),
                         },
-                        parenate_parameters: HirParenateParameters {
+                        parenate_parameters: HirRitchieParameters {
                             data: [],
                         },
                         return_ty: PathLeading(
@@ -338,7 +338,7 @@
                                 ),
                             ),
                         },
-                        parenate_parameters: HirParenateParameters {
+                        parenate_parameters: HirRitchieParameters {
                             data: [],
                         },
                         return_ty: PathLeading(

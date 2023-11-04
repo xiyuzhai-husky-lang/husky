@@ -213,7 +213,7 @@
                                 ),
                             ),
                         },
-                        parenate_parameters: HirParenateParameters {
+                        parenate_parameters: HirRitchieParameters {
                             data: [
                                 HirRitchieParameter {
                                     contract: None,

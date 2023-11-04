@@ -71,7 +71,7 @@ pub struct GnSynDecl {
     #[return_ref]
     pub template_parameters: TemplateParameterObelisks,
     #[return_ref]
-    pub parenate_parameters: ExplicitParameterDeclPatterns,
+    pub parenate_parameters: ParenateParameterObelisks,
     pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
     pub syn_expr_region: SynExprRegion,
 }
@@ -90,7 +90,7 @@ impl GnSynDecl {
             .unwrap_or_default();
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
-        let parenate_parameters: ExplicitParameterDeclPatterns = parenate_parameter_decl_list
+        let parenate_parameters: ParenateParameterObelisks = parenate_parameter_decl_list
             .parenate_parameters()
             .iter()
             .map(Clone::clone)

@@ -88,7 +88,7 @@ pub struct TraitMethodFnSynDecl {
     pub template_parameters: TemplateParameterObelisks,
     pub self_value_parameter: Option<SelfParameterObelisk>,
     #[return_ref]
-    pub parenate_parameters: ExplicitParameterDeclPatterns,
+    pub parenate_parameters: ParenateParameterObelisks,
     pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
     pub syn_expr_region: SynExprRegion,
 }

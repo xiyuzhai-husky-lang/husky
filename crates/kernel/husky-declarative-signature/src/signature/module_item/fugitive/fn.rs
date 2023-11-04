@@ -12,7 +12,7 @@ pub struct FnFugitiveDeclarativeSignatureTemplate {
 impl FnFugitiveDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
-        decl: FnSynDecl,
+        decl: FunctionFnSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let expr_region_data = syn_expr_region.data(db);
