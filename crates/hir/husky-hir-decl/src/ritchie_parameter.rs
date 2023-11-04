@@ -2,16 +2,16 @@ use crate::*;
 use husky_hir_ty::ritchie::HirRitchieParameter;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct HirParenateParameters {
+pub struct HirRitchieParameters {
     data: SmallVec<[HirRitchieParameter; 4]>,
 }
 
-impl HirParenateParameters {
+impl HirRitchieParameters {
     pub(crate) fn from_ethereal(
         params: &EtherealTermParenateParameters,
         db: &dyn HirDeclDb,
     ) -> Self {
-        HirParenateParameters {
+        HirRitchieParameters {
             data: params
                 .iter()
                 .copied()
@@ -21,7 +21,7 @@ impl HirParenateParameters {
     }
 }
 
-impl std::ops::Deref for HirParenateParameters {
+impl std::ops::Deref for HirRitchieParameters {
     type Target = [HirRitchieParameter];
 
     fn deref(&self) -> &Self::Target {

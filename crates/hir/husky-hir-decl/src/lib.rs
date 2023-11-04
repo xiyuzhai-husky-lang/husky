@@ -2,13 +2,13 @@
 pub mod db;
 mod decl;
 // ad hoc
-mod parenate_parameter;
+mod ritchie_parameter;
 mod template_parameter;
 #[cfg(test)]
 mod tests;
 
 pub use crate::decl::*;
-pub use crate::parenate_parameter::*;
+pub use crate::ritchie_parameter::*;
 pub use crate::template_parameter::*;
 
 use crate::db::*;
