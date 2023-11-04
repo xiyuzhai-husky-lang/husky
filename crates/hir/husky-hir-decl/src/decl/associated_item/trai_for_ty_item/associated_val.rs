@@ -18,7 +18,7 @@ impl TraitForTypeAssociatedValHirDecl {
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
-            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
+            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
         todo!()
         // let self_value_parameter =
         //     HirRitchieParameter::from_syn_regular(template.self_value_parameter(db), db);

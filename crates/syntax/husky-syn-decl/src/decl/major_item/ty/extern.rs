@@ -13,7 +13,7 @@ impl ExternTypeSynNodeDecl {
     pub fn template_parameters<'a>(
         self,
         db: &'a dyn SynDeclDb,
-    ) -> &'a [SynTemplateParameterSyndicate] {
+    ) -> &'a [TemplateParameterSyndicate] {
         todo!()
         // self.template_parameter_decl_list(db)
         //     .as_ref()

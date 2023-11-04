@@ -31,7 +31,9 @@ fn trai_for_ty_impl_block_hir_decl(
     //     EtherealSelfTypeInTraitImpl::PathLeading(self_ty) => builder.hir_ty(self_ty, db),
     //     EtherealSelfTypeInTraitImpl::DeriveAny(_) => return None, // maybe we shouldn't do this???
     // };
-    let template_parameters = HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
+    let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
+    let template_parameters =
+        HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
     // let trai = HirTrait::from_syn(syn_decl.trai(db), db);
     Some(TraitForTypeImplBlockHirDecl::new(
         db,

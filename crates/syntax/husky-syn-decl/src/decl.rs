@@ -89,7 +89,7 @@ impl SynDecl {
     pub fn template_parameters<'a>(
         self,
         db: &'a dyn SynDeclDb,
-    ) -> &'a [SynTemplateParameterSyndicate] {
+    ) -> &'a [TemplateParameterSyndicate] {
         match self {
             SynDecl::Submodule(_) => todo!(),
             SynDecl::MajorItem(decl) => decl.template_parameters(db),

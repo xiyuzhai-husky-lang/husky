@@ -148,7 +148,7 @@ impl SynDefn {
     pub fn template_parameters<'a>(
         self,
         db: &'a dyn SynDefnDb,
-    ) -> &'a [SynTemplateParameterSyndicate] {
+    ) -> &'a [TemplateParameterSyndicate] {
         self.syn_decl(db).template_parameters(db)
     }
 

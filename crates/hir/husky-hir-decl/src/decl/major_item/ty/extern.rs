@@ -10,13 +10,17 @@ pub struct ExternTypeHirDecl {
 }
 
 impl ExternTypeHirDecl {
-    pub(super) fn new(path: TypePath, syn_decl: ExternTypeSynDecl, db: &dyn HirDeclDb) -> Self {
+    pub(super) fn from_syn(
+        path: TypePath,
+        syn_decl: ExternTypeSynDecl,
+        db: &dyn HirDeclDb,
+    ) -> Self {
         let TypeSynDecl::Extern(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()
         };
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
-            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
+            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
         Self::new_inner(
             db,
             path,

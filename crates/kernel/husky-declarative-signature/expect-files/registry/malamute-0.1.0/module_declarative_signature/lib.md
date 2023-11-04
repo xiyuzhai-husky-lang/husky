@@ -145,20 +145,18 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeTermRitchieParameter::Variadic(
-                                        DeclarativeTermRitchieVariadicParameter {
+                                    DeclarativeRitchieParameter::Variadic(
+                                        DeclarativeRitchieVariadicParameter {
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::f32`),
                                         },
                                     ),
-                                    DeclarativeTermRitchieParameter::Keyed(
-                                        DeclarativeTermRitchieKeyedParameter {
+                                    DeclarativeRitchieParameter::Keyed(
+                                        DeclarativeRitchieKeyedParameter {
                                             key: `skip`,
                                             contract: None,
                                             ty: DeclarativeTerm(`core::num::i32`),
-                                            default: Some(
-                                                DeclarativeTerm(`DeclarativeTermLiteralTodo`),
-                                            ),
+                                            has_default: true,
                                         },
                                     ),
                                 ],

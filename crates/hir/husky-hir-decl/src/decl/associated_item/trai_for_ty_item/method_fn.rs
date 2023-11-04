@@ -21,7 +21,7 @@ impl TraitForTypeMethodFnHirDecl {
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
-            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), db);
+            HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
         let self_value_parameter = HirParenateParameter::from_self_value_parameter_syndicate(
             syn_decl.self_value_parameter(db),
             db,

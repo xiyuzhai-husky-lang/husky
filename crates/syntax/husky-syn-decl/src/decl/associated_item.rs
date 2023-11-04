@@ -43,7 +43,7 @@ impl AssociatedItemSynNodeDecl {
     pub fn template_parameters<'a>(
         self,
         db: &'a dyn SynDeclDb,
-    ) -> &'a [SynTemplateParameterSyndicate] {
+    ) -> &'a [TemplateParameterSyndicate] {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
                 syn_node_decl.template_parameters(db)
@@ -113,7 +113,7 @@ impl AssociatedItemSynDecl {
     pub fn template_parameters<'a>(
         self,
         db: &'a dyn SynDeclDb,
-    ) -> &'a [SynTemplateParameterSyndicate] {
+    ) -> &'a [TemplateParameterSyndicate] {
         match self {
             AssociatedItemSynDecl::TypeItem(decl) => decl.template_parameters(db),
             AssociatedItemSynDecl::TraitItem(decl) => decl.template_parameters(db),
