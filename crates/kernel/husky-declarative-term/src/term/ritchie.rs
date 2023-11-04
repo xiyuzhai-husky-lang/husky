@@ -14,7 +14,7 @@ use smallvec::SmallVec;
 pub struct DeclarativeTermRitchie {
     pub ritchie_kind: RitchieKind,
     #[return_ref]
-    pub params: SmallVec<[DeclarativeTermRitchieParameter; 2]>,
+    pub params: SmallVec<[DeclarativeRitchieParameter; 2]>,
     pub return_ty: DeclarativeTerm,
     // ty: DeclarativeTerm,
 }
@@ -74,26 +74,26 @@ where
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = DeclarativeTermDb)]
 #[enum_class::from_variants]
-pub enum DeclarativeTermRitchieParameter {
-    Regular(DeclarativeTermRitchieRegularParameter),
-    Variadic(DeclarativeTermRitchieVariadicParameter),
-    Keyed(DeclarativeTermRitchieKeyedParameter),
+pub enum DeclarativeRitchieParameter {
+    Regular(DeclarativeRitchieRegularParameter),
+    Variadic(DeclarativeRitchieVariadicParameter),
+    Keyed(DeclarativeRitchieKeyedParameter),
 }
 
-impl DeclarativeTermRitchieParameter {
+impl DeclarativeRitchieParameter {
     pub fn ty(&self) -> DeclarativeTerm {
         match self {
-            DeclarativeTermRitchieParameter::Regular(param) => param.ty(),
-            DeclarativeTermRitchieParameter::Variadic(param) => param.ty(),
-            DeclarativeTermRitchieParameter::Keyed(param) => param.ty(),
+            DeclarativeRitchieParameter::Regular(param) => param.ty(),
+            DeclarativeRitchieParameter::Variadic(param) => param.ty(),
+            DeclarativeRitchieParameter::Keyed(param) => param.ty(),
         }
     }
 
     pub(crate) fn substitute_ty(self, f: impl Fn(DeclarativeTerm) -> DeclarativeTerm) -> Self {
         match self {
-            DeclarativeTermRitchieParameter::Regular(param) => param.substitute_ty(f).into(),
-            DeclarativeTermRitchieParameter::Variadic(param) => param.substitute_ty(f).into(),
-            DeclarativeTermRitchieParameter::Keyed(param) => param.substitute_ty(f).into(),
+            DeclarativeRitchieParameter::Regular(param) => param.substitute_ty(f).into(),
+            DeclarativeRitchieParameter::Variadic(param) => param.substitute_ty(f).into(),
+            DeclarativeRitchieParameter::Keyed(param) => param.substitute_ty(f).into(),
         }
     }
 
@@ -104,14 +104,14 @@ impl DeclarativeTermRitchieParameter {
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         match self {
-            DeclarativeTermRitchieParameter::Regular(param) => param.show_with_db_fmt(f, db, ctx),
-            DeclarativeTermRitchieParameter::Variadic(param) => param.show_with_db_fmt(f, db, ctx),
-            DeclarativeTermRitchieParameter::Keyed(param) => param.show_with_db_fmt(f, db, ctx),
+            DeclarativeRitchieParameter::Regular(param) => param.show_with_db_fmt(f, db, ctx),
+            DeclarativeRitchieParameter::Variadic(param) => param.show_with_db_fmt(f, db, ctx),
+            DeclarativeRitchieParameter::Keyed(param) => param.show_with_db_fmt(f, db, ctx),
         }
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for DeclarativeTermRitchieParameter
+impl<Db> salsa::DisplayWithDb<Db> for DeclarativeRitchieParameter
 where
     Db: DeclarativeTermDb + ?Sized,
 {
@@ -122,11 +122,11 @@ where
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         match self {
-            DeclarativeTermRitchieParameter::Regular(parameter) => {
+            DeclarativeRitchieParameter::Regular(parameter) => {
                 parameter.display_with_db_fmt(f, db, level)
             }
-            DeclarativeTermRitchieParameter::Variadic(_) => todo!(),
-            DeclarativeTermRitchieParameter::Keyed(_) => todo!(),
+            DeclarativeRitchieParameter::Variadic(_) => todo!(),
+            DeclarativeRitchieParameter::Keyed(_) => todo!(),
         }
     }
 }

@@ -7,9 +7,9 @@ pub struct TraitForTypeMethodFnSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
     #[return_ref]
-    pub template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
+    pub template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
     #[return_ref]
-    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameters<true>>,
+    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameterObeliskList<true>>,
     #[return_ref]
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
@@ -78,7 +78,7 @@ pub struct TraitForTypeMethodFnSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: SynTemplateParameterObelisks,
     pub self_value_parameter: Option<SelfParameterObelisk>,
     #[return_ref]
     pub parenate_parameters: ParenateParameterObelisks,
@@ -96,7 +96,7 @@ impl TraitForTypeMethodFnSynDecl {
             .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.template_parameters().to_smallvec())
+            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
             .unwrap_or_default();
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;

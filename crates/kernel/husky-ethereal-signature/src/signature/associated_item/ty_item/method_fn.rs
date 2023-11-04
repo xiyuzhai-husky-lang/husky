@@ -5,7 +5,7 @@ pub struct TypeMethodFnEtherealSignatureTemplate {
     pub self_ty: EtherealTerm,
     #[return_ref]
     pub template_parameters: EtherealTermTemplateParameters,
-    pub self_value_parameter: EtherealTermRitchieRegularParameter,
+    pub self_value_parameter: EtherealRitchieRegularParameter,
     #[return_ref]
     pub parenate_parameters: EtherealTermParenateParameters,
     pub return_ty: EtherealTerm,
@@ -19,10 +19,8 @@ impl TypeMethodFnEtherealSignatureTemplate {
         let self_ty = EtherealTerm::ty_from_declarative(db, tmpl.self_ty(db))?;
         let template_parameters =
             EtherealTermTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
-        let self_value_parameter = EtherealTermRitchieRegularParameter::from_declarative(
-            db,
-            tmpl.self_value_parameter(db),
-        )?;
+        let self_value_parameter =
+            EtherealRitchieRegularParameter::from_declarative(db, tmpl.self_value_parameter(db))?;
         let parenate_parameters =
             EtherealTermParenateParameters::from_declarative(db, tmpl.parenate_parameters(db))?;
         let return_ty = EtherealTerm::ty_from_declarative(db, tmpl.return_ty(db))?;

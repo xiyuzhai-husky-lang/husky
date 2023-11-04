@@ -1,5 +1,5 @@
 use super::*;
-use husky_ethereal_term::{EtherealTermRitchieParameter, EtherealTermRitchieRegularParameter};
+use husky_ethereal_term::{EtherealRitchieParameter, EtherealRitchieRegularParameter};
 use husky_term_prelude::Contract;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -10,16 +10,16 @@ pub struct HirRitchieParameter {
 }
 
 impl HirRitchieParameter {
-    pub fn from_ethereal(param: EtherealTermRitchieParameter, db: &dyn HirTypeDb) -> Self {
+    pub fn from_ethereal(param: EtherealRitchieParameter, db: &dyn HirTypeDb) -> Self {
         match param {
-            EtherealTermRitchieParameter::Regular(param) => Self::from_ethereal_regular(param, db),
-            EtherealTermRitchieParameter::Variadic(_) => todo!(),
-            EtherealTermRitchieParameter::Keyed(_) => todo!(),
+            EtherealRitchieParameter::Regular(param) => Self::from_ethereal_regular(param, db),
+            EtherealRitchieParameter::Variadic(_) => todo!(),
+            EtherealRitchieParameter::Keyed(_) => todo!(),
         }
     }
 
     pub fn from_ethereal_regular(
-        param: EtherealTermRitchieRegularParameter,
+        param: EtherealRitchieRegularParameter,
         db: &dyn HirTypeDb,
     ) -> Self {
         Self {

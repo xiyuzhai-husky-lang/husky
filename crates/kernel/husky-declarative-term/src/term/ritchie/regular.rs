@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = DeclarativeTermDb)]
-pub struct DeclarativeTermRitchieRegularParameter {
+pub struct DeclarativeRitchieRegularParameter {
     contract: Contract,
     ty: DeclarativeTerm,
 }
 
-impl DeclarativeTermRitchieRegularParameter {
+impl DeclarativeRitchieRegularParameter {
     pub fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
         Self { contract, ty }
     }
@@ -37,7 +37,7 @@ impl DeclarativeTermRitchieRegularParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for DeclarativeTermRitchieRegularParameter
+impl<Db> salsa::DisplayWithDb<Db> for DeclarativeRitchieRegularParameter
 where
     Db: DeclarativeTermDb + ?Sized,
 {

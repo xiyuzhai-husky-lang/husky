@@ -4,11 +4,11 @@ use either::*;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 pub struct DeclarativeParenateParameters {
-    data: SmallVec<[DeclarativeTermRitchieParameter; 4]>,
+    data: SmallVec<[DeclarativeRitchieParameter; 4]>,
 }
 
 impl std::ops::Deref for DeclarativeParenateParameters {
-    type Target = [DeclarativeTermRitchieParameter];
+    type Target = [DeclarativeRitchieParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data
@@ -32,8 +32,9 @@ impl DeclarativeParenateParameters {
                             variables,
                             colon,
                             ty,
-                        } => DeclarativeTermRitchieRegularParameter::new(
-                            expr_region_data.pattern_contract(syn_pattern_root.syn_pattern_expr_idx()),
+                        } => DeclarativeRitchieRegularParameter::new(
+                            expr_region_data
+                                .pattern_contract(syn_pattern_root.syn_pattern_expr_idx()),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
                                     i.try_into().unwrap(),
@@ -45,7 +46,7 @@ impl DeclarativeParenateParameters {
                             symbol_modifier_keyword_group,
                             ty,
                             ..
-                        } => DeclarativeTermRitchieVariadicParameter::new(
+                        } => DeclarativeRitchieVariadicParameter::new(
                             Contract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
@@ -60,7 +61,7 @@ impl DeclarativeParenateParameters {
                             ty,
                             default,
                             ..
-                        } => DeclarativeTermRitchieKeyedParameter::new(
+                        } => DeclarativeRitchieKeyedParameter::new(
                             ident_token.ident(),
                             Contract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {
@@ -69,14 +70,15 @@ impl DeclarativeParenateParameters {
                                 )
                             })?,
                             match *default {
-                                Left(_) => todo!(),
-                                Right(default_expr_idx) => Some(
-                                    signature_region.expr_term(default_expr_idx).map_err(|_| {
-                                        DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
-                                            i.try_into().unwrap(),
-                                        )
-                                    })?,
-                                ),
+                                Left(_) => false,
+                                Right(_) => true,
+                                // Some(
+                                //     signature_region.expr_term(default_expr_idx).map_err(|_| {
+                                //         DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
+                                //             i.try_into().unwrap(),
+                                //         )
+                                //     })?,
+                                // ),
                             },
                         )
                         .into(),
@@ -86,7 +88,7 @@ impl DeclarativeParenateParameters {
         })
     }
 
-    pub fn data(&self) -> &[DeclarativeTermRitchieParameter] {
+    pub fn data(&self) -> &[DeclarativeRitchieParameter] {
         &self.data
     }
 }

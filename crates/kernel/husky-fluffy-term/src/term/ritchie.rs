@@ -54,7 +54,7 @@ impl FluffyTermRitchieParameter {
     fn resolve_as_ethereal(
         self,
         terms: &impl std::borrow::Borrow<HollowTerms>,
-    ) -> Option<EtherealTermRitchieParameter> {
+    ) -> Option<EtherealRitchieParameter> {
         Some(match self {
             FluffyTermRitchieParameter::Regular(param) => param.resolve_as_ethereal(terms)?.into(),
             FluffyTermRitchieParameter::Variadic(param) => todo!(),
@@ -63,23 +63,23 @@ impl FluffyTermRitchieParameter {
     }
 }
 
-impl From<EtherealTermRitchieParameter> for FluffyTermRitchieParameter {
-    fn from(param: EtherealTermRitchieParameter) -> Self {
+impl From<EtherealRitchieParameter> for FluffyTermRitchieParameter {
+    fn from(param: EtherealRitchieParameter) -> Self {
         match param {
-            EtherealTermRitchieParameter::Regular(param) => {
+            EtherealRitchieParameter::Regular(param) => {
                 FluffyTermRitchieParameter::Regular(param.into())
             }
-            EtherealTermRitchieParameter::Variadic(param) => {
+            EtherealRitchieParameter::Variadic(param) => {
                 FluffyTermRitchieParameter::Variadic(param.into())
             }
-            EtherealTermRitchieParameter::Keyed(param) => {
+            EtherealRitchieParameter::Keyed(param) => {
                 FluffyTermRitchieParameter::Keyed(param.into())
             }
         }
     }
 }
 
-impl FluffyTermInstantiate for EtherealTermRitchieParameter {
+impl FluffyTermInstantiate for EtherealRitchieParameter {
     type Target = FluffyTermRitchieParameter;
 
     fn instantiate(
@@ -89,11 +89,11 @@ impl FluffyTermInstantiate for EtherealTermRitchieParameter {
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target {
         match self {
-            EtherealTermRitchieParameter::Regular(param) => {
+            EtherealRitchieParameter::Regular(param) => {
                 param.instantiate(engine, expr_idx, instantiation).into()
             }
-            EtherealTermRitchieParameter::Variadic(_) => todo!(),
-            EtherealTermRitchieParameter::Keyed(_) => todo!(),
+            EtherealRitchieParameter::Variadic(_) => todo!(),
+            EtherealRitchieParameter::Keyed(_) => todo!(),
         }
     }
 }

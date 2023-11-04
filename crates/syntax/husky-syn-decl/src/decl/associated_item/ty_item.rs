@@ -43,7 +43,10 @@ impl TypeItemSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateParameterObelisk] {
+    pub fn template_parameters<'a>(
+        self,
+        _db: &'a dyn SynDeclDb,
+    ) -> &'a [SynTemplateParameterObelisk] {
         match self {
             TypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TypeItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -133,7 +136,10 @@ impl TypeItemSynDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateParameterObelisk] {
+    pub fn template_parameters<'a>(
+        self,
+        _db: &'a dyn SynDeclDb,
+    ) -> &'a [SynTemplateParameterObelisk] {
         match self {
             TypeItemSynDecl::AssociatedFn(_) => todo!(),
             TypeItemSynDecl::MethodFn(_) => todo!(),

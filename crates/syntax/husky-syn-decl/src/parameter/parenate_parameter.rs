@@ -6,7 +6,7 @@ pub(crate) type ParenateParameterObelisks = SmallVec<[SpecificParameterObelisk; 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[derive(Getters)]
-pub struct ParenateParameters<const ALLOW_SELF_PARAMETER: bool> {
+pub struct ParenateParameterObeliskList<const ALLOW_SELF_PARAMETER: bool> {
     lpar: LparRegionalToken,
     self_value_parameter: Option<SelfParameterObelisk>,
     comma_after_self_parameter: Option<CommaRegionalToken>,
@@ -16,7 +16,7 @@ pub struct ParenateParameters<const ALLOW_SELF_PARAMETER: bool> {
 }
 
 impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<SynDeclExprParser<'a>>
-    for ParenateParameters<ALLOW_SELF_PARAMETER>
+    for ParenateParameterObeliskList<ALLOW_SELF_PARAMETER>
 {
     type Error = SynNodeDeclError;
 

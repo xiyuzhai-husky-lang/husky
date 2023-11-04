@@ -5,9 +5,9 @@ pub struct TypeAssociatedFnSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     #[return_ref]
-    pub template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
+    pub template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
     #[return_ref]
-    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameters<false>>,
+    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameterObeliskList<false>>,
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
@@ -79,7 +79,7 @@ pub struct TypeAssociatedFnSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: SynTemplateParameterObelisks,
     #[return_ref]
     pub parenate_parameters: ParenateParameterObelisks,
     pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
@@ -96,7 +96,7 @@ impl TypeAssociatedFnSynDecl {
             .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.template_parameters().to_smallvec())
+            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
             .unwrap_or_default();
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;

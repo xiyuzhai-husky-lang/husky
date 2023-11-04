@@ -214,8 +214,7 @@ impl HollowTerms {
                         };
                         match param {
                             FluffyTermRitchieParameter::Regular(param) => {
-                                EtherealTermRitchieRegularParameter::new(param.contract(), ty)
-                                    .into()
+                                EtherealRitchieRegularParameter::new(param.contract(), ty).into()
                             }
                             FluffyTermRitchieParameter::Variadic(_) => todo!(),
                             FluffyTermRitchieParameter::Keyed(_) => todo!(),

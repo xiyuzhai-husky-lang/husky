@@ -5,7 +5,7 @@ pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
     // todo: formal method, method that is not a function pointer
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
-    pub self_value_parameter: DeclarativeTermRitchieRegularParameter,
+    pub self_value_parameter: DeclarativeRitchieRegularParameter,
     #[return_ref]
     pub parenate_parameters: DeclarativeParenateParameters,
     pub return_ty: DeclarativeTerm,
@@ -21,7 +21,7 @@ impl TypeMethodFunctionDeclarativeSignatureTemplate {
         let syn_expr_region = decl.syn_expr_region(db);
         let expr_region_data = syn_expr_region.data(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);
-        let self_value_parameter = DeclarativeTermRitchieRegularParameter::new(
+        let self_value_parameter = DeclarativeRitchieRegularParameter::new(
             match decl.self_value_parameter(db) {
                 Some(self_value_parameter) => todo!(),
                 None => Contract::None,

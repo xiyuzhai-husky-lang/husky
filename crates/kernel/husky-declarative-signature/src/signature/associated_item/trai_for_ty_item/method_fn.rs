@@ -5,7 +5,7 @@ pub struct TraitForTypeMethodFnDeclarativeSignatureTemplate {
     pub self_ty: DeclarativeTerm,
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
-    pub self_value_parameter: DeclarativeTermRitchieRegularParameter,
+    pub self_value_parameter: DeclarativeRitchieRegularParameter,
     /// parenate is a word I coined
     ///
     /// it means things that should be parenthesized
@@ -25,7 +25,7 @@ impl TraitForTypeMethodFnDeclarativeSignatureTemplate {
             .declarative_signature_template(db)?
             .self_ty(db)
             .term();
-        let self_value_parameter = DeclarativeTermRitchieRegularParameter::new(
+        let self_value_parameter = DeclarativeRitchieRegularParameter::new(
             match decl.self_value_parameter(db) {
                 Some(self_value_parameter) => todo!(),
                 None => Contract::None,

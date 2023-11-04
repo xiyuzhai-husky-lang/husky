@@ -54,8 +54,8 @@ impl TupleStructTypeDeclarativeSignatureTemplate {
 }
 
 impl TupleStructFieldDeclarativeSignatureTemplate {
-    pub fn into_ritchie_parameter_contracted_ty(self) -> DeclarativeTermRitchieParameter {
-        DeclarativeTermRitchieRegularParameter::new(Contract::Move, self.ty).into()
+    pub fn into_ritchie_parameter_contracted_ty(self) -> DeclarativeRitchieParameter {
+        DeclarativeRitchieRegularParameter::new(Contract::Move, self.ty).into()
     }
 
     pub fn ty(&self) -> DeclarativeTerm {

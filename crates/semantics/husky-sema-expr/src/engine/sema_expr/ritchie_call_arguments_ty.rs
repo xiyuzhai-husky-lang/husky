@@ -168,8 +168,8 @@ mod matcher {
                         .ritchie_matches
                         .push(SemaRitchieParameterArgumentMatch::Variadic(param, items)))
                 }
-                FluffyTermRitchieParameter::Keyed(param) => match param.default() {
-                    Some(default) => {
+                FluffyTermRitchieParameter::Keyed(param) => match param.has_default() {
+                    true => {
                         if let Some(SynCallListItem::Keyed(item)) = self.ritchie_call_items
                             .next_if(|arg|
                                 matches!(arg, SynCallListItem::Keyed(item) if item.key() == param.key())
@@ -182,7 +182,7 @@ mod matcher {
                             Ok(())
                         }
                     }
-                    None => todo!(),
+                    false => todo!(),
                 },
             }
         }

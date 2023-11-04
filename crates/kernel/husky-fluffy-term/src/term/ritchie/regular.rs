@@ -10,16 +10,16 @@ impl FluffyTermRitchieRegularParameter {
     pub(super) fn resolve_as_ethereal(
         self,
         terms: &impl std::borrow::Borrow<HollowTerms>,
-    ) -> Option<EtherealTermRitchieRegularParameter> {
-        Some(EtherealTermRitchieRegularParameter::new(
+    ) -> Option<EtherealRitchieRegularParameter> {
+        Some(EtherealRitchieRegularParameter::new(
             self.contract,
             self.ty.resolve_as_ethereal(terms)?,
         ))
     }
 }
 
-impl From<EtherealTermRitchieRegularParameter> for FluffyTermRitchieRegularParameter {
-    fn from(param: EtherealTermRitchieRegularParameter) -> Self {
+impl From<EtherealRitchieRegularParameter> for FluffyTermRitchieRegularParameter {
+    fn from(param: EtherealRitchieRegularParameter) -> Self {
         Self {
             contract: param.contract(),
             ty: param.ty().into(),
@@ -27,7 +27,7 @@ impl From<EtherealTermRitchieRegularParameter> for FluffyTermRitchieRegularParam
     }
 }
 
-impl FluffyTermInstantiate for EtherealTermRitchieRegularParameter {
+impl FluffyTermInstantiate for EtherealRitchieRegularParameter {
     type Target = FluffyTermRitchieRegularParameter;
 
     fn instantiate(

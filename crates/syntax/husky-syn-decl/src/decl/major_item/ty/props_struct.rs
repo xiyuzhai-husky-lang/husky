@@ -7,7 +7,7 @@ pub struct PropsStructTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
-    template_parameter_decl_list: SynNodeDeclResult<Option<TemplateParameters>>,
+    template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterObeliskList>>,
     #[return_ref]
     lcurl: SynNodeDeclResult<PropsStructLcurlRegionalToken>,
     #[return_ref]
@@ -69,7 +69,7 @@ pub struct PropsStructTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterObelisks,
+    pub template_parameters: SynTemplateParameterObelisks,
     #[return_ref]
     pub fields: SmallVec<[PropsFieldDeclPattern; 4]>,
     pub syn_expr_region: SynExprRegion,
@@ -85,7 +85,7 @@ impl PropsStructTypeSynDecl {
             .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.template_parameters().to_smallvec())
+            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
             .unwrap_or_default();
         let fields = SmallVec::from(syn_node_decl.fields(db).as_ref()?.elements());
         let syn_expr_region = syn_node_decl.syn_expr_region(db);

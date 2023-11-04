@@ -1,8 +1,8 @@
 #![feature(trait_upcasting)]
 pub mod db;
+pub mod ritchie_parameter;
 pub mod symbol;
 pub mod template_argument;
-// pub mod template_parameter;
 #[cfg(test)]
 mod tests;
 pub mod trai;

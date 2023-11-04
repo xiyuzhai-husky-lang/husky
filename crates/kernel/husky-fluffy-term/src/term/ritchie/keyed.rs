@@ -6,17 +6,17 @@ pub struct FluffyTermRitchieKeyedParameter {
     key: Ident,
     contract: Contract,
     ty: FluffyTerm,
-    default: Option<FluffyTerm>,
+    has_default: bool,
 }
 
-impl From<EtherealTermRitchieKeyedParameter> for FluffyTermRitchieKeyedParameter {
+impl From<EtherealRitchieKeyedParameter> for FluffyTermRitchieKeyedParameter {
     #[inline(always)]
-    fn from(param: EtherealTermRitchieKeyedParameter) -> Self {
+    fn from(param: EtherealRitchieKeyedParameter) -> Self {
         Self {
             key: param.key(),
             contract: param.contract(),
             ty: param.ty().into(),
-            default: param.default().map(Into::into),
+            has_default: param.has_default(),
         }
     }
 }
@@ -43,7 +43,7 @@ impl FluffyTermRitchieKeyedParameter {
     }
 
     #[inline(always)]
-    pub fn default(&self) -> Option<FluffyTerm> {
-        self.default
+    pub fn has_default(&self) -> bool {
+        self.has_default
     }
 }

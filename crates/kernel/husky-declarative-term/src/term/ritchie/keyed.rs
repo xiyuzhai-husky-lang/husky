@@ -2,25 +2,20 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = DeclarativeTermDb)]
-pub struct DeclarativeTermRitchieKeyedParameter {
+pub struct DeclarativeRitchieKeyedParameter {
     key: Ident,
     contract: Contract,
     ty: DeclarativeTerm,
-    default: Option<DeclarativeTerm>,
+    has_default: bool,
 }
 
-impl DeclarativeTermRitchieKeyedParameter {
-    pub fn new(
-        key: Ident,
-        contract: Contract,
-        ty: DeclarativeTerm,
-        default: Option<DeclarativeTerm>,
-    ) -> Self {
+impl DeclarativeRitchieKeyedParameter {
+    pub fn new(key: Ident, contract: Contract, ty: DeclarativeTerm, has_default: bool) -> Self {
         Self {
             key,
             contract,
             ty,
-            default,
+            has_default,
         }
     }
 
@@ -29,7 +24,7 @@ impl DeclarativeTermRitchieKeyedParameter {
             key: self.key,
             contract: self.contract,
             ty: f(self.ty),
-            default: self.default.map(|default| f(default)),
+            has_default: self.has_default,
         }
     }
 
@@ -45,8 +40,8 @@ impl DeclarativeTermRitchieKeyedParameter {
         self.ty
     }
 
-    pub fn default(&self) -> Option<DeclarativeTerm> {
-        self.default
+    pub fn has_default(&self) -> bool {
+        self.has_default
     }
 
     pub(super) fn show_with_db_fmt(
@@ -59,7 +54,7 @@ impl DeclarativeTermRitchieKeyedParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for DeclarativeTermRitchieKeyedParameter
+impl<Db> salsa::DisplayWithDb<Db> for DeclarativeRitchieKeyedParameter
 where
     Db: DeclarativeTermDb + ?Sized,
 {
@@ -75,9 +70,9 @@ where
         f.write_str(": ")?;
         self.ty.show_with_db_fmt(f, db, &mut ctx)?;
         f.write_str(" = ");
-        match self.default {
-            Some(default) => default.show_with_db_fmt(f, db, &mut ctx),
-            None => f.write_str("_"),
+        match self.has_default {
+            true => f.write_str("..."),
+            false => f.write_str("_"),
         }
     }
 }
