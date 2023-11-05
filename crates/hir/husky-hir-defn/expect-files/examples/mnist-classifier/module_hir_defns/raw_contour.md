@@ -1181,7 +1181,15 @@
                                         NewList {
                                             items: [],
                                         },
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 110,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         FnCall {
                                             function_hir_expr_idx: 2,
                                             template_arguments: None,
@@ -2263,7 +2271,15 @@
                                                 ),
                                             ),
                                         },
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 101,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         CurrentSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -2462,7 +2478,15 @@
                                             opd_hir_expr_idx: 171,
                                             opr: Unwrap,
                                         },
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 101,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         CurrentSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -2678,7 +2702,15 @@
                                             opd_hir_expr_idx: 201,
                                             opr: Unwrap,
                                         },
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 101,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         CurrentSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -2769,7 +2801,15 @@
                                                 ),
                                             ),
                                         },
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 101,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         CurrentSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -3986,7 +4026,15 @@
                             HirEagerExprRegion {
                                 hir_eager_expr_arena: Arena {
                                     data: [
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 94,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         SelfType,
                                         Literal(
                                             F32(

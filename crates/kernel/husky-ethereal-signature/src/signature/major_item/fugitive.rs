@@ -21,10 +21,7 @@ pub enum FugitiveEtherealSignatureTemplate {
 }
 
 impl FugitiveEtherealSignatureTemplate {
-    pub fn template_parameters(
-        self,
-        db: &dyn EtherealSignatureDb,
-    ) -> &[EtherealTermTemplateParameter] {
+    pub fn template_parameters(self, db: &dyn EtherealSignatureDb) -> &[EtherealTemplateParameter] {
         match self {
             FugitiveEtherealSignatureTemplate::FunctionFn(template) => {
                 template.template_parameters(db)

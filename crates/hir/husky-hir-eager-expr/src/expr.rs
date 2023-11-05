@@ -92,7 +92,9 @@ pub enum HirEagerExpr {
         arguments: IdentMap<HirEagerHtmlArgumentExpr>,
     },
     Todo,
-    AssociatedFn,
+    AssociatedFn {
+        associated_item_path: AssociatedItemPath,
+    },
     AssociatedGn,
 }
 
@@ -126,7 +128,9 @@ impl ToHirEager for SemaExprIdx {
                 ident_token,
                 static_dispatch,
             } => match static_dispatch {
-                StaticDispatch::AssociatedFn(_) => HirEagerExpr::AssociatedFn,
+                StaticDispatch::AssociatedFn(signature) => HirEagerExpr::AssociatedFn {
+                    associated_item_path: signature.path(),
+                },
                 StaticDispatch::AssociatedGn => HirEagerExpr::AssociatedGn,
             },
             SemaExprData::InheritedSymbol {

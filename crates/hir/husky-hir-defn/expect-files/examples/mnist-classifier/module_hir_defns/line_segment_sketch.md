@@ -4175,7 +4175,15 @@
                                             opr: Assign,
                                             ropd: 15,
                                         },
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 82,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         InheritedSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -4485,7 +4493,15 @@
                                             opd_hir_expr_idx: 49,
                                             opr: Unwrap,
                                         },
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 82,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         InheritedSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -4678,7 +4694,15 @@
                                             opr: Assign,
                                             ropd: 71,
                                         },
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 82,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         InheritedSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -5146,7 +5170,15 @@
                                                 ),
                                             ),
                                         },
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 82,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         InheritedSymbol {
                                             ident: Ident(
                                                 Coword(
@@ -5607,7 +5639,15 @@
                                             opd_hir_expr_idx: 173,
                                             opr: Unwrap,
                                         },
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 82,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         InheritedSymbol {
                                             ident: Ident(
                                                 Coword(

@@ -19,7 +19,11 @@ pub enum HirTemplateParameterData {
 }
 
 impl HirTemplateParameter {
-    pub fn from_syn(syndicate: &TemplateParameterSyndicate, builder: &HirDeclBuilder) -> Self {
+    pub fn from_syn(
+        syndicate: &TemplateParameterSyndicate,
+        eth: &EtherealTemplateParameter,
+        builder: &HirDeclBuilder,
+    ) -> Option<Self> {
         let data = match syndicate.data() {
             TemplateParameterSyndicateData::Type {
                 ident_token,
@@ -55,7 +59,7 @@ impl HirTemplateParameter {
                 }
             }
         };
-        Self { data }
+        Some(Self { data })
     }
 
     pub fn data(&self) -> &HirTemplateParameterData {
@@ -67,11 +71,17 @@ impl HirTemplateParameter {
 pub struct HirTemplateParameters(SmallVec<[HirTemplateParameter; 2]>);
 
 impl HirTemplateParameters {
-    pub fn from_syn(syndicates: &[TemplateParameterSyndicate], builder: &HirDeclBuilder) -> Self {
+    pub fn from_syn(
+        syndicates: &[TemplateParameterSyndicate],
+        eth_params: &[EtherealTemplateParameter],
+        builder: &HirDeclBuilder,
+    ) -> Self {
         HirTemplateParameters(
             syndicates
                 .iter()
-                .map(|syndicate| HirTemplateParameter::from_syn(syndicate, builder))
+                .filter_map(|syndicate| {
+                    HirTemplateParameter::from_syn(syndicate, eth_params, builder)
+                })
                 .collect(),
         )
     }

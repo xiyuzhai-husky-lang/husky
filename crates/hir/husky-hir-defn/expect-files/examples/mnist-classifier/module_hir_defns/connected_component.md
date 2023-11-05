@@ -788,7 +788,15 @@
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        AssociatedFn,
+                                        AssociatedFn {
+                                            associated_item_path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                         FnCall {
                                             function_hir_expr_idx: 13,
                                             template_arguments: None,

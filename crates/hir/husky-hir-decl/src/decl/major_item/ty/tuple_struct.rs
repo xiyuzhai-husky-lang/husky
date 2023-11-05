@@ -52,4 +52,8 @@ impl TupleFieldHirDecl {
             ty: builder.hir_ty(field.ty()),
         }
     }
+
+    pub fn ty(self) -> HirType {
+        self.ty
+    }
 }
