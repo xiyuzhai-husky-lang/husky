@@ -208,7 +208,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -222,7 +222,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -252,7 +252,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 34,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -1121,7 +1129,242 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    Trait(
+                                        TraitPath(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 33,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 36,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        4,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        5,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 39,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        6,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        7,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 42,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        8,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 33,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        9,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        10,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        11,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 10,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        12,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -1208,20 +1451,6 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
                                                 value: 5,
                                             },
                                         ),
@@ -1236,7 +1465,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 9,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -1251,6 +1480,20 @@
                                         EtherealTermSymbol(
                                             Id {
                                                 value: 10,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -1922,7 +2165,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 25,
+                            value: 35,
                         },
                     ),
                 ),
@@ -2550,7 +2793,27 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [
@@ -2634,20 +2897,6 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
                                                 value: 5,
                                             },
                                         ),
@@ -2662,7 +2911,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 9,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -2677,6 +2926,20 @@
                                         EtherealTermSymbol(
                                             Id {
                                                 value: 10,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -2747,7 +3010,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 35,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -3845,7 +4116,202 @@
                     None,
                 ],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 33,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 38,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        4,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        5,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 41,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        6,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 33,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        7,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        8,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        9,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 10,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        10,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [
@@ -3925,7 +4391,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 22,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -3939,20 +4405,6 @@
             symbol_terms: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
                         Some(
                             FluffyTerm {
                                 place: None,
@@ -3974,7 +4426,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 9,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -3989,6 +4441,20 @@
                                         EtherealTermSymbol(
                                             Id {
                                                 value: 10,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -4554,7 +5020,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 25,
+                            value: 35,
                         },
                     ),
                 ),

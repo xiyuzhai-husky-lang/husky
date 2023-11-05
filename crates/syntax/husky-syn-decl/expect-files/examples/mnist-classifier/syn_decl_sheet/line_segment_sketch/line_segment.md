@@ -15,7 +15,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 template_parameters: [],
                                 fields: [
-                                    PropsFieldDeclPattern {
+                                    PropsFieldSyndicate {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentRegionalToken {
@@ -33,7 +33,7 @@ Ok(
                                         initialization: None,
                                         variable: 1,
                                     },
-                                    PropsFieldDeclPattern {
+                                    PropsFieldSyndicate {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentRegionalToken {
@@ -290,7 +290,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            self_ty_expr: SelfTypeObelisk {
+                            self_ty_expr: SelfTypeSyndicate {
                                 expr: 1,
                             },
                             syn_expr_region: SynExprRegion {
@@ -416,8 +416,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -639,7 +639,7 @@ Ok(
                                 template_parameters: [],
                                 self_value_parameter: None,
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -655,8 +655,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 2,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 2,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {

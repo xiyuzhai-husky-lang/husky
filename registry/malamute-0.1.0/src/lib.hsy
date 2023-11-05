@@ -4,23 +4,23 @@ pub enum Class<Label>
 | Unknown
 
 #derive(Debug, Clone, Copy)
-pub enum OneVsAll<Label, const label: Label>
+pub enum OneVsAll<Label, #phantom const label: Label>
 | Yes
 | No
 
-impl<Label, const label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
+impl<Label, #phantom const label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
     type Output = ()
 
 #derive(Debug, Clone, Copy)
-pub enum OneVsAllResult<Label, const label: Label>
+pub enum OneVsAllResult<Label, #phantom const label: Label>
 | ConfidentYes
 | ConfidentNo
 | Unconfident
 
-impl<Label, const label: Label> core::ops::Unveil OneVsAllResult Label label for OneVsAll Label label:
+impl<Label, #phantom const label: Label> core::ops::Unveil OneVsAllResult Label label for OneVsAll Label label:
     type Output = ()
 
-pub gn narrow_down<Label, const label: Label>(
+pub gn narrow_down<Label, #phantom const label: Label>(
     ...[] f: f32,
     skip: i32 = 5,
 ) -> OneVsAllResult Label label;

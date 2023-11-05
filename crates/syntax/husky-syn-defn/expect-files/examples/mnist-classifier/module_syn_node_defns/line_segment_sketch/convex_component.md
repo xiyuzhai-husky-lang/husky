@@ -32,7 +32,7 @@ Ok(
                             fields: Ok(
                                 PunctuatedSmallList {
                                     elements: [
-                                        PropsFieldDeclPattern {
+                                        PropsFieldSyndicate {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
@@ -56,7 +56,7 @@ Ok(
                                             initialization: None,
                                             variable: 1,
                                         },
-                                        PropsFieldDeclPattern {
+                                        PropsFieldSyndicate {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
@@ -388,7 +388,7 @@ Ok(
                     template_parameter_decl_list: Ok(
                         None,
                     ),
-                    trai_expr: TraitObelisk {
+                    trai_expr: TraitSyndicate {
                         expr: 1,
                     },
                     for_token: ConnectionForRegionalToken {
@@ -397,7 +397,7 @@ Ok(
                         ),
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeObelisk {
+                        SelfTypeSyndicate {
                             expr: 2,
                         },
                     ),
@@ -576,7 +576,7 @@ Ok(
                                 None,
                             ),
                             parenate_parameter_decl_list: Ok(
-                                ParenateParameters {
+                                ParenateParameterSyndicateList {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -604,8 +604,8 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                             ),

@@ -16,7 +16,7 @@ Ok(
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
-                            ValSynNodeDecl {
+                            ValFugitiveSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
@@ -34,7 +34,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeEqObelisk {
+                                        ReturnTypeBeforeEqSyndicate {
                                             expr: 1,
                                         },
                                     ),
@@ -160,11 +160,11 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                template_parameter_decl_list: Ok(
+                                template_parameter_obelisk_list: Ok(
                                     None,
                                 ),
-                                parenate_parameter_decl_list: Ok(
-                                    ParenateParameters {
+                                parenate_parameter_obelisk_list: Ok(
+                                    ParenateParameterSyndicateList {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -173,7 +173,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterObelisk::Regular {
+                                            ParenateParameterSyndicate::Ordinary {
                                                 syn_pattern_root: SynPatternRoot(
                                                     1,
                                                 ),
@@ -207,8 +207,8 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeColonObelisk {
-                                            expr: 4,
+                                        ReturnTypeBeforeColonSyndicate {
+                                            syn_expr_idx: 4,
                                         },
                                     ),
                                 ),
@@ -426,11 +426,11 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                template_parameter_decl_list: Ok(
+                                template_parameter_obelisk_list: Ok(
                                     None,
                                 ),
-                                parenate_parameter_decl_list: Ok(
-                                    ParenateParameters {
+                                parenate_parameter_obelisk_list: Ok(
+                                    ParenateParameterSyndicateList {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -439,7 +439,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterObelisk::Regular {
+                                            ParenateParameterSyndicate::Ordinary {
                                                 syn_pattern_root: SynPatternRoot(
                                                     1,
                                                 ),
@@ -473,8 +473,8 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeColonObelisk {
-                                            expr: 4,
+                                        ReturnTypeBeforeColonSyndicate {
+                                            syn_expr_idx: 4,
                                         },
                                     ),
                                 ),
@@ -692,11 +692,11 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                template_parameter_decl_list: Ok(
+                                template_parameter_obelisk_list: Ok(
                                     None,
                                 ),
-                                parenate_parameter_decl_list: Ok(
-                                    ParenateParameters {
+                                parenate_parameter_obelisk_list: Ok(
+                                    ParenateParameterSyndicateList {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -705,7 +705,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterObelisk::Regular {
+                                            ParenateParameterSyndicate::Ordinary {
                                                 syn_pattern_root: SynPatternRoot(
                                                     1,
                                                 ),
@@ -739,8 +739,8 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeColonObelisk {
-                                            expr: 4,
+                                        ReturnTypeBeforeColonSyndicate {
+                                            syn_expr_idx: 4,
                                         },
                                     ),
                                 ),
@@ -951,7 +951,7 @@ Ok(
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
-                            ValSynNodeDecl {
+                            ValFugitiveSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
@@ -969,7 +969,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeEqObelisk {
+                                        ReturnTypeBeforeEqSyndicate {
                                             expr: 5,
                                         },
                                     ),

@@ -9,6 +9,15 @@
                         template_parameters: HirTemplateParameters(
                             [
                                 HirTemplateParameter {
+                                    symbol: Lifetime(
+                                        HirLifetimeSymbol {
+                                            attrs: HirSymbolAttrs,
+                                            variance: Some(
+                                                Covariant,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                     data: Lifetime {
                                         label: Label {
                                             ident: Ident(
@@ -23,6 +32,15 @@
                                     },
                                 },
                                 HirTemplateParameter {
+                                    symbol: Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: Some(
+                                                Covariant,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                     data: Type {
                                         ident: Ident(
                                             Coword(
@@ -62,6 +80,15 @@
                         template_parameters: HirTemplateParameters(
                             [
                                 HirTemplateParameter {
+                                    symbol: Lifetime(
+                                        HirLifetimeSymbol {
+                                            attrs: HirSymbolAttrs,
+                                            variance: Some(
+                                                Covariant,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                     data: Lifetime {
                                         label: Label {
                                             ident: Ident(
@@ -76,6 +103,15 @@
                                     },
                                 },
                                 HirTemplateParameter {
+                                    symbol: Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: Some(
+                                                Invariant,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                     data: Type {
                                         ident: Ident(
                                             Coword(
@@ -115,6 +151,15 @@
                         template_parameters: HirTemplateParameters(
                             [
                                 HirTemplateParameter {
+                                    symbol: Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: Some(
+                                                Covariant,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                     data: Type {
                                         ident: Ident(
                                             Coword(
@@ -154,6 +199,13 @@
                         template_parameters: HirTemplateParameters(
                             [
                                 HirTemplateParameter {
+                                    symbol: Place(
+                                        HirPlaceSymbol {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                     data: Place {
                                         label: Label {
                                             ident: Ident(
@@ -168,6 +220,13 @@
                                     },
                                 },
                                 HirTemplateParameter {
+                                    symbol: Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                     data: Type {
                                         ident: Ident(
                                             Coword(
@@ -212,6 +271,13 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirSymbolAttrs,
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
                                 data: Type {
                                     ident: Ident(
                                         Coword(

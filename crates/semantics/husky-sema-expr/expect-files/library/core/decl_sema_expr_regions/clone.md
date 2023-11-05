@@ -134,7 +134,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Symbol(
+                    EtherealTermSymbol(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -317,7 +325,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    Trait(
+                                        TraitPath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -644,7 +674,27 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],

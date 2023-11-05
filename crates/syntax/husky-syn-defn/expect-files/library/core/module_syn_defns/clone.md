@@ -76,7 +76,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitObelisk {
+                    trai_expr: TraitSyndicate {
                         expr: 1,
                     },
                     self_ty_decl: DeriveAny {
@@ -217,8 +217,8 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 1,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 1,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {

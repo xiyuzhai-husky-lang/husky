@@ -11,10 +11,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 3,
                                     },
                                 ),
@@ -133,10 +133,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 2,
                                     },
                                 ),
@@ -249,10 +249,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 1,
                                     },
                                 ),
@@ -358,10 +358,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 4,
                                     },
                                 ),
@@ -487,10 +487,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 2,
                                     },
                                 ),
@@ -603,10 +603,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 2,
                                     },
                                 ),
@@ -719,10 +719,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 4,
                                     },
                                 ),

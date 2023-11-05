@@ -134,7 +134,17 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            Id {
+                                value: 37,
+                            },
+                        ),
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -272,7 +282,17 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            Id {
+                                value: 38,
+                            },
+                        ),
+                    ),
+                ),
+            ),
         },
     },
 ]

@@ -15,7 +15,7 @@ use husky_hir_eager_expr::{HirEagerExprArena, HirEagerPatternExprArena, HirEager
 use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyStmtArena};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
-use husky_hir_ty::{HirTemplateArgument, HirTemplateSymbol, HirType, HirTypeSymbol};
+use husky_hir_ty::{HirConstant, HirTemplateArgument, HirTemplateSymbol, HirType, HirTypeSymbol};
 use husky_term_prelude::TermLiteral;
 
 const INDENT_UNIT: u32 = 4;
@@ -311,9 +311,38 @@ impl TranspileToRust for HirTemplateArgument {
         match self {
             HirTemplateArgument::Vacant => todo!(),
             HirTemplateArgument::Type(hir_ty) => hir_ty.transpile_to_rust(builder),
-            HirTemplateArgument::Constant(_) => todo!(),
+            HirTemplateArgument::Constant(hir_constant) => hir_constant.transpile_to_rust(builder),
             HirTemplateArgument::Lifetime(_) => todo!(),
             HirTemplateArgument::Place(_) => todo!(),
+        }
+    }
+}
+
+impl TranspileToRust for HirConstant {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        match self {
+            HirConstant::Unit(_) => todo!(),
+            HirConstant::Bool(_) => todo!(),
+            HirConstant::Char(_) => todo!(),
+            HirConstant::I8(_) => todo!(),
+            HirConstant::I16(_) => todo!(),
+            HirConstant::I32(_) => todo!(),
+            HirConstant::I64(_) => todo!(),
+            HirConstant::I128(_) => todo!(),
+            HirConstant::ISize(_) => todo!(),
+            HirConstant::U8(_) => todo!(),
+            HirConstant::U16(_) => todo!(),
+            HirConstant::U32(_) => todo!(),
+            HirConstant::U64(_) => todo!(),
+            HirConstant::U128(_) => todo!(),
+            HirConstant::USize(value) => builder.write_display_copyable(value),
+            HirConstant::R8(_) => todo!(),
+            HirConstant::R16(_) => todo!(),
+            HirConstant::R32(_) => todo!(),
+            HirConstant::R64(_) => todo!(),
+            HirConstant::R128(_) => todo!(),
+            HirConstant::RSize(_) => todo!(),
+            HirConstant::Symbol(_) => builder.write_str("HirConstantSymbolTodo"),
         }
     }
 }

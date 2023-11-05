@@ -115,7 +115,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `OneVsAllResult`,
                                 token_idx: TokenIdx(
-                                    84,
+                                    88,
                                 ),
                             },
                             block: Type {
@@ -163,7 +163,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `narrow_down`,
                                 token_idx: TokenIdx(
-                                    128,
+                                    136,
                                 ),
                             },
                             block: Fugitive {
@@ -260,12 +260,12 @@ Ok(
                         ast_idx: 14,
                         impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
-                                47,
+                                49,
                             ),
                         },
                         trai_expr: 3,
                         for_token: TokenIdx(
-                            64,
+                            68,
                         ),
                         ty_sketch_expr: Path(
                             4,
@@ -310,12 +310,12 @@ Ok(
                         ast_idx: 17,
                         impl_regional_token: ImplToken {
                             token_idx: TokenIdx(
-                                99,
+                                105,
                             ),
                         },
                         trai_expr: 7,
                         for_token: TokenIdx(
-                            116,
+                            124,
                         ),
                         ty_sketch_expr: Path(
                             8,

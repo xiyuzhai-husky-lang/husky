@@ -33,9 +33,7 @@ impl TranspileToRust for FunctionFnHirDefn {
 }
 
 impl TranspileToRust for FunctionGnHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        todo!()
-    }
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {}
 }
 
 impl TranspileToRust for ValHirDefn {

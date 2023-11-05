@@ -11,10 +11,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 5,
                                     },
                                 ),

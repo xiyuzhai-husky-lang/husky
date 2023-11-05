@@ -43,7 +43,15 @@ impl TranspileToRust for TraitForTypeMethodFnHirDefn {
 
 impl TranspileToRust for TraitForTypeAssociatedTypeHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        todo!()
+        let db = builder.db();
+        builder.on_new_semicolon_line(|builder| {
+            builder.keyword(RustKeyword::Type);
+            self.path(db).ident(db).transpile_to_rust(builder);
+            builder.punctuation(RustPunctuation::Eq);
+            self.hir_decl(db)
+                .associated_ty(db)
+                .transpile_to_rust(builder)
+        })
     }
 }
 

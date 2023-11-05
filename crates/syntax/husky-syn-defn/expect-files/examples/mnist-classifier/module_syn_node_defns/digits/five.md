@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ValSynNodeDecl {
+                        syn_node_decl: ValFugitiveSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
@@ -28,7 +28,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 5,
                                     },
                                 ),

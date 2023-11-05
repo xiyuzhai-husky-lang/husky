@@ -71,7 +71,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 template_parameters: [],
                                 fields: [
-                                    PropsFieldDeclPattern {
+                                    PropsFieldSyndicate {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentRegionalToken {
@@ -89,7 +89,7 @@ Ok(
                                         initialization: None,
                                         variable: 1,
                                     },
-                                    PropsFieldDeclPattern {
+                                    PropsFieldSyndicate {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentRegionalToken {
@@ -116,7 +116,7 @@ Ok(
                                         ),
                                         variable: 2,
                                     },
-                                    PropsFieldDeclPattern {
+                                    PropsFieldSyndicate {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentRegionalToken {
@@ -625,7 +625,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 template_parameters: [],
                                 fields: [
-                                    PropsFieldDeclPattern {
+                                    PropsFieldSyndicate {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentRegionalToken {
@@ -643,7 +643,7 @@ Ok(
                                         initialization: None,
                                         variable: 1,
                                     },
-                                    PropsFieldDeclPattern {
+                                    PropsFieldSyndicate {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentRegionalToken {
@@ -910,11 +910,11 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::FunctionFn(
-                            FnSynDecl {
+                            FunctionFnFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -928,7 +928,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -944,8 +944,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 3,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 3,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -1198,11 +1198,11 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::FunctionFn(
-                            FnSynDecl {
+                            FunctionFnFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -1216,7 +1216,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -1232,8 +1232,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 3,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 3,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -1486,11 +1486,11 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::FunctionFn(
-                            FnSynDecl {
+                            FunctionFnFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -1504,7 +1504,7 @@ Ok(
                                         ),
                                         ty: 2,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -1518,7 +1518,7 @@ Ok(
                                         ),
                                         ty: 3,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             3,
                                         ),
@@ -1534,8 +1534,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 5,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 5,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -1866,11 +1866,11 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::FunctionFn(
-                            FnSynDecl {
+                            FunctionFnFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -1884,7 +1884,7 @@ Ok(
                                         ),
                                         ty: 2,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -1898,7 +1898,7 @@ Ok(
                                         ),
                                         ty: 3,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             3,
                                         ),
@@ -1912,7 +1912,7 @@ Ok(
                                         ),
                                         ty: 4,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             4,
                                         ),
@@ -1928,8 +1928,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 6,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 6,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -2331,11 +2331,11 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::FunctionFn(
-                            FnSynDecl {
+                            FunctionFnFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -2349,7 +2349,7 @@ Ok(
                                         ),
                                         ty: 2,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -2365,8 +2365,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 6,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 6,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -2655,11 +2655,11 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            trai_expr: TraitObelisk {
+                            trai_expr: TraitSyndicate {
                                 expr: 1,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeObelisk {
+                                SelfTypeSyndicate {
                                     expr: 2,
                                 },
                             ),
@@ -2824,8 +2824,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -3071,7 +3071,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            self_ty_expr: SelfTypeObelisk {
+                            self_ty_expr: SelfTypeSyndicate {
                                 expr: 1,
                             },
                             syn_expr_region: SynExprRegion {
@@ -3195,7 +3195,7 @@ Ok(
                                 },
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -3209,7 +3209,7 @@ Ok(
                                         ),
                                         ty: 2,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -3223,7 +3223,7 @@ Ok(
                                         ),
                                         ty: 3,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             3,
                                         ),
@@ -3239,8 +3239,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 5,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 5,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -3690,8 +3690,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -3908,11 +3908,11 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            trai_expr: TraitObelisk {
+                            trai_expr: TraitSyndicate {
                                 expr: 1,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeObelisk {
+                                SelfTypeSyndicate {
                                     expr: 2,
                                 },
                             ),
@@ -4077,8 +4077,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -4324,7 +4324,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            self_ty_expr: SelfTypeObelisk {
+                            self_ty_expr: SelfTypeSyndicate {
                                 expr: 1,
                             },
                             syn_expr_region: SynExprRegion {
@@ -4447,7 +4447,7 @@ Ok(
                                     item_kind: MemoizedField,
                                 },
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 3,
                                     },
                                 ),
@@ -4682,7 +4682,7 @@ Ok(
                                     item_kind: MemoizedField,
                                 },
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 1,
                                     },
                                 ),
@@ -4905,7 +4905,7 @@ Ok(
                                 },
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -4919,7 +4919,7 @@ Ok(
                                         ),
                                         ty: 2,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -4935,8 +4935,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 4,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 4,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {

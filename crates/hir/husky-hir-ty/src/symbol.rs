@@ -89,6 +89,7 @@ fn hir_template_symbol_from_ethereal(
                 db,
                 HirType::from_ethereal(symbol.ty(db), db),
                 HirConstSymbolIndex::PathLeading {
+                    attrs: HirSymbolAttrs::from_ethereal(attrs)?,
                     disambiguator,
                     ty_path,
                 },
@@ -102,7 +103,10 @@ fn hir_template_symbol_from_ethereal(
             HirConstSymbol::new(
                 db,
                 HirType::from_ethereal(symbol.ty(db), db),
-                HirConstSymbolIndex::Other { disambiguator },
+                HirConstSymbolIndex::Other {
+                    attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                    disambiguator,
+                },
             )
             .into(),
         ),

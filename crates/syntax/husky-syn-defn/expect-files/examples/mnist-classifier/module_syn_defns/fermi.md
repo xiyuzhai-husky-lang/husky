@@ -9,7 +9,7 @@ Ok(
                             path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             template_parameters: [],
                             fields: [
-                                PropsFieldDeclPattern {
+                                PropsFieldSyndicate {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentRegionalToken {
@@ -27,7 +27,7 @@ Ok(
                                     initialization: None,
                                     variable: 1,
                                 },
-                                PropsFieldDeclPattern {
+                                PropsFieldSyndicate {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentRegionalToken {
@@ -317,11 +317,11 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -335,7 +335,7 @@ Ok(
                                     ),
                                     ty: 4,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -351,8 +351,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 12,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 12,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -1422,7 +1422,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 3,
                                                             ),
@@ -1457,7 +1457,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -1486,7 +1486,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -1832,7 +1832,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeObelisk {
+                    self_ty_expr: SelfTypeSyndicate {
                         expr: 1,
                     },
                     syn_expr_region: SynExprRegion {
@@ -1950,7 +1950,7 @@ Ok(
                                 item_kind: MemoizedField,
                             },
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
                                 },
                             ),
@@ -2592,7 +2592,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -2844,7 +2844,7 @@ Ok(
                                 item_kind: MemoizedField,
                             },
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
                                 },
                             ),
@@ -3486,7 +3486,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -3738,7 +3738,7 @@ Ok(
                                 item_kind: MemoizedField,
                             },
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
                                 },
                             ),
@@ -4400,7 +4400,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),

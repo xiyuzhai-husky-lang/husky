@@ -115,7 +115,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `OneVsAllResult`,
                                 token_idx: TokenIdx(
-                                    84,
+                                    88,
                                 ),
                             },
                             block: Type {
@@ -163,7 +163,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `narrow_down`,
                                 token_idx: TokenIdx(
-                                    128,
+                                    136,
                                 ),
                             },
                             block: Fugitive {

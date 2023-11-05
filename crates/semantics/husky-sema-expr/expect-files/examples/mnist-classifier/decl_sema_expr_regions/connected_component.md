@@ -624,7 +624,92 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        4,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -888,7 +973,17 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            Id {
+                                value: 45,
+                            },
+                        ),
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -1144,7 +1239,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 Prefix {
-                                    opr: Leash,
+                                    opr: LeashType,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -1259,7 +1354,107 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 34,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 48,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 61,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        4,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 62,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        5,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 63,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -1274,7 +1469,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 43,
+                                                    value: 63,
                                                 },
                                             ),
                                         ),
@@ -1548,7 +1743,17 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            Id {
+                                value: 46,
+                            },
+                        ),
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -1793,7 +1998,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 Prefix {
-                                    opr: Leash,
+                                    opr: LeashType,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         6,
                                     ),
@@ -1913,7 +2118,88 @@
                     None,
                 ],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 48,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 61,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 28,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        4,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 59,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -1928,7 +2214,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 41,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -2364,7 +2650,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 67,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -2460,7 +2768,17 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                EntityPath(
+                    TypeOntology(
+                        TypePath(
+                            Id {
+                                value: 47,
+                            },
+                        ),
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -2870,7 +3188,71 @@
                     None,
                 ],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 32,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 32,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 32,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -3421,7 +3803,90 @@
                     None,
                 ],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 67,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 34,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 47,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        4,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 64,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -3923,7 +4388,50 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    Trait(
+                                        TraitPath(
+                                            Id {
+                                                value: 26,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 47,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -4353,7 +4861,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -4617,7 +5147,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 47,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -5047,7 +5599,69 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 34,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 48,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 65,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -5525,7 +6139,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 46,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -5890,7 +6526,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 28,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -6255,7 +6913,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 28,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -6620,7 +7300,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 28,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -6985,7 +7687,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 45,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -7350,7 +8074,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 28,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -7715,7 +8461,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 28,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -8202,7 +8970,50 @@
                     None,
                 ],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 28,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -8747,7 +9558,50 @@
                     None,
                 ],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 28,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],

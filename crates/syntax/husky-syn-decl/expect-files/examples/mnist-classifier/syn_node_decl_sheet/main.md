@@ -184,7 +184,7 @@ Ok(
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
-                            ValSynNodeDecl {
+                            ValFugitiveSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::main`, `Val`),
@@ -202,7 +202,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeEqObelisk {
+                                        ReturnTypeBeforeEqSyndicate {
                                             expr: 3,
                                         },
                                     ),

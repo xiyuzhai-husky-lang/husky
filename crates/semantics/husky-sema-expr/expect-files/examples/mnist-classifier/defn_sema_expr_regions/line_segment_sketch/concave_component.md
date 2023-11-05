@@ -1092,7 +1092,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -1129,7 +1129,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -1158,7 +1158,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         3,
                                     ),
@@ -1187,7 +1187,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         4,
                                     ),
@@ -1238,7 +1238,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         5,
                                     ),
@@ -4517,7 +4517,7 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -4572,7 +4572,7 @@
                                             11,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -4617,7 +4617,7 @@
                                             21,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             3,
                                         ),
@@ -4662,7 +4662,7 @@
                                             26,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             4,
                                         ),
@@ -4749,7 +4749,7 @@
                                             47,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             5,
                                         ),
@@ -11264,7 +11264,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         5,
                                     ),
@@ -11293,7 +11293,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         6,
                                     ),
@@ -11346,7 +11346,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -11375,7 +11375,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -11404,7 +11404,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         3,
                                     ),
@@ -11433,7 +11433,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         4,
                                     ),
@@ -13551,7 +13551,7 @@
                                             58,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             5,
                                         ),
@@ -13596,7 +13596,7 @@
                                             69,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             6,
                                         ),
@@ -13685,7 +13685,7 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -13730,7 +13730,7 @@
                                             6,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -13775,7 +13775,7 @@
                                             19,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             3,
                                         ),
@@ -13820,7 +13820,7 @@
                                             27,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             4,
                                         ),
@@ -16191,7 +16191,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         3,
                                     ),
@@ -16232,7 +16232,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -16261,7 +16261,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -18143,7 +18143,7 @@
                                             45,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             3,
                                         ),
@@ -18244,7 +18244,7 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -18289,7 +18289,7 @@
                                             6,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -20869,7 +20869,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         6,
                                     ),
@@ -20922,7 +20922,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -20951,7 +20951,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -20980,7 +20980,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         3,
                                     ),
@@ -21009,7 +21009,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         4,
                                     ),
@@ -21038,7 +21038,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         5,
                                     ),
@@ -24682,7 +24682,7 @@
                                             61,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             6,
                                         ),
@@ -24839,7 +24839,7 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -24884,7 +24884,7 @@
                                             14,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -24929,7 +24929,7 @@
                                             21,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             3,
                                         ),
@@ -24974,7 +24974,7 @@
                                             28,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             4,
                                         ),
@@ -25019,7 +25019,7 @@
                                             35,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             5,
                                         ),

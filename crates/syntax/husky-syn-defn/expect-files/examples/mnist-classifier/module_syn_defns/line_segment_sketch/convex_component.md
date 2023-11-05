@@ -9,7 +9,7 @@ Ok(
                             path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                             template_parameters: [],
                             fields: [
-                                PropsFieldDeclPattern {
+                                PropsFieldSyndicate {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentRegionalToken {
@@ -27,7 +27,7 @@ Ok(
                                     initialization: None,
                                     variable: 1,
                                 },
-                                PropsFieldDeclPattern {
+                                PropsFieldSyndicate {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentRegionalToken {
@@ -320,11 +320,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitObelisk {
+                    trai_expr: TraitSyndicate {
                         expr: 1,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeObelisk {
+                        SelfTypeSyndicate {
                             expr: 2,
                         },
                     ),
@@ -484,8 +484,8 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 1,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 1,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {

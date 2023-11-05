@@ -165,7 +165,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -195,7 +195,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 32,
+                        },
+                    ),
+                ),
+            ),
         },
     },
 ]

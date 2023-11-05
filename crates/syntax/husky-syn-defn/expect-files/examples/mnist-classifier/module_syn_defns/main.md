@@ -68,10 +68,10 @@ Ok(
                 FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::main`, `Val`),
-                        decl: ValSynDecl {
+                        decl: ValFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::main`, `Val`),
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 3,
                                 },
                             ),

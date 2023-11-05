@@ -109,10 +109,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::main`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 3,
                                     },
                                 ),

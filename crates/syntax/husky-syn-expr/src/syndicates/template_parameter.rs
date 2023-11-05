@@ -1,3 +1,4 @@
+use husky_regional_token::IdentRegionalToken;
 use parsec::HasStreamState;
 
 use super::*;
@@ -138,7 +139,8 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 data: TemplateParameterSyndicateData::Place { label_token },
             }))
         } else if let Some(const_token) = ctx.try_parse_option::<ConstRegionalToken>()? {
-            let ident_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedIdent)?;
+            let ident_token: IdentRegionalToken =
+                ctx.try_parse_expected(OriginalSynExprError::ExpectedIdent)?;
             let colon_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
             let ty_expr = ctx.parse_expr_expected2(
                 Some(ExprEnvironment::WithinBracketedParameterList(
@@ -148,7 +150,6 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 OriginalSynExprError::ExpectedConstantImplicitParameterType,
             );
             let access_start = ctx.save_state().next_regional_token_idx();
-            let syn_attrs = ctx.try_parse()?;
             let symbol = ctx
                 .define_symbols(
                     [SynCurrentSymbol::new(

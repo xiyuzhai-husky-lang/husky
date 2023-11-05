@@ -14,7 +14,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::slice::Slice`, `Extern`),
                                 template_parameters: [
-                                    TemplateParameterObelisk {
+                                    TemplateParameterSyndicate {
                                         annotated_variance_token: Some(
                                             VarianceRegionalToken::Covariant(
                                                 CovariantRegionalToken {
@@ -25,7 +25,7 @@ Ok(
                                             ),
                                         ),
                                         symbol: 1,
-                                        data: TemplateParameterObeliskData::Type {
+                                        data: TemplateParameterSyndicateData::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -145,7 +145,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                 template_parameters: [
-                                    TemplateParameterObelisk {
+                                    TemplateParameterSyndicate {
                                         annotated_variance_token: Some(
                                             VarianceRegionalToken::Covariant(
                                                 CovariantRegionalToken {
@@ -156,7 +156,7 @@ Ok(
                                             ),
                                         ),
                                         symbol: 1,
-                                        data: TemplateParameterObeliskData::Type {
+                                        data: TemplateParameterSyndicateData::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -283,10 +283,10 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -297,7 +297,7 @@ Ok(
                                     },
                                 },
                             ],
-                            self_ty_expr: SelfTypeObelisk {
+                            self_ty_expr: SelfTypeSyndicate {
                                 expr: 3,
                             },
                             syn_expr_region: SynExprRegion {
@@ -473,8 +473,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -757,7 +757,7 @@ Ok(
                                 },
                                 template_parameters: [],
                                 self_value_parameter: Some(
-                                    SelfParameterObelisk {
+                                    SelfValueParameterSyndicate {
                                         ephem_symbol_modifier_token_group: Some(
                                             AmbersandMut(
                                                 AmbersandRegionalToken(
@@ -781,7 +781,7 @@ Ok(
                                     },
                                 ),
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -795,7 +795,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -1207,10 +1207,10 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -1221,11 +1221,11 @@ Ok(
                                     },
                                 },
                             ],
-                            trai_expr: TraitObelisk {
+                            trai_expr: TraitSyndicate {
                                 expr: 1,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeObelisk {
+                                SelfTypeSyndicate {
                                     expr: 4,
                                 },
                             ),
@@ -1811,10 +1811,10 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -1825,7 +1825,7 @@ Ok(
                                     },
                                 },
                             ],
-                            self_ty_expr: SelfTypeObelisk {
+                            self_ty_expr: SelfTypeSyndicate {
                                 expr: 3,
                             },
                             syn_expr_region: SynExprRegion {
@@ -2001,8 +2001,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -2287,8 +2287,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -2573,8 +2573,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -2859,8 +2859,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 3,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 3,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -3145,8 +3145,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 3,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 3,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {

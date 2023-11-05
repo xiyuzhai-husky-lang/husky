@@ -5,10 +5,10 @@ Ok(
                 FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                        decl: ValSynDecl {
+                        decl: ValFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 5,
                                 },
                             ),

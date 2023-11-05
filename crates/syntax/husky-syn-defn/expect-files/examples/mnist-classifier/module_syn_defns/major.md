@@ -5,10 +5,10 @@ Ok(
                 FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                        decl: ValSynDecl {
+                        decl: ValFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 3,
                                 },
                             ),
@@ -373,10 +373,10 @@ Ok(
                 FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                        decl: ValSynDecl {
+                        decl: ValFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 2,
                                 },
                             ),
@@ -910,7 +910,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 3,
                                                             ),
@@ -963,7 +963,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -992,7 +992,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -1296,10 +1296,10 @@ Ok(
                 FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                        decl: ValSynDecl {
+                        decl: ValFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
                                 },
                             ),
@@ -1744,7 +1744,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -1954,10 +1954,10 @@ Ok(
                 FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                        decl: ValSynDecl {
+                        decl: ValFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 4,
                                 },
                             ),
@@ -2307,10 +2307,10 @@ Ok(
                 FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                        decl: ValSynDecl {
+                        decl: ValFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 2,
                                 },
                             ),
@@ -2659,10 +2659,10 @@ Ok(
                 FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                        decl: ValSynDecl {
+                        decl: ValFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 2,
                                 },
                             ),
@@ -2986,10 +2986,10 @@ Ok(
                 FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                        decl: ValSynDecl {
+                        decl: ValFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 4,
                                 },
                             ),

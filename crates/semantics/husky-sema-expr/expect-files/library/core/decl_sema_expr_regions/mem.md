@@ -226,7 +226,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 6,
+                                                value: 7,
                                             },
                                         ),
                                     ),
@@ -270,7 +270,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 10,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -500,7 +508,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 6,
+                                                value: 7,
                                             },
                                         ),
                                     ),
@@ -514,7 +522,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 7,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -544,7 +552,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 12,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -751,7 +767,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 13,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -965,7 +989,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 8,
+                                                value: 9,
                                             },
                                         ),
                                     ),
@@ -979,7 +1003,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -1009,7 +1033,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 15,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -1388,7 +1420,88 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    Trait(
+                                        TraitPath(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        4,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -1427,7 +1540,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -1639,7 +1752,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 3,
+                            value: 16,
                         },
                     ),
                 ),

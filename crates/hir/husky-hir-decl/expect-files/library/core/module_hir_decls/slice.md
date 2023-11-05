@@ -32,6 +32,13 @@
                 template_parameters: HirTemplateParameters(
                     [
                         HirTemplateParameter {
+                            symbol: Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
                             data: Type {
                                 ident: Ident(
                                     Coword(
@@ -91,6 +98,13 @@
                 template_parameters: HirTemplateParameters(
                     [
                         HirTemplateParameter {
+                            symbol: Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
                             data: Type {
                                 ident: Ident(
                                     Coword(
@@ -129,6 +143,13 @@
                 template_parameters: HirTemplateParameters(
                     [
                         HirTemplateParameter {
+                            symbol: Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
                             data: Type {
                                 ident: Ident(
                                     Coword(

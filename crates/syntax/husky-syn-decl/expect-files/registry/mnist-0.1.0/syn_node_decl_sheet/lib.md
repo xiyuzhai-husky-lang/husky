@@ -118,7 +118,7 @@ Ok(
                                 field_comma_list: Ok(
                                     PunctuatedSmallList {
                                         elements: [
-                                            TupleFieldObelisk {
+                                            TupleFieldSyndicate {
                                                 decorators: [],
                                                 visibility: None,
                                                 ty: 4,
@@ -289,7 +289,7 @@ Ok(
                                 field_comma_list: Ok(
                                     PunctuatedSmallList {
                                         elements: [
-                                            TupleFieldObelisk {
+                                            TupleFieldSyndicate {
                                                 decorators: [],
                                                 visibility: None,
                                                 ty: 4,
@@ -442,7 +442,7 @@ Ok(
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
-                            ValSynNodeDecl {
+                            ValFugitiveSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist::input`, `Val`),
@@ -460,7 +460,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeEqObelisk {
+                                        ReturnTypeBeforeEqSyndicate {
                                             expr: 1,
                                         },
                                     ),
@@ -606,7 +606,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitObelisk {
+                            trai_expr: TraitSyndicate {
                                 expr: 1,
                             },
                             for_token: ConnectionForRegionalToken {
@@ -615,7 +615,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeObelisk {
+                                SelfTypeSyndicate {
                                     expr: 2,
                                 },
                             ),
@@ -799,7 +799,7 @@ Ok(
                                     None,
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    ParenateParameters {
+                                    ParenateParameterSyndicateList {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -827,8 +827,8 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeColonObelisk {
-                                            expr: 1,
+                                        ReturnTypeBeforeColonSyndicate {
+                                            syn_expr_idx: 1,
                                         },
                                     ),
                                 ),
@@ -1095,7 +1095,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeObelisk {
+                            self_ty_expr: SelfTypeSyndicate {
                                 expr: 1,
                             },
                             eol_colon: Ok(
@@ -1240,7 +1240,7 @@ Ok(
                                     None,
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    ParenateParameters {
+                                    ParenateParameterSyndicateList {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 5,
@@ -1268,8 +1268,8 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeColonObelisk {
-                                            expr: 1,
+                                        ReturnTypeBeforeColonSyndicate {
+                                            syn_expr_idx: 1,
                                         },
                                     ),
                                 ),
@@ -1486,7 +1486,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitObelisk {
+                            trai_expr: TraitSyndicate {
                                 expr: 1,
                             },
                             for_token: ConnectionForRegionalToken {
@@ -1495,7 +1495,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeObelisk {
+                                SelfTypeSyndicate {
                                     expr: 2,
                                 },
                             ),
@@ -2030,7 +2030,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitObelisk {
+                            trai_expr: TraitSyndicate {
                                 expr: 1,
                             },
                             for_token: ConnectionForRegionalToken {
@@ -2039,7 +2039,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeObelisk {
+                                SelfTypeSyndicate {
                                     expr: 2,
                                 },
                             ),
@@ -2223,7 +2223,7 @@ Ok(
                                     None,
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    ParenateParameters {
+                                    ParenateParameterSyndicateList {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
@@ -2251,8 +2251,8 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeColonObelisk {
-                                            expr: 1,
+                                        ReturnTypeBeforeColonSyndicate {
+                                            syn_expr_idx: 1,
                                         },
                                     ),
                                 ),
@@ -2519,7 +2519,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeObelisk {
+                            self_ty_expr: SelfTypeSyndicate {
                                 expr: 1,
                             },
                             eol_colon: Ok(
@@ -2664,7 +2664,7 @@ Ok(
                                     None,
                                 ),
                                 parenate_parameter_decl_list: Ok(
-                                    ParenateParameters {
+                                    ParenateParameterSyndicateList {
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 5,
@@ -2692,8 +2692,8 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeColonObelisk {
-                                            expr: 1,
+                                        ReturnTypeBeforeColonSyndicate {
+                                            syn_expr_idx: 1,
                                         },
                                     ),
                                 ),
@@ -2910,7 +2910,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitObelisk {
+                            trai_expr: TraitSyndicate {
                                 expr: 1,
                             },
                             for_token: ConnectionForRegionalToken {
@@ -2919,7 +2919,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeObelisk {
+                                SelfTypeSyndicate {
                                     expr: 2,
                                 },
                             ),

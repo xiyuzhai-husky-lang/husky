@@ -11,10 +11,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 1,
                                     },
                                 ),
@@ -120,11 +120,11 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::FunctionFn(
-                            FnSynDecl {
+                            FunctionFnFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -140,8 +140,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 4,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 4,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -337,11 +337,11 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::FunctionFn(
-                            FnSynDecl {
+                            FunctionFnFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -357,8 +357,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 4,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 4,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -554,11 +554,11 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::FunctionFn(
-                            FnSynDecl {
+                            FunctionFnFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -574,8 +574,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 4,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 4,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -771,10 +771,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 5,
                                     },
                                 ),

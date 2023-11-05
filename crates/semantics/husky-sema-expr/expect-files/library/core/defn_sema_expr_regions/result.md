@@ -1052,7 +1052,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 4,
+                                                    value: 10,
                                                 },
                                             ),
                                         ),
@@ -1090,7 +1090,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 3,
+                                                value: 4,
                                             },
                                         ),
                                     ),
@@ -1118,7 +1118,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),

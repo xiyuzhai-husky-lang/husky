@@ -24,6 +24,13 @@
                 template_parameters: HirTemplateParameters(
                     [
                         HirTemplateParameter {
+                            symbol: Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
                             data: Type {
                                 ident: Ident(
                                     Coword(
@@ -36,6 +43,13 @@
                             },
                         },
                         HirTemplateParameter {
+                            symbol: Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 1,
+                                },
+                            ),
                             data: Type {
                                 ident: Ident(
                                     Coword(
@@ -48,6 +62,13 @@
                             },
                         },
                         HirTemplateParameter {
+                            symbol: Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 2,
+                                },
+                            ),
                             data: Type {
                                 ident: Ident(
                                     Coword(
@@ -60,6 +81,13 @@
                             },
                         },
                         HirTemplateParameter {
+                            symbol: Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 3,
+                                },
+                            ),
                             data: Type {
                                 ident: Ident(
                                     Coword(

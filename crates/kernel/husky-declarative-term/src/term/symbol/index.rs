@@ -16,11 +16,13 @@ impl DeclarativeTemplateSymbolAttrs {
     }
 
     pub fn from_attrs(attrs: impl IntoIterator<Item = DeclarativeTemplateSymbolAttr>) -> Self {
-        let mut this: Self = Default::default();
+        let mut slf: Self = Default::default();
         for attr in attrs {
-            todo!()
+            match attr {
+                DeclarativeTemplateSymbolAttr::Phantom => slf.phantom = true,
+            }
         }
-        this
+        slf
     }
 
     pub fn phantom(&self) -> bool {

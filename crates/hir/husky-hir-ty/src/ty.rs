@@ -113,35 +113,35 @@ fn hir_ty_from_ethereal_term_application(
                         disambiguator,
                     } => {
                         let ty = HirType::from_ethereal(symbol.ty(db), db);
-                        (!attrs.phantom()).then(|| {
-                            HirTemplateArgument::Constant(
-                                HirConstSymbol::new(
-                                    db,
-                                    ty,
-                                    HirConstSymbolIndex::PathLeading {
-                                        ty_path,
-                                        disambiguator,
-                                    },
-                                )
-                                .into(),
+                        Some(HirTemplateArgument::Constant(
+                            HirConstSymbol::new(
+                                db,
+                                ty,
+                                HirConstSymbolIndex::PathLeading {
+                                    attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                                    ty_path,
+                                    disambiguator,
+                                },
                             )
-                        })
+                            .into(),
+                        ))
                     }
                     EtherealTermSymbolIndexInner::ConstOther {
                         attrs,
                         disambiguator,
                     } => {
                         let ty = HirType::from_ethereal(symbol.ty(db), db);
-                        (!attrs.phantom()).then(|| {
-                            HirTemplateArgument::Constant(
-                                HirConstSymbol::new(
-                                    db,
-                                    ty,
-                                    HirConstSymbolIndex::Other { disambiguator },
-                                )
-                                .into(),
+                        Some(HirTemplateArgument::Constant(
+                            HirConstSymbol::new(
+                                db,
+                                ty,
+                                HirConstSymbolIndex::Other {
+                                    attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                                    disambiguator,
+                                },
                             )
-                        })
+                            .into(),
+                        ))
                     }
                     EtherealTermSymbolIndexInner::EphemPathLeading { .. }
                     | EtherealTermSymbolIndexInner::EphemOther { .. }

@@ -9,7 +9,7 @@ Ok(
                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             template_parameters: [],
                             fields: [
-                                PropsFieldDeclPattern {
+                                PropsFieldSyndicate {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentRegionalToken {
@@ -27,7 +27,7 @@ Ok(
                                     initialization: None,
                                     variable: 1,
                                 },
-                                PropsFieldDeclPattern {
+                                PropsFieldSyndicate {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentRegionalToken {
@@ -358,11 +358,11 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -376,7 +376,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -392,8 +392,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 3,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 3,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -1068,11 +1068,11 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -1086,7 +1086,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -1102,8 +1102,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 3,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 3,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -1749,11 +1749,11 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -1767,7 +1767,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -1783,8 +1783,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 3,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 3,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -2459,11 +2459,11 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -2477,7 +2477,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -2491,7 +2491,7 @@ Ok(
                                     ),
                                     ty: 2,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         3,
                                     ),
@@ -2507,8 +2507,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 4,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 4,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -3800,7 +3800,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         6,
                                                                     ),
@@ -3829,7 +3829,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         7,
                                                                     ),
@@ -3858,7 +3858,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         8,
                                                                     ),
@@ -3936,7 +3936,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         11,
                                                                     ),
@@ -3965,7 +3965,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         14,
                                                                     ),
@@ -3994,7 +3994,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         15,
                                                                     ),
@@ -4023,7 +4023,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         16,
                                                                     ),
@@ -4089,7 +4089,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         20,
                                                                     ),
@@ -4118,7 +4118,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         21,
                                                                     ),
@@ -4147,7 +4147,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         22,
                                                                     ),
@@ -4184,7 +4184,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -4213,7 +4213,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -4259,7 +4259,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         3,
                                                                     ),
@@ -4288,7 +4288,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         9,
                                                                     ),
@@ -4317,7 +4317,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         10,
                                                                     ),
@@ -4346,7 +4346,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         17,
                                                                     ),
@@ -4375,7 +4375,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         23,
                                                                     ),
@@ -4994,11 +4994,11 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -5012,7 +5012,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -5028,8 +5028,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 3,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 3,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -5839,7 +5839,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -5885,7 +5885,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         5,
                                                                     ),
@@ -5914,7 +5914,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         6,
                                                                     ),
@@ -5943,7 +5943,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         7,
                                                                     ),
@@ -6209,11 +6209,11 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -6227,7 +6227,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -6241,7 +6241,7 @@ Ok(
                                     ),
                                     ty: 2,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         3,
                                     ),
@@ -6255,7 +6255,7 @@ Ok(
                                     ),
                                     ty: 3,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         4,
                                     ),
@@ -6271,8 +6271,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 5,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 5,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -8107,7 +8107,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         4,
                                                                     ),
@@ -8136,7 +8136,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         7,
                                                                     ),
@@ -8165,7 +8165,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         8,
                                                                     ),
@@ -8243,7 +8243,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         13,
                                                                     ),
@@ -8272,7 +8272,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         14,
                                                                     ),
@@ -8301,7 +8301,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         15,
                                                                     ),
@@ -8361,7 +8361,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         10,
                                                                     ),
@@ -8390,7 +8390,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         11,
                                                                     ),
@@ -8419,7 +8419,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         12,
                                                                     ),
@@ -8448,7 +8448,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         16,
                                                                     ),
@@ -8477,7 +8477,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         17,
                                                                     ),
@@ -8549,7 +8549,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         24,
                                                                     ),
@@ -8578,7 +8578,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         25,
                                                                     ),
@@ -8607,7 +8607,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         26,
                                                                     ),
@@ -8661,7 +8661,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         22,
                                                                     ),
@@ -8690,7 +8690,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         23,
                                                                     ),
@@ -8719,7 +8719,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         27,
                                                                     ),
@@ -8785,7 +8785,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         31,
                                                                     ),
@@ -8814,7 +8814,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         32,
                                                                     ),
@@ -8843,7 +8843,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         33,
                                                                     ),
@@ -8880,7 +8880,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -8909,7 +8909,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -8955,7 +8955,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         3,
                                                                     ),
@@ -8984,7 +8984,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         9,
                                                                     ),
@@ -9013,7 +9013,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         18,
                                                                     ),
@@ -9042,7 +9042,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         28,
                                                                     ),
@@ -9071,7 +9071,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         34,
                                                                     ),
@@ -9934,7 +9934,7 @@ Ok(
                             path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                             template_parameters: [],
                             fields: [
-                                PropsFieldDeclPattern {
+                                PropsFieldSyndicate {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentRegionalToken {
@@ -9952,7 +9952,7 @@ Ok(
                                     initialization: None,
                                     variable: 1,
                                 },
-                                PropsFieldDeclPattern {
+                                PropsFieldSyndicate {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentRegionalToken {
@@ -10195,11 +10195,11 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -10215,8 +10215,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 4,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 4,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -10984,7 +10984,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -11013,7 +11013,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -11042,7 +11042,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 3,
                                                             ),
@@ -11262,11 +11262,11 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -11282,8 +11282,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 5,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 5,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -15489,7 +15489,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 3,
                                                             ),
@@ -15518,7 +15518,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 4,
                                                             ),
@@ -15547,7 +15547,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 5,
                                                             ),
@@ -15576,7 +15576,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 6,
                                                             ),
@@ -15844,7 +15844,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 22,
                                                             ),
@@ -15873,7 +15873,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 23,
                                                             ),
@@ -15949,7 +15949,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         24,
                                                                     ),
@@ -15978,7 +15978,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         25,
                                                                     ),
@@ -16007,7 +16007,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         26,
                                                                     ),
@@ -16036,7 +16036,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             case_pattern_syn_obelisk: Ok(
-                                                                CasePatternSynObelisk {
+                                                                CasePatternSyndicate {
                                                                     syn_pattern_root: SynPatternRoot(
                                                                         27,
                                                                     ),
@@ -16109,7 +16109,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 7,
                                                             ),
@@ -16146,7 +16146,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 8,
                                                             ),
@@ -16175,7 +16175,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 9,
                                                             ),
@@ -16204,7 +16204,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 10,
                                                             ),
@@ -16233,7 +16233,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 11,
                                                             ),
@@ -16262,7 +16262,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 12,
                                                             ),
@@ -16291,7 +16291,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 13,
                                                             ),
@@ -16320,7 +16320,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 14,
                                                             ),
@@ -16349,7 +16349,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 15,
                                                             ),
@@ -16378,7 +16378,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 16,
                                                             ),
@@ -16407,7 +16407,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 17,
                                                             ),
@@ -16436,7 +16436,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 18,
                                                             ),
@@ -16465,7 +16465,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 19,
                                                             ),
@@ -16494,7 +16494,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 20,
                                                             ),
@@ -16523,7 +16523,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 21,
                                                             ),
@@ -16631,7 +16631,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -16668,7 +16668,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -18154,11 +18154,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitObelisk {
+                    trai_expr: TraitSyndicate {
                         expr: 1,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeObelisk {
+                        SelfTypeSyndicate {
                             expr: 2,
                         },
                     ),
@@ -18318,8 +18318,8 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 1,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 1,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -18937,7 +18937,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeObelisk {
+                    self_ty_expr: SelfTypeSyndicate {
                         expr: 1,
                     },
                     syn_expr_region: SynExprRegion {
@@ -19055,7 +19055,7 @@ Ok(
                                 item_kind: MemoizedField,
                             },
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
                                 },
                             ),
@@ -19624,7 +19624,7 @@ Ok(
                                 item_kind: MemoizedField,
                             },
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
                                 },
                             ),
@@ -20767,7 +20767,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 6,
                                                             ),
@@ -20820,7 +20820,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -20849,7 +20849,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -20878,7 +20878,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 3,
                                                             ),
@@ -20907,7 +20907,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 4,
                                                             ),
@@ -20936,7 +20936,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 5,
                                                             ),
@@ -21406,7 +21406,7 @@ Ok(
                                 item_kind: MemoizedField,
                             },
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
                                 },
                             ),
@@ -22007,7 +22007,7 @@ Ok(
                                 item_kind: MemoizedField,
                             },
                             return_ty: Some(
-                                ReturnTypeBeforeEqObelisk {
+                                ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
                                 },
                             ),
@@ -23157,7 +23157,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -23186,7 +23186,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 3,
                                                             ),
@@ -23221,7 +23221,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -23296,7 +23296,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 4,
                                                             ),
@@ -23325,7 +23325,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 5,
                                                             ),
@@ -23686,7 +23686,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -23700,7 +23700,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -23716,8 +23716,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 3,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 3,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -24641,7 +24641,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -24670,7 +24670,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -24699,7 +24699,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 3,
                                                             ),

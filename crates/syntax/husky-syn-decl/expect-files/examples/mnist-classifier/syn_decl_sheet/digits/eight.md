@@ -11,10 +11,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 1,
                                     },
                                 ),
@@ -120,10 +120,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 5,
                                     },
                                 ),
@@ -312,11 +312,11 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::FunctionFn(
-                            FnSynDecl {
+                            FunctionFnFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -332,8 +332,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 4,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 4,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {

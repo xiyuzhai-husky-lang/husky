@@ -117,7 +117,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `OneVsAllResult`,
                                         token_idx: TokenIdx(
-                                            84,
+                                            88,
                                         ),
                                     },
                                     block: Type {
@@ -165,7 +165,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
-                                            128,
+                                            136,
                                         ),
                                     },
                                     block: Fugitive {
@@ -262,12 +262,12 @@ Ok(
                                 ast_idx: 14,
                                 impl_regional_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        47,
+                                        49,
                                     ),
                                 },
                                 trai_expr: 3,
                                 for_token: TokenIdx(
-                                    64,
+                                    68,
                                 ),
                                 ty_sketch_expr: Path(
                                     4,
@@ -312,12 +312,12 @@ Ok(
                                 ast_idx: 17,
                                 impl_regional_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        99,
+                                        105,
                                     ),
                                 },
                                 trai_expr: 7,
                                 for_token: TokenIdx(
-                                    116,
+                                    124,
                                 ),
                                 ty_sketch_expr: Path(
                                     8,
@@ -351,7 +351,7 @@ Ok(
                         IdentToken {
                             ident: `Unveil`,
                             token_idx: TokenIdx(
-                                60,
+                                64,
                             ),
                         },
                     ),
@@ -366,13 +366,13 @@ Ok(
                         IdentToken {
                             ident: `ops`,
                             token_idx: TokenIdx(
-                                58,
+                                62,
                             ),
                         },
                     ),
                     colon_colon_token: ColonColonToken(
                         TokenIdx(
-                            59,
+                            63,
                         ),
                     ),
                     subexpr: 1,
@@ -382,13 +382,13 @@ Ok(
                         IdentToken {
                             ident: `core`,
                             token_idx: TokenIdx(
-                                56,
+                                60,
                             ),
                         },
                     ),
                     colon_colon_token: ColonColonToken(
                         TokenIdx(
-                            57,
+                            61,
                         ),
                     ),
                     subexpr: 2,
@@ -398,7 +398,7 @@ Ok(
                         IdentToken {
                             ident: `Class`,
                             token_idx: TokenIdx(
-                                65,
+                                69,
                             ),
                         },
                     ),
@@ -413,7 +413,7 @@ Ok(
                         IdentToken {
                             ident: `Unveil`,
                             token_idx: TokenIdx(
-                                112,
+                                120,
                             ),
                         },
                     ),
@@ -428,13 +428,13 @@ Ok(
                         IdentToken {
                             ident: `ops`,
                             token_idx: TokenIdx(
-                                110,
+                                118,
                             ),
                         },
                     ),
                     colon_colon_token: ColonColonToken(
                         TokenIdx(
-                            111,
+                            119,
                         ),
                     ),
                     subexpr: 5,
@@ -444,13 +444,13 @@ Ok(
                         IdentToken {
                             ident: `core`,
                             token_idx: TokenIdx(
-                                108,
+                                116,
                             ),
                         },
                     ),
                     colon_colon_token: ColonColonToken(
                         TokenIdx(
-                            109,
+                            117,
                         ),
                     ),
                     subexpr: 6,
@@ -460,7 +460,7 @@ Ok(
                         IdentToken {
                             ident: `OneVsAll`,
                             token_idx: TokenIdx(
-                                117,
+                                125,
                             ),
                         },
                     ),

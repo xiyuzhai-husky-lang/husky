@@ -9,6 +9,13 @@
                         template_parameters: HirTemplateParameters(
                             [
                                 HirTemplateParameter {
+                                    symbol: Const(
+                                        HirConstSymbol(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
                                     data: Constant {
                                         ident: Ident(
                                             Coword(
@@ -27,6 +34,15 @@
                                     },
                                 },
                                 HirTemplateParameter {
+                                    symbol: Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: Some(
+                                                Covariant,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                     data: Type {
                                         ident: Ident(
                                             Coword(

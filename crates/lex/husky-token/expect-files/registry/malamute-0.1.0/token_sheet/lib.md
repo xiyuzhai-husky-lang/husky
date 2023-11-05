@@ -164,6 +164,14 @@ Ok(
                     PunctuationMapped::Comma,
                 ),
             ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Pound,
+                ),
+            ),
+            TokenData::Ident(
+                `phantom`,
+            ),
             TokenData::Keyword(
                 Keyword::Const,
             ),
@@ -214,6 +222,14 @@ Ok(
                 Punctuation(
                     PunctuationMapped::Comma,
                 ),
+            ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Pound,
+                ),
+            ),
+            TokenData::Ident(
+                `phantom`,
             ),
             TokenData::Keyword(
                 Keyword::Const,
@@ -374,6 +390,14 @@ Ok(
                     PunctuationMapped::Comma,
                 ),
             ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Pound,
+                ),
+            ),
+            TokenData::Ident(
+                `phantom`,
+            ),
             TokenData::Keyword(
                 Keyword::Const,
             ),
@@ -432,6 +456,14 @@ Ok(
                 Punctuation(
                     PunctuationMapped::Comma,
                 ),
+            ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Pound,
+                ),
+            ),
+            TokenData::Ident(
+                `phantom`,
             ),
             TokenData::Keyword(
                 Keyword::Const,
@@ -554,6 +586,14 @@ Ok(
                     PunctuationMapped::Comma,
                 ),
             ),
+            TokenData::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Pound,
+                ),
+            ),
+            TokenData::Ident(
+                `phantom`,
+            ),
             TokenData::Keyword(
                 Keyword::Const,
             ),
@@ -653,7 +693,7 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
-                        Curry,
+                        CurryType,
                     ),
                 ),
             ),
@@ -705,11 +745,6 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    43,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
                     45,
                 ),
             ),
@@ -720,32 +755,22 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    68,
+                    49,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    73,
+                    72,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    82,
+                    77,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    93,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    95,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    97,
+                    86,
                 ),
             ),
             TokenGroupStart(
@@ -755,12 +780,27 @@ Ok(
             ),
             TokenGroupStart(
                 TokenIdx(
-                    121,
+                    101,
                 ),
             ),
             TokenGroupStart(
                 TokenIdx(
-                    126,
+                    103,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
+                    105,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
+                    129,
+                ),
+            ),
+            TokenGroupStart(
+                TokenIdx(
+                    134,
                 ),
             ),
         ],
