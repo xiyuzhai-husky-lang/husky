@@ -1,17 +1,23 @@
 [
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `std::prelude`,
+            path: SubmodulePath(
+                `std::prelude`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `std::logic`,
+            path: SubmodulePath(
+                `std::logic`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `std::ops`,
+            path: SubmodulePath(
+                `std::ops`,
+            ),
         },
     ),
 ]

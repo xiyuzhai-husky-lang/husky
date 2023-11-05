@@ -2,133 +2,171 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::array`,
+                path: SubmodulePath(
+                    `core::array`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::basic`,
+                path: SubmodulePath(
+                    `core::basic`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::clone`,
+                path: SubmodulePath(
+                    `core::clone`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::cmp`,
+                path: SubmodulePath(
+                    `core::cmp`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::default`,
+                path: SubmodulePath(
+                    `core::default`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::fmt`,
+                path: SubmodulePath(
+                    `core::fmt`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::logic`,
+                path: SubmodulePath(
+                    `core::logic`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::marker`,
+                path: SubmodulePath(
+                    `core::marker`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::mem`,
+                path: SubmodulePath(
+                    `core::mem`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::num`,
+                path: SubmodulePath(
+                    `core::num`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::ops`,
+                path: SubmodulePath(
+                    `core::ops`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::option`,
+                path: SubmodulePath(
+                    `core::option`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::prelude`,
+                path: SubmodulePath(
+                    `core::prelude`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::raw_bits`,
+                path: SubmodulePath(
+                    `core::raw_bits`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::result`,
+                path: SubmodulePath(
+                    `core::result`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::vec`,
+                path: SubmodulePath(
+                    `core::vec`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::slice`,
+                path: SubmodulePath(
+                    `core::slice`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::str`,
+                path: SubmodulePath(
+                    `core::str`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `core::visual`,
+                path: SubmodulePath(
+                    `core::visual`,
+                ),
             },
         },
     ),

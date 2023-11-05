@@ -3,10 +3,10 @@ use super::*;
 #[salsa::tracked(db = HirDeclDb, jar = HirDeclJar, constructor = new)]
 pub struct SubmoduleHirDecl {
     #[id]
-    pub path: ModulePath,
+    pub path: SubmodulePath,
 }
 
-impl HasHirDecl for ModulePath {
+impl HasHirDecl for SubmodulePath {
     type HirDecl = SubmoduleHirDecl;
 
     fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
@@ -15,6 +15,6 @@ impl HasHirDecl for ModulePath {
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn submodule_hir_decl(db: &dyn HirDeclDb, path: ModulePath) -> SubmoduleHirDecl {
+fn submodule_hir_decl(db: &dyn HirDeclDb, path: SubmodulePath) -> SubmoduleHirDecl {
     SubmoduleHirDecl::new(db, path)
 }

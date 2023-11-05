@@ -9,6 +9,13 @@ pub enum ImplBlockHirDefn {
 }
 
 impl ImplBlockHirDefn {
+    pub fn path(self, db: &dyn HirDefnDb) -> ImplBlockPath {
+        match self {
+            ImplBlockHirDefn::Type(hir_defn) => hir_defn.path(db).into(),
+            ImplBlockHirDefn::TraitForType(hir_defn) => hir_defn.path(db).into(),
+        }
+    }
+
     pub fn hir_decl(self) -> ImplBlockHirDecl {
         match self {
             ImplBlockHirDefn::Type(hir_defn) => hir_defn.hir_decl().into(),
@@ -40,6 +47,10 @@ impl TypeImplBlockHirDefn {
     pub fn hir_decl(self) -> TypeImplBlockHirDecl {
         self.hir_decl
     }
+
+    pub fn path(self, db: &dyn HirDefnDb) -> TypeImplBlockPath {
+        self.hir_decl.path(db)
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -49,6 +60,10 @@ pub struct TraitForTypeImplBlockHirDefn {
 }
 
 impl TraitForTypeImplBlockHirDefn {
+    pub fn path(self, db: &dyn HirDefnDb) -> TraitForTypeImplBlockPath {
+        self.hir_decl.path(db)
+    }
+
     pub fn hir_decl(self) -> TraitForTypeImplBlockHirDecl {
         self.hir_decl
     }

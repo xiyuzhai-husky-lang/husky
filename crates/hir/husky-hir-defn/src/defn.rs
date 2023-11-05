@@ -57,16 +57,15 @@ impl HirDefn {
 }
 
 impl HirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> Option<ItemPath> {
-        todo!()
-        // match self {
-        //     HirDefn::Type(hir_defn) => Some(hir_defn.path(db).into()),
-        //     HirDefn::Trait(hir_defn) => Some(hir_defn.path(db).into()),
-        //     HirDefn::Fugitive(hir_defn) => Some(hir_defn.path(db).into()),
-        //     HirDefn::AssociatedItem(hir_defn) => hir_defn.path(db).map(|path| path.into()),
-        //     HirDefn::Variant(hir_defn) => Some(hir_defn.path(db).into()),
-        //     HirDefn::ImplBlock(_) => None,
-        // }
+    pub fn path(self, db: &dyn HirDefnDb) -> ItemPath {
+        match self {
+            HirDefn::MajorItem(hir_defn) => hir_defn.path(db).into(),
+            HirDefn::AssociatedItem(hir_defn) => hir_defn.path(db).into(),
+            HirDefn::TypeVariant(hir_defn) => hir_defn.path(db).into(),
+            HirDefn::ImplBlock(hir_defn) => hir_defn.path(db).into(),
+            HirDefn::Submodule(hir_defn) => hir_defn.path(db).into(),
+            HirDefn::Attr(hir_defn) => hir_defn.path(db).into(),
+        }
     }
 }
 

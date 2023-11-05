@@ -1,27 +1,37 @@
 [
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `math::algebra`,
+            path: SubmodulePath(
+                `math::algebra`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `math::algebraic_geometry`,
+            path: SubmodulePath(
+                `math::algebraic_geometry`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `math::algebraic_topology`,
+            path: SubmodulePath(
+                `math::algebraic_topology`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `math::category_theory`,
+            path: SubmodulePath(
+                `math::category_theory`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `math::probability`,
+            path: SubmodulePath(
+                `math::probability`,
+            ),
         },
     ),
 ]

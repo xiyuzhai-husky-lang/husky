@@ -1,97 +1,135 @@
 [
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::array`,
+            path: SubmodulePath(
+                `core::array`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::basic`,
+            path: SubmodulePath(
+                `core::basic`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::clone`,
+            path: SubmodulePath(
+                `core::clone`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::cmp`,
+            path: SubmodulePath(
+                `core::cmp`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::default`,
+            path: SubmodulePath(
+                `core::default`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::fmt`,
+            path: SubmodulePath(
+                `core::fmt`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::logic`,
+            path: SubmodulePath(
+                `core::logic`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::marker`,
+            path: SubmodulePath(
+                `core::marker`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::mem`,
+            path: SubmodulePath(
+                `core::mem`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::num`,
+            path: SubmodulePath(
+                `core::num`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::ops`,
+            path: SubmodulePath(
+                `core::ops`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::option`,
+            path: SubmodulePath(
+                `core::option`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::prelude`,
+            path: SubmodulePath(
+                `core::prelude`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::raw_bits`,
+            path: SubmodulePath(
+                `core::raw_bits`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::result`,
+            path: SubmodulePath(
+                `core::result`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::vec`,
+            path: SubmodulePath(
+                `core::vec`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::slice`,
+            path: SubmodulePath(
+                `core::slice`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::str`,
+            path: SubmodulePath(
+                `core::str`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::visual`,
+            path: SubmodulePath(
+                `core::visual`,
+            ),
         },
     ),
 ]

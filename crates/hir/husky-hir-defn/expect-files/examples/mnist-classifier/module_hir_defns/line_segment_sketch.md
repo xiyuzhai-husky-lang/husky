@@ -2,28 +2,36 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `mnist_classifier::line_segment_sketch::concave_component`,
+                path: SubmodulePath(
+                    `mnist_classifier::line_segment_sketch::concave_component`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `mnist_classifier::line_segment_sketch::convex_component`,
+                path: SubmodulePath(
+                    `mnist_classifier::line_segment_sketch::convex_component`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `mnist_classifier::line_segment_sketch::convexity`,
+                path: SubmodulePath(
+                    `mnist_classifier::line_segment_sketch::convexity`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `mnist_classifier::line_segment_sketch::line_segment`,
+                path: SubmodulePath(
+                    `mnist_classifier::line_segment_sketch::line_segment`,
+                ),
             },
         },
     ),

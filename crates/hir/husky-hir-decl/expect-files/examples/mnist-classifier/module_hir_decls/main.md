@@ -1,37 +1,51 @@
 [
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `mnist_classifier::connected_component`,
+            path: SubmodulePath(
+                `mnist_classifier::connected_component`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `mnist_classifier::raw_contour`,
+            path: SubmodulePath(
+                `mnist_classifier::raw_contour`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `mnist_classifier::geom2d`,
+            path: SubmodulePath(
+                `mnist_classifier::geom2d`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `mnist_classifier::line_segment_sketch`,
+            path: SubmodulePath(
+                `mnist_classifier::line_segment_sketch`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `mnist_classifier::fermi`,
+            path: SubmodulePath(
+                `mnist_classifier::fermi`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `mnist_classifier::digits`,
+            path: SubmodulePath(
+                `mnist_classifier::digits`,
+            ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `mnist_classifier::major`,
+            path: SubmodulePath(
+                `mnist_classifier::major`,
+            ),
         },
     ),
     HirDecl::MajorItem(

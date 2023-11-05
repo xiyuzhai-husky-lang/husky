@@ -43,23 +43,48 @@ impl<'a> RustTranspilationBuilder<'a> {
         self.result
     }
 
+    pub(crate) fn result(&self) -> &str {
+        &self.result
+    }
+
     pub(crate) fn db(&self) -> &'a dyn RustTranspilationDb {
         self.db
     }
 
     pub(crate) fn on_new_semicolon_line(&mut self, f: impl FnOnce(&mut Self)) {
-        if !self.result.ends_with("\n") {
-            self.result += "\n"
-        }
-        self.write_indent();
+        self.make_fresh_line();
         f(self);
-        self.write_token_str(";")
+        self.write_str(";")
     }
 
     pub(crate) fn on_new_line(&mut self, f: impl FnOnce(&mut Self)) {
-        self.write_indent();
+        self.make_fresh_line();
         f(self);
-        self.write_token_str(";")
+    }
+
+    fn make_fresh_line(&mut self) {
+        if !self.fresh_line() {
+            self.result += "\n";
+            self.write_indent();
+        }
+    }
+
+    pub(crate) fn make_defn_fresh_lines(&mut self) {
+        if !self.fresh_line() {
+            if !self.result.ends_with("{") {
+                self.result += "\n"
+            }
+            self.result += "\n";
+            self.write_indent();
+        } else if !(self.result.ends_with("{\n") || self.result.ends_with("\n\n")) {
+            self.result += "\n";
+            self.write_indent();
+        }
+    }
+
+    pub(crate) fn comment(&mut self, s: &str) {
+        self.result += "// ";
+        self.result += s
     }
 
     fn write_indent(&mut self) {
@@ -68,7 +93,18 @@ impl<'a> RustTranspilationBuilder<'a> {
         }
     }
 
-    fn write_token_str(&mut self, s: &str) {
+    pub(crate) fn fresh_line(&self) -> bool {
+        self.result.is_empty() || self.result.ends_with("\n")
+    }
+
+    fn write_spaced_str(&mut self, s: &str) {
+        if !(self.result.ends_with('\n')
+            || self.result.ends_with(' ')
+            || self.result.ends_with('.')
+            || self.result.is_empty())
+        {
+            self.result.push(' ')
+        }
         self.result += s
     }
 
@@ -133,7 +169,7 @@ impl<'a> RustTranspilationBuilder<'a> {
     }
 
     pub(crate) fn curly_block(&mut self, f: impl FnOnce(&mut Self)) {
-        self.write_token_str("{");
+        self.write_spaced_str("{");
         self.current_indent += INDENT_UNIT;
         f(self);
         self.current_indent -= INDENT_UNIT;
@@ -141,7 +177,7 @@ impl<'a> RustTranspilationBuilder<'a> {
             self.result += "\n"
         }
         self.write_indent();
-        self.write_str("}\n");
+        self.write_str("}");
     }
 
     pub(crate) fn curly_block_with_hir_eager_expr_region(
@@ -231,7 +267,7 @@ where
 
 impl TranspileToRust for Ident {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        builder.write_token_str(self.data(builder.db()))
+        builder.write_spaced_str(self.data(builder.db()))
     }
 }
 

@@ -21,6 +21,15 @@ pub enum TraitForTypeItemHirDefn {
 }
 
 impl TraitForTypeItemHirDefn {
+    pub fn path(self, db: &dyn HirDefnDb) -> TraitForTypeItemPath {
+        match self {
+            TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.path(db),
+            TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.path(db),
+            TraitForTypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.path(db),
+            TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.path(db),
+        }
+    }
+
     pub fn hir_decl(self, db: &dyn HirDefnDb) -> TraitForTypeItemHirDecl {
         match self {
             TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.hir_decl(db).into(),
@@ -28,10 +37,6 @@ impl TraitForTypeItemHirDefn {
             TraitForTypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.hir_decl(db).into(),
             TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.hir_decl(db).into(),
         }
-    }
-
-    pub fn path(self, _db: &dyn HirDefnDb) -> TraitForTypeItemPath {
-        todo!()
     }
 
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {

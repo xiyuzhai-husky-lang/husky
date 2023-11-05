@@ -27,6 +27,17 @@ pub enum TypeHirDefn {
 }
 
 impl TypeHirDefn {
+    pub fn path(self, db: &dyn HirDefnDb) -> TypePath {
+        match self {
+            TypeHirDefn::Enum(hir_defn) => hir_defn.path(db),
+            TypeHirDefn::UnitStruct(hir_defn) => hir_defn.path(db),
+            TypeHirDefn::TupleStruct(hir_defn) => hir_defn.path(db),
+            TypeHirDefn::PropsStruct(hir_defn) => hir_defn.path(db),
+            TypeHirDefn::Extern(hir_defn) => hir_defn.path(db),
+            TypeHirDefn::Union(hir_defn) => hir_defn.path(db),
+        }
+    }
+
     pub fn hir_decl(self, db: &dyn HirDefnDb) -> TypeHirDecl {
         match self {
             TypeHirDefn::Enum(hir_defn) => hir_defn.hir_decl(db).into(),
@@ -36,21 +47,6 @@ impl TypeHirDefn {
             TypeHirDefn::Extern(hir_defn) => hir_defn.hir_decl(db).into(),
             TypeHirDefn::Union(hir_defn) => hir_defn.hir_decl(db).into(),
         }
-    }
-
-    pub fn path(self, db: &dyn HirDefnDb) -> TypePath {
-        todo!()
-        // match self {
-        //     TypeHirDefn::Enum(hir_defn) => hir_defn.path(db),
-        //     TypeHirDefn::Inductive(hir_defn) => hir_defn.path(db),
-        //     TypeHirDefn::Record(hir_defn) => hir_defn.path(db),
-        //     TypeHirDefn::UnitStruct(hir_defn) => hir_defn.path(db),
-        //     TypeHirDefn::TupleStruct(hir_defn) => hir_defn.path(db),
-        //     TypeHirDefn::PropsStruct(hir_defn) => hir_defn.path(db),
-        //     TypeHirDefn::Structure(hir_defn) => hir_defn.path(db),
-        //     TypeHirDefn::Extern(hir_defn) => hir_defn.path(db),
-        //     TypeHirDefn::Union(hir_defn) => hir_defn.path(db),
-        // }
     }
 }
 

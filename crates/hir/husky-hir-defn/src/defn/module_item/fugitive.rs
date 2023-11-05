@@ -22,21 +22,20 @@ pub enum FugitiveHirDefn {
 }
 
 impl FugitiveHirDefn {
+    pub fn path(self, db: &dyn HirDefnDb) -> FugitivePath {
+        match self {
+            FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.path(db),
+            FugitiveHirDefn::Val(hir_defn) => hir_defn.path(db),
+            FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.path(db),
+        }
+    }
+
     pub fn hir_decl(self, db: &dyn HirDefnDb) -> FugitiveHirDecl {
         match self {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.hir_decl(db).into(),
             FugitiveHirDefn::Val(hir_defn) => hir_defn.hir_decl(db).into(),
             FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.hir_decl(db).into(),
         }
-    }
-
-    pub fn path(self, db: &dyn HirDefnDb) -> FugitivePath {
-        todo!()
-        // match self {
-        //     FugitiveDefn::Fn(hir_defn) => hir_defn.path(db),
-        //     FugitiveDefn::Val(hir_defn) => hir_defn.path(db),
-        //     FugitiveDefn::Gn(hir_defn) => hir_defn.path(db),
-        // }
     }
 
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
