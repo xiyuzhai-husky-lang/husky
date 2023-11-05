@@ -102,7 +102,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValHirDefn {
+                ValFugitiveHirDefn {
                     path: FugitivePath(`mnist::input`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist::input`, `Val`),

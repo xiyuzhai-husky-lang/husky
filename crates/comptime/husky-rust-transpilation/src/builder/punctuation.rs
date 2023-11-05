@@ -58,9 +58,14 @@ impl RustBracket {
 
 impl<'a> RustTranspilationBuilder<'a> {
     pub(crate) fn punctuation(&mut self, punctuation: RustPunctuation) {
-        match punctuation {
-            RustPunctuation::Dot => self.write_str("."),
-            _ => self.write_spaced_str(punctuation.code()),
-        }
+        let s = match punctuation {
+            RustPunctuation::Bra(bracket) => bracket.bra_code(),
+            RustPunctuation::Ket(bracket) => bracket.ket_code(),
+            RustPunctuation::Eq => " = ",
+            RustPunctuation::Colon => ": ",
+            RustPunctuation::Dot => ".",
+            RustPunctuation::ColonColon => "::",
+        };
+        self.write_str(s)
     }
 }

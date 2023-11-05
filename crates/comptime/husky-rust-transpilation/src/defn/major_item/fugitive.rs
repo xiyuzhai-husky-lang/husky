@@ -37,7 +37,7 @@ impl TranspileToRust for FunctionGnHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {}
 }
 
-impl TranspileToRust for ValHirDefn {
+impl TranspileToRust for ValFugitiveHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let Some((HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region))) =
@@ -57,6 +57,7 @@ impl TranspileToRust for ValFugitiveHirDecl {
         builder.keyword(RustKeyword::Fn);
         let db = builder.db();
         self.path(db).ident(db).transpile_to_rust(builder);
+        builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |_| ())
         // ad hoc
     }
 }

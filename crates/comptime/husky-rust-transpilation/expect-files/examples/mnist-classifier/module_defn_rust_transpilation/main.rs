@@ -13,7 +13,7 @@ pub mod digits;
 
 pub mod major;
 
-fn main {
+fn main() {
     is_one?;
     is_six?;
     is_zero?;
@@ -23,5 +23,5 @@ fn main {
     is_nine?;
     is_five?;
     is_two?;
-    Class :: Unknown;
+    Class::Unknown;
 }

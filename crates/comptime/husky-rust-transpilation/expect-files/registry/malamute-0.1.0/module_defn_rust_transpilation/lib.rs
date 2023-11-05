@@ -1,20 +1,7 @@
 
-struct Class< Label>
+struct Class<Label>
 
-struct OneVsAll< Label>
+struct OneVsAll<Label>
 
-struct OneVsAllResult< Label>
+struct OneVsAllResult<Label>
 
-impl {
-    
-    type Output = unit;
-}
-
-type Output = unit;
-
-impl {
-    
-    type Output = unit;
-}
-
-type Output = unit;

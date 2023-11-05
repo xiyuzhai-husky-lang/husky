@@ -1,6 +1,7 @@
 pub(crate) mod keyword;
 mod literal;
 mod macro_name;
+mod opr;
 mod path;
 mod punctuation;
 
@@ -26,6 +27,7 @@ pub(crate) struct RustTranspilationBuilder<'a> {
     current_indent: u32,
     is_list_start: Option<bool>,
     hir_expr_region: Option<HirExprRegion>,
+    spaced: bool,
 }
 
 impl<'a> RustTranspilationBuilder<'a> {
@@ -36,6 +38,7 @@ impl<'a> RustTranspilationBuilder<'a> {
             current_indent: 0,
             is_list_start: None,
             hir_expr_region: None,
+            spaced: true,
         }
     }
 
@@ -95,17 +98,6 @@ impl<'a> RustTranspilationBuilder<'a> {
 
     pub(crate) fn fresh_line(&self) -> bool {
         self.result.is_empty() || self.result.ends_with("\n")
-    }
-
-    fn write_spaced_str(&mut self, s: &str) {
-        if !(self.result.ends_with('\n')
-            || self.result.ends_with(' ')
-            || self.result.ends_with('.')
-            || self.result.is_empty())
-        {
-            self.result.push(' ')
-        }
-        self.result += s
     }
 
     fn write_str(&mut self, s: &str) {
@@ -169,7 +161,10 @@ impl<'a> RustTranspilationBuilder<'a> {
     }
 
     pub(crate) fn curly_block(&mut self, f: impl FnOnce(&mut Self)) {
-        self.write_spaced_str("{");
+        if !(self.result.ends_with("\n") || self.result.ends_with(" ") || self.result.is_empty()) {
+            self.result += " "
+        }
+        self.write_str("{");
         self.current_indent += INDENT_UNIT;
         f(self);
         self.current_indent -= INDENT_UNIT;
@@ -267,7 +262,10 @@ where
 
 impl TranspileToRust for Ident {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        builder.write_spaced_str(self.data(builder.db()))
+        if builder.result.ends_with(|c: char| c.is_alphabetic()) {
+            builder.write_str(" ")
+        }
+        builder.write_str(self.data(builder.db()))
     }
 }
 
@@ -416,38 +414,6 @@ impl TranspileToRust for TermLiteral {
             }
             TermLiteral::StaticLifetime => todo!(),
         }
-    }
-}
-
-impl TranspileToRust for HirBinaryOpr {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        // ad hoc
-        builder.write_str(self.code())
-    }
-}
-
-impl TranspileToRust for HirPrefixOpr {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        let s = match self {
-            HirPrefixOpr::Minus => "-",
-            HirPrefixOpr::Not => "!",
-            HirPrefixOpr::BitNot => "!",
-            HirPrefixOpr::TakeRef => todo!(),
-            HirPrefixOpr::Deref => todo!(),
-        };
-        builder.write_str(s)
-    }
-}
-
-impl TranspileToRust for HirSuffixOpr {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        let s = match self {
-            HirSuffixOpr::Incr => "+= 1",
-            HirSuffixOpr::Decr => "-= 1",
-            HirSuffixOpr::Unveil => "?",
-            HirSuffixOpr::Unwrap => ".unwrap()",
-        };
-        builder.write_str(s)
     }
 }
 

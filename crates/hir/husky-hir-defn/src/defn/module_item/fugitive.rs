@@ -16,7 +16,7 @@ use super::*;
 pub enum FugitiveHirDefn {
     FunctionFn(FunctionFnHirDefn),
     // Function(FunctionDefn),
-    Val(ValHirDefn),
+    Val(ValFugitiveHirDefn),
     FunctionGn(FunctionGnHirDefn),
     // AliasType(TypeAliasDefn)
 }
@@ -65,7 +65,7 @@ pub(crate) fn fugitive_hir_defn(db: &dyn HirDefnDb, path: FugitivePath) -> Optio
         FugitiveHirDecl::FunctionFn(hir_decl) => {
             Some(FunctionFnHirDefn::new(db, path, hir_decl).into())
         }
-        FugitiveHirDecl::Val(hir_decl) => Some(ValHirDefn::new(db, path, hir_decl).into()),
+        FugitiveHirDecl::Val(hir_decl) => Some(ValFugitiveHirDefn::new(db, path, hir_decl).into()),
         FugitiveHirDecl::FunctionGn(hir_decl) => {
             Some(FunctionGnHirDefn::new(db, path, hir_decl).into())
         }
