@@ -9,6 +9,12 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                            ],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (

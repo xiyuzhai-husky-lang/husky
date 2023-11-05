@@ -29,6 +29,12 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -40,6 +46,12 @@
                     path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                        ],
                     ),
                 },
             ),
@@ -53,6 +65,12 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -64,6 +82,13 @@
                     path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                            Ordinary,
+                        ],
                     ),
                 },
             ),
@@ -77,6 +102,12 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -88,6 +119,14 @@
                     path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                            Ordinary,
+                            Ordinary,
+                        ],
                     ),
                 },
             ),
@@ -112,6 +151,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -123,6 +167,11 @@
                     path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
                     ),
                 },
             ),

@@ -167,6 +167,12 @@
                                 },
                             ],
                         ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Variadic,
+                                Keyed,
+                            ],
+                        ),
                     },
                     lazy_body_with_hir_lazy_expr_region: None,
                 },

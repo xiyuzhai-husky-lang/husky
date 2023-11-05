@@ -15,7 +15,7 @@ impl TypeMemoizedFieldHirDecl {
         db: &dyn HirDeclDb,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
-        let return_ty = builder.return_ty(syn_decl.return_ty(db));
+        let return_ty = builder.return_ty_before_eq(syn_decl.return_ty(db));
         Self::new(
             db,
             path,

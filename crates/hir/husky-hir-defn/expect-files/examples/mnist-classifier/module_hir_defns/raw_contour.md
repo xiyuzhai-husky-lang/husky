@@ -83,6 +83,12 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                            ],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -173,6 +179,12 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                            ],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -250,6 +262,12 @@
                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                            ],
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
@@ -340,6 +358,13 @@
                         path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                                Ordinary,
+                            ],
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
@@ -495,6 +520,12 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                            ],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -644,6 +675,14 @@
                         path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                                Ordinary,
+                                Ordinary,
+                            ],
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
@@ -846,6 +885,11 @@
                         path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                            ],
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
@@ -1170,6 +1214,11 @@
                         path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                            ],
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(

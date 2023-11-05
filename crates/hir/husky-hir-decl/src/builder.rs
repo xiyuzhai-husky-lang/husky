@@ -7,7 +7,10 @@ use husky_hir_expr::{
 use husky_hir_lazy_expr::builder::hir_lazy_expr_region_with_source_map;
 use husky_hir_ty::{menu::HirTypeMenu, HirType};
 use husky_sema_expr::SemaExprRegionData;
-use husky_syn_expr::{ReturnTypeBeforeEqSyndicate, SynCurrentSymbolIdx, SynExprIdx, SynExprRegion};
+use husky_syn_expr::{
+    ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynCurrentSymbolIdx, SynExprIdx,
+    SynExprRegion,
+};
 
 pub(crate) struct HirDeclBuilder<'a> {
     db: &'a dyn HirDeclDb,
@@ -37,12 +40,21 @@ impl<'a> HirDeclBuilder<'a> {
         self.hir_ty_menu
     }
 
-    pub(crate) fn return_ty(
+    pub(crate) fn return_ty_before_eq(
         &self,
         return_ty_syndicate: Option<ReturnTypeBeforeEqSyndicate>,
     ) -> HirType {
         return_ty_syndicate
-            .map(|syndicate| self.hir_ty(syndicate.expr()))
+            .map(|syndicate| self.hir_ty(syndicate.syn_expr_idx()))
+            .unwrap_or(self.hir_ty_menu.unit_ty().into())
+    }
+
+    pub(crate) fn return_ty_before_colon(
+        &self,
+        return_ty_syndicate: Option<ReturnTypeBeforeColonSyndicate>,
+    ) -> HirType {
+        return_ty_syndicate
+            .map(|syndicate| self.hir_ty(syndicate.syn_expr_idx()))
             .unwrap_or(self.hir_ty_menu.unit_ty().into())
     }
 

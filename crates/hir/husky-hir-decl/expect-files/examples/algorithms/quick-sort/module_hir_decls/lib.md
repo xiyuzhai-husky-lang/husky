@@ -27,6 +27,11 @@
                             },
                         ],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -57,6 +62,13 @@
                                     traits: [],
                                 },
                             },
+                        ],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                            Ordinary,
                         ],
                     ),
                 },
@@ -91,6 +103,13 @@
                             },
                         ],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -103,6 +122,9 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [],
+                    ),
                 },
             ),
         ),
@@ -113,6 +135,9 @@
                 FunctionFnFugitiveHirDecl {
                     path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
                         [],
                     ),
                 },

@@ -7,6 +7,12 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),

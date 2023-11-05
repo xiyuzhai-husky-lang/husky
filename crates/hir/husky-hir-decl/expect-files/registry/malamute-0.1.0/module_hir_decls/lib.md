@@ -60,6 +60,12 @@
                             },
                         ],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Variadic,
+                            Keyed,
+                        ],
+                    ),
                 },
             ),
         ),
