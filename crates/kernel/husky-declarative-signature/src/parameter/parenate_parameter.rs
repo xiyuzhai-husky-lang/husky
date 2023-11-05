@@ -27,7 +27,7 @@ impl DeclarativeParenateParameters {
                 .enumerate()
                 .map(|(i, parameter)| {
                     Ok(match parameter {
-                        ParenateParameterSyndicate::Regular {
+                        ParenateParameterSyndicate::Ordinary {
                             syn_pattern_root,
                             variables,
                             colon,

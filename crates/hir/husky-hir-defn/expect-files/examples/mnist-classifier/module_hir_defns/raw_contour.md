@@ -6,16 +6,16 @@
                     path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         fields: [
                             PropsFieldHirDecl {
                                 ident: `cc`,
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 65,
+                                            value: 64,
                                         },
                                     ),
                                 ),
@@ -25,7 +25,7 @@
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 66,
+                                            value: 65,
                                         },
                                     ),
                                 ),
@@ -54,9 +54,9 @@
                     path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                     hir_decl: EnumTypeHirDecl {
                         path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],
@@ -78,11 +78,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -168,11 +168,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -246,11 +246,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -336,11 +336,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -490,11 +490,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -640,11 +640,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -796,9 +796,9 @@
                     path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         fields: [
                             PropsFieldHirDecl {
                                 ident: `prev1`,
@@ -842,11 +842,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -1166,11 +1166,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -3346,7 +3346,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 66,
+                                                                value: 65,
                                                             },
                                                         ),
                                                     ),
@@ -3802,19 +3802,8 @@
                         ),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
-                    trai: HirTrait {
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        template_arguments: [],
-                    },
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    template_parameters: HirTemplateParameters(
+                        [],
                     ),
                 },
             },
@@ -3849,26 +3838,17 @@
                             ident: `visualize`,
                             item_kind: MethodFn,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 31,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 29,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -3944,13 +3924,13 @@
                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
                     self_ty: PathLeading(
                         HirTypePathLeading(
                             Id {
-                                value: 31,
+                                value: 30,
                             },
                         ),
                     ),
@@ -3984,7 +3964,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 54,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -4077,7 +4057,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 51,
+                                    value: 50,
                                 },
                             ),
                         ),
@@ -4775,7 +4755,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 52,
+                                    value: 51,
                                 },
                             ),
                         ),
@@ -5567,50 +5547,16 @@
                             ident: `displacement`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 31,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 31,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [
-                                HirRitchieParameter {
-                                    contract: None,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
-                                },
-                                HirRitchieParameter {
-                                    contract: None,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
-                                },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
                             ],
-                        },
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {

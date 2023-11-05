@@ -6,9 +6,9 @@
                     path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         fields: [
                             PropsFieldHirDecl {
                                 ident: `start`,
@@ -56,13 +56,13 @@
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
                     self_ty: PathLeading(
                         HirTypePathLeading(
                             Id {
-                                value: 60,
+                                value: 59,
                             },
                         ),
                     ),
@@ -93,29 +93,13 @@
                             ident: `displacement`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 60,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
@@ -215,40 +199,15 @@
                             ident: `dist_to_point`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 60,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [
-                                HirRitchieParameter {
-                                    contract: None,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 48,
-                                            },
-                                        ),
-                                    ),
-                                },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
                             ],
-                        },
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {

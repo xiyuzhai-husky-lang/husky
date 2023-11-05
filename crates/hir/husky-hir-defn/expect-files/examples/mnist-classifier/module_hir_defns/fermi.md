@@ -6,9 +6,9 @@
                     path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         fields: [
                             PropsFieldHirDecl {
                                 ident: `matches`,
@@ -52,11 +52,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -355,9 +355,9 @@
                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
                     self_ty: PathLeading(
                         HirTypePathLeading(
                             Id {

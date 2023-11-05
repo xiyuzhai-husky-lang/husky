@@ -6,22 +6,22 @@
                     path: TypePath(`core::slice::Slice`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::slice::Slice`, `Extern`),
-                        template_parameters: HirTemplateParameters {
-                            data: [
+                        template_parameters: HirTemplateParameters(
+                            [
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
-                                            attrs: HirSymbolAttrs,
-                                            variance: Some(
-                                                Covariant,
+                                    data: Type {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 25,
+                                                },
                                             ),
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    traits: [],
+                                        ),
+                                        traits: [],
+                                    },
                                 },
                             ],
-                        },
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],
@@ -45,22 +45,22 @@
                     path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                        template_parameters: HirTemplateParameters {
-                            data: [
+                        template_parameters: HirTemplateParameters(
+                            [
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
-                                            attrs: HirSymbolAttrs,
-                                            variance: Some(
-                                                Covariant,
+                                    data: Type {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 25,
+                                                },
                                             ),
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    traits: [],
+                                        ),
+                                        traits: [],
+                                    },
                                 },
                             ],
-                        },
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],
@@ -86,24 +86,26 @@
                         ty_path: TypePath(`core::slice::Slice`, `Extern`),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [
+                    template_parameters: HirTemplateParameters(
+                        [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
-                                        attrs: HirSymbolAttrs,
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                traits: [],
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
                             },
                         ],
-                    },
+                    ),
                     self_ty: PathLeading(
                         HirTypePathLeading(
                             Id {
-                                value: 19,
+                                value: 18,
                             },
                         ),
                     ),
@@ -134,33 +136,17 @@
                             ident: `len`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -193,61 +179,20 @@
                             ident: `swap`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [
-                                HirTemplateParameter {
-                                    symbol: Type(
-                                        SelfLifetime,
-                                    ),
-                                    traits: [],
-                                },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
                             ],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: BorrowMut,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [
-                                HirRitchieParameter {
-                                    contract: None,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                },
-                                HirRitchieParameter {
-                                    contract: None,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ],
-                        },
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 20,
+                                    value: 1,
                                 },
                             ),
                         ),
@@ -269,30 +214,21 @@
                         ),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [
+                    template_parameters: HirTemplateParameters(
+                        [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
-                                        attrs: HirSymbolAttrs,
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                traits: [],
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
                             },
                         ],
-                    },
-                    trai: HirTrait {
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        template_arguments: [],
-                    },
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 21,
-                            },
-                        ),
                     ),
                 },
             },
@@ -327,9 +263,9 @@
                             ident: `Output`,
                             item_kind: AssociatedType,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         associated_ty: Symbol(
                             Type {
                                 attrs: HirSymbolAttrs,
@@ -351,24 +287,26 @@
                         ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [
+                    template_parameters: HirTemplateParameters(
+                        [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
-                                        attrs: HirSymbolAttrs,
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                traits: [],
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
                             },
                         ],
-                    },
+                    ),
                     self_ty: PathLeading(
                         HirTypePathLeading(
                             Id {
-                                value: 21,
+                                value: 19,
                             },
                         ),
                     ),
@@ -399,29 +337,13 @@
                             ident: `ilen`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
@@ -458,29 +380,13 @@
                             ident: `start`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
@@ -517,29 +423,13 @@
                             ident: `end`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
@@ -576,33 +466,17 @@
                             ident: `first`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 22,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -635,33 +509,17 @@
                             ident: `last`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 22,
+                                    value: 21,
                                 },
                             ),
                         ),

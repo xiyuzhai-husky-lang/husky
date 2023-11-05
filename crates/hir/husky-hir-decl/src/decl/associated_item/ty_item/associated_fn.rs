@@ -1,4 +1,4 @@
-use husky_syn_decl::{HasSynDecl, TypeItemSynDecl, TypeSynDecl};
+use husky_syn_decl::{HasSynDecl, TypeAssociatedFnSynDecl, TypeItemSynDecl, TypeSynDecl};
 
 use super::*;
 
@@ -16,7 +16,7 @@ pub struct TypeAssociatedFnHirDecl {
 impl TypeAssociatedFnHirDecl {
     pub(super) fn from_syn(
         path: TypeItemPath,
-        syn_decl: TypeAssociatedFnEtherealSignatureTemplate,
+        syn_decl: TypeAssociatedFnSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
         let TypeItemSynDecl::AssociatedFn(syn_decl) = path.syn_decl(db).expect("ok") else {

@@ -258,7 +258,6 @@ impl FluffyTermInstantiate for EtherealTermRitchie {
         match flag {
             true => FluffyTerm::new_ritchie(
                 engine,
-                expr_idx,
                 self.ritchie_kind(db),
                 params,
                 self.return_ty(db).into(),

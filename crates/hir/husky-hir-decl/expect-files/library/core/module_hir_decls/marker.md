@@ -3,16 +3,9 @@
         MajorItemHirDecl::Trait(
             TraitHirDecl {
                 path: TraitPath(`core::marker::Copy`),
-                template_parameters: HirTemplateParameters {
-                    data: [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                SelfType,
-                            ),
-                            traits: [],
-                        },
-                    ],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
             },
         ),
     ),
@@ -20,16 +13,9 @@
         MajorItemHirDecl::Trait(
             TraitHirDecl {
                 path: TraitPath(`core::marker::Sized`),
-                template_parameters: HirTemplateParameters {
-                    data: [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                SelfType,
-                            ),
-                            traits: [],
-                        },
-                    ],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
             },
         ),
     ),

@@ -16,9 +16,9 @@ use super::*;
 #[salsa::debug_with_db(db = HirDeclDb)]
 #[enum_class::from_variants]
 pub enum FugitiveHirDecl {
-    FunctionFn(FnFugitiveHirDecl),
+    FunctionFn(FunctionFnFugitiveHirDecl),
     Val(ValFugitiveHirDecl),
-    FunctionGn(GnFugitiveHirDecl),
+    FunctionGn(FunctionGnFugitiveHirDecl),
     TypeAlias(TypeAliasHirDecl),
 }
 
@@ -62,10 +62,14 @@ impl HasHirDecl for FugitivePath {
 fn fugitive_hir_decl(db: &dyn HirDeclDb, path: FugitivePath) -> Option<FugitiveHirDecl> {
     match path.syn_decl(db).expect("no errors for hir stage") {
         FugitiveSynDecl::FunctionFn(syn_decl) => {
-            Some(FnFugitiveHirDecl::from_syn(path, syn_decl, db).into())
+            Some(FunctionFnFugitiveHirDecl::from_syn(path, syn_decl, db).into())
         }
-        FugitiveSynDecl::Val(_) => todo!(),
-        FugitiveSynDecl::FunctionGn(_) => todo!(),
+        FugitiveSynDecl::Val(syn_decl) => {
+            Some(ValFugitiveHirDecl::from_syn(path, syn_decl, db).into())
+        }
+        FugitiveSynDecl::FunctionGn(syn_decl) => {
+            Some(FunctionGnFugitiveHirDecl::from_syn(path, syn_decl, db).into())
+        }
     }
     // match path
     //     .ethereal_signature_template(db)
@@ -75,7 +79,7 @@ fn fugitive_hir_decl(db: &dyn HirDeclDb, path: FugitivePath) -> Option<FugitiveH
     //         Some(FnFugitiveHirDecl::from_syn(path, ethereal_signature_template, db).into())
     //     }
     //     FugitiveEtherealSignatureTemplate::FunctionGn(ethereal_signature_template) => {
-    //         Some(GnFugitiveHirDecl::from_syn(path, ethereal_signature_template, db).into())
+    //         Some(FunctionGnFugitiveHirDecl::from_syn(path, ethereal_signature_template, db).into())
     //     }
     //     FugitiveEtherealSignatureTemplate::TypeAlias(ethereal_signature_template) => Some(
     //         TypeAliasHirDecl::from_syn(path, ethereal_signature_template, db).into(),

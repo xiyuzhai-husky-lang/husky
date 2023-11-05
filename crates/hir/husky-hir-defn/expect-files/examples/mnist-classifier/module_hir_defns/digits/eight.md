@@ -70,11 +70,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (

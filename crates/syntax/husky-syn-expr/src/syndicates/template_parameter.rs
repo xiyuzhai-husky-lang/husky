@@ -7,7 +7,7 @@ use super::*;
 pub struct TemplateParameterSyndicate {
     annotated_variance_token: Option<VarianceRegionalToken>,
     symbol: SynCurrentSymbolIdx,
-    data: SynTemplateParameterSyndicateData,
+    data: TemplateParameterSyndicateData,
 }
 
 impl TemplateParameterSyndicate {
@@ -15,7 +15,7 @@ impl TemplateParameterSyndicate {
         self.symbol
     }
 
-    pub fn data(&self) -> &SynTemplateParameterSyndicateData {
+    pub fn data(&self) -> &TemplateParameterSyndicateData {
         &self.data
     }
 
@@ -26,7 +26,7 @@ impl TemplateParameterSyndicate {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum SynTemplateParameterSyndicateData {
+pub enum TemplateParameterSyndicateData {
     Type {
         ident_token: IdentRegionalToken,
         traits: Option<(ColonRegionalToken, SynExprIdx)>,
@@ -75,7 +75,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 // todo: maybe we don't need to put it there, it's redundant
                 annotated_variance_token,
                 symbol: symbols.start(),
-                data: SynTemplateParameterSyndicateData::Type {
+                data: TemplateParameterSyndicateData::Type {
                     ident_token,
                     traits: if let Some(colon) = ctx.try_parse_option::<ColonRegionalToken>()? {
                         Some((
@@ -112,7 +112,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
             Ok(Some(TemplateParameterSyndicate {
                 annotated_variance_token,
                 symbol: symbols.start(),
-                data: SynTemplateParameterSyndicateData::Lifetime { label_token },
+                data: TemplateParameterSyndicateData::Lifetime { label_token },
             }))
         } else if let Some(label_token) = ctx.try_parse_option::<PlaceLabelRegionalToken>()? {
             let access_start = ctx.save_state().next_regional_token_idx();
@@ -135,7 +135,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
             Ok(Some(TemplateParameterSyndicate {
                 annotated_variance_token,
                 symbol,
-                data: SynTemplateParameterSyndicateData::Place { label_token },
+                data: TemplateParameterSyndicateData::Place { label_token },
             }))
         } else if let Some(const_token) = ctx.try_parse_option::<ConstRegionalToken>()? {
             let ident_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedIdent)?;
@@ -171,7 +171,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
             Ok(Some(TemplateParameterSyndicate {
                 annotated_variance_token,
                 symbol,
-                data: SynTemplateParameterSyndicateData::Constant {
+                data: TemplateParameterSyndicateData::Constant {
                     const_token,
                     ident_token,
                     colon_token,

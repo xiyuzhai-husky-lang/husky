@@ -6,9 +6,9 @@
                     path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         fields: [
                             PropsFieldHirDecl {
                                 ident: `row_start`,
@@ -74,16 +74,16 @@
                     path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         fields: [
                             PropsFieldHirDecl {
                                 ident: `matches`,
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 34,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -110,11 +110,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -240,9 +240,9 @@
                     path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         fields: [
                             PropsFieldHirDecl {
                                 ident: `mask`,
@@ -276,11 +276,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -678,11 +678,11 @@
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
-                    hir_decl: FnFugitiveHirDecl {
+                    hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -1875,19 +1875,8 @@
                         ),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
-                    trai: HirTrait {
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        template_arguments: [],
-                    },
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 36,
-                            },
-                        ),
+                    template_parameters: HirTemplateParameters(
+                        [],
                     ),
                 },
             },
@@ -1922,26 +1911,17 @@
                             ident: `visualize`,
                             item_kind: MethodFn,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 29,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -2008,9 +1988,9 @@
                         ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
                     self_ty: PathLeading(
                         HirTypePathLeading(
                             Id {
@@ -2399,7 +2379,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 34,
+                                                                value: 33,
                                                             },
                                                         ),
                                                     ),
@@ -4138,40 +4118,15 @@
                             ident: `top_k_row_span_sum`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 36,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [
-                                HirRitchieParameter {
-                                    contract: None,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
-                                },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
                             ],
-                        },
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
@@ -4494,40 +4449,15 @@
                             ident: `top_k_row_right_mass_sum`,
                             item_kind: MethodFn,
                         },
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 36,
-                                },
-                            ),
+                        template_parameters: HirTemplateParameters(
+                            [],
                         ),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [
-                                HirRitchieParameter {
-                                    contract: None,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
-                                },
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
                             ],
-                        },
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {

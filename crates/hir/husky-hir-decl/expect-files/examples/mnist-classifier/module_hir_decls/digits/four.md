@@ -18,11 +18,11 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FnFugitiveHirDecl {
+                FunctionFnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
                 },
             ),
         ),
@@ -78,11 +78,11 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FnFugitiveHirDecl {
+                FunctionFnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
                 },
             ),
         ),
@@ -90,11 +90,11 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FnFugitiveHirDecl {
+                FunctionFnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
                 },
             ),
         ),

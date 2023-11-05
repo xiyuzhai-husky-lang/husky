@@ -42,8 +42,8 @@ pub struct HirDeclJar(
     TraitHirDecl,
     // fugitive
     fugitive_hir_decl,
-    FnFugitiveHirDecl,
-    GnFugitiveHirDecl,
+    FunctionFnFugitiveHirDecl,
+    FunctionGnFugitiveHirDecl,
     TypeAliasHirDecl,
     ValFugitiveHirDecl,
     // ty variant

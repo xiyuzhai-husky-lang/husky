@@ -29,24 +29,26 @@
                     ty_path: TypePath(`core::slice::Slice`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [
+                template_parameters: HirTemplateParameters(
+                    [
                         HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            traits: [],
+                            data: Type {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                                traits: [],
+                            },
                         },
                     ],
-                },
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 19,
+                            value: 18,
                         },
                     ),
                 ),
@@ -86,30 +88,21 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [
+                template_parameters: HirTemplateParameters(
+                    [
                         HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            traits: [],
+                            data: Type {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                                traits: [],
+                            },
                         },
                     ],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::IntIndex`),
-                    template_arguments: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 21,
-                        },
-                    ),
                 ),
             },
         ),
@@ -133,24 +126,26 @@
                     ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [
+                template_parameters: HirTemplateParameters(
+                    [
                         HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            traits: [],
+                            data: Type {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                                traits: [],
+                            },
                         },
                     ],
-                },
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 21,
+                            value: 19,
                         },
                     ),
                 ),

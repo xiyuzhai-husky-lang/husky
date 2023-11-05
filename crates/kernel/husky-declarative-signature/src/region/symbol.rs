@@ -4,12 +4,12 @@ use husky_syn_expr::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-// #[salsa::debug_with_db(db = DeclarativeSignatureDb)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 pub struct SymbolDeclarativeTermRegion {
     symbol_registry: TermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,
-    self_ty_term: Option<DeclarativeTerm>,
-    self_value_term: Option<DeclarativeTermSymbol>,
+    self_ty: Option<DeclarativeTerm>,
+    self_value: Option<DeclarativeTermSymbol>,
     self_lifetime: Option<DeclarativeTermSymbol>,
     self_place: Option<DeclarativeTermSymbol>,
     implicit_template_parameter_symbols: SmallVec<[DeclarativeTermSymbol; 1]>,
@@ -166,8 +166,8 @@ impl SymbolDeclarativeTermRegion {
             symbol_signatures: SymbolOrderedMap::new(
                 parent.map(|parent| &parent.symbol_signatures),
             ),
-            self_ty_term: parent.map(|parent| parent.self_ty_term).flatten(),
-            self_value_term: parent.map(|parent| parent.self_value_term).flatten(),
+            self_ty: parent.map(|parent| parent.self_ty).flatten(),
+            self_value: parent.map(|parent| parent.self_value).flatten(),
             self_lifetime: implicit_self_lifetime,
             self_place: implicit_self_place,
             implicit_template_parameter_symbols: implicit_self_lifetime
@@ -183,8 +183,8 @@ impl SymbolDeclarativeTermRegion {
         region_path: RegionPath,
         symbol_region: &SynSymbolRegion,
     ) {
-        if symbol_region.allow_self_ty().to_bool() && self.self_ty_term.is_none() {
-            self.self_ty_term = match region_path {
+        if symbol_region.allow_self_ty().to_bool() && self.self_ty.is_none() {
+            self.self_ty = match region_path {
                 RegionPath::Decl(ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(_))) => {
                     Some(self.new_self_ty_symbol(db).into())
                 }
@@ -211,12 +211,12 @@ impl SymbolDeclarativeTermRegion {
                 _ => unreachable!(),
             }
         }
-        if symbol_region.allow_self_value().to_bool() && self.self_value_term.is_none() {
-            self.self_value_term = Some(
+        if symbol_region.allow_self_value().to_bool() && self.self_value.is_none() {
+            self.self_value = Some(
                 DeclarativeTermSymbol::new_self_value(
                     db,
                     &mut self.symbol_registry,
-                    self.self_ty_term.expect("self type should exists"),
+                    self.self_ty.expect("self type should exists"),
                 )
                 .into(),
             )
@@ -260,17 +260,17 @@ impl SymbolDeclarativeTermRegion {
         self_ty
     }
 
-    pub fn self_ty_term(&self) -> Option<DeclarativeTerm> {
-        self.self_ty_term
+    pub fn self_ty(&self) -> Option<DeclarativeTerm> {
+        self.self_ty
     }
 
-    pub(crate) fn set_self_ty_term(&mut self, self_ty_term: Option<DeclarativeTerm>) {
-        debug_assert!(self.self_ty_term.is_none());
-        self.self_ty_term = self_ty_term
+    pub(crate) fn set_self_ty(&mut self, self_ty: Option<DeclarativeTerm>) {
+        debug_assert!(self.self_ty.is_none());
+        self.self_ty = self_ty
     }
 
-    pub fn self_value_term(&self) -> Option<DeclarativeTermSymbol> {
-        self.self_value_term
+    pub fn self_value(&self) -> Option<DeclarativeTermSymbol> {
+        self.self_value
     }
 
     fn parent_symbol_term(&self, parent_symbol_idx: ParentSynSymbolIdx) -> SymbolSignature {

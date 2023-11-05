@@ -3,12 +3,16 @@ use super::*;
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct FunctionFnHirDefn {
     pub path: FugitivePath,
-    pub hir_decl: FnFugitiveHirDecl,
+    pub hir_decl: FunctionFnFugitiveHirDecl,
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
 impl FunctionFnHirDefn {
-    pub(super) fn new(db: &dyn HirDefnDb, path: FugitivePath, hir_decl: FnFugitiveHirDecl) -> Self {
+    pub(super) fn new(
+        db: &dyn HirDefnDb,
+        path: FugitivePath,
+        hir_decl: FunctionFnFugitiveHirDecl,
+    ) -> Self {
         let Ok(FugitiveSynDefn::FunctionFn(syn_defn)) = path.syn_defn(db) else {
             unreachable!()
         };

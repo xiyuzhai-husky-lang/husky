@@ -6,9 +6,9 @@
                     path: TypePath(`core::logic::Prop`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::logic::Prop`, `Extern`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],

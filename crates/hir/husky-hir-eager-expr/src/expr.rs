@@ -7,7 +7,7 @@ pub use self::html::*;
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::StaticDispatch;
-use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr};
+use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_sema_opr::{prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{IdentifiableEntityPathExpr, SynExprData, SynExprIdx, SynStmtIdx};
@@ -50,13 +50,12 @@ pub enum HirEagerExpr {
         target: HirEagerBeVariablesPattern,
     },
     Prefix {
-        // ad hoc, should have a type HirPrefixOpr
         opr: HirPrefixOpr,
         opd_hir_expr_idx: HirEagerExprIdx,
     },
     Suffix {
         opd_hir_expr_idx: HirEagerExprIdx,
-        opr: SemaSuffixOpr,
+        opr: HirSuffixOpr,
     },
     FnCall {
         function_hir_expr_idx: HirEagerExprIdx,
@@ -171,18 +170,18 @@ impl ToHirEager for SemaExprIdx {
             },
             &SemaExprData::Prefix {
                 opr,
-                opr_regional_token_idx,
                 opd_sema_expr_idx,
+                ..
             } => HirEagerExpr::Prefix {
                 opr: HirPrefixOpr::from_sema(opr),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
-            SemaExprData::Suffix {
+            &SemaExprData::Suffix {
                 opd_sema_expr_idx,
                 opr,
-                opr_regional_token_idx,
+                ..
             } => HirEagerExpr::Suffix {
-                opr: *opr,
+                opr: HirSuffixOpr::from_sema(opr),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
             SemaExprData::FunctionApplication {

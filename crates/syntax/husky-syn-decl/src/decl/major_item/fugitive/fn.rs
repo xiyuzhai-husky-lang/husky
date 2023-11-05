@@ -67,7 +67,7 @@ impl<'a> DeclParser<'a, FugitiveSynNodePath> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct FunctionFnSynDecl {
+pub struct FunctionFnFugitiveSynDecl {
     #[id]
     pub path: FugitivePath,
     #[return_ref]
@@ -78,7 +78,7 @@ pub struct FunctionFnSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl FunctionFnSynDecl {
+impl FunctionFnFugitiveSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn SynDeclDb,
         path: FugitivePath,
@@ -99,7 +99,7 @@ impl FunctionFnSynDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(FunctionFnSynDecl::new(
+        Ok(FunctionFnFugitiveSynDecl::new(
             db,
             path,
             template_parameter_obelisks,

@@ -21,19 +21,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::visual::Visualize`),
-                    template_arguments: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 58,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),

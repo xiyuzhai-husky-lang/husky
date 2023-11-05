@@ -18,9 +18,9 @@
                     ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {

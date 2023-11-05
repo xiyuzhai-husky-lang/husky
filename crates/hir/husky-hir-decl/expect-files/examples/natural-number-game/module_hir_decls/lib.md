@@ -7,13 +7,13 @@
                     ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 65,
+                            value: 66,
                         },
                     ),
                 ),

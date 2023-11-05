@@ -5,12 +5,16 @@ use super::*;
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct FunctionGnHirDefn {
     pub path: FugitivePath,
-    pub hir_decl: GnFugitiveHirDecl,
+    pub hir_decl: FunctionGnFugitiveHirDecl,
     pub lazy_body_with_hir_lazy_expr_region: Option<(HirLazyExprIdx, HirLazyExprRegion)>,
 }
 
 impl FunctionGnHirDefn {
-    pub(super) fn new(db: &dyn HirDefnDb, path: FugitivePath, hir_decl: GnFugitiveHirDecl) -> Self {
+    pub(super) fn new(
+        db: &dyn HirDefnDb,
+        path: FugitivePath,
+        hir_decl: FunctionGnFugitiveHirDecl,
+    ) -> Self {
         let Ok(FugitiveSynDefn::FunctionGn(syn_defn)) = path.syn_defn(db) else {
             unreachable!("hir stage no error")
         };

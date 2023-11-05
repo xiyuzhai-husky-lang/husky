@@ -217,12 +217,12 @@ impl<'a> SemaExprEngine<'a> {
                 ident_token,
                 static_dispatch,
             } => todo!(),
-            SemaExprData::InheritedSymbol {
+            &SemaExprData::InheritedSymbol {
                 ident,
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
-            } => todo!(),
+            } => Ok(self.symbol_terms[inherited_symbol_idx]),
             SemaExprData::CurrentSymbol {
                 ident,
                 regional_token_idx,
@@ -248,7 +248,17 @@ impl<'a> SemaExprEngine<'a> {
                 frame_var_symbol_idx: current_symbol_idx,
                 current_symbol_kind,
             } => todo!(),
-            SemaExprData::SelfType(_) => todo!(),
+            SemaExprData::SelfType(regional_token_idx) => match self.self_ty {
+                Some(self_ty_term) => Ok(self_ty_term.into()),
+                None => {
+                    p!(self
+                        .declarative_term_region
+                        .term_symbol_region()
+                        .debug(self.db));
+                    p!(self.path(), regional_token_idx);
+                    todo!()
+                }
+            },
             SemaExprData::SelfValue(_) => todo!(),
             SemaExprData::Binary { dispatch, .. } => match dispatch.signature() {
                 SemaBinaryOprFluffySignature::Builtin => todo!(),
@@ -295,7 +305,12 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::NewList { ref items, .. } => {
                 self.calc_new_list_expr_term(sema_expr_idx, items)
             }
-            SemaExprData::BoxColonList { .. } => todo!(),
+            SemaExprData::BoxColonList { items, .. } => match items.len() {
+                0 => Ok(self.eth_term_menu().slice_ty_ontology().into()),
+                1 => todo!(),
+                2 => todo!(),
+                _ => todo!(),
+            },
             SemaExprData::Block { stmts } => todo!(),
             SemaExprData::Index {
                 owner_sema_expr_idx,
@@ -324,12 +339,49 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
-            } => todo!(),
-            SemaExprData::Unit {
-                lpar_regional_token_idx,
-                rpar_regional_token_idx,
-            } => todo!(),
-            SemaExprData::Ritchie { .. } => todo!(),
+            } => {
+                let place = match place_label_regional_token {
+                    Some(_) => todo!(),
+                    None => match self.self_place {
+                        Some(place) => place,
+                        None => todo!(),
+                    },
+                };
+                EtherealTermApplication::new(
+                    self.db,
+                    self.eth_term_menu().at_ty_ontology(),
+                    place.into(),
+                )
+                .map(Into::into)
+                .map_err(Into::into)
+            }
+            SemaExprData::Unit { .. } => Ok(self.term_menu.unit_ty_ontology().into()),
+            &SemaExprData::Ritchie {
+                ritchie_kind,
+                ref parameter_ty_items,
+                return_ty_sema_expr_idx,
+                ..
+            } => {
+                let mut params: Vec<FluffyTermRitchieParameter> = vec![];
+                for item in parameter_ty_items.clone() {
+                    match self.infer_expr_term(item.sema_expr_idx()) {
+                        Some(ty_term) => params.push(
+                            FluffyTermRitchieRegularParameter::new(Contract::None, ty_term).into(),
+                        ),
+                        None => todo!("err"),
+                    }
+                }
+                let return_ty = match return_ty_sema_expr_idx {
+                    Some(return_ty_sema_expr_idx) => {
+                        match self.infer_expr_term(return_ty_sema_expr_idx) {
+                            Some(return_ty) => return_ty,
+                            None => todo!(),
+                        }
+                    }
+                    None => self.eth_term_menu().unit_ty_ontology().into(),
+                };
+                FluffyTerm::new_ritchie(self, ritchie_kind, params, return_ty).map_err(Into::into)
+            }
             SemaExprData::Sorry { regional_token_idx } => todo!(),
             SemaExprData::Todo { regional_token_idx } => todo!(),
             SemaExprData::Unreachable { regional_token_idx } => todo!(),
@@ -341,7 +393,21 @@ impl<'a> SemaExprEngine<'a> {
                 lbox_regional_token_idx,
                 items,
                 rbox_regional_token_idx,
-            } => todo!(),
+            } => match items.len() {
+                0 => unreachable!(),
+                1 => {
+                    let Some(size) = self.infer_expr_term(items[0].sema_expr_idx()) else {
+                        todo!()
+                    };
+                    FluffyTerm::new_application(
+                        self,
+                        self.eth_term_menu().array_ty_ontology(),
+                        size,
+                    )
+                    .map_err(Into::into)
+                }
+                _ => todo!(),
+            },
             SemaExprData::NewList {
                 lbox_regional_token_idx,
                 items,
@@ -367,10 +433,15 @@ impl<'a> SemaExprEngine<'a> {
                     }
                 }
                 .into(),
-                MajorItemPath::Trait(_) => todo!(),
-                MajorItemPath::Fugitive(_) => todo!(),
+                MajorItemPath::Trait(trai_path) => TermEntityPath::Trait(trai_path).into(),
+                MajorItemPath::Fugitive(fugitive_path) => {
+                    TermEntityPath::Fugitive(fugitive_path).into()
+                }
             },
-            PrincipalEntityPath::TypeVariant(_) => todo!(),
+            // todo: generics
+            PrincipalEntityPath::TypeVariant(ty_variant_path) => {
+                TermEntityPath::TypeVariant(ty_variant_path).into()
+            }
         }
     }
 }

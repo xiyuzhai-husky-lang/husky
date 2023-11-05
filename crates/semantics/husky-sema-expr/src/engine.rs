@@ -47,7 +47,10 @@ pub(crate) struct SemaExprEngine<'a> {
     pattern_expr_contracts: SynPatternExprMap<Contract>,
     return_ty: Option<EtherealTerm>,
     unveiler: Unveiler,
-    self_ty_term: Option<EtherealTerm>,
+    self_ty: Option<EtherealTerm>,
+    self_value: Option<EtherealTermSymbol>,
+    self_lifetime: Option<EtherealTermSymbol>,
+    self_place: Option<EtherealTermSymbol>,
     trai_in_use_items_table: EntityTreeResultRef<'a, TraitInUseItemsTable<'a>>,
 }
 
@@ -103,28 +106,27 @@ impl<'a> SemaExprEngine<'a> {
             .flatten()
             .map(|term| EtherealTerm::ty_from_declarative(db, term).ok())
             .flatten();
-        let self_value_ty = match syn_expr_region_data.path() {
-            RegionPath::Snippet(_) => None,
-            RegionPath::Decl(node_path) | RegionPath::Defn(node_path) => {
-                let Some(item_path) = node_path.path(db) else {
-                    unreachable!("node_path = {:?}", node_path.debug(db))
-                };
-                item_path
-                    .ethereal_signature_template(db)
-                    .ok()
-                    .map(|st| st.self_ty(db))
-                    .flatten()
-            }
-        };
-        // parent_expr_region
-        //     .map(|parent_expr_region| {
-        //         db.declarative_term_region(parent_expr_region)
-        //             .expr_term(parent_expr_region.data(db).self_ty()?)
-        //             .ok()
-        //     })
-        //     .flatten()
-        //     .map(|term| EtherealTerm::ty_from_declarative(db, term).ok())
-        //     .flatten();
+        let declarative_term_region = db.declarative_term_region(syn_expr_region);
+        let self_ty = declarative_term_region
+            .term_symbol_region()
+            .self_ty()
+            .map(|self_ty| EtherealTerm::ty_from_declarative(db, self_ty).ok())
+            .flatten();
+        let self_value = declarative_term_region
+            .term_symbol_region()
+            .self_value()
+            .map(|self_value| EtherealTermSymbol::from_declarative(db, self_value).ok())
+            .flatten();
+        let self_lifetime = declarative_term_region
+            .term_symbol_region()
+            .self_lifetime()
+            .map(|self_lifetime| EtherealTermSymbol::from_declarative(db, self_lifetime).ok())
+            .flatten();
+        let self_place = declarative_term_region
+            .term_symbol_region()
+            .self_place()
+            .map(|self_place| EtherealTermSymbol::from_declarative(db, self_place).ok())
+            .flatten();
         let symbol_region = syn_expr_region_data.symbol_region();
         let pattern_expr_region = syn_expr_region_data.pattern_expr_region();
         let toolchain = syn_expr_region.toolchain(db);
@@ -145,7 +147,7 @@ impl<'a> SemaExprEngine<'a> {
             term_menu: db.ethereal_term_menu(toolchain),
             syn_expr_region,
             syn_expr_region_data,
-            declarative_term_region: db.declarative_term_region(syn_expr_region),
+            declarative_term_region,
             sema_expr_arena: SemaExprArena::default(),
             sema_stmt_arena: SemaStmtArena::default(),
             sema_expr_roots: Default::default(),
@@ -169,7 +171,10 @@ impl<'a> SemaExprEngine<'a> {
             ),
             return_ty,
             unveiler: Unveiler::Uninitialized,
-            self_ty_term: self_value_ty,
+            self_ty,
+            self_value,
+            self_lifetime,
+            self_place,
             pattern_expr_contracts: SynPatternExprMap::new(
                 pattern_expr_region.pattern_expr_arena(),
             ),
@@ -193,11 +198,20 @@ impl<'a> SemaExprEngine<'a> {
                 | ExprRootKind::TupleStructFieldType
                 | ExprRootKind::ConstantImplicitParameterType
                 | ExprRootKind::ExplicitParameterType
-                | ExprRootKind::AssociatedTypeTerm => self.build_sema_expr(
-                    root.syn_expr_idx(),
-                    ExpectEqsCategory::new_expect_eqs_ty_kind(),
-                ),
-                ExprRootKind::Trait => self.build_sema_expr(root.syn_expr_idx(), ExpectAnyOriginal),
+                | ExprRootKind::AssociatedTypeTerm => {
+                    let sema_expr_idx = self.build_sema_expr(
+                        root.syn_expr_idx(),
+                        ExpectEqsCategory::new_expect_eqs_ty_kind(),
+                    );
+                    self.infer_expr_term(sema_expr_idx);
+                    sema_expr_idx
+                }
+                ExprRootKind::Trait => {
+                    let sema_expr_idx =
+                        self.build_sema_expr(root.syn_expr_idx(), ExpectAnyOriginal);
+                    self.infer_expr_term(sema_expr_idx);
+                    sema_expr_idx
+                }
                 ExprRootKind::BlockExpr => match self.return_ty {
                     Some(return_ty) => self.build_sema_expr(
                         root.syn_expr_idx(),
@@ -258,7 +272,7 @@ impl<'a> SemaExprEngine<'a> {
             self.symbol_terms,
             self.fluffy_term_region,
             self.return_ty,
-            self.self_ty_term,
+            self.self_ty,
             self.db,
         )
     }

@@ -1,6 +1,6 @@
 use crate::*;
 use husky_hir_ty::trai::HirTrait;
-use husky_syn_expr::{SynTemplateParameterSyndicateData, TemplateParameterSyndicate};
+use husky_syn_expr::{TemplateParameterSyndicate, TemplateParameterSyndicateData};
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -21,11 +21,21 @@ pub enum HirTemplateParameterData {
 impl HirTemplateParameter {
     pub fn from_syn(syndicate: &TemplateParameterSyndicate, builder: &HirDeclBuilder) -> Self {
         let data = match syndicate.data() {
-            SynTemplateParameterSyndicateData::Type {
+            TemplateParameterSyndicateData::Type {
                 ident_token,
                 traits,
-            } => todo!(),
-            &SynTemplateParameterSyndicateData::Constant {
+            } => HirTemplateParameterData::Type {
+                ident: ident_token.ident(),
+                traits: match traits {
+                    Some(_) =>
+                    /* ad hoc */
+                    {
+                        vec![]
+                    }
+                    None => vec![],
+                },
+            },
+            &TemplateParameterSyndicateData::Constant {
                 const_token,
                 ident_token,
                 colon_token,
@@ -34,10 +44,22 @@ impl HirTemplateParameter {
                 ident: ident_token.ident(),
                 ty: builder.hir_ty(ty_expr),
             },
-            SynTemplateParameterSyndicateData::Lifetime { label_token } => todo!(),
-            SynTemplateParameterSyndicateData::Place { label_token } => todo!(),
+            TemplateParameterSyndicateData::Lifetime { label_token } => {
+                HirTemplateParameterData::Lifetime {
+                    label: label_token.label(),
+                }
+            }
+            TemplateParameterSyndicateData::Place { label_token } => {
+                HirTemplateParameterData::Place {
+                    label: label_token.label(),
+                }
+            }
         };
         Self { data }
+    }
+
+    pub fn data(&self) -> &HirTemplateParameterData {
+        &self.data
     }
 }
 

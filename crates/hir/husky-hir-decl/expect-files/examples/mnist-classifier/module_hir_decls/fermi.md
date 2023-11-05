@@ -13,11 +13,11 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::FunctionFn(
-                FnFugitiveHirDecl {
+                FunctionFnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
                 },
             ),
         ),
@@ -30,13 +30,13 @@
                     ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 44,
+                            value: 45,
                         },
                     ),
                 ),

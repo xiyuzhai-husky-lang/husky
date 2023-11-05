@@ -3,16 +3,9 @@
         MajorItemHirDecl::Trait(
             TraitHirDecl {
                 path: TraitPath(`core::visual::Visualize`),
-                template_parameters: HirTemplateParameters {
-                    data: [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                SelfType,
-                            ),
-                            traits: [],
-                        },
-                    ],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
             },
         ),
     ),
@@ -25,6 +18,21 @@
                     },
                 ),
             ),
+        ),
+    ),
+    HirDecl::ImplBlock(
+        ImplBlockHirDecl::TraitForType(
+            TraitForTypeImplBlockHirDecl {
+                path: TraitForTypeImplBlockPath {
+                    module_path: `core::visual`,
+                    trai_path: TraitPath(`core::visual::Visualize`),
+                    ty_sketch: TypeSketch::DeriveAny,
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
+            },
         ),
     ),
     HirDecl::AssociatedItem(
