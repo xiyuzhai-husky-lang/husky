@@ -53,4 +53,12 @@ impl PropsFieldHirDecl {
             ty: builder.hir_ty(field.ty_syn_expr_idx()),
         }
     }
+
+    pub fn ident(&self) -> Ident {
+        self.ident
+    }
+
+    pub fn ty(&self) -> HirType {
+        self.ty
+    }
 }

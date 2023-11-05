@@ -2,7 +2,9 @@ use super::*;
 use husky_coword::Ident;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct AssociatedFnFluffySignature {
+    path: AssociatedItemPath,
     parenate_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,
     return_ty: FluffyTerm,
     ty: FluffyTerm,
@@ -15,6 +17,10 @@ impl AssociatedFnFluffySignature {
 
     pub fn ty(&self) -> FluffyTerm {
         self.ty
+    }
+
+    pub fn path(&self) -> AssociatedItemPath {
+        self.path
     }
 }
 
@@ -43,6 +49,7 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         todo!()
     }
     JustOk(AssociatedFnFluffySignature {
+        path: template.path(db).into(),
         parenate_parameters: template
             .parenate_parameters(db)
             .iter()

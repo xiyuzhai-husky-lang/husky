@@ -12,6 +12,11 @@ pub enum RustKeyword {
     Else,
     While,
     Break,
+    Return,
+    For,
+    Match,
+    Struct,
+    Enum,
 }
 
 impl RustKeyword {
@@ -28,6 +33,11 @@ impl RustKeyword {
             RustKeyword::Else => "else",
             RustKeyword::While => "while",
             RustKeyword::Break => "break",
+            RustKeyword::Return => "return",
+            RustKeyword::For => "for",
+            RustKeyword::Match => "match",
+            RustKeyword::Struct => "struct",
+            RustKeyword::Enum => "enum",
         }
     }
 }

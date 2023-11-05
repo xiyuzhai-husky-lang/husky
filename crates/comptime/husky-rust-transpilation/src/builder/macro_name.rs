@@ -5,6 +5,9 @@ pub enum RustMacroName {
     Println,
     Unreachable,
     Panic,
+    Require,
+    Assert,
+    Matches,
 }
 
 impl RustMacroName {
@@ -14,6 +17,9 @@ impl RustMacroName {
             RustMacroName::Println => "println!",
             RustMacroName::Unreachable => "unreachable!",
             RustMacroName::Panic => "panic!",
+            RustMacroName::Require => "require!",
+            RustMacroName::Assert => "assert!",
+            RustMacroName::Matches => "matches!",
         }
     }
 }

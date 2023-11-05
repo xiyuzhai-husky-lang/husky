@@ -9,7 +9,7 @@ impl TranspileToRust for ImplBlockHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         match self.hir_decl() {
             ImplBlockHirDecl::Type(hir_decl) => hir_decl.transpile_to_rust(builder),
-            ImplBlockHirDecl::TraitForType(_) => todo!(),
+            ImplBlockHirDecl::TraitForType(hir_decl) => hir_decl.transpile_to_rust(builder),
         }
     }
 }

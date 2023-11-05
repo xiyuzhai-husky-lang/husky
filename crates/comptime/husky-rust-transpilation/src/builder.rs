@@ -1,5 +1,7 @@
 pub(crate) mod keyword;
+mod literal;
 mod macro_name;
+mod path;
 mod punctuation;
 
 pub(crate) use self::keyword::*;
@@ -102,9 +104,11 @@ impl<'a> RustTranspilationBuilder<'a> {
         bracket: RustBracket,
         items: impl FnOnce(&mut Self),
     ) {
+        let is_list_start = std::mem::replace(&mut self.is_list_start, Some(true));
         self.write_str(bracket.bra_code());
         items(self);
         self.write_str(bracket.ket_code());
+        self.is_list_start = is_list_start
     }
 
     pub(crate) fn heterogeneous_comma_list_items<A: TranspileToRust>(
@@ -334,12 +338,12 @@ impl TranspileToRust for TermLiteral {
             TermLiteral::USize(lit) => builder.write_display_copyable(lit.value(db)),
             TermLiteral::R8(_) => todo!(),
             TermLiteral::R16(_) => todo!(),
-            TermLiteral::R32(_) => todo!(),
+            TermLiteral::R32(value) => builder.write_display_copyable(value),
             TermLiteral::R64(_) => todo!(),
             TermLiteral::R128(_) => todo!(),
             TermLiteral::RSize(_) => todo!(),
             TermLiteral::Nat(_) => todo!(),
-            TermLiteral::F32(_) => todo!(),
+            TermLiteral::F32(value) => builder.write_display_copyable(value.into_inner()),
             TermLiteral::F64(_) => todo!(),
             TermLiteral::String(lit) => {
                 use std::fmt::Write;
@@ -379,5 +383,15 @@ impl TranspileToRust for HirSuffixOpr {
             HirSuffixOpr::Unwrap => ".unwrap()",
         };
         builder.write_str(s)
+    }
+}
+
+impl<'a> RustTranspilationBuilder<'a> {
+    pub(crate) fn self_ty(&mut self) {
+        self.write_str("Self")
+    }
+
+    pub(crate) fn self_value(&mut self) {
+        self.write_str("self")
     }
 }

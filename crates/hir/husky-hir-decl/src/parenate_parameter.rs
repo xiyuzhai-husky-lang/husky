@@ -17,8 +17,8 @@ impl HirParenateParameter {
         HirParenateParameter::Ordinary
     }
 
-    pub(crate) fn from(syndicate: &ParenateParameterSyndicate, db: &dyn HirDeclDb) -> Self {
-        match syndicate {
+    pub(crate) fn from(syndicate: &ParenateParameterSyndicate, db: &dyn HirDeclDb) -> Option<Self> {
+        Some(match syndicate {
             ParenateParameterSyndicate::Ordinary {
                 syn_pattern_root,
                 variables,
@@ -44,7 +44,7 @@ impl HirParenateParameter {
                 eq_token,
                 default,
             } => HirParenateParameter::Keyed,
-        }
+        })
     }
 }
 
@@ -64,7 +64,7 @@ impl HirParenateParameters {
         Self(
             syndicates
                 .iter()
-                .map(|syndicate| HirParenateParameter::from(syndicate, db))
+                .filter_map(|syndicate| HirParenateParameter::from(syndicate, db))
                 .collect(),
         )
     }

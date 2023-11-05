@@ -4,7 +4,7 @@ use crate::{instantiation::*, *};
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb)]
 pub struct EtherealTermTemplateParameters {
-    data: SmallVec<[EtherealTermTemplateParameter; 2]>,
+    data: SmallVec<[EtherealTemplateParameter; 2]>,
 }
 
 impl EtherealTermTemplateParameters {
@@ -16,14 +16,14 @@ impl EtherealTermTemplateParameters {
             data: template_parameters
                 .iter()
                 .map(|template_parameter| {
-                    EtherealTermTemplateParameter::from_declarative(db, template_parameter)
+                    EtherealTemplateParameter::from_declarative(db, template_parameter)
                 })
                 .collect::<EtherealTermResult<_>>()?,
         })
     }
 
     #[inline(always)]
-    pub fn data(&self) -> &[EtherealTermTemplateParameter] {
+    pub fn data(&self) -> &[EtherealTemplateParameter] {
         &self.data
     }
 
@@ -33,7 +33,7 @@ impl EtherealTermTemplateParameters {
 }
 
 impl std::ops::Deref for EtherealTermTemplateParameters {
-    type Target = [EtherealTermTemplateParameter];
+    type Target = [EtherealTemplateParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data
@@ -42,13 +42,13 @@ impl std::ops::Deref for EtherealTermTemplateParameters {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb)]
-pub struct EtherealTermTemplateParameter {
+pub struct EtherealTemplateParameter {
     annotated_variance: Option<Variance>,
     symbol: EtherealTermSymbol,
     traits: Vec<EtherealTerm>,
 }
 
-impl EtherealTermTemplateParameter {
+impl EtherealTemplateParameter {
     fn from_declarative(
         db: &dyn EtherealTermDb,
         declarative_generic_paramter: &DeclarativeTemplateParameter,

@@ -19,6 +19,6 @@ impl TranspileToRust for TypeImplBlockHirDefn {
 
 impl TranspileToRust for TypeImplBlockHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        todo!()
+        builder.keyword(RustKeyword::Impl)
     }
 }

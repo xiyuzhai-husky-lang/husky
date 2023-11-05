@@ -42,10 +42,7 @@ pub enum TypeEtherealSignatureTemplate {
 }
 
 impl TypeEtherealSignatureTemplate {
-    pub fn template_parameters(
-        self,
-        db: &dyn EtherealSignatureDb,
-    ) -> &[EtherealTermTemplateParameter] {
+    pub fn template_parameters(self, db: &dyn EtherealSignatureDb) -> &[EtherealTemplateParameter] {
         match self {
             TypeEtherealSignatureTemplate::Enum(template) => template.template_parameters(db),
             TypeEtherealSignatureTemplate::PropsStruct(template) => {
