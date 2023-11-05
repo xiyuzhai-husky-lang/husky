@@ -1,1 +1,27 @@
-"fn!nine_match{\n    fermi_match(major_concave_components, vec![downmost]);\n}\nfn!nine_match_refine{\n    fermi_match(major_concave_components, vec![big_cc]);\n}\nfn!is_nine{require!(matches!)require!(matches!)\n    let!eff_holes=major_connected_component.eff_holes;require!(matches!)\n    let!down_match=nine_match.matches[0];require!(matches!)\n    let!down_match_dp_y=down_match.unwrap().displacement().y;\n    let!higher_excess=major_connected_component.upper_mass-major_connected_component.lower_mass;require!(higher_excess>7)    if!matches!{require!(major_concave_components.ilen()>=2)\n        let!nine_match_refine_result=nine_match_refine.matches[0];require!(matches!)require!(nine_match_refine.norm<1)\n        let!higher_excess=major_connected_component.upper_mass-major_connected_component.lower_mass;\n        let!upper_arc=nine_match_refine.matches[0];require!(matches!)require!(upper_arc.unwrap().displacement().y>0)require!(upper_arc.unwrap().angle_change<-110)require!(nine_match_refine.norm<9)\n        let!a=major_connected_component.top_k_row_right_mass_sum(3);require!(a<22)require!(a>9)return!(OneVsAll::Yes)\n    }\n;\n    OneVsAll::Yes;\n}\npub!fn!downmost{\n    let!dp=cc.displacement();require!(dp.y<0)\n    dp.y;\n}\npub!fn!big_cc{\n    let!dp=cc.displacement();require!(dp.y>0)require!(cc.relative_bounding_box.ymin()>0.4)\n    cc.relative_bounding_box.ymin();\n}\n"
+fn!nine_match{
+    fermi_match(major_concave_components, vec![downmost]);
+}
+fn!nine_match_refine{
+    fermi_match(major_concave_components, vec![big_cc]);
+}
+fn!is_nine{require!(matches!)require!(matches!)
+    let!eff_holes=major_connected_component.eff_holes;require!(matches!)
+    let!down_match=nine_match.matches[0];require!(matches!)
+    let!down_match_dp_y=down_match.unwrap().displacement().y;
+    let!higher_excess=major_connected_component.upper_mass-major_connected_component.lower_mass;require!(higher_excess>7)    if!matches!{require!(major_concave_components.ilen()>=2)
+        let!nine_match_refine_result=nine_match_refine.matches[0];require!(matches!)require!(nine_match_refine.norm<1)
+        let!higher_excess=major_connected_component.upper_mass-major_connected_component.lower_mass;
+        let!upper_arc=nine_match_refine.matches[0];require!(matches!)require!(upper_arc.unwrap().displacement().y>0)require!(upper_arc.unwrap().angle_change<-110)require!(nine_match_refine.norm<9)
+        let!a=major_connected_component.top_k_row_right_mass_sum(3);require!(a<22)require!(a>9)return!(OneVsAll::Yes)
+    }
+;
+    OneVsAll::Yes;
+}
+pub!fn!downmost{
+    let!dp=cc.displacement();require!(dp.y<0)
+    dp.y;
+}
+pub!fn!big_cc{
+    let!dp=cc.displacement();require!(dp.y>0)require!(cc.relative_bounding_box.ymin()>0.4)
+    cc.relative_bounding_box.ymin();
+}

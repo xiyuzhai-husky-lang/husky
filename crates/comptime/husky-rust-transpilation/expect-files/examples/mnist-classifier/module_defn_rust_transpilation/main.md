@@ -1,1 +1,19 @@
-"\npub!mod!connected_component;\npub!mod!raw_contour;\npub!mod!geom2d;\npub!mod!line_segment_sketch;\npub!mod!fermi;\npub!mod!digits;\npub!mod!major;fn!main{\n    is_one?;\n    is_six?;\n    is_zero?;\n    is_seven?;\n    is_eight?;\n    is_three?;\n    is_nine?;\n    is_five?;\n    is_two?;\n    Class::Unknown;\n}\n"
+
+pub!mod!connected_component;
+pub!mod!raw_contour;
+pub!mod!geom2d;
+pub!mod!line_segment_sketch;
+pub!mod!fermi;
+pub!mod!digits;
+pub!mod!major;fn!main{
+    is_one?;
+    is_six?;
+    is_zero?;
+    is_seven?;
+    is_eight?;
+    is_three?;
+    is_nine?;
+    is_five?;
+    is_two?;
+    Class::Unknown;
+}

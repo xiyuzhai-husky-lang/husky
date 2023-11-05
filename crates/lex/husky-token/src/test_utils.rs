@@ -29,6 +29,14 @@ pub trait TokenTestUtils {
     ) where
         U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: std::fmt::Debug;
+
+    fn token_expect_test_display<'a, U, R>(
+        &'a mut self,
+        f: impl Fn(&'a Self, U) -> R,
+        config: &TokenTestConfig<'a>,
+    ) where
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+        R: std::fmt::Display;
 }
 
 impl<Db> TokenTestUtils for Db
@@ -65,6 +73,18 @@ where
     {
         // todo: robustness
         self.vfs_expect_test_debug(&f, &config.vfs)
+    }
+
+    fn token_expect_test_display<'a, U, R>(
+        &'a mut self,
+        f: impl Fn(&'a Self, U) -> R,
+        config: &TokenTestConfig<'a>,
+    ) where
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+        R: std::fmt::Display,
+    {
+        // todo: robustness
+        self.vfs_expect_test_display(&f, &config.vfs)
     }
 }
 

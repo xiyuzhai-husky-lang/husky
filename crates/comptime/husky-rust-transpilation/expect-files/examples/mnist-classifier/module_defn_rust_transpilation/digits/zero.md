@@ -1,1 +1,6 @@
-"fn!open_one_match{\n    fermi_match(major_concave_components, vec![almost_closed]);\n}\npub!fn!almost_closed{require!(cc.angle_change+0<-140)\n    -cc.angle_change+0;\n}\n"
+fn!open_one_match{
+    fermi_match(major_concave_components, vec![almost_closed]);
+}
+pub!fn!almost_closed{require!(cc.angle_change+0<-140)
+    -cc.angle_change+0;
+}

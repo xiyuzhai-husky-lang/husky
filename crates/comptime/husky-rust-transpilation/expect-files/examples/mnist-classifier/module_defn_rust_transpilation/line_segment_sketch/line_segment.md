@@ -1,1 +1,19 @@
-"struct!LineSegment{start:Point2d, end:Point2d}impl!fn!displacement(){\n    Self.start.to(Self.end);\n}\nfn!dist_to_point(, ){\n    let!ab=Self.displacement();\n    let!ap=Self.start.to(pt);    if!ab.dot(ap)<0{\n        ap.norm();\n    }\nelse!{\n        let!bp=Self.end.to(pt);        if!ab.dot(bp)>0{\n            bp.norm();\n        }\nelse!{\n            ab.cross(ap).abs()/ab.norm();\n        }\n;\n    }\n;\n}\n"
+struct!LineSegment{start:Point2d, end:Point2d}impl!fn!displacement(){
+    Self.start.to(Self.end);
+}
+fn!dist_to_point(, ){
+    let!ab=Self.displacement();
+    let!ap=Self.start.to(pt);    if!ab.dot(ap)<0{
+        ap.norm();
+    }
+else!{
+        let!bp=Self.end.to(pt);        if!ab.dot(bp)>0{
+            bp.norm();
+        }
+else!{
+            ab.cross(ap).abs()/ab.norm();
+        }
+;
+    }
+;
+}

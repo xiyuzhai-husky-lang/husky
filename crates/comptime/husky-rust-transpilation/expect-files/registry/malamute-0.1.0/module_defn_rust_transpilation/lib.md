@@ -1,1 +1,3 @@
-"struct!Class<Label>struct!OneVsAll<Label>struct!OneVsAllResult<Label>impl!\ntype!Output=unit;impl!\ntype!Output=unit;"
+struct!Class<Label>struct!OneVsAll<Label>struct!OneVsAllResult<Label>impl!
+type!Output=unit;impl!
+type!Output=unit;

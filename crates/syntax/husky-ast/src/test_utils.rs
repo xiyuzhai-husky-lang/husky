@@ -29,6 +29,14 @@ pub trait AstTestUtils {
     ) where
         U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: std::fmt::Debug;
+
+    fn ast_expect_test_display<'a, U, R>(
+        &'a mut self,
+        f: impl Fn(&'a Self, U) -> R,
+        config: &AstTestConfig<'a>,
+    ) where
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+        R: std::fmt::Display;
 }
 
 impl<Db> AstTestUtils for Db
@@ -65,6 +73,18 @@ where
     {
         // todo: robustness
         self.token_expect_test_debug(f, &config.token)
+    }
+
+    fn ast_expect_test_display<'a, U, R>(
+        &'a mut self,
+        f: impl Fn(&'a Self, U) -> R,
+        config: &AstTestConfig<'a>,
+    ) where
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+        R: std::fmt::Display,
+    {
+        // todo: robustness
+        self.token_expect_test_display(f, &config.token)
     }
 }
 
