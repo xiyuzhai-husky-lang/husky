@@ -11,11 +11,11 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::FunctionFn(
-                            FnSynDecl {
+                            FunctionFnFugitiveSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -29,7 +29,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    SpecificParameterObelisk::Regular {
+                                    ParenateParameterSyndicate::Ordinary {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -45,8 +45,8 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 3,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 3,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {

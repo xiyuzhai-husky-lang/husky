@@ -2066,7 +2066,7 @@
                                 101,
                             ),
                             target: Ok(
-                                BePatternSynObelisk {
+                                BePatternSynSyndicate {
                                     pattern_expr: SynPatternRoot(
                                         5,
                                     ),
@@ -2957,7 +2957,7 @@
                                 229,
                             ),
                             target: Ok(
-                                BePatternSynObelisk {
+                                BePatternSynSyndicate {
                                     pattern_expr: SynPatternRoot(
                                         7,
                                     ),
@@ -3659,7 +3659,7 @@
                                 336,
                             ),
                             target: Ok(
-                                BePatternSynObelisk {
+                                BePatternSynSyndicate {
                                     pattern_expr: SynPatternRoot(
                                         10,
                                     ),
@@ -5400,7 +5400,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         8,
                                     ),
@@ -5429,7 +5429,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         9,
                                     ),
@@ -5500,7 +5500,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -5529,7 +5529,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         3,
                                     ),
@@ -5558,7 +5558,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         4,
                                     ),
@@ -5611,7 +5611,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         6,
                                     ),
@@ -5716,7 +5716,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         11,
                                     ),
@@ -5745,7 +5745,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         12,
                                     ),
@@ -5774,7 +5774,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         13,
                                     ),
@@ -5803,7 +5803,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         14,
                                     ),
@@ -5846,7 +5846,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         15,
                                     ),
@@ -5875,7 +5875,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         16,
                                     ),
@@ -5904,7 +5904,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         17,
                                     ),
@@ -5933,7 +5933,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         18,
                                     ),
@@ -5990,7 +5990,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -7206,18 +7206,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                             SemaKeyedCallListItem {
                                                 key_regional_token_idx: RegionalTokenIdx(
@@ -7867,18 +7856,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                             SemaKeyedCallListItem {
                                                 key_regional_token_idx: RegionalTokenIdx(
@@ -9196,7 +9174,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         101,
                                     ),
-                                    target: BePatternSynObelisk {
+                                    target: BePatternSynSyndicate {
                                         pattern_expr: SynPatternRoot(
                                             5,
                                         ),
@@ -9708,18 +9686,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                             SemaKeyedCallListItem {
                                                 key_regional_token_idx: RegionalTokenIdx(
@@ -11475,18 +11442,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                             SemaKeyedCallListItem {
                                                 key_regional_token_idx: RegionalTokenIdx(
@@ -12318,18 +12274,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                             SemaKeyedCallListItem {
                                                 key_regional_token_idx: RegionalTokenIdx(
@@ -12441,7 +12386,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         229,
                                     ),
-                                    target: BePatternSynObelisk {
+                                    target: BePatternSynSyndicate {
                                         pattern_expr: SynPatternRoot(
                                             7,
                                         ),
@@ -14358,18 +14303,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                             SemaKeyedCallListItem {
                                                 key_regional_token_idx: RegionalTokenIdx(
@@ -14935,18 +14869,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                             SemaKeyedCallListItem {
                                                 key_regional_token_idx: RegionalTokenIdx(
@@ -15058,7 +14981,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         336,
                                     ),
-                                    target: BePatternSynObelisk {
+                                    target: BePatternSynSyndicate {
                                         pattern_expr: SynPatternRoot(
                                             10,
                                         ),
@@ -16134,18 +16057,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                             SemaKeyedCallListItem {
                                                 key_regional_token_idx: RegionalTokenIdx(
@@ -17747,18 +17659,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                             SemaKeyedCallListItem {
                                                 key_regional_token_idx: RegionalTokenIdx(
@@ -18946,7 +18847,7 @@
                                             252,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             8,
                                         ),
@@ -18991,7 +18892,7 @@
                                             271,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             9,
                                         ),
@@ -19210,7 +19111,7 @@
                                             72,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             2,
                                         ),
@@ -19255,7 +19156,7 @@
                                             81,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             3,
                                         ),
@@ -19300,7 +19201,7 @@
                                             90,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             4,
                                         ),
@@ -19389,7 +19290,7 @@
                                             142,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             6,
                                         ),
@@ -19638,7 +19539,7 @@
                                             385,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             11,
                                         ),
@@ -19683,7 +19584,7 @@
                                             402,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             12,
                                         ),
@@ -19728,7 +19629,7 @@
                                             410,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             13,
                                         ),
@@ -19773,7 +19674,7 @@
                                             429,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             14,
                                         ),
@@ -19876,7 +19777,7 @@
                                             456,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             15,
                                         ),
@@ -19921,7 +19822,7 @@
                                             462,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             16,
                                         ),
@@ -19966,7 +19867,7 @@
                                             468,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             17,
                                         ),
@@ -20011,7 +19912,7 @@
                                             474,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             18,
                                         ),
@@ -20170,7 +20071,7 @@
                                             15,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -22094,18 +21995,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -22277,18 +22167,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -22402,18 +22281,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -22585,18 +22453,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -22869,18 +22726,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -23052,18 +22898,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -23230,18 +23065,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -23413,18 +23237,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -23538,18 +23351,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -23721,18 +23523,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -23952,18 +23743,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -24135,18 +23915,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -24260,18 +24029,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -24443,18 +24201,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -24568,18 +24315,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -24751,18 +24487,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -25035,18 +24760,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -25218,18 +24932,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                default: Some(
-                                                    FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Literal(
-                                                                I32(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                has_default: true,
                                             },
                                         ),
                                     ],
@@ -25423,18 +25126,7 @@
                                                                         ),
                                                                     ),
                                                                 },
-                                                                default: Some(
-                                                                    FluffyTerm {
-                                                                        place: None,
-                                                                        base: Ethereal(
-                                                                            Literal(
-                                                                                I32(
-                                                                                    5,
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                has_default: true,
                                                             },
                                                         ),
                                                     ],
@@ -26278,18 +25970,7 @@
                                                                         ),
                                                                     ),
                                                                 },
-                                                                default: Some(
-                                                                    FluffyTerm {
-                                                                        place: None,
-                                                                        base: Ethereal(
-                                                                            Literal(
-                                                                                I32(
-                                                                                    5,
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                has_default: true,
                                                             },
                                                         ),
                                                     ],
@@ -27920,18 +27601,7 @@
                                                                         ),
                                                                     ),
                                                                 },
-                                                                default: Some(
-                                                                    FluffyTerm {
-                                                                        place: None,
-                                                                        base: Ethereal(
-                                                                            Literal(
-                                                                                I32(
-                                                                                    5,
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                has_default: true,
                                                             },
                                                         ),
                                                     ],
@@ -29149,18 +28819,7 @@
                                                                         ),
                                                                     ),
                                                                 },
-                                                                default: Some(
-                                                                    FluffyTerm {
-                                                                        place: None,
-                                                                        base: Ethereal(
-                                                                            Literal(
-                                                                                I32(
-                                                                                    5,
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                has_default: true,
                                                             },
                                                         ),
                                                     ],
@@ -29885,18 +29544,7 @@
                                                                         ),
                                                                     ),
                                                                 },
-                                                                default: Some(
-                                                                    FluffyTerm {
-                                                                        place: None,
-                                                                        base: Ethereal(
-                                                                            Literal(
-                                                                                I32(
-                                                                                    5,
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                has_default: true,
                                                             },
                                                         ),
                                                     ],
@@ -31598,18 +31246,7 @@
                                                                         ),
                                                                     ),
                                                                 },
-                                                                default: Some(
-                                                                    FluffyTerm {
-                                                                        place: None,
-                                                                        base: Ethereal(
-                                                                            Literal(
-                                                                                I32(
-                                                                                    5,
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                has_default: true,
                                                             },
                                                         ),
                                                     ],
@@ -32309,18 +31946,7 @@
                                                                         ),
                                                                     ),
                                                                 },
-                                                                default: Some(
-                                                                    FluffyTerm {
-                                                                        place: None,
-                                                                        base: Ethereal(
-                                                                            Literal(
-                                                                                I32(
-                                                                                    5,
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                has_default: true,
                                                             },
                                                         ),
                                                     ],
@@ -33009,18 +32635,7 @@
                                                                         ),
                                                                     ),
                                                                 },
-                                                                default: Some(
-                                                                    FluffyTerm {
-                                                                        place: None,
-                                                                        base: Ethereal(
-                                                                            Literal(
-                                                                                I32(
-                                                                                    5,
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                has_default: true,
                                                             },
                                                         ),
                                                     ],
@@ -34773,18 +34388,7 @@
                                                                         ),
                                                                     ),
                                                                 },
-                                                                default: Some(
-                                                                    FluffyTerm {
-                                                                        place: None,
-                                                                        base: Ethereal(
-                                                                            Literal(
-                                                                                I32(
-                                                                                    5,
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                has_default: true,
                                                             },
                                                         ),
                                                     ],
@@ -36292,7 +35896,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -36887,7 +36491,7 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -37819,7 +37423,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -38523,7 +38127,7 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),
@@ -39565,7 +39169,7 @@
                                 ),
                             },
                             let_variables_pattern: Ok(
-                                LetPatternSynObelisk {
+                                LetPatternSynSyndicate {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -40527,7 +40131,7 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaObelisk {
+                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
                                         syn_pattern_root: SynPatternRoot(
                                             1,
                                         ),

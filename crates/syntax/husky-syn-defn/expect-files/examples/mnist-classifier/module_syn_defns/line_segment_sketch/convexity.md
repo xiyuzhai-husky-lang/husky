@@ -5,11 +5,11 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -23,7 +23,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -39,8 +39,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 3,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 3,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -1731,7 +1731,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 7,
                                                             ),
@@ -1766,7 +1766,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 10,
                                                             ),
@@ -1801,7 +1801,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 5,
                                                             ),
@@ -1830,7 +1830,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 6,
                                                             ),
@@ -1905,7 +1905,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 8,
                                                             ),
@@ -1934,7 +1934,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 9,
                                                             ),
@@ -2025,7 +2025,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -2054,7 +2054,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -2083,7 +2083,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 3,
                                                             ),
@@ -2112,7 +2112,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 4,
                                                             ),

@@ -5,13 +5,13 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                             template_parameters: [
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `T`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -32,7 +32,7 @@ Ok(
                                 },
                             ],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -685,7 +685,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -834,13 +834,13 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                             template_parameters: [
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `T`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -861,7 +861,7 @@ Ok(
                                 },
                             ],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -875,7 +875,7 @@ Ok(
                                     ),
                                     ty: 4,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -889,7 +889,7 @@ Ok(
                                     ),
                                     ty: 5,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         3,
                                     ),
@@ -1978,7 +1978,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -2179,13 +2179,13 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                             template_parameters: [
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `T`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -2206,7 +2206,7 @@ Ok(
                                 },
                             ],
                             parenate_parameters: [
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         1,
                                     ),
@@ -2220,7 +2220,7 @@ Ok(
                                     ),
                                     ty: 4,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         2,
                                     ),
@@ -2234,7 +2234,7 @@ Ok(
                                     ),
                                     ty: 5,
                                 },
-                                SpecificParameterObelisk::Regular {
+                                ParenateParameterSyndicate::Ordinary {
                                     syn_pattern_root: SynPatternRoot(
                                         3,
                                     ),
@@ -2250,8 +2250,8 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeBeforeColonObelisk {
-                                    expr: 7,
+                                ReturnTypeBeforeColonSyndicate {
+                                    syn_expr_idx: 7,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -3952,7 +3952,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -3981,7 +3981,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -4010,7 +4010,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 3,
                                                             ),
@@ -4327,7 +4327,7 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [],
@@ -4715,7 +4715,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -4865,7 +4865,7 @@ Ok(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
                         path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
-                        decl: FnSynDecl {
+                        decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [],
@@ -5135,7 +5135,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),

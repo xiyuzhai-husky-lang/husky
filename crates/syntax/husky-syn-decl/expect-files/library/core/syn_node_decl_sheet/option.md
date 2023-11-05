@@ -25,17 +25,17 @@ Ok(
                                 },
                                 template_parameter_decl_list: Ok(
                                     Some(
-                                        TemplateParameters {
+                                        SynTemplateParameterSyndicateList {
                                             langle: LaOrLtRegionalToken(
                                                 RegionalTokenIdx(
                                                     4,
                                                 ),
                                             ),
                                             template_parameters: [
-                                                TemplateParameterObelisk {
+                                                TemplateParameterSyndicate {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    data: TemplateParameterObeliskData::Type {
+                                                    data: TemplateParameterSyndicateData::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
                                                             regional_token_idx: RegionalTokenIdx(

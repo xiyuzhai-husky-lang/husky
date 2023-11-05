@@ -1,4 +1,5 @@
 use crate::db::HirDeclDb;
+use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::FluffyTermBase;
 use husky_hir_expr::{
     helpers::hir_expr_region_with_source_map, source_map::HirExprSourceMap, HirExprRegion,
@@ -6,7 +7,7 @@ use husky_hir_expr::{
 use husky_hir_lazy_expr::builder::hir_lazy_expr_region_with_source_map;
 use husky_hir_ty::{menu::HirTypeMenu, HirType};
 use husky_sema_expr::SemaExprRegionData;
-use husky_syn_expr::{ReturnTypeBeforeEqSyndicate, SynExprIdx, SynExprRegion};
+use husky_syn_expr::{ReturnTypeBeforeEqSyndicate, SynCurrentSymbolIdx, SynExprIdx, SynExprRegion};
 
 pub(crate) struct HirDeclBuilder<'a> {
     db: &'a dyn HirDeclDb,
@@ -68,5 +69,23 @@ impl<'a> HirDeclBuilder<'a> {
 
     pub(crate) fn finish(self) -> HirExprRegion {
         self.hir_expr_region
+    }
+
+    pub(crate) fn current_symbol_term(
+        &self,
+        current_symbol_idx: SynCurrentSymbolIdx,
+    ) -> EtherealTerm {
+        match self.sema_expr_region_data.symbol_terms()[current_symbol_idx]
+            .base_resolved_inner(self.sema_expr_region_data.fluffy_term_region())
+        {
+            FluffyTermBase::Ethereal(symbol_term) => symbol_term,
+            FluffyTermBase::Solid(_) => todo!(),
+            FluffyTermBase::Hollow(_) => todo!(),
+            FluffyTermBase::Place => todo!(),
+        }
+    }
+
+    pub(crate) fn db(&self) -> &dyn HirDeclDb {
+        self.db
     }
 }

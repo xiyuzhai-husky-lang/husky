@@ -7,10 +7,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Add`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -116,10 +116,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::AddAssign`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -225,10 +225,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitAnd`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -334,10 +334,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitAndAssign`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -443,10 +443,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitOr`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -552,10 +552,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitOrAssign`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -661,10 +661,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitXor`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -770,10 +770,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitXorAssign`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -879,10 +879,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Div`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -988,10 +988,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::DivAssign`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1163,10 +1163,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Mul`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1272,10 +1272,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::MulAssign`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1513,10 +1513,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Sub`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1622,10 +1622,10 @@ Ok(
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Unveil`),
                         template_parameters: [
-                            TemplateParameterObelisk {
+                            TemplateParameterSyndicate {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterObeliskData::Type {
+                                data: TemplateParameterSyndicateData::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `T`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1732,10 +1732,10 @@ Ok(
                         decl: EnumTypeSynDecl {
                             path: TypePath(`core::ops::ControlFlow`, `Enum`),
                             template_parameters: [
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `R`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -1745,10 +1745,10 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 2,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `C`,
                                             regional_token_idx: RegionalTokenIdx(

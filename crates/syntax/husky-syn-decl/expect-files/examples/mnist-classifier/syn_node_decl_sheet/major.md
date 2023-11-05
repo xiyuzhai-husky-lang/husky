@@ -16,7 +16,7 @@ Ok(
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
-                            ValSynNodeDecl {
+                            ValFugitiveSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
@@ -34,7 +34,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeEqObelisk {
+                                        ReturnTypeBeforeEqSyndicate {
                                             expr: 3,
                                         },
                                     ),
@@ -166,7 +166,7 @@ Ok(
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
-                            ValSynNodeDecl {
+                            ValFugitiveSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -184,7 +184,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeEqObelisk {
+                                        ReturnTypeBeforeEqSyndicate {
                                             expr: 2,
                                         },
                                     ),
@@ -310,7 +310,7 @@ Ok(
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
-                            ValSynNodeDecl {
+                            ValFugitiveSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -328,7 +328,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeEqObelisk {
+                                        ReturnTypeBeforeEqSyndicate {
                                             expr: 1,
                                         },
                                     ),
@@ -447,7 +447,7 @@ Ok(
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
-                            ValSynNodeDecl {
+                            ValFugitiveSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -465,7 +465,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeEqObelisk {
+                                        ReturnTypeBeforeEqSyndicate {
                                             expr: 4,
                                         },
                                     ),
@@ -604,7 +604,7 @@ Ok(
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
-                            ValSynNodeDecl {
+                            ValFugitiveSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -622,7 +622,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeEqObelisk {
+                                        ReturnTypeBeforeEqSyndicate {
                                             expr: 2,
                                         },
                                     ),
@@ -748,7 +748,7 @@ Ok(
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
-                            ValSynNodeDecl {
+                            ValFugitiveSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -766,7 +766,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeEqObelisk {
+                                        ReturnTypeBeforeEqSyndicate {
                                             expr: 2,
                                         },
                                     ),
@@ -892,7 +892,7 @@ Ok(
                 ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
-                            ValSynNodeDecl {
+                            ValFugitiveSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
@@ -910,7 +910,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeBeforeEqObelisk {
+                                        ReturnTypeBeforeEqSyndicate {
                                             expr: 4,
                                         },
                                     ),

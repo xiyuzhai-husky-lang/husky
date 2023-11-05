@@ -284,7 +284,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeObelisk {
+                            self_ty_expr: SelfTypeSyndicate {
                                 expr: 1,
                             },
                             eol_colon: Ok(

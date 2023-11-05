@@ -102,7 +102,9 @@ impl<'a> DeclarativeTermEngine<'a> {
                     };
                     let attrs = DeclarativeTemplateSymbolAttrs::from_attrs(syn_attrs.iter().map(
                         |syn_attr| match syn_attr {
-                            TemplateSymbolSynAttr::Phantom(_, _) => todo!(),
+                            TemplateSymbolSynAttr::Phantom(_, _) => {
+                                DeclarativeTemplateSymbolAttr::Phantom
+                            }
                         },
                     ));
                     let variance = annotated_variance_token.map(|vt| vt.into());

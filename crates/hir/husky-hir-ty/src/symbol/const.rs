@@ -9,10 +9,12 @@ pub struct HirConstSymbol {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirConstSymbolIndex {
     PathLeading {
+        attrs: HirSymbolAttrs,
         disambiguator: u8,
         ty_path: TypePath,
     },
     Other {
+        attrs: HirSymbolAttrs,
         disambiguator: u8,
     },
 }

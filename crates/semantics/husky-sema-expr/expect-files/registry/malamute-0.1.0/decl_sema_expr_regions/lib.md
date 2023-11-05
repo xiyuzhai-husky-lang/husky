@@ -165,7 +165,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -195,7 +195,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 100,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -232,7 +240,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
-                                10,
+                                12,
                             ),
                             current_symbol_idx: 1,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -299,19 +307,32 @@
                             SynCurrentSymbol {
                                 modifier: Const,
                                 access_start: RegionalTokenIdx(
-                                    11,
+                                    13,
                                 ),
                                 access_end: None,
                                 variant: SynCurrentSymbolVariant::TemplateParameter {
                                     syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [],
+                                        syn_attrs: [
+                                            Phantom(
+                                                PoundRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        7,
+                                                    ),
+                                                ),
+                                                PhantomRegionalToken {
+                                                    token_idx: RegionalTokenIdx(
+                                                        8,
+                                                    ),
+                                                },
+                                            ),
+                                        ],
                                     },
                                     annotated_variance_token: None,
                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                         ident_token: IdentRegionalToken {
                                             ident: `label`,
                                             regional_token_idx: RegionalTokenIdx(
-                                                8,
+                                                10,
                                             ),
                                         },
                                         ty_expr_idx: 1,
@@ -373,7 +394,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        10,
+                                        12,
                                     ),
                                     current_symbol_idx: 1,
                                     current_symbol_kind: TemplateParameter {
@@ -434,7 +455,27 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -465,7 +506,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 4,
+                                                    value: 5,
                                                 },
                                             ),
                                         ),
@@ -489,7 +530,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -503,7 +544,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 13,
+                                                value: 14,
                                             },
                                         ),
                                     ),
@@ -571,7 +612,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 102,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -608,7 +657,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
-                                10,
+                                12,
                             ),
                             current_symbol_idx: 1,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -675,19 +724,32 @@
                             SynCurrentSymbol {
                                 modifier: Const,
                                 access_start: RegionalTokenIdx(
-                                    11,
+                                    13,
                                 ),
                                 access_end: None,
                                 variant: SynCurrentSymbolVariant::TemplateParameter {
                                     syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [],
+                                        syn_attrs: [
+                                            Phantom(
+                                                PoundRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        7,
+                                                    ),
+                                                ),
+                                                PhantomRegionalToken {
+                                                    token_idx: RegionalTokenIdx(
+                                                        8,
+                                                    ),
+                                                },
+                                            ),
+                                        ],
                                     },
                                     annotated_variance_token: None,
                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                         ident_token: IdentRegionalToken {
                                             ident: `label`,
                                             regional_token_idx: RegionalTokenIdx(
-                                                8,
+                                                10,
                                             ),
                                         },
                                         ty_expr_idx: 1,
@@ -749,7 +811,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        10,
+                                        12,
                                     ),
                                     current_symbol_idx: 1,
                                     current_symbol_kind: TemplateParameter {
@@ -810,7 +872,27 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -841,7 +923,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 4,
+                                                    value: 5,
                                                 },
                                             ),
                                         ),
@@ -865,7 +947,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -879,7 +961,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 13,
+                                                value: 14,
                                             },
                                         ),
                                     ),
@@ -947,7 +1029,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 104,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -984,7 +1074,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
-                                10,
+                                12,
                             ),
                             current_symbol_idx: 1,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -1020,7 +1110,7 @@
                         },
                         SynExprData::Literal(
                             RegionalTokenIdx(
-                                24,
+                                26,
                             ),
                             LiteralData::Integer(
                                 UnspecifiedRegular(
@@ -1041,7 +1131,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
-                                29,
+                                31,
                             ),
                             current_symbol_idx: 1,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -1062,7 +1152,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `label`,
                             regional_token_idx: RegionalTokenIdx(
-                                30,
+                                32,
                             ),
                             current_symbol_idx: 2,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -1070,7 +1160,7 @@
                                     ident_token: IdentRegionalToken {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            8,
+                                            10,
                                         ),
                                     },
                                 },
@@ -1089,7 +1179,7 @@
                                 IdentRegionalToken {
                                     ident: `f32`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        18,
+                                        20,
                                     ),
                                 },
                             ),
@@ -1104,7 +1194,7 @@
                                 IdentRegionalToken {
                                     ident: `i32`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        22,
+                                        24,
                                     ),
                                 },
                             ),
@@ -1119,7 +1209,7 @@
                                 IdentRegionalToken {
                                     ident: `OneVsAllResult`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        28,
+                                        30,
                                     ),
                                 },
                             ),
@@ -1142,7 +1232,7 @@
                                 ident_token: IdentRegionalToken {
                                     ident: `skip`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        20,
+                                        22,
                                     ),
                                 },
                             },
@@ -1204,19 +1294,32 @@
                             SynCurrentSymbol {
                                 modifier: Const,
                                 access_start: RegionalTokenIdx(
-                                    11,
+                                    13,
                                 ),
                                 access_end: None,
                                 variant: SynCurrentSymbolVariant::TemplateParameter {
                                     syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [],
+                                        syn_attrs: [
+                                            Phantom(
+                                                PoundRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        7,
+                                                    ),
+                                                ),
+                                                PhantomRegionalToken {
+                                                    token_idx: RegionalTokenIdx(
+                                                        8,
+                                                    ),
+                                                },
+                                            ),
+                                        ],
                                     },
                                     annotated_variance_token: None,
                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                         ident_token: IdentRegionalToken {
                                             ident: `label`,
                                             regional_token_idx: RegionalTokenIdx(
-                                                8,
+                                                10,
                                             ),
                                         },
                                         ty_expr_idx: 1,
@@ -1226,7 +1329,7 @@
                             SynCurrentSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
-                                    14,
+                                    16,
                                 ),
                                 access_end: None,
                                 variant: SynCurrentSymbolVariant::ParenateVariadicParameter {
@@ -1234,7 +1337,7 @@
                                     ident_token: IdentRegionalToken {
                                         ident: `f`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            16,
+                                            18,
                                         ),
                                     },
                                 },
@@ -1242,7 +1345,7 @@
                             SynCurrentSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
-                                    21,
+                                    23,
                                 ),
                                 access_end: None,
                                 variant: SynCurrentSymbolVariant::ParenateRegularParameter {
@@ -1342,7 +1445,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        10,
+                                        12,
                                     ),
                                     current_symbol_idx: 1,
                                     current_symbol_kind: TemplateParameter {
@@ -1444,7 +1547,7 @@
                             data_result: Ok(
                                 Literal(
                                     RegionalTokenIdx(
-                                        24,
+                                        26,
                                     ),
                                     Integer(
                                         UnspecifiedRegular(
@@ -1512,7 +1615,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        29,
+                                        31,
                                     ),
                                     current_symbol_idx: 1,
                                     current_symbol_kind: TemplateParameter {
@@ -1580,12 +1683,12 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 547,
+                                                value: 548,
                                             },
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        30,
+                                        32,
                                     ),
                                     current_symbol_idx: 2,
                                     current_symbol_kind: TemplateParameter {
@@ -1594,12 +1697,12 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 547,
+                                                            value: 548,
                                                         },
                                                     ),
                                                 ),
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    8,
+                                                    10,
                                                 ),
                                             },
                                         },
@@ -1613,7 +1716,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 4,
+                                                    value: 5,
                                                 },
                                             ),
                                         ),
@@ -1717,6 +1820,46 @@
             sema_expr_terms: [
                 (
                     SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 28,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
                         3,
                     ),
                     Ok(
@@ -1747,7 +1890,85 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 4,
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        5,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 74,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        7,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 103,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        8,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        9,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 104,
                                         },
                                     ),
                                 ),
@@ -1803,7 +2024,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 4,
+                                                    value: 5,
                                                 },
                                             ),
                                         ),
@@ -1863,21 +2084,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 13,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -1892,6 +2099,20 @@
                                         EtherealTermSymbol(
                                             Id {
                                                 value: 14,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                        Some(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -2255,7 +2476,7 @@
                                                                 Symbol(
                                                                     EtherealTermSymbol(
                                                                         Id {
-                                                                            value: 4,
+                                                                            value: 5,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2289,7 +2510,7 @@
                                                 Symbol(
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 4,
+                                                            value: 5,
                                                         },
                                                     ),
                                                 ),
@@ -2309,7 +2530,7 @@
                                             Symbol(
                                                 EtherealTermSymbol(
                                                     Id {
-                                                        value: 4,
+                                                        value: 5,
                                                     },
                                                 ),
                                             ),
@@ -2406,7 +2627,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
-                                8,
+                                10,
                             ),
                             current_symbol_idx: 1,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -2447,7 +2668,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
-                                16,
+                                18,
                             ),
                             current_symbol_idx: 1,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -2468,7 +2689,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `label`,
                             regional_token_idx: RegionalTokenIdx(
-                                17,
+                                19,
                             ),
                             current_symbol_idx: 2,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -2476,7 +2697,7 @@
                                     ident_token: IdentRegionalToken {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            6,
+                                            8,
                                         ),
                                     },
                                 },
@@ -2499,7 +2720,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
-                                20,
+                                22,
                             ),
                             current_symbol_idx: 1,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -2526,7 +2747,7 @@
                                 IdentRegionalToken {
                                     ident: `core`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        10,
+                                        12,
                                     ),
                                 },
                             ),
@@ -2538,14 +2759,14 @@
                             parent: 1,
                             colon_colon_token: ColonColonRegionalToken(
                                 RegionalTokenIdx(
-                                    11,
+                                    13,
                                 ),
                             ),
                             ident_token: Ok(
                                 IdentRegionalToken {
                                     ident: `ops`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        12,
+                                        14,
                                     ),
                                 },
                             ),
@@ -2559,14 +2780,14 @@
                             parent: 2,
                             colon_colon_token: ColonColonRegionalToken(
                                 RegionalTokenIdx(
-                                    13,
+                                    15,
                                 ),
                             ),
                             ident_token: Ok(
                                 IdentRegionalToken {
                                     ident: `Unveil`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        14,
+                                        16,
                                     ),
                                 },
                             ),
@@ -2583,7 +2804,7 @@
                                 IdentRegionalToken {
                                     ident: `OneVsAll`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        15,
+                                        17,
                                     ),
                                 },
                             ),
@@ -2598,7 +2819,7 @@
                                 IdentRegionalToken {
                                     ident: `Class`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        19,
+                                        21,
                                     ),
                                 },
                             ),
@@ -2658,19 +2879,32 @@
                             SynCurrentSymbol {
                                 modifier: Const,
                                 access_start: RegionalTokenIdx(
-                                    9,
+                                    11,
                                 ),
                                 access_end: None,
                                 variant: SynCurrentSymbolVariant::TemplateParameter {
                                     syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [],
+                                        syn_attrs: [
+                                            Phantom(
+                                                PoundRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        5,
+                                                    ),
+                                                ),
+                                                PhantomRegionalToken {
+                                                    token_idx: RegionalTokenIdx(
+                                                        6,
+                                                    ),
+                                                },
+                                            ),
+                                        ],
                                     },
                                     annotated_variance_token: None,
                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                         ident_token: IdentRegionalToken {
                                             ident: `label`,
                                             regional_token_idx: RegionalTokenIdx(
-                                                6,
+                                                8,
                                             ),
                                         },
                                         ty_expr_idx: 1,
@@ -2742,7 +2976,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        8,
+                                        10,
                                     ),
                                     current_symbol_idx: 1,
                                     current_symbol_kind: TemplateParameter {
@@ -2877,7 +3111,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        16,
+                                        18,
                                     ),
                                     current_symbol_idx: 1,
                                     current_symbol_kind: TemplateParameter {
@@ -2945,12 +3179,12 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 547,
+                                                value: 548,
                                             },
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        17,
+                                        19,
                                     ),
                                     current_symbol_idx: 2,
                                     current_symbol_kind: TemplateParameter {
@@ -2959,12 +3193,12 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 547,
+                                                            value: 548,
                                                         },
                                                     ),
                                                 ),
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    6,
+                                                    8,
                                                 ),
                                             },
                                         },
@@ -2978,7 +3212,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 4,
+                                                    value: 5,
                                                 },
                                             ),
                                         ),
@@ -3056,7 +3290,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        20,
+                                        22,
                                     ),
                                     current_symbol_idx: 1,
                                     current_symbol_kind: TemplateParameter {
@@ -3161,7 +3395,223 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    Trait(
+                                        TraitPath(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 73,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        4,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 105,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        5,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        6,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 107,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        7,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        8,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 109,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        9,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        10,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        11,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 100,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [],
@@ -3192,7 +3642,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 4,
+                                                    value: 5,
                                                 },
                                             ),
                                         ),
@@ -3216,7 +3666,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -3230,7 +3680,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 13,
+                                                value: 14,
                                             },
                                         ),
                                     ),
@@ -3630,7 +4080,7 @@
                                             Symbol(
                                                 EtherealTermSymbol(
                                                     Id {
-                                                        value: 4,
+                                                        value: 5,
                                                     },
                                                 ),
                                             ),
@@ -3826,7 +4276,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 73,
+                            value: 100,
                         },
                     ),
                 ),
@@ -3885,7 +4335,7 @@
                                     SynExprData::CurrentSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            8,
+                                            10,
                                         ),
                                         current_symbol_idx: 1,
                                         current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -3926,7 +4376,7 @@
                                     SynExprData::CurrentSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            16,
+                                            18,
                                         ),
                                         current_symbol_idx: 1,
                                         current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -3947,7 +4397,7 @@
                                     SynExprData::CurrentSymbol {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            17,
+                                            19,
                                         ),
                                         current_symbol_idx: 2,
                                         current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -3955,7 +4405,7 @@
                                                 ident_token: IdentRegionalToken {
                                                     ident: `label`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        6,
+                                                        8,
                                                     ),
                                                 },
                                             },
@@ -3978,7 +4428,7 @@
                                     SynExprData::CurrentSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            20,
+                                            22,
                                         ),
                                         current_symbol_idx: 1,
                                         current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -4005,7 +4455,7 @@
                                             IdentRegionalToken {
                                                 ident: `core`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    10,
+                                                    12,
                                                 ),
                                             },
                                         ),
@@ -4017,14 +4467,14 @@
                                         parent: 1,
                                         colon_colon_token: ColonColonRegionalToken(
                                             RegionalTokenIdx(
-                                                11,
+                                                13,
                                             ),
                                         ),
                                         ident_token: Ok(
                                             IdentRegionalToken {
                                                 ident: `ops`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    12,
+                                                    14,
                                                 ),
                                             },
                                         ),
@@ -4038,14 +4488,14 @@
                                         parent: 2,
                                         colon_colon_token: ColonColonRegionalToken(
                                             RegionalTokenIdx(
-                                                13,
+                                                15,
                                             ),
                                         ),
                                         ident_token: Ok(
                                             IdentRegionalToken {
                                                 ident: `Unveil`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    14,
+                                                    16,
                                                 ),
                                             },
                                         ),
@@ -4062,7 +4512,7 @@
                                             IdentRegionalToken {
                                                 ident: `OneVsAll`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    15,
+                                                    17,
                                                 ),
                                             },
                                         ),
@@ -4077,7 +4527,7 @@
                                             IdentRegionalToken {
                                                 ident: `Class`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    19,
+                                                    21,
                                                 ),
                                             },
                                         ),
@@ -4137,19 +4587,32 @@
                                         SynCurrentSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
-                                                9,
+                                                11,
                                             ),
                                             access_end: None,
                                             variant: SynCurrentSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [],
+                                                    syn_attrs: [
+                                                        Phantom(
+                                                            PoundRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                            PhantomRegionalToken {
+                                                                token_idx: RegionalTokenIdx(
+                                                                    6,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ],
                                                 },
                                                 annotated_variance_token: None,
                                                 template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `label`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            6,
+                                                            8,
                                                         ),
                                                     },
                                                     ty_expr_idx: 1,
@@ -4360,7 +4823,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [
@@ -4388,7 +4873,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 4,
+                                                    value: 5,
                                                 },
                                             ),
                                         ),
@@ -4412,7 +4897,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -4426,7 +4911,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 13,
+                                                value: 14,
                                             },
                                         ),
                                     ),
@@ -4497,7 +4982,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 100,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -4542,7 +5035,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
-                                8,
+                                10,
                             ),
                             current_symbol_idx: 1,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -4583,7 +5076,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
-                                16,
+                                18,
                             ),
                             current_symbol_idx: 1,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -4604,7 +5097,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `label`,
                             regional_token_idx: RegionalTokenIdx(
-                                17,
+                                19,
                             ),
                             current_symbol_idx: 2,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -4612,7 +5105,7 @@
                                     ident_token: IdentRegionalToken {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            6,
+                                            8,
                                         ),
                                     },
                                 },
@@ -4635,7 +5128,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
-                                20,
+                                22,
                             ),
                             current_symbol_idx: 1,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -4656,7 +5149,7 @@
                         SynExprData::CurrentSymbol {
                             ident: `label`,
                             regional_token_idx: RegionalTokenIdx(
-                                21,
+                                23,
                             ),
                             current_symbol_idx: 2,
                             current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -4664,7 +5157,7 @@
                                     ident_token: IdentRegionalToken {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            6,
+                                            8,
                                         ),
                                     },
                                 },
@@ -4683,7 +5176,7 @@
                                 IdentRegionalToken {
                                     ident: `core`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        10,
+                                        12,
                                     ),
                                 },
                             ),
@@ -4695,14 +5188,14 @@
                             parent: 1,
                             colon_colon_token: ColonColonRegionalToken(
                                 RegionalTokenIdx(
-                                    11,
+                                    13,
                                 ),
                             ),
                             ident_token: Ok(
                                 IdentRegionalToken {
                                     ident: `ops`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        12,
+                                        14,
                                     ),
                                 },
                             ),
@@ -4716,14 +5209,14 @@
                             parent: 2,
                             colon_colon_token: ColonColonRegionalToken(
                                 RegionalTokenIdx(
-                                    13,
+                                    15,
                                 ),
                             ),
                             ident_token: Ok(
                                 IdentRegionalToken {
                                     ident: `Unveil`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        14,
+                                        16,
                                     ),
                                 },
                             ),
@@ -4740,7 +5233,7 @@
                                 IdentRegionalToken {
                                     ident: `OneVsAllResult`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        15,
+                                        17,
                                     ),
                                 },
                             ),
@@ -4755,7 +5248,7 @@
                                 IdentRegionalToken {
                                     ident: `OneVsAll`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        19,
+                                        21,
                                     ),
                                 },
                             ),
@@ -4815,19 +5308,32 @@
                             SynCurrentSymbol {
                                 modifier: Const,
                                 access_start: RegionalTokenIdx(
-                                    9,
+                                    11,
                                 ),
                                 access_end: None,
                                 variant: SynCurrentSymbolVariant::TemplateParameter {
                                     syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [],
+                                        syn_attrs: [
+                                            Phantom(
+                                                PoundRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        5,
+                                                    ),
+                                                ),
+                                                PhantomRegionalToken {
+                                                    token_idx: RegionalTokenIdx(
+                                                        6,
+                                                    ),
+                                                },
+                                            ),
+                                        ],
                                     },
                                     annotated_variance_token: None,
                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                         ident_token: IdentRegionalToken {
                                             ident: `label`,
                                             regional_token_idx: RegionalTokenIdx(
-                                                6,
+                                                8,
                                             ),
                                         },
                                         ty_expr_idx: 1,
@@ -4899,7 +5405,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        8,
+                                        10,
                                     ),
                                     current_symbol_idx: 1,
                                     current_symbol_kind: TemplateParameter {
@@ -5034,7 +5540,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        16,
+                                        18,
                                     ),
                                     current_symbol_idx: 1,
                                     current_symbol_kind: TemplateParameter {
@@ -5102,12 +5608,12 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 547,
+                                                value: 548,
                                             },
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        17,
+                                        19,
                                     ),
                                     current_symbol_idx: 2,
                                     current_symbol_kind: TemplateParameter {
@@ -5116,12 +5622,12 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 547,
+                                                            value: 548,
                                                         },
                                                     ),
                                                 ),
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    6,
+                                                    8,
                                                 ),
                                             },
                                         },
@@ -5135,7 +5641,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 4,
+                                                    value: 5,
                                                 },
                                             ),
                                         ),
@@ -5213,7 +5719,7 @@
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        20,
+                                        22,
                                     ),
                                     current_symbol_idx: 1,
                                     current_symbol_kind: TemplateParameter {
@@ -5281,12 +5787,12 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 547,
+                                                value: 548,
                                             },
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        21,
+                                        23,
                                     ),
                                     current_symbol_idx: 2,
                                     current_symbol_kind: TemplateParameter {
@@ -5295,12 +5801,12 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 547,
+                                                            value: 548,
                                                         },
                                                     ),
                                                 ),
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    6,
+                                                    8,
                                                 ),
                                             },
                                         },
@@ -5314,7 +5820,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 4,
+                                                    value: 5,
                                                 },
                                             ),
                                         ),
@@ -5394,6 +5900,162 @@
             sema_expr_terms: [
                 (
                     SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        2,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    Trait(
+                                        TraitPath(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        3,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 74,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        4,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 110,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        5,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        6,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 112,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        7,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        8,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 114,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
                         10,
                     ),
                     Ok(
@@ -5403,7 +6065,85 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 4,
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        9,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 73,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        11,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 101,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        12,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        13,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 102,
                                         },
                                     ),
                                 ),
@@ -5442,7 +6182,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 4,
+                                                    value: 5,
                                                 },
                                             ),
                                         ),
@@ -5466,7 +6206,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -5480,7 +6220,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 13,
+                                                value: 14,
                                             },
                                         ),
                                     ),
@@ -5880,7 +6620,7 @@
                                             Symbol(
                                                 EtherealTermSymbol(
                                                     Id {
-                                                        value: 4,
+                                                        value: 5,
                                                     },
                                                 ),
                                             ),
@@ -6092,7 +6832,7 @@
                                                                 Symbol(
                                                                     EtherealTermSymbol(
                                                                         Id {
-                                                                            value: 4,
+                                                                            value: 5,
                                                                         },
                                                                     ),
                                                                 ),
@@ -6126,7 +6866,7 @@
                                                 Symbol(
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 4,
+                                                            value: 5,
                                                         },
                                                     ),
                                                 ),
@@ -6146,7 +6886,7 @@
                                             Symbol(
                                                 EtherealTermSymbol(
                                                     Id {
-                                                        value: 4,
+                                                        value: 5,
                                                     },
                                                 ),
                                             ),
@@ -6202,7 +6942,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 71,
+                            value: 102,
                         },
                     ),
                 ),
@@ -6261,7 +7001,7 @@
                                     SynExprData::CurrentSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            8,
+                                            10,
                                         ),
                                         current_symbol_idx: 1,
                                         current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -6302,7 +7042,7 @@
                                     SynExprData::CurrentSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            16,
+                                            18,
                                         ),
                                         current_symbol_idx: 1,
                                         current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -6323,7 +7063,7 @@
                                     SynExprData::CurrentSymbol {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            17,
+                                            19,
                                         ),
                                         current_symbol_idx: 2,
                                         current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -6331,7 +7071,7 @@
                                                 ident_token: IdentRegionalToken {
                                                     ident: `label`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        6,
+                                                        8,
                                                     ),
                                                 },
                                             },
@@ -6354,7 +7094,7 @@
                                     SynExprData::CurrentSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            20,
+                                            22,
                                         ),
                                         current_symbol_idx: 1,
                                         current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -6375,7 +7115,7 @@
                                     SynExprData::CurrentSymbol {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            21,
+                                            23,
                                         ),
                                         current_symbol_idx: 2,
                                         current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
@@ -6383,7 +7123,7 @@
                                                 ident_token: IdentRegionalToken {
                                                     ident: `label`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        6,
+                                                        8,
                                                     ),
                                                 },
                                             },
@@ -6402,7 +7142,7 @@
                                             IdentRegionalToken {
                                                 ident: `core`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    10,
+                                                    12,
                                                 ),
                                             },
                                         ),
@@ -6414,14 +7154,14 @@
                                         parent: 1,
                                         colon_colon_token: ColonColonRegionalToken(
                                             RegionalTokenIdx(
-                                                11,
+                                                13,
                                             ),
                                         ),
                                         ident_token: Ok(
                                             IdentRegionalToken {
                                                 ident: `ops`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    12,
+                                                    14,
                                                 ),
                                             },
                                         ),
@@ -6435,14 +7175,14 @@
                                         parent: 2,
                                         colon_colon_token: ColonColonRegionalToken(
                                             RegionalTokenIdx(
-                                                13,
+                                                15,
                                             ),
                                         ),
                                         ident_token: Ok(
                                             IdentRegionalToken {
                                                 ident: `Unveil`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    14,
+                                                    16,
                                                 ),
                                             },
                                         ),
@@ -6459,7 +7199,7 @@
                                             IdentRegionalToken {
                                                 ident: `OneVsAllResult`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    15,
+                                                    17,
                                                 ),
                                             },
                                         ),
@@ -6474,7 +7214,7 @@
                                             IdentRegionalToken {
                                                 ident: `OneVsAll`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    19,
+                                                    21,
                                                 ),
                                             },
                                         ),
@@ -6534,19 +7274,32 @@
                                         SynCurrentSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
-                                                9,
+                                                11,
                                             ),
                                             access_end: None,
                                             variant: SynCurrentSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [],
+                                                    syn_attrs: [
+                                                        Phantom(
+                                                            PoundRegionalToken(
+                                                                RegionalTokenIdx(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                            PhantomRegionalToken {
+                                                                token_idx: RegionalTokenIdx(
+                                                                    6,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ],
                                                 },
                                                 annotated_variance_token: None,
                                                 template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `label`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            6,
+                                                            8,
                                                         ),
                                                     },
                                                     ty_expr_idx: 1,
@@ -6757,7 +7510,29 @@
             pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [],
+            sema_expr_terms: [
+                (
+                    SemaExprIdx(
+                        1,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ],
             symbol_tys: SymbolMap {
                 inherited_symbol_map: ArenaMap {
                     data: [
@@ -6785,7 +7560,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 4,
+                                                    value: 5,
                                                 },
                                             ),
                                         ),
@@ -6809,7 +7584,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -6823,7 +7598,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 13,
+                                                value: 14,
                                             },
                                         ),
                                     ),
@@ -6894,7 +7669,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Application(
+                    EtherealTermApplication(
+                        Id {
+                            value: 102,
+                        },
+                    ),
+                ),
+            ),
         },
     },
 ]

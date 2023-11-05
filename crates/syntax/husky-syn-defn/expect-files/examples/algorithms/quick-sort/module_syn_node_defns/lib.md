@@ -17,19 +17,19 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameter_obelisk_list: Ok(
                                 Some(
-                                    TemplateParameters {
+                                    SynTemplateParameterSyndicateList {
                                         langle: LaOrLtRegionalToken(
                                             RegionalTokenIdx(
                                                 4,
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterObelisk {
+                                            TemplateParameterSyndicate {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                data: TemplateParameterObeliskData::Type {
+                                                data: TemplateParameterSyndicateData::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -61,8 +61,8 @@ Ok(
                                     },
                                 ),
                             ),
-                            parenate_parameter_decl_list: Ok(
-                                ParenateParameters {
+                            parenate_parameter_obelisk_list: Ok(
+                                ParenateParameterSyndicateList {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             9,
@@ -71,7 +71,7 @@ Ok(
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        SpecificParameterObelisk::Regular {
+                                        ParenateParameterSyndicate::Ordinary {
                                             syn_pattern_root: SynPatternRoot(
                                                 1,
                                             ),
@@ -746,7 +746,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -907,19 +907,19 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameter_obelisk_list: Ok(
                                 Some(
-                                    TemplateParameters {
+                                    SynTemplateParameterSyndicateList {
                                         langle: LaOrLtRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterObelisk {
+                                            TemplateParameterSyndicate {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                data: TemplateParameterObeliskData::Type {
+                                                data: TemplateParameterSyndicateData::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -951,8 +951,8 @@ Ok(
                                     },
                                 ),
                             ),
-                            parenate_parameter_decl_list: Ok(
-                                ParenateParameters {
+                            parenate_parameter_obelisk_list: Ok(
+                                ParenateParameterSyndicateList {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             8,
@@ -961,7 +961,7 @@ Ok(
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        SpecificParameterObelisk::Regular {
+                                        ParenateParameterSyndicate::Ordinary {
                                             syn_pattern_root: SynPatternRoot(
                                                 1,
                                             ),
@@ -975,7 +975,7 @@ Ok(
                                             ),
                                             ty: 4,
                                         },
-                                        SpecificParameterObelisk::Regular {
+                                        ParenateParameterSyndicate::Ordinary {
                                             syn_pattern_root: SynPatternRoot(
                                                 2,
                                             ),
@@ -989,7 +989,7 @@ Ok(
                                             ),
                                             ty: 5,
                                         },
-                                        SpecificParameterObelisk::Regular {
+                                        ParenateParameterSyndicate::Ordinary {
                                             syn_pattern_root: SynPatternRoot(
                                                 3,
                                             ),
@@ -2111,7 +2111,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -2324,19 +2324,19 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameter_obelisk_list: Ok(
                                 Some(
-                                    TemplateParameters {
+                                    SynTemplateParameterSyndicateList {
                                         langle: LaOrLtRegionalToken(
                                             RegionalTokenIdx(
                                                 3,
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterObelisk {
+                                            TemplateParameterSyndicate {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                data: TemplateParameterObeliskData::Type {
+                                                data: TemplateParameterSyndicateData::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -2368,8 +2368,8 @@ Ok(
                                     },
                                 ),
                             ),
-                            parenate_parameter_decl_list: Ok(
-                                ParenateParameters {
+                            parenate_parameter_obelisk_list: Ok(
+                                ParenateParameterSyndicateList {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             8,
@@ -2378,7 +2378,7 @@ Ok(
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        SpecificParameterObelisk::Regular {
+                                        ParenateParameterSyndicate::Ordinary {
                                             syn_pattern_root: SynPatternRoot(
                                                 1,
                                             ),
@@ -2392,7 +2392,7 @@ Ok(
                                             ),
                                             ty: 4,
                                         },
-                                        SpecificParameterObelisk::Regular {
+                                        ParenateParameterSyndicate::Ordinary {
                                             syn_pattern_root: SynPatternRoot(
                                                 2,
                                             ),
@@ -2406,7 +2406,7 @@ Ok(
                                             ),
                                             ty: 5,
                                         },
-                                        SpecificParameterObelisk::Regular {
+                                        ParenateParameterSyndicate::Ordinary {
                                             syn_pattern_root: SynPatternRoot(
                                                 3,
                                             ),
@@ -2451,8 +2451,8 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 7,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 7,
                                     },
                                 ),
                             ),
@@ -4163,7 +4163,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -4192,7 +4192,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 2,
                                                             ),
@@ -4221,7 +4221,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 3,
                                                             ),
@@ -4550,11 +4550,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameter_obelisk_list: Ok(
                                 None,
                             ),
-                            parenate_parameter_decl_list: Ok(
-                                ParenateParameters {
+                            parenate_parameter_obelisk_list: Ok(
+                                ParenateParameterSyndicateList {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -4969,7 +4969,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),
@@ -5131,11 +5131,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            template_parameter_decl_list: Ok(
+                            template_parameter_obelisk_list: Ok(
                                 None,
                             ),
-                            parenate_parameter_decl_list: Ok(
-                                ParenateParameters {
+                            parenate_parameter_obelisk_list: Ok(
+                                ParenateParameterSyndicateList {
                                     lpar: LparRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -5432,7 +5432,7 @@ Ok(
                                                         ),
                                                     },
                                                     let_variables_pattern: Ok(
-                                                        LetPatternSynObelisk {
+                                                        LetPatternSynSyndicate {
                                                             syn_pattern_root: SynPatternRoot(
                                                                 1,
                                                             ),

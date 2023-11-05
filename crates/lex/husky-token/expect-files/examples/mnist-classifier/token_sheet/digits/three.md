@@ -851,7 +851,7 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
-                        Curry,
+                        CurryType,
                     ),
                 ),
             ),
@@ -1038,7 +1038,7 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
-                        Curry,
+                        CurryType,
                     ),
                 ),
             ),
@@ -1225,7 +1225,7 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
-                        Curry,
+                        CurryType,
                     ),
                 ),
             ),

@@ -76,10 +76,10 @@ Ok(
                         decl: StructureTypeSynDecl {
                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
                             template_parameters: [
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `P`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -98,10 +98,10 @@ Ok(
                                         ),
                                     },
                                 },
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 2,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `Q`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -306,10 +306,10 @@ Ok(
                         decl: InductiveTypeSynDecl {
                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
                             template_parameters: [
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `P`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -328,10 +328,10 @@ Ok(
                                         ),
                                     },
                                 },
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 2,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `Q`,
                                             regional_token_idx: RegionalTokenIdx(

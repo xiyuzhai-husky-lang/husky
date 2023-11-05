@@ -18,7 +18,7 @@
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [],
             expr_ranges: [
-                9..10,
+                11..12,
             ],
             stmt_ranges: SemaStmtMap(
                 ArenaMap {
@@ -33,7 +33,7 @@
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [],
             expr_ranges: [
-                9..10,
+                11..12,
             ],
             stmt_ranges: SemaStmtMap(
                 ArenaMap {
@@ -46,23 +46,23 @@
         [salsa id]: 356,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                17..18,
-                21..22,
-                27..28,
+                19..20,
+                23..24,
+                29..30,
             ],
             pattern_expr_ranges: [
-                19..20,
+                21..22,
             ],
             expr_ranges: [
-                9..10,
-                17..18,
-                21..22,
+                11..12,
+                19..20,
                 23..24,
-                27..28,
-                28..29,
-                27..29,
+                25..26,
                 29..30,
-                27..30,
+                30..31,
+                29..31,
+                31..32,
+                29..32,
             ],
             stmt_ranges: SemaStmtMap(
                 ArenaMap {
@@ -75,25 +75,25 @@
         [salsa id]: 357,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                9..10,
-                9..12,
-                9..14,
-                14..15,
-                18..19,
+                11..12,
+                11..14,
+                11..16,
+                16..17,
+                20..21,
             ],
             pattern_expr_ranges: [],
             expr_ranges: [
-                7..8,
-                9..14,
-                14..15,
-                9..15,
-                15..16,
-                9..16,
+                9..10,
+                11..16,
                 16..17,
-                9..17,
+                11..17,
+                17..18,
+                11..18,
                 18..19,
-                19..20,
-                18..20,
+                11..19,
+                20..21,
+                21..22,
+                20..22,
             ],
             stmt_ranges: SemaStmtMap(
                 ArenaMap {
@@ -121,27 +121,27 @@
         [salsa id]: 359,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                9..10,
-                9..12,
-                9..14,
-                14..15,
-                18..19,
+                11..12,
+                11..14,
+                11..16,
+                16..17,
+                20..21,
             ],
             pattern_expr_ranges: [],
             expr_ranges: [
-                7..8,
-                9..14,
-                14..15,
-                9..15,
-                15..16,
-                9..16,
+                9..10,
+                11..16,
                 16..17,
-                9..17,
+                11..17,
+                17..18,
+                11..18,
                 18..19,
-                19..20,
-                18..20,
+                11..19,
                 20..21,
-                18..21,
+                21..22,
+                20..22,
+                22..23,
+                20..23,
             ],
             stmt_ranges: SemaStmtMap(
                 ArenaMap {

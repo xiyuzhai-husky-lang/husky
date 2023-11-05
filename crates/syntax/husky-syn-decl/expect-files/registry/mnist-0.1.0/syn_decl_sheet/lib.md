@@ -87,7 +87,7 @@ Ok(
                                 path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                 template_parameters: [],
                                 fields: [
-                                    TupleFieldObelisk {
+                                    TupleFieldSyndicate {
                                         decorators: [],
                                         visibility: None,
                                         ty: 4,
@@ -226,7 +226,7 @@ Ok(
                                 path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                                 template_parameters: [],
                                 fields: [
-                                    TupleFieldObelisk {
+                                    TupleFieldSyndicate {
                                         decorators: [],
                                         visibility: None,
                                         ty: 4,
@@ -361,10 +361,10 @@ Ok(
                 SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
-                            ValSynDecl {
+                            ValFugitiveSynDecl {
                                 path: FugitivePath(`mnist::input`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeBeforeEqObelisk {
+                                    ReturnTypeBeforeEqSyndicate {
                                         expr: 1,
                                     },
                                 ),
@@ -486,11 +486,11 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            trai_expr: TraitObelisk {
+                            trai_expr: TraitSyndicate {
                                 expr: 1,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeObelisk {
+                                SelfTypeSyndicate {
                                     expr: 2,
                                 },
                             ),
@@ -655,8 +655,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -902,7 +902,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            self_ty_expr: SelfTypeObelisk {
+                            self_ty_expr: SelfTypeSyndicate {
                                 expr: 1,
                             },
                             syn_expr_region: SynExprRegion {
@@ -1027,8 +1027,8 @@ Ok(
                                 template_parameters: [],
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -1224,11 +1224,11 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            trai_expr: TraitObelisk {
+                            trai_expr: TraitSyndicate {
                                 expr: 1,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeObelisk {
+                                SelfTypeSyndicate {
                                     expr: 2,
                                 },
                             ),
@@ -1724,11 +1724,11 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            trai_expr: TraitObelisk {
+                            trai_expr: TraitSyndicate {
                                 expr: 1,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeObelisk {
+                                SelfTypeSyndicate {
                                     expr: 2,
                                 },
                             ),
@@ -1893,8 +1893,8 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -2140,7 +2140,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            self_ty_expr: SelfTypeObelisk {
+                            self_ty_expr: SelfTypeSyndicate {
                                 expr: 1,
                             },
                             syn_expr_region: SynExprRegion {
@@ -2265,8 +2265,8 @@ Ok(
                                 template_parameters: [],
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeBeforeColonObelisk {
-                                        expr: 1,
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 1,
                                     },
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -2462,11 +2462,11 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            trai_expr: TraitObelisk {
+                            trai_expr: TraitSyndicate {
                                 expr: 1,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeObelisk {
+                                SelfTypeSyndicate {
                                     expr: 2,
                                 },
                             ),

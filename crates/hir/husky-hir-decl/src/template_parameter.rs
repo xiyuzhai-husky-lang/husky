@@ -1,11 +1,13 @@
 use crate::*;
 use husky_hir_ty::trai::HirTrait;
+use husky_print_utils::p;
 use husky_syn_expr::{TemplateParameterSyndicate, TemplateParameterSyndicateData};
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = HirDeclDb)]
 pub struct HirTemplateParameter {
+    symbol: HirTemplateSymbol,
     data: HirTemplateParameterData,
 }
 
@@ -21,9 +23,13 @@ pub enum HirTemplateParameterData {
 impl HirTemplateParameter {
     pub fn from_syn(
         syndicate: &TemplateParameterSyndicate,
-        eth: &EtherealTemplateParameter,
         builder: &HirDeclBuilder,
     ) -> Option<Self> {
+        let EtherealTerm::Symbol(symbol) = builder.current_symbol_term(syndicate.symbol()) else {
+            todo!()
+        };
+        let db = builder.db();
+        let symbol = HirTemplateSymbol::from_ethereal(symbol, db)?;
         let data = match syndicate.data() {
             TemplateParameterSyndicateData::Type {
                 ident_token,
@@ -44,10 +50,16 @@ impl HirTemplateParameter {
                 ident_token,
                 colon_token,
                 ty_expr,
-            } => HirTemplateParameterData::Constant {
-                ident: ident_token.ident(),
-                ty: builder.hir_ty(ty_expr),
-            },
+            } => {
+                let ident = ident_token.ident();
+                if ident.data(db) == "label" {
+                    todo!()
+                }
+                HirTemplateParameterData::Constant {
+                    ident,
+                    ty: builder.hir_ty(ty_expr),
+                }
+            }
             TemplateParameterSyndicateData::Lifetime { label_token } => {
                 HirTemplateParameterData::Lifetime {
                     label: label_token.label(),
@@ -59,7 +71,7 @@ impl HirTemplateParameter {
                 }
             }
         };
-        Some(Self { data })
+        Some(Self { data, symbol })
     }
 
     pub fn data(&self) -> &HirTemplateParameterData {
@@ -71,17 +83,11 @@ impl HirTemplateParameter {
 pub struct HirTemplateParameters(SmallVec<[HirTemplateParameter; 2]>);
 
 impl HirTemplateParameters {
-    pub fn from_syn(
-        syndicates: &[TemplateParameterSyndicate],
-        eth_params: &[EtherealTemplateParameter],
-        builder: &HirDeclBuilder,
-    ) -> Self {
+    pub fn from_syn(syndicates: &[TemplateParameterSyndicate], builder: &HirDeclBuilder) -> Self {
         HirTemplateParameters(
             syndicates
                 .iter()
-                .filter_map(|syndicate| {
-                    HirTemplateParameter::from_syn(syndicate, eth_params, builder)
-                })
+                .filter_map(|syndicate| HirTemplateParameter::from_syn(syndicate, builder))
                 .collect(),
         )
     }

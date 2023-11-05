@@ -10,6 +10,7 @@ pub use self::region::*;
 
 use crate::*;
 use husky_entity_syn_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
+use husky_print_utils::p;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, TryParseFromStream};
 use vec_like::SmallVecSet;
@@ -255,8 +256,13 @@ where
 
     fn try_parse_from_stream(sp: &mut SynExprParser<'a, C>) -> Result<Self, Self::Error> {
         let mut syn_attrs: SmallVec<[TemplateSymbolSynAttr; 1]> = smallvec::smallvec![];
-        while let Some(_) = sp.try_parse_option::<PoundRegionalToken>()? {
-            todo!()
+        while let Some(pound) = sp.try_parse_option::<PoundRegionalToken>()? {
+            let syn_attr = if let Some(phantom) = sp.try_parse_option::<PhantomRegionalToken>()? {
+                TemplateSymbolSynAttr::Phantom(pound, phantom)
+            } else {
+                todo!()
+            };
+            syn_attrs.push(syn_attr)
         }
         Ok(TemplateParameterSynAttrs { syn_attrs })
     }

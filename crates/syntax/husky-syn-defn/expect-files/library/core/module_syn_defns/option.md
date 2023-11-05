@@ -8,10 +8,10 @@ Ok(
                         decl: EnumTypeSynDecl {
                             path: TypePath(`core::option::Option`, `Enum`),
                             template_parameters: [
-                                TemplateParameterObelisk {
+                                TemplateParameterSyndicate {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterObeliskData::Type {
+                                    data: TemplateParameterSyndicateData::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `T`,
                                             regional_token_idx: RegionalTokenIdx(

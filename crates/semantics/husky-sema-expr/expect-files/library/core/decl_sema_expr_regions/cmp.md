@@ -134,7 +134,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Symbol(
+                    EtherealTermSymbol(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -272,7 +280,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Symbol(
+                    EtherealTermSymbol(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -410,7 +426,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Symbol(
+                    EtherealTermSymbol(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                ),
+            ),
         },
     },
     SemaExprRegion {
@@ -548,7 +572,15 @@
                 },
             },
             return_ty: None,
-            self_ty: None,
+            self_ty: Some(
+                Symbol(
+                    EtherealTermSymbol(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                ),
+            ),
         },
     },
 ]

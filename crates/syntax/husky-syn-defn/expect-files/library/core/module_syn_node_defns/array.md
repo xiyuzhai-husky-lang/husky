@@ -19,17 +19,17 @@ Ok(
                             },
                             template_parameter_decl_list: Ok(
                                 Some(
-                                    TemplateParameters {
+                                    SynTemplateParameterSyndicateList {
                                         langle: LaOrLtRegionalToken(
                                             RegionalTokenIdx(
                                                 4,
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterObelisk {
+                                            TemplateParameterSyndicate {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                data: TemplateParameterObeliskData::Constant {
+                                                data: TemplateParameterSyndicateData::Constant {
                                                     const_token: ConstRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
@@ -49,7 +49,7 @@ Ok(
                                                     ty_expr: 1,
                                                 },
                                             },
-                                            TemplateParameterObelisk {
+                                            TemplateParameterSyndicate {
                                                 annotated_variance_token: Some(
                                                     VarianceRegionalToken::Covariant(
                                                         CovariantRegionalToken {
@@ -60,7 +60,7 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 2,
-                                                data: TemplateParameterObeliskData::Type {
+                                                data: TemplateParameterSyndicateData::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E`,
                                                         regional_token_idx: RegionalTokenIdx(

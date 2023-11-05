@@ -246,7 +246,7 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
-                        Curry,
+                        CurryType,
                     ),
                 ),
             ),
@@ -414,7 +414,7 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
-                        Curry,
+                        CurryType,
                     ),
                 ),
             ),
@@ -1466,7 +1466,7 @@ Ok(
             ),
             TokenData::Keyword(
                 Keyword::Stmt(
-                    ForExt,
+                    Forext,
                 ),
             ),
             TokenData::Ident(
@@ -1573,7 +1573,7 @@ Ok(
             ),
             TokenData::Keyword(
                 Keyword::Stmt(
-                    ForExt,
+                    Forext,
                 ),
             ),
             TokenData::Ident(
@@ -2160,7 +2160,7 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
-                        Curry,
+                        CurryType,
                     ),
                 ),
             ),
@@ -2244,7 +2244,7 @@ Ok(
             ),
             TokenData::Keyword(
                 Keyword::Stmt(
-                    ForExt,
+                    Forext,
                 ),
             ),
             TokenData::Ident(
@@ -2471,7 +2471,7 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
-                        Curry,
+                        CurryType,
                     ),
                 ),
             ),
@@ -2555,7 +2555,7 @@ Ok(
             ),
             TokenData::Keyword(
                 Keyword::Stmt(
-                    ForExt,
+                    Forext,
                 ),
             ),
             TokenData::Ident(
@@ -2798,7 +2798,7 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
-                        Curry,
+                        CurryType,
                     ),
                 ),
             ),
@@ -3228,7 +3228,7 @@ Ok(
             TokenData::Punctuation(
                 Punctuation(
                     PunctuationMapped::Binary(
-                        Curry,
+                        CurryType,
                     ),
                 ),
             ),
@@ -3668,7 +3668,7 @@ Ok(
             ),
             TokenData::Keyword(
                 Keyword::Stmt(
-                    ForExt,
+                    Forext,
                 ),
             ),
             TokenData::Ident(
@@ -3962,7 +3962,7 @@ Ok(
             ),
             TokenData::Keyword(
                 Keyword::Stmt(
-                    ForExt,
+                    Forext,
                 ),
             ),
             TokenData::Ident(

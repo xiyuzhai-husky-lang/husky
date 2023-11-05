@@ -64,18 +64,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            43,
+                            45,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Yes`,
                         token_idx: TokenIdx(
-                            44,
+                            46,
                         ),
                     },
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            45,
+                            47,
                         ),
                         drained: true,
                     },
@@ -90,18 +90,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            45,
+                            47,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `No`,
                         token_idx: TokenIdx(
-                            46,
+                            48,
                         ),
                     },
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            47,
+                            49,
                         ),
                         drained: true,
                     },
@@ -128,13 +128,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
-                            69,
+                            73,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            70,
+                            74,
                         ),
                         drained: false,
                     },
@@ -152,18 +152,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            93,
+                            99,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `ConfidentYes`,
                         token_idx: TokenIdx(
-                            94,
+                            100,
                         ),
                     },
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            95,
+                            101,
                         ),
                         drained: true,
                     },
@@ -178,18 +178,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            95,
+                            101,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `ConfidentNo`,
                         token_idx: TokenIdx(
-                            96,
+                            102,
                         ),
                     },
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            97,
+                            103,
                         ),
                         drained: true,
                     },
@@ -204,18 +204,18 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            97,
+                            103,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Unconfident`,
                         token_idx: TokenIdx(
-                            98,
+                            104,
                         ),
                     },
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            99,
+                            105,
                         ),
                         drained: true,
                     },
@@ -242,13 +242,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
-                            122,
+                            130,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            123,
+                            131,
                         ),
                         drained: false,
                     },
@@ -393,7 +393,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    82,
+                                    86,
                                 ),
                             },
                         },
@@ -407,13 +407,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `OneVsAllResult`,
                         token_idx: TokenIdx(
-                            84,
+                            88,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            85,
+                            89,
                         ),
                         drained: false,
                     },
@@ -455,7 +455,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    126,
+                                    134,
                                 ),
                             },
                         },
@@ -469,13 +469,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `narrow_down`,
                         token_idx: TokenIdx(
-                            128,
+                            136,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            129,
+                            137,
                         ),
                         drained: false,
                     },
