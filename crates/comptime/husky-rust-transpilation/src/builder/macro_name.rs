@@ -26,6 +26,9 @@ impl RustMacroName {
 
 impl<'a> RustTranspilationBuilder<'a> {
     pub(crate) fn macro_name(&mut self, macro_name: RustMacroName) {
-        self.write_spaced_str(macro_name.code())
+        if self.result.ends_with(|c: char| c.is_alphabetic()) {
+            self.write_str(" ")
+        }
+        self.write_str(macro_name.code())
     }
 }

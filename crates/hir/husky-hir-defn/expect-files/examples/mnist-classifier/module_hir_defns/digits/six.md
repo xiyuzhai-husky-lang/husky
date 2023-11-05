@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValHirDefn {
+                ValFugitiveHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
@@ -35,7 +35,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValHirDefn {
+                ValFugitiveHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
@@ -68,7 +68,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValHirDefn {
+                ValFugitiveHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),

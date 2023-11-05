@@ -22,28 +22,46 @@ pub enum RustKeyword {
 impl RustKeyword {
     fn code(self) -> &'static str {
         match self {
-            RustKeyword::Fn => "fn",
-            RustKeyword::Impl => "impl",
-            RustKeyword::Pub => "pub",
-            RustKeyword::Type => "type",
-            RustKeyword::Mod => "mod",
-            RustKeyword::Trait => "trait",
-            RustKeyword::Let => "let",
-            RustKeyword::If => "if",
-            RustKeyword::Else => "else",
-            RustKeyword::While => "while",
+            RustKeyword::Fn => "fn ",
+            RustKeyword::Impl => "impl ",
+            RustKeyword::Pub => "pub ",
+            RustKeyword::Type => "type ",
+            RustKeyword::Mod => "mod ",
+            RustKeyword::Trait => "trait ",
+            RustKeyword::Let => "let ",
+            RustKeyword::If => "if ",
+            RustKeyword::Else => "else ",
+            RustKeyword::While => "while ",
             RustKeyword::Break => "break",
-            RustKeyword::Return => "return",
-            RustKeyword::For => "for",
-            RustKeyword::Match => "match",
-            RustKeyword::Struct => "struct",
-            RustKeyword::Enum => "enum",
+            RustKeyword::Return => "return ",
+            RustKeyword::For => "for ",
+            RustKeyword::Match => "match ",
+            RustKeyword::Struct => "struct ",
+            RustKeyword::Enum => "enum ",
         }
     }
 }
 
 impl<'a> RustTranspilationBuilder<'a> {
     pub(crate) fn keyword(&mut self, keyword: RustKeyword) {
-        self.write_spaced_str(keyword.code())
+        let s = match keyword {
+            RustKeyword::Fn => "fn ",
+            RustKeyword::Impl => "impl ",
+            RustKeyword::Pub => "pub ",
+            RustKeyword::Type => "type ",
+            RustKeyword::Mod => "mod ",
+            RustKeyword::Trait => "trait ",
+            RustKeyword::Let => "let ",
+            RustKeyword::If => "if ",
+            RustKeyword::Else => " else ",
+            RustKeyword::While => "while ",
+            RustKeyword::Break => "break",
+            RustKeyword::Return => "return ",
+            RustKeyword::For => "for ",
+            RustKeyword::Match => "match ",
+            RustKeyword::Struct => "struct ",
+            RustKeyword::Enum => "enum ",
+        };
+        self.write_str(s)
     }
 }

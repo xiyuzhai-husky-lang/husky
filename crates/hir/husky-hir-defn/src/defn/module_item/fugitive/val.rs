@@ -2,13 +2,13 @@ use super::*;
 use husky_hir_expr::helpers::hir_body_with_expr_region;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct ValHirDefn {
+pub struct ValFugitiveHirDefn {
     pub path: FugitivePath,
     pub hir_decl: ValFugitiveHirDecl,
     pub body_with_hir_expr_region: Option<(HirExprIdx, HirExprRegion)>,
 }
 
-impl ValHirDefn {
+impl ValFugitiveHirDefn {
     pub(super) fn new(
         db: &dyn HirDefnDb,
         path: FugitivePath,

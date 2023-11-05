@@ -26,8 +26,13 @@ pub fn module_defn_rust_transpilation(
         .expect("no error at this stage")
     {
         if let Some(hir_defn) = item_path.hir_defn(db) {
-            builder.make_defn_fresh_lines();
-            hir_defn.transpile_to_rust(&mut builder)
+            match hir_defn {
+                HirDefn::Submodule(_) | HirDefn::MajorItem(_) => {
+                    builder.make_defn_fresh_lines();
+                    hir_defn.transpile_to_rust(&mut builder)
+                }
+                _ => (),
+            }
         }
     }
     builder.finish()

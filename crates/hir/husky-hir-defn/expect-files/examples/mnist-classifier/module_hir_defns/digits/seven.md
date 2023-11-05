@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValHirDefn {
+                ValFugitiveHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
@@ -180,7 +180,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValHirDefn {
+                ValFugitiveHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
@@ -683,7 +683,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValHirDefn {
+                ValFugitiveHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),

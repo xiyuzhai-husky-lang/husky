@@ -22,6 +22,7 @@ husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
+husky-opr = { path = "../../kernel/husky-opr" }
 # lex
 # syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }

@@ -17,7 +17,7 @@ pub struct HirDefnJar(
     UnionTypeHirDefn,
     // fugitive
     fugitive_hir_defn,
-    ValHirDefn,
+    ValFugitiveHirDefn,
     FunctionFnHirDefn,
     FunctionGnHirDefn,
     // morphism_defn,

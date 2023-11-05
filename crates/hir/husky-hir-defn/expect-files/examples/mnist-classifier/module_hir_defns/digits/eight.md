@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValHirDefn {
+                ValFugitiveHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
@@ -35,7 +35,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValHirDefn {
+                ValFugitiveHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),

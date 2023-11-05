@@ -158,47 +158,47 @@ impl TranspileToRust for HirEagerStmtIdx {
                 builder.punctuation(RustPunctuation::Eq);
                 initial_value.transpile_to_rust(builder)
             }),
-            HirEagerStmt::Return { result } => {
+            HirEagerStmt::Return { result } => builder.on_new_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Return);
-                builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
-                    result.transpile_to_rust(builder)
-                })
-            }
-            HirEagerStmt::Require { condition } => {
+                result.transpile_to_rust(builder)
+            }),
+            HirEagerStmt::Require { condition } => builder.on_new_semicolon_line(|builder| {
                 builder.macro_name(RustMacroName::Require);
                 builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
                     condition.transpile_to_rust(builder)
                 })
-            }
-            HirEagerStmt::Assert { condition } => {
+            }),
+            HirEagerStmt::Assert { condition } => builder.on_new_semicolon_line(|builder| {
                 builder.macro_name(RustMacroName::Assert);
                 builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
                     condition.transpile_to_rust(builder)
                 })
-            }
+            }),
             HirEagerStmt::Break => {
                 builder.on_new_semicolon_line(|builder| builder.keyword(RustKeyword::Break))
             }
             HirEagerStmt::Eval { expr_idx } => builder.on_new_semicolon_line(|builder| {
                 expr_idx.transpile_to_rust(builder);
             }),
-            HirEagerStmt::ForBetween { particulars, block } => {
+            HirEagerStmt::ForBetween { particulars, block } => builder.on_new_line(|builder| {
                 builder.keyword(RustKeyword::For);
                 block.transpile_to_rust(builder)
-            }
-            HirEagerStmt::ForExt { particulars, block } => {
+            }),
+            HirEagerStmt::ForExt { particulars, block } => builder.on_new_line(|builder| {
                 builder.keyword(RustKeyword::For);
                 block.transpile_to_rust(builder)
-            }
+            }),
             HirEagerStmt::ForIn { condition, block } => todo!(),
-            HirEagerStmt::While { condition, stmts } => {
+            HirEagerStmt::While { condition, stmts } => builder.on_new_line(|builder| {
                 builder.keyword(RustKeyword::While);
                 condition.transpile_to_rust(builder);
                 stmts.transpile_to_rust(builder)
-            }
+            }),
             HirEagerStmt::DoWhile { condition, block } => {
-                builder.keyword(RustKeyword::While);
-                true.transpile_to_rust(builder);
+                builder.on_new_line(|builder| {
+                    builder.keyword(RustKeyword::While);
+                    true.transpile_to_rust(builder);
+                })
                 // block.transpile_to_rust(builder)
             }
             HirEagerStmt::IfElse {
@@ -212,7 +212,9 @@ impl TranspileToRust for HirEagerStmtIdx {
                 }
                 else_branch.transpile_to_rust(builder)
             }),
-            HirEagerStmt::Match {} => builder.keyword(RustKeyword::Match),
+            HirEagerStmt::Match {} => {
+                builder.on_new_line(|builder| builder.keyword(RustKeyword::Match))
+            }
         }
     }
 }

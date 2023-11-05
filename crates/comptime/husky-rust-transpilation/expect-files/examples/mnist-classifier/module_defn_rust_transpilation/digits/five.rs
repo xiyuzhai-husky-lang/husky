@@ -1,4 +1,4 @@
 
-fn is_five {
-    OneVsAll :: Yes;
+fn is_five() {
+    OneVsAll::Yes;
 }
