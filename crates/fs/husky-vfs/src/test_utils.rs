@@ -104,6 +104,21 @@ pub trait VfsTestUtils: VfsDb {
             config,
         )
     }
+
+    fn vfs_expect_test_display<'a, U, R>(
+        &'a mut self,
+        f: impl Fn(&'a Self, U) -> R,
+        config: &VfsTestConfig,
+    ) where
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+        R: std::fmt::Display,
+    {
+        vfs_expect_test(
+            self,
+            |db, u| format!("{}", &f(unsafe { std::mem::transmute(db) }, u)),
+            config,
+        )
+    }
 }
 
 const EXPECT_FILE_EXTENSION: &'static str = "md";

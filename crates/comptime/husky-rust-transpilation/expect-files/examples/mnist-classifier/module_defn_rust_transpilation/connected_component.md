@@ -1,1 +1,135 @@
-"struct!ConnectedComponentDistribution{row_start:i32, row_end:i32, upper_mass:i32, lower_mass:i32}struct!EffHoles{matches:Vec<Option<Leash<RawContour>>>}pub!fn!hole_tmpl{\n    let!len=ct.contour_len;require!(len>4)\n    len+0;\n}\nstruct!ConnectedComponent{mask:BinaryImage28}pub!fn!horizontal_extend{\n    let!y=a|x|x<<1|x>>1;\n    let!z=a|y|y<<1|y>>1;while!z!=y{\n        y=z;\n        z=a|y|y<<1|y>>1;\n    }\nreturn!(y)\n}\npub!fn!find_connected_components{\n    let!result:Vec<ConnectedComponent>=vec![];\n    let!unsearched=img.clone();for!{while!unsearched[j]{\n            let!a=unsearched[j];\n            let!shift=a.ctz();\n            let!mask=new_zeros();\n            mask[j]=horizontal_extend(a, 1<<shift);\n            let!flag=false;while!!flag{\n                flag=true;\n                let!i=j;for!{\n                    let!old_row=mask[i+1];\n                    let!new_row=old_row|horizontal_extend(img[i+1], mask[i]);                    if!!new_row{\n                        break!;\n                    }\n;                    if!old_row!=new_row{\n                        flag=false;\n                        mask[i+1]=new_row;\n                    }\n;\n                }\nfor!{\n                    let!old_row=mask[i];\n                    let!new_row=old_row|horizontal_extend(img[i], mask[i+1]);                    if!old_row!=new_row{\n                        flag=false;\n                        mask[i]=new_row;\n                    }\n;\n                }\n            }\nfor!{\n                unsearched[k]&=!mask[k];\n            }\n            result.push(ConnectedComponent(mask));\n        }\n    }\nreturn!(result)\n}\nimpl!fn!visualize(){\n    Self.mask.visualize();\n}\nimpl!fn!raw_contours(self){\n    find_raw_contours(Self);\n}\nfn!eff_holes(self){\n    let!raw_contours=Self.raw_contours.collect_leashes();\n    let!matches:Vec<Option<Leash<RawContour>>>=vec![];\n    raw_contours.pop_with_largest_opt_f32(hole_tmpl);\n    matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl));\n    matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl));return!(EffHoles(matches))\n}\nfn!max_hole_ilen(self){\n    let!max_hole_ilen=0;\n    let!raw_contours=Self.raw_contours;for!{\n        let!hole_ilen=raw_contours[i].points.ilen();        if!max_hole_ilen<hole_ilen{\n            max_hole_ilen=hole_ilen;\n        }\n;\n    }\nreturn!(max_hole_ilenasf32)\n}\nfn!max_row_span(self){\n    let!max_row:i32=0;for!{\n        max_row=max_row.max(Self.mask[i].span());\n    }\nreturn!(max_rowasf32)\n}\nfn!row_span_sum(self){\n    let!row_span_sum=0;for!{\n        row_span_sum+=Self.mask[i].span();\n    }\nreturn!(row_span_sumasf32)\n}\nfn!distribution(self){\n    let!row_start=1;for!{        if!Self.mask[row_start]{\n            break!;\n        }\n;\n    }\n    let!row_end=row_start+1;for!{        if!!Self.mask[row_end]{\n            break!;\n        }\n;\n    }\n    let!height=row_end-row_start;\n    let!half_height=height/2;\n    let!upper_mass=0;for!{\n        upper_mass+=Self.mask[i1].co();\n    }\n    let!lower_mass=0;for!{\n        lower_mass+=Self.mask[i2].co();\n    }\nreturn!(ConnectedComponentDistribution(row_start, row_end, upper_mass, lower_mass))\n}\nfn!upper_mass(self){\n    Self.distribution.upper_massasf32;\n}\nfn!lower_mass(self){\n    Self.distribution.lower_massasf32;\n}\nfn!top_k_row_span_sum(, ){\n    let!top_k_row_span_sum=0;assert!(k>0)\n    let!i=1;for!{        if!Self.mask[i]{\n            break!;\n        }\n;\n    }\nfor!{\n        top_k_row_span_sum+=Self.mask[j].span();\n    }\nreturn!(top_k_row_span_sumasf32)\n}\nfn!top_k_row_right_mass_sum(, ){\n    let!top_k_row_span_sum=0;assert!(k>0)\n    let!i=1;for!{        if!Self.mask[i]{\n            break!;\n        }\n;\n    }\nfor!{\n        top_k_row_span_sum+=Self.mask[j].right_mass();\n    }\nreturn!(top_k_row_span_sumasf32)\n}\n"
+struct!ConnectedComponentDistribution{row_start:i32, row_end:i32, upper_mass:i32, lower_mass:i32}struct!EffHoles{matches:Vec<Option<Leash<RawContour>>>}pub!fn!hole_tmpl{
+    let!len=ct.contour_len;require!(len>4)
+    len+0;
+}
+struct!ConnectedComponent{mask:BinaryImage28}pub!fn!horizontal_extend{
+    let!y=a|x|x<<1|x>>1;
+    let!z=a|y|y<<1|y>>1;while!z!=y{
+        y=z;
+        z=a|y|y<<1|y>>1;
+    }
+return!(y)
+}
+pub!fn!find_connected_components{
+    let!result:Vec<ConnectedComponent>=vec![];
+    let!unsearched=img.clone();for!{while!unsearched[j]{
+            let!a=unsearched[j];
+            let!shift=a.ctz();
+            let!mask=new_zeros();
+            mask[j]=horizontal_extend(a, 1<<shift);
+            let!flag=false;while!!flag{
+                flag=true;
+                let!i=j;for!{
+                    let!old_row=mask[i+1];
+                    let!new_row=old_row|horizontal_extend(img[i+1], mask[i]);                    if!!new_row{
+                        break!;
+                    }
+;                    if!old_row!=new_row{
+                        flag=false;
+                        mask[i+1]=new_row;
+                    }
+;
+                }
+for!{
+                    let!old_row=mask[i];
+                    let!new_row=old_row|horizontal_extend(img[i], mask[i+1]);                    if!old_row!=new_row{
+                        flag=false;
+                        mask[i]=new_row;
+                    }
+;
+                }
+            }
+for!{
+                unsearched[k]&=!mask[k];
+            }
+            result.push(ConnectedComponent(mask));
+        }
+    }
+return!(result)
+}
+impl!fn!visualize(){
+    Self.mask.visualize();
+}
+impl!fn!raw_contours(self){
+    find_raw_contours(Self);
+}
+fn!eff_holes(self){
+    let!raw_contours=Self.raw_contours.collect_leashes();
+    let!matches:Vec<Option<Leash<RawContour>>>=vec![];
+    raw_contours.pop_with_largest_opt_f32(hole_tmpl);
+    matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl));
+    matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl));return!(EffHoles(matches))
+}
+fn!max_hole_ilen(self){
+    let!max_hole_ilen=0;
+    let!raw_contours=Self.raw_contours;for!{
+        let!hole_ilen=raw_contours[i].points.ilen();        if!max_hole_ilen<hole_ilen{
+            max_hole_ilen=hole_ilen;
+        }
+;
+    }
+return!(max_hole_ilenasf32)
+}
+fn!max_row_span(self){
+    let!max_row:i32=0;for!{
+        max_row=max_row.max(Self.mask[i].span());
+    }
+return!(max_rowasf32)
+}
+fn!row_span_sum(self){
+    let!row_span_sum=0;for!{
+        row_span_sum+=Self.mask[i].span();
+    }
+return!(row_span_sumasf32)
+}
+fn!distribution(self){
+    let!row_start=1;for!{        if!Self.mask[row_start]{
+            break!;
+        }
+;
+    }
+    let!row_end=row_start+1;for!{        if!!Self.mask[row_end]{
+            break!;
+        }
+;
+    }
+    let!height=row_end-row_start;
+    let!half_height=height/2;
+    let!upper_mass=0;for!{
+        upper_mass+=Self.mask[i1].co();
+    }
+    let!lower_mass=0;for!{
+        lower_mass+=Self.mask[i2].co();
+    }
+return!(ConnectedComponentDistribution(row_start, row_end, upper_mass, lower_mass))
+}
+fn!upper_mass(self){
+    Self.distribution.upper_massasf32;
+}
+fn!lower_mass(self){
+    Self.distribution.lower_massasf32;
+}
+fn!top_k_row_span_sum(, ){
+    let!top_k_row_span_sum=0;assert!(k>0)
+    let!i=1;for!{        if!Self.mask[i]{
+            break!;
+        }
+;
+    }
+for!{
+        top_k_row_span_sum+=Self.mask[j].span();
+    }
+return!(top_k_row_span_sumasf32)
+}
+fn!top_k_row_right_mass_sum(, ){
+    let!top_k_row_span_sum=0;assert!(k>0)
+    let!i=1;for!{        if!Self.mask[i]{
+            break!;
+        }
+;
+    }
+for!{
+        top_k_row_span_sum+=Self.mask[j].right_mass();
+    }
+return!(top_k_row_span_sumasf32)
+}

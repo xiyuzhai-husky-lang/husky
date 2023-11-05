@@ -1,1 +1,32 @@
-"fn!connected_components{\n    find_connected_components(input);\n}\nfn!major_connected_component{\n    let!i0=0;\n    let!max_row_span_sum=0;for!{\n        let!row_span_sum=connected_components[i].row_span_sum;        if!row_span_sum>max_row_span_sum{\n            max_row_span_sum=row_span_sum;\n            i0=i;\n        }\n;\n    }\nreturn!(connected_components[i0])\n}\nfn!ignored_connected_components_row_span_sum_sum{\n    let!sum=0;for!{\n        sum+=connected_components[i].row_span_sum;\n    }\nreturn!(sum-major_connected_component.row_span_sum)\n}\nfn!major_raw_contours{\n    major_connected_component.raw_contours;\n}\nfn!major_raw_contour{\n    major_connected_component.raw_contours[0];\n}\nfn!major_line_segment_sketch{\n    major_raw_contour.line_segment_sketch;\n}\nfn!major_concave_components{\n    major_line_segment_sketch.concave_components;\n}\n"
+fn!connected_components{
+    find_connected_components(input);
+}
+fn!major_connected_component{
+    let!i0=0;
+    let!max_row_span_sum=0;for!{
+        let!row_span_sum=connected_components[i].row_span_sum;        if!row_span_sum>max_row_span_sum{
+            max_row_span_sum=row_span_sum;
+            i0=i;
+        }
+;
+    }
+return!(connected_components[i0])
+}
+fn!ignored_connected_components_row_span_sum_sum{
+    let!sum=0;for!{
+        sum+=connected_components[i].row_span_sum;
+    }
+return!(sum-major_connected_component.row_span_sum)
+}
+fn!major_raw_contours{
+    major_connected_component.raw_contours;
+}
+fn!major_raw_contour{
+    major_connected_component.raw_contours[0];
+}
+fn!major_line_segment_sketch{
+    major_raw_contour.line_segment_sketch;
+}
+fn!major_concave_components{
+    major_line_segment_sketch.concave_components;
+}

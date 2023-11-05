@@ -1,1 +1,104 @@
-"struct!Point2d{x:f32, y:f32}struct!RelativePoint2d{x:f32, y:f32}struct!Vector2d{x:f32, y:f32}struct!ClosedRange{min:f32, max:f32}struct!BoundingBox{xrange:ClosedRange, yrange:ClosedRange}struct!RelativeBoundingBox{xrange:ClosedRange, yrange:ClosedRange}impl!fn!from_i_shift28(, ){\n    Point2d(29-shiftasf32, 29-iasf32);\n}\nfn!vector(){\n    Vector2d(Self.x, Self.y);\n}\nfn!to(, ){\n    Vector2d(other.x-Self.x, other.y-Self.y);\n}\nfn!norm(){\n    Self.x*Self.x+Self.y*Self.y.sqrt();\n}\nfn!dist(, ){\n    Self.to(other).norm();\n}\nimpl!fn!point(){\n    Point2d(Self.x, Self.y);\n}\nfn!to(, ){\n    Vector2d(other.x-Self.x, other.y-Self.y);\n}\nfn!norm(){\n    Self.x*Self.x+Self.y*Self.y.sqrt();\n}\nfn!dot(, ){\n    Self.x*other.x+Self.y*other.y;\n}\nfn!cross(, ){\n    Self.x*other.y-Self.y*other.x;\n}\nfn!angle(, ){\n    let!cos_value=Self.x/Self.norm().min(1);    if!cos_value+1<0.001{        if!is_branch_cut_positive{\n            180;\n        }\nelse!{\n            -180;\n        }\n;\n    }\nelse!{\n        Self.y.sgnx()asf32*cos_value.acos()*180/3.1415925;\n    }\n;\n}\nfn!rotation_direction_to(, ){\n    Self.cross(other).sgnx();\n}\nfn!angle_to(, , ){\n    let!self_norm=Self.norm();assert!(self_norm>0)\n    let!other_norm=other.norm();assert!(other_norm>0)\n    let!cos_value=Self.dot(other)/self_norm*other_norm.min(1);    if!cos_value+1<0.001{        if!is_branch_cut_positive{\n            180;\n        }\nelse!{\n            -180;\n        }\n;\n    }\nelse!{\n        let!arc_angle=Self.rotation_direction_to(other)asf32*cos_value.acos();\n        arc_angle*180/3.1415925;\n    }\n;\n}\nimpl!fn!relative_range(, ){assert!(Self.max>Self.min)\n    let!span=Self.max-Self.min;\n    let!rel_min=other.min-Self.min/span;\n    let!rel_max=other.max-Self.min/span;\n    ClosedRange(rel_min, rel_max);\n}\nfn!relative_point(, ){\n    let!span=Self.max-Self.min;\n    v-Self.min/span;\n}\nimpl!fn!relative_bounding_box(, ){\n    RelativeBoundingBox(Self.xrange.relative_range(other.xrange), Self.yrange.relative_range(other.yrange));\n}\nfn!relative_point(, ){\n    RelativePoint2d(Self.xrange.relative_point(point.x), Self.yrange.relative_point(point.x));\n}\nfn!xmin(){\n    Self.xrange.min;\n}\nfn!xmax(){\n    Self.xrange.max;\n}\nfn!ymin(){\n    Self.yrange.min;\n}\nfn!ymax(){\n    Self.yrange.max;\n}\nimpl!fn!xmin(){\n    Self.xrange.min;\n}\nfn!xmax(){\n    Self.xrange.max;\n}\nfn!ymin(){\n    Self.yrange.min;\n}\nfn!ymax(){\n    Self.yrange.max;\n}\n"
+struct!Point2d{x:f32, y:f32}struct!RelativePoint2d{x:f32, y:f32}struct!Vector2d{x:f32, y:f32}struct!ClosedRange{min:f32, max:f32}struct!BoundingBox{xrange:ClosedRange, yrange:ClosedRange}struct!RelativeBoundingBox{xrange:ClosedRange, yrange:ClosedRange}impl!fn!from_i_shift28(, ){
+    Point2d(29-shiftasf32, 29-iasf32);
+}
+fn!vector(){
+    Vector2d(Self.x, Self.y);
+}
+fn!to(, ){
+    Vector2d(other.x-Self.x, other.y-Self.y);
+}
+fn!norm(){
+    Self.x*Self.x+Self.y*Self.y.sqrt();
+}
+fn!dist(, ){
+    Self.to(other).norm();
+}
+impl!fn!point(){
+    Point2d(Self.x, Self.y);
+}
+fn!to(, ){
+    Vector2d(other.x-Self.x, other.y-Self.y);
+}
+fn!norm(){
+    Self.x*Self.x+Self.y*Self.y.sqrt();
+}
+fn!dot(, ){
+    Self.x*other.x+Self.y*other.y;
+}
+fn!cross(, ){
+    Self.x*other.y-Self.y*other.x;
+}
+fn!angle(, ){
+    let!cos_value=Self.x/Self.norm().min(1);    if!cos_value+1<0.001{        if!is_branch_cut_positive{
+            180;
+        }
+else!{
+            -180;
+        }
+;
+    }
+else!{
+        Self.y.sgnx()asf32*cos_value.acos()*180/3.1415925;
+    }
+;
+}
+fn!rotation_direction_to(, ){
+    Self.cross(other).sgnx();
+}
+fn!angle_to(, , ){
+    let!self_norm=Self.norm();assert!(self_norm>0)
+    let!other_norm=other.norm();assert!(other_norm>0)
+    let!cos_value=Self.dot(other)/self_norm*other_norm.min(1);    if!cos_value+1<0.001{        if!is_branch_cut_positive{
+            180;
+        }
+else!{
+            -180;
+        }
+;
+    }
+else!{
+        let!arc_angle=Self.rotation_direction_to(other)asf32*cos_value.acos();
+        arc_angle*180/3.1415925;
+    }
+;
+}
+impl!fn!relative_range(, ){assert!(Self.max>Self.min)
+    let!span=Self.max-Self.min;
+    let!rel_min=other.min-Self.min/span;
+    let!rel_max=other.max-Self.min/span;
+    ClosedRange(rel_min, rel_max);
+}
+fn!relative_point(, ){
+    let!span=Self.max-Self.min;
+    v-Self.min/span;
+}
+impl!fn!relative_bounding_box(, ){
+    RelativeBoundingBox(Self.xrange.relative_range(other.xrange), Self.yrange.relative_range(other.yrange));
+}
+fn!relative_point(, ){
+    RelativePoint2d(Self.xrange.relative_point(point.x), Self.yrange.relative_point(point.x));
+}
+fn!xmin(){
+    Self.xrange.min;
+}
+fn!xmax(){
+    Self.xrange.max;
+}
+fn!ymin(){
+    Self.yrange.min;
+}
+fn!ymax(){
+    Self.yrange.max;
+}
+impl!fn!xmin(){
+    Self.xrange.min;
+}
+fn!xmax(){
+    Self.xrange.max;
+}
+fn!ymin(){
+    Self.yrange.min;
+}
+fn!ymax(){
+    Self.yrange.max;
+}
