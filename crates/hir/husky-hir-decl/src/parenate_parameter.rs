@@ -1,4 +1,4 @@
-use crate::db::HirDeclDb;
+use crate::{builder::HirDeclBuilder, db::HirDeclDb};
 use husky_syn_expr::{ParenateParameterSyndicate, SelfValueParameterSyndicate};
 use smallvec::SmallVec;
 
@@ -17,7 +17,10 @@ impl HirParenateParameter {
         HirParenateParameter::Ordinary
     }
 
-    pub(crate) fn from(syndicate: &ParenateParameterSyndicate, db: &dyn HirDeclDb) -> Option<Self> {
+    pub(crate) fn from_syn(
+        syndicate: &ParenateParameterSyndicate,
+        builder: &HirDeclBuilder,
+    ) -> Option<Self> {
         Some(match syndicate {
             ParenateParameterSyndicate::Ordinary {
                 syn_pattern_root,
@@ -60,11 +63,14 @@ impl std::ops::Deref for HirParenateParameters {
 }
 
 impl HirParenateParameters {
-    pub(crate) fn from_syn(syndicates: &[ParenateParameterSyndicate], db: &dyn HirDeclDb) -> Self {
+    pub(crate) fn from_syn(
+        syndicates: &[ParenateParameterSyndicate],
+        builder: &HirDeclBuilder,
+    ) -> Self {
         Self(
             syndicates
                 .iter()
-                .filter_map(|syndicate| HirParenateParameter::from(syndicate, db))
+                .filter_map(|syndicate| HirParenateParameter::from_syn(syndicate, builder))
                 .collect(),
         )
     }

@@ -31,7 +31,7 @@ pub struct ReturnTypeBeforeEqSyndicate {
 }
 
 impl ReturnTypeBeforeEqSyndicate {
-    pub fn expr(&self) -> SynExprIdx {
+    pub fn syn_expr_idx(&self) -> SynExprIdx {
         self.expr
     }
 }

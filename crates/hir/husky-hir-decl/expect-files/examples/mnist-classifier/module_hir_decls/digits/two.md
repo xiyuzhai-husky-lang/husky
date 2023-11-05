@@ -23,6 +23,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -35,6 +40,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -46,6 +56,11 @@
                     path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
                     ),
                 },
             ),

@@ -16,7 +16,7 @@ impl ValFugitiveDeclarativeSignatureTemplate {
             .declarative_term_menu(syn_expr_region.toolchain(db))
             .unwrap();
         let val_ty = match decl.return_ty(db) {
-            Some(val_ty) => declarative_term_region.expr_term(val_ty.expr())?,
+            Some(val_ty) => declarative_term_region.expr_term(val_ty.syn_expr_idx())?,
             None => declarative_term_menu.unit(),
         };
         Ok(ValFugitiveDeclarativeSignatureTemplate::new(db, val_ty))

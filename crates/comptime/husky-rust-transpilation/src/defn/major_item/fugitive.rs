@@ -26,6 +26,7 @@ impl TranspileToRust for FunctionFnHirDefn {
         builder.keyword(RustKeyword::Fn);
         hir_decl.path(db).ident(db).transpile_to_rust(builder);
         hir_decl.template_parameters(db).transpile_to_rust(builder);
+        hir_decl.parenate_parameters(db).transpile_to_rust(builder);
         builder.curly_block_with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
             body.transpile_to_rust(builder)
         })

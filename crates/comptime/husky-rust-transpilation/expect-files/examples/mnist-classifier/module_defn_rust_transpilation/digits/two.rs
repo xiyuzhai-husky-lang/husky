@@ -3,17 +3,17 @@ fn two_match {
     fermi_match( major_concave_components, vec![ left_cc_pattern, right_cc_pattern, down_cc_pattern]);
 }
 
-pub fn left_cc_pattern {
+pub fn left_cc_pattern() {
     let dp = cc.displacement(); require!( dp.y<0)
     dp.y;
 }
 
-pub fn right_cc_pattern {
+pub fn right_cc_pattern() {
     let dp = cc.displacement(); require!( dp.y>0)
     dp.y;
 }
 
-pub fn down_cc_pattern {
+pub fn down_cc_pattern() {
     let dp = cc.displacement(); require!( dp.x>0)
     dp.x;
 }

@@ -23,6 +23,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -83,6 +88,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -94,6 +104,11 @@
                     path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
                     ),
                 },
             ),

@@ -14,17 +14,17 @@ fn is_three { require!( major_concave_components.ilen()>=2) require!( major_conc
     OneVsAll :: Yes;
 }
 
-pub fn uparc {
+pub fn uparc() {
     let dp = cc.displacement(); require!( dp.y<=0)
     Some(- cc.bounding_box.ymin());
 }
 
-pub fn downarc {
+pub fn downarc() {
     let dp = cc.displacement(); require!( dp.y<=0)
     Some(- cc.bounding_box.ymin());
 }
 
-pub fn back {
+pub fn back() {
     let dp = cc.displacement(); require!( dp.y>=0)
     Some(- cc.bounding_box.ymin());
 }

@@ -55,6 +55,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -66,6 +71,11 @@
                     path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
                     ),
                 },
             ),

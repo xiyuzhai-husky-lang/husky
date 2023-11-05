@@ -57,6 +57,12 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -68,6 +74,12 @@
                     path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                        ],
                     ),
                 },
             ),
@@ -81,6 +93,13 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -93,6 +112,14 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                            Ordinary,
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -104,6 +131,12 @@
                     path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                        ],
                     ),
                 },
             ),

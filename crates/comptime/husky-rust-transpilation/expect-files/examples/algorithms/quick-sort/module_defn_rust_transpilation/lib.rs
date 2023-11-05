@@ -1,10 +1,10 @@
 
-pub fn quick_sort< T> {
+pub fn quick_sort< T>() {
     let len = arr.len();
     quick_sort_aux( arr, 0, len-1as isize);
 }
 
-pub fn quick_sort_aux< T> {
+pub fn quick_sort_aux< T>(, , ) {
     if low< high {
         let p = partition( arr, low, high);
         quick_sort_aux( arr, low, p-1);
@@ -12,7 +12,7 @@ pub fn quick_sort_aux< T> {
     }
 }
 
-pub fn partition< T> {
+pub fn partition< T>(, , ) {
     let pivot = highas usize;
     let store_index = low-1;
     let last_index = high; whiletrue {
@@ -32,10 +32,10 @@ pub fn partition< T> {
     store_index;
 }
 
-pub fn quick_sort_works_for_integers {
+pub fn quick_sort_works_for_integers() {
     let v : Vec< i32> = vec![4, 65, 2, -31, 0, 99, 2, 83, 782, 1];
 }
 
-pub fn quick_sort_works_for_strs {
+pub fn quick_sort_works_for_strs() {
     let strs = vec!["beach", "hotel", "airplane", "car", "house", "art"];
 }

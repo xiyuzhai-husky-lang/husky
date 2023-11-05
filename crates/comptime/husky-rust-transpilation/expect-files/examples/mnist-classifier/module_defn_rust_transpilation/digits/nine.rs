@@ -21,12 +21,12 @@ fn is_nine { require!( matches!) require!( matches!)
     OneVsAll :: Yes;
 }
 
-pub fn downmost {
+pub fn downmost() {
     let dp = cc.displacement(); require!( dp.y<0)
     dp.y;
 }
 
-pub fn big_cc {
+pub fn big_cc() {
     let dp = cc.displacement(); require!( dp.y>0) require!( cc.relative_bounding_box.ymin()>0.4)
     cc.relative_bounding_box.ymin();
 }

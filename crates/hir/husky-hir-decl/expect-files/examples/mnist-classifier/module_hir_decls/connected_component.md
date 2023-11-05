@@ -29,6 +29,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -52,6 +57,12 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -63,6 +74,11 @@
                     path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
                     ),
                 },
             ),

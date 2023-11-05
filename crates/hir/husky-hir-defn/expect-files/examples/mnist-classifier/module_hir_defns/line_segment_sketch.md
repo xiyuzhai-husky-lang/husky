@@ -151,6 +151,12 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                            ],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -696,6 +702,12 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                            ],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -1240,6 +1252,13 @@
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                                Ordinary,
+                            ],
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
@@ -2574,6 +2593,14 @@
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                                Ordinary,
+                                Ordinary,
+                            ],
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
@@ -4039,6 +4066,12 @@
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                            ],
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(

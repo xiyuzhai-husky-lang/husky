@@ -39,6 +39,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -51,6 +56,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
+                    ),
                 },
             ),
         ),
@@ -62,6 +72,11 @@
                     path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
                     template_parameters: HirTemplateParameters(
                         [],
+                    ),
+                    parenate_parameters: HirParenateParameters(
+                        [
+                            Ordinary,
+                        ],
                     ),
                 },
             ),

@@ -29,6 +29,11 @@
                                 },
                             ],
                         ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                            ],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -211,6 +216,13 @@
                                         traits: [],
                                     },
                                 },
+                            ],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                                Ordinary,
                             ],
                         ),
                     },
@@ -520,6 +532,13 @@
                                         traits: [],
                                     },
                                 },
+                            ],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                                Ordinary,
+                                Ordinary,
                             ],
                         ),
                     },
@@ -1201,6 +1220,9 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -1330,6 +1352,9 @@
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
+                            [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
                             [],
                         ),
                     },

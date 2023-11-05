@@ -108,6 +108,11 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                            ],
+                        ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -243,6 +248,11 @@
                         path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
+                            ],
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(

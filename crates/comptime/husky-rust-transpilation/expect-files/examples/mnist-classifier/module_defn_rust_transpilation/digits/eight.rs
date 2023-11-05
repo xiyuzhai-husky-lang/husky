@@ -12,7 +12,7 @@ fn is_eight { require!( matches!) require!( matches!) require!( matches!) requir
     OneVsAll :: Yes;
 }
 
-pub fn big_mouth {
+pub fn big_mouth() {
     if cc.relative_bounding_box.ymax()>0.5 { require!( cc.strokes.first().unwrap().start.x> cc.strokes.first().unwrap().end.x)
     }
     cc.relative_bounding_box.ymax();
