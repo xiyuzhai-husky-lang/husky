@@ -32,7 +32,7 @@ impl VfsTestUnit for PackagePath {
     ) -> PathBuf {
         package_expect_files_dir
             .with_extension(config.test_name)
-            .with_extension(EXPECT_FILE_EXTENSION)
+            .with_extension(config.expect_file_extension())
     }
 
     fn determine_adversarial_path(
@@ -62,14 +62,15 @@ impl VfsTestUnit for CratePath {
         config: &VfsTestConfig,
     ) -> PathBuf {
         package_expect_files_dir.join(format!(
-            "{}/{}.{EXPECT_FILE_EXTENSION}",
+            "{}/{}.{}",
             config.test_name,
             match self.crate_kind(db) {
                 CrateKind::Library => format!("lib"),
                 CrateKind::Main => format!("main"),
                 CrateKind::Binary(_) => todo!(),
                 CrateKind::StandaloneTest(_) => todo!(),
-            }
+            },
+            config.expect_file_extension()
         ))
     }
 
@@ -116,15 +117,16 @@ impl VfsTestUnit for ModulePath {
         let aux_path = determine_expect_file_aux_path(db, *self, package_expect_files_dir, config);
         match self.data(db) {
             ModulePathData::Root(crate_path) => aux_path.join(format!(
-                "{}.{EXPECT_FILE_EXTENSION}",
+                "{}.{}",
                 match crate_path.crate_kind(db) {
                     CrateKind::Library => "lib",
                     CrateKind::Main => "main",
                     CrateKind::Binary(_) => todo!(),
                     CrateKind::StandaloneTest(_) => todo!(),
-                }
+                },
+                config.expect_file_extension()
             )),
-            ModulePathData::Child { .. } => aux_path.with_extension(EXPECT_FILE_EXTENSION),
+            ModulePathData::Child { .. } => aux_path.with_extension(config.expect_file_extension()),
         }
     }
 

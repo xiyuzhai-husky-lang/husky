@@ -114,4 +114,9 @@ impl<'a> TokenTestConfig<'a> {
         self.vfs = self.vfs.with_vfs_test_domains_config(test_domains_config);
         self
     }
+
+    pub fn with_expect_file_extension(mut self, extension: &'a str) -> Self {
+        self.vfs = self.vfs.with_expect_file_extension(extension);
+        self
+    }
 }

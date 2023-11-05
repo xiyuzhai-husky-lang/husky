@@ -116,4 +116,9 @@ impl<'a> AstTestConfig<'a> {
         self.token = self.token.with_vfs_test_domains_config(test_domains_config);
         self
     }
+
+    pub fn with_expect_file_extension(mut self, expect_file_extension: &'a str) -> Self {
+        self.token = self.token.with_expect_file_extension(expect_file_extension);
+        self
+    }
 }
