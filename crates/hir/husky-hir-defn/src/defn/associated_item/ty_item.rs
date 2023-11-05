@@ -25,8 +25,14 @@ pub enum TypeItemHirDefn {
 }
 
 impl TypeItemHirDefn {
-    pub fn path(self, _db: &dyn HirDefnDb) -> AssociatedItemPath {
-        todo!()
+    pub fn path(self, db: &dyn HirDefnDb) -> TypeItemPath {
+        match self {
+            TypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.path(db),
+            TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.path(db),
+            TypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.path(db),
+            TypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.path(db),
+            TypeItemHirDefn::MemoizedField(hir_defn) => hir_defn.path(db),
+        }
     }
 
     pub fn hir_decl(self, db: &dyn HirDefnDb) -> TypeItemHirDecl {

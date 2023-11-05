@@ -7,12 +7,16 @@ pub struct SubmoduleHirDefn {
 }
 
 impl SubmoduleHirDefn {
+    pub fn path(self, db: &dyn HirDefnDb) -> SubmodulePath {
+        self.hir_decl.path(db)
+    }
+
     pub fn hir_decl(self) -> SubmoduleHirDecl {
         self.hir_decl
     }
 }
 
-impl HasHirDefn for ModulePath {
+impl HasHirDefn for SubmodulePath {
     type HirDefn = SubmoduleHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {

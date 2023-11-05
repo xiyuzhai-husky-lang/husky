@@ -2,21 +2,27 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `std::prelude`,
+                path: SubmodulePath(
+                    `std::prelude`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `std::logic`,
+                path: SubmodulePath(
+                    `std::logic`,
+                ),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: `std::ops`,
+                path: SubmodulePath(
+                    `std::ops`,
+                ),
             },
         },
     ),

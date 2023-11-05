@@ -44,7 +44,6 @@ impl RustKeyword {
 
 impl<'a> RustTranspilationBuilder<'a> {
     pub(crate) fn keyword(&mut self, keyword: RustKeyword) {
-        self.write_token_str(keyword.code());
-        self.write_str("!")
+        self.write_spaced_str(keyword.code())
     }
 }

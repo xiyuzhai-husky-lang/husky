@@ -18,6 +18,14 @@ pub enum AssociatedItemHirDefn {
 }
 
 impl AssociatedItemHirDefn {
+    pub fn path(self, db: &dyn HirDefnDb) -> AssociatedItemPath {
+        match self {
+            AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.path(db).into(),
+            AssociatedItemHirDefn::TraitItem(_) => todo!(),
+            AssociatedItemHirDefn::TraitForTypeItem(hir_defn) => hir_defn.path(db).into(),
+        }
+    }
+
     pub fn hir_decl(self, db: &dyn HirDefnDb) -> AssociatedItemHirDecl {
         match self {
             AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.hir_decl(db).into(),
@@ -31,14 +39,6 @@ impl AssociatedItemHirDefn {
             AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.hir_expr_region(db),
             AssociatedItemHirDefn::TraitItem(_) => todo!(),
             AssociatedItemHirDefn::TraitForTypeItem(hir_defn) => hir_defn.hir_expr_region(db),
-        }
-    }
-
-    pub fn path(self, _db: &dyn HirDefnDb) -> Option<AssociatedItemPath> {
-        match self {
-            AssociatedItemHirDefn::TypeItem(_) => todo!(),
-            AssociatedItemHirDefn::TraitItem(_) => todo!(),
-            AssociatedItemHirDefn::TraitForTypeItem(_) => todo!(),
         }
     }
 }

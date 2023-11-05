@@ -18,6 +18,14 @@ pub enum MajorItemHirDefn {
 }
 
 impl MajorItemHirDefn {
+    pub fn path(self, db: &dyn HirDefnDb) -> MajorItemPath {
+        match self {
+            MajorItemHirDefn::Type(hir_defn) => hir_defn.path(db).into(),
+            MajorItemHirDefn::Trait(hir_defn) => hir_defn.path(db).into(),
+            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.path(db).into(),
+        }
+    }
+
     pub fn hir_decl(self, db: &dyn HirDefnDb) -> MajorItemHirDecl {
         match self {
             MajorItemHirDefn::Type(hir_defn) => hir_defn.hir_decl(db).into(),

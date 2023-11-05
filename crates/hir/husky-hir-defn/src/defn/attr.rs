@@ -7,6 +7,10 @@ pub struct AttrHirDefn {
 }
 
 impl AttrHirDefn {
+    pub fn path(self, db: &dyn HirDefnDb) -> AttrPath {
+        self.hir_decl.path(db)
+    }
+
     pub fn hir_decl(&self) -> AttrHirDecl {
         self.hir_decl
     }

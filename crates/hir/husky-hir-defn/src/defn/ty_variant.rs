@@ -18,11 +18,15 @@ pub enum TypeVariantHirDefn {
 }
 
 impl TypeVariantHirDefn {
-    pub fn hir_decl(self, _db: &dyn HirDefnDb) -> HirDecl {
-        todo!()
+    pub fn path(self, db: &dyn HirDefnDb) -> TypeVariantPath {
+        match self {
+            TypeVariantHirDefn::Unit(hir_defn) => hir_defn.path(db),
+            TypeVariantHirDefn::Tuple(hir_defn) => hir_defn.path(db),
+            TypeVariantHirDefn::Props(hir_defn) => hir_defn.path(db),
+        }
     }
 
-    pub fn path(self, _db: &dyn HirDefnDb) -> TypeVariantPath {
+    pub fn hir_decl(self, _db: &dyn HirDefnDb) -> HirDecl {
         todo!()
     }
 }

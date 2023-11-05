@@ -26,6 +26,6 @@ impl RustMacroName {
 
 impl<'a> RustTranspilationBuilder<'a> {
     pub(crate) fn macro_name(&mut self, macro_name: RustMacroName) {
-        self.write_token_str(macro_name.code())
+        self.write_spaced_str(macro_name.code())
     }
 }
