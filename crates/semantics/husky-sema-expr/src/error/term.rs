@@ -15,6 +15,12 @@ impl From<EtherealTermError> for SemaExprTermError {
     }
 }
 
+impl From<FluffyTermError> for SemaExprTermError {
+    fn from(value: FluffyTermError) -> Self {
+        todo!()
+    }
+}
+
 impl From<&SemaExprTypeError> for SemaExprTermError {
     fn from(value: &SemaExprTypeError) -> Self {
         todo!()

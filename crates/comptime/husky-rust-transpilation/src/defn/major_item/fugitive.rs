@@ -1,3 +1,6 @@
+use husky_hir_decl::ValFugitiveHirDecl;
+use husky_hir_expr::{HirExprIdx, HirExprRegion};
+
 use super::*;
 use crate::builder::keyword::RustKeyword;
 
@@ -23,7 +26,7 @@ impl TranspileToRust for FunctionFnHirDefn {
         builder.keyword(RustKeyword::Fn);
         hir_decl.path(db).ident(db).transpile_to_rust(builder);
         hir_decl.template_parameters(db).transpile_to_rust(builder);
-        builder.curly_block_with_hir_expr_region(hir_eager_expr_region, |builder| {
+        builder.curly_block_with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
             body.transpile_to_rust(builder)
         })
     }
@@ -37,7 +40,24 @@ impl TranspileToRust for FunctionGnHirDefn {
 
 impl TranspileToRust for ValHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        let db = builder.db();
+        let Some((HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region))) =
+            self.body_with_hir_expr_region(db)
+        else {
+            return;
+        };
+        self.hir_decl(db).transpile_to_rust(builder);
+        builder.curly_block_with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
+            body.transpile_to_rust(builder)
+        })
+    }
+}
+
+impl TranspileToRust for ValFugitiveHirDecl {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         builder.keyword(RustKeyword::Fn);
-        todo!()
+        let db = builder.db();
+        self.path(db).ident(db).transpile_to_rust(builder);
+        // ad hoc
     }
 }

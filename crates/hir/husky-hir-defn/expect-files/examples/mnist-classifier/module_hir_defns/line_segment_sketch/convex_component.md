@@ -6,16 +6,16 @@
                     path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         fields: [
                             PropsFieldHirDecl {
                                 ident: `line_segment_sketch`,
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 55,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -25,7 +25,7 @@
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 58,
+                                            value: 57,
                                         },
                                     ),
                                 ),
@@ -59,19 +59,8 @@
                         ),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
-                    trai: HirTrait {
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        template_arguments: [],
-                    },
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 61,
-                            },
-                        ),
+                    template_parameters: HirTemplateParameters(
+                        [],
                     ),
                 },
             },
@@ -106,26 +95,17 @@
                             ident: `visualize`,
                             item_kind: MethodFn,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 61,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 29,
+                                    value: 28,
                                 },
                             ),
                         ),

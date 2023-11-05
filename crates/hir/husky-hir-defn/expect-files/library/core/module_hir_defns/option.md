@@ -6,20 +6,22 @@
                     path: TypePath(`core::option::Option`, `Enum`),
                     hir_decl: EnumTypeHirDecl {
                         path: TypePath(`core::option::Option`, `Enum`),
-                        template_parameters: HirTemplateParameters {
-                            data: [
+                        template_parameters: HirTemplateParameters(
+                            [
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
-                                            attrs: HirSymbolAttrs,
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    traits: [],
+                                    data: Type {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 115,
+                                                },
+                                            ),
+                                        ),
+                                        traits: [],
+                                    },
                                 },
                             ],
-                        },
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],

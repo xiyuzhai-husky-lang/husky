@@ -161,9 +161,9 @@
                     ty_path: TypePath(`core::num::i8`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -207,29 +207,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 3,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -253,9 +232,9 @@
                     ty_path: TypePath(`core::num::i16`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -299,29 +278,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 4,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -345,9 +303,9 @@
                     ty_path: TypePath(`core::num::i32`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -402,29 +360,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 5,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -448,9 +385,9 @@
                     ty_path: TypePath(`core::num::i64`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -483,29 +420,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 6,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -529,9 +445,9 @@
                     ty_path: TypePath(`core::num::i128`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -564,29 +480,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 7,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -610,9 +505,9 @@
                     ty_path: TypePath(`core::num::isize`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -645,29 +540,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 8,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -691,9 +565,9 @@
                     ty_path: TypePath(`core::num::u8`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -726,29 +600,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 9,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -772,9 +625,9 @@
                     ty_path: TypePath(`core::num::u16`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -807,29 +660,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 10,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -853,9 +685,9 @@
                     ty_path: TypePath(`core::num::u32`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -888,29 +720,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 11,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -934,9 +745,9 @@
                     ty_path: TypePath(`core::num::u64`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -969,29 +780,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 12,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -1015,9 +805,9 @@
                     ty_path: TypePath(`core::num::u128`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -1050,29 +840,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 13,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -1096,13 +865,13 @@
                     ty_path: TypePath(`core::num::usize`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 1,
+                            value: 2,
                         },
                     ),
                 ),
@@ -1131,29 +900,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 1,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -1177,9 +925,9 @@
                     ty_path: TypePath(`core::num::f32`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -1289,29 +1037,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 14,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -1335,9 +1062,9 @@
                     ty_path: TypePath(`core::num::f64`, `Extern`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
@@ -1381,29 +1108,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 15,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),

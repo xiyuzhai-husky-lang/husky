@@ -64,17 +64,17 @@ fn trai_for_ty_item_hir_decl(
     path: TraitForTypeItemPath,
 ) -> Option<TraitForTypeItemHirDecl> {
     match path.syn_decl(db).expect("ok") {
-        TraitForTypeItemSynDecl::AssociatedFn(_) => todo!(),
-        TraitForTypeItemSynDecl::MethodFn(_) => todo!(),
-        TraitForTypeItemSynDecl::AssociatedType(_) => todo!(),
-        TraitForTypeItemSynDecl::AssociatedVal(_) => todo!(),
+        TraitForTypeItemSynDecl::AssociatedFn(syn_decl) => {
+            Some(TraitForTypeAssociatedFnHirDecl::from_syn(path, syn_decl, db).into())
+        }
+        TraitForTypeItemSynDecl::MethodFn(method_decl) => {
+            Some(TraitForTypeMethodFnHirDecl::from_syn(path, method_decl, db).into())
+        }
+        TraitForTypeItemSynDecl::AssociatedType(assoc_type_decl) => {
+            Some(TraitForTypeAssociatedTypeHirDecl::from_syn(path, assoc_type_decl, db).into())
+        }
+        TraitForTypeItemSynDecl::AssociatedVal(assoc_val_decl) => {
+            Some(TraitForTypeAssociatedValHirDecl::from_syn(path, assoc_val_decl, db).into())
+        }
     }
 }
-// TraitForTypeItemEtherealSignatureTemplate::AssociatedType(template) => {
-//     Some(TraitForTypeAssociatedTypeHirDecl::from_syn(path, template, db).into())
-// }
-// TraitForTypeItemEtherealSignatureTemplate::MethodFn(template) => {
-//     Some(TraitForTypeMethodFnHirDecl::from_syn(path, template, db).into())
-// }
-// TraitForTypeItemEtherealSignatureTemplate::AssociatedFn(_) => todo!(),
-// TraitForTypeItemEtherealSignatureTemplate::AssociatedVal(_) => todo!(),

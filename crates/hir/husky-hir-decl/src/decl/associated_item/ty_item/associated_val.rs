@@ -12,7 +12,7 @@ impl TypeAssociatedValHirDecl {
         path: TypeItemPath,
         syn_decl: TypeAssociatedValSynDecl,
         db: &dyn HirDeclDb,
-    ) -> (Self, HirEagerExprSourceMap) {
+    ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         todo!()
         // let mut builder = HirEagerExprBuilder::new(db, syn_decl.expr_region(db));

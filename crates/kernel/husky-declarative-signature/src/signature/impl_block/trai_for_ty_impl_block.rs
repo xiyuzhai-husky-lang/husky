@@ -58,7 +58,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_declarative_signature_template(
     };
     let self_ty_term = declarative_term_region
         .term_symbol_region()
-        .self_ty_term()
+        .self_ty()
         .ok_or(DeclarativeSignatureError::SelfTypeNotInferred)?;
     let self_ty = match decl.self_ty_decl(db) {
         SelfTypeDecl::PathLeadingExpr(ty_expr) => {

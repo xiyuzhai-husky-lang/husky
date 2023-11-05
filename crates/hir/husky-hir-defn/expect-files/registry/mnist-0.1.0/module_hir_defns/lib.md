@@ -6,9 +6,9 @@
                     path: TypePath(`mnist::MnistLabel`, `Enum`),
                     hir_decl: EnumTypeHirDecl {
                         path: TypePath(`mnist::MnistLabel`, `Enum`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],
@@ -32,21 +32,21 @@
                     path: TypePath(`mnist::BinaryImage28`, `Struct`),
                     hir_decl: TupleStructTypeHirDecl {
                         path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         fields: [
                             TupleFieldHirDecl {
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 71,
+                                            value: 69,
                                         },
                                     ),
                                 ),
                             },
                         ],
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -69,21 +69,21 @@
                     path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                     hir_decl: TupleStructTypeHirDecl {
                         path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         fields: [
                             TupleFieldHirDecl {
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 71,
+                                            value: 69,
                                         },
                                     ),
                                 ),
                             },
                         ],
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -131,19 +131,8 @@
                         ),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
-                    trai: HirTrait {
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        template_arguments: [],
-                    },
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 72,
-                            },
-                        ),
+                    template_parameters: HirTemplateParameters(
+                        [],
                     ),
                 },
             },
@@ -178,26 +167,17 @@
                             ident: `visualize`,
                             item_kind: MethodFn,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 29,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -216,13 +196,13 @@
                         ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
                     self_ty: PathLeading(
                         HirTypePathLeading(
                             Id {
-                                value: 72,
+                                value: 70,
                             },
                         ),
                     ),
@@ -253,16 +233,16 @@
                             ident: `new_zeros`,
                             item_kind: AssociatedFunctionFn,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 72,
+                                    value: 70,
                                 },
                             ),
                         ),
@@ -295,19 +275,8 @@
                         ),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
-                    trai: HirTrait {
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        template_arguments: [],
-                    },
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 72,
-                            },
-                        ),
+                    template_parameters: HirTemplateParameters(
+                        [],
                     ),
                 },
             },
@@ -342,9 +311,9 @@
                             ident: `Output`,
                             item_kind: AssociatedType,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         associated_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
@@ -369,19 +338,8 @@
                         ),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
-                    trai: HirTrait {
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        template_arguments: [],
-                    },
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 73,
-                            },
-                        ),
+                    template_parameters: HirTemplateParameters(
+                        [],
                     ),
                 },
             },
@@ -416,26 +374,17 @@
                             ident: `visualize`,
                             item_kind: MethodFn,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 73,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 29,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -454,13 +403,13 @@
                         ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
                     self_ty: PathLeading(
                         HirTypePathLeading(
                             Id {
-                                value: 73,
+                                value: 71,
                             },
                         ),
                     ),
@@ -491,16 +440,16 @@
                             ident: `new_zeros`,
                             item_kind: AssociatedFunctionFn,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
+                        parenate_parameters: HirParenateParameters(
+                            [],
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 73,
+                                    value: 71,
                                 },
                             ),
                         ),
@@ -533,19 +482,8 @@
                         ),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [],
-                    },
-                    trai: HirTrait {
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        template_arguments: [],
-                    },
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 73,
-                            },
-                        ),
+                    template_parameters: HirTemplateParameters(
+                        [],
                     ),
                 },
             },
@@ -580,9 +518,9 @@
                             ident: `Output`,
                             item_kind: AssociatedType,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         associated_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {

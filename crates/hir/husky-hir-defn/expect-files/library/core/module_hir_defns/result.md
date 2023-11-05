@@ -6,30 +6,34 @@
                     path: TypePath(`core::result::Result`, `Enum`),
                     hir_decl: EnumTypeHirDecl {
                         path: TypePath(`core::result::Result`, `Enum`),
-                        template_parameters: HirTemplateParameters {
-                            data: [
+                        template_parameters: HirTemplateParameters(
+                            [
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
-                                            attrs: HirSymbolAttrs,
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    traits: [],
+                                    data: Type {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 115,
+                                                },
+                                            ),
+                                        ),
+                                        traits: [],
+                                    },
                                 },
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
-                                            attrs: HirSymbolAttrs,
-                                            variance: None,
-                                            disambiguator: 1,
-                                        },
-                                    ),
-                                    traits: [],
+                                    data: Type {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                        traits: [],
+                                    },
                                 },
                             ],
-                        },
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],
@@ -58,70 +62,57 @@
                         ),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [
+                    template_parameters: HirTemplateParameters(
+                        [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
-                                        attrs: HirSymbolAttrs,
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                traits: [],
-                            },
-                            HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
-                                        attrs: HirSymbolAttrs,
-                                        variance: None,
-                                        disambiguator: 1,
-                                    },
-                                ),
-                                traits: [],
-                            },
-                            HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
-                                        attrs: HirSymbolAttrs,
-                                        variance: None,
-                                        disambiguator: 2,
-                                    },
-                                ),
-                                traits: [],
-                            },
-                            HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
-                                        attrs: HirSymbolAttrs,
-                                        variance: None,
-                                        disambiguator: 3,
-                                    },
-                                ),
-                                traits: [],
-                            },
-                        ],
-                    },
-                    trai: HirTrait {
-                        trai_path: TraitPath(`core::ops::Unveil`),
-                        template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 18,
-                                        },
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 136,
+                                            },
+                                        ),
                                     ),
-                                ),
-                            ),
-                        ],
-                    },
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 17,
+                                    traits: [],
+                                },
                             },
-                        ),
+                            HirTemplateParameter {
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 137,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                            HirTemplateParameter {
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 138,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                            HirTemplateParameter {
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 139,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                        ],
                     ),
                 },
             },
@@ -156,9 +147,9 @@
                             ident: `Continue`,
                             item_kind: AssociatedType,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
                         associated_ty: Symbol(
                             Type {
                                 attrs: HirSymbolAttrs,
@@ -200,33 +191,15 @@
                             ident: `branch`,
                             item_kind: MethodFn,
                         },
-                        template_parameters: HirTemplateParameters {
-                            data: [],
-                        },
-                        self_value_parameter: HirRitchieParameter {
-                            contract: None,
-                            ty: PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
-                        },
-                        parenate_parameters: HirRitchieParameters {
-                            data: [
-                                HirRitchieParameter {
-                                    contract: None,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
-                                },
+                        template_parameters: HirTemplateParameters(
+                            [],
+                        ),
+                        self_value_parameter: Ordinary,
+                        parenate_parameters: HirParenateParameters(
+                            [
+                                Ordinary,
                             ],
-                        },
+                        ),
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {

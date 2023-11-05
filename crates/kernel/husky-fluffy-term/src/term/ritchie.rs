@@ -10,9 +10,8 @@ use super::*;
 use husky_coword::Ident;
 
 impl FluffyTerm {
-    pub(crate) fn new_ritchie(
+    pub fn new_ritchie(
         engine: &mut impl FluffyTermEngine,
-        expr_idx: SynExprIdx,
         ritchie_kind: RitchieKind,
         params: Vec<FluffyTermRitchieParameter>,
         return_ty: FluffyTerm,

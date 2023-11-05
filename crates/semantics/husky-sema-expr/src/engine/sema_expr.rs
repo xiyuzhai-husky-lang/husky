@@ -94,16 +94,16 @@ impl<'a> SemaExprEngine<'a> {
 
     fn build_sema_expr_data_and_ty_result(
         &mut self,
-        expr_idx: SynExprIdx,
+        syn_expr_idx: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
     ) -> (
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        match self.syn_expr_region_data[expr_idx] {
+        match self.syn_expr_region_data[syn_expr_idx] {
             SynExprData::Literal(literal_token_idx, literal_data) => (
                 Ok(SemaExprData::Literal(literal_token_idx, literal_data)),
-                self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),
+                self.calc_literal_expr_ty(syn_expr_idx, literal_token_idx, expr_ty_expectation),
             ),
             SynExprData::PrincipalEntityPath {
                 path_expr_idx,
@@ -139,7 +139,7 @@ impl<'a> SemaExprEngine<'a> {
                 ident_token,
             } => {
                 let (static_dispatch_result, ty_result) =
-                    self.calc_associated_item_ty(expr_idx, parent_path, ident_token);
+                    self.calc_associated_item_ty(syn_expr_idx, parent_path, ident_token);
                 let data_result =
                     static_dispatch_result.map(|static_dispatch| SemaExprData::AssociatedItem {
                         parent_expr_idx,
@@ -183,7 +183,7 @@ impl<'a> SemaExprEngine<'a> {
                     current_symbol_idx,
                     current_symbol_kind,
                 }),
-                self.get_current_symbol_ty(expr_idx, current_symbol_idx),
+                self.get_current_symbol_ty(syn_expr_idx, current_symbol_idx),
             ),
             SynExprData::FrameVarDecl {
                 ident,
@@ -197,11 +197,11 @@ impl<'a> SemaExprEngine<'a> {
                     frame_var_symbol_idx,
                     current_symbol_kind,
                 }),
-                self.get_current_symbol_ty(expr_idx, frame_var_symbol_idx),
+                self.get_current_symbol_ty(syn_expr_idx, frame_var_symbol_idx),
             ),
             SynExprData::SelfType(regional_token_idx) => (
                 Ok(SemaExprData::SelfType(regional_token_idx)),
-                match self.self_ty_term {
+                match self.self_ty {
                     Some(self_ty) => match self_ty.ty_unchecked(self.db) {
                         Ok(Left(self_ty_ty)) => Ok(self_ty_ty.into()),
                         Err(e) => Err(e.into()),
@@ -212,7 +212,7 @@ impl<'a> SemaExprEngine<'a> {
             ),
             SynExprData::SelfValue(regional_token_idx) => (
                 Ok(SemaExprData::SelfType(regional_token_idx)),
-                match self.self_ty_term {
+                match self.self_ty {
                     Some(self_ty) => Ok(self_ty.into()), // todo: impl binding
                     None => Err(DerivedSemaExprTypeError::SelfTypeNotInferredForSelfValue.into()),
                 },
@@ -224,7 +224,7 @@ impl<'a> SemaExprEngine<'a> {
                 ropd,
             } => {
                 let (lopd, opr, ropd, dispatch_result, ty_result) =
-                    self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd);
+                    self.calc_binary_expr_ty(syn_expr_idx, lopd, opr, ropd);
                 (
                     dispatch_result.map(|dispatch| SemaExprData::Binary {
                         lopd,
@@ -270,7 +270,7 @@ impl<'a> SemaExprEngine<'a> {
                 opd,
             } => {
                 let (opd_sema_expr_idx_and_opr_result, ty_result) = self.build_prefix_sema_expr(
-                    expr_idx,
+                    syn_expr_idx,
                     opr,
                     opd,
                     expr_ty_expectation.final_destination(self),
@@ -293,7 +293,7 @@ impl<'a> SemaExprEngine<'a> {
                 opr_regional_token_idx,
             } => {
                 let (opd_sema_expr_idx_and_opr_result, ty_result) = self.calc_suffix_expr_ty(
-                    expr_idx,
+                    syn_expr_idx,
                     opd,
                     opr,
                     expr_ty_expectation.final_destination(self),
@@ -317,7 +317,7 @@ impl<'a> SemaExprEngine<'a> {
                 ref items,
                 rpar_regional_token_idx,
             } => self.build_function_application_or_call_sema_expr(
-                expr_idx,
+                syn_expr_idx,
                 function,
                 expr_ty_expectation,
                 template_arguments.as_ref(),
@@ -332,7 +332,7 @@ impl<'a> SemaExprEngine<'a> {
                 ref items,
                 rpar_regional_token_idx,
             } => self.build_function_call_sema_expr(
-                expr_idx,
+                syn_expr_idx,
                 function,
                 expr_ty_expectation.final_destination(self),
                 template_arguments.as_ref(),
@@ -354,7 +354,7 @@ impl<'a> SemaExprEngine<'a> {
                 ref items,
                 rpar_regional_token_idx,
             } => self.calc_method_application_or_call_ty(
-                expr_idx,
+                syn_expr_idx,
                 self_argument,
                 dot_regional_token_idx,
                 ident_token,
@@ -371,7 +371,7 @@ impl<'a> SemaExprEngine<'a> {
                 function_expr_idx,
                 argument_expr_idx,
             } => self.build_explicit_application_sema_expr(
-                expr_idx,
+                syn_expr_idx,
                 function_expr_idx,
                 argument_expr_idx,
                 expr_ty_expectation.final_destination(self),
@@ -426,7 +426,7 @@ impl<'a> SemaExprEngine<'a> {
                 ref items,
                 rbox_regional_token_idx,
             } => self.calc_index_or_compose_with_list_expr_ty(
-                expr_idx,
+                syn_expr_idx,
                 owner,
                 lbox_regional_token_idx,
                 items,
@@ -469,7 +469,7 @@ impl<'a> SemaExprEngine<'a> {
                                 Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
                             ),
                             _ => {
-                                print_debug_expr!(self, expr_idx);
+                                print_debug_expr!(self, syn_expr_idx);
                                 todo!()
                             }
                         }
@@ -515,7 +515,7 @@ impl<'a> SemaExprEngine<'a> {
                                 FluffyTermData::Variable { ty } => todo!(),
                                 FluffyTermData::TypeVariant { path } => todo!(),
                             },
-                            None => self.new_hole(expr_idx, HoleKind::Any).into(),
+                            None => self.new_hole(syn_expr_idx, HoleKind::Any).into(),
                         };
                         (
                             Ok(SemaExprData::NewList {

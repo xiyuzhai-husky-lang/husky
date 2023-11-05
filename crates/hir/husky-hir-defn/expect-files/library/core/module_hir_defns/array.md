@@ -6,32 +6,40 @@
                     path: TypePath(`core::array::Array`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::array::Array`, `Extern`),
-                        template_parameters: HirTemplateParameters {
-                            data: [
+                        template_parameters: HirTemplateParameters(
+                            [
                                 HirTemplateParameter {
-                                    symbol: Const(
-                                        HirConstSymbol(
-                                            Id {
-                                                value: 1,
-                                            },
+                                    data: Constant {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 23,
+                                                },
+                                            ),
                                         ),
-                                    ),
-                                    traits: [],
+                                        ty: PathLeading(
+                                            HirTypePathLeading(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 },
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
-                                            attrs: HirSymbolAttrs,
-                                            variance: Some(
-                                                Covariant,
+                                    data: Type {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 25,
+                                                },
                                             ),
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    traits: [],
+                                        ),
+                                        traits: [],
+                                    },
                                 },
                             ],
-                        },
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],

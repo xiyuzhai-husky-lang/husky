@@ -2,7 +2,7 @@ use super::*;
 use husky_print_utils::p;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct ValSynNodeDecl {
+pub struct ValFugitiveSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     pub colon_token: TokenDataResult<Option<ColonRegionalToken>>,
@@ -14,7 +14,7 @@ pub struct ValSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl ValSynNodeDecl {
+impl ValFugitiveSynNodeDecl {
     pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.return_ty(db)
@@ -27,7 +27,7 @@ impl ValSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a, FugitiveSynNodePath> {
-    pub(super) fn parse_val_node_decl(&self) -> ValSynNodeDecl {
+    pub(super) fn parse_val_node_decl(&self) -> ValFugitiveSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let colon_token = parser.try_parse_option();
         let var_ty = if let Ok(Some(_)) = colon_token {
@@ -40,7 +40,7 @@ impl<'a> DeclParser<'a, FugitiveSynNodePath> {
         let eq_token =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForVariable);
         let expr = parser.parse_expr_root(None, ExprRootKind::ValExpr);
-        ValSynNodeDecl::new(
+        ValFugitiveSynNodeDecl::new(
             self.db(),
             self.syn_node_path(),
             colon_token,
@@ -53,7 +53,7 @@ impl<'a> DeclParser<'a, FugitiveSynNodePath> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct ValSynDecl {
+pub struct ValFugitiveSynDecl {
     #[id]
     pub path: FugitivePath,
     pub return_ty: Option<ReturnTypeBeforeEqSyndicate>,
@@ -61,15 +61,21 @@ pub struct ValSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl ValSynDecl {
+impl ValFugitiveSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn SynDeclDb,
         path: FugitivePath,
-        syn_node_decl: ValSynNodeDecl,
+        syn_node_decl: ValFugitiveSynNodeDecl,
     ) -> DeclResult<Self> {
         let val_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr = syn_node_decl.expr(db);
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(ValSynDecl::new(db, path, val_ty, expr, syn_expr_region))
+        Ok(ValFugitiveSynDecl::new(
+            db,
+            path,
+            val_ty,
+            expr,
+            syn_expr_region,
+        ))
     }
 }

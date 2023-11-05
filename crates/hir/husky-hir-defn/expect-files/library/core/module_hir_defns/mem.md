@@ -6,34 +6,36 @@
                     path: TypePath(`core::mem::Ref`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::mem::Ref`, `Extern`),
-                        template_parameters: HirTemplateParameters {
-                            data: [
+                        template_parameters: HirTemplateParameters(
+                            [
                                 HirTemplateParameter {
-                                    symbol: Lifetime(
-                                        HirLifetimeSymbol {
-                                            attrs: HirSymbolAttrs,
-                                            variance: Some(
-                                                Covariant,
+                                    data: Lifetime {
+                                        label: Label {
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 53,
+                                                    },
+                                                ),
                                             ),
-                                            disambiguator: 0,
+                                            kind: AllNonGreek,
                                         },
-                                    ),
-                                    traits: [],
+                                    },
                                 },
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
-                                            attrs: HirSymbolAttrs,
-                                            variance: Some(
-                                                Covariant,
+                                    data: Type {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 25,
+                                                },
                                             ),
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    traits: [],
+                                        ),
+                                        traits: [],
+                                    },
                                 },
                             ],
-                        },
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],
@@ -57,34 +59,36 @@
                     path: TypePath(`core::mem::RefMut`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::mem::RefMut`, `Extern`),
-                        template_parameters: HirTemplateParameters {
-                            data: [
+                        template_parameters: HirTemplateParameters(
+                            [
                                 HirTemplateParameter {
-                                    symbol: Lifetime(
-                                        HirLifetimeSymbol {
-                                            attrs: HirSymbolAttrs,
-                                            variance: Some(
-                                                Covariant,
+                                    data: Lifetime {
+                                        label: Label {
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 53,
+                                                    },
+                                                ),
                                             ),
-                                            disambiguator: 0,
+                                            kind: AllNonGreek,
                                         },
-                                    ),
-                                    traits: [],
+                                    },
                                 },
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
-                                            attrs: HirSymbolAttrs,
-                                            variance: Some(
-                                                Invariant,
+                                    data: Type {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 25,
+                                                },
                                             ),
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    traits: [],
+                                        ),
+                                        traits: [],
+                                    },
                                 },
                             ],
-                        },
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],
@@ -108,22 +112,22 @@
                     path: TypePath(`core::mem::Leash`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::mem::Leash`, `Extern`),
-                        template_parameters: HirTemplateParameters {
-                            data: [
+                        template_parameters: HirTemplateParameters(
+                            [
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
-                                            attrs: HirSymbolAttrs,
-                                            variance: Some(
-                                                Covariant,
+                                    data: Type {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 25,
+                                                },
                                             ),
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    traits: [],
+                                        ),
+                                        traits: [],
+                                    },
                                 },
                             ],
-                        },
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],
@@ -147,30 +151,36 @@
                     path: TypePath(`core::mem::At`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::mem::At`, `Extern`),
-                        template_parameters: HirTemplateParameters {
-                            data: [
+                        template_parameters: HirTemplateParameters(
+                            [
                                 HirTemplateParameter {
-                                    symbol: Place(
-                                        HirPlaceSymbol {
-                                            attrs: HirSymbolAttrs,
-                                            variance: None,
-                                            disambiguator: 0,
+                                    data: Place {
+                                        label: Label {
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 57,
+                                                    },
+                                                ),
+                                            ),
+                                            kind: AllGreek,
                                         },
-                                    ),
-                                    traits: [],
+                                    },
                                 },
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
-                                            attrs: HirSymbolAttrs,
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    traits: [],
+                                    data: Type {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                        traits: [],
+                                    },
                                 },
                             ],
-                        },
+                        ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
                                 data: [],
@@ -199,30 +209,21 @@
                         ),
                         disambiguator: 0,
                     },
-                    template_parameters: HirTemplateParameters {
-                        data: [
+                    template_parameters: HirTemplateParameters(
+                        [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
-                                        attrs: HirSymbolAttrs,
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                traits: [],
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
                             },
                         ],
-                    },
-                    trai: HirTrait {
-                        trai_path: TraitPath(`core::marker::Copy`),
-                        template_arguments: [],
-                    },
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 2,
-                            },
-                        ),
                     ),
                 },
             },

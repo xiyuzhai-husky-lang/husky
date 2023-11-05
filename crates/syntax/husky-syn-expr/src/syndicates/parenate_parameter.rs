@@ -5,7 +5,7 @@ use parsec::{HasStreamState, TryParseOptionFromStream};
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum ParenateParameterSyndicate {
-    Regular {
+    Ordinary {
         syn_pattern_root: SynPatternRoot,
         variables: SynCurrentSymbolIdxRange,
         colon: ColonRegionalToken,
@@ -116,7 +116,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
                     default,
                 }))
             } else {
-                Ok(Some(ParenateParameterSyndicate::Regular {
+                Ok(Some(ParenateParameterSyndicate::Ordinary {
                     syn_pattern_root: syn_pattern_root,
                     variables,
                     colon,

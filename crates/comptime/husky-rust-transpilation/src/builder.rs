@@ -140,7 +140,7 @@ impl<'a> RustTranspilationBuilder<'a> {
         self.write_str("}\n");
     }
 
-    pub(crate) fn curly_block_with_hir_expr_region(
+    pub(crate) fn curly_block_with_hir_eager_expr_region(
         &mut self,
         hir_expr_region: impl Into<HirExprRegion>,
         f: impl FnOnce(&mut Self),

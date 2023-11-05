@@ -276,7 +276,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 ExprRootKind::SelfType => {
                     let self_ty_term = self.infer_new_expr_term(expr_root.syn_expr_idx()).ok();
                     self.symbol_declarative_term_region
-                        .set_self_ty_term(self_ty_term);
+                        .set_self_ty(self_ty_term);
                     continue;
                 }
                 ExprRootKind::BlockExpr
@@ -412,11 +412,11 @@ impl<'a> DeclarativeTermEngine<'a> {
             SynExprData::FrameVarDecl { .. } => unreachable!(),
             SynExprData::SelfType(_) => self
                 .symbol_declarative_term_region
-                .self_ty_term()
+                .self_ty()
                 .ok_or(DerivedDeclarativeTermError2::SelfTypeNotAllowedInThisRegion.into()),
             SynExprData::SelfValue(_) => self
                 .symbol_declarative_term_region
-                .self_ty_term()
+                .self_ty()
                 .ok_or(DerivedDeclarativeTermError2::SelfValueNotAllowedInThisRegion.into()),
             SynExprData::Binary {
                 lopd, opr, ropd, ..

@@ -54,30 +54,21 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [
+                template_parameters: HirTemplateParameters(
+                    [
                         HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            traits: [],
+                            data: Type {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                                traits: [],
+                            },
                         },
                     ],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::marker::Copy`),
-                    template_arguments: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 2,
-                        },
-                    ),
                 ),
             },
         ),

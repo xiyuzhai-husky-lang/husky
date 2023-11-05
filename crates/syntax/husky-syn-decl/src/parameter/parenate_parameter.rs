@@ -8,7 +8,7 @@ pub(crate) type ParenateParameterSyndicates = SmallVec<[ParenateParameterSyndica
 #[derive(Getters)]
 pub struct ParenateParameterSyndicateList<const ALLOW_SELF_PARAMETER: bool> {
     lpar: LparRegionalToken,
-    self_value_parameter: Option<SelfParameterSyndicate>,
+    self_value_parameter: Option<SelfValueParameterSyndicate>,
     comma_after_self_parameter: Option<CommaRegionalToken>,
     parenate_parameters: ParenateParameterSyndicates,
     commas: CommaRegionalTokens,
@@ -26,7 +26,7 @@ impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<SynDeclExprP
         let Some(lpar) = ctx.try_parse_option::<LparRegionalToken>()? else {
             return Ok(None);
         };
-        let self_value_parameter: Option<SelfParameterSyndicate> = ctx.try_parse_option()?;
+        let self_value_parameter: Option<SelfValueParameterSyndicate> = ctx.try_parse_option()?;
         let comma_after_self_parameter = if self_value_parameter.is_some() {
             ctx.try_parse_err_as_none::<CommaRegionalToken>()
         } else {

@@ -66,10 +66,10 @@ pub struct SynDeclJar(
     // - form
     fugitive_syn_node_decl,
     fugitive_syn_decl,
-    ValSynNodeDecl,
-    ValSynDecl,
+    ValFugitiveSynNodeDecl,
+    ValFugitiveSynDecl,
     FnSynNodeDecl,
-    FunctionFnSynDecl,
+    FunctionFnFugitiveSynDecl,
     GnSynNodeDecl,
     FunctionGnSynDecl,
     TypeAliasSynNodeDecl,

@@ -59,19 +59,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::visual::Visualize`),
-                    template_arguments: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 70,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -95,13 +84,13 @@
                     ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 70,
+                            value: 69,
                         },
                     ),
                 ),
@@ -130,19 +119,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::IntIndex`),
-                    template_arguments: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 70,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -169,19 +147,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::visual::Visualize`),
-                    template_arguments: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 71,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),
@@ -205,13 +172,13 @@
                     ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 71,
+                            value: 70,
                         },
                     ),
                 ),
@@ -240,19 +207,8 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::IntIndex`),
-                    template_arguments: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 71,
-                        },
-                    ),
+                template_parameters: HirTemplateParameters(
+                    [],
                 ),
             },
         ),

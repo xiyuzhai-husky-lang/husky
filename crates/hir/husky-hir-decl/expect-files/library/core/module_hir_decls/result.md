@@ -21,70 +21,57 @@
                     ),
                     disambiguator: 0,
                 },
-                template_parameters: HirTemplateParameters {
-                    data: [
+                template_parameters: HirTemplateParameters(
+                    [
                         HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            traits: [],
-                        },
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 1,
-                                },
-                            ),
-                            traits: [],
-                        },
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 2,
-                                },
-                            ),
-                            traits: [],
-                        },
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 3,
-                                },
-                            ),
-                            traits: [],
-                        },
-                    ],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Unveil`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 18,
-                                    },
+                            data: Type {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 136,
+                                        },
+                                    ),
                                 ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 17,
+                                traits: [],
+                            },
                         },
-                    ),
+                        HirTemplateParameter {
+                            data: Type {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 137,
+                                        },
+                                    ),
+                                ),
+                                traits: [],
+                            },
+                        },
+                        HirTemplateParameter {
+                            data: Type {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 138,
+                                        },
+                                    ),
+                                ),
+                                traits: [],
+                            },
+                        },
+                        HirTemplateParameter {
+                            data: Type {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 139,
+                                        },
+                                    ),
+                                ),
+                                traits: [],
+                            },
+                        },
+                    ],
                 ),
             },
         ),

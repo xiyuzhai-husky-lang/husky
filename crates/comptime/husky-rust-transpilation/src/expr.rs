@@ -35,7 +35,10 @@ impl TranspileToRust for HirEagerExprIdx {
             HirEagerExpr::Suffix {
                 opd_hir_expr_idx,
                 opr,
-            } => todo!(),
+            } => {
+                opd_hir_expr_idx.transpile_to_rust(builder);
+                opr.transpile_to_rust(builder)
+            }
             HirEagerExpr::FnCall {
                 function_hir_expr_idx,
                 template_arguments,

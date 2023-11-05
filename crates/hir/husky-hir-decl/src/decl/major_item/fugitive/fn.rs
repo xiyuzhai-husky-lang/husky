@@ -1,17 +1,17 @@
 use super::*;
-use husky_syn_decl::FunctionFnSynDecl;
+use husky_syn_decl::FunctionFnFugitiveSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
-pub struct FnFugitiveHirDecl {
+pub struct FunctionFnFugitiveHirDecl {
     pub path: FugitivePath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
 }
 
-impl FnFugitiveHirDecl {
+impl FunctionFnFugitiveHirDecl {
     pub(super) fn from_syn(
         path: FugitivePath,
-        syn_decl: FunctionFnSynDecl,
+        syn_decl: FunctionFnFugitiveSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);

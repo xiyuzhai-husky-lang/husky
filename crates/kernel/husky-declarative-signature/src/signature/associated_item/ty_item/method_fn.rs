@@ -1,4 +1,4 @@
-use husky_syn_expr::SelfParameterSyndicate;
+use husky_syn_expr::SelfValueParameterSyndicate;
 
 use crate::*;
 

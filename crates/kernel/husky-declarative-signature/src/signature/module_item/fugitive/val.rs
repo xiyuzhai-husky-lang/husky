@@ -8,7 +8,7 @@ pub struct ValFugitiveDeclarativeSignatureTemplate {
 impl ValFugitiveDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
-        decl: ValSynDecl,
+        decl: ValFugitiveSynDecl,
     ) -> DeclarativeSignatureResult<ValFugitiveDeclarativeSignatureTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);

@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_decl::TypeMemoizedFieldSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct TypeMemoizedFieldHirDecl {
@@ -10,12 +11,9 @@ pub struct TypeMemoizedFieldHirDecl {
 impl TypeMemoizedFieldHirDecl {
     pub(super) fn from_syn(
         path: TypeItemPath,
-        syn_decl: TypeMemoizedFieldEtherealSignatureTemplate,
+        syn_decl: TypeMemoizedFieldSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let TypeItemSynDecl::MemoizedField(syn_decl) = path.syn_decl(db).expect("ok") else {
-            unreachable!()
-        };
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let return_ty = builder.return_ty(syn_decl.return_ty(db));
         Self::new(
