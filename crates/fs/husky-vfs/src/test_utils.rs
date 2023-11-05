@@ -121,13 +121,13 @@ pub trait VfsTestUtils: VfsDb {
     }
 }
 
-const EXPECT_FILE_EXTENSION: &'static str = "md";
 const ADVERSARIAL_EXTENSION: &'static str = "json";
 
 impl<Db> VfsTestUtils for Db where Db: VfsDb + ?Sized {}
 
 pub struct VfsTestConfig<'a> {
     test_name: &'a str,
+    expect_file_extension: &'a str,
     test_domains_config: VfsTestDomainsConfig,
 }
 
@@ -135,7 +135,17 @@ impl<'a> VfsTestConfig<'a> {
     pub fn new(test_name: &'a str) -> Self {
         Self {
             test_name,
+            expect_file_extension: "md",
             test_domains_config: Default::default(),
         }
+    }
+
+    pub fn with_expect_file_extension(mut self, expect_file_extension: &'a str) -> Self {
+        self.expect_file_extension = expect_file_extension;
+        self
+    }
+
+    pub fn expect_file_extension(&self) -> &str {
+        self.expect_file_extension
     }
 }
