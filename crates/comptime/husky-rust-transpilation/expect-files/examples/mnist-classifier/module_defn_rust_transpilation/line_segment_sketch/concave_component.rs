@@ -17,7 +17,7 @@ pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) ->
         if end > start + 1 {
             concave_components.push(ConcaveComponent(line_segment_sketch, line_segment_sketch.strokes.cyclic_slice_leashed(start, end)))
         }
-        start = end
+        start = end;
         end = start + 1
     }
     return concave_components;

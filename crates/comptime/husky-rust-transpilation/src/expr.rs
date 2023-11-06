@@ -136,11 +136,7 @@ fn transpile_hir_eager_expr_to_rust(
             builder
                 .bracketed_comma_list(RustBracket::Box, items.iter().copied().map(any_precedence))
         }
-        HirEagerExprData::Block { stmts } => {
-            for stmt in stmts {
-                stmt.transpile_to_rust(builder)
-            }
-        }
+        HirEagerExprData::Block { stmts } => stmts.transpile_to_rust(builder),
         HirEagerExprData::EmptyHtmlTag {
             function_ident,
             ref arguments,

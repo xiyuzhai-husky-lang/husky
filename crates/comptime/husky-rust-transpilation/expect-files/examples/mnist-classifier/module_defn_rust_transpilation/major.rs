@@ -9,7 +9,7 @@ fn major_connected_component() {
     for i in 0..connected_components.ilen() {
         let row_span_sum = connected_components[i].row_span_sum;
         if row_span_sum > max_row_span_sum {
-            max_row_span_sum = row_span_sum
+            max_row_span_sum = row_span_sum;
             i0 = i
         }
     }

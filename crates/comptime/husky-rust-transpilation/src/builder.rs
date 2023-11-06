@@ -12,7 +12,10 @@ pub(crate) use self::punctuation::*;
 use crate::{expr::RustPrecedence, *};
 use husky_coword::Ident;
 use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
-use husky_hir_eager_expr::{HirEagerExprArena, HirEagerPatternExprArena, HirEagerStmtArena};
+use husky_hir_eager_expr::{
+    HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion, HirEagerPatternExprArena,
+    HirEagerStmtArena,
+};
 use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyStmtArena};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
@@ -175,22 +178,25 @@ impl<'a> RustTranspilationBuilder<'a> {
         self.write_str("}");
     }
 
-    pub(crate) fn curly_block_with_hir_eager_expr_region(
+    pub(crate) fn eager_head(
         &mut self,
-        hir_expr_region: impl Into<HirExprRegion>,
-        f: impl FnOnce(&mut Self),
-    ) {
-        self.curly_block(|builder| builder.with_hir_expr_region(hir_expr_region, f))
-    }
-
-    pub(crate) fn with_hir_expr_region(
-        &mut self,
-        hir_expr_region: impl Into<HirExprRegion>,
-        f: impl FnOnce(&mut Self),
+        hir_eager_expr_region: HirEagerExprRegion,
+        head: impl FnOnce(&mut Self),
     ) {
         debug_assert!(self.hir_expr_region.is_none());
-        self.hir_expr_region = Some(hir_expr_region.into());
-        f(self);
+        self.hir_expr_region = Some(hir_eager_expr_region.into());
+        head(self);
+        self.hir_expr_region = None
+    }
+
+    pub(crate) fn eager_body(
+        &mut self,
+        hir_eager_expr_region: HirEagerExprRegion,
+        body: HirEagerExprIdx,
+    ) {
+        debug_assert!(self.hir_expr_region.is_none());
+        self.hir_expr_region = Some(hir_eager_expr_region.into());
+        any_precedence(body).transpile_to_rust(self);
         self.hir_expr_region = None
     }
 

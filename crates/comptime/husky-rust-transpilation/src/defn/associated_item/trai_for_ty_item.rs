@@ -35,9 +35,7 @@ impl TranspileToRust for TraitForTypeMethodFnHirDefn {
             builder.heterogeneous_comma_list_item(hir_decl.self_value_parameter(db));
             builder.heterogeneous_comma_list_items(hir_decl.parenate_parameters(db).iter())
         });
-        builder.curly_block_with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
-            any_precedence(body).transpile_to_rust(builder)
-        })
+        builder.eager_body(hir_eager_expr_region, body)
     }
 }
 
