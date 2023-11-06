@@ -1,10 +1,10 @@
 
-pub fn quick_sort<T>(arr: Slice< HirTypeSymbolTodo >) {
+pub fn quick_sort<T>(mut arr: Slice< HirTypeSymbolTodo >) {
     let len = arr.len();
     quick_sort_aux(arr, 0, len - 1 as isize)
 }
 
-pub fn quick_sort_aux<T>(arr: Slice< HirTypeSymbolTodo >, low: isize, high: isize) {
+pub fn quick_sort_aux<T>(mut arr: Slice< HirTypeSymbolTodo >, low: isize, high: isize) {
     if low < high {
         let p = partition(arr, low, high);
         quick_sort_aux(arr, low, p - 1)
@@ -12,10 +12,10 @@ pub fn quick_sort_aux<T>(arr: Slice< HirTypeSymbolTodo >, low: isize, high: isiz
     }
 }
 
-pub fn partition<T>(arr: Slice< HirTypeSymbolTodo >, low: isize, high: isize) -> isize {
+pub fn partition<T>(mut arr: Slice< HirTypeSymbolTodo >, low: isize, high: isize) -> isize {
     let pivot = high as usize;
-    let store_index = low - 1;
-    let last_index = high;
+    let mut store_index = low - 1;
+    let mut last_index = high;
     while true {
         store_index += 1
         while arr[store_index as usize] < arr[pivot] {
@@ -36,9 +36,9 @@ pub fn partition<T>(arr: Slice< HirTypeSymbolTodo >, low: isize, high: isize) ->
 }
 
 pub fn quick_sort_works_for_integers() {
-    let v: Vec<i32> = vec![4, 65, 2, -31, 0, 99, 2, 83, 782, 1];
+    let mut v: Vec<i32> = vec![4, 65, 2, -31, 0, 99, 2, 83, 782, 1];
 }
 
 pub fn quick_sort_works_for_strs() {
-    let strs = vec!["beach", "hotel", "airplane", "car", "house", "art"];
+    let mut strs = vec!["beach", "hotel", "airplane", "car", "house", "art"];
 }

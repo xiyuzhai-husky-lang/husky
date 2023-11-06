@@ -8,7 +8,7 @@ pub enum HirEagerPatternExpr {
     Literal(TermLiteral),
     /// example: `a`
     Ident {
-        // symbol_modifier: Option<EphemSymbolModifier>,
+        symbol_modifier: Option<SymbolModifier>,
         ident: Ident,
     },
     /// example: `A::B`
@@ -67,8 +67,8 @@ impl<'a> HirEagerExprBuilder<'a> {
                 symbol_modifier_tokens,
                 ident_token,
             } => HirEagerPatternExpr::Ident {
-                // symbol_modifier: (),
                 ident: ident_token.ident(),
+                symbol_modifier: symbol_modifier_tokens.map(Into::into),
             },
             SynPatternExpr::TypeVariantUnit { .. } => todo!(),
             SynPatternExpr::Tuple { name, fields } => todo!(),

@@ -42,8 +42,8 @@ pub fn get_concave_middle_point(points: Vec<Point2d>) -> Point2d {
 }
 
 pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
-    let result: Vec<RawContour> = vec![];
-    let boundary_unsearched = new_zeros();
+    let mut result: Vec<RawContour> = vec![];
+    let mut boundary_unsearched = new_zeros();
     for i in 1..=29 {
         let r_ur = cc.mask[i - 1];
         let r_dr = cc.mask[i];
@@ -53,21 +53,21 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
     }
     for k in 1..=29 {
         while boundary_unsearched[k] {
-            let contour: Vec<Point2d> = vec![];
-            let i = k;
-            let j = boundary_unsearched[k].ctz();
-            let row_above = cc.mask[i - 1];
-            let row_below = cc.mask[i];
-            let inward_direction = get_inward_direction(row_above, row_below, j);
+            let mut contour: Vec<Point2d> = vec![];
+            let mut i = k;
+            let mut j = boundary_unsearched[k].ctz();
+            let mut row_above = cc.mask[i - 1];
+            let mut row_below = cc.mask[i];
+            let mut inward_direction = get_inward_direction(row_above, row_below, j);
             let i0 = i;
             let j0 = j;
             let dir0 = inward_direction;
-            let prev_angle_change1 = 0;
-            let prev_angle_change2 = 0;
-            let total_angle_change = 0;
-            let prev_streak1 = -1;
-            let prev_streak2 = -1;
-            let current_streak = -1;// DoWhile incomplete
+            let mut prev_angle_change1 = 0;
+            let mut prev_angle_change2 = 0;
+            let mut total_angle_change = 0;
+            let mut prev_streak1 = -1;
+            let mut prev_streak2 = -1;
+            let mut current_streak = -1;// DoWhile incomplete
             while true
             if prev_angle_change1 == -1 && current_streak == 1 && prev_streak1 > 0 {
                 contour.pop();

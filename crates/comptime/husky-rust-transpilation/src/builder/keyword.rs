@@ -19,31 +19,7 @@ pub enum RustKeyword {
     Enum,
     In,
     Loop,
-}
-
-impl RustKeyword {
-    fn code(self) -> &'static str {
-        match self {
-            RustKeyword::Fn => "fn ",
-            RustKeyword::Impl => "impl ",
-            RustKeyword::Pub => "pub ",
-            RustKeyword::Type => "type ",
-            RustKeyword::Mod => "mod ",
-            RustKeyword::Trait => "trait ",
-            RustKeyword::Let => "let ",
-            RustKeyword::If => "if ",
-            RustKeyword::Else => "else ",
-            RustKeyword::While => "while ",
-            RustKeyword::Break => "break",
-            RustKeyword::Return => "return ",
-            RustKeyword::For => "for ",
-            RustKeyword::Loop => "loop ",
-            RustKeyword::Match => "match ",
-            RustKeyword::Struct => "struct ",
-            RustKeyword::Enum => "enum ",
-            RustKeyword::In => " in ",
-        }
-    }
+    Mut,
 }
 
 impl<'a> RustTranspilationBuilder<'a> {
@@ -67,6 +43,7 @@ impl<'a> RustTranspilationBuilder<'a> {
             RustKeyword::Struct => "struct ",
             RustKeyword::Enum => "enum ",
             RustKeyword::In => " in ",
+            RustKeyword::Mut => "mut ",
         };
         self.write_str(s)
     }
