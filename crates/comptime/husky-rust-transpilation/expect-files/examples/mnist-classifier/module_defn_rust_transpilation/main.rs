@@ -14,14 +14,14 @@ pub mod digits;
 pub mod major;
 
 fn main() {
-    is_one?;
-    is_six?;
-    is_zero?;
-    is_seven?;
-    is_eight?;
-    is_three?;
-    is_nine?;
-    is_five?;
-    is_two?;
-    Class::Unknown;
+    is_one?
+    is_six?
+    is_zero?
+    is_seven?
+    is_eight?
+    is_three?
+    is_nine?
+    is_five?
+    is_two?
+    Class::Unknown
 }

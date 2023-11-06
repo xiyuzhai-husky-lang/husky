@@ -201,6 +201,7 @@
                                         },
                                         Eval {
                                             expr_idx: 11,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -574,9 +575,11 @@
                                         },
                                         Eval {
                                             expr_idx: 15,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 22,
+                                            discarded: false,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
@@ -1267,16 +1270,20 @@
                                     data: [
                                         Eval {
                                             expr_idx: 23,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 42,
+                                            discarded: false,
                                         },
                                         Break,
                                         Eval {
                                             expr_idx: 53,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 11,
+                                            discarded: false,
                                         },
                                         While {
                                             condition: HirEagerCondition(
@@ -1288,6 +1295,7 @@
                                         },
                                         Eval {
                                             expr_idx: 26,
+                                            discarded: false,
                                         },
                                         While {
                                             condition: HirEagerCondition(
@@ -1346,9 +1354,11 @@
                                         },
                                         Eval {
                                             expr_idx: 61,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 62,
+                                            discarded: false,
                                         },
                                     ],
                                 },

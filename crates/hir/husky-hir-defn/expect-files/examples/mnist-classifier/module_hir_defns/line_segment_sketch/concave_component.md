@@ -655,12 +655,15 @@
                                     data: [
                                         Eval {
                                             expr_idx: 18,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 37,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 52,
+                                            discarded: false,
                                         },
                                         While {
                                             condition: HirEagerCondition(
@@ -684,9 +687,11 @@
                                         },
                                         Eval {
                                             expr_idx: 55,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 60,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -910,6 +915,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -1014,6 +1020,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 2,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -1128,6 +1135,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 6,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -1462,6 +1470,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 31,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -1916,9 +1925,11 @@
                                         },
                                         Eval {
                                             expr_idx: 25,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 28,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -2605,15 +2616,19 @@
                                         },
                                         Eval {
                                             expr_idx: 30,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 36,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 42,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 48,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -2857,6 +2872,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 6,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -3045,6 +3061,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 14,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -3161,6 +3178,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 6,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -3277,6 +3295,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 6,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -3369,6 +3388,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -3475,6 +3495,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 5,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -3581,6 +3602,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 5,
+                                            discarded: false,
                                         },
                                     ],
                                 },

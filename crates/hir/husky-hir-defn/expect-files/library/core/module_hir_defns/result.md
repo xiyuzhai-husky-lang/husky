@@ -295,6 +295,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 1,
+                                            discarded: false,
                                         },
                                     ],
                                 },

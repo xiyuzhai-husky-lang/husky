@@ -167,6 +167,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },

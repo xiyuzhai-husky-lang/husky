@@ -31,6 +31,7 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-opr = { path = "../../kernel/husky-opr" }
+husky-expr = { path = "../../kernel/husky-expr" }
 # syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-decl-ast = { path = "../../syntax/husky-decl-ast" }

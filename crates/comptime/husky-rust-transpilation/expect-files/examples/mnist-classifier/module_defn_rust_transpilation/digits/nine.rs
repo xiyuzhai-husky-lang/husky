@@ -1,10 +1,10 @@
 
 fn nine_match() {
-    fermi_match(major_concave_components, vec![downmost]);
+    fermi_match(major_concave_components, vec![downmost])
 }
 
 fn nine_match_refine() {
-    fermi_match(major_concave_components, vec![big_cc]);
+    fermi_match(major_concave_components, vec![big_cc])
 }
 
 fn is_nine() {
@@ -33,18 +33,18 @@ fn is_nine() {
         require!(a > 9);
         return OneVsAll::Yes;
     }
-    OneVsAll::Yes;
+    OneVsAll::Yes
 }
 
 pub fn downmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
-    dp.y;
+    dp.y
 }
 
 pub fn big_cc(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0);
     require!(cc.relative_bounding_box.ymin() > 0.4);
-    cc.relative_bounding_box.ymin();
+    cc.relative_bounding_box.ymin()
 }

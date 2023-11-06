@@ -1,6 +1,6 @@
 
 fn upper_mouth_match() {
-    fermi_match(major_concave_components, vec![big_mouth]);
+    fermi_match(major_concave_components, vec![big_mouth])
 }
 
 fn is_eight() {
@@ -15,12 +15,12 @@ fn is_eight() {
         }
         require!(false);
     }
-    OneVsAll::Yes;
+    OneVsAll::Yes
 }
 
 pub fn big_mouth(cc: Leash<ConcaveComponent>) -> Option<f32> {
     if cc.relative_bounding_box.ymax() > 0.5 {
         require!(cc.strokes.first().unwrap().start.x > cc.strokes.first().unwrap().end.x);
     }
-    cc.relative_bounding_box.ymax();
+    cc.relative_bounding_box.ymax()
 }

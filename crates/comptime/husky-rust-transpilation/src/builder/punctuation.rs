@@ -8,20 +8,8 @@ pub enum RustPunctuation {
     Dot,
     ColonColon,
     LightArrow,
-}
-
-impl RustPunctuation {
-    fn code(self) -> &'static str {
-        match self {
-            RustPunctuation::Bra(bracket) => bracket.bra_code(),
-            RustPunctuation::Ket(bracket) => bracket.ket_code(),
-            RustPunctuation::Eq => "=",
-            RustPunctuation::Colon => ":",
-            RustPunctuation::Dot => ".",
-            RustPunctuation::ColonColon => "::",
-            RustPunctuation::LightArrow => todo!(),
-        }
-    }
+    DotDot,
+    DotDotEq,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -68,6 +56,8 @@ impl<'a> RustTranspilationBuilder<'a> {
             RustPunctuation::Dot => ".",
             RustPunctuation::ColonColon => "::",
             RustPunctuation::LightArrow => " -> ",
+            RustPunctuation::DotDot => "..",
+            RustPunctuation::DotDotEq => "..=",
         };
         self.write_str(s)
     }

@@ -882,6 +882,7 @@
                                         },
                                         Eval {
                                             expr_idx: 53,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -892,6 +893,7 @@
                                         },
                                         Eval {
                                             expr_idx: 79,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {

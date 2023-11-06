@@ -19,6 +19,7 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
+husky-expr = { path = "../../kernel/husky-expr" }
 # hir
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-opr = { path = "../../hir/husky-hir-opr" }
@@ -26,6 +27,7 @@ husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # syntax
+# todo: remove this?
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

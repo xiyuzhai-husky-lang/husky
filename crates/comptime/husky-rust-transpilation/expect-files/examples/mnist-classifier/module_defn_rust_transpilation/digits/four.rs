@@ -1,18 +1,18 @@
 
 fn left_components() {
-    fermi_match(major_concave_components, vec![left_coordinate_max, left_coordinate_max]);
+    fermi_match(major_concave_components, vec![left_coordinate_max, left_coordinate_max])
 }
 
 pub fn left_coordinate_max(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    cc.relative_bounding_box.xmax();
+    cc.relative_bounding_box.xmax()
 }
 
 fn components_max_downwards() {
-    fermi_match(major_concave_components, vec![displacement_downwards]);
+    fermi_match(major_concave_components, vec![displacement_downwards])
 }
 
 fn components_max_heights() {
-    fermi_match(major_concave_components, vec![cc_box_heights]);
+    fermi_match(major_concave_components, vec![cc_box_heights])
 }
 
 fn is_four() {
@@ -41,18 +41,18 @@ fn is_four() {
         require!(a > 9);
         return OneVsAll::Yes;
     }
-    OneVsAll::Yes;
+    OneVsAll::Yes
 }
 
 pub fn displacement_downwards(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
-    dp.y;
+    dp.y
 }
 
 pub fn cc_box_heights(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0);
     require!(cc.relative_bounding_box.ymin() > 0.4);
-    cc.relative_bounding_box.ymin();
+    cc.relative_bounding_box.ymin()
 }

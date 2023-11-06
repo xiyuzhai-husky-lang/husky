@@ -1,8 +1,8 @@
+use super::*;
 use husky_coword::Ident;
+use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
 use husky_opr::BinaryComparisonOpr;
 use husky_regional_token::RegionalTokenIdx;
-
-use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SemaExprDb)]
