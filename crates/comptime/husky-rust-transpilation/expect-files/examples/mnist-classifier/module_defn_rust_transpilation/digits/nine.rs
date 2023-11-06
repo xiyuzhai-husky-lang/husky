@@ -36,13 +36,13 @@ fn is_nine() {
     OneVsAll::Yes;
 }
 
-pub fn downmost() {
+pub fn downmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
     dp.y;
 }
 
-pub fn big_cc() {
+pub fn big_cc(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0);
     require!(cc.relative_bounding_box.ymin() > 0.4);

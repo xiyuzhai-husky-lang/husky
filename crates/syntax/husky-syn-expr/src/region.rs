@@ -18,7 +18,8 @@ pub struct SynExprRegionData {
     stmt_arena: SynStmtArena,
     pattern_expr_region: SynPatternExprRegion,
     symbol_region: SynSymbolRegion,
-    roots: Vec<SynExprRoot>,
+    syn_pattern_expr_roots: Vec<SynPatternExprRoot>,
+    syn_expr_roots: Vec<SynExprRoot>,
     has_self_lifetime: bool,
     has_self_place: bool,
 }
@@ -32,7 +33,8 @@ impl SynExprRegionData {
         stmt_arena: SynStmtArena,
         pattern_expr_region: SynPatternExprRegion,
         symbol_region: SynSymbolRegion,
-        roots: Vec<SynExprRoot>,
+        syn_pattern_expr_roots: Vec<SynPatternExprRoot>,
+        syn_expr_roots: Vec<SynExprRoot>,
         has_self_lifetime: bool,
         has_self_place: bool,
     ) -> Self {
@@ -44,7 +46,8 @@ impl SynExprRegionData {
             stmt_arena,
             pattern_expr_region,
             symbol_region,
-            roots,
+            syn_pattern_expr_roots,
+            syn_expr_roots,
             has_self_lifetime,
             has_self_place,
         }
@@ -86,14 +89,18 @@ impl SynExprRegionData {
         &self.symbol_region
     }
 
-    pub fn roots(&self) -> &[SynExprRoot] {
-        self.roots.as_ref()
+    pub fn syn_expr_roots(&self) -> &[SynExprRoot] {
+        self.syn_expr_roots.as_ref()
     }
 
     pub fn return_ty(&self) -> Option<SynExprIdx> {
-        self.roots.iter().find_map(|root| {
-            (root.kind() == ExprRootKind::ReturnType).then_some(root.syn_expr_idx())
+        self.syn_expr_roots.iter().find_map(|root| {
+            (root.kind() == SynExprRootKind::ReturnType).then_some(root.syn_expr_idx())
         })
+    }
+
+    pub fn syn_pattern_expr_roots(&self) -> &[SynPatternExprRoot] {
+        self.syn_pattern_expr_roots.as_ref()
     }
 
     pub fn self_ty(&self) -> Option<SynExprIdx> {

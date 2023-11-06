@@ -90,9 +90,10 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    roots: [
+                                    syn_pattern_expr_roots: [],
+                                    syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: ReturnType,
+                                            kind: SynExprRootKind::ReturnType,
                                             syn_expr_idx: 1,
                                         },
                                     ],
@@ -184,9 +185,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: ReturnType,
+                                                            kind: SynExprRootKind::ReturnType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -435,13 +437,14 @@ Ok(
                                             allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: EvalExpr,
+                                                kind: SynExprRootKind::EvalExpr,
                                                 syn_expr_idx: 7,
                                             },
                                             SynExprRoot {
-                                                kind: BlockExpr,
+                                                kind: SynExprRootKind::BlockExpr,
                                                 syn_expr_idx: 8,
                                             },
                                         ],
@@ -465,9 +468,9 @@ Ok(
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Ordinary {
-                                    syn_pattern_root: SynPatternRoot(
-                                        1,
-                                    ),
+                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                        syn_pattern_expr_idx: 1,
+                                    },
                                     variables: ArenaIdxRange(
                                         1..2,
                                     ),
@@ -637,10 +640,10 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ExplicitRegularParameter {
-                                                    syn_pattern_root: SynPatternRoot(
-                                                        1,
-                                                    ),
+                                                OrdinaryParenateParameter {
+                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                        syn_pattern_expr_idx: 1,
+                                                    },
                                                     ty_expr_idx: 2,
                                                 },
                                                 ArenaIdxRange(
@@ -649,13 +652,19 @@ Ok(
                                             ),
                                         ],
                                     },
-                                    roots: [
+                                    syn_pattern_expr_roots: [
+                                        SynPatternExprRoot {
+                                            kind: SynPatternExprRootKind::Parenate,
+                                            syn_pattern_expr_idx: 1,
+                                        },
+                                    ],
+                                    syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: ExplicitParameterType,
+                                            kind: SynExprRootKind::ExplicitParameterType,
                                             syn_expr_idx: 2,
                                         },
                                         SynExprRoot {
-                                            kind: ReturnType,
+                                            kind: SynExprRootKind::ReturnType,
                                             syn_expr_idx: 4,
                                         },
                                     ],
@@ -823,10 +832,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
                                                             (
-                                                                ExplicitRegularParameter {
-                                                                    syn_pattern_root: SynPatternRoot(
-                                                                        1,
-                                                                    ),
+                                                                OrdinaryParenateParameter {
+                                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                                        syn_pattern_expr_idx: 1,
+                                                                    },
                                                                     ty_expr_idx: 2,
                                                                 },
                                                                 ArenaIdxRange(
@@ -835,13 +844,19 @@ Ok(
                                                             ),
                                                         ],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [
+                                                        SynPatternExprRoot {
+                                                            kind: SynPatternExprRootKind::Parenate,
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
+                                                    ],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: ExplicitParameterType,
+                                                            kind: SynExprRootKind::ExplicitParameterType,
                                                             syn_expr_idx: 2,
                                                         },
                                                         SynExprRoot {
-                                                            kind: ReturnType,
+                                                            kind: SynExprRootKind::ReturnType,
                                                             syn_expr_idx: 4,
                                                         },
                                                     ],
@@ -982,9 +997,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                1,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 1,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 1..2,
                                                             ),
@@ -1098,21 +1113,27 @@ Ok(
                                             allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 2,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 6,
                                             },
                                             SynExprRoot {
-                                                kind: EvalExpr,
+                                                kind: SynExprRootKind::EvalExpr,
                                                 syn_expr_idx: 8,
                                             },
                                             SynExprRoot {
-                                                kind: BlockExpr,
+                                                kind: SynExprRootKind::BlockExpr,
                                                 syn_expr_idx: 9,
                                             },
                                         ],
@@ -1136,9 +1157,9 @@ Ok(
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Ordinary {
-                                    syn_pattern_root: SynPatternRoot(
-                                        1,
-                                    ),
+                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                        syn_pattern_expr_idx: 1,
+                                    },
                                     variables: ArenaIdxRange(
                                         1..2,
                                     ),
@@ -1308,10 +1329,10 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ExplicitRegularParameter {
-                                                    syn_pattern_root: SynPatternRoot(
-                                                        1,
-                                                    ),
+                                                OrdinaryParenateParameter {
+                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                        syn_pattern_expr_idx: 1,
+                                                    },
                                                     ty_expr_idx: 2,
                                                 },
                                                 ArenaIdxRange(
@@ -1320,13 +1341,19 @@ Ok(
                                             ),
                                         ],
                                     },
-                                    roots: [
+                                    syn_pattern_expr_roots: [
+                                        SynPatternExprRoot {
+                                            kind: SynPatternExprRootKind::Parenate,
+                                            syn_pattern_expr_idx: 1,
+                                        },
+                                    ],
+                                    syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: ExplicitParameterType,
+                                            kind: SynExprRootKind::ExplicitParameterType,
                                             syn_expr_idx: 2,
                                         },
                                         SynExprRoot {
-                                            kind: ReturnType,
+                                            kind: SynExprRootKind::ReturnType,
                                             syn_expr_idx: 4,
                                         },
                                     ],
@@ -1494,10 +1521,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
                                                             (
-                                                                ExplicitRegularParameter {
-                                                                    syn_pattern_root: SynPatternRoot(
-                                                                        1,
-                                                                    ),
+                                                                OrdinaryParenateParameter {
+                                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                                        syn_pattern_expr_idx: 1,
+                                                                    },
                                                                     ty_expr_idx: 2,
                                                                 },
                                                                 ArenaIdxRange(
@@ -1506,13 +1533,19 @@ Ok(
                                                             ),
                                                         ],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [
+                                                        SynPatternExprRoot {
+                                                            kind: SynPatternExprRootKind::Parenate,
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
+                                                    ],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: ExplicitParameterType,
+                                                            kind: SynExprRootKind::ExplicitParameterType,
                                                             syn_expr_idx: 2,
                                                         },
                                                         SynExprRoot {
-                                                            kind: ReturnType,
+                                                            kind: SynExprRootKind::ReturnType,
                                                             syn_expr_idx: 4,
                                                         },
                                                     ],
@@ -1653,9 +1686,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                1,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 1,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 1..2,
                                                             ),
@@ -1769,21 +1802,27 @@ Ok(
                                             allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 2,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 6,
                                             },
                                             SynExprRoot {
-                                                kind: EvalExpr,
+                                                kind: SynExprRootKind::EvalExpr,
                                                 syn_expr_idx: 8,
                                             },
                                             SynExprRoot {
-                                                kind: BlockExpr,
+                                                kind: SynExprRootKind::BlockExpr,
                                                 syn_expr_idx: 9,
                                             },
                                         ],
@@ -1807,9 +1846,9 @@ Ok(
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Ordinary {
-                                    syn_pattern_root: SynPatternRoot(
-                                        1,
-                                    ),
+                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                        syn_pattern_expr_idx: 1,
+                                    },
                                     variables: ArenaIdxRange(
                                         1..2,
                                     ),
@@ -1979,10 +2018,10 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ExplicitRegularParameter {
-                                                    syn_pattern_root: SynPatternRoot(
-                                                        1,
-                                                    ),
+                                                OrdinaryParenateParameter {
+                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                        syn_pattern_expr_idx: 1,
+                                                    },
                                                     ty_expr_idx: 2,
                                                 },
                                                 ArenaIdxRange(
@@ -1991,13 +2030,19 @@ Ok(
                                             ),
                                         ],
                                     },
-                                    roots: [
+                                    syn_pattern_expr_roots: [
+                                        SynPatternExprRoot {
+                                            kind: SynPatternExprRootKind::Parenate,
+                                            syn_pattern_expr_idx: 1,
+                                        },
+                                    ],
+                                    syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: ExplicitParameterType,
+                                            kind: SynExprRootKind::ExplicitParameterType,
                                             syn_expr_idx: 2,
                                         },
                                         SynExprRoot {
-                                            kind: ReturnType,
+                                            kind: SynExprRootKind::ReturnType,
                                             syn_expr_idx: 4,
                                         },
                                     ],
@@ -2165,10 +2210,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
                                                             (
-                                                                ExplicitRegularParameter {
-                                                                    syn_pattern_root: SynPatternRoot(
-                                                                        1,
-                                                                    ),
+                                                                OrdinaryParenateParameter {
+                                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                                        syn_pattern_expr_idx: 1,
+                                                                    },
                                                                     ty_expr_idx: 2,
                                                                 },
                                                                 ArenaIdxRange(
@@ -2177,13 +2222,19 @@ Ok(
                                                             ),
                                                         ],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [
+                                                        SynPatternExprRoot {
+                                                            kind: SynPatternExprRootKind::Parenate,
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
+                                                    ],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: ExplicitParameterType,
+                                                            kind: SynExprRootKind::ExplicitParameterType,
                                                             syn_expr_idx: 2,
                                                         },
                                                         SynExprRoot {
-                                                            kind: ReturnType,
+                                                            kind: SynExprRootKind::ReturnType,
                                                             syn_expr_idx: 4,
                                                         },
                                                     ],
@@ -2324,9 +2375,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                1,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 1,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 1..2,
                                                             ),
@@ -2440,21 +2491,27 @@ Ok(
                                             allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 2,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 6,
                                             },
                                             SynExprRoot {
-                                                kind: EvalExpr,
+                                                kind: SynExprRootKind::EvalExpr,
                                                 syn_expr_idx: 8,
                                             },
                                             SynExprRoot {
-                                                kind: BlockExpr,
+                                                kind: SynExprRootKind::BlockExpr,
                                                 syn_expr_idx: 9,
                                             },
                                         ],
@@ -2641,9 +2698,10 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    roots: [
+                                    syn_pattern_expr_roots: [],
+                                    syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: ReturnType,
+                                            kind: SynExprRootKind::ReturnType,
                                             syn_expr_idx: 5,
                                         },
                                     ],
@@ -2818,9 +2876,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: ReturnType,
+                                                            kind: SynExprRootKind::ReturnType,
                                                             syn_expr_idx: 5,
                                                         },
                                                     ],
@@ -2860,9 +2919,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                1,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 1,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 1..2,
                                                             ),
@@ -2886,9 +2945,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                2,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 2,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 2..3,
                                                             ),
@@ -2912,9 +2971,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                3,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 3,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 3..4,
                                                             ),
@@ -2938,9 +2997,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                4,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 4,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 4..5,
                                                             ),
@@ -2964,9 +3023,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                5,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 5,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 5..6,
                                                             ),
@@ -2990,9 +3049,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                6,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 6,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 6..7,
                                                             ),
@@ -3105,9 +3164,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                9,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 9,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 9..10,
                                                             ),
@@ -3420,9 +3479,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                14,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 14,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 14..15,
                                                             ),
@@ -3446,9 +3505,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                15,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 15,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 15..16,
                                                             ),
@@ -4092,9 +4151,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                26,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 26,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 26..27,
                                                             ),
@@ -4118,9 +4177,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                27,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 27,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 27..28,
                                                             ),
@@ -4144,9 +4203,9 @@ Ok(
                                                     ),
                                                     target: Ok(
                                                         BePatternSynSyndicate {
-                                                            pattern_expr: SynPatternRoot(
-                                                                28,
-                                                            ),
+                                                            pattern_expr_root: BeSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 28,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 28..29,
                                                             ),
@@ -4537,9 +4596,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                16,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 16,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 16..17,
                                                             ),
@@ -4574,9 +4633,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                17,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 17,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 17..18,
                                                             ),
@@ -4603,9 +4662,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                18,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 18,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 18..19,
                                                             ),
@@ -4632,9 +4691,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                19,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 19,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 19..20,
                                                             ),
@@ -4661,9 +4720,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                20,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 20,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 20..21,
                                                             ),
@@ -4690,9 +4749,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                21,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 21,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 21..22,
                                                             ),
@@ -4719,9 +4778,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                22,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 22,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 22..23,
                                                             ),
@@ -4748,9 +4807,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                23,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 23,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 23..24,
                                                             ),
@@ -4777,9 +4836,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                24,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 24,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 24..25,
                                                             ),
@@ -4806,9 +4865,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                25,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 25,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 25..26,
                                                             ),
@@ -4875,9 +4934,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                29,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 29,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 29..30,
                                                             ),
@@ -4952,9 +5011,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                7,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 7,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 7..8,
                                                             ),
@@ -4981,9 +5040,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                8,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 8,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 8..9,
                                                             ),
@@ -5018,9 +5077,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                10,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 10,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 10..11,
                                                             ),
@@ -5047,9 +5106,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                11,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 11,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 11..12,
                                                             ),
@@ -5076,9 +5135,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                12,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 12,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 12..13,
                                                             ),
@@ -5113,9 +5172,9 @@ Ok(
                                                     },
                                                     let_variables_pattern: Ok(
                                                         LetPatternSynSyndicate {
-                                                            syn_pattern_root: SynPatternRoot(
-                                                                13,
-                                                            ),
+                                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                                                syn_pattern_expr_idx: 13,
+                                                            },
                                                             variables: ArenaIdxRange(
                                                                 13..14,
                                                             ),
@@ -6303,149 +6362,267 @@ Ok(
                                             allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 2,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 3,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 4,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 5,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 6,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 7,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 8,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 9,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 10,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 11,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 12,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 13,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 14,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 15,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 16,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 17,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 18,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 19,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 20,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 21,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 22,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 23,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 24,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 25,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 26,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 27,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Be,
+                                                syn_pattern_expr_idx: 28,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Let,
+                                                syn_pattern_expr_idx: 29,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 2,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 4,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 6,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 8,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 10,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 12,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 14,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 16,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 21,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 25,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 29,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 33,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 36,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 41,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 44,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 49,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 51,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 54,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 58,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 63,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 67,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 71,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 75,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 79,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 85,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 89,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 93,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 99,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 102,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 107,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 109,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 111,
                                             },
                                             SynExprRoot {
-                                                kind: Condition,
+                                                kind: SynExprRootKind::Condition,
                                                 syn_expr_idx: 117,
                                             },
                                             SynExprRoot {
-                                                kind: LetStmtInitialValue,
+                                                kind: SynExprRootKind::LetStmtInitialValue,
                                                 syn_expr_idx: 120,
                                             },
                                             SynExprRoot {
-                                                kind: EvalExpr,
+                                                kind: SynExprRootKind::EvalExpr,
                                                 syn_expr_idx: 121,
                                             },
                                             SynExprRoot {
-                                                kind: BlockExpr,
+                                                kind: SynExprRootKind::BlockExpr,
                                                 syn_expr_idx: 122,
                                             },
                                         ],

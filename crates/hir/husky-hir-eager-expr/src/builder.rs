@@ -6,8 +6,8 @@ use husky_sema_expr::{
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
 use husky_syn_expr::{
-    ExprRootKind, SynExprData, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtData,
-    SynStmtIdx,
+    SynExprData, SynExprIdx, SynExprRegion, SynExprRegionData, SynExprRootKind, SynPatternExprIdx,
+    SynPatternExprMap, SynPatternExprRootKind, SynStmtData, SynStmtIdx,
 };
 use salsa::DebugWithDb;
 
@@ -18,6 +18,7 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     hir_eager_expr_arena: HirEagerExprArena,
     hir_eager_stmt_arena: HirEagerStmtArena,
     hir_eager_pattern_expr_arena: HirEagerPatternExprArena,
+    syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,
     sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
 }
@@ -33,6 +34,9 @@ impl<'a> HirEagerExprBuilder<'a> {
             hir_eager_expr_arena: Default::default(),
             hir_eager_pattern_expr_arena: Default::default(),
             hir_eager_stmt_arena: Default::default(),
+            syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap::new(
+                syn_expr_region_data.pattern_expr_arena(),
+            ),
             sema_to_hir_eager_expr_idx_map: SemaExprMap::new(
                 sema_expr_region_data.sema_expr_arena(),
             ),
@@ -57,18 +61,27 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub fn build_all_then_finish(mut self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
         for (sema_expr_idx, expr_root_kind) in self.sema_expr_region_data.sema_expr_roots() {
             match expr_root_kind {
-                ExprRootKind::BlockExpr | ExprRootKind::ReturnExpr => {
+                SynExprRootKind::BlockExpr | SynExprRootKind::ReturnExpr => {
                     sema_expr_idx.to_hir_eager(&mut self);
                 }
                 // ad hoc
-                ExprRootKind::FieldBindInitialValue { .. } => (),
+                SynExprRootKind::FieldBindInitialValue { .. } => (),
                 // ad hoc
-                ExprRootKind::ExplicitParameterDefaultValue { .. } => (),
+                SynExprRootKind::ExplicitParameterDefaultValue { .. } => (),
                 // ad hoc
-                ExprRootKind::Snippet => (),
+                SynExprRootKind::Snippet => (),
                 // ad hoc
-                ExprRootKind::ValExpr => (),
                 _ => continue,
+            }
+        }
+        for &syn_pattern_expr_root in self.syn_expr_region_data.syn_pattern_expr_roots() {
+            match syn_pattern_expr_root.kind() {
+                SynPatternExprRootKind::Parenate => {
+                    self.new_pattern_expr(syn_pattern_expr_root);
+                }
+                SynPatternExprRootKind::Let
+                | SynPatternExprRootKind::Case
+                | SynPatternExprRootKind::Be => continue,
             }
         }
         self.finish()
@@ -104,9 +117,12 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn alloc_pattern_expr(
         &mut self,
         pattern_expr: HirEagerPatternExpr,
+        syn_pattern_expr_idx: SynPatternExprIdx,
     ) -> HirEagerPatternExprIdx {
-        // todo: record in source map
-        self.hir_eager_pattern_expr_arena.alloc_one(pattern_expr)
+        let pattern_expr_idx = self.hir_eager_pattern_expr_arena.alloc_one(pattern_expr);
+        self.syn_to_hir_eager_pattern_expr_idx_map
+            .insert_new(syn_pattern_expr_idx, pattern_expr_idx);
+        pattern_expr_idx
     }
 
     pub(crate) fn path(&self) -> String {
@@ -143,6 +159,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             ),
             HirEagerExprSourceMap::new(
                 self.db,
+                self.syn_to_hir_eager_pattern_expr_idx_map,
                 self.sema_to_hir_eager_expr_idx_map,
                 self.sema_to_hir_eager_stmt_idx_map,
             ),

@@ -4,12 +4,12 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct CasePatternSemaSyndicate {
-    syn_pattern_root: SynPatternRoot,
+    syn_pattern_root: CaseSynPatternExprRoot,
     variables: SynCurrentSymbolIdxRange,
 }
 
 impl CasePatternSemaSyndicate {
-    pub fn syn_pattern_root(&self) -> SynPatternRoot {
+    pub fn syn_pattern_root(&self) -> CaseSynPatternExprRoot {
         self.syn_pattern_root
     }
 

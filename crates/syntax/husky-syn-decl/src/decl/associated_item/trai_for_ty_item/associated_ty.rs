@@ -43,7 +43,7 @@ impl<'a> DeclParser<'a, TraitForTypeItemSynNodePath> {
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqForAssociatedType);
         let ty_term_expr_idx = parser.parse_expr_expected2(
             None,
-            ExprRootKind::AssociatedTypeTerm,
+            SynExprRootKind::AssociatedTypeTerm,
             OriginalSynExprError::ExpectedTypeTermForAssociatedType,
         );
         let generics = parser.try_parse_option();

@@ -3,7 +3,7 @@ fn left_components() {
     fermi_match(major_concave_components, vec![left_coordinate_max, left_coordinate_max]);
 }
 
-pub fn left_coordinate_max() {
+pub fn left_coordinate_max(cc: Leash<ConcaveComponent>) -> Option<f32> {
     cc.relative_bounding_box.xmax();
 }
 
@@ -44,13 +44,13 @@ fn is_four() {
     OneVsAll::Yes;
 }
 
-pub fn displacement_downwards() {
+pub fn displacement_downwards(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
     dp.y;
 }
 
-pub fn cc_box_heights() {
+pub fn cc_box_heights(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0);
     require!(cc.relative_bounding_box.ymin() > 0.4);

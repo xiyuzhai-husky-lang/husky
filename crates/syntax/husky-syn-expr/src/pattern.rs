@@ -71,52 +71,13 @@ pub type SynPatternExprIdxRange = ArenaIdxRange<SynPatternExpr>;
 pub type SynPatternExprMap<V> = ArenaMap<SynPatternExpr, V>;
 pub type SynPatternExprOrderedMap<V> = ArenaOrderedMap<SynPatternExpr, V>;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct SynPatternRoot(SynPatternExprIdx);
-
-impl SynPatternRoot {
-    pub fn syn_pattern_expr_idx(self) -> SynPatternExprIdx {
-        self.0
-    }
-}
-
+/// irreducible against `|`
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynPatternComponent(SynPatternExprIdx);
 
 impl SynPatternComponent {
     pub fn syn_pattern_expr_idx(self) -> SynPatternExprIdx {
         self.0
-    }
-}
-
-impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for SynPatternRoot
-where
-    C: IsSynExprContext<'a>,
-{
-    type Error = SynExprError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        sp: &mut SynExprParser<'a, C>,
-    ) -> Result<Option<Self>, Self::Error> {
-        let punctuated_patterns = sp.try_parse::<PunctuatedSmallList<
-            SynPatternComponent,
-            VerticalRegionalToken,
-            SynExprError,
-            false,
-            3,
-        >>()?;
-        match punctuated_patterns.elements().len() {
-            0 => Ok(None),
-            1 => Ok(Some(SynPatternRoot(punctuated_patterns.elements()[0].0))),
-            _ => {
-                let expr = SynPatternExpr::OneOf {
-                    options: punctuated_patterns,
-                };
-                Ok(Some(SynPatternRoot(
-                    sp.context_mut().alloc_pattern_expr(expr),
-                )))
-            }
-        }
     }
 }
 
@@ -306,3 +267,179 @@ where
 //     //     Ok(None)
 //     // }
 // }
+
+impl<'a, C> SynExprParser<'a, C>
+where
+    C: IsSynExprContext<'a>,
+{
+    fn try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+        self: &mut SynExprParser<'a, C>,
+        root_kind: SynPatternExprRootKind,
+    ) -> SynExprResult<Option<SynPatternExprRoot>> {
+        let punctuated_patterns = self.try_parse::<PunctuatedSmallList<
+            SynPatternComponent,
+            VerticalRegionalToken,
+            SynExprError,
+            false,
+            3,
+        >>()?;
+        match punctuated_patterns.elements().len() {
+            0 => Ok(None),
+            1 => Ok(Some(SynPatternExprRoot::new(
+                root_kind,
+                punctuated_patterns.elements()[0].0,
+                self.context_mut(),
+            ))),
+            _ => {
+                let expr = SynPatternExpr::OneOf {
+                    options: punctuated_patterns,
+                };
+                Ok(Some(SynPatternExprRoot::new(
+                    root_kind,
+                    self.context_mut().alloc_pattern_expr(expr),
+                    self.context_mut(),
+                )))
+            }
+        }
+    }
+}
+
+// parenate
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct ParenateSynPatternExprRoot {
+    syn_pattern_expr_idx: SynPatternExprIdx,
+}
+
+impl ParenateSynPatternExprRoot {
+    pub fn syn_pattern_expr_idx(&self) -> SynPatternExprIdx {
+        self.syn_pattern_expr_idx
+    }
+}
+
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for ParenateSynPatternExprRoot
+where
+    C: IsSynExprContext<'a>,
+{
+    type Error = SynExprError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        sp: &mut SynExprParser<'a, C>,
+    ) -> Result<Option<Self>, Self::Error> {
+        let Some(root) = sp
+            .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+                SynPatternExprRootKind::Parenate,
+            )?
+        else {
+            return Ok(None);
+        };
+        Ok(Some(ParenateSynPatternExprRoot {
+            syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
+        }))
+    }
+}
+
+// let
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct LetSynPatternExprRoot {
+    syn_pattern_expr_idx: SynPatternExprIdx,
+}
+
+impl LetSynPatternExprRoot {
+    pub fn syn_pattern_expr_idx(&self) -> SynPatternExprIdx {
+        self.syn_pattern_expr_idx
+    }
+}
+
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for LetSynPatternExprRoot
+where
+    C: IsSynExprContext<'a>,
+{
+    type Error = SynExprError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        sp: &mut SynExprParser<'a, C>,
+    ) -> Result<Option<Self>, Self::Error> {
+        let Some(root) = sp
+            .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+                SynPatternExprRootKind::Let,
+            )?
+        else {
+            return Ok(None);
+        };
+        Ok(Some(LetSynPatternExprRoot {
+            syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
+        }))
+    }
+}
+
+// case
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct CaseSynPatternExprRoot {
+    syn_pattern_expr_idx: SynPatternExprIdx,
+}
+
+impl CaseSynPatternExprRoot {
+    pub fn syn_pattern_expr_idx(&self) -> SynPatternExprIdx {
+        self.syn_pattern_expr_idx
+    }
+}
+
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for CaseSynPatternExprRoot
+where
+    C: IsSynExprContext<'a>,
+{
+    type Error = SynExprError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        sp: &mut SynExprParser<'a, C>,
+    ) -> Result<Option<Self>, Self::Error> {
+        let Some(root) = sp
+            .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+                SynPatternExprRootKind::Case,
+            )?
+        else {
+            return Ok(None);
+        };
+        Ok(Some(CaseSynPatternExprRoot {
+            syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
+        }))
+    }
+}
+
+// be
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct BeSynPatternExprRoot {
+    syn_pattern_expr_idx: SynPatternExprIdx,
+}
+
+impl BeSynPatternExprRoot {
+    pub fn syn_pattern_expr_idx(&self) -> SynPatternExprIdx {
+        self.syn_pattern_expr_idx
+    }
+}
+
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for BeSynPatternExprRoot
+where
+    C: IsSynExprContext<'a>,
+{
+    type Error = SynExprError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        sp: &mut SynExprParser<'a, C>,
+    ) -> Result<Option<Self>, Self::Error> {
+        let Some(root) = sp
+            .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+                SynPatternExprRootKind::Be,
+            )?
+        else {
+            return Ok(None);
+        };
+        Ok(Some(BeSynPatternExprRoot {
+            syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
+        }))
+    }
+}

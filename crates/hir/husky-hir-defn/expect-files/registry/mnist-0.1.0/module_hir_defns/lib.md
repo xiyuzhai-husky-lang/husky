@@ -37,12 +37,30 @@
                         ),
                         fields: [
                             TupleFieldHirDecl {
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 69,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::array::Array`, `Extern`),
+                                        template_arguments: [
+                                            Constant(
+                                                Symbol(
+                                                    HirConstSymbol(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            Type(
+                                                PathLeading(
+                                                    HirTypePathLeading(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             },
                         ],
@@ -74,12 +92,30 @@
                         ),
                         fields: [
                             TupleFieldHirDecl {
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 69,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::array::Array`, `Extern`),
+                                        template_arguments: [
+                                            Constant(
+                                                Symbol(
+                                                    HirConstSymbol(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            Type(
+                                                PathLeading(
+                                                    HirTypePathLeading(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             },
                         ],
@@ -170,16 +206,15 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        self_value_parameter: Ordinary,
-                        parenate_parameters: HirParenateParameters(
+                        self_value_parameter: HirEagerSelfValueParameter,
+                        parenate_parameters: HirEagerParenateParameters(
                             [],
                         ),
-                        return_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::visual::Html`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: None,
@@ -199,12 +234,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 70,
-                            },
-                        ),
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                            template_arguments: [],
+                        },
                     ),
                 },
             },
@@ -236,15 +270,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        parenate_parameters: HirParenateParameters(
+                        parenate_parameters: HirEagerParenateParameters(
                             [],
                         ),
-                        return_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 70,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                template_arguments: [],
+                            },
                         ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
@@ -314,12 +347,11 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        associated_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
+                        associated_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
                     },
                 },
@@ -377,16 +409,15 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        self_value_parameter: Ordinary,
-                        parenate_parameters: HirParenateParameters(
+                        self_value_parameter: HirEagerSelfValueParameter,
+                        parenate_parameters: HirEagerParenateParameters(
                             [],
                         ),
-                        return_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::visual::Html`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: None,
@@ -406,12 +437,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 71,
-                            },
-                        ),
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            template_arguments: [],
+                        },
                     ),
                 },
             },
@@ -443,15 +473,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        parenate_parameters: HirParenateParameters(
+                        parenate_parameters: HirEagerParenateParameters(
                             [],
                         ),
-                        return_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 71,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                template_arguments: [],
+                            },
                         ),
                         hir_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
@@ -521,12 +550,11 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        associated_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
+                        associated_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
                     },
                 },

@@ -183,7 +183,7 @@ impl<'a> RustTranspilationBuilder<'a> {
         self.curly_block(|builder| builder.with_hir_expr_region(hir_expr_region, f))
     }
 
-    fn with_hir_expr_region(
+    pub(crate) fn with_hir_expr_region(
         &mut self,
         hir_expr_region: impl Into<HirExprRegion>,
         f: impl FnOnce(&mut Self),
@@ -305,10 +305,10 @@ impl TranspileToRust for HirType {
                     builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
                 }
             }
-            HirType::Symbol(_) => todo!(),
+            HirType::Symbol(_) => builder.write_str(" HirTypeSymbolTodo "),
             HirType::TypeAssociatedType(_) => todo!(),
             HirType::TraitAssociatedType(_) => todo!(),
-            HirType::Ritchie() => todo!(),
+            HirType::Ritchie() => builder.write_str(" HirTypeRitchieTodo "),
         }
     }
 }

@@ -3,7 +3,7 @@ struct ConnectedComponentDistribution{row_start: i32, row_end: i32, upper_mass: 
 
 struct EffHoles{matches: Vec<Option<Leash<RawContour>>>}
 
-pub fn hole_tmpl() {
+pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
     let len = ct.contour_len;
     require!(len > 4);
     len + 0;
@@ -11,7 +11,7 @@ pub fn hole_tmpl() {
 
 struct ConnectedComponent{mask: BinaryImage28}
 
-pub fn horizontal_extend(, ) {
+pub fn horizontal_extend(a: r32, x: r32) -> r32 {
     let y = a | x | x << 1 | x >> 1;
     let z = a | y | y << 1 | y >> 1;
     while z != y {
@@ -21,7 +21,7 @@ pub fn horizontal_extend(, ) {
     return y;
 }
 
-pub fn find_connected_components() {
+pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> {
     let result: Vec<ConnectedComponent> = vec![];
     let unsearched = img.clone();
     for {

@@ -66,7 +66,7 @@ impl<'a> SynStmtContext<'a> {
         let expr = SynExprData::Block { stmts };
         let expr = self.alloc_expr(expr);
         self.expr_context
-            .add_expr_root(ExprRootKind::BlockExpr, expr);
+            .add_expr_root(SynExprRootKind::BlockExpr, expr);
         expr
     }
 

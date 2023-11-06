@@ -7,7 +7,9 @@ pub struct FunctionFnFugitiveHirDecl {
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     #[return_ref]
-    pub parenate_parameters: HirParenateParameters,
+    pub parenate_parameters: HirEagerParenateParameters,
+    pub return_ty: HirType,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 impl FunctionFnFugitiveHirDecl {
@@ -20,8 +22,15 @@ impl FunctionFnFugitiveHirDecl {
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
         let parenate_parameters =
-            HirParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder);
+            HirEagerParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder);
         let return_ty = builder.return_ty_before_colon(syn_decl.return_ty(db));
-        Self::new(db, path, template_parameters, parenate_parameters)
+        Self::new(
+            db,
+            path,
+            template_parameters,
+            parenate_parameters,
+            return_ty,
+            builder.finish().eager(),
+        )
     }
 }

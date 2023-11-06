@@ -92,7 +92,7 @@ where
     pub fn parse_expr_root(
         &mut self,
         env: impl Into<Option<ExprEnvironment>>,
-        expr_root_kind: ExprRootKind,
+        expr_root_kind: SynExprRootKind,
     ) -> Option<SynExprIdx> {
         let env = env.into();
         if let Some(env) = env {
@@ -153,7 +153,7 @@ where
     pub fn parse_expr_expected2(
         &mut self,
         env: Option<ExprEnvironment>,
-        expr_root_kind: ExprRootKind,
+        expr_root_kind: SynExprRootKind,
         err: impl FnOnce(RegionalTokenStreamState) -> OriginalSynExprError,
     ) -> SynExprIdx {
         let state = self.save_state();

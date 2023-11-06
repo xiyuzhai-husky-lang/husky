@@ -85,7 +85,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                                 Some(ExprEnvironment::WithinBracketedParameterList(
                                     SynBracket::TurboFish,
                                 )),
-                                ExprRootKind::Traits,
+                                SynExprRootKind::Traits,
                                 OriginalSynExprError::ExpectedTraits,
                             ),
                         ))
@@ -146,7 +146,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 Some(ExprEnvironment::WithinBracketedParameterList(
                     SynBracket::TurboFish,
                 )),
-                ExprRootKind::ConstantImplicitParameterType,
+                SynExprRootKind::ConstantImplicitParameterType,
                 OriginalSynExprError::ExpectedConstantImplicitParameterType,
             );
             let access_start = ctx.save_state().next_regional_token_idx();

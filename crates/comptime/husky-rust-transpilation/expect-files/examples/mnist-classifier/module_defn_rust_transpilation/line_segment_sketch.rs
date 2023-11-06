@@ -11,7 +11,7 @@ struct LineSegmentStroke{points: Leash<CyclicSlice<Point2d>>, start: Point2d, en
 
 struct LineSegmentSketch{contour: Leash<RawContour>, strokes: Vec<LineSegmentStroke>}
 
-pub fn go_right(, ) {
+pub fn go_right(u: Vector2d, r: f32) -> Vector2d {
     let L = u.x * u.x + u.y * u.y.sqrt();
     assert!(L > r);
     let dr = r * L / L * L - r * r.sqrt();
@@ -20,7 +20,7 @@ pub fn go_right(, ) {
     Vector2d(u.x + dx, u.y + dy);
 }
 
-pub fn go_left(, ) {
+pub fn go_left(u: Vector2d, r: f32) -> Vector2d {
     let L = u.x * u.x + u.y * u.y.sqrt();
     assert!(L > r);
     let dr = r * L / L * L - r * r.sqrt();
@@ -29,7 +29,7 @@ pub fn go_left(, ) {
     Vector2d(u.x + dx, u.y + dy);
 }
 
-pub fn extend_end(, , ) {
+pub fn extend_end(ct: Leash<RawContour>, start: i32, r: f32) -> i32 {
     let end = start;
     let dp = ct.displacement(start, end + 1);
     let N = ct.points.ilen();
@@ -68,7 +68,7 @@ pub fn extend_end(, , ) {
     return end;
 }
 
-pub fn extend_start(, , , ) {
+pub fn extend_start(ct: Leash<RawContour>, start0: i32, end: i32, r: f32) -> i32 {
     let start = end;
     let dp0 = ct.displacement(end, start - 1);
     let min_start = end - ct.points.ilen();
@@ -116,7 +116,7 @@ pub fn extend_start(, , , ) {
     }
 }
 
-pub fn find_line_segments(, ) {
+pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStroke> {
     let line_segments: Vec<LineSegmentStroke> = vec![];
     let start = 0;
     let end = 1;

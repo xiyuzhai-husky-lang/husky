@@ -12,6 +12,7 @@ use crate::*;
 /// this is much simpler than that in Term, right?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
+#[salsa::debug_with_db(db = HirTypeDb)]
 pub enum HirType {
     PathLeading(HirTypePathLeading),
     Symbol(HirTypeSymbol),
@@ -56,6 +57,20 @@ impl HirType {
             EtherealTerm::Subitem(_) => todo!(),
             EtherealTerm::AsTraitSubitem(_) => todo!(),
             _ => unreachable!("it should be guaranteed that the term is a valid HirType"),
+        }
+    }
+
+    pub fn prelude_ty_path(self, db: &dyn HirTypeDb) -> Option<PreludeTypePath> {
+        match self {
+            HirType::PathLeading(hir_ty) => hir_ty.ty_path(db).prelude_ty_path(db),
+            _ => None,
+        }
+    }
+
+    pub fn is_equal_to_unit_obviously(self, db: &dyn HirTypeDb) -> bool {
+        match self.prelude_ty_path(db) {
+            Some(PreludeTypePath::UNIT) => true,
+            _ => false,
         }
     }
 }

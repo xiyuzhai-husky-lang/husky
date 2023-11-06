@@ -13,6 +13,7 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
+use husky_hir_decl::parameter::template::HirTemplateParameter;
 use husky_hir_eager_expr::helpers::hir_eager_body_with_expr_region;
 use husky_hir_ty::*;
 

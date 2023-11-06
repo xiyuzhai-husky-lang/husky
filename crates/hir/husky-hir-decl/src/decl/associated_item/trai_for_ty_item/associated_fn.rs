@@ -7,7 +7,7 @@ pub struct TraitForTypeAssociatedFnHirDecl {
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     #[return_ref]
-    pub parenate_parameters: HirParenateParameters,
+    pub parenate_parameters: HirEagerParenateParameters,
     pub return_ty: HirType,
 }
 
@@ -21,7 +21,7 @@ impl TraitForTypeAssociatedFnHirDecl {
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
         let parenate_parameters =
-            HirParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder);
+            HirEagerParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder);
         let return_ty = syn_decl
             .return_ty(db)
             .map(|syndicate| builder.hir_ty(syndicate.syn_expr_idx()))

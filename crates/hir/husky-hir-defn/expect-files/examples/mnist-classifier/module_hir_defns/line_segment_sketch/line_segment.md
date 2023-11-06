@@ -12,22 +12,20 @@
                         fields: [
                             PropsFieldHirDecl {
                                 ident: `start`,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 48,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
                             PropsFieldHirDecl {
                                 ident: `end`,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 48,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
                         ],
@@ -59,12 +57,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 59,
-                            },
-                        ),
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                            template_arguments: [],
+                        },
                     ),
                 },
             },
@@ -96,16 +93,15 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        self_value_parameter: Ordinary,
-                        parenate_parameters: HirParenateParameters(
+                        self_value_parameter: HirEagerSelfValueParameter,
+                        parenate_parameters: HirEagerParenateParameters(
                             [],
                         ),
-                        return_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 49,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                template_arguments: [],
+                            },
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(
@@ -202,18 +198,26 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        self_value_parameter: Ordinary,
-                        parenate_parameters: HirParenateParameters(
+                        self_value_parameter: HirEagerSelfValueParameter,
+                        parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary,
+                                Ordinary {
+                                    pattern_expr_idx: 1,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 52,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ],
                         ),
-                        return_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(

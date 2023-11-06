@@ -8,7 +8,7 @@ pub struct FunctionGnFugitiveHirDecl {
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     #[return_ref]
-    pub parenate_parameters: HirParenateParameters,
+    pub parenate_parameters: HirLazyParenateParameters,
 }
 
 impl FunctionGnFugitiveHirDecl {
@@ -21,7 +21,7 @@ impl FunctionGnFugitiveHirDecl {
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
         let parenate_parameters =
-            HirParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder);
+            HirLazyParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder);
         let return_ty = builder.return_ty_before_colon(syn_decl.return_ty(db));
         Self::new(db, path, template_parameters, parenate_parameters)
     }

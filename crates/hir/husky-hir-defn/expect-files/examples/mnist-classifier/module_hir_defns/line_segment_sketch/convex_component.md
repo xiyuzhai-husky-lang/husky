@@ -12,22 +12,40 @@
                         fields: [
                             PropsFieldHirDecl {
                                 ident: `line_segment_sketch`,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            Type(
+                                                PathLeading(
+                                                    HirTypePathLeading(
+                                                        Id {
+                                                            value: 58,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             },
                             PropsFieldHirDecl {
                                 ident: `line_segments`,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 57,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            Type(
+                                                PathLeading(
+                                                    HirTypePathLeading(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             },
                         ],
@@ -98,16 +116,15 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        self_value_parameter: Ordinary,
-                        parenate_parameters: HirParenateParameters(
+                        self_value_parameter: HirEagerSelfValueParameter,
+                        parenate_parameters: HirEagerParenateParameters(
                             [],
                         ),
-                        return_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::visual::Html`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(

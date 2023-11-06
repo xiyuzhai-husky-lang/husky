@@ -18,12 +18,66 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirParenateParameters(
+                    parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary,
-                            Ordinary,
+                            Ordinary {
+                                pattern_expr_idx: 1,
+                                ty: PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 47,
+                                        },
+                                    ),
+                                ),
+                            },
+                            Ordinary {
+                                pattern_expr_idx: 2,
+                                ty: PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 48,
+                                        },
+                                    ),
+                                ),
+                            },
                         ],
                     ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 375,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 437,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                    },
                 },
             ),
         ),
@@ -39,12 +93,11 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 45,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                        template_arguments: [],
+                    },
                 ),
             },
         ),

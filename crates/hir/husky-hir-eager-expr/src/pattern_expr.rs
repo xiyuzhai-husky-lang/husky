@@ -1,5 +1,5 @@
 use crate::*;
-use husky_syn_expr::{SynPatternExpr, SynPatternExprIdx, SynPatternRoot};
+use husky_syn_expr::{SynPatternExpr, SynPatternExprIdx, SynPatternExprRoot};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerPatternExpr {
@@ -50,10 +50,11 @@ pub type HirEagerPatternExprOrderedMap<V> = ArenaOrderedMap<HirEagerPatternExpr,
 impl<'a> HirEagerExprBuilder<'a> {
     pub(super) fn new_pattern_expr(
         &mut self,
-        syn_pattern_root: SynPatternRoot,
+        syn_pattern_root: impl Into<SynPatternExprRoot>,
     ) -> HirEagerPatternExprIdx {
-        let pattern_expr = self.new_pattern_expr_aux(syn_pattern_root.syn_pattern_expr_idx());
-        self.alloc_pattern_expr(pattern_expr)
+        let syn_pattern_expr_idx = syn_pattern_root.into().syn_pattern_expr_idx();
+        let pattern_expr = self.new_pattern_expr_aux(syn_pattern_expr_idx);
+        self.alloc_pattern_expr(pattern_expr, syn_pattern_expr_idx)
     }
 
     fn new_pattern_expr_aux(
@@ -63,7 +64,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         match self.syn_expr_region_data()[syn_pattern_expr_idx] {
             SynPatternExpr::Literal { .. } => todo!(),
             SynPatternExpr::Ident {
-                symbol_modifier_tokens: symbol_modifier_keyword_group,
+                symbol_modifier_tokens,
                 ident_token,
             } => HirEagerPatternExpr::Ident {
                 // symbol_modifier: (),

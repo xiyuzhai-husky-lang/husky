@@ -103,7 +103,7 @@ impl<'a> SynStmtContext<'a> {
     pub fn parse_block_expr(&mut self, body: DefnAstIdxRange) -> SynExprIdx {
         let stmts = self.parse_stmts(body);
         let expr = self.alloc_expr(SynExprData::Block { stmts });
-        self.add_expr_root(ExprRootKind::BlockExpr, expr);
+        self.add_expr_root(SynExprRootKind::BlockExpr, expr);
         expr
     }
 
@@ -163,7 +163,7 @@ impl<'a> SynStmtContext<'a> {
                     assign_token: parser.try_parse_expected(OriginalSynExprError::ExpectedAssign),
                     initial_value: parser.parse_expr_expected2(
                         None,
-                        ExprRootKind::LetStmtInitialValue,
+                        SynExprRootKind::LetStmtInitialValue,
                         OriginalSynExprError::ExpectedInitialValue,
                     ),
                 },
@@ -171,7 +171,7 @@ impl<'a> SynStmtContext<'a> {
                     return_token,
                     result: parser.parse_expr_expected2(
                         None,
-                        ExprRootKind::ReturnExpr,
+                        SynExprRootKind::ReturnExpr,
                         OriginalSynExprError::ExpectedResult,
                     ),
                 },
@@ -179,7 +179,7 @@ impl<'a> SynStmtContext<'a> {
                     require_token,
                     condition: parser.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
-                        ExprRootKind::Condition,
+                        SynExprRootKind::Condition,
                         OriginalSynExprError::ExpectedCondition,
                     ),
                 },
@@ -187,7 +187,7 @@ impl<'a> SynStmtContext<'a> {
                     assert_token,
                     condition: parser.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
-                        ExprRootKind::Condition,
+                        SynExprRootKind::Condition,
                         OriginalSynExprError::ExpectedCondition,
                     ),
                 },
@@ -258,7 +258,7 @@ impl<'a> SynStmtContext<'a> {
                     }
                 }
             },
-            Ok(None) => match parser.parse_expr_root(None, ExprRootKind::EvalExpr) {
+            Ok(None) => match parser.parse_expr_root(None, SynExprRootKind::EvalExpr) {
                 Some(expr_idx) => SynStmtData::Eval {
                     expr_idx,
                     eol_semicolon: parser.try_parse_option(),
@@ -281,7 +281,7 @@ impl<'a, 'b> SynExprParser<'a, &'b mut SynExprContext<'a>> {
                     return_token,
                     result: self.parse_expr_expected2(
                         None,
-                        ExprRootKind::ReturnExpr,
+                        SynExprRootKind::ReturnExpr,
                         OriginalSynExprError::ExpectedResult,
                     ),
                 },
@@ -289,7 +289,7 @@ impl<'a, 'b> SynExprParser<'a, &'b mut SynExprContext<'a>> {
                     require_token,
                     condition: self.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
-                        ExprRootKind::Condition,
+                        SynExprRootKind::Condition,
                         OriginalSynExprError::ExpectedCondition,
                     ),
                 },
@@ -297,7 +297,7 @@ impl<'a, 'b> SynExprParser<'a, &'b mut SynExprContext<'a>> {
                     assert_token,
                     condition: self.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
-                        ExprRootKind::Condition,
+                        SynExprRootKind::Condition,
                         OriginalSynExprError::ExpectedCondition,
                     ),
                 },
@@ -306,7 +306,7 @@ impl<'a, 'b> SynExprParser<'a, &'b mut SynExprContext<'a>> {
                 }
                 _ => todo!("err"),
             },
-            None => match self.parse_expr_root(None, ExprRootKind::EvalExpr) {
+            None => match self.parse_expr_root(None, SynExprRootKind::EvalExpr) {
                 Some(expr_idx) => SynStmtData::Eval {
                     expr_idx,
                     eol_semicolon: self.try_parse_option(),

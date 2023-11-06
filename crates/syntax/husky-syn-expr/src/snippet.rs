@@ -20,6 +20,6 @@ pub(crate) fn parse_expr_from_snippet(
     let token_stream =
         RegionalTokenStream::new_snippet_regional_token_stream(token_sheet_data.tokens());
     let mut expr_parser = expr_context.expr_parser(None, token_stream);
-    let expr = expr_parser.parse_expr_root(None, ExprRootKind::Snippet);
+    let expr = expr_parser.parse_expr_root(None, SynExprRootKind::Snippet);
     Ok((expr_parser.finish(), expr))
 }

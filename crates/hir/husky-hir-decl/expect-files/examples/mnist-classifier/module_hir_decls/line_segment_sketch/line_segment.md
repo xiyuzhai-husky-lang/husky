@@ -21,12 +21,11 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 58,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                        template_arguments: [],
+                    },
                 ),
             },
         ),

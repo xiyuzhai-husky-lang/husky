@@ -21,12 +21,11 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 16,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                        template_arguments: [],
+                    },
                 ),
             },
         ),

@@ -111,7 +111,8 @@ fn parse_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 1,
@@ -193,7 +194,8 @@ fn parse_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 2,
@@ -268,7 +270,8 @@ fn parse_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 1,
@@ -343,7 +346,8 @@ fn parse_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 1,
@@ -415,7 +419,8 @@ fn parse_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 1,
@@ -510,7 +515,8 @@ fn parse_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 3,
@@ -604,7 +610,8 @@ fn parse_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 3,
@@ -713,7 +720,8 @@ fn parse_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 4,
@@ -832,7 +840,8 @@ fn parse_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 3,
@@ -989,7 +998,8 @@ fn parse_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 2,
@@ -1096,7 +1106,8 @@ fn parse_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 2,
@@ -1204,7 +1215,8 @@ fn parse_application_expr_works() {
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
                         kind: Snippet,
                         syn_expr_idx: 5,

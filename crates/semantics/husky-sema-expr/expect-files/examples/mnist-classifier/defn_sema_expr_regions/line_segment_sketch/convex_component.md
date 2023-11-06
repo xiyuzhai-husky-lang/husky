@@ -136,13 +136,14 @@
                                             allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: Trait,
+                                                kind: SynExprRootKind::Trait,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: SelfType,
+                                                kind: SynExprRootKind::SelfType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -236,9 +237,10 @@
                                 allow_self_value: True,
                                 pattern_ty_constraints: [],
                             },
-                            roots: [
+                            syn_pattern_expr_roots: [],
+                            syn_expr_roots: [
                                 SynExprRoot {
-                                    kind: ReturnType,
+                                    kind: SynExprRootKind::ReturnType,
                                     syn_expr_idx: 1,
                                 },
                             ],
@@ -355,13 +357,14 @@
                     allow_self_value: True,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
-                        kind: EvalExpr,
+                        kind: SynExprRootKind::EvalExpr,
                         syn_expr_idx: 3,
                     },
                     SynExprRoot {
-                        kind: BlockExpr,
+                        kind: SynExprRootKind::BlockExpr,
                         syn_expr_idx: 4,
                     },
                 ],

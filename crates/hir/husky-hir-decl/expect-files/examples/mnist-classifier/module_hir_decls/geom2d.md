@@ -76,12 +76,11 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 47,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                        template_arguments: [],
+                    },
                 ),
             },
         ),
@@ -152,12 +151,11 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 48,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        template_arguments: [],
+                    },
                 ),
             },
         ),
@@ -261,12 +259,11 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 46,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                        template_arguments: [],
+                    },
                 ),
             },
         ),
@@ -304,12 +301,11 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 49,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                        template_arguments: [],
+                    },
                 ),
             },
         ),
@@ -391,12 +387,11 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 50,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                        template_arguments: [],
+                    },
                 ),
             },
         ),

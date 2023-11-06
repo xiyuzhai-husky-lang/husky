@@ -17,7 +17,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TraitSyndicate 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
-        if let Some(expr) = ctx.parse_expr_root(None, ExprRootKind::Trait) {
+        if let Some(expr) = ctx.parse_expr_root(None, SynExprRootKind::Trait) {
             Ok(Some(TraitSyndicate { expr }))
         } else {
             Ok(None)

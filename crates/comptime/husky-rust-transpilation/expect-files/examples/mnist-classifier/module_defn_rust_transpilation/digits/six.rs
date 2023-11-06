@@ -7,13 +7,13 @@ fn six_match_refined1() {
     fermi_match(major_concave_components, vec![upmost, bottom1]);
 }
 
-pub fn upmost() {
+pub fn upmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0);
     dp.y;
 }
 
-pub fn bottom1() {
+pub fn bottom1(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     if dp.y < -3 {
         require!(dp.x / dp.y.abs() > 1.4);

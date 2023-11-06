@@ -14,7 +14,7 @@ use super::*;
 #[salsa::debug_with_db(db = HirDefnDb)]
 #[enum_class::from_variants]
 pub enum FugitiveHirDefn {
-    FunctionFn(FunctionFnHirDefn),
+    FunctionFn(FunctionFnFugitiveHirDefn),
     // Function(FunctionDefn),
     Val(ValFugitiveHirDefn),
     FunctionGn(FunctionGnHirDefn),
@@ -63,7 +63,7 @@ impl HasHirDefn for FugitivePath {
 pub(crate) fn fugitive_hir_defn(db: &dyn HirDefnDb, path: FugitivePath) -> Option<FugitiveHirDefn> {
     match path.hir_decl(db)? {
         FugitiveHirDecl::FunctionFn(hir_decl) => {
-            Some(FunctionFnHirDefn::new(db, path, hir_decl).into())
+            Some(FunctionFnFugitiveHirDefn::new(db, path, hir_decl).into())
         }
         FugitiveHirDecl::Val(hir_decl) => Some(ValFugitiveHirDefn::new(db, path, hir_decl).into()),
         FugitiveHirDecl::FunctionGn(hir_decl) => {

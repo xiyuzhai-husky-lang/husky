@@ -45,7 +45,7 @@ impl<'a> DeclParser<'a, TypeItemSynNodePath> {
         };
         let eq_token =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForVariable);
-        let expr = parser.parse_expr_root(None, ExprRootKind::ValExpr);
+        let expr = parser.parse_expr_root(None, SynExprRootKind::ValExpr);
         TypeMemoizedFieldSynNodeDecl::new(
             db,
             self.syn_node_path(),

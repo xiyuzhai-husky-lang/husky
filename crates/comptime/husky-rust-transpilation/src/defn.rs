@@ -7,9 +7,10 @@ mod ty_variant;
 
 use crate::*;
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
-use husky_hir_decl::{
-    parenate_parameter::{HirParenateParameter, HirParenateParameters},
-    HirTemplateParameter, HirTemplateParameterData, HirTemplateParameters,
+use husky_hir_decl::parameter::{
+    parenate::eager::{HirEagerParenateParameter, HirEagerParenateParameters},
+    self_value::eager::HirEagerSelfValueParameter,
+    template::{HirTemplateParameter, HirTemplateParameterData, HirTemplateParameters},
 };
 use husky_hir_defn::*;
 use husky_hir_ty::{ritchie::HirRitchieParameter, HirTemplateSymbol, HirTypeSymbol};
@@ -79,13 +80,30 @@ impl<'a> TranspileToRust for HirTemplateParameters {
     }
 }
 
-impl TranspileToRust for HirParenateParameter {
+impl TranspileToRust for HirEagerSelfValueParameter {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        // todo!()
+        builder.self_value()
     }
 }
 
-impl TranspileToRust for HirParenateParameters {
+impl TranspileToRust for HirEagerParenateParameter {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        match self {
+            HirEagerParenateParameter::Ordinary {
+                pattern_expr_idx,
+                ty,
+            } => {
+                pattern_expr_idx.transpile_to_rust(builder);
+                builder.punctuation(RustPunctuation::Colon);
+                ty.transpile_to_rust(builder)
+            }
+            HirEagerParenateParameter::Keyed => todo!(),
+            HirEagerParenateParameter::Variadic => todo!(),
+        }
+    }
+}
+
+impl TranspileToRust for HirEagerParenateParameters {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         builder.bracketed_comma_list(RustBracket::Par, self.iter());
     }
