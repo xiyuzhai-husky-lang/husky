@@ -4,8 +4,8 @@ fn connected_components() {
 }
 
 fn major_connected_component() {
-    let i0 = 0;
-    let max_row_span_sum = 0;
+    let mut i0 = 0;
+    let mut max_row_span_sum = 0;
     for i in 0..connected_components.ilen() {
         let row_span_sum = connected_components[i].row_span_sum;
         if row_span_sum > max_row_span_sum {
@@ -17,7 +17,7 @@ fn major_connected_component() {
 }
 
 fn ignored_connected_components_row_span_sum_sum() {
-    let sum = 0;
+    let mut sum = 0;
     for i in 0..connected_components.ilen() {
         sum += connected_components[i].row_span_sum
     }

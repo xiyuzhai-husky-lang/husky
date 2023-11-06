@@ -5,13 +5,13 @@ pub fn is_convex(line_segment_sketch: LineSegmentSketch, index: i32) -> bool {
     let previous_displacement = line_segment_sketch.strokes[(index - 1).rem_eulicd(L)].displacement();
     let is_rotation_counterclockwise_result = previous_displacement.rotation_direction_to(current_displacement);
     if is_rotation_counterclockwise_result == 0 {
-        let previous_raw_cross = -999999;
+        let mut previous_raw_cross = -999999;
         let previous_interval = line_segment_sketch.strokes[(index - 1).rem_eulicd(L)].points;
         for i1 in previous_interval.start()..previous_interval.end() {
             let displacement = line_segment_sketch.contour.displacement(previous_interval.start(), i1);
             previous_raw_cross = previous_raw_cross.max(current_displacement.cross(displacement))
         }
-        let current_raw_cross = -999999;
+        let mut current_raw_cross = -999999;
         let current_interval = line_segment_sketch.strokes[index.rem_eulicd(L)].points;
         for i2 in current_interval.start()..current_interval.end() {
             let displacement = line_segment_sketch.contour.displacement(previous_interval.start(), i2);

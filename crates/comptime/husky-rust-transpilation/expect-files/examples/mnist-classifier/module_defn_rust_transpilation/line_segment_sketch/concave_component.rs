@@ -2,10 +2,10 @@
 struct ConcaveComponent{line_segment_sketch: Leash<LineSegmentSketch>, strokes: Leash<CyclicSlice<LineSegmentStroke>>}
 
 pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) -> Vec<ConcaveComponent> {
-    let concave_components: Vec<ConcaveComponent> = vec![];
+    let mut concave_components: Vec<ConcaveComponent> = vec![];
     let L = line_segment_sketch.strokes.ilen();
-    let start = 0;
-    let end = 1;
+    let mut start = 0;
+    let mut end = 1;
     while start > -L && !is_convex(line_segment_sketch, start) {
         start-= 1
     }

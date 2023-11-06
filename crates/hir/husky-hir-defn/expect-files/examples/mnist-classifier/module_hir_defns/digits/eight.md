@@ -115,6 +115,7 @@
                             hir_eager_pattern_expr_arena: Arena {
                                 data: [
                                     Ident {
+                                        symbol_modifier: None,
                                         ident: Ident(
                                             Coword(
                                                 Id {

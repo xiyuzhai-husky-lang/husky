@@ -12,8 +12,8 @@ pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
 struct ConnectedComponent{mask: BinaryImage28}
 
 pub fn horizontal_extend(a: r32, x: r32) -> r32 {
-    let y = a | (x | x << 1 | x >> 1);
-    let z = a | (y | y << 1 | y >> 1);
+    let mut y = a | (x | x << 1 | x >> 1);
+    let mut z = a | (y | y << 1 | y >> 1);
     while z != y {
         y = z
         z = a | (y | y << 1 | y >> 1)
@@ -22,18 +22,18 @@ pub fn horizontal_extend(a: r32, x: r32) -> r32 {
 }
 
 pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> {
-    let result: Vec<ConnectedComponent> = vec![];
-    let unsearched = img.clone();
+    let mut result: Vec<ConnectedComponent> = vec![];
+    let mut unsearched = img.clone();
     for j in 0..30 {
         while unsearched[j] {
             let a = unsearched[j];
             let shift = a.ctz();
-            let mask = new_zeros();
+            let mut mask = new_zeros();
             mask[j] = horizontal_extend(a, 1 << shift)
-            let flag = false;
+            let mut flag = false;
             while !flag {
                 flag = true
-                let i = j;
+                let mut i = j;
                 // Forext incompleteloop {
                     let old_row = mask[i + 1];
                     let new_row = old_row | horizontal_extend(img[i + 1], mask[i]);
