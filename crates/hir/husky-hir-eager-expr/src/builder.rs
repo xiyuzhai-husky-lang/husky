@@ -106,7 +106,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn alloc_expr(
         &mut self,
         sema_expr_idx: SemaExprIdx,
-        hir_eager_expr: HirEagerExpr,
+        hir_eager_expr: HirEagerExprData,
     ) -> HirEagerExprIdx {
         let hir_eager_expr_idx = self.hir_eager_expr_arena.alloc_one(hir_eager_expr);
         self.sema_to_hir_eager_expr_idx_map

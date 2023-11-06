@@ -24,7 +24,7 @@ impl TranspileToRust for FunctionFnFugitiveHirDefn {
         };
         self.hir_decl(db).transpile_to_rust(builder);
         builder.curly_block_with_hir_eager_expr_region(body_hir_eager_expr_region, |builder| {
-            body.transpile_to_rust(builder)
+            any_precedence(body).transpile_to_rust(builder)
         })
     }
 }
@@ -61,7 +61,7 @@ impl TranspileToRust for ValFugitiveHirDefn {
         };
         self.hir_decl(db).transpile_to_rust(builder);
         builder.curly_block_with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
-            body.transpile_to_rust(builder)
+            any_precedence(body).transpile_to_rust(builder)
         })
     }
 }

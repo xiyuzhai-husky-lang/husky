@@ -9,7 +9,7 @@ pub(crate) use self::keyword::*;
 pub(crate) use self::macro_name::*;
 pub(crate) use self::punctuation::*;
 
-use crate::*;
+use crate::{expr::RustPrecedence, *};
 use husky_coword::Ident;
 use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
 use husky_hir_eager_expr::{HirEagerExprArena, HirEagerPatternExprArena, HirEagerStmtArena};
@@ -232,6 +232,14 @@ impl<'a> RustTranspilationBuilder<'a> {
             unreachable!()
         };
         hir_lazy_expr_region.hir_lazy_stmt_arena(self.db)
+    }
+
+    pub(crate) fn rem_eulid(&mut self) {
+        self.write_str("rem_eulicd")
+    }
+
+    pub(crate) fn pow(&mut self) {
+        self.write_str("pow")
     }
 }
 

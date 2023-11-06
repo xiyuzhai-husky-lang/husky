@@ -25,7 +25,7 @@ impl TranspileToRust for TypeAssociatedFnHirDefn {
         hir_decl.template_parameters(db).transpile_to_rust(builder);
         hir_decl.parenate_parameters(db).transpile_to_rust(builder);
         builder.curly_block_with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
-            body.transpile_to_rust(builder)
+            any_precedence(body).transpile_to_rust(builder)
         })
     }
 }
@@ -46,7 +46,7 @@ impl TranspileToRust for TypeMethodFnHirDefn {
             builder.heterogeneous_comma_list_items(hir_decl.parenate_parameters(db).iter())
         });
         builder.curly_block_with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
-            body.transpile_to_rust(builder)
+            any_precedence(body).transpile_to_rust(builder)
         })
     }
 }
@@ -76,7 +76,7 @@ impl TranspileToRust for TypeMemoizedFieldHirDefn {
         builder
             .heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| builder.self_value());
         builder.curly_block_with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
-            body.transpile_to_rust(builder)
+            any_precedence(body).transpile_to_rust(builder)
         })
     }
 }

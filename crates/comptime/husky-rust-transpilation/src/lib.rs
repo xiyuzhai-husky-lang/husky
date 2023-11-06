@@ -9,5 +9,6 @@ mod tests;
 use self::builder::*;
 use self::db::*;
 use self::defn::*;
+use self::expr::precedence::any_precedence;
 use husky_entity_path::ItemPath;
 use husky_vfs::ModulePath;

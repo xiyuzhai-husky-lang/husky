@@ -47,10 +47,10 @@ fn is_two() {
         let y = left_cc.unwrap().end_tangent().y;
         let left_ymax = left_cc.unwrap().relative_bounding_box.ymax();
         let left_ymin = left_cc.unwrap().relative_bounding_box.ymin();
-        let left_mid_y = left_ymax + left_ymin / 2;
+        let left_mid_y = (left_ymax + left_ymin) / 2;
         let right_ymax = right_cc.unwrap().relative_bounding_box.ymax();
         let right_ymin = right_cc.unwrap().relative_bounding_box.ymin();
-        let right_mid_y = right_ymax + right_ymin / 2;
+        let right_mid_y = (right_ymax + right_ymin) / 2;
         require!(left_mid_y >= right_mid_y);
     }
     if cc_num == 3 {

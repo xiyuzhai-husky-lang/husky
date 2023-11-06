@@ -22,7 +22,7 @@ pub fn get_inward_direction(row_above: r32, row_below: r32, j: i32) -> Direction
 }
 
 pub fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
-    let raw_angle_change = outward as i32 - inward as i32 as r32.last_bits(2);
+    let raw_angle_change = ((outward as i32) - (inward as i32) as r32).last_bits(2);
     match 
 }
 
@@ -38,7 +38,7 @@ pub fn get_concave_middle_point(points: Vec<Point2d>) -> Point2d {
     let N = points.ilen();
     let p0 = points[N - 2];
     let p2 = points[N - 1];
-    Point2d(p0.x + p2.x / 2, p0.y + p2.y / 2);
+    Point2d((p0.x + p2.x) / 2, (p0.y + p2.y) / 2);
 }
 
 pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
@@ -49,7 +49,7 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
         let r_dr = cc.mask[i];
         let r_ul = r_ur << 1;
         let r_dl = r_dr << 1;
-        boundary_unsearched[i] = r_ur | r_dr | r_ul | r_dl | !r_ur | r_dr | r_ul | r_dl;
+        boundary_unsearched[i] = r_ur | r_dr | r_ul | r_dl | !(r_ur | r_dr | r_ul | r_dl);
     }
     for {
         while boundary_unsearched[k] {
