@@ -7,12 +7,66 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirParenateParameters(
+                    parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary,
-                            Ordinary,
+                            Ordinary {
+                                pattern_expr_idx: 1,
+                                ty: PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 57,
+                                        },
+                                    ),
+                                ),
+                            },
+                            Ordinary {
+                                pattern_expr_idx: 2,
+                                ty: PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            },
                         ],
                     ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::basic::bool`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 220,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 421,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                    },
                 },
             ),
         ),

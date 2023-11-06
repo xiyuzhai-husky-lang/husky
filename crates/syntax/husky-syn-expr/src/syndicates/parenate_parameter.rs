@@ -6,7 +6,7 @@ use parsec::{HasStreamState, TryParseOptionFromStream};
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum ParenateParameterSyndicate {
     Ordinary {
-        syn_pattern_root: SynPatternRoot,
+        syn_pattern_root: ParenateSynPatternExprRoot,
         variables: SynCurrentSymbolIdxRange,
         colon: ColonRegionalToken,
         ty: SynExprIdx,
@@ -21,7 +21,7 @@ pub enum ParenateParameterSyndicate {
         ty: SynExprIdx,
     },
     Keyed {
-        syn_pattern_root: SynPatternRoot,
+        syn_pattern_root: ParenateSynPatternExprRoot,
         symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
         variable: SynCurrentSymbolIdx,
@@ -49,7 +49,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
-        if let Some(syn_pattern_root) = ctx.try_parse_option()? {
+        if let Some(syn_pattern_root) = ctx.try_parse_option::<ParenateSynPatternExprRoot>()? {
             let symbols = ctx
                 .pattern_expr_region()
                 .pattern_expr_symbols(syn_pattern_root);
@@ -73,12 +73,12 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
                 Some(ExprEnvironment::WithinBracketedParameterList(
                     SynBracket::Par,
                 )),
-                ExprRootKind::ExplicitParameterType,
+                SynExprRootKind::ExplicitParameterType,
                 OriginalSynExprError::ExpectedParameterType,
             );
             let variables = ctx.define_symbols(
                 variables,
-                Some(SyndicateTypeConstraint::ExplicitRegularParameter {
+                Some(SyndicateTypeConstraint::OrdinaryParenateParameter {
                     syn_pattern_root,
                     ty_expr_idx,
                 }),
@@ -99,7 +99,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
                         Some(ExprEnvironment::WithinBracketedParameterList(
                             SynBracket::Par,
                         )),
-                        ExprRootKind::ExplicitParameterDefaultValue {
+                        SynExprRootKind::ExplicitParameterDefaultValue {
                             ty_syn_expr_idx: ty_expr_idx,
                         },
                         OriginalSynExprError::ExpectedExplicitParameterDefaultValue,
@@ -144,12 +144,12 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
                 Some(ExprEnvironment::WithinBracketedParameterList(
                     SynBracket::Par,
                 )),
-                ExprRootKind::ExplicitParameterType,
+                SynExprRootKind::ExplicitParameterType,
                 OriginalSynExprError::ExpectedParameterType,
             );
             let variable = ctx.define_symbol(
                 variable,
-                Some(SyndicateTypeConstraint::ExplicitVariadicParameter { ty }),
+                Some(SyndicateTypeConstraint::VariadicParenateParameter { ty }),
             );
             Ok(Some(ParenateParameterSyndicate::Variadic {
                 dot_dot_dot_token,

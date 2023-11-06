@@ -12,22 +12,40 @@
                         fields: [
                             PropsFieldHirDecl {
                                 ident: `matches`,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 44,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                        template_arguments: [
+                                            Type(
+                                                PathLeading(
+                                                    HirTypePathLeading(
+                                                        Id {
+                                                            value: 44,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             },
                             PropsFieldHirDecl {
                                 ident: `others`,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 45,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                        template_arguments: [
+                                            Type(
+                                                PathLeading(
+                                                    HirTypePathLeading(
+                                                        Id {
+                                                            value: 43,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             },
                         ],
@@ -50,19 +68,73 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnHirDefn {
+                FunctionFnFugitiveHirDefn {
                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        parenate_parameters: HirParenateParameters(
+                        parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary,
-                                Ordinary,
+                                Ordinary {
+                                    pattern_expr_idx: 1,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 48,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Ordinary {
+                                    pattern_expr_idx: 2,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 49,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ],
                         ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                template_arguments: [],
+                            },
+                        ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [
+                                    Ident {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 375,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    Ident {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 437,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -272,7 +344,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 44,
+                                                                value: 45,
                                                             },
                                                         ),
                                                     ),
@@ -364,12 +436,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 46,
-                            },
-                        ),
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            template_arguments: [],
+                        },
                     ),
                 },
             },
@@ -398,12 +469,11 @@
                             ident: `norm`,
                             item_kind: MemoizedField,
                         },
-                        return_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
@@ -641,12 +711,11 @@
                             ident: `rel_norm`,
                             item_kind: MemoizedField,
                         },
-                        return_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {
@@ -884,12 +953,11 @@
                             ident: `angle_change_norm`,
                             item_kind: MemoizedField,
                         },
-                        return_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             hir_eager_expr_arena: Arena {

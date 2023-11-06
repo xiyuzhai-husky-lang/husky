@@ -195,10 +195,10 @@
                             ),
                         ),
                         (
-                            ExplicitRegularParameter {
-                                syn_pattern_root: SynPatternRoot(
-                                    1,
-                                ),
+                            OrdinaryParenateParameter {
+                                syn_pattern_root: ParenateSynPatternExprRoot {
+                                    syn_pattern_expr_idx: 1,
+                                },
                                 ty_expr_idx: 4,
                             },
                             ArenaIdxRange(
@@ -207,13 +207,19 @@
                         ),
                     ],
                 },
-                roots: [
+                syn_pattern_expr_roots: [
+                    SynPatternExprRoot {
+                        kind: SynPatternExprRootKind::Parenate,
+                        syn_pattern_expr_idx: 1,
+                    },
+                ],
+                syn_expr_roots: [
                     SynExprRoot {
-                        kind: Traits,
+                        kind: SynExprRootKind::Traits,
                         syn_expr_idx: 1,
                     },
                     SynExprRoot {
-                        kind: ExplicitParameterType,
+                        kind: SynExprRootKind::ExplicitParameterType,
                         syn_expr_idx: 4,
                     },
                 ],
@@ -976,10 +982,10 @@
                             ),
                         ),
                         (
-                            ExplicitRegularParameter {
-                                syn_pattern_root: SynPatternRoot(
-                                    1,
-                                ),
+                            OrdinaryParenateParameter {
+                                syn_pattern_root: ParenateSynPatternExprRoot {
+                                    syn_pattern_expr_idx: 1,
+                                },
                                 ty_expr_idx: 4,
                             },
                             ArenaIdxRange(
@@ -987,10 +993,10 @@
                             ),
                         ),
                         (
-                            ExplicitRegularParameter {
-                                syn_pattern_root: SynPatternRoot(
-                                    2,
-                                ),
+                            OrdinaryParenateParameter {
+                                syn_pattern_root: ParenateSynPatternExprRoot {
+                                    syn_pattern_expr_idx: 2,
+                                },
                                 ty_expr_idx: 5,
                             },
                             ArenaIdxRange(
@@ -998,10 +1004,10 @@
                             ),
                         ),
                         (
-                            ExplicitRegularParameter {
-                                syn_pattern_root: SynPatternRoot(
-                                    3,
-                                ),
+                            OrdinaryParenateParameter {
+                                syn_pattern_root: ParenateSynPatternExprRoot {
+                                    syn_pattern_expr_idx: 3,
+                                },
                                 ty_expr_idx: 6,
                             },
                             ArenaIdxRange(
@@ -1010,21 +1016,35 @@
                         ),
                     ],
                 },
-                roots: [
+                syn_pattern_expr_roots: [
+                    SynPatternExprRoot {
+                        kind: SynPatternExprRootKind::Parenate,
+                        syn_pattern_expr_idx: 1,
+                    },
+                    SynPatternExprRoot {
+                        kind: SynPatternExprRootKind::Parenate,
+                        syn_pattern_expr_idx: 2,
+                    },
+                    SynPatternExprRoot {
+                        kind: SynPatternExprRootKind::Parenate,
+                        syn_pattern_expr_idx: 3,
+                    },
+                ],
+                syn_expr_roots: [
                     SynExprRoot {
-                        kind: Traits,
+                        kind: SynExprRootKind::Traits,
                         syn_expr_idx: 1,
                     },
                     SynExprRoot {
-                        kind: ExplicitParameterType,
+                        kind: SynExprRootKind::ExplicitParameterType,
                         syn_expr_idx: 4,
                     },
                     SynExprRoot {
-                        kind: ExplicitParameterType,
+                        kind: SynExprRootKind::ExplicitParameterType,
                         syn_expr_idx: 5,
                     },
                     SynExprRoot {
-                        kind: ExplicitParameterType,
+                        kind: SynExprRootKind::ExplicitParameterType,
                         syn_expr_idx: 6,
                     },
                 ],
@@ -2050,10 +2070,10 @@
                             ),
                         ),
                         (
-                            ExplicitRegularParameter {
-                                syn_pattern_root: SynPatternRoot(
-                                    1,
-                                ),
+                            OrdinaryParenateParameter {
+                                syn_pattern_root: ParenateSynPatternExprRoot {
+                                    syn_pattern_expr_idx: 1,
+                                },
                                 ty_expr_idx: 4,
                             },
                             ArenaIdxRange(
@@ -2061,10 +2081,10 @@
                             ),
                         ),
                         (
-                            ExplicitRegularParameter {
-                                syn_pattern_root: SynPatternRoot(
-                                    2,
-                                ),
+                            OrdinaryParenateParameter {
+                                syn_pattern_root: ParenateSynPatternExprRoot {
+                                    syn_pattern_expr_idx: 2,
+                                },
                                 ty_expr_idx: 5,
                             },
                             ArenaIdxRange(
@@ -2072,10 +2092,10 @@
                             ),
                         ),
                         (
-                            ExplicitRegularParameter {
-                                syn_pattern_root: SynPatternRoot(
-                                    3,
-                                ),
+                            OrdinaryParenateParameter {
+                                syn_pattern_root: ParenateSynPatternExprRoot {
+                                    syn_pattern_expr_idx: 3,
+                                },
                                 ty_expr_idx: 6,
                             },
                             ArenaIdxRange(
@@ -2084,25 +2104,39 @@
                         ),
                     ],
                 },
-                roots: [
+                syn_pattern_expr_roots: [
+                    SynPatternExprRoot {
+                        kind: SynPatternExprRootKind::Parenate,
+                        syn_pattern_expr_idx: 1,
+                    },
+                    SynPatternExprRoot {
+                        kind: SynPatternExprRootKind::Parenate,
+                        syn_pattern_expr_idx: 2,
+                    },
+                    SynPatternExprRoot {
+                        kind: SynPatternExprRootKind::Parenate,
+                        syn_pattern_expr_idx: 3,
+                    },
+                ],
+                syn_expr_roots: [
                     SynExprRoot {
-                        kind: Traits,
+                        kind: SynExprRootKind::Traits,
                         syn_expr_idx: 1,
                     },
                     SynExprRoot {
-                        kind: ExplicitParameterType,
+                        kind: SynExprRootKind::ExplicitParameterType,
                         syn_expr_idx: 4,
                     },
                     SynExprRoot {
-                        kind: ExplicitParameterType,
+                        kind: SynExprRootKind::ExplicitParameterType,
                         syn_expr_idx: 5,
                     },
                     SynExprRoot {
-                        kind: ExplicitParameterType,
+                        kind: SynExprRootKind::ExplicitParameterType,
                         syn_expr_idx: 6,
                     },
                     SynExprRoot {
-                        kind: ReturnType,
+                        kind: SynExprRootKind::ReturnType,
                         syn_expr_idx: 7,
                     },
                 ],
@@ -2957,7 +2991,8 @@
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [],
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [],
                 has_self_lifetime: false,
                 has_self_place: false,
             },
@@ -3095,7 +3130,8 @@
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [],
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [],
                 has_self_lifetime: false,
                 has_self_place: false,
             },

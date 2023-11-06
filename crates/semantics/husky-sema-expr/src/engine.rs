@@ -37,7 +37,7 @@ pub(crate) struct SemaExprEngine<'a> {
     declarative_term_region: &'a DeclarativeTermRegion,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
-    sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, ExprRootKind)>,
+    sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
     fluffy_term_region: FluffyTermRegion,
     sema_expr_term_results: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
@@ -189,16 +189,16 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     fn infer_all_exprs(&mut self) {
-        for root in self.syn_expr_region_data.roots() {
+        for root in self.syn_expr_region_data.syn_expr_roots() {
             let sema_expr_idx = match root.kind() {
-                ExprRootKind::SelfType
-                | ExprRootKind::ReturnType
-                | ExprRootKind::ReturnType
-                | ExprRootKind::PropsStructFieldType { .. }
-                | ExprRootKind::TupleStructFieldType
-                | ExprRootKind::ConstantImplicitParameterType
-                | ExprRootKind::ExplicitParameterType
-                | ExprRootKind::AssociatedTypeTerm => {
+                SynExprRootKind::SelfType
+                | SynExprRootKind::ReturnType
+                | SynExprRootKind::ReturnType
+                | SynExprRootKind::PropsStructFieldType { .. }
+                | SynExprRootKind::TupleStructFieldType
+                | SynExprRootKind::ConstantImplicitParameterType
+                | SynExprRootKind::ExplicitParameterType
+                | SynExprRootKind::AssociatedTypeTerm => {
                     let sema_expr_idx = self.build_sema_expr(
                         root.syn_expr_idx(),
                         ExpectEqsCategory::new_expect_eqs_ty_kind(),
@@ -206,21 +206,21 @@ impl<'a> SemaExprEngine<'a> {
                     self.infer_expr_term(sema_expr_idx);
                     sema_expr_idx
                 }
-                ExprRootKind::Trait => {
+                SynExprRootKind::Trait => {
                     let sema_expr_idx =
                         self.build_sema_expr(root.syn_expr_idx(), ExpectAnyOriginal);
                     self.infer_expr_term(sema_expr_idx);
                     sema_expr_idx
                 }
-                ExprRootKind::BlockExpr => match self.return_ty {
+                SynExprRootKind::BlockExpr => match self.return_ty {
                     Some(return_ty) => self.build_sema_expr(
                         root.syn_expr_idx(),
                         ExpectCoersion::new_move(return_ty.into()),
                     ),
                     None => self.build_sema_expr(root.syn_expr_idx(), ExpectAnyDerived),
                 },
-                ExprRootKind::FieldBindInitialValue { ty_syn_expr_idx }
-                | ExprRootKind::ExplicitParameterDefaultValue { ty_syn_expr_idx } => {
+                SynExprRootKind::FieldBindInitialValue { ty_syn_expr_idx }
+                | SynExprRootKind::ExplicitParameterDefaultValue { ty_syn_expr_idx } => {
                     let (ty_sema_expr_idx, _) = self.sema_expr_roots[ty_syn_expr_idx].1;
                     match self.infer_expr_term(ty_sema_expr_idx) {
                         Some(ty) => {
@@ -229,20 +229,20 @@ impl<'a> SemaExprEngine<'a> {
                         _ => todo!(),
                     }
                 }
-                ExprRootKind::ReturnExpr
-                | ExprRootKind::Condition
-                | ExprRootKind::HtmlArgumentExpr
-                | ExprRootKind::LetStmtType
-                | ExprRootKind::LetStmtInitialValue
-                | ExprRootKind::EvalExpr => continue,
-                ExprRootKind::Snippet => todo!(),
-                ExprRootKind::Traits =>
+                SynExprRootKind::ReturnExpr
+                | SynExprRootKind::Condition
+                | SynExprRootKind::HtmlArgumentExpr
+                | SynExprRootKind::LetStmtType
+                | SynExprRootKind::LetStmtInitialValue
+                | SynExprRootKind::EvalExpr => continue,
+                SynExprRootKind::Snippet => todo!(),
+                SynExprRootKind::Traits =>
                 /* ad hoc */
                 {
                     continue
                 }
                 // todo!(),
-                ExprRootKind::ValExpr => todo!(),
+                SynExprRootKind::ValExpr => todo!(),
             };
             self.sema_expr_roots
                 .insert_new((root.syn_expr_idx(), (sema_expr_idx, root.kind())))

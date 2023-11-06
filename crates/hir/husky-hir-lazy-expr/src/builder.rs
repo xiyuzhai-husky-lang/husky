@@ -4,7 +4,7 @@ use husky_sema_expr::{
     SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
-use husky_syn_expr::{ExprRootKind, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtIdx};
+use husky_syn_expr::{SynExprIdx, SynExprRegion, SynExprRegionData, SynExprRootKind, SynStmtIdx};
 use salsa::DebugWithDb;
 
 pub(crate) struct HirLazyExprBuilder<'a> {
@@ -112,17 +112,17 @@ impl<'a> HirLazyExprBuilder<'a> {
     pub fn build_all_then_finish(mut self) -> (HirLazyExprRegion, HirLazyExprSourceMap) {
         for (sema_expr_idx, expr_root_kind) in self.sema_expr_region_data.sema_expr_roots() {
             match expr_root_kind {
-                ExprRootKind::BlockExpr | ExprRootKind::ReturnExpr => {
+                SynExprRootKind::BlockExpr | SynExprRootKind::ReturnExpr => {
                     sema_expr_idx.to_hir_lazy(&mut self);
                 }
                 // ad hoc
-                ExprRootKind::FieldBindInitialValue { .. } => (),
+                SynExprRootKind::FieldBindInitialValue { .. } => (),
                 // ad hoc
-                ExprRootKind::ExplicitParameterDefaultValue { .. } => (),
+                SynExprRootKind::ExplicitParameterDefaultValue { .. } => (),
                 // ad hoc
-                ExprRootKind::Snippet => (),
+                SynExprRootKind::Snippet => (),
                 // ad hoc
-                ExprRootKind::ValExpr => (),
+                SynExprRootKind::ValExpr => (),
                 _ => continue,
             }
         }

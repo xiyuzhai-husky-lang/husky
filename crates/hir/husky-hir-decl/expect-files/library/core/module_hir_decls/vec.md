@@ -41,12 +41,21 @@
                         },
                     ],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 22,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                        template_arguments: [
+                            Type(
+                                Symbol(
+                                    Type {
+                                        attrs: HirSymbolAttrs,
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ],
+                    },
                 ),
             },
         ),

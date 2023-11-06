@@ -82,9 +82,10 @@ impl SynPatternExprRegion {
 
     pub fn pattern_expr_symbols(
         &self,
-        pattern_expr_idx: SynPatternRoot,
+        syn_pattern_expr_root: impl Into<SynPatternExprRoot>,
     ) -> &[(Ident, SynPatternSymbolIdx)] {
-        &self.pattern_symbol_maps[pattern_expr_idx.0]
+        let syn_pattern_expr_root = syn_pattern_expr_root.into();
+        &self.pattern_symbol_maps[syn_pattern_expr_root.syn_pattern_expr_idx()]
     }
 
     pub fn pattern_expr_arena(&self) -> &SynPatternExprArena {

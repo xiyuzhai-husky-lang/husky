@@ -230,17 +230,12 @@
                         ),
                     ],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
-                        kind: PropsStructFieldType {
+                        kind: SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 220,
-                                        },
-                                    ),
-                                ),
+                                ident: `line_segment_sketch`,
                                 regional_token_idx: RegionalTokenIdx(
                                     4,
                                 ),
@@ -249,15 +244,9 @@
                         syn_expr_idx: 2,
                     },
                     SynExprRoot {
-                        kind: PropsStructFieldType {
+                        kind: SynExprRootKind::PropsStructFieldType {
                             ident_token: IdentRegionalToken {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 399,
-                                        },
-                                    ),
-                                ),
+                                ident: `line_segments`,
                                 regional_token_idx: RegionalTokenIdx(
                                     9,
                                 ),
@@ -1113,13 +1102,14 @@
                     allow_self_value: False,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
-                        kind: Trait,
+                        kind: SynExprRootKind::Trait,
                         syn_expr_idx: 1,
                     },
                     SynExprRoot {
-                        kind: SelfType,
+                        kind: SynExprRootKind::SelfType,
                         syn_expr_idx: 2,
                     },
                 ],
@@ -1534,13 +1524,14 @@
                                 allow_self_value: False,
                                 pattern_ty_constraints: [],
                             },
-                            roots: [
+                            syn_pattern_expr_roots: [],
+                            syn_expr_roots: [
                                 SynExprRoot {
-                                    kind: Trait,
+                                    kind: SynExprRootKind::Trait,
                                     syn_expr_idx: 1,
                                 },
                                 SynExprRoot {
-                                    kind: SelfType,
+                                    kind: SynExprRootKind::SelfType,
                                     syn_expr_idx: 2,
                                 },
                             ],
@@ -1634,9 +1625,10 @@
                     allow_self_value: True,
                     pattern_ty_constraints: [],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
-                        kind: ReturnType,
+                        kind: SynExprRootKind::ReturnType,
                         syn_expr_idx: 1,
                     },
                 ],

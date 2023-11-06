@@ -192,7 +192,7 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        associated_ty: Symbol(
+                        associated_ty: HirType::Symbol(
                             Type {
                                 attrs: HirSymbolAttrs,
                                 variance: None,
@@ -236,18 +236,45 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        self_value_parameter: Ordinary,
-                        parenate_parameters: HirParenateParameters(
+                        self_value_parameter: HirEagerSelfValueParameter,
+                        parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary,
+                                Ordinary {
+                                    pattern_expr_idx: 1,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 17,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ],
                         ),
-                        return_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::result::Result`, `Enum`),
+                                template_arguments: [
+                                    Type(
+                                        Symbol(
+                                            Type {
+                                                attrs: HirSymbolAttrs,
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    ),
+                                    Type(
+                                        Symbol(
+                                            Type {
+                                                attrs: HirSymbolAttrs,
+                                                variance: None,
+                                                disambiguator: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
                         ),
                     },
                     eager_body_with_hir_eager_expr_region: Some(

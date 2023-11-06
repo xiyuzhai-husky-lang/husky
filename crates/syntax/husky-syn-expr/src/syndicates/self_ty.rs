@@ -17,7 +17,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfTypeSyndica
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
-        if let Some(expr) = ctx.parse_expr_root(None, ExprRootKind::SelfType) {
+        if let Some(expr) = ctx.parse_expr_root(None, SynExprRootKind::SelfType) {
             Ok(Some(SelfTypeSyndicate { expr }))
         } else {
             Ok(None)

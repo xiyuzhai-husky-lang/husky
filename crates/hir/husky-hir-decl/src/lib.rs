@@ -2,17 +2,15 @@
 mod builder;
 pub mod db;
 mod decl;
-pub mod parenate_parameter;
-pub mod template_parameter;
+pub mod parameter;
 #[cfg(test)]
 mod tests;
 
 pub use self::decl::*;
-pub use self::ritchie_parameter::*;
-pub use self::template_parameter::*;
 
 use self::builder::*;
 use self::db::*;
+use self::parameter::*;
 use husky_coword::*;
 use husky_entity_path::*;
 use husky_ethereal_signature::*;

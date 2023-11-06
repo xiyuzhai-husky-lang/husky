@@ -171,7 +171,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                             term_symbol,
                         )
                 }
-                SyndicateTypeConstraint::ExplicitRegularParameter {
+                SyndicateTypeConstraint::OrdinaryParenateParameter {
                     syn_pattern_root,
                     ty_expr_idx: ty,
                 } => self.init_current_symbol_signatures_in_parenate_parameter(
@@ -192,7 +192,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     // need only to compute for decl region
                     return;
                 }
-                SyndicateTypeConstraint::ExplicitVariadicParameter { ty } => {
+                SyndicateTypeConstraint::VariadicParenateParameter { ty } => {
                     let ty = self.infer_new_expr_term(*ty).map_err(|_| todo!());
                     let symbol = DeclarativeTermSymbol::new_ephem(
                         self.db,
@@ -216,7 +216,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
     fn init_current_symbol_signatures_in_parenate_parameter(
         &mut self,
-        syn_pattern_root: SynPatternRoot,
+        parenate_syn_pattern_expr_root: ParenateSynPatternExprRoot,
         ty: SynExprIdx,
         symbols: SynCurrentSymbolIdxRange,
     ) {
@@ -235,7 +235,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             }
             return;
         };
-        self.infer_pattern_tys_in_parenate_parameter(syn_pattern_root, ty);
+        self.infer_pattern_tys_in_parenate_parameter(parenate_syn_pattern_expr_root, ty);
         for symbol in symbols {
             self.infer_current_symbol_signature_in_parenate_parameter(symbol)
         }
@@ -265,36 +265,36 @@ impl<'a> DeclarativeTermEngine<'a> {
     }
 
     fn infer_expr_roots(&mut self) {
-        for expr_root in self.syn_expr_region_data.roots() {
+        for expr_root in self.syn_expr_region_data.syn_expr_roots() {
             match expr_root.kind() {
                 // omit props struct field because they are inferred for field variable
-                ExprRootKind::PropsStructFieldType { .. } => continue,
-                ExprRootKind::Trait
-                | ExprRootKind::ReturnType
-                | ExprRootKind::TupleStructFieldType
-                | ExprRootKind::ReturnType
-                | ExprRootKind::ExplicitParameterDefaultValue { .. }
-                | ExprRootKind::AssociatedTypeTerm => (),
-                ExprRootKind::SelfType => {
+                SynExprRootKind::PropsStructFieldType { .. } => continue,
+                SynExprRootKind::Trait
+                | SynExprRootKind::ReturnType
+                | SynExprRootKind::TupleStructFieldType
+                | SynExprRootKind::ReturnType
+                | SynExprRootKind::ExplicitParameterDefaultValue { .. }
+                | SynExprRootKind::AssociatedTypeTerm => (),
+                SynExprRootKind::SelfType => {
                     let self_ty_term = self.infer_new_expr_term(expr_root.syn_expr_idx()).ok();
                     self.symbol_declarative_term_region
                         .set_self_ty(self_ty_term);
                     continue;
                 }
-                ExprRootKind::BlockExpr
-                | ExprRootKind::LetStmtType
-                | ExprRootKind::LetStmtInitialValue
-                | ExprRootKind::HtmlArgumentExpr
-                | ExprRootKind::ReturnExpr
-                | ExprRootKind::Condition
-                | ExprRootKind::ConstantImplicitParameterType
-                | ExprRootKind::ExplicitParameterType
-                | ExprRootKind::FieldBindInitialValue { .. }
-                | ExprRootKind::Snippet
-                | ExprRootKind::ValExpr
-                | ExprRootKind::EvalExpr => continue,
+                SynExprRootKind::BlockExpr
+                | SynExprRootKind::LetStmtType
+                | SynExprRootKind::LetStmtInitialValue
+                | SynExprRootKind::HtmlArgumentExpr
+                | SynExprRootKind::ReturnExpr
+                | SynExprRootKind::Condition
+                | SynExprRootKind::ConstantImplicitParameterType
+                | SynExprRootKind::ExplicitParameterType
+                | SynExprRootKind::FieldBindInitialValue { .. }
+                | SynExprRootKind::Snippet
+                | SynExprRootKind::ValExpr
+                | SynExprRootKind::EvalExpr => continue,
                 // ad hoc
-                ExprRootKind::Traits => (),
+                SynExprRootKind::Traits => (),
             }
             self.cache_new_expr_term(expr_root.syn_expr_idx())
         }

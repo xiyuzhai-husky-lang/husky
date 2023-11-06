@@ -18,11 +18,57 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirParenateParameters(
+                    parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary,
+                            Ordinary {
+                                pattern_expr_idx: 1,
+                                ty: PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 58,
+                                        },
+                                    ),
+                                ),
+                            },
                         ],
                     ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                            template_arguments: [
+                                Type(
+                                    PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 41,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 220,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                    },
                 },
             ),
         ),
@@ -66,12 +112,11 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 40,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                        template_arguments: [],
+                    },
                 ),
             },
         ),

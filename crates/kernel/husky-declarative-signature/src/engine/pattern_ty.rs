@@ -10,10 +10,11 @@ impl<'a> DeclarativeTermEngine<'a> {
     /// only use this for explicit parameters
     pub(super) fn infer_pattern_tys_in_parenate_parameter(
         &mut self,
-        syn_pattern_root: SynPatternRoot,
+        syn_pattern_expr_root: impl Into<SynPatternExprRoot> + Copy,
         ty: DeclarativeTerm,
     ) {
-        self.infer_pattern_expr_tys(syn_pattern_root.syn_pattern_expr_idx(), ty);
-        self.infer_pattern_symbol_tys(syn_pattern_root)
+        let syn_pattern_expr_idx = syn_pattern_expr_root.into().syn_pattern_expr_idx();
+        self.infer_pattern_expr_tys(syn_pattern_expr_idx, ty);
+        self.infer_pattern_symbol_tys(syn_pattern_expr_root)
     }
 }

@@ -167,7 +167,7 @@
                                 },
                             ],
                         ),
-                        parenate_parameters: HirParenateParameters(
+                        parenate_parameters: HirLazyParenateParameters(
                             [
                                 Variadic,
                                 Keyed,
@@ -250,12 +250,11 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        associated_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        associated_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
                     },
                 },
@@ -333,12 +332,11 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        associated_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        associated_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
                     },
                 },

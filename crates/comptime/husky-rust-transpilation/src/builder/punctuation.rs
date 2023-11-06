@@ -7,6 +7,7 @@ pub enum RustPunctuation {
     Colon,
     Dot,
     ColonColon,
+    LightArrow,
 }
 
 impl RustPunctuation {
@@ -18,6 +19,7 @@ impl RustPunctuation {
             RustPunctuation::Colon => ":",
             RustPunctuation::Dot => ".",
             RustPunctuation::ColonColon => "::",
+            RustPunctuation::LightArrow => todo!(),
         }
     }
 }
@@ -65,6 +67,7 @@ impl<'a> RustTranspilationBuilder<'a> {
             RustPunctuation::Colon => ": ",
             RustPunctuation::Dot => ".",
             RustPunctuation::ColonColon => "::",
+            RustPunctuation::LightArrow => " -> ",
         };
         self.write_str(s)
     }

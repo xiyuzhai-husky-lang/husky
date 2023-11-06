@@ -12,7 +12,7 @@ pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
 
-use crate::{db::*, parenate_parameter::*, *};
+use crate::{db::*, *};
 use husky_hir_eager_expr::helpers::hir_eager_expr_region;
 use husky_hir_expr::source_map::HirExprSourceMap;
 use husky_syn_decl::HasSynDecl;

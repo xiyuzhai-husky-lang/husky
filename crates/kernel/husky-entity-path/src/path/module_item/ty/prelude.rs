@@ -22,6 +22,7 @@ pub enum PreludeTypePath {
 }
 
 impl PreludeTypePath {
+    pub const UNIT: Self = PreludeTypePath::Basic(PreludeBasicTypePath::Unit);
     pub const NEVER: Self = PreludeTypePath::Basic(PreludeBasicTypePath::Never);
 }
 

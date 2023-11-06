@@ -226,17 +226,12 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 275,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `x`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -245,15 +240,9 @@ Ok(
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 276,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `y`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),
@@ -495,17 +484,12 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 275,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `x`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -514,15 +498,9 @@ Ok(
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 276,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `y`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),
@@ -764,17 +742,12 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 275,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `x`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -783,15 +756,9 @@ Ok(
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 276,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `y`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),
@@ -1033,17 +1000,12 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 67,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `min`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -1052,15 +1014,9 @@ Ok(
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 62,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `max`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),
@@ -1306,17 +1262,12 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 369,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `xrange`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             6,
                                                         ),
@@ -1325,15 +1276,9 @@ Ok(
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 370,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `yrange`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             11,
                                                         ),
@@ -1575,17 +1520,12 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 369,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `xrange`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -1594,15 +1534,9 @@ Ok(
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: PropsStructFieldType {
+                                                kind: SynExprRootKind::PropsStructFieldType {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 370,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `yrange`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),
@@ -1720,9 +1654,10 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    roots: [
+                                    syn_pattern_expr_roots: [],
+                                    syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: SelfType,
+                                            kind: SynExprRootKind::SelfType,
                                             syn_expr_idx: 1,
                                         },
                                     ],
@@ -1764,9 +1699,9 @@ Ok(
                                 template_parameters: [],
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -1778,9 +1713,9 @@ Ok(
                                         ty: 1,
                                     },
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            2,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 2,
+                                        },
                                         variables: ArenaIdxRange(
                                             2..3,
                                         ),
@@ -1878,9 +1813,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -2089,10 +2025,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -2100,10 +2036,10 @@ Ok(
                                                     ),
                                                 ),
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            2,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 2,
+                                                        },
                                                         ty_expr_idx: 2,
                                                     },
                                                     ArenaIdxRange(
@@ -2112,17 +2048,27 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 2,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 2,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 3,
                                             },
                                         ],
@@ -2251,9 +2197,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -2344,9 +2291,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],
@@ -2390,9 +2338,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -2490,9 +2438,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -2645,10 +2594,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -2657,13 +2606,19 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -2792,9 +2747,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -2885,9 +2841,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],
@@ -2931,9 +2888,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -3031,9 +2988,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -3186,10 +3144,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -3198,13 +3156,19 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -3317,9 +3281,10 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    roots: [
+                                    syn_pattern_expr_roots: [],
+                                    syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: SelfType,
+                                            kind: SynExprRootKind::SelfType,
                                             syn_expr_idx: 1,
                                         },
                                     ],
@@ -3447,9 +3412,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -3540,9 +3506,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],
@@ -3586,9 +3553,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -3686,9 +3653,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -3841,10 +3809,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -3853,13 +3821,19 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -3988,9 +3962,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -4081,9 +4056,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],
@@ -4127,9 +4103,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -4227,9 +4203,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -4382,10 +4359,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -4394,13 +4371,19 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -4444,9 +4427,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -4544,9 +4527,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -4699,10 +4683,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -4711,13 +4695,19 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -4761,9 +4751,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -4861,9 +4851,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -5016,10 +5007,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -5028,13 +5019,19 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -5078,9 +5075,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -5178,9 +5175,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -5333,10 +5331,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -5345,13 +5343,19 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -5395,9 +5399,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -5409,9 +5413,9 @@ Ok(
                                         ty: 1,
                                     },
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            2,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 2,
+                                        },
                                         variables: ArenaIdxRange(
                                             2..3,
                                         ),
@@ -5509,9 +5513,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -5720,10 +5725,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -5731,10 +5736,10 @@ Ok(
                                                     ),
                                                 ),
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            2,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 2,
+                                                        },
                                                         ty_expr_idx: 2,
                                                     },
                                                     ArenaIdxRange(
@@ -5743,17 +5748,27 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 2,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 2,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 3,
                                             },
                                         ],
@@ -5866,9 +5881,10 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    roots: [
+                                    syn_pattern_expr_roots: [],
+                                    syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: SelfType,
+                                            kind: SynExprRootKind::SelfType,
                                             syn_expr_idx: 1,
                                         },
                                     ],
@@ -5911,9 +5927,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -6011,9 +6027,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -6166,10 +6183,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -6178,13 +6195,19 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -6228,9 +6251,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -6328,9 +6351,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -6483,10 +6507,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -6495,13 +6519,19 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -6614,9 +6644,10 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    roots: [
+                                    syn_pattern_expr_roots: [],
+                                    syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: SelfType,
+                                            kind: SynExprRootKind::SelfType,
                                             syn_expr_idx: 1,
                                         },
                                     ],
@@ -6659,9 +6690,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -6759,9 +6790,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -6914,10 +6946,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -6926,13 +6958,19 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -6976,9 +7014,9 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [
                                     ParenateParameterSyndicate::Ordinary {
-                                        syn_pattern_root: SynPatternRoot(
-                                            1,
-                                        ),
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
                                         variables: ArenaIdxRange(
                                             1..2,
                                         ),
@@ -7076,9 +7114,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -7231,10 +7270,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitRegularParameter {
-                                                        syn_pattern_root: SynPatternRoot(
-                                                            1,
-                                                        ),
+                                                    OrdinaryParenateParameter {
+                                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                                            syn_pattern_expr_idx: 1,
+                                                        },
                                                         ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
@@ -7243,13 +7282,19 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [
+                                            SynPatternExprRoot {
+                                                kind: SynPatternExprRootKind::Parenate,
+                                                syn_pattern_expr_idx: 1,
+                                            },
+                                        ],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ExplicitParameterType,
+                                                kind: SynExprRootKind::ExplicitParameterType,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -7378,9 +7423,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -7471,9 +7517,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],
@@ -7602,9 +7649,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -7695,9 +7743,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],
@@ -7826,9 +7875,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -7919,9 +7969,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],
@@ -8050,9 +8101,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -8143,9 +8195,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],
@@ -8258,9 +8311,10 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    roots: [
+                                    syn_pattern_expr_roots: [],
+                                    syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: SelfType,
+                                            kind: SynExprRootKind::SelfType,
                                             syn_expr_idx: 1,
                                         },
                                     ],
@@ -8388,9 +8442,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -8481,9 +8536,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],
@@ -8612,9 +8668,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -8705,9 +8762,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],
@@ -8836,9 +8894,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -8929,9 +8988,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],
@@ -9060,9 +9120,10 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [],
                                                     },
-                                                    roots: [
+                                                    syn_pattern_expr_roots: [],
+                                                    syn_expr_roots: [
                                                         SynExprRoot {
-                                                            kind: SelfType,
+                                                            kind: SynExprRootKind::SelfType,
                                                             syn_expr_idx: 1,
                                                         },
                                                     ],
@@ -9153,9 +9214,10 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 1,
                                             },
                                         ],

@@ -60,7 +60,7 @@
                             },
                         ],
                     ),
-                    parenate_parameters: HirParenateParameters(
+                    parenate_parameters: HirLazyParenateParameters(
                         [
                             Variadic,
                             Keyed,

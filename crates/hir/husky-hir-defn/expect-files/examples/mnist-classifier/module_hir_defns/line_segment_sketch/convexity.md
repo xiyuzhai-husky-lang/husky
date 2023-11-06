@@ -2,19 +2,73 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnHirDefn {
+                FunctionFnFugitiveHirDefn {
                     path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        parenate_parameters: HirParenateParameters(
+                        parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary,
-                                Ordinary,
+                                Ordinary {
+                                    pattern_expr_idx: 1,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Ordinary {
+                                    pattern_expr_idx: 2,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ],
                         ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::basic::bool`, `Extern`),
+                                template_arguments: [],
+                            },
+                        ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [
+                                    Ident {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 220,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    Ident {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 421,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (

@@ -3,30 +3,30 @@ struct RawContour{cc: Leash<ConnectedComponent>, points: Vec<Point2d>}
 
 struct Direction
 
-pub fn get_pixel_pair(, ) {
+pub fn get_pixel_pair(row: r32, j: i32) -> r32 {
     row >> j - 1 | 3;
 }
 
-pub fn get_pixel_to_the_left(, ) {
+pub fn get_pixel_to_the_left(row: r32, j: i32) -> r32 {
     row >> j | 1;
 }
 
-pub fn get_pixel_to_the_right(, ) {
+pub fn get_pixel_to_the_right(row: r32, j: i32) -> r32 {
     row >> j - 1 | 1;
 }
 
-pub fn get_inward_direction(, , ) {
+pub fn get_inward_direction(row_above: r32, row_below: r32, j: i32) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
     let pixel_pair_below = get_pixel_pair(row_below, j);
     match 
 }
 
-pub fn get_angle_change(, ) {
+pub fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
     let raw_angle_change = outward as i32 - inward as i32 as r32.last_bits(2);
     match 
 }
 
-pub fn get_outward_direction(, , , ) {
+pub fn get_outward_direction(row_above: r32, row_below: r32, j: i32, inward_direction: Direction) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
     let pixel_pair_below = get_pixel_pair(row_below, j);
     match 
@@ -34,14 +34,14 @@ pub fn get_outward_direction(, , , ) {
 
 struct StreakCache{prev1: i32, prev2: i32}
 
-pub fn get_concave_middle_point() {
+pub fn get_concave_middle_point(points: Vec<Point2d>) -> Point2d {
     let N = points.ilen();
     let p0 = points[N - 2];
     let p2 = points[N - 1];
     Point2d(p0.x + p2.x / 2, p0.y + p2.y / 2);
 }
 
-pub fn find_raw_contours() {
+pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
     let result: Vec<RawContour> = vec![];
     let boundary_unsearched = new_zeros();
     for {

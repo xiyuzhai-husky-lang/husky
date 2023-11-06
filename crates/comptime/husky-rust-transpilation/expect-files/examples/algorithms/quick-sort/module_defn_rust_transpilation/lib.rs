@@ -1,10 +1,10 @@
 
-pub fn quick_sort<T>() {
+pub fn quick_sort<T>(arr: Slice< HirTypeSymbolTodo >) {
     let len = arr.len();
     quick_sort_aux(arr, 0, len - 1 as isize);
 }
 
-pub fn quick_sort_aux<T>(, , ) {
+pub fn quick_sort_aux<T>(arr: Slice< HirTypeSymbolTodo >, low: isize, high: isize) {
     if low < high {
         let p = partition(arr, low, high);
         quick_sort_aux(arr, low, p - 1);
@@ -12,7 +12,7 @@ pub fn quick_sort_aux<T>(, , ) {
     }
 }
 
-pub fn partition<T>(, , ) {
+pub fn partition<T>(arr: Slice< HirTypeSymbolTodo >, low: isize, high: isize) -> isize {
     let pivot = high as usize;
     let store_index = low - 1;
     let last_index = high;

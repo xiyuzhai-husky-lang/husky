@@ -4,14 +4,14 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LetPatternSemaSyndicate {
-    syn_pattern_root: SynPatternRoot,
+    syn_pattern_root: LetSynPatternExprRoot,
     variables: SynCurrentSymbolIdxRange,
     colon_token: Option<ColonRegionalToken>,
     ty_sema_expr_idx: Option<SemaExprIdx>,
 }
 
 impl LetPatternSemaSyndicate {
-    pub fn syn_pattern_root(&self) -> SynPatternRoot {
+    pub fn syn_pattern_root(&self) -> LetSynPatternExprRoot {
         self.syn_pattern_root
     }
 

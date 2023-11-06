@@ -84,7 +84,7 @@ where
                 lcurl: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,
                 expr: sp.parse_expr_expected2(
                     None,
-                    ExprRootKind::HtmlArgumentExpr,
+                    SynExprRootKind::HtmlArgumentExpr,
                     OriginalSynExprError::HtmlTodo,
                 ),
                 rcurl: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,

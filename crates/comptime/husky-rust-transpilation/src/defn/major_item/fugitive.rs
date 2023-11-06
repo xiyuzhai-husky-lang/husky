@@ -1,4 +1,4 @@
-use husky_hir_decl::ValFugitiveHirDecl;
+use husky_hir_decl::{FunctionFnFugitiveHirDecl, ValFugitiveHirDecl};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 
 use super::*;
@@ -14,21 +14,35 @@ impl TranspileToRust for FugitiveHirDefn {
     }
 }
 
-impl TranspileToRust for FunctionFnHirDefn {
+impl TranspileToRust for FunctionFnFugitiveHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
-        let Some((body, hir_eager_expr_region)) = self.eager_body_with_hir_eager_expr_region(db)
+        let Some((body, body_hir_eager_expr_region)) =
+            self.eager_body_with_hir_eager_expr_region(db)
         else {
             return;
         };
-        builder.keyword(RustKeyword::Pub);
-        let hir_decl = self.hir_decl(db);
-        builder.keyword(RustKeyword::Fn);
-        hir_decl.path(db).ident(db).transpile_to_rust(builder);
-        hir_decl.template_parameters(db).transpile_to_rust(builder);
-        hir_decl.parenate_parameters(db).transpile_to_rust(builder);
-        builder.curly_block_with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
+        self.hir_decl(db).transpile_to_rust(builder);
+        builder.curly_block_with_hir_eager_expr_region(body_hir_eager_expr_region, |builder| {
             body.transpile_to_rust(builder)
+        })
+    }
+}
+
+impl TranspileToRust for FunctionFnFugitiveHirDecl {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        let db = builder.db();
+        builder.with_hir_expr_region(self.hir_eager_expr_region(db), |builder| {
+            builder.keyword(RustKeyword::Pub);
+            builder.keyword(RustKeyword::Fn);
+            self.path(db).ident(db).transpile_to_rust(builder);
+            self.template_parameters(db).transpile_to_rust(builder);
+            self.parenate_parameters(db).transpile_to_rust(builder);
+            let return_ty = &self.return_ty(db);
+            if !return_ty.is_equal_to_unit_obviously(db) {
+                builder.punctuation(RustPunctuation::LightArrow);
+                return_ty.transpile_to_rust(builder)
+            }
         })
     }
 }

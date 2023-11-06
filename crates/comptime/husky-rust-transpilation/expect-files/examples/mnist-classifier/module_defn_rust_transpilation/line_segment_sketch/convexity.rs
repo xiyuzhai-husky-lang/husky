@@ -1,5 +1,5 @@
 
-pub fn is_convex(, ) {
+pub fn is_convex(line_segment_sketch: LineSegmentSketch, index: i32) -> bool {
     let L = line_segment_sketch.strokes.ilen();
     let current_displacement = line_segment_sketch.strokes[index % L].displacement();
     let previous_displacement = line_segment_sketch.strokes[index - 1 % L].displacement();

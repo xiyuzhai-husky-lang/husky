@@ -45,15 +45,15 @@ pub struct SynSymbolRegion {
 #[derive(Debug, PartialEq, Eq)]
 pub enum SyndicateTypeConstraint {
     TemplateTypeParameter,
-    ExplicitRegularParameter {
-        syn_pattern_root: SynPatternRoot,
+    OrdinaryParenateParameter {
+        syn_pattern_root: ParenateSynPatternExprRoot,
         ty_expr_idx: SynExprIdx,
     },
-    ExplicitVariadicParameter {
+    VariadicParenateParameter {
         ty: SynExprIdx,
     },
     LetPattern {
-        pattern: SynPatternRoot,
+        pattern: LetSynPatternExprRoot,
         ty: SynExprIdx,
     },
     FieldVariable {

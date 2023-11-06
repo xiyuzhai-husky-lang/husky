@@ -56,7 +56,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
             ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
         let ty_expr_idx = ctx.parse_expr_expected2(
             None,
-            ExprRootKind::PropsStructFieldType { ident_token },
+            SynExprRootKind::PropsStructFieldType { ident_token },
             OriginalSynExprError::ExpectedFieldType,
         );
         let initialization =
@@ -65,7 +65,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
                     colon_eq_token,
                     value: ctx.parse_expr_expected2(
                         None,
-                        ExprRootKind::FieldBindInitialValue {
+                        SynExprRootKind::FieldBindInitialValue {
                             ty_syn_expr_idx: ty_expr_idx,
                         },
                         OriginalSynExprError::ExpectedValueForFieldBindInitialization,

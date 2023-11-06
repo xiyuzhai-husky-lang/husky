@@ -11,12 +11,11 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_ty: PathLeading(
-                        HirTypePathLeading(
-                            Id {
-                                value: 67,
-                            },
-                        ),
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                            template_arguments: [],
+                        },
                     ),
                 },
             },

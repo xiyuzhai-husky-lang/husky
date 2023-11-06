@@ -3,7 +3,7 @@ fn simple_seven_match() {
     fermi_match(major_concave_components, vec![simple_leftdown_pattern]);
 }
 
-pub fn simple_leftdown_pattern() {
+pub fn simple_leftdown_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
     -dp.y;
@@ -13,14 +13,14 @@ fn special_seven_match() {
     fermi_match(major_concave_components, vec![leftupcc_pattern, leftdowncc_pattern]);
 }
 
-pub fn leftupcc_pattern() {
+pub fn leftupcc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
     require!(cc.relative_bounding_box.ymax() > 0.6);
     cc.end().y;
 }
 
-pub fn leftdowncc_pattern() {
+pub fn leftdowncc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
     require!(cc.relative_bounding_box.ymin() < 0.3);

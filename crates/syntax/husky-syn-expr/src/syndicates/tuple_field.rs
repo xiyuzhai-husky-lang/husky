@@ -26,7 +26,7 @@ impl<'a> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldS
         let visibility = ctx.try_parse_option()?;
         let ty = ctx.parse_expr_expected2(
             None,
-            ExprRootKind::TupleStructFieldType,
+            SynExprRootKind::TupleStructFieldType,
             OriginalSynExprError::ExpectedFieldType,
         );
         Ok(Some(TupleFieldSyndicate {

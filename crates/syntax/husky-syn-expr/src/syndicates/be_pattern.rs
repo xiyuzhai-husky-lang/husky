@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct BePatternSynSyndicate {
-    pattern_expr: SynPatternRoot,
+    pattern_expr_root: BeSynPatternExprRoot,
     variables: SynCurrentSymbolIdxRange,
 }
 
@@ -18,12 +18,12 @@ where
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<BePatternSynSyndicate> {
         let state = self.save_state();
-        let Some(pattern_expr) = self.try_parse_option()? else {
+        let Some(pattern_expr_root) = self.try_parse_option::<BeSynPatternExprRoot>()? else {
             Err(OriginalSynExprError::ExpectedBePattern(state))?
         };
         let symbols = self
             .pattern_expr_region()
-            .pattern_expr_symbols(pattern_expr);
+            .pattern_expr_symbols(pattern_expr_root);
         let access_start = self.save_state().next_regional_token_idx();
         let symbols = symbols
             .iter()
@@ -41,15 +41,15 @@ where
             .collect::<Vec<_>>();
         let variables = self.define_symbols(symbols, None);
         Ok(BePatternSynSyndicate {
-            pattern_expr,
+            pattern_expr_root,
             variables,
         })
     }
 }
 
 impl BePatternSynSyndicate {
-    pub fn syn_pattern_root(&self) -> SynPatternRoot {
-        self.pattern_expr
+    pub fn syn_pattern_root(&self) -> BeSynPatternExprRoot {
+        self.pattern_expr_root
     }
 
     pub fn variables(&self) -> SynCurrentSymbolIdxRange {

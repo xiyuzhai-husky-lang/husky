@@ -1,33 +1,29 @@
-use crate::{builder::HirDeclBuilder, db::HirDeclDb};
-use husky_syn_expr::{ParenateParameterSyndicate, SelfValueParameterSyndicate};
-use smallvec::SmallVec;
+use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum HirParenateParameter {
-    Ordinary,
+pub enum HirEagerParenateParameter {
+    Ordinary {
+        pattern_expr_idx: HirEagerPatternExprIdx,
+        ty: HirType,
+    },
     Keyed,
     Variadic,
 }
 
-impl HirParenateParameter {
-    pub(crate) fn from_self_value_parameter_syndicate(
-        syndicate: Option<SelfValueParameterSyndicate>,
-        db: &dyn HirDeclDb,
-    ) -> Self {
-        HirParenateParameter::Ordinary
-    }
-
+impl HirEagerParenateParameter {
     pub(crate) fn from_syn(
         syndicate: &ParenateParameterSyndicate,
         builder: &HirDeclBuilder,
     ) -> Option<Self> {
         Some(match syndicate {
-            ParenateParameterSyndicate::Ordinary {
+            &ParenateParameterSyndicate::Ordinary {
                 syn_pattern_root,
-                variables,
-                colon,
                 ty,
-            } => HirParenateParameter::Ordinary,
+                ..
+            } => HirEagerParenateParameter::Ordinary {
+                pattern_expr_idx: builder.hir_eager_pattern_expr_idx(syn_pattern_root),
+                ty: builder.hir_ty(ty),
+            },
             ParenateParameterSyndicate::Variadic {
                 dot_dot_dot_token,
                 variadic_variant,
@@ -36,7 +32,7 @@ impl HirParenateParameter {
                 variable,
                 colon,
                 ty,
-            } => HirParenateParameter::Variadic,
+            } => HirEagerParenateParameter::Variadic,
             ParenateParameterSyndicate::Keyed {
                 syn_pattern_root,
                 symbol_modifier_keyword_group,
@@ -46,23 +42,23 @@ impl HirParenateParameter {
                 ty,
                 eq_token,
                 default,
-            } => HirParenateParameter::Keyed,
+            } => HirEagerParenateParameter::Keyed,
         })
     }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct HirParenateParameters(SmallVec<[HirParenateParameter; 4]>);
+pub struct HirEagerParenateParameters(SmallVec<[HirEagerParenateParameter; 4]>);
 
-impl std::ops::Deref for HirParenateParameters {
-    type Target = SmallVec<[HirParenateParameter; 4]>;
+impl std::ops::Deref for HirEagerParenateParameters {
+    type Target = SmallVec<[HirEagerParenateParameter; 4]>;
 
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
 
-impl HirParenateParameters {
+impl HirEagerParenateParameters {
     pub(crate) fn from_syn(
         syndicates: &[ParenateParameterSyndicate],
         builder: &HirDeclBuilder,
@@ -70,7 +66,7 @@ impl HirParenateParameters {
         Self(
             syndicates
                 .iter()
-                .filter_map(|syndicate| HirParenateParameter::from_syn(syndicate, builder))
+                .filter_map(|syndicate| HirEagerParenateParameter::from_syn(syndicate, builder))
                 .collect(),
         )
     }

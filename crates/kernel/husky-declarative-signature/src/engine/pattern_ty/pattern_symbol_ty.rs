@@ -22,11 +22,14 @@ impl PatternSymbolDeclarativeTypeInfo {
 }
 
 impl<'a> DeclarativeTermEngine<'a> {
-    pub(super) fn infer_pattern_symbol_tys(&mut self, syn_pattern_root: SynPatternRoot) {
+    pub(super) fn infer_pattern_symbol_tys(
+        &mut self,
+        syn_pattern_expr_root: impl Into<SynPatternExprRoot>,
+    ) {
         for (_, pattern_symbol) in self
             .syn_expr_region_data
             .pattern_expr_region()
-            .pattern_expr_symbols(syn_pattern_root)
+            .pattern_expr_symbols(syn_pattern_expr_root)
         {
             self.infer_new_pattern_symbol_ty(*pattern_symbol)
         }

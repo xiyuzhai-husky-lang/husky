@@ -179,9 +179,10 @@ Ok(
                                             allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: ReturnType,
+                                                kind: SynExprRootKind::ReturnType,
                                                 syn_expr_idx: 5,
                                             },
                                         ],

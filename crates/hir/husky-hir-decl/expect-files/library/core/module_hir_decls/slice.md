@@ -52,12 +52,21 @@
                         },
                     ],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 18,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                        template_arguments: [
+                            Type(
+                                Symbol(
+                                    Type {
+                                        attrs: HirSymbolAttrs,
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ],
+                    },
                 ),
             },
         ),
@@ -163,12 +172,21 @@
                         },
                     ],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 19,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                        template_arguments: [
+                            Type(
+                                Symbol(
+                                    Type {
+                                        attrs: HirSymbolAttrs,
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ],
+                    },
                 ),
             },
         ),

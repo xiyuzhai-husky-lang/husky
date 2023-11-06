@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct CasePatternSyndicate {
-    syn_pattern_root: SynPatternRoot,
+    syn_pattern_root: CaseSynPatternExprRoot,
     variables: SynCurrentSymbolIdxRange,
 }
 
@@ -18,7 +18,7 @@ where
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<CasePatternSyndicate> {
         let state = self.save_state();
-        let Some(syn_pattern_root) = self.try_parse_option()? else {
+        let Some(syn_pattern_root) = self.try_parse_option::<CaseSynPatternExprRoot>()? else {
             Err(OriginalSynExprError::ExpectedCasePattern(state))?
         };
         let symbols = self
@@ -48,7 +48,7 @@ where
 }
 
 impl CasePatternSyndicate {
-    pub fn syn_pattern_root(&self) -> SynPatternRoot {
+    pub fn syn_pattern_root(&self) -> CaseSynPatternExprRoot {
         self.syn_pattern_root
     }
 

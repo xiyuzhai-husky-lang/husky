@@ -3,11 +3,11 @@ use super::*;
 impl<'a> SemaExprEngine<'a> {
     pub(crate) fn infer_pattern_root_and_symbols_ty(
         &mut self,
-        syn_pattern_root: SynPatternRoot,
+        syn_pattern_root: impl Into<SynPatternExprRoot>,
         ty: FluffyTerm,
         symbols: SynCurrentSymbolIdxRange,
     ) {
-        self.infer_pattern_ty(syn_pattern_root.syn_pattern_expr_idx(), ty);
+        self.infer_pattern_ty(syn_pattern_root.into().syn_pattern_expr_idx(), ty);
         for symbol in symbols {
             self.infer_new_current_symbol_ty(symbol)
         }

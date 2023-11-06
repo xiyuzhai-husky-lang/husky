@@ -7,9 +7,9 @@ pub struct TypeMethodFnHirDecl {
     pub path: TypeItemPath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
-    pub self_value_parameter: HirParenateParameter,
+    pub self_value_parameter: HirEagerSelfValueParameter,
     #[return_ref]
-    pub parenate_parameters: HirParenateParameters,
+    pub parenate_parameters: HirEagerParenateParameters,
     pub return_ty: HirType,
 }
 
@@ -22,12 +22,10 @@ impl TypeMethodFnHirDecl {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
-        let self_value_parameter = HirParenateParameter::from_self_value_parameter_syndicate(
-            syn_decl.self_value_parameter(db),
-            db,
-        );
+        let self_value_parameter =
+            HirEagerSelfValueParameter::from_syn(syn_decl.self_value_parameter(db), db);
         let parenate_parameters =
-            HirParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder);
+            HirEagerParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder);
         let return_ty = syn_decl
             .return_ty(db)
             .map(|syndicate| builder.hir_ty(syndicate.syn_expr_idx()))

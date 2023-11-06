@@ -29,11 +29,57 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirParenateParameters(
+                    parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary,
+                            Ordinary {
+                                pattern_expr_idx: 1,
+                                ty: PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 31,
+                                        },
+                                    ),
+                                ),
+                            },
                         ],
                     ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::option::Option`, `Enum`),
+                            template_arguments: [
+                                Type(
+                                    PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 14,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 251,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                    },
                 },
             ),
         ),
@@ -57,12 +103,66 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirParenateParameters(
+                    parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary,
-                            Ordinary,
+                            Ordinary {
+                                pattern_expr_idx: 1,
+                                ty: PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
+                            },
+                            Ordinary {
+                                pattern_expr_idx: 2,
+                                ty: PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
+                            },
                         ],
                     ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 53,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 275,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                    },
                 },
             ),
         ),
@@ -75,11 +175,57 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirParenateParameters(
+                    parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary,
+                            Ordinary {
+                                pattern_expr_idx: 1,
+                                ty: PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            },
                         ],
                     ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                            template_arguments: [
+                                Type(
+                                    PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 36,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 279,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                    },
                 },
             ),
         ),
@@ -123,12 +269,11 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 35,
-                        },
-                    ),
+                self_ty: HirType::PathLeading(
+                    HirTypePathLeading {
+                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        template_arguments: [],
+                    },
                 ),
             },
         ),

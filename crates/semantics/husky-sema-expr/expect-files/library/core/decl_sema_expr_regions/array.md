@@ -155,9 +155,10 @@
                         ),
                     ],
                 },
-                roots: [
+                syn_pattern_expr_roots: [],
+                syn_expr_roots: [
                     SynExprRoot {
-                        kind: ConstantImplicitParameterType,
+                        kind: SynExprRootKind::ConstantImplicitParameterType,
                         syn_expr_idx: 1,
                     },
                 ],

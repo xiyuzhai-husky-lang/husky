@@ -64,7 +64,8 @@ Ok(
                                             allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [],
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [],
                                         has_self_lifetime: false,
                                         has_self_place: false,
                                     },
@@ -289,13 +290,14 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: Traits,
+                                                kind: SynExprRootKind::Traits,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: Traits,
+                                                kind: SynExprRootKind::Traits,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
@@ -523,13 +525,14 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        roots: [
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
                                             SynExprRoot {
-                                                kind: Traits,
+                                                kind: SynExprRootKind::Traits,
                                                 syn_expr_idx: 1,
                                             },
                                             SynExprRoot {
-                                                kind: Traits,
+                                                kind: SynExprRootKind::Traits,
                                                 syn_expr_idx: 2,
                                             },
                                         ],
