@@ -35,7 +35,7 @@ pub fn extend_end(ct: Leash<RawContour>, start: i32, r: f32) -> i32 {
     let N = ct.points.ilen();
     let max_end = start + N;
     while end <= max_end && dp.norm() < r {
-        end+= 1
+        end+= 1;
         dp = ct.displacement(start, end + 1)
     }
     if dp.norm() < r {
@@ -61,7 +61,7 @@ pub fn extend_end(ct: Leash<RawContour>, start: i32, r: f32) -> i32 {
                 left_bound = dp_left
             }
         }
-        end+= 1
+        end+= 1;
         dp = ct.displacement(start, end + 1)
     }
     assert!(end > start);
@@ -73,7 +73,7 @@ pub fn extend_start(ct: Leash<RawContour>, start0: i32, end: i32, r: f32) -> i32
     let mut dp0 = ct.displacement(end, start - 1);
     let min_start = end - ct.points.ilen();
     while start >= min_start && dp0.norm() < r {
-        start-= 1
+        start-= 1;
         dp0 = ct.displacement(end, start - 1)
     }
     if dp0.norm() < r {
@@ -122,7 +122,7 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
     let mut end = 1;
     let mut max_end = ct.points.ilen();
     while end <= max_end {
-        end = extend_end(ct, start, r)
+        end = extend_end(ct, start, r);
         let ls_extend_end = new(ct, start, end);
         let mut extend_start_flag = true;
         if line_segments.ilen() > 0 {
@@ -130,12 +130,12 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
             let dp_previous = line_segments.last().unwrap().displacement();
             if dp_extend_end.cross(dp_previous).abs() < 0.01 && dp_extend_end.dot(dp_previous) > 0 {
                 let N = ct.points.ilen();
-                line_segments.last().unwrap() = new(ct, line_segments.last().unwrap().points.start(), end)
+                line_segments.last().unwrap() = new(ct, line_segments.last().unwrap().points.start(), end);
                 extend_start_flag = false
             }
         }
         if extend_start_flag {
-            start = extend_start(ct, start, end, r)
+            start = extend_start(ct, start, end, r);
             let mut ls = new(ct, start, end);
             if line_segments.ilen() > 0 {
                 let ls_last = line_segments.last().unwrap();
@@ -151,7 +151,7 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
             }
             line_segments.push(ls)
         }
-        start = end
+        start = end;
         end = start + 1
     }
     let N = ct.points.ilen();

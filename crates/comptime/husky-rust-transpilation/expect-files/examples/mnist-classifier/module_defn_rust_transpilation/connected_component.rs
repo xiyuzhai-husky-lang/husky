@@ -15,7 +15,7 @@ pub fn horizontal_extend(a: r32, x: r32) -> r32 {
     let mut y = a | (x | x << 1 | x >> 1);
     let mut z = a | (y | y << 1 | y >> 1);
     while z != y {
-        y = z
+        y = z;
         z = a | (y | y << 1 | y >> 1)
     }
     return y;
@@ -29,10 +29,10 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
             let a = unsearched[j];
             let shift = a.ctz();
             let mut mask = new_zeros();
-            mask[j] = horizontal_extend(a, 1 << shift)
+            mask[j] = horizontal_extend(a, 1 << shift);
             let mut flag = false;
             while !flag {
-                flag = true
+                flag = true;
                 let mut i = j;
                 // Forext incompleteloop {
                     let old_row = mask[i + 1];
@@ -41,7 +41,7 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
                         break;
                     }
                     if old_row != new_row {
-                        flag = false
+                        flag = false;
                         mask[i + 1] = new_row
                     }
                 }
@@ -49,7 +49,7 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
                     let old_row = mask[i];
                     let new_row = old_row | horizontal_extend(img[i], mask[i + 1]);
                     if old_row != new_row {
-                        flag = false
+                        flag = false;
                         mask[i] = new_row
                     }
                 }

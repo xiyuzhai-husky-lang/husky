@@ -23,16 +23,14 @@ impl TranspileToRust for FunctionFnFugitiveHirDefn {
             return;
         };
         self.hir_decl(db).transpile_to_rust(builder);
-        builder.curly_block_with_hir_eager_expr_region(body_hir_eager_expr_region, |builder| {
-            any_precedence(body).transpile_to_rust(builder)
-        })
+        builder.eager_body(body_hir_eager_expr_region, body)
     }
 }
 
 impl TranspileToRust for FunctionFnFugitiveHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
-        builder.with_hir_expr_region(self.hir_eager_expr_region(db), |builder| {
+        builder.eager_head(self.hir_eager_expr_region(db), |builder| {
             builder.keyword(RustKeyword::Pub);
             builder.keyword(RustKeyword::Fn);
             self.path(db).ident(db).transpile_to_rust(builder);
@@ -60,9 +58,7 @@ impl TranspileToRust for ValFugitiveHirDefn {
             return;
         };
         self.hir_decl(db).transpile_to_rust(builder);
-        builder.curly_block_with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
-            any_precedence(body).transpile_to_rust(builder)
-        })
+        builder.eager_body(hir_eager_expr_region, body)
     }
 }
 

@@ -1,9 +1,10 @@
 use super::*;
 use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
 
-impl TranspileToRust for HirEagerStmtIdx {
+impl TranspileToRust for (IsLastStmt, HirEagerStmtIdx) {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        match *self.data(builder.hir_eager_stmt_arena()) {
+        let &(IsLastStmt(is_last_stmt), slf) = self;
+        match *slf.data(builder.hir_eager_stmt_arena()) {
             HirEagerStmt::Let {
                 pattern,
                 initial_value,
@@ -35,7 +36,7 @@ impl TranspileToRust for HirEagerStmtIdx {
             HirEagerStmt::Eval {
                 expr_idx,
                 discarded,
-            } => match discarded {
+            } => match discarded || !is_last_stmt {
                 true => builder.on_new_semicolon_line(|builder| {
                     any_precedence(expr_idx).transpile_to_rust(builder);
                 }),
@@ -164,10 +165,13 @@ impl TranspileToRust for HirEagerElseBranch {
 
 impl TranspileToRust for HirEagerStmtIdxRange {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        let end = self.end();
         builder.curly_block(|builder| {
             for stmt in self {
-                stmt.transpile_to_rust(builder)
+                (IsLastStmt((stmt + 1) == end), stmt).transpile_to_rust(builder)
             }
         })
     }
 }
+
+struct IsLastStmt(bool);
