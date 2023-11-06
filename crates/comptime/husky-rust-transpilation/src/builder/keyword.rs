@@ -17,6 +17,8 @@ pub enum RustKeyword {
     Match,
     Struct,
     Enum,
+    In,
+    Loop,
 }
 
 impl RustKeyword {
@@ -35,9 +37,11 @@ impl RustKeyword {
             RustKeyword::Break => "break",
             RustKeyword::Return => "return ",
             RustKeyword::For => "for ",
+            RustKeyword::Loop => "loop ",
             RustKeyword::Match => "match ",
             RustKeyword::Struct => "struct ",
             RustKeyword::Enum => "enum ",
+            RustKeyword::In => " in ",
         }
     }
 }
@@ -58,9 +62,11 @@ impl<'a> RustTranspilationBuilder<'a> {
             RustKeyword::Break => "break",
             RustKeyword::Return => "return ",
             RustKeyword::For => "for ",
+            RustKeyword::Loop => "loop ",
             RustKeyword::Match => "match ",
             RustKeyword::Struct => "struct ",
             RustKeyword::Enum => "enum ",
+            RustKeyword::In => " in ",
         };
         self.write_str(s)
     }

@@ -241,6 +241,10 @@ impl<'a> RustTranspilationBuilder<'a> {
     pub(crate) fn pow(&mut self) {
         self.write_str("pow")
     }
+
+    pub(crate) fn zero(&mut self) {
+        self.write_str("0")
+    }
 }
 
 pub(crate) trait TranspileToRust {

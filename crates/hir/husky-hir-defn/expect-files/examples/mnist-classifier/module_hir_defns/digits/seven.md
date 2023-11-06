@@ -200,6 +200,7 @@
                                         },
                                         Eval {
                                             expr_idx: 9,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -482,6 +483,7 @@
                                         },
                                         Eval {
                                             expr_idx: 14,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -786,6 +788,7 @@
                                         },
                                         Eval {
                                             expr_idx: 19,
+                                            discarded: false,
                                         },
                                     ],
                                 },

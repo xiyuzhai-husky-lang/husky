@@ -1,4 +1,5 @@
 use super::*;
+use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
 
 impl TranspileToRust for HirEagerStmtIdx {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
@@ -31,18 +32,62 @@ impl TranspileToRust for HirEagerStmtIdx {
             HirEagerStmt::Break => {
                 builder.on_new_semicolon_line(|builder| builder.keyword(RustKeyword::Break))
             }
-            HirEagerStmt::Eval { expr_idx } => builder.on_new_semicolon_line(|builder| {
-                any_precedence(expr_idx).transpile_to_rust(builder);
-            }),
+            HirEagerStmt::Eval {
+                expr_idx,
+                discarded,
+            } => match discarded {
+                true => builder.on_new_semicolon_line(|builder| {
+                    any_precedence(expr_idx).transpile_to_rust(builder);
+                }),
+                false => builder.on_new_line(|builder| {
+                    any_precedence(expr_idx).transpile_to_rust(builder);
+                }),
+            },
             HirEagerStmt::ForBetween {
                 ref particulars,
                 block,
             } => builder.on_new_line(|builder| {
                 builder.keyword(RustKeyword::For);
+                particulars.frame_var_ident.transpile_to_rust(builder);
+                builder.keyword(RustKeyword::In);
+                let range = &particulars.range;
+                let t = |opd| (RustPrecedenceRange::Greater(RustPrecedence::Range), opd);
+                match range.step {
+                    LoopStep::Constant(step) => match step {
+                        1 => {
+                            match range.initial_boundary.kind {
+                                LoopBoundaryKind::UpperOpen => unreachable!(),
+                                LoopBoundaryKind::UpperClosed => unreachable!(),
+                                LoopBoundaryKind::LowerOpen => todo!(),
+                                LoopBoundaryKind::LowerClosed => {
+                                    match range.initial_boundary.bound_expr {
+                                        Some(initial_bound) => {
+                                            t(initial_bound).transpile_to_rust(builder)
+                                        }
+                                        None => builder.zero(),
+                                    }
+                                }
+                            }
+                            builder.punctuation(match range.final_boundary.kind {
+                                LoopBoundaryKind::UpperOpen => RustPunctuation::DotDot,
+                                LoopBoundaryKind::UpperClosed => RustPunctuation::DotDotEq,
+                                LoopBoundaryKind::LowerOpen => unreachable!(),
+                                LoopBoundaryKind::LowerClosed => unreachable!(),
+                            });
+                            match range.final_boundary.bound_expr {
+                                Some(final_bound) => t(final_bound).transpile_to_rust(builder),
+                                None => builder.zero(), // ad hoc, todo: use Default::default()
+                            }
+                        }
+                        -1 => todo!(),
+                        _ => todo!(),
+                    },
+                }
                 block.transpile_to_rust(builder)
             }),
-            HirEagerStmt::ForExt { particulars, block } => builder.on_new_line(|builder| {
-                builder.keyword(RustKeyword::For);
+            HirEagerStmt::Forext { particulars, block } => builder.on_new_line(|builder| {
+                builder.comment("Forext incomplete");
+                builder.keyword(RustKeyword::Loop);
                 block.transpile_to_rust(builder)
             }),
             HirEagerStmt::ForIn { condition, block } => todo!(),
@@ -52,6 +97,7 @@ impl TranspileToRust for HirEagerStmtIdx {
                 stmts.transpile_to_rust(builder)
             }),
             HirEagerStmt::DoWhile { condition, block } => {
+                builder.comment("DoWhile incomplete");
                 builder.on_new_line(|builder| {
                     builder.keyword(RustKeyword::While);
                     true.transpile_to_rust(builder);

@@ -1,6 +1,6 @@
 
 fn three_fermi_match() {
-    fermi_match(major_concave_components, vec![downarc, uparc, back]);
+    fermi_match(major_concave_components, vec![downarc, uparc, back])
 }
 
 fn is_three() {
@@ -20,23 +20,23 @@ fn is_three() {
     require!(distance < 20);
     require!(three_fermi_match.norm < 2.5);
     require!(downarc.unwrap().angle_change < -100);
-    OneVsAll::Yes;
+    OneVsAll::Yes
 }
 
 pub fn uparc(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y <= 0);
-    Some(-cc.bounding_box.ymin());
+    Some(-cc.bounding_box.ymin())
 }
 
 pub fn downarc(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y <= 0);
-    Some(-cc.bounding_box.ymin());
+    Some(-cc.bounding_box.ymin())
 }
 
 pub fn back(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y >= 0);
-    Some(-cc.bounding_box.ymin());
+    Some(-cc.bounding_box.ymin())
 }

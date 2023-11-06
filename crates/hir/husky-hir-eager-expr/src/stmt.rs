@@ -7,8 +7,8 @@ pub use self::loop_stmt::*;
 use crate::*;
 use husky_sema_expr::{SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 use husky_syn_expr::{
-    LetPatternSynSyndicate, LoopBoundaryKind, LoopStep, SynForBetweenLoopBoundary,
-    SynForBetweenParticulars, SynForBetweenRange, SynStmtData, SynStmtIdx, SynStmtIdxRange,
+    LetPatternSynSyndicate, SynForBetweenLoopBoundary, SynForBetweenParticulars,
+    SynForBetweenRange, SynStmtData, SynStmtIdx, SynStmtIdxRange,
 };
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use salsa::debug::ExpectWithDb;
@@ -31,13 +31,14 @@ pub enum HirEagerStmt {
     Break,
     Eval {
         expr_idx: HirEagerExprIdx,
+        discarded: bool,
     },
     ForBetween {
         particulars: HirEagerForBetweenParticulars,
         // frame_var_symbol_idx: CurrentHirEagerSymbolIdx,
         block: HirEagerStmtIdxRange,
     },
-    ForExt {
+    Forext {
         particulars: HirEagerForExtParticulars,
         block: HirEagerStmtIdxRange,
     },
@@ -104,6 +105,7 @@ impl ToHirEager for SemaStmtIdx {
                 eol_semicolon,
             } => HirEagerStmt::Eval {
                 expr_idx: expr_idx.to_hir_eager(builder),
+                discarded: eol_semicolon.as_ref().expect("no error").is_some(),
             },
             SemaStmtData::ForBetween {
                 for_token,
@@ -126,7 +128,7 @@ impl ToHirEager for SemaStmtIdx {
                 ref particulars,
                 ref eol_colon,
                 ref block,
-            } => HirEagerStmt::ForExt {
+            } => HirEagerStmt::Forext {
                 particulars: particulars.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },

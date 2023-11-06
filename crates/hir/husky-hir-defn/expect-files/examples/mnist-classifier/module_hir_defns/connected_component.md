@@ -266,6 +266,7 @@
                                         },
                                         Eval {
                                             expr_idx: 8,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -728,9 +729,11 @@
                                     data: [
                                         Eval {
                                             expr_idx: 28,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 41,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -1691,9 +1694,11 @@
                                         Break,
                                         Eval {
                                             expr_idx: 56,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 63,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -1735,9 +1740,11 @@
                                         },
                                         Eval {
                                             expr_idx: 84,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 89,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -1767,6 +1774,7 @@
                                         },
                                         Eval {
                                             expr_idx: 30,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -1775,13 +1783,13 @@
                                             },
                                             initial_value: 31,
                                         },
-                                        ForExt {
+                                        Forext {
                                             particulars: HirEagerForExtParticulars,
                                             block: ArenaIdxRange(
                                                 4..8,
                                             ),
                                         },
-                                        ForExt {
+                                        Forext {
                                             particulars: HirEagerForExtParticulars,
                                             block: ArenaIdxRange(
                                                 10..13,
@@ -1789,6 +1797,7 @@
                                         },
                                         Eval {
                                             expr_idx: 99,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -1813,6 +1822,7 @@
                                         },
                                         Eval {
                                             expr_idx: 24,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -1862,6 +1872,7 @@
                                         },
                                         Eval {
                                             expr_idx: 104,
+                                            discarded: false,
                                         },
                                         While {
                                             condition: HirEagerCondition(
@@ -2139,6 +2150,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -2263,6 +2275,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -2569,12 +2582,15 @@
                                         },
                                         Eval {
                                             expr_idx: 7,
+                                            discarded: true,
                                         },
                                         Eval {
                                             expr_idx: 12,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 17,
+                                            discarded: false,
                                         },
                                         Return {
                                             result: 20,
@@ -2829,6 +2845,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 17,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -3112,6 +3129,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 12,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -3336,6 +3354,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 10,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -3863,9 +3882,11 @@
                                         },
                                         Eval {
                                             expr_idx: 31,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 43,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -3874,7 +3895,7 @@
                                             },
                                             initial_value: 1,
                                         },
-                                        ForExt {
+                                        Forext {
                                             particulars: HirEagerForExtParticulars,
                                             block: ArenaIdxRange(
                                                 2..3,
@@ -3887,7 +3908,7 @@
                                             },
                                             initial_value: 8,
                                         },
-                                        ForExt {
+                                        Forext {
                                             particulars: HirEagerForExtParticulars,
                                             block: ArenaIdxRange(
                                                 4..5,
@@ -4148,6 +4169,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 5,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -4256,6 +4278,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 5,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -4517,6 +4540,7 @@
                                         },
                                         Eval {
                                             expr_idx: 20,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -4537,7 +4561,7 @@
                                             },
                                             initial_value: 5,
                                         },
-                                        ForExt {
+                                        Forext {
                                             particulars: HirEagerForExtParticulars,
                                             block: ArenaIdxRange(
                                                 2..3,
@@ -4856,6 +4880,7 @@
                                         },
                                         Eval {
                                             expr_idx: 20,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -4876,7 +4901,7 @@
                                             },
                                             initial_value: 5,
                                         },
-                                        ForExt {
+                                        Forext {
                                             particulars: HirEagerForExtParticulars,
                                             block: ArenaIdxRange(
                                                 2..3,

@@ -1,24 +1,24 @@
 
 fn two_match() {
-    fermi_match(major_concave_components, vec![left_cc_pattern, right_cc_pattern, down_cc_pattern]);
+    fermi_match(major_concave_components, vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
 
 pub fn left_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0);
-    dp.y;
+    dp.y
 }
 
 pub fn right_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y > 0);
-    dp.y;
+    dp.y
 }
 
 pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.x > 0);
-    dp.x;
+    dp.x
 }
 
 fn is_two() {
@@ -60,5 +60,5 @@ fn is_two() {
         require!(down_cc.unwrap().relative_bounding_box.ymin() < 0.4);
         let a = down_cc.unwrap().angle_change;
     }
-    OneVsAll::Yes;
+    OneVsAll::Yes
 }

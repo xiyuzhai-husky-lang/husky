@@ -498,6 +498,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 12,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -610,6 +611,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 6,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -785,6 +787,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 12,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -929,6 +932,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 12,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -1045,6 +1049,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 4,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -1179,6 +1184,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 6,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -1354,6 +1360,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 12,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -1498,6 +1505,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 12,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -1657,6 +1665,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 11,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -1816,6 +1825,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 11,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -2107,9 +2117,11 @@
                                     data: [
                                         Eval {
                                             expr_idx: 14,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 16,
+                                            discarded: false,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
@@ -2131,6 +2143,7 @@
                                         },
                                         Eval {
                                             expr_idx: 28,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -2282,6 +2295,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 4,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -2702,9 +2716,11 @@
                                     data: [
                                         Eval {
                                             expr_idx: 26,
+                                            discarded: false,
                                         },
                                         Eval {
                                             expr_idx: 28,
+                                            discarded: false,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
@@ -2733,6 +2749,7 @@
                                         },
                                         Eval {
                                             expr_idx: 41,
+                                            discarded: false,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -3150,6 +3167,7 @@
                                         },
                                         Eval {
                                             expr_idx: 28,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -3335,6 +3353,7 @@
                                         },
                                         Eval {
                                             expr_idx: 11,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -3560,6 +3579,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 12,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -3753,6 +3773,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 12,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -3841,6 +3862,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -3929,6 +3951,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -4017,6 +4040,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -4105,6 +4129,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -4215,6 +4240,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -4303,6 +4329,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -4391,6 +4418,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },
@@ -4479,6 +4507,7 @@
                                     data: [
                                         Eval {
                                             expr_idx: 3,
+                                            discarded: false,
                                         },
                                     ],
                                 },

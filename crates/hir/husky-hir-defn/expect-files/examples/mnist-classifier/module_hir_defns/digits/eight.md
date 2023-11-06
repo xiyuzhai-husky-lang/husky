@@ -354,6 +354,7 @@
                                         },
                                         Eval {
                                             expr_idx: 21,
+                                            discarded: false,
                                         },
                                     ],
                                 },
