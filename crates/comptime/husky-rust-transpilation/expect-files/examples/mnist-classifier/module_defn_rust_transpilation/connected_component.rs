@@ -12,11 +12,11 @@ pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
 struct ConnectedComponent{mask: BinaryImage28}
 
 pub fn horizontal_extend(a: r32, x: r32) -> r32 {
-    let y = a | x | x << 1 | x >> 1;
-    let z = a | y | y << 1 | y >> 1;
+    let y = a | (x | x << 1 | x >> 1);
+    let z = a | (y | y << 1 | y >> 1);
     while z != y {
         y = z;
-        z = a | y | y << 1 | y >> 1;
+        z = a | (y | y << 1 | y >> 1);
     }
     return y;
 }

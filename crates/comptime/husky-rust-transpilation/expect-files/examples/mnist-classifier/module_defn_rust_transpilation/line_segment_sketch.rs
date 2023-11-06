@@ -12,18 +12,18 @@ struct LineSegmentStroke{points: Leash<CyclicSlice<Point2d>>, start: Point2d, en
 struct LineSegmentSketch{contour: Leash<RawContour>, strokes: Vec<LineSegmentStroke>}
 
 pub fn go_right(u: Vector2d, r: f32) -> Vector2d {
-    let L = u.x * u.x + u.y * u.y.sqrt();
+    let L = (u.x * u.x + u.y * u.y).sqrt();
     assert!(L > r);
-    let dr = r * L / L * L - r * r.sqrt();
+    let dr = r * L / (L * L - r * r).sqrt();
     let dx = dr * u.y / L;
     let dy = -dr * u.x / L;
     Vector2d(u.x + dx, u.y + dy);
 }
 
 pub fn go_left(u: Vector2d, r: f32) -> Vector2d {
-    let L = u.x * u.x + u.y * u.y.sqrt();
+    let L = (u.x * u.x + u.y * u.y).sqrt();
     assert!(L > r);
-    let dr = r * L / L * L - r * r.sqrt();
+    let dr = r * L / (L * L - r * r).sqrt();
     let dx = -dr * u.y / L;
     let dy = dr * u.x / L;
     Vector2d(u.x + dx, u.y + dy);
@@ -101,7 +101,7 @@ pub fn extend_start(ct: Leash<RawContour>, start0: i32, end: i32, r: f32) -> i32
             }
         }
         if right_bound.rotation_direction_to(left_bound) >= 0 {
-            if start <= start0 && !right_bound.rotation_direction_to(dp) >= 0 && dp.rotation_direction_to(left_bound) >= 0 {
+            if start <= start0 && !(right_bound.rotation_direction_to(dp) >= 0 && dp.rotation_direction_to(left_bound) >= 0) {
                 break;
             }
             start-= 1;

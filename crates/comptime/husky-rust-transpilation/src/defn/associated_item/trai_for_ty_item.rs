@@ -1,5 +1,5 @@
 use super::*;
-use crate::builder::keyword::RustKeyword;
+use crate::{builder::keyword::RustKeyword, expr::RustPrecedenceRange};
 
 impl TranspileToRust for TraitForTypeItemHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
@@ -36,7 +36,7 @@ impl TranspileToRust for TraitForTypeMethodFnHirDefn {
             builder.heterogeneous_comma_list_items(hir_decl.parenate_parameters(db).iter())
         });
         builder.curly_block_with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
-            body.transpile_to_rust(builder)
+            any_precedence(body).transpile_to_rust(builder)
         })
     }
 }

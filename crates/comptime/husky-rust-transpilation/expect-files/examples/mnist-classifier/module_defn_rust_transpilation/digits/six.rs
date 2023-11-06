@@ -16,7 +16,7 @@ pub fn upmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
 pub fn bottom1(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     if dp.y < -3 {
-        require!(dp.x / dp.y.abs() > 1.4);
+        require!((dp.x / dp.y).abs() > 1.4);
     }
     require!(cc.relative_bounding_box.ymax() < 0.6);
     let relative_end = cc.line_segment_sketch.bounding_box.relative_point(cc.end());

@@ -1,122 +1,167 @@
 mod pattern;
+pub(crate) mod precedence;
 mod stmt;
 
+pub(crate) use self::precedence::{RustPrecedence, RustPrecedenceRange};
+
+use self::precedence::hir_eager_expr_precedence;
 use crate::*;
 use husky_hir_eager_expr::{
     HirEagerCallListItemGroup, HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch,
-    HirEagerExpr, HirEagerExprIdx, HirEagerIfBranch, HirEagerLetVariablesPattern,
+    HirEagerExprData, HirEagerExprIdx, HirEagerIfBranch, HirEagerLetVariablesPattern,
     HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmt, HirEagerStmtIdx,
     HirEagerStmtIdxRange,
 };
+use husky_hir_opr::binary::HirBinaryOpr;
+use husky_opr::BinaryClosedOpr;
 use husky_term_prelude::TermLiteral;
 
-impl TranspileToRust for HirEagerExprIdx {
+impl TranspileToRust for (RustPrecedenceRange, HirEagerExprIdx) {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        match self.data(builder.hir_eager_expr_arena()) {
-            HirEagerExpr::Literal(term_literal) => term_literal.transpile_to_rust(builder),
-            HirEagerExpr::PrincipalEntityPath(principal_entity_path) => {
-                principal_entity_path.transpile_to_rust(builder)
-            }
-            HirEagerExpr::InheritedSymbol { ident } => ident.transpile_to_rust(builder),
-            HirEagerExpr::CurrentSymbol { ident } => ident.transpile_to_rust(builder),
-            HirEagerExpr::FrameVarDecl { ident } => ident.transpile_to_rust(builder),
-            HirEagerExpr::SelfType => builder.self_ty(),
-            HirEagerExpr::SelfValue => builder.self_value(),
-            HirEagerExpr::Binary { lopd, opr, ropd } => {
-                lopd.transpile_to_rust(builder);
-                opr.transpile_to_rust(builder);
-                ropd.transpile_to_rust(builder)
-            }
-            HirEagerExpr::Be { src, target } => builder.macro_name(RustMacroName::Matches),
-            HirEagerExpr::Prefix {
-                opr,
-                opd_hir_expr_idx,
-            } => {
-                opr.transpile_to_rust(builder);
-                opd_hir_expr_idx.transpile_to_rust(builder)
-            }
-            HirEagerExpr::Suffix {
-                opd_hir_expr_idx,
-                opr,
-            } => {
-                opd_hir_expr_idx.transpile_to_rust(builder);
-                opr.transpile_to_rust(builder)
-            }
-            HirEagerExpr::FnCall {
-                function_hir_expr_idx,
-                template_arguments,
-                item_groups,
-            } => {
-                function_hir_expr_idx.transpile_to_rust(builder);
-                if let Some(template_arguments) = template_arguments {
-                    todo!()
-                }
-                builder.bracketed_comma_list(RustBracket::Par, item_groups)
-            }
-            HirEagerExpr::Field {
-                owner_hir_expr_idx,
-                ident,
-            } => {
-                owner_hir_expr_idx.transpile_to_rust(builder);
+        let (precedence_range, slf) = self;
+        let data = slf.data(builder.hir_eager_expr_arena());
+        let precedence = hir_eager_expr_precedence(data);
+        if !precedence_range.include(precedence) {
+            builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
+                transpile_hir_eager_expr_to_rust(data, precedence, builder)
+            })
+        } else {
+            transpile_hir_eager_expr_to_rust(data, precedence, builder)
+        }
+    }
+}
+
+fn transpile_hir_eager_expr_to_rust(
+    data: &HirEagerExprData,
+    precedence: RustPrecedence,
+    builder: &mut RustTranspilationBuilder,
+) {
+    let geq = |opd| (RustPrecedenceRange::Geq(precedence), opd);
+    let greater = |opd| (RustPrecedenceRange::Greater(precedence), opd);
+    match *data {
+        HirEagerExprData::Literal(term_literal) => term_literal.transpile_to_rust(builder),
+        HirEagerExprData::PrincipalEntityPath(principal_entity_path) => {
+            principal_entity_path.transpile_to_rust(builder)
+        }
+        HirEagerExprData::InheritedSymbol { ident } => ident.transpile_to_rust(builder),
+        HirEagerExprData::CurrentSymbol { ident } => ident.transpile_to_rust(builder),
+        HirEagerExprData::FrameVarDecl { ident } => ident.transpile_to_rust(builder),
+        HirEagerExprData::SelfType => builder.self_ty(),
+        HirEagerExprData::SelfValue => builder.self_value(),
+        HirEagerExprData::Binary { lopd, opr, ropd } => match opr {
+            HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {
+                (RustPrecedenceRange::Geq(RustPrecedence::Suffix), lopd).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
-                ident.transpile_to_rust(builder)
+                builder.rem_eulid();
+                builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
+                    any_precedence(ropd).transpile_to_rust(builder)
+                })
             }
-            HirEagerExpr::MethodCall {
-                self_argument,
-                ident,
-                template_arguments,
-                item_groups,
-            } => {
-                self_argument.transpile_to_rust(builder);
+            HirBinaryOpr::Closed(BinaryClosedOpr::Power) => {
+                (RustPrecedenceRange::Geq(RustPrecedence::Suffix), lopd).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
-                ident.transpile_to_rust(builder);
-                if let Some(template_arguments) = template_arguments {
-                    todo!()
-                }
-                builder.bracketed_comma_list(RustBracket::Par, item_groups)
+                builder.pow();
+                builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
+                    any_precedence(ropd).transpile_to_rust(builder)
+                })
             }
-            HirEagerExpr::NewTuple { items } => {
+            _ => {
+                geq(lopd).transpile_to_rust(builder);
+                opr.transpile_to_rust(builder);
+                greater(ropd).transpile_to_rust(builder)
+            }
+        },
+        HirEagerExprData::Be { src, ref target } => builder.macro_name(RustMacroName::Matches),
+        HirEagerExprData::Prefix {
+            opr,
+            opd_hir_expr_idx,
+        } => {
+            // todo: check some details
+            opr.transpile_to_rust(builder);
+            geq(opd_hir_expr_idx).transpile_to_rust(builder)
+        }
+        HirEagerExprData::Suffix {
+            opd_hir_expr_idx,
+            opr,
+        } => {
+            geq(opd_hir_expr_idx).transpile_to_rust(builder);
+            opr.transpile_to_rust(builder)
+        }
+        HirEagerExprData::FnCall {
+            function_hir_expr_idx,
+            ref template_arguments,
+            ref item_groups,
+        } => {
+            geq(function_hir_expr_idx).transpile_to_rust(builder);
+            if let Some(template_arguments) = template_arguments {
                 todo!()
             }
-            HirEagerExpr::Index {
-                owner_hir_expr_idx,
-                items,
-            } => {
-                owner_hir_expr_idx.transpile_to_rust(builder);
-                builder.bracketed_comma_list(RustBracket::Box, items)
-            }
-            HirEagerExpr::NewList { items } => {
-                builder.macro_name(RustMacroName::Vec);
-                builder.bracketed_comma_list(RustBracket::Box, items)
-            }
-            HirEagerExpr::Block { stmts } => {
-                for stmt in stmts {
-                    stmt.transpile_to_rust(builder)
-                }
-            }
-            HirEagerExpr::EmptyHtmlTag {
-                function_ident,
-                arguments,
-            } =>
-            /* ad hoc */
-            {
-                ()
-            }
-            // todo!(),
-            HirEagerExpr::Todo => todo!(),
-            HirEagerExpr::AssociatedFn {
-                associated_item_path,
-            } => associated_item_path.transpile_to_rust(builder),
-            HirEagerExpr::AssociatedGn => todo!(),
+            builder.bracketed_comma_list(RustBracket::Par, item_groups)
         }
+        HirEagerExprData::Field {
+            owner_hir_expr_idx,
+            ident,
+        } => {
+            geq(owner_hir_expr_idx).transpile_to_rust(builder);
+            builder.punctuation(RustPunctuation::Dot);
+            ident.transpile_to_rust(builder)
+        }
+        HirEagerExprData::MethodCall {
+            self_argument,
+            ident,
+            ref template_arguments,
+            ref item_groups,
+        } => {
+            geq(self_argument).transpile_to_rust(builder);
+            builder.punctuation(RustPunctuation::Dot);
+            ident.transpile_to_rust(builder);
+            if let Some(template_arguments) = template_arguments {
+                todo!()
+            }
+            builder.bracketed_comma_list(RustBracket::Par, item_groups)
+        }
+        HirEagerExprData::NewTuple { ref items } => {
+            todo!()
+        }
+        HirEagerExprData::Index {
+            owner_hir_expr_idx,
+            ref items,
+        } => {
+            geq(owner_hir_expr_idx).transpile_to_rust(builder);
+            builder
+                .bracketed_comma_list(RustBracket::Box, items.iter().copied().map(any_precedence))
+        }
+        HirEagerExprData::NewList { ref items } => {
+            builder.macro_name(RustMacroName::Vec);
+            builder
+                .bracketed_comma_list(RustBracket::Box, items.iter().copied().map(any_precedence))
+        }
+        HirEagerExprData::Block { stmts } => {
+            for stmt in stmts {
+                stmt.transpile_to_rust(builder)
+            }
+        }
+        HirEagerExprData::EmptyHtmlTag {
+            function_ident,
+            ref arguments,
+        } =>
+        /* ad hoc */
+        {
+            ()
+        }
+        // todo!(),
+        HirEagerExprData::Todo => todo!(),
+        HirEagerExprData::AssociatedFn {
+            associated_item_path,
+        } => associated_item_path.transpile_to_rust(builder),
     }
 }
 
 impl TranspileToRust for HirEagerCallListItemGroup {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         match self {
-            HirEagerCallListItemGroup::Regular(hir_eager_expr_idx) => {
-                hir_eager_expr_idx.transpile_to_rust(builder)
+            &HirEagerCallListItemGroup::Regular(hir_eager_expr_idx) => {
+                any_precedence(hir_eager_expr_idx).transpile_to_rust(builder)
             }
             HirEagerCallListItemGroup::Variadic => todo!(),
             HirEagerCallListItemGroup::Keyed => todo!(),

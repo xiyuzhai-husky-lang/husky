@@ -2,7 +2,7 @@ use super::*;
 
 impl TranspileToRust for HirEagerStmtIdx {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        match self.data(builder.hir_eager_stmt_arena()) {
+        match *self.data(builder.hir_eager_stmt_arena()) {
             HirEagerStmt::Let {
                 pattern,
                 initial_value,
@@ -10,11 +10,11 @@ impl TranspileToRust for HirEagerStmtIdx {
                 builder.keyword(RustKeyword::Let);
                 pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Eq);
-                initial_value.transpile_to_rust(builder)
+                any_precedence(initial_value).transpile_to_rust(builder)
             }),
             HirEagerStmt::Return { result } => builder.on_new_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Return);
-                result.transpile_to_rust(builder)
+                any_precedence(result).transpile_to_rust(builder)
             }),
             HirEagerStmt::Require { condition } => builder.on_new_semicolon_line(|builder| {
                 builder.macro_name(RustMacroName::Require);
@@ -32,9 +32,12 @@ impl TranspileToRust for HirEagerStmtIdx {
                 builder.on_new_semicolon_line(|builder| builder.keyword(RustKeyword::Break))
             }
             HirEagerStmt::Eval { expr_idx } => builder.on_new_semicolon_line(|builder| {
-                expr_idx.transpile_to_rust(builder);
+                any_precedence(expr_idx).transpile_to_rust(builder);
             }),
-            HirEagerStmt::ForBetween { particulars, block } => builder.on_new_line(|builder| {
+            HirEagerStmt::ForBetween {
+                ref particulars,
+                block,
+            } => builder.on_new_line(|builder| {
                 builder.keyword(RustKeyword::For);
                 block.transpile_to_rust(builder)
             }),
@@ -57,7 +60,7 @@ impl TranspileToRust for HirEagerStmtIdx {
             }
             HirEagerStmt::IfElse {
                 if_branch,
-                elif_branches,
+                ref elif_branches,
                 else_branch,
             } => builder.on_new_line(|builder| {
                 if_branch.transpile_to_rust(builder);
@@ -75,7 +78,7 @@ impl TranspileToRust for HirEagerStmtIdx {
 
 impl TranspileToRust for HirEagerCondition {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        self.hir_eager_expr_idx().transpile_to_rust(builder)
+        any_precedence(self.hir_eager_expr_idx()).transpile_to_rust(builder)
     }
 }
 
