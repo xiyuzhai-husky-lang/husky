@@ -96,8 +96,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -214,8 +214,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -239,8 +239,8 @@ Ok(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -263,8 +263,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -291,8 +291,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -316,8 +316,8 @@ Ok(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -340,8 +340,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -434,8 +434,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -457,8 +457,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -500,8 +500,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -666,8 +666,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -691,8 +691,8 @@ Ok(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -715,8 +715,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -745,8 +745,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -770,8 +770,8 @@ Ok(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -794,8 +794,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -888,8 +888,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -911,8 +911,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -954,8 +954,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -977,8 +977,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -1080,8 +1080,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -1105,8 +1105,8 @@ Ok(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
@@ -1129,8 +1129,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -1155,8 +1155,8 @@ Ok(
                         3,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 3,
-                        current_symbol_kind: SynCurrentSymbolKind::ExplicitVariadicParameter {
+                        current_syn_symbol_idx: 3,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitVariadicParameter {
                             ident_token: IdentRegionalToken {
                                 ident: `f`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -1195,8 +1195,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 4,
-                        current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {
+                        current_syn_symbol_idx: 4,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1255,8 +1255,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
@@ -1278,8 +1278,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,

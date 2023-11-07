@@ -150,15 +150,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: None,
                                             access_start: RegionalTokenIdx(
                                                 5,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                 ident: `ct`,
                                                 pattern_symbol_idx: 1,
                                             },
@@ -222,7 +222,7 @@
                                 4,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `ct`,
                             },
                         },
@@ -243,8 +243,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 8,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -277,8 +277,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 11,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -406,20 +406,20 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: None,
-                                kind: SynInheritedSymbolKind::ParenateParameter {
+                                kind: InheritedSynSymbolKind::ParenateParameter {
                                     ident: `ct`,
                                 },
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     3,
@@ -431,7 +431,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `len`,
                                     pattern_symbol_idx: 1,
                                 },
@@ -608,8 +608,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         8,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -720,8 +720,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         11,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -1078,7 +1078,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -1107,7 +1107,7 @@
                         None,
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                     ],
@@ -1662,26 +1662,26 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: None,
                                             access_start: RegionalTokenIdx(
                                                 5,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                 ident: `a`,
                                                 pattern_symbol_idx: 1,
                                             },
                                         },
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: None,
                                             access_start: RegionalTokenIdx(
                                                 9,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                 ident: `x`,
                                                 pattern_symbol_idx: 2,
                                             },
@@ -1764,7 +1764,7 @@
                                 11,
                             ),
                             inherited_symbol_idx: 2,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `x`,
                             },
                         },
@@ -1794,7 +1794,7 @@
                                 8,
                             ),
                             inherited_symbol_idx: 2,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `x`,
                             },
                         },
@@ -1813,7 +1813,7 @@
                                 17,
                             ),
                             inherited_symbol_idx: 2,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `x`,
                             },
                         },
@@ -1872,7 +1872,7 @@
                                 5,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `a`,
                             },
                         },
@@ -1900,8 +1900,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 32,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -1930,8 +1930,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 29,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -1949,8 +1949,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 38,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -2009,7 +2009,7 @@
                                 26,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `a`,
                             },
                         },
@@ -2037,8 +2037,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 44,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -2047,8 +2047,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 46,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -2067,8 +2067,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 48,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -2077,8 +2077,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 50,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -2095,8 +2095,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 59,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -2125,8 +2125,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 56,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -2144,8 +2144,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 65,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -2204,7 +2204,7 @@
                                 53,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `a`,
                             },
                         },
@@ -2222,8 +2222,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 51,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -2250,8 +2250,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 71,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -2448,29 +2448,29 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: None,
-                                kind: SynInheritedSymbolKind::ParenateParameter {
+                                kind: InheritedSynSymbolKind::ParenateParameter {
                                     ident: `a`,
                                 },
                             },
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     2,
                                 ),
                                 modifier: None,
-                                kind: SynInheritedSymbolKind::ParenateParameter {
+                                kind: InheritedSynSymbolKind::ParenateParameter {
                                     ident: `x`,
                                 },
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     4,
@@ -2482,12 +2482,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `y`,
                                     pattern_symbol_idx: 1,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     25,
@@ -2499,7 +2499,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `z`,
                                     pattern_symbol_idx: 2,
                                 },
@@ -3139,8 +3139,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         29,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -3175,8 +3175,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         32,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -3350,8 +3350,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         38,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -3598,8 +3598,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         44,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -3634,8 +3634,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         46,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -3712,8 +3712,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         48,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -3748,8 +3748,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         50,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -3824,8 +3824,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         51,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -3902,8 +3902,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         56,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -3938,8 +3938,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         59,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -4113,8 +4113,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         65,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -4401,8 +4401,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         71,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -4922,7 +4922,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -4970,7 +4970,7 @@
                         None,
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                         None,
@@ -7302,15 +7302,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: None,
                                             access_start: RegionalTokenIdx(
                                                 6,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                 ident: `img`,
                                                 pattern_symbol_idx: 1,
                                             },
@@ -7406,7 +7406,7 @@
                                 15,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `img`,
                             },
                         },
@@ -7436,7 +7436,7 @@
                             ),
                             ident: `j`,
                             frame_var_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 7,
                             ),
                         },
@@ -7465,8 +7465,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 26,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -7475,8 +7475,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 28,
                             ),
-                            current_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 3,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 7,
                             ),
                         },
@@ -7500,8 +7500,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 34,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -7510,8 +7510,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 36,
                             ),
-                            current_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 3,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 7,
                             ),
                         },
@@ -7535,8 +7535,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 41,
                             ),
-                            current_symbol_idx: 4,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 4,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 3,
                             },
                         },
@@ -7593,8 +7593,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 55,
                             ),
-                            current_symbol_idx: 6,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 6,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 5,
                             },
                         },
@@ -7603,8 +7603,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 57,
                             ),
-                            current_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 3,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 7,
                             ),
                         },
@@ -7623,8 +7623,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 62,
                             ),
-                            current_symbol_idx: 4,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 4,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 3,
                             },
                         },
@@ -7643,8 +7643,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 66,
                             ),
-                            current_symbol_idx: 5,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 5,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 4,
                             },
                         },
@@ -7718,8 +7718,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 75,
                             ),
-                            current_symbol_idx: 7,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 7,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 6,
                             },
                         },
@@ -7735,8 +7735,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 77,
                             ),
-                            current_symbol_idx: 7,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 7,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 6,
                             },
                         },
@@ -7761,8 +7761,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 84,
                             ),
-                            current_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 3,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 7,
                             ),
                         },
@@ -7791,8 +7791,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 86,
                             ),
-                            current_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 8,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 7,
                             },
                         },
@@ -7821,8 +7821,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 95,
                             ),
-                            current_symbol_idx: 6,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 6,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 5,
                             },
                         },
@@ -7831,8 +7831,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 97,
                             ),
-                            current_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 8,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 7,
                             },
                         },
@@ -7887,7 +7887,7 @@
                                 108,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `img`,
                             },
                         },
@@ -7896,8 +7896,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 110,
                             ),
-                            current_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 8,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 7,
                             },
                         },
@@ -7941,8 +7941,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 115,
                             ),
-                            current_symbol_idx: 6,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 6,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 5,
                             },
                         },
@@ -7951,8 +7951,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 117,
                             ),
-                            current_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 8,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 7,
                             },
                         },
@@ -7976,8 +7976,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 104,
                             ),
-                            current_symbol_idx: 9,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 9,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 8,
                             },
                         },
@@ -8020,8 +8020,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 122,
                             ),
-                            current_symbol_idx: 10,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 10,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 9,
                             },
                         },
@@ -8037,8 +8037,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 126,
                             ),
-                            current_symbol_idx: 9,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 9,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 8,
                             },
                         },
@@ -8047,8 +8047,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 128,
                             ),
-                            current_symbol_idx: 10,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 10,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 9,
                             },
                         },
@@ -8067,8 +8067,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 130,
                             ),
-                            current_symbol_idx: 7,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 7,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 6,
                             },
                         },
@@ -8093,8 +8093,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 133,
                             ),
-                            current_symbol_idx: 6,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 6,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 5,
                             },
                         },
@@ -8103,8 +8103,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 135,
                             ),
-                            current_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 8,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 7,
                             },
                         },
@@ -8148,8 +8148,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 140,
                             ),
-                            current_symbol_idx: 10,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 10,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 9,
                             },
                         },
@@ -8166,8 +8166,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 142,
                             ),
-                            current_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 8,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 7,
                             },
                         },
@@ -8176,8 +8176,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 144,
                             ),
-                            current_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 3,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 7,
                             ),
                         },
@@ -8196,8 +8196,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 149,
                             ),
-                            current_symbol_idx: 6,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 6,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 5,
                             },
                         },
@@ -8206,8 +8206,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 151,
                             ),
-                            current_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 8,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 7,
                             },
                         },
@@ -8242,7 +8242,7 @@
                                 160,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `img`,
                             },
                         },
@@ -8251,8 +8251,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 162,
                             ),
-                            current_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 8,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 7,
                             },
                         },
@@ -8276,8 +8276,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 165,
                             ),
-                            current_symbol_idx: 6,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 6,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 5,
                             },
                         },
@@ -8286,8 +8286,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 167,
                             ),
-                            current_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 8,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 7,
                             },
                         },
@@ -8331,8 +8331,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 156,
                             ),
-                            current_symbol_idx: 11,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 11,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 10,
                             },
                         },
@@ -8375,8 +8375,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 173,
                             ),
-                            current_symbol_idx: 11,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 11,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 10,
                             },
                         },
@@ -8385,8 +8385,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 175,
                             ),
-                            current_symbol_idx: 12,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 12,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 11,
                             },
                         },
@@ -8405,8 +8405,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 177,
                             ),
-                            current_symbol_idx: 7,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 7,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 6,
                             },
                         },
@@ -8431,8 +8431,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 180,
                             ),
-                            current_symbol_idx: 6,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 6,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 5,
                             },
                         },
@@ -8441,8 +8441,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 182,
                             ),
-                            current_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 8,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 7,
                             },
                         },
@@ -8466,8 +8466,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 185,
                             ),
-                            current_symbol_idx: 12,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 12,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 11,
                             },
                         },
@@ -8484,8 +8484,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 187,
                             ),
-                            current_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 3,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 7,
                             ),
                         },
@@ -8495,7 +8495,7 @@
                             ),
                             ident: `k`,
                             frame_var_symbol_idx: 13,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 104,
                             ),
                         },
@@ -8534,8 +8534,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 193,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -8544,8 +8544,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 195,
                             ),
-                            current_symbol_idx: 13,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 13,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 104,
                             ),
                         },
@@ -8554,8 +8554,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 200,
                             ),
-                            current_symbol_idx: 6,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 6,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 5,
                             },
                         },
@@ -8564,8 +8564,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 202,
                             ),
-                            current_symbol_idx: 13,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 13,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 104,
                             ),
                         },
@@ -8630,8 +8630,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 205,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -8650,8 +8650,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 211,
                             ),
-                            current_symbol_idx: 6,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 6,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 5,
                             },
                         },
@@ -8701,8 +8701,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 215,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -9758,20 +9758,20 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: None,
-                                kind: SynInheritedSymbolKind::ParenateParameter {
+                                kind: InheritedSynSymbolKind::ParenateParameter {
                                     ident: `img`,
                                 },
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     4,
@@ -9783,12 +9783,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `result`,
                                     pattern_symbol_idx: 1,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     14,
@@ -9800,12 +9800,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `unsearched`,
                                     pattern_symbol_idx: 2,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     25,
@@ -9817,12 +9817,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::FrameVariable {
+                                variant: CurrentSynSymbolVariant::FrameVariable {
                                     ident: `j`,
                                     expr_idx: 7,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     33,
@@ -9834,12 +9834,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `a`,
                                     pattern_symbol_idx: 3,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     40,
@@ -9851,12 +9851,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `shift`,
                                     pattern_symbol_idx: 4,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     49,
@@ -9868,12 +9868,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `mask`,
                                     pattern_symbol_idx: 5,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     71,
@@ -9885,12 +9885,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `flag`,
                                     pattern_symbol_idx: 6,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     83,
@@ -9902,12 +9902,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `i`,
                                     pattern_symbol_idx: 7,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     94,
@@ -9919,12 +9919,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `old_row`,
                                     pattern_symbol_idx: 8,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     103,
@@ -9936,12 +9936,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `new_row`,
                                     pattern_symbol_idx: 9,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     148,
@@ -9953,12 +9953,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `old_row`,
                                     pattern_symbol_idx: 10,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     155,
@@ -9970,12 +9970,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `new_row`,
                                     pattern_symbol_idx: 11,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     193,
@@ -9987,7 +9987,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::FrameVariable {
+                                variant: CurrentSynSymbolVariant::FrameVariable {
                                     ident: `k`,
                                     expr_idx: 104,
                                 },
@@ -10441,7 +10441,7 @@
                                         ),
                                     ),
                                     frame_var_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_kind: FrameVariable(
                                         7,
                                     ),
                                 },
@@ -10470,8 +10470,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         26,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -10506,8 +10506,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         28,
                                     ),
-                                    current_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_kind: FrameVariable(
                                         7,
                                     ),
                                 },
@@ -10602,8 +10602,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         34,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -10638,8 +10638,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         36,
                                     ),
-                                    current_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_kind: FrameVariable(
                                         7,
                                     ),
                                 },
@@ -10734,8 +10734,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         41,
                                     ),
-                                    current_symbol_idx: 4,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 4,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 3,
                                     },
                                 },
@@ -10962,8 +10962,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         55,
                                     ),
-                                    current_symbol_idx: 6,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 6,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -10998,8 +10998,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         57,
                                     ),
-                                    current_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_kind: FrameVariable(
                                         7,
                                     ),
                                 },
@@ -11125,8 +11125,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         62,
                                     ),
-                                    current_symbol_idx: 4,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 4,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 3,
                                     },
                                 },
@@ -11193,8 +11193,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         66,
                                     ),
-                                    current_symbol_idx: 5,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 5,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 4,
                                     },
                                 },
@@ -11427,8 +11427,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         75,
                                     ),
-                                    current_symbol_idx: 7,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 7,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 6,
                                     },
                                 },
@@ -11492,8 +11492,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         77,
                                     ),
-                                    current_symbol_idx: 7,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 7,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 6,
                                     },
                                 },
@@ -11596,8 +11596,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         84,
                                     ),
-                                    current_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_kind: FrameVariable(
                                         7,
                                     ),
                                 },
@@ -11626,8 +11626,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         86,
                                     ),
-                                    current_symbol_idx: 8,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 8,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -11740,8 +11740,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         95,
                                     ),
-                                    current_symbol_idx: 6,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 6,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -11776,8 +11776,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         97,
                                     ),
-                                    current_symbol_idx: 8,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 8,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -11932,8 +11932,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         104,
                                     ),
-                                    current_symbol_idx: 9,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 9,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 8,
                                     },
                                 },
@@ -12043,8 +12043,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         110,
                                     ),
-                                    current_symbol_idx: 8,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 8,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -12199,8 +12199,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         115,
                                     ),
-                                    current_symbol_idx: 6,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 6,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -12235,8 +12235,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         117,
                                     ),
-                                    current_symbol_idx: 8,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 8,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -12461,8 +12461,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         122,
                                     ),
-                                    current_symbol_idx: 10,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 10,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 9,
                                     },
                                 },
@@ -12526,8 +12526,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         126,
                                     ),
-                                    current_symbol_idx: 9,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 9,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 8,
                                     },
                                 },
@@ -12564,8 +12564,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         128,
                                     ),
-                                    current_symbol_idx: 10,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 10,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 9,
                                     },
                                 },
@@ -12642,8 +12642,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         130,
                                     ),
-                                    current_symbol_idx: 7,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 7,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 6,
                                     },
                                 },
@@ -12746,8 +12746,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         133,
                                     ),
-                                    current_symbol_idx: 6,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 6,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -12782,8 +12782,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         135,
                                     ),
-                                    current_symbol_idx: 8,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 8,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -12938,8 +12938,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         140,
                                     ),
-                                    current_symbol_idx: 10,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 10,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 9,
                                     },
                                 },
@@ -13014,8 +13014,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         142,
                                     ),
-                                    current_symbol_idx: 8,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 8,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -13044,8 +13044,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         144,
                                     ),
-                                    current_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_kind: FrameVariable(
                                         7,
                                     ),
                                 },
@@ -13074,8 +13074,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         149,
                                     ),
-                                    current_symbol_idx: 6,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 6,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -13110,8 +13110,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         151,
                                     ),
-                                    current_symbol_idx: 8,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 8,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -13206,8 +13206,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         156,
                                     ),
-                                    current_symbol_idx: 11,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 11,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 10,
                                     },
                                 },
@@ -13317,8 +13317,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         162,
                                     ),
-                                    current_symbol_idx: 8,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 8,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -13413,8 +13413,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         165,
                                     ),
-                                    current_symbol_idx: 6,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 6,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -13449,8 +13449,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         167,
                                     ),
-                                    current_symbol_idx: 8,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 8,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -13735,8 +13735,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         173,
                                     ),
-                                    current_symbol_idx: 11,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 11,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 10,
                                     },
                                 },
@@ -13773,8 +13773,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         175,
                                     ),
-                                    current_symbol_idx: 12,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 12,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 11,
                                     },
                                 },
@@ -13851,8 +13851,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         177,
                                     ),
-                                    current_symbol_idx: 7,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 7,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 6,
                                     },
                                 },
@@ -13955,8 +13955,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         180,
                                     ),
-                                    current_symbol_idx: 6,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 6,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -13991,8 +13991,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         182,
                                     ),
-                                    current_symbol_idx: 8,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 8,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -14087,8 +14087,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         185,
                                     ),
-                                    current_symbol_idx: 12,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 12,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 11,
                                     },
                                 },
@@ -14163,8 +14163,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         187,
                                     ),
-                                    current_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_kind: FrameVariable(
                                         7,
                                     ),
                                 },
@@ -14218,7 +14218,7 @@
                                         ),
                                     ),
                                     frame_var_symbol_idx: 13,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_kind: FrameVariable(
                                         104,
                                     ),
                                 },
@@ -14247,8 +14247,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         193,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -14283,8 +14283,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         195,
                                     ),
-                                    current_symbol_idx: 13,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 13,
+                                    current_syn_symbol_kind: FrameVariable(
                                         104,
                                     ),
                                 },
@@ -14379,8 +14379,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         200,
                                     ),
-                                    current_symbol_idx: 6,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 6,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -14415,8 +14415,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         202,
                                     ),
-                                    current_symbol_idx: 13,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 13,
+                                    current_syn_symbol_kind: FrameVariable(
                                         104,
                                     ),
                                 },
@@ -14617,8 +14617,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         205,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -14682,8 +14682,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         211,
                                     ),
-                                    current_symbol_idx: 6,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 6,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -14897,8 +14897,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         215,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -16982,7 +16982,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -17213,7 +17213,7 @@
                         None,
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                         None,
@@ -21715,7 +21715,7 @@
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
@@ -21816,7 +21816,7 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 allow_self_type: True,
@@ -21936,7 +21936,7 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: True,
@@ -22226,7 +22226,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -22234,7 +22234,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -22537,7 +22537,7 @@
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
@@ -22644,7 +22644,7 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 allow_self_type: True,
@@ -22771,7 +22771,7 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: True,
@@ -23001,7 +23001,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -23009,7 +23009,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -23364,7 +23364,7 @@
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
@@ -23458,7 +23458,7 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 allow_self_type: True,
@@ -23587,8 +23587,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 24,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -23632,8 +23632,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 31,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -23642,8 +23642,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 35,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -23712,8 +23712,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 42,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -23722,8 +23722,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 46,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -23802,8 +23802,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 56,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -24091,9 +24091,9 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     4,
@@ -24105,12 +24105,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `raw_contours`,
                                     pattern_symbol_idx: 1,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     15,
@@ -24122,7 +24122,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `matches`,
                                     pattern_symbol_idx: 2,
                                 },
@@ -24544,8 +24544,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         24,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -24721,8 +24721,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         31,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -24755,8 +24755,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         35,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -25048,8 +25048,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         42,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -25082,8 +25082,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         46,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -25406,8 +25406,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         56,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -25936,7 +25936,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -25977,7 +25977,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                         None,
@@ -27188,7 +27188,7 @@
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
@@ -27282,7 +27282,7 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 allow_self_type: True,
@@ -27366,7 +27366,7 @@
                             ),
                             ident: `i`,
                             frame_var_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 5,
                             ),
                         },
@@ -27375,8 +27375,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 17,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -27425,8 +27425,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 26,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -27435,8 +27435,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 28,
                             ),
-                            current_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 3,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 5,
                             ),
                         },
@@ -27492,8 +27492,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 37,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -27502,8 +27502,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 39,
                             ),
-                            current_symbol_idx: 4,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 4,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 3,
                             },
                         },
@@ -27522,8 +27522,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 41,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -27532,8 +27532,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 43,
                             ),
-                            current_symbol_idx: 4,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 4,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 3,
                             },
                         },
@@ -27550,8 +27550,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 45,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -27866,9 +27866,9 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     4,
@@ -27880,12 +27880,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `max_hole_ilen`,
                                     pattern_symbol_idx: 1,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     8,
@@ -27897,12 +27897,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `raw_contours`,
                                     pattern_symbol_idx: 2,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     23,
@@ -27914,12 +27914,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::FrameVariable {
+                                variant: CurrentSynSymbolVariant::FrameVariable {
                                     ident: `i`,
                                     expr_idx: 5,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     25,
@@ -27931,7 +27931,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `hole_ilen`,
                                     pattern_symbol_idx: 3,
                                 },
@@ -28158,8 +28158,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         17,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -28267,7 +28267,7 @@
                                         ),
                                     ),
                                     frame_var_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_kind: FrameVariable(
                                         5,
                                     ),
                                 },
@@ -28302,8 +28302,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         26,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -28336,8 +28336,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         28,
                                     ),
-                                    current_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_kind: FrameVariable(
                                         5,
                                     ),
                                 },
@@ -28572,8 +28572,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         37,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -28602,8 +28602,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         39,
                                     ),
-                                    current_symbol_idx: 4,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 4,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 3,
                                     },
                                 },
@@ -28680,8 +28680,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         41,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -28710,8 +28710,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         43,
                                     ),
-                                    current_symbol_idx: 4,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 4,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 3,
                                     },
                                 },
@@ -28817,8 +28817,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         45,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -29407,7 +29407,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -29480,7 +29480,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                         None,
@@ -30421,7 +30421,7 @@
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
@@ -30515,7 +30515,7 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 allow_self_type: True,
@@ -30592,7 +30592,7 @@
                             ),
                             ident: `i`,
                             frame_var_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 4,
                             ),
                         },
@@ -30631,8 +30631,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 17,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -30658,8 +30658,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 25,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 4,
                             ),
                         },
@@ -30703,8 +30703,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 15,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -30746,8 +30746,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 33,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -30963,9 +30963,9 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     4,
@@ -30977,12 +30977,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `max_row`,
                                     pattern_symbol_idx: 1,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     15,
@@ -30994,7 +30994,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::FrameVariable {
+                                variant: CurrentSynSymbolVariant::FrameVariable {
                                     ident: `i`,
                                     expr_idx: 4,
                                 },
@@ -31193,7 +31193,7 @@
                                         ),
                                     ),
                                     frame_var_symbol_idx: 2,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_kind: FrameVariable(
                                         4,
                                     ),
                                 },
@@ -31222,8 +31222,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         15,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -31258,8 +31258,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         17,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -31387,8 +31387,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         25,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: FrameVariable(
                                         4,
                                     ),
                                 },
@@ -31748,8 +31748,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         33,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -32194,7 +32194,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -32233,7 +32233,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                         None,
@@ -33091,7 +33091,7 @@
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
@@ -33185,7 +33185,7 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 allow_self_type: True,
@@ -33252,7 +33252,7 @@
                             ),
                             ident: `i`,
                             frame_var_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 3,
                             ),
                         },
@@ -33308,8 +33308,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 19,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 3,
                             ),
                         },
@@ -33333,8 +33333,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 13,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -33373,8 +33373,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 26,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -33567,9 +33567,9 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     4,
@@ -33581,12 +33581,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `row_span_sum`,
                                     pattern_symbol_idx: 1,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     13,
@@ -33598,7 +33598,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::FrameVariable {
+                                variant: CurrentSynSymbolVariant::FrameVariable {
                                     ident: `i`,
                                     expr_idx: 3,
                                 },
@@ -33745,7 +33745,7 @@
                                         ),
                                     ),
                                     frame_var_symbol_idx: 2,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_kind: FrameVariable(
                                         3,
                                     ),
                                 },
@@ -33774,8 +33774,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         13,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -33897,8 +33897,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         19,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: FrameVariable(
                                         3,
                                     ),
                                 },
@@ -34140,8 +34140,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         26,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -34537,7 +34537,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -34570,7 +34570,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                         None,
@@ -35342,7 +35342,7 @@
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
@@ -35436,7 +35436,7 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 allow_self_type: True,
@@ -35492,8 +35492,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 7,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -35539,8 +35539,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 16,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -35564,8 +35564,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 24,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -35594,8 +35594,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 28,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -35641,8 +35641,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 38,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -35673,8 +35673,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 45,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -35683,8 +35683,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 47,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -35703,8 +35703,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 51,
                             ),
-                            current_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 3,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 3,
                             },
                         },
@@ -35743,8 +35743,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 60,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -35754,7 +35754,7 @@
                             ),
                             ident: `i1`,
                             frame_var_symbol_idx: 6,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 28,
                             ),
                         },
@@ -35763,8 +35763,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 64,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -35773,8 +35773,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 66,
                             ),
-                            current_symbol_idx: 4,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 4,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 4,
                             },
                         },
@@ -35830,8 +35830,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 74,
                             ),
-                            current_symbol_idx: 6,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 6,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 28,
                             ),
                         },
@@ -35855,8 +35855,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 68,
                             ),
-                            current_symbol_idx: 5,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 5,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 5,
                             },
                         },
@@ -35905,8 +35905,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 86,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -35916,7 +35916,7 @@
                             ),
                             ident: `i2`,
                             frame_var_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 43,
                             ),
                         },
@@ -35925,8 +35925,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 90,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -35935,8 +35935,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 92,
                             ),
-                            current_symbol_idx: 4,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 4,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 4,
                             },
                         },
@@ -35992,8 +35992,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 100,
                             ),
-                            current_symbol_idx: 8,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 8,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 43,
                             ),
                         },
@@ -36017,8 +36017,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 94,
                             ),
-                            current_symbol_idx: 7,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 7,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 6,
                             },
                         },
@@ -36067,8 +36067,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 109,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -36077,8 +36077,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 111,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -36087,8 +36087,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 113,
                             ),
-                            current_symbol_idx: 5,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 5,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 5,
                             },
                         },
@@ -36097,8 +36097,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 115,
                             ),
-                            current_symbol_idx: 7,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 7,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 6,
                             },
                         },
@@ -36768,9 +36768,9 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     4,
@@ -36782,12 +36782,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `row_start`,
                                     pattern_symbol_idx: 1,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     23,
@@ -36799,12 +36799,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `row_end`,
                                     pattern_symbol_idx: 2,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     44,
@@ -36816,12 +36816,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `height`,
                                     pattern_symbol_idx: 3,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     50,
@@ -36833,12 +36833,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `half_height`,
                                     pattern_symbol_idx: 4,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     57,
@@ -36850,12 +36850,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `upper_mass`,
                                     pattern_symbol_idx: 5,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     68,
@@ -36867,12 +36867,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::FrameVariable {
+                                variant: CurrentSynSymbolVariant::FrameVariable {
                                     ident: `i1`,
                                     expr_idx: 28,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     83,
@@ -36884,12 +36884,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `lower_mass`,
                                     pattern_symbol_idx: 6,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     94,
@@ -36901,7 +36901,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::FrameVariable {
+                                variant: CurrentSynSymbolVariant::FrameVariable {
                                     ident: `i2`,
                                     expr_idx: 43,
                                 },
@@ -37049,8 +37049,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -37196,8 +37196,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -37292,8 +37292,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         24,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -37382,8 +37382,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         28,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -37529,8 +37529,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         38,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -37654,8 +37654,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         45,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -37684,8 +37684,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         47,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -37750,8 +37750,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         51,
                                     ),
-                                    current_symbol_idx: 3,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 3,
                                     },
                                 },
@@ -37864,8 +37864,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         60,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -37894,8 +37894,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         64,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -37924,8 +37924,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         66,
                                     ),
-                                    current_symbol_idx: 4,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 4,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 4,
                                     },
                                 },
@@ -37991,7 +37991,7 @@
                                         ),
                                     ),
                                     frame_var_symbol_idx: 6,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_kind: FrameVariable(
                                         28,
                                     ),
                                 },
@@ -38020,8 +38020,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         68,
                                     ),
-                                    current_symbol_idx: 5,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 5,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -38143,8 +38143,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         74,
                                     ),
-                                    current_symbol_idx: 6,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 6,
+                                    current_syn_symbol_kind: FrameVariable(
                                         28,
                                     ),
                                 },
@@ -38379,8 +38379,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         86,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -38409,8 +38409,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         90,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -38439,8 +38439,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         92,
                                     ),
-                                    current_symbol_idx: 4,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 4,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 4,
                                     },
                                 },
@@ -38506,7 +38506,7 @@
                                         ),
                                     ),
                                     frame_var_symbol_idx: 8,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_kind: FrameVariable(
                                         43,
                                     ),
                                 },
@@ -38535,8 +38535,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         94,
                                     ),
-                                    current_symbol_idx: 7,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 7,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 6,
                                     },
                                 },
@@ -38658,8 +38658,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         100,
                                     ),
-                                    current_symbol_idx: 8,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 8,
+                                    current_syn_symbol_kind: FrameVariable(
                                         43,
                                     ),
                                 },
@@ -38901,8 +38901,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         109,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -38931,8 +38931,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         111,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -38961,8 +38961,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         113,
                                     ),
-                                    current_symbol_idx: 5,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 5,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 5,
                                     },
                                 },
@@ -38991,8 +38991,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         115,
                                     ),
-                                    current_symbol_idx: 7,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 7,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 6,
                                     },
                                 },
@@ -40272,7 +40272,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -40377,7 +40377,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                         None,
@@ -42536,7 +42536,7 @@
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
@@ -42630,7 +42630,7 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 allow_self_type: True,
@@ -42773,7 +42773,7 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: True,
@@ -43150,7 +43150,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -43158,7 +43158,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -43540,7 +43540,7 @@
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
@@ -43634,7 +43634,7 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 allow_self_type: True,
@@ -43777,7 +43777,7 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: True,
@@ -44154,7 +44154,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -44162,7 +44162,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -44544,7 +44544,7 @@
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
@@ -44688,15 +44688,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: None,
                                             access_start: RegionalTokenIdx(
                                                 5,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                 ident: `k`,
                                                 pattern_symbol_idx: 1,
                                             },
@@ -44778,7 +44778,7 @@
                                 7,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `k`,
                             },
                         },
@@ -44817,8 +44817,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 16,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -44864,8 +44864,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 25,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -44889,8 +44889,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 30,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -44900,7 +44900,7 @@
                             ),
                             ident: `j`,
                             frame_var_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 14,
                             ),
                         },
@@ -44909,8 +44909,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 34,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -44920,7 +44920,7 @@
                                 36,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `k`,
                             },
                         },
@@ -44976,8 +44976,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 44,
                             ),
-                            current_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 3,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 14,
                             ),
                         },
@@ -45001,8 +45001,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 38,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -45041,8 +45041,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 51,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -45364,20 +45364,20 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: None,
-                                kind: SynInheritedSymbolKind::ParenateParameter {
+                                kind: InheritedSynSymbolKind::ParenateParameter {
                                     ident: `k`,
                                 },
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     4,
@@ -45389,12 +45389,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `top_k_row_span_sum`,
                                     pattern_symbol_idx: 1,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     13,
@@ -45406,12 +45406,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `i`,
                                     pattern_symbol_idx: 2,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     38,
@@ -45423,7 +45423,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::FrameVariable {
+                                variant: CurrentSynSymbolVariant::FrameVariable {
                                     ident: `j`,
                                     expr_idx: 14,
                                 },
@@ -45671,8 +45671,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -45818,8 +45818,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         25,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -45914,8 +45914,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         30,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -45944,8 +45944,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         34,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -46059,7 +46059,7 @@
                                         ),
                                     ),
                                     frame_var_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_kind: FrameVariable(
                                         14,
                                     ),
                                 },
@@ -46094,8 +46094,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         38,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -46217,8 +46217,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         44,
                                     ),
-                                    current_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_kind: FrameVariable(
                                         14,
                                     ),
                                 },
@@ -46466,8 +46466,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         51,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -47131,7 +47131,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -47184,7 +47184,7 @@
                         None,
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                         None,
@@ -48345,7 +48345,7 @@
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
@@ -48489,15 +48489,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: None,
                                             access_start: RegionalTokenIdx(
                                                 5,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                 ident: `k`,
                                                 pattern_symbol_idx: 1,
                                             },
@@ -48579,7 +48579,7 @@
                                 7,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `k`,
                             },
                         },
@@ -48618,8 +48618,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 16,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -48665,8 +48665,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 25,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -48690,8 +48690,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 30,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -48701,7 +48701,7 @@
                             ),
                             ident: `j`,
                             frame_var_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 14,
                             ),
                         },
@@ -48710,8 +48710,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 34,
                             ),
-                            current_symbol_idx: 2,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 2,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 2,
                             },
                         },
@@ -48721,7 +48721,7 @@
                                 36,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `k`,
                             },
                         },
@@ -48777,8 +48777,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 44,
                             ),
-                            current_symbol_idx: 3,
-                            current_symbol_kind: SynCurrentSymbolKind::FrameVariable(
+                            current_syn_symbol_idx: 3,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
                                 14,
                             ),
                         },
@@ -48802,8 +48802,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 38,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -48842,8 +48842,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 51,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                 pattern_symbol_idx: 1,
                             },
                         },
@@ -49165,20 +49165,20 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: None,
-                                kind: SynInheritedSymbolKind::ParenateParameter {
+                                kind: InheritedSynSymbolKind::ParenateParameter {
                                     ident: `k`,
                                 },
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     4,
@@ -49190,12 +49190,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `top_k_row_span_sum`,
                                     pattern_symbol_idx: 1,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Mut,
                                 access_start: RegionalTokenIdx(
                                     13,
@@ -49207,12 +49207,12 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::LetVariable {
+                                variant: CurrentSynSymbolVariant::LetVariable {
                                     ident: `i`,
                                     pattern_symbol_idx: 2,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     38,
@@ -49224,7 +49224,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: SynCurrentSymbolVariant::FrameVariable {
+                                variant: CurrentSynSymbolVariant::FrameVariable {
                                     ident: `j`,
                                     expr_idx: 14,
                                 },
@@ -49472,8 +49472,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -49619,8 +49619,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         25,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -49715,8 +49715,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         30,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -49745,8 +49745,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         34,
                                     ),
-                                    current_symbol_idx: 2,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 2,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 2,
                                     },
                                 },
@@ -49860,7 +49860,7 @@
                                         ),
                                     ),
                                     frame_var_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_kind: FrameVariable(
                                         14,
                                     ),
                                 },
@@ -49895,8 +49895,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         38,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -50018,8 +50018,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         44,
                                     ),
-                                    current_symbol_idx: 3,
-                                    current_symbol_kind: FrameVariable(
+                                    current_syn_symbol_idx: 3,
+                                    current_syn_symbol_kind: FrameVariable(
                                         14,
                                     ),
                                 },
@@ -50267,8 +50267,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         51,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: LetVariable {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -50932,7 +50932,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -50985,7 +50985,7 @@
                         None,
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                         None,

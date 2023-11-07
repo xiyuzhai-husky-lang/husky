@@ -56,15 +56,15 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Const,
                                 access_start: RegionalTokenIdx(
                                     7,
                                 ),
                                 access_end: None,
-                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                     syn_attrs: TemplateParameterSynAttrs {
                                         syn_attrs: [],
                                     },
@@ -140,7 +140,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -165,7 +165,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             FluffyTerm {
@@ -263,8 +263,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 6,
                             ),
-                            current_symbol_idx: 1,
-                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                            current_syn_symbol_idx: 1,
+                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `E`,
@@ -322,15 +322,15 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Const,
                                 access_start: RegionalTokenIdx(
                                     4,
                                 ),
                                 access_end: None,
-                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                     syn_attrs: TemplateParameterSynAttrs {
                                         syn_attrs: [],
                                     },
@@ -430,8 +430,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         6,
                                     ),
-                                    current_symbol_idx: 1,
-                                    current_symbol_kind: TemplateParameter {
+                                    current_syn_symbol_idx: 1,
+                                    current_syn_symbol_kind: TemplateParameter {
                                         template_parameter_kind: Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: Ident(
@@ -580,7 +580,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -605,7 +605,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             FluffyTerm {
@@ -864,8 +864,8 @@
                                         regional_token_idx: RegionalTokenIdx(
                                             6,
                                         ),
-                                        current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 1,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E`,
@@ -923,15 +923,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 4,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -1045,12 +1045,12 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: Const,
-                                kind: SynInheritedSymbolKind::TemplateParameter(
+                                kind: InheritedSynSymbolKind::TemplateParameter(
                                     InheritedTemplateParameterSynSymbol::Type {
                                         ident: `E`,
                                     },
@@ -1058,7 +1058,7 @@
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: True,
@@ -1191,7 +1191,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -1214,7 +1214,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -1345,8 +1345,8 @@
                                         regional_token_idx: RegionalTokenIdx(
                                             6,
                                         ),
-                                        current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 1,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E`,
@@ -1404,15 +1404,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 4,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -1480,7 +1480,7 @@
                                 11,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                 InheritedTemplateParameterSynSymbol::Type {
                                     ident: `E`,
                                 },
@@ -1537,12 +1537,12 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: Const,
-                                kind: SynInheritedSymbolKind::TemplateParameter(
+                                kind: InheritedSynSymbolKind::TemplateParameter(
                                     InheritedTemplateParameterSynSymbol::Type {
                                         ident: `E`,
                                     },
@@ -1550,15 +1550,15 @@
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     10,
                                 ),
                                 access_end: None,
-                                variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                     ident: `e`,
                                     pattern_symbol_idx: 1,
                                 },
@@ -1725,7 +1725,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -1765,7 +1765,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                     ],
@@ -1898,8 +1898,8 @@
                                         regional_token_idx: RegionalTokenIdx(
                                             6,
                                         ),
-                                        current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 1,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E`,
@@ -1957,15 +1957,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 4,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -2053,7 +2053,7 @@
                                 11,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                 InheritedTemplateParameterSynSymbol::Type {
                                     ident: `E`,
                                 },
@@ -2105,12 +2105,12 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: Const,
-                                kind: SynInheritedSymbolKind::TemplateParameter(
+                                kind: InheritedSynSymbolKind::TemplateParameter(
                                     InheritedTemplateParameterSynSymbol::Type {
                                         ident: `E`,
                                     },
@@ -2118,7 +2118,7 @@
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: True,
@@ -2445,7 +2445,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -2468,7 +2468,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -2825,8 +2825,8 @@
                                         regional_token_idx: RegionalTokenIdx(
                                             6,
                                         ),
-                                        current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 1,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E`,
@@ -2884,15 +2884,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 4,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -2980,7 +2980,7 @@
                                 11,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                 InheritedTemplateParameterSynSymbol::Type {
                                     ident: `E`,
                                 },
@@ -3032,12 +3032,12 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: Const,
-                                kind: SynInheritedSymbolKind::TemplateParameter(
+                                kind: InheritedSynSymbolKind::TemplateParameter(
                                     InheritedTemplateParameterSynSymbol::Type {
                                         ident: `E`,
                                     },
@@ -3045,7 +3045,7 @@
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: True,
@@ -3372,7 +3372,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -3395,7 +3395,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -3752,8 +3752,8 @@
                                         regional_token_idx: RegionalTokenIdx(
                                             6,
                                         ),
-                                        current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 1,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E`,
@@ -3811,15 +3811,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 4,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -3897,7 +3897,7 @@
                                 11,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                 InheritedTemplateParameterSynSymbol::Type {
                                     ident: `E`,
                                 },
@@ -3949,12 +3949,12 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: Const,
-                                kind: SynInheritedSymbolKind::TemplateParameter(
+                                kind: InheritedSynSymbolKind::TemplateParameter(
                                     InheritedTemplateParameterSynSymbol::Type {
                                         ident: `E`,
                                     },
@@ -3962,7 +3962,7 @@
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: True,
@@ -4201,7 +4201,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -4224,7 +4224,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -4468,8 +4468,8 @@
                                         regional_token_idx: RegionalTokenIdx(
                                             6,
                                         ),
-                                        current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 1,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E`,
@@ -4527,15 +4527,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 4,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -4603,7 +4603,7 @@
                                 12,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                 InheritedTemplateParameterSynSymbol::Type {
                                     ident: `E`,
                                 },
@@ -4655,12 +4655,12 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: Const,
-                                kind: SynInheritedSymbolKind::TemplateParameter(
+                                kind: InheritedSynSymbolKind::TemplateParameter(
                                     InheritedTemplateParameterSynSymbol::Type {
                                         ident: `E`,
                                     },
@@ -4668,7 +4668,7 @@
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: True,
@@ -4948,7 +4948,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -4971,7 +4971,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -5253,8 +5253,8 @@
                                         regional_token_idx: RegionalTokenIdx(
                                             6,
                                         ),
-                                        current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 1,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E`,
@@ -5312,15 +5312,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 4,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -5425,7 +5425,7 @@
                                 19,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                 InheritedTemplateParameterSynSymbol::Type {
                                     ident: `E`,
                                 },
@@ -5552,12 +5552,12 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: Const,
-                                kind: SynInheritedSymbolKind::TemplateParameter(
+                                kind: InheritedSynSymbolKind::TemplateParameter(
                                     InheritedTemplateParameterSynSymbol::Type {
                                         ident: `E`,
                                     },
@@ -5565,26 +5565,26 @@
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     9,
                                 ),
                                 access_end: None,
-                                variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                     ident: `start`,
                                     pattern_symbol_idx: 1,
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     13,
                                 ),
                                 access_end: None,
-                                variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                     ident: `end`,
                                     pattern_symbol_idx: 2,
                                 },
@@ -6041,7 +6041,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -6101,7 +6101,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                         None,
@@ -6460,8 +6460,8 @@
                                         regional_token_idx: RegionalTokenIdx(
                                             6,
                                         ),
-                                        current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 1,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E`,
@@ -6519,15 +6519,15 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 4,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -6595,7 +6595,7 @@
                                 13,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                 InheritedTemplateParameterSynSymbol::Type {
                                     ident: `E`,
                                 },
@@ -6654,7 +6654,7 @@
                                 21,
                             ),
                             inherited_symbol_idx: 1,
-                            inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                            inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                 InheritedTemplateParameterSynSymbol::Type {
                                     ident: `E`,
                                 },
@@ -6734,12 +6734,12 @@
                 symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [
-                            SynInheritedSymbol {
+                            InheritedSynSymbol {
                                 parent_symbol_idx: Current(
                                     1,
                                 ),
                                 modifier: Const,
-                                kind: SynInheritedSymbolKind::TemplateParameter(
+                                kind: InheritedSynSymbolKind::TemplateParameter(
                                     InheritedTemplateParameterSynSymbol::Type {
                                         ident: `E`,
                                     },
@@ -6747,15 +6747,15 @@
                             },
                         ],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     10,
                                 ),
                                 access_end: None,
-                                variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                     ident: `f`,
                                     pattern_symbol_idx: 1,
                                 },
@@ -7211,7 +7211,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -7251,7 +7251,7 @@
                         ),
                     ],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                     ],
