@@ -9,6 +9,7 @@ mod region;
 pub mod source_map;
 mod stmt;
 mod symbol;
+pub mod variable;
 
 pub use self::expr::*;
 pub use self::pattern::*;
@@ -18,6 +19,7 @@ pub use self::stmt::*;
 
 use self::builder::*;
 use self::db::*;
+use self::variable::*;
 use husky_coword::*;
 use husky_ethereal_term::EtherealTerm;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};

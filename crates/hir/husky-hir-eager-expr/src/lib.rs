@@ -3,7 +3,6 @@ pub mod builder;
 pub mod db;
 mod expr;
 pub mod helpers;
-mod parenate_parameter;
 mod pattern;
 mod pattern_expr;
 mod region;
@@ -13,7 +12,6 @@ mod symbol;
 pub mod variable;
 
 pub use self::expr::*;
-pub use self::pattern::*;
 pub use self::pattern::*;
 pub use self::pattern_expr::*;
 pub use self::region::*;

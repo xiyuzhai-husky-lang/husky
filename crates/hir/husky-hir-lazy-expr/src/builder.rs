@@ -4,37 +4,50 @@ use husky_sema_expr::{
     SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
-use husky_syn_expr::{SynExprIdx, SynExprRegion, SynExprRegionData, SynExprRootKind, SynStmtIdx};
+use husky_syn_expr::{
+    SynExprIdx, SynExprRegion, SynExprRegionData, SynExprRootKind, SynPatternExprMap, SynStmtIdx,
+    SynSymbolMap,
+};
 use salsa::DebugWithDb;
 
 pub(crate) struct HirLazyExprBuilder<'a> {
     db: &'a dyn HirLazyExprDb,
     syn_expr_region_data: &'a SynExprRegionData,
     sema_expr_region_data: &'a SemaExprRegionData,
-    expr_arena: HirLazyExprArena,
-    stmt_arena: HirLazyStmtArena,
-    pattern_expr_arena: HirLazyPatternExprArena,
+    hir_lazy_expr_arena: HirLazyExprArena,
+    hir_lazy_stmt_arena: HirLazyStmtArena,
+    hir_lazy_pattern_expr_arena: HirLazyPatternExprArena,
+    syn_to_hir_lazy_pattern_expr_idx_map: SynPatternExprMap<HirLazyPatternExprIdx>,
     sema_to_hir_lazy_expr_idx_map: SemaExprMap<HirLazyExprIdx>,
     sema_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,
+    hir_lazy_variable_region: HirLazyVariableRegion,
+    syn_symbol_to_hir_lazy_variable_map: SynSymbolMap<HirLazyVariableIdx>,
 }
 
 impl<'a> HirLazyExprBuilder<'a> {
     fn new(db: &'a dyn HirLazyExprDb, sema_expr_region: SemaExprRegion) -> Self {
         let syn_expr_region_data = sema_expr_region.syn_expr_region(db).data(db);
         let sema_expr_region_data = sema_expr_region.data(db);
+        let syn_to_hir_lazy_pattern_expr_idx_map =
+            SynPatternExprMap::new(syn_expr_region_data.pattern_expr_arena());
+        let (hir_lazy_variable_region, syn_symbol_to_hir_lazy_variable_map) =
+            HirLazyVariableRegion::from_syn(syn_expr_region_data.symbol_region());
         Self {
             db,
             syn_expr_region_data,
             sema_expr_region_data,
-            expr_arena: Default::default(),
-            stmt_arena: Default::default(),
-            pattern_expr_arena: Default::default(),
+            hir_lazy_expr_arena: Default::default(),
+            hir_lazy_stmt_arena: Default::default(),
+            hir_lazy_pattern_expr_arena: Default::default(),
+            syn_to_hir_lazy_pattern_expr_idx_map,
             sema_to_hir_lazy_expr_idx_map: SemaExprMap::new(
                 sema_expr_region_data.sema_expr_arena(),
             ),
             sema_to_hir_lazy_stmt_idx_map: SemaStmtMap::new(
                 sema_expr_region_data.sema_stmt_arena(),
             ),
+            hir_lazy_variable_region,
+            syn_symbol_to_hir_lazy_variable_map,
         }
     }
 
@@ -56,7 +69,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         hir_eager_stmts: Vec<HirLazyStmt>,
     ) -> HirLazyStmtIdxRange {
         debug_assert_eq!(sema_stmt_indices.len(), hir_eager_stmts.len());
-        let hir_stmt_idx_range = self.stmt_arena.alloc_batch(hir_eager_stmts);
+        let hir_stmt_idx_range = self.hir_lazy_stmt_arena.alloc_batch(hir_eager_stmts);
         for (sema_stmt_idx, hir_lazy_stmt_idx) in
             std::iter::zip(sema_stmt_indices, hir_stmt_idx_range)
         {
@@ -71,7 +84,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         sema_expr_idx: SemaExprIdx,
         hir_lazy_expr: HirLazyExpr,
     ) -> HirLazyExprIdx {
-        let hir_lazy_expr_idx = self.expr_arena.alloc_one(hir_lazy_expr);
+        let hir_lazy_expr_idx = self.hir_lazy_expr_arena.alloc_one(hir_lazy_expr);
         self.sema_to_hir_lazy_expr_idx_map
             .insert_new(sema_expr_idx, hir_lazy_expr_idx);
         hir_lazy_expr_idx
@@ -82,7 +95,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         pattern_expr: HirLazyPatternExpr,
     ) -> HirLazyPatternExprIdx {
         // todo: record in source map
-        self.pattern_expr_arena.alloc_one(pattern_expr)
+        self.hir_lazy_pattern_expr_arena.alloc_one(pattern_expr)
     }
 
     pub fn db(&self) -> &'a dyn HirLazyExprDb {
@@ -133,14 +146,17 @@ impl<'a> HirLazyExprBuilder<'a> {
         (
             HirLazyExprRegion::new(
                 self.db,
-                self.expr_arena,
-                self.stmt_arena,
-                self.pattern_expr_arena,
+                self.hir_lazy_expr_arena,
+                self.hir_lazy_stmt_arena,
+                self.hir_lazy_pattern_expr_arena,
+                self.hir_lazy_variable_region,
             ),
             HirLazyExprSourceMap::new(
                 self.db,
+                self.syn_to_hir_lazy_pattern_expr_idx_map,
                 self.sema_to_hir_lazy_expr_idx_map,
                 self.sema_to_hir_lazy_stmt_idx_map,
+                self.syn_symbol_to_hir_lazy_variable_map,
             ),
         )
     }
