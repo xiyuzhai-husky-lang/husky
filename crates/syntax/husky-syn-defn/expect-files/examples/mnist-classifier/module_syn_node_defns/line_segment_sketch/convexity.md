@@ -260,7 +260,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -513,7 +513,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -617,8 +617,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         4,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `line_segment_sketch`,
                                                     },
                                                 },
@@ -659,8 +659,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         14,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `line_segment_sketch`,
                                                     },
                                                 },
@@ -681,8 +681,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         18,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `index`,
                                                     },
                                                 },
@@ -746,8 +746,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         29,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `line_segment_sketch`,
                                                     },
                                                 },
@@ -768,8 +768,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         34,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `index`,
                                                     },
                                                 },
@@ -958,8 +958,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         68,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `line_segment_sketch`,
                                                     },
                                                 },
@@ -980,8 +980,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         73,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `index`,
                                                     },
                                                 },
@@ -1097,7 +1097,7 @@ Ok(
                                                     ),
                                                     ident: `i1`,
                                                     frame_var_symbol_idx: 7,
-                                                    current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                                                         41,
                                                     ),
                                                 },
@@ -1156,8 +1156,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         100,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `line_segment_sketch`,
                                                     },
                                                 },
@@ -1209,7 +1209,7 @@ Ok(
                                                         112,
                                                     ),
                                                     current_syn_symbol_idx: 7,
-                                                    current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                                                         41,
                                                     ),
                                                 },
@@ -1370,8 +1370,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         136,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `line_segment_sketch`,
                                                     },
                                                 },
@@ -1392,8 +1392,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         140,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `index`,
                                                     },
                                                 },
@@ -1480,7 +1480,7 @@ Ok(
                                                     ),
                                                     ident: `i2`,
                                                     frame_var_symbol_idx: 11,
-                                                    current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                                                         70,
                                                     ),
                                                 },
@@ -1539,8 +1539,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         164,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `line_segment_sketch`,
                                                     },
                                                 },
@@ -1592,7 +1592,7 @@ Ok(
                                                         176,
                                                     ),
                                                     current_syn_symbol_idx: 11,
-                                                    current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                                                         70,
                                                     ),
                                                 },
@@ -2490,7 +2490,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
@@ -2628,7 +2628,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::FrameVariable {
+                                                        variant: CurrentSynSymbolVariant::LoopVariable {
                                                             ident: `i1`,
                                                             expr_idx: 41,
                                                         },
@@ -2696,7 +2696,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::FrameVariable {
+                                                        variant: CurrentSynSymbolVariant::LoopVariable {
                                                             ident: `i2`,
                                                             expr_idx: 70,
                                                         },
@@ -2724,13 +2724,13 @@ Ok(
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
                                                 (
-                                                    FrameVariable,
+                                                    LoopVariable,
                                                     ArenaIdxRange(
                                                         7..8,
                                                     ),
                                                 ),
                                                 (
-                                                    FrameVariable,
+                                                    LoopVariable,
                                                     ArenaIdxRange(
                                                         11..12,
                                                     ),

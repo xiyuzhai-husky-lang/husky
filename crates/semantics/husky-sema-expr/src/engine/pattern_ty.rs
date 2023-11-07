@@ -74,7 +74,7 @@ impl<'a> SemaExprEngine<'a> {
             | CurrentSynSymbolVariant::CaseVariable {
                 pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
-            CurrentSynSymbolVariant::FrameVariable { .. } => todo!(),
+            CurrentSynSymbolVariant::LoopVariable { .. } => todo!(),
             CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => todo!(),
             CurrentSynSymbolVariant::SelfType => todo!(),
             CurrentSynSymbolVariant::SelfValue {

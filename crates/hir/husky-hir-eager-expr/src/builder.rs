@@ -6,8 +6,9 @@ use husky_sema_expr::{
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
 use husky_syn_expr::{
-    SynExprData, SynExprIdx, SynExprRegion, SynExprRegionData, SynExprRootKind, SynPatternExprIdx,
-    SynPatternExprMap, SynPatternExprRootKind, SynStmtData, SynStmtIdx,
+    CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprData, SynExprIdx, SynExprRegion,
+    SynExprRegionData, SynExprRootKind, SynPatternExprIdx, SynPatternExprMap,
+    SynPatternExprRootKind, SynStmtData, SynStmtIdx, SynSymbolMap, SynSymbolOrderedMap,
 };
 use salsa::DebugWithDb;
 
@@ -21,12 +22,22 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,
     sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
+    hir_eager_variable_region: HirEagerVariableRegion,
+    syn_symbol_to_hir_eager_variable_map: SynSymbolMap<HirEagerVariableIdx>,
 }
 
 impl<'a> HirEagerExprBuilder<'a> {
     fn new(db: &'a dyn HirEagerExprDb, sema_expr_region: SemaExprRegion) -> Self {
         let syn_expr_region_data = sema_expr_region.syn_expr_region(db).data(db);
         let sema_expr_region_data = sema_expr_region.data(db);
+        let syn_to_hir_eager_pattern_expr_idx_map =
+            SynPatternExprMap::new(syn_expr_region_data.pattern_expr_arena());
+        let sema_to_hir_eager_expr_idx_map =
+            SemaExprMap::new(sema_expr_region_data.sema_expr_arena());
+        let sema_to_hir_eager_stmt_idx_map =
+            SemaStmtMap::new(sema_expr_region_data.sema_stmt_arena());
+        let (hir_eager_variable_region, syn_symbol_to_hir_eager_variable_map) =
+            HirEagerVariableRegion::from_syn(syn_expr_region_data.symbol_region());
         Self {
             db,
             syn_expr_region_data,
@@ -34,15 +45,11 @@ impl<'a> HirEagerExprBuilder<'a> {
             hir_eager_expr_arena: Default::default(),
             hir_eager_pattern_expr_arena: Default::default(),
             hir_eager_stmt_arena: Default::default(),
-            syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap::new(
-                syn_expr_region_data.pattern_expr_arena(),
-            ),
-            sema_to_hir_eager_expr_idx_map: SemaExprMap::new(
-                sema_expr_region_data.sema_expr_arena(),
-            ),
-            sema_to_hir_eager_stmt_idx_map: SemaStmtMap::new(
-                sema_expr_region_data.sema_stmt_arena(),
-            ),
+            syn_to_hir_eager_pattern_expr_idx_map,
+            sema_to_hir_eager_expr_idx_map,
+            sema_to_hir_eager_stmt_idx_map,
+            hir_eager_variable_region,
+            syn_symbol_to_hir_eager_variable_map,
         }
     }
 
@@ -147,6 +154,20 @@ impl<'a> HirEagerExprBuilder<'a> {
             FluffyTermBase::Hollow(_) => todo!(),
             FluffyTermBase::Place => todo!(),
         }
+    }
+
+    pub(crate) fn inherited_syn_symbol_to_hir_eager_variable(
+        &self,
+        inherited_syn_symbol_idx: InheritedSynSymbolIdx,
+    ) -> HirEagerVariableIdx {
+        self.syn_symbol_to_hir_eager_variable_map[inherited_syn_symbol_idx]
+    }
+
+    pub(crate) fn current_syn_symbol_to_hir_eager_variable(
+        &self,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
+    ) -> HirEagerVariableIdx {
+        self.syn_symbol_to_hir_eager_variable_map[current_syn_symbol_idx]
     }
 
     fn finish(self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {

@@ -86,8 +86,8 @@ impl SynExprData {
                     SynExprData::InheritedSynSymbol {
                         ident,
                         regional_token_idx,
-                        inherited_symbol_idx,
-                        inherited_symbol_kind,
+                        inherited_syn_symbol_idx,
+                        inherited_syn_symbol_kind,
                     } => todo!(),
                     SynExprData::CurrentSynSymbol {
                         ident,

@@ -4,7 +4,7 @@ fn open_one_match() {
 }
 
 pub fn almost_closed(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    require!(cc.angle_change + 0 < -140);
-    -cc.angle_change + 0
+    require!(v0.angle_change + 0 < -140);
+    -v0.angle_change + 0
 }
 

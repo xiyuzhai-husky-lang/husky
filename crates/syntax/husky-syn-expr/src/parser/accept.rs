@@ -18,13 +18,13 @@ where
             DisambiguatedTokenData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
-                inherited_symbol_idx,
-                inherited_symbol_kind,
+                inherited_syn_symbol_idx,
+                inherited_syn_symbol_kind,
             } => self.accept_atom(SynExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
-                inherited_symbol_idx,
-                inherited_symbol_kind,
+                inherited_syn_symbol_idx,
+                inherited_syn_symbol_kind,
             }),
             DisambiguatedTokenData::CurrentSynSymbol {
                 ident,

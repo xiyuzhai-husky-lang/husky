@@ -280,8 +280,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 1,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `line_segment_sketch`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -336,8 +336,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 1,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `line_segment_sketch`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -364,8 +364,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 2,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `index`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -427,8 +427,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 1,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `line_segment_sketch`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -456,8 +456,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 2,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `index`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -622,8 +622,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 1,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `line_segment_sketch`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -651,8 +651,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 2,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `index`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -731,7 +731,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 7,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             41,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -793,8 +793,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 1,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `line_segment_sketch`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -863,7 +863,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 7,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             41,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -1005,8 +1005,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 1,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `line_segment_sketch`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1033,8 +1033,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 2,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `index`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1110,7 +1110,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 11,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             70,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -1172,8 +1172,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 1,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `line_segment_sketch`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1242,7 +1242,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 11,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             70,
                         ),
                         syn_expr_region: ExprRegionLeash(_),

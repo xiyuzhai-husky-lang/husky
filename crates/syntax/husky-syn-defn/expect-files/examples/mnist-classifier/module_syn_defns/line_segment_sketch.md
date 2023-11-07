@@ -395,7 +395,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -727,7 +727,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -1048,7 +1048,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -1301,7 +1301,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -1405,8 +1405,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         5,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -1415,8 +1415,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         9,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -1449,8 +1449,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         13,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -1459,8 +1459,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         17,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -1562,8 +1562,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         28,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -1582,8 +1582,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         32,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -1622,8 +1622,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         41,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -1632,8 +1632,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         43,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -1721,8 +1721,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         54,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -1793,8 +1793,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         65,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -1862,8 +1862,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         72,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -1904,8 +1904,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         78,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -2226,7 +2226,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
@@ -2587,7 +2587,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -2840,7 +2840,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -2944,8 +2944,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         5,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -2954,8 +2954,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         9,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -2988,8 +2988,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         13,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -2998,8 +2998,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         17,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -3101,8 +3101,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         28,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -3121,8 +3121,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         32,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -3161,8 +3161,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         41,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -3171,8 +3171,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         43,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -3270,8 +3270,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         55,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -3329,8 +3329,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         65,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -3401,8 +3401,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         72,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -3443,8 +3443,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         78,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `u`,
                                                     },
                                                 },
@@ -3765,7 +3765,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
@@ -4192,7 +4192,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -4527,7 +4527,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -4661,8 +4661,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         5,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `start`,
                                                     },
                                                 },
@@ -4671,8 +4671,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -4681,8 +4681,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         14,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `start`,
                                                     },
                                                 },
@@ -4754,8 +4754,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         23,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -4796,8 +4796,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         33,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `start`,
                                                     },
                                                 },
@@ -4876,8 +4876,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         47,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -4933,8 +4933,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         53,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -4943,8 +4943,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         57,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `start`,
                                                     },
                                                 },
@@ -5064,8 +5064,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         70,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -5114,8 +5114,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         82,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -5168,8 +5168,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         92,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -5436,8 +5436,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         135,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -5544,8 +5544,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         149,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -5584,8 +5584,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         158,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -5638,8 +5638,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         167,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -5875,8 +5875,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         199,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -5885,8 +5885,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         203,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `start`,
                                                     },
                                                 },
@@ -5986,8 +5986,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         212,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `start`,
                                                     },
                                                 },
@@ -6895,7 +6895,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
@@ -7572,7 +7572,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -7982,7 +7982,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -8146,8 +8146,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         5,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `end`,
                                                     },
                                                 },
@@ -8156,8 +8156,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -8166,8 +8166,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         14,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `end`,
                                                     },
                                                 },
@@ -8239,8 +8239,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         25,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -8261,8 +8261,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         23,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `end`,
                                                     },
                                                 },
@@ -8351,8 +8351,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         43,
                                                     ),
-                                                    inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 4,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -8408,8 +8408,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         49,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -8418,8 +8418,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         53,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `end`,
                                                     },
                                                 },
@@ -8539,8 +8539,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         66,
                                                     ),
-                                                    inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 4,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -8569,8 +8569,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         73,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `start0`,
                                                     },
                                                 },
@@ -8624,8 +8624,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         83,
                                                     ),
-                                                    inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 4,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -8678,8 +8678,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         93,
                                                     ),
-                                                    inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 4,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -8756,8 +8756,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         108,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -8766,8 +8766,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         112,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `end`,
                                                     },
                                                 },
@@ -8879,8 +8879,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         131,
                                                     ),
-                                                    inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 4,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -8987,8 +8987,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         145,
                                                     ),
-                                                    inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 4,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -9027,8 +9027,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         154,
                                                     ),
-                                                    inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 4,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -9081,8 +9081,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         163,
                                                     ),
-                                                    inherited_symbol_idx: 4,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 4,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -9376,8 +9376,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         204,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `start0`,
                                                     },
                                                 },
@@ -9589,8 +9589,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         236,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `start0`,
                                                     },
                                                 },
@@ -9619,8 +9619,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         243,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `start0`,
                                                     },
                                                 },
@@ -10624,7 +10624,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
@@ -11201,7 +11201,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -11474,7 +11474,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -11630,8 +11630,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         25,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -11712,8 +11712,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         41,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -11732,8 +11732,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         45,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -11809,8 +11809,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         54,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -12184,8 +12184,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         121,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -12273,8 +12273,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         139,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -12455,8 +12455,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         166,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -12485,8 +12485,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         172,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -12570,8 +12570,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         182,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -13248,8 +13248,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         295,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -13392,8 +13392,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         319,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -13593,8 +13593,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         343,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -13907,8 +13907,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         407,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -15513,7 +15513,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
@@ -16212,7 +16212,7 @@ Ok(
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -16376,7 +16376,7 @@ Ok(
                                                     },
                                                 },
                                                 symbol_region: SynSymbolRegion {
-                                                    inherited_symbol_arena: Arena {
+                                                    inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_syn_symbol_arena: Arena {
@@ -16477,7 +16477,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -16604,7 +16604,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 symbol_region: SynSymbolRegion {
-                                                                    inherited_symbol_arena: Arena {
+                                                                    inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
                                                                     current_syn_symbol_arena: Arena {
@@ -16705,7 +16705,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -16900,7 +16900,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             current_syn_symbol_arena: Arena {
@@ -17019,7 +17019,7 @@ Ok(
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -17187,7 +17187,7 @@ Ok(
                                                     },
                                                 },
                                                 symbol_region: SynSymbolRegion {
-                                                    inherited_symbol_arena: Arena {
+                                                    inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_syn_symbol_arena: Arena {
@@ -17428,7 +17428,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -17620,7 +17620,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 symbol_region: SynSymbolRegion {
-                                                                    inherited_symbol_arena: Arena {
+                                                                    inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
                                                                     current_syn_symbol_arena: Arena {
@@ -17861,7 +17861,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -18003,8 +18003,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         2,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `from`,
                                                     },
                                                 },
@@ -18013,8 +18013,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         4,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `to`,
                                                     },
                                                 },
@@ -18043,8 +18043,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         7,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -18065,8 +18065,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         13,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `from`,
                                                     },
                                                 },
@@ -18075,8 +18075,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         15,
                                                     ),
-                                                    inherited_symbol_idx: 3,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 3,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `to`,
                                                     },
                                                 },
@@ -18209,7 +18209,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
@@ -18374,7 +18374,7 @@ Ok(
                                                     },
                                                 },
                                                 symbol_region: SynSymbolRegion {
-                                                    inherited_symbol_arena: Arena {
+                                                    inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_syn_symbol_arena: Arena {
@@ -18468,7 +18468,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -18567,7 +18567,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 symbol_region: SynSymbolRegion {
-                                                                    inherited_symbol_arena: Arena {
+                                                                    inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
                                                                     current_syn_symbol_arena: Arena {
@@ -18661,7 +18661,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -18800,7 +18800,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             current_syn_symbol_arena: Arena {
@@ -18947,7 +18947,7 @@ Ok(
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -19111,7 +19111,7 @@ Ok(
                                                     },
                                                 },
                                                 symbol_region: SynSymbolRegion {
-                                                    inherited_symbol_arena: Arena {
+                                                    inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_syn_symbol_arena: Arena {
@@ -19212,7 +19212,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -19339,7 +19339,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 symbol_region: SynSymbolRegion {
-                                                                    inherited_symbol_arena: Arena {
+                                                                    inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
                                                                     current_syn_symbol_arena: Arena {
@@ -19440,7 +19440,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -19560,7 +19560,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             current_syn_symbol_arena: Arena {
@@ -19671,7 +19671,7 @@ Ok(
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -19795,7 +19795,7 @@ Ok(
                                                     },
                                                 },
                                                 symbol_region: SynSymbolRegion {
-                                                    inherited_symbol_arena: Arena {
+                                                    inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_syn_symbol_arena: Arena {
@@ -19902,7 +19902,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -20001,7 +20001,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 symbol_region: SynSymbolRegion {
-                                                                    inherited_symbol_arena: Arena {
+                                                                    inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
                                                                     current_syn_symbol_arena: Arena {
@@ -20108,7 +20108,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -20235,7 +20235,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             current_syn_symbol_arena: Arena {
@@ -20366,7 +20366,7 @@ Ok(
                                                     },
                                                 },
                                                 symbol_region: SynSymbolRegion {
-                                                    inherited_symbol_arena: Arena {
+                                                    inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_syn_symbol_arena: Arena {
@@ -20460,7 +20460,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -20559,7 +20559,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 symbol_region: SynSymbolRegion {
-                                                                    inherited_symbol_arena: Arena {
+                                                                    inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
                                                                     current_syn_symbol_arena: Arena {
@@ -20653,7 +20653,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -20862,7 +20862,7 @@ Ok(
                                                     ),
                                                     ident: `i`,
                                                     frame_var_symbol_idx: 6,
-                                                    current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                                                         16,
                                                     ),
                                                 },
@@ -20919,7 +20919,7 @@ Ok(
                                                         58,
                                                     ),
                                                     current_syn_symbol_idx: 6,
-                                                    current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                                                         16,
                                                     ),
                                                 },
@@ -21879,7 +21879,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             current_syn_symbol_arena: Arena {
@@ -21981,7 +21981,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::FrameVariable {
+                                                        variant: CurrentSynSymbolVariant::LoopVariable {
                                                             ident: `i`,
                                                             expr_idx: 16,
                                                         },
@@ -22009,7 +22009,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    FrameVariable,
+                                                    LoopVariable,
                                                     ArenaIdxRange(
                                                         6..7,
                                                     ),
@@ -22232,7 +22232,7 @@ Ok(
                                                     },
                                                 },
                                                 symbol_region: SynSymbolRegion {
-                                                    inherited_symbol_arena: Arena {
+                                                    inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_syn_symbol_arena: Arena {
@@ -22428,7 +22428,7 @@ Ok(
                                         },
                                     },
                                     symbol_region: SynSymbolRegion {
-                                        inherited_symbol_arena: Arena {
+                                        inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         current_syn_symbol_arena: Arena {
@@ -22590,7 +22590,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 symbol_region: SynSymbolRegion {
-                                                                    inherited_symbol_arena: Arena {
+                                                                    inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
                                                                     current_syn_symbol_arena: Arena {
@@ -22786,7 +22786,7 @@ Ok(
                                                         },
                                                     },
                                                     symbol_region: SynSymbolRegion {
-                                                        inherited_symbol_arena: Arena {
+                                                        inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         current_syn_symbol_arena: Arena {
@@ -22908,8 +22908,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         3,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -22928,8 +22928,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         7,
                                                     ),
-                                                    inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 1,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `ct`,
                                                     },
                                                 },
@@ -22938,8 +22938,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         9,
                                                     ),
-                                                    inherited_symbol_idx: 2,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                                    inherited_syn_symbol_idx: 2,
+                                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `r`,
                                                     },
                                                 },
@@ -23058,7 +23058,7 @@ Ok(
                                             },
                                         },
                                         symbol_region: SynSymbolRegion {
-                                            inherited_symbol_arena: Arena {
+                                            inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
                                                         parent_symbol_idx: Current(

@@ -145,7 +145,7 @@ impl SymbolDeclarativeTermRegion {
 }
 
 impl SymbolDeclarativeTermRegion {
-    /// will initialize `inherited_symbol_terms`;
+    /// will initialize `inherited_syn_symbol_terms`;
     /// but will leave current_syn_symbol_terms unintialized;
     /// `self_ty_term` is set to that of parent if parent exists, otherwise none;
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
@@ -279,8 +279,8 @@ impl SymbolDeclarativeTermRegion {
 
     fn parent_symbol_term(&self, parent_symbol_idx: ParentSynSymbolIdx) -> SymbolSignature {
         match parent_symbol_idx {
-            ParentSynSymbolIdx::Inherited(inherited_symbol_idx) => {
-                self.inherited_symbol_signature(inherited_symbol_idx)
+            ParentSynSymbolIdx::Inherited(inherited_syn_symbol_idx) => {
+                self.inherited_syn_symbol_signature(inherited_syn_symbol_idx)
             }
             ParentSynSymbolIdx::Current(current_syn_symbol_idx) => self
                 .current_syn_symbol_signature(current_syn_symbol_idx)
@@ -288,11 +288,11 @@ impl SymbolDeclarativeTermRegion {
         }
     }
 
-    pub fn inherited_symbol_signature(
+    pub fn inherited_syn_symbol_signature(
         &self,
-        inherited_symbol_idx: InheritedSynSymbolIdx,
+        inherited_syn_symbol_idx: InheritedSynSymbolIdx,
     ) -> SymbolSignature {
-        self.symbol_signatures[inherited_symbol_idx]
+        self.symbol_signatures[inherited_syn_symbol_idx]
     }
 
     pub fn current_syn_symbol_signature(

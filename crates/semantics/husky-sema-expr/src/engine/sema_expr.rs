@@ -153,19 +153,19 @@ impl<'a> SemaExprEngine<'a> {
             SynExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
-                inherited_symbol_idx,
-                inherited_symbol_kind,
+                inherited_syn_symbol_idx,
+                inherited_syn_symbol_kind,
             } => (
                 Ok(SemaExprData::InheritedSynSymbol {
                     ident,
                     regional_token_idx,
-                    inherited_symbol_idx,
-                    inherited_symbol_kind,
+                    inherited_syn_symbol_idx,
+                    inherited_syn_symbol_kind,
                 }),
                 match self
                     .symbol_tys
-                    .inherited_symbol_map()
-                    .get(inherited_symbol_idx)
+                    .inherited_syn_symbol_map()
+                    .get(inherited_syn_symbol_idx)
                 {
                     Some(ty) => Ok((*ty).into()),
                     None => Err(DerivedSemaExprTypeError::InheritedSynSymbolTypeError.into()),

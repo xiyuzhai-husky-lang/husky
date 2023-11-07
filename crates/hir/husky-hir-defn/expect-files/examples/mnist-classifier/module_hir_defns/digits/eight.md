@@ -134,200 +134,104 @@
                             HirEagerExprRegion {
                                 hir_eager_expr_arena: Arena {
                                     data: [
-                                        InheritedSynSymbol {
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 286,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Field {
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
+                                        HirEagerExprData::Field {
                                             owner_hir_expr_idx: 1,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `relative_bounding_box`,
                                         },
-                                        MethodCall {
+                                        HirEagerExprData::MethodCall {
                                             self_argument: 2,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 297,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `ymax`,
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        Literal(
-                                            F32(
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::F32(
                                                 NotNan(
                                                     0.5,
                                                 ),
                                             ),
                                         ),
-                                        Binary {
+                                        HirEagerExprData::Binary {
                                             lopd: 3,
                                             opr: Comparison(
                                                 Greater,
                                             ),
                                             ropd: 4,
                                         },
-                                        InheritedSynSymbol {
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 286,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Field {
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
+                                        HirEagerExprData::Field {
                                             owner_hir_expr_idx: 6,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 374,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `strokes`,
                                         },
-                                        MethodCall {
+                                        HirEagerExprData::MethodCall {
                                             self_argument: 7,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 145,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `first`,
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        Suffix {
+                                        HirEagerExprData::Suffix {
                                             opd_hir_expr_idx: 8,
                                             opr: Unwrap,
                                         },
-                                        Field {
+                                        HirEagerExprData::Field {
                                             owner_hir_expr_idx: 9,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 150,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `start`,
                                         },
-                                        Field {
+                                        HirEagerExprData::Field {
                                             owner_hir_expr_idx: 10,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `x`,
                                         },
-                                        InheritedSynSymbol {
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 286,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Field {
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
+                                        HirEagerExprData::Field {
                                             owner_hir_expr_idx: 12,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 374,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `strokes`,
                                         },
-                                        MethodCall {
+                                        HirEagerExprData::MethodCall {
                                             self_argument: 13,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 145,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `first`,
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        Suffix {
+                                        HirEagerExprData::Suffix {
                                             opd_hir_expr_idx: 14,
                                             opr: Unwrap,
                                         },
-                                        Field {
+                                        HirEagerExprData::Field {
                                             owner_hir_expr_idx: 15,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 151,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `end`,
                                         },
-                                        Field {
+                                        HirEagerExprData::Field {
                                             owner_hir_expr_idx: 16,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `x`,
                                         },
-                                        Binary {
+                                        HirEagerExprData::Binary {
                                             lopd: 11,
                                             opr: Comparison(
                                                 Greater,
                                             ),
                                             ropd: 17,
                                         },
-                                        InheritedSynSymbol {
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 286,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Field {
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
+                                        HirEagerExprData::Field {
                                             owner_hir_expr_idx: 19,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `relative_bounding_box`,
                                         },
-                                        MethodCall {
+                                        HirEagerExprData::MethodCall {
                                             self_argument: 20,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 297,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `ymax`,
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        Block {
+                                        HirEagerExprData::Block {
                                             stmts: ArenaIdxRange(
                                                 2..4,
                                             ),

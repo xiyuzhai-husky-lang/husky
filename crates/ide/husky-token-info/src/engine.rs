@@ -320,7 +320,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         for (current_syn_symbol_idx, current_syn_symbol) in self
             .syn_expr_region_data
             .symbol_region()
-            .current_syn_symbol_indexed_iter()
+            .indexed_current_syn_symbols()
         {
             self.visit_current_syn_symbol(current_syn_symbol_idx, current_syn_symbol)
         }
@@ -350,16 +350,16 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             ),
             SemaExprData::InheritedSynSymbol {
                 regional_token_idx,
-                inherited_symbol_idx,
-                inherited_symbol_kind,
+                inherited_syn_symbol_idx,
+                inherited_syn_symbol_kind,
                 ..
             } => self.add(
                 *regional_token_idx,
                 sema_expr_idx,
                 TokenInfoData::InheritedSynSymbol {
-                    inherited_symbol_idx: *inherited_symbol_idx,
+                    inherited_syn_symbol_idx: *inherited_syn_symbol_idx,
                     syn_expr_region: self.syn_expr_region,
-                    inherited_symbol_kind: *inherited_symbol_kind,
+                    inherited_syn_symbol_kind: *inherited_syn_symbol_kind,
                 },
             ),
             SemaExprData::SelfType(regional_token_idx) => {
@@ -630,7 +630,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     }
                 }
             },
-            CurrentSynSymbolKind::FrameVariable(_) => (),
+            CurrentSynSymbolKind::LoopVariable(_) => (),
             CurrentSynSymbolKind::TemplateParameter {
                 template_parameter_kind,
             } => match template_parameter_kind {

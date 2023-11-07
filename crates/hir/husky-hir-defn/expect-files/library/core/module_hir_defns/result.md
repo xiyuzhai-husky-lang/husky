@@ -283,8 +283,8 @@
                             HirEagerExprRegion {
                                 hir_eager_expr_arena: Arena {
                                     data: [
-                                        Todo,
-                                        Block {
+                                        HirEagerExprData::Todo,
+                                        HirEagerExprData::Block {
                                             stmts: ArenaIdxRange(
                                                 1..2,
                                             ),

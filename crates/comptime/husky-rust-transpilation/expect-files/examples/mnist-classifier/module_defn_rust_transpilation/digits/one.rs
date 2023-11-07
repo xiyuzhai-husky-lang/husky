@@ -4,20 +4,20 @@ fn one_fermi_match() {
 }
 
 pub fn upmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    let dp = cc.displacement();
-    require!(dp.y > 0);
-    dp.y
+    let dp = v0.displacement();
+    require!(v1.y > 0);
+    v1.y
 }
 
 pub fn downmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    let dp = cc.displacement();
-    require!(dp.y <= 0);
-    -cc.end().y
+    let dp = v0.displacement();
+    require!(v1.y <= 0);
+    -v0.end().y
 }
 
 pub fn hat(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    let dp = cc.displacement();
-    require!(dp.y < 0);
-    require!(dp.x < 0);
-    -dp.y - dp.x
+    let dp = v0.displacement();
+    require!(v1.y < 0);
+    require!(v1.x < 0);
+    -v1.y - v1.x
 }

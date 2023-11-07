@@ -20,13 +20,14 @@ pub type HirLazyExprIdxRange = ArenaIdxRange<HirLazyExpr>;
 pub type HirLazyExprMap<V> = ArenaMap<HirLazyExpr, V>;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::debug_with_db(db = HirLazyExprDb)]
 pub enum HirLazyExpr {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),
     InheritedSynSymbol {
         ident: Ident,
-        // inherited_symbol_idx: InheritedHirLazySymbolIdx,
-        // inherited_symbol_kind: InheritedHirLazySymbolKind,
+        // inherited_syn_symbol_idx: InheritedHirLazySymbolIdx,
+        // inherited_syn_symbol_kind: InheritedHirLazySymbolKind,
     },
     CurrentSynSymbol {
         ident: Ident,
@@ -131,8 +132,8 @@ impl ToHirLazy for SemaExprIdx {
             SemaExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
-                inherited_symbol_idx,
-                inherited_symbol_kind,
+                inherited_syn_symbol_idx,
+                inherited_syn_symbol_kind,
             } => todo!(),
             SemaExprData::CurrentSynSymbol {
                 ident,

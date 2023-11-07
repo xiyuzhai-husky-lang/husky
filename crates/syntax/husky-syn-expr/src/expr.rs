@@ -25,8 +25,8 @@ pub enum SynExprData {
     InheritedSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_symbol_idx: InheritedSynSymbolIdx,
-        inherited_symbol_kind: InheritedSynSymbolKind,
+        inherited_syn_symbol_idx: InheritedSynSymbolIdx,
+        inherited_syn_symbol_kind: InheritedSynSymbolKind,
     },
     CurrentSynSymbol {
         ident: Ident,

@@ -13,8 +13,8 @@ use crate::{expr::RustPrecedence, *};
 use husky_coword::Ident;
 use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
 use husky_hir_eager_expr::{
-    HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion, HirEagerPatternExprArena,
-    HirEagerStmtArena,
+    variable::HirEagerVariableIdx, HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion,
+    HirEagerPatternExprArena, HirEagerStmtArena,
 };
 use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyStmtArena};
@@ -442,5 +442,11 @@ impl<'a> RustTranspilationBuilder<'a> {
 
     pub(crate) fn self_value(&mut self) {
         self.write_str("self")
+    }
+}
+impl TranspileToRust for HirEagerVariableIdx {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        use std::fmt::Write;
+        write!(builder.result, "v{}", self.index()).unwrap()
     }
 }

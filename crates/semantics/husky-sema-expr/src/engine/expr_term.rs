@@ -220,9 +220,9 @@ impl<'a> SemaExprEngine<'a> {
             &SemaExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
-                inherited_symbol_idx,
-                inherited_symbol_kind,
-            } => Ok(self.symbol_terms[inherited_symbol_idx]),
+                inherited_syn_symbol_idx,
+                inherited_syn_symbol_kind,
+            } => Ok(self.symbol_terms[inherited_syn_symbol_idx]),
             SemaExprData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
