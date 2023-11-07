@@ -183,7 +183,7 @@ impl<'a> SynStmtContext<'a> {
                 ropd,
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr);
-                let current_syn_symbol_variant = CurrentSynSymbolVariant::LoopVariable {
+                let current_syn_symbol_variant = CurrentSynSymbolData::LoopVariable {
                     expr_idx: particulars.for_between_loop_var_expr_idx,
                     ident: particulars.for_between_loop_var_ident,
                 };

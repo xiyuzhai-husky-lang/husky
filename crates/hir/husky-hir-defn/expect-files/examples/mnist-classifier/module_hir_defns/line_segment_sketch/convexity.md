@@ -70,6 +70,36 @@
                                     },
                                 ],
                             },
+                            hir_eager_variable_region: HirEagerVariableRegion {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerVariable {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 220,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: ParenateParameter,
+                                        },
+                                        HirEagerVariable {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 421,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: ParenateParameter,
+                                        },
+                                    ],
+                                },
+                            },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
@@ -776,6 +806,180 @@
                                             ),
                                         },
                                     ],
+                                },
+                                hir_eager_variable_region: HirEagerVariableRegion {
+                                    arena: Arena {
+                                        data: [
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 220,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: ParenateParameter,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 421,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: ParenateParameter,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 23,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 422,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 423,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 424,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 425,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 426,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 269,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LoopVariable,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 302,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 427,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 428,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 270,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LoopVariable,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 302,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                        ],
+                                    },
                                 },
                             },
                         ),

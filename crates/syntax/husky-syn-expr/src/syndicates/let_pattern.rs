@@ -31,7 +31,7 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
                     self.pattern_expr_region(),
                     access_start,
                     Some(access_end),
-                    CurrentSynSymbolVariant::LetVariable {
+                    CurrentSynSymbolData::LetVariable {
                         ident: *ident,
                         pattern_symbol_idx: *pattern_symbol,
                     },

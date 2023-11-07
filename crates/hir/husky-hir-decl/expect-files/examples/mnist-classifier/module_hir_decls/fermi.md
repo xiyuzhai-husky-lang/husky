@@ -79,6 +79,36 @@
                                 },
                             ],
                         },
+                        hir_eager_variable_region: HirEagerVariableRegion {
+                            arena: Arena {
+                                data: [
+                                    HirEagerVariable {
+                                        name: Ident(
+                                            Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 375,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        data: ParenateParameter,
+                                    },
+                                    HirEagerVariable {
+                                        name: Ident(
+                                            Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 437,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        data: ParenateParameter,
+                                    },
+                                ],
+                            },
+                        },
                     },
                 },
             ),

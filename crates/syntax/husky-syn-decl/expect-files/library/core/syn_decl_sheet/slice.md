@@ -87,7 +87,7 @@ Ok(
                                                             7,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        data: CurrentSynSymbolData::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
                                                             },
@@ -219,7 +219,7 @@ Ok(
                                                             7,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        data: CurrentSynSymbolData::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
                                                             },
@@ -402,7 +402,7 @@ Ok(
                                                         4,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    data: CurrentSynSymbolData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -583,7 +583,7 @@ Ok(
                                                                         4,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    data: CurrentSynSymbolData::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -919,7 +919,7 @@ Ok(
                                                                         4,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    data: CurrentSynSymbolData::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -1124,7 +1124,7 @@ Ok(
                                                             10,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `a`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1135,7 +1135,7 @@ Ok(
                                                             14,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `b`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -1414,7 +1414,7 @@ Ok(
                                                         4,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    data: CurrentSynSymbolData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -1668,7 +1668,7 @@ Ok(
                                                                         4,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    data: CurrentSynSymbolData::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -1947,7 +1947,7 @@ Ok(
                                                         4,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    data: CurrentSynSymbolData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -2128,7 +2128,7 @@ Ok(
                                                                         4,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    data: CurrentSynSymbolData::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -2416,7 +2416,7 @@ Ok(
                                                                         4,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    data: CurrentSynSymbolData::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -2704,7 +2704,7 @@ Ok(
                                                                         4,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    data: CurrentSynSymbolData::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -2992,7 +2992,7 @@ Ok(
                                                                         4,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    data: CurrentSynSymbolData::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },
@@ -3280,7 +3280,7 @@ Ok(
                                                                         4,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    data: CurrentSynSymbolData::TemplateParameter {
                                                                         syn_attrs: TemplateParameterSynAttrs {
                                                                             syn_attrs: [],
                                                                         },

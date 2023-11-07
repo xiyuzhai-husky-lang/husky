@@ -159,7 +159,7 @@
                                     9,
                                 ),
                                 access_end: None,
-                                variant: CurrentSynSymbolVariant::FieldVariable {
+                                data: CurrentSynSymbolData::FieldVariable {
                                     ident_token: IdentRegionalToken {
                                         ident: `line_segment_sketch`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -174,7 +174,7 @@
                                     15,
                                 ),
                                 access_end: None,
-                                variant: CurrentSynSymbolVariant::FieldVariable {
+                                data: CurrentSynSymbolData::FieldVariable {
                                     ident_token: IdentRegionalToken {
                                         ident: `strokes`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1153,7 +1153,7 @@
                                     6,
                                 ),
                                 access_end: None,
-                                variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                data: CurrentSynSymbolData::ParenateRegularParameter {
                                     ident: `line_segment_sketch`,
                                     pattern_symbol_idx: 1,
                                 },

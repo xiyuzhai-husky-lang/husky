@@ -58,6 +58,11 @@
                             hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
+                            hir_eager_variable_region: HirEagerVariableRegion {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
                         },
                     },
                 },
@@ -301,6 +306,24 @@
                                 },
                                 hir_eager_pattern_expr_arena: Arena {
                                     data: [],
+                                },
+                                hir_eager_variable_region: HirEagerVariableRegion {
+                                    arena: Arena {
+                                        data: [
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 17,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: ParenateParameter,
+                                            },
+                                        ],
+                                    },
                                 },
                             },
                         ),

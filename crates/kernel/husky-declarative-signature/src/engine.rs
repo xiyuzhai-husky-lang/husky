@@ -93,11 +93,11 @@ impl<'a> DeclarativeTermEngine<'a> {
                         current_syn_symbol_indexed_iter
                             .next()
                             .expect("ty constraint should match with current symbols");
-                    let CurrentSynSymbolVariant::TemplateParameter {
+                    let CurrentSynSymbolData::TemplateParameter {
                         syn_attrs,
                         annotated_variance_token,
                         template_parameter_variant,
-                    } = current_syn_symbol.variant()
+                    } = current_syn_symbol.data()
                     else {
                         unreachable!()
                     };
@@ -247,8 +247,8 @@ impl<'a> DeclarativeTermEngine<'a> {
         current_syn_symbol_idx: CurrentSynSymbolIdx,
     ) {
         let current_syn_symbol = &self.syn_expr_region_data.symbol_region()[current_syn_symbol_idx];
-        match current_syn_symbol.variant() {
-            CurrentSynSymbolVariant::ParenateRegularParameter {
+        match current_syn_symbol.data() {
+            CurrentSynSymbolData::ParenateRegularParameter {
                 ident,
                 pattern_symbol_idx,
             } => {

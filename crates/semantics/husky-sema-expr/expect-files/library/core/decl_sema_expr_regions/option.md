@@ -64,7 +64,7 @@
                                     6,
                                 ),
                                 access_end: None,
-                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                data: CurrentSynSymbolData::TemplateParameter {
                                     syn_attrs: TemplateParameterSynAttrs {
                                         syn_attrs: [],
                                     },

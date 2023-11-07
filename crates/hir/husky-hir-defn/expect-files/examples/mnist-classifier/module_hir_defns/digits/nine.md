@@ -22,7 +22,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 47,
+                                        value: 50,
                                     },
                                 ),
                             ),
@@ -55,7 +55,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 48,
+                                        value: 51,
                                     },
                                 ),
                             ),
@@ -88,7 +88,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 49,
+                                        value: 52,
                                     },
                                 ),
                             ),
@@ -158,6 +158,24 @@
                                         ),
                                     },
                                 ],
+                            },
+                            hir_eager_variable_region: HirEagerVariableRegion {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerVariable {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 286,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: ParenateParameter,
+                                        },
+                                    ],
+                                },
                             },
                         },
                     },
@@ -245,6 +263,36 @@
                                         },
                                     ],
                                 },
+                                hir_eager_variable_region: HirEagerVariableRegion {
+                                    arena: Arena {
+                                        data: [
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 286,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: ParenateParameter,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 387,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                        ],
+                                    },
+                                },
                             },
                         ),
                     ),
@@ -312,6 +360,24 @@
                                         ),
                                     },
                                 ],
+                            },
+                            hir_eager_variable_region: HirEagerVariableRegion {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerVariable {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 286,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: ParenateParameter,
+                                        },
+                                    ],
+                                },
                             },
                         },
                     },
@@ -436,6 +502,36 @@
                                             ),
                                         },
                                     ],
+                                },
+                                hir_eager_variable_region: HirEagerVariableRegion {
+                                    arena: Arena {
+                                        data: [
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 286,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: ParenateParameter,
+                                            },
+                                            HirEagerVariable {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 387,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: LetVariable,
+                                            },
+                                        ],
+                                    },
                                 },
                             },
                         ),

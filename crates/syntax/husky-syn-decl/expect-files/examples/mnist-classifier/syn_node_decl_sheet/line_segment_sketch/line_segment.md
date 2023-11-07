@@ -214,7 +214,7 @@ Ok(
                                                             8,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `start`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -229,7 +229,7 @@ Ok(
                                                             12,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `end`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -1052,7 +1052,7 @@ Ok(
                                                             5,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `pt`,
                                                             pattern_symbol_idx: 1,
                                                         },

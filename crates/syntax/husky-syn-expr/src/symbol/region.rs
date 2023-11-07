@@ -184,30 +184,30 @@ impl SynSymbolRegion {
             inherited_syn_symbol_arena.alloc_one(inherited_syn_symbol);
         }
         for (current_syn_symbol_idx, current_syn_symbol) in self.indexed_current_syn_symbols() {
-            let kind = match current_syn_symbol.variant {
-                CurrentSynSymbolVariant::ParenateRegularParameter { ident, .. } => {
+            let kind = match current_syn_symbol.data {
+                CurrentSynSymbolData::ParenateRegularParameter { ident, .. } => {
                     InheritedSynSymbolKind::ParenateParameter { ident }
                 }
-                CurrentSynSymbolVariant::LetVariable { .. } => todo!(),
-                CurrentSynSymbolVariant::BeVariable { .. } => todo!(),
-                CurrentSynSymbolVariant::CaseVariable { .. } => todo!(),
-                CurrentSynSymbolVariant::LoopVariable { .. } => todo!(),
-                CurrentSynSymbolVariant::TemplateParameter {
+                CurrentSynSymbolData::LetVariable { .. } => todo!(),
+                CurrentSynSymbolData::BeVariable { .. } => todo!(),
+                CurrentSynSymbolData::CaseVariable { .. } => todo!(),
+                CurrentSynSymbolData::LoopVariable { .. } => todo!(),
+                CurrentSynSymbolData::TemplateParameter {
                     ref template_parameter_variant,
                     ..
                 } => {
                     InheritedSynSymbolKind::TemplateParameter(template_parameter_variant.bequeath())
                 }
-                CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => {
+                CurrentSynSymbolData::ParenateVariadicParameter { ident_token, .. } => {
                     InheritedSynSymbolKind::ParenateParameter {
                         ident: ident_token.ident(),
                     }
                 }
-                CurrentSynSymbolVariant::SelfType => todo!(),
-                CurrentSynSymbolVariant::SelfValue {
+                CurrentSynSymbolData::SelfType => todo!(),
+                CurrentSynSymbolData::SelfValue {
                     symbol_modifier_keyword_group,
                 } => todo!(),
-                CurrentSynSymbolVariant::FieldVariable { ident_token } => {
+                CurrentSynSymbolData::FieldVariable { ident_token } => {
                     InheritedSynSymbolKind::FieldVariable {
                         ident: ident_token.ident(),
                     }

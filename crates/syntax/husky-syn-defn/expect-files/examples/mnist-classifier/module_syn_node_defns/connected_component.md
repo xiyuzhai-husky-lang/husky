@@ -316,7 +316,7 @@ Ok(
                                                         8,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                    data: CurrentSynSymbolData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `row_start`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -331,7 +331,7 @@ Ok(
                                                         12,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                    data: CurrentSynSymbolData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `row_end`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -346,7 +346,7 @@ Ok(
                                                         16,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                    data: CurrentSynSymbolData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `upper_mass`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -361,7 +361,7 @@ Ok(
                                                         20,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                    data: CurrentSynSymbolData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `lower_mass`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -694,7 +694,7 @@ Ok(
                                                         12,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                    data: CurrentSynSymbolData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `matches`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -973,7 +973,7 @@ Ok(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                         ident: `ct`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -1165,7 +1165,7 @@ Ok(
                                                                         5,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                                         ident: `ct`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
@@ -1438,7 +1438,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `len`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1631,7 +1631,7 @@ Ok(
                                                         8,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                    data: CurrentSynSymbolData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `mask`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -1961,7 +1961,7 @@ Ok(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                         ident: `a`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -1972,7 +1972,7 @@ Ok(
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                         ident: `x`,
                                                         pattern_symbol_idx: 2,
                                                     },
@@ -2214,7 +2214,7 @@ Ok(
                                                                         5,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                                         ident: `a`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
@@ -2225,7 +2225,7 @@ Ok(
                                                                         9,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                                         ident: `x`,
                                                                         pattern_symbol_idx: 2,
                                                                     },
@@ -3026,7 +3026,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `y`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -3043,7 +3043,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `z`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -3319,7 +3319,7 @@ Ok(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                         ident: `img`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -3510,7 +3510,7 @@ Ok(
                                                                         6,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                                         ident: `img`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
@@ -5983,7 +5983,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `result`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -6000,7 +6000,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `unsearched`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -6017,7 +6017,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LoopVariable {
+                                                        data: CurrentSynSymbolData::LoopVariable {
                                                             ident: `j`,
                                                             expr_idx: 7,
                                                         },
@@ -6034,7 +6034,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `a`,
                                                             pattern_symbol_idx: 3,
                                                         },
@@ -6051,7 +6051,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `shift`,
                                                             pattern_symbol_idx: 4,
                                                         },
@@ -6068,7 +6068,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `mask`,
                                                             pattern_symbol_idx: 5,
                                                         },
@@ -6085,7 +6085,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `flag`,
                                                             pattern_symbol_idx: 6,
                                                         },
@@ -6102,7 +6102,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `i`,
                                                             pattern_symbol_idx: 7,
                                                         },
@@ -6119,7 +6119,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `old_row`,
                                                             pattern_symbol_idx: 8,
                                                         },
@@ -6136,7 +6136,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `new_row`,
                                                             pattern_symbol_idx: 9,
                                                         },
@@ -6153,7 +6153,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `old_row`,
                                                             pattern_symbol_idx: 10,
                                                         },
@@ -6170,7 +6170,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `new_row`,
                                                             pattern_symbol_idx: 11,
                                                         },
@@ -6187,7 +6187,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LoopVariable {
+                                                        data: CurrentSynSymbolData::LoopVariable {
                                                             ident: `k`,
                                                             expr_idx: 104,
                                                         },
@@ -8985,7 +8985,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `raw_contours`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -9002,7 +9002,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `matches`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -10095,7 +10095,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `max_hole_ilen`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -10112,7 +10112,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `raw_contours`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -10129,7 +10129,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LoopVariable {
+                                                        data: CurrentSynSymbolData::LoopVariable {
                                                             ident: `i`,
                                                             expr_idx: 5,
                                                         },
@@ -10146,7 +10146,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `hole_ilen`,
                                                             pattern_symbol_idx: 3,
                                                         },
@@ -11094,7 +11094,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `max_row`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -11111,7 +11111,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LoopVariable {
+                                                        data: CurrentSynSymbolData::LoopVariable {
                                                             ident: `i`,
                                                             expr_idx: 4,
                                                         },
@@ -11992,7 +11992,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `row_span_sum`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -12009,7 +12009,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LoopVariable {
+                                                        data: CurrentSynSymbolData::LoopVariable {
                                                             ident: `i`,
                                                             expr_idx: 3,
                                                         },
@@ -13825,7 +13825,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `row_start`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -13842,7 +13842,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `row_end`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -13859,7 +13859,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `height`,
                                                             pattern_symbol_idx: 3,
                                                         },
@@ -13876,7 +13876,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `half_height`,
                                                             pattern_symbol_idx: 4,
                                                         },
@@ -13893,7 +13893,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `upper_mass`,
                                                             pattern_symbol_idx: 5,
                                                         },
@@ -13910,7 +13910,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LoopVariable {
+                                                        data: CurrentSynSymbolData::LoopVariable {
                                                             ident: `i1`,
                                                             expr_idx: 28,
                                                         },
@@ -13927,7 +13927,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `lower_mass`,
                                                             pattern_symbol_idx: 6,
                                                         },
@@ -13944,7 +13944,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LoopVariable {
+                                                        data: CurrentSynSymbolData::LoopVariable {
                                                             ident: `i2`,
                                                             expr_idx: 43,
                                                         },
@@ -15544,7 +15544,7 @@ Ok(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                         ident: `k`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -15820,7 +15820,7 @@ Ok(
                                                                         5,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                                         ident: `k`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
@@ -16513,7 +16513,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `top_k_row_span_sum`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -16530,7 +16530,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `i`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -16547,7 +16547,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LoopVariable {
+                                                        data: CurrentSynSymbolData::LoopVariable {
                                                             ident: `j`,
                                                             expr_idx: 14,
                                                         },
@@ -16931,7 +16931,7 @@ Ok(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                         ident: `k`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -17207,7 +17207,7 @@ Ok(
                                                                         5,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                                         ident: `k`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
@@ -17900,7 +17900,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `top_k_row_span_sum`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -17917,7 +17917,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LetVariable {
+                                                        data: CurrentSynSymbolData::LetVariable {
                                                             ident: `i`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -17934,7 +17934,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: CurrentSynSymbolVariant::LoopVariable {
+                                                        data: CurrentSynSymbolData::LoopVariable {
                                                             ident: `j`,
                                                             expr_idx: 14,
                                                         },

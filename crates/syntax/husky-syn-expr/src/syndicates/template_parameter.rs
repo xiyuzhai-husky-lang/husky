@@ -60,7 +60,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                CurrentSynSymbolVariant::TemplateParameter {
+                CurrentSynSymbolData::TemplateParameter {
                     syn_attrs,
                     annotated_variance_token,
                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
@@ -101,7 +101,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                     ctx.pattern_expr_region(),
                     access_start,
                     None,
-                    CurrentSynSymbolVariant::TemplateParameter {
+                    CurrentSynSymbolData::TemplateParameter {
                         syn_attrs,
                         annotated_variance_token,
                         template_parameter_variant:
@@ -123,7 +123,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolVariant::TemplateParameter {
+                        CurrentSynSymbolData::TemplateParameter {
                             syn_attrs,
                             annotated_variance_token,
                             template_parameter_variant:
@@ -156,7 +156,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateParamet
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolVariant::TemplateParameter {
+                        CurrentSynSymbolData::TemplateParameter {
                             syn_attrs,
                             annotated_variance_token,
                             template_parameter_variant:

@@ -4,21 +4,21 @@ fn two_match() {
 }
 
 pub fn left_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    let dp = v0.displacement();
-    require!(v1.y < 0);
-    v1.y
+    let dp = cc.displacement();
+    require!(dp.y < 0);
+    dp.y
 }
 
 pub fn right_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    let dp = v0.displacement();
-    require!(v1.y > 0);
-    v1.y
+    let dp = cc.displacement();
+    require!(dp.y > 0);
+    dp.y
 }
 
 pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    let dp = v0.displacement();
-    require!(v1.x > 0);
-    v1.x
+    let dp = cc.displacement();
+    require!(dp.x > 0);
+    dp.x
 }
 
 fn is_two() {
@@ -34,31 +34,31 @@ fn is_two() {
     let left_cc = two_match.matches[0];
     let right_cc = two_match.matches[1];
     let down_cc = two_match.matches[2];
-    require!(v6 <= 3);
+    require!(cc_num <= 3);
     let lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass;
-    require!(v12 > 10);
-    if v6 == 2 {
+    require!(lower_excess > 10);
+    if cc_num == 2 {
         require!(matches!);
         require!(matches!);
-        let a = v10.unwrap().angle_change;
-        require!(v15 > -180);
-        let end_tan = v9.unwrap().end_tangent().angle(true);
-        let x = v9.unwrap().end_tangent().x;
-        let y = v9.unwrap().end_tangent().y;
-        let left_ymax = v9.unwrap().relative_bounding_box.ymax();
-        let left_ymin = v9.unwrap().relative_bounding_box.ymin();
-        let left_mid_y = (v19 + v20) / 2;
-        let right_ymax = v10.unwrap().relative_bounding_box.ymax();
-        let right_ymin = v10.unwrap().relative_bounding_box.ymin();
-        let right_mid_y = (v22 + v23) / 2;
-        require!(v21 >= v24);
+        let a = right_cc.unwrap().angle_change;
+        require!(a > -180);
+        let end_tan = left_cc.unwrap().end_tangent().angle(true);
+        let x = left_cc.unwrap().end_tangent().x;
+        let y = left_cc.unwrap().end_tangent().y;
+        let left_ymax = left_cc.unwrap().relative_bounding_box.ymax();
+        let left_ymin = left_cc.unwrap().relative_bounding_box.ymin();
+        let left_mid_y = (left_ymax + left_ymin) / 2;
+        let right_ymax = right_cc.unwrap().relative_bounding_box.ymax();
+        let right_ymin = right_cc.unwrap().relative_bounding_box.ymin();
+        let right_mid_y = (right_ymax + right_ymin) / 2;
+        require!(left_mid_y >= right_mid_y);
     }
-    if v6 == 3 {
+    if cc_num == 3 {
         require!(matches!);
         require!(matches!);
         require!(matches!);
-        require!(v11.unwrap().relative_bounding_box.ymin() < 0.4);
-        let a = v11.unwrap().angle_change;
+        require!(down_cc.unwrap().relative_bounding_box.ymin() < 0.4);
+        let a = down_cc.unwrap().angle_change;
     }
     OneVsAll::Yes
 }

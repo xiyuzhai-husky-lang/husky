@@ -57,30 +57,30 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
     ) -> Option<FluffyTerm> {
-        match self.syn_expr_region_data[current_syn_symbol_idx].variant() {
-            CurrentSynSymbolVariant::TemplateParameter {
+        match self.syn_expr_region_data[current_syn_symbol_idx].data() {
+            CurrentSynSymbolData::TemplateParameter {
                 template_parameter_variant,
                 ..
             } => todo!(),
-            CurrentSynSymbolVariant::ParenateRegularParameter {
+            CurrentSynSymbolData::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             } => todo!(),
-            CurrentSynSymbolVariant::LetVariable {
+            CurrentSynSymbolData::LetVariable {
                 pattern_symbol_idx, ..
             }
-            | CurrentSynSymbolVariant::BeVariable {
+            | CurrentSynSymbolData::BeVariable {
                 pattern_symbol_idx, ..
             }
-            | CurrentSynSymbolVariant::CaseVariable {
+            | CurrentSynSymbolData::CaseVariable {
                 pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
-            CurrentSynSymbolVariant::LoopVariable { .. } => todo!(),
-            CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => todo!(),
-            CurrentSynSymbolVariant::SelfType => todo!(),
-            CurrentSynSymbolVariant::SelfValue {
+            CurrentSynSymbolData::LoopVariable { .. } => todo!(),
+            CurrentSynSymbolData::ParenateVariadicParameter { ident_token, .. } => todo!(),
+            CurrentSynSymbolData::SelfType => todo!(),
+            CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group,
             } => todo!(),
-            CurrentSynSymbolVariant::FieldVariable { ident_token } => todo!(),
+            CurrentSynSymbolData::FieldVariable { ident_token } => todo!(),
         }
     }
 

@@ -61,7 +61,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolVariant::ParenateRegularParameter {
+                        CurrentSynSymbolData::ParenateRegularParameter {
                             ident: *ident,
                             pattern_symbol_idx: *pattern_symbol_idx,
                         },
@@ -134,7 +134,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                CurrentSynSymbolVariant::ParenateVariadicParameter {
+                CurrentSynSymbolData::ParenateVariadicParameter {
                     ident_token,
                     symbol_modifier_keyword_group,
                 },

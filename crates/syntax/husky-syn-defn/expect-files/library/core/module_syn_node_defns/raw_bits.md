@@ -534,7 +534,7 @@ Ok(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
                                                         ident: `k`,
                                                         pattern_symbol_idx: 1,
                                                     },
