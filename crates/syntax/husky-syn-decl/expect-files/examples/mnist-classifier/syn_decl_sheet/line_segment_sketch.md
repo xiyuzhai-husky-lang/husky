@@ -202,7 +202,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `points`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         15,
@@ -274,7 +274,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `points`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         30,

@@ -22,13 +22,13 @@ pub enum SynExprData {
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,
     },
-    InheritedSymbol {
+    InheritedSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
         inherited_symbol_idx: InheritedSynSymbolIdx,
         inherited_symbol_kind: InheritedSynSymbolKind,
     },
-    CurrentSymbol {
+    CurrentSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
         current_syn_symbol_idx: CurrentSynSymbolIdx,

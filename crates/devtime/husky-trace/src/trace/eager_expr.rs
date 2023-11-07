@@ -137,7 +137,9 @@ fn eager_expr_trace_have_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> b
                     ident_token,
                     static_dispatch,
                 } => todo!(),
-                SemaExprData::InheritedSymbol { .. } | SemaExprData::CurrentSymbol { .. } => false,
+                SemaExprData::InheritedSynSymbol { .. } | SemaExprData::CurrentSynSymbol { .. } => {
+                    false
+                }
                 SemaExprData::FrameVarDecl {
                     regional_token_idx,
                     ident,

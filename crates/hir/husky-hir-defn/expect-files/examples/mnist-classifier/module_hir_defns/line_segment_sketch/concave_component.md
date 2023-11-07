@@ -137,7 +137,7 @@
                                         NewList {
                                             items: [],
                                         },
-                                        InheritedSymbol {
+                                        InheritedSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -178,7 +178,7 @@
                                                 1,
                                             ),
                                         ),
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -187,7 +187,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -218,7 +218,7 @@
                                                 ),
                                             ),
                                         ),
-                                        InheritedSymbol {
+                                        InheritedSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -227,7 +227,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -259,7 +259,7 @@
                                             ),
                                             ropd: 15,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -272,7 +272,7 @@
                                             opd_hir_expr_idx: 17,
                                             opr: Decr,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -281,7 +281,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -290,7 +290,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -299,7 +299,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -322,7 +322,7 @@
                                             ),
                                             ropd: 23,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -331,7 +331,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -340,7 +340,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -374,7 +374,7 @@
                                                 ),
                                             ),
                                         ),
-                                        InheritedSymbol {
+                                        InheritedSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -383,7 +383,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -415,7 +415,7 @@
                                             ),
                                             ropd: 34,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -428,7 +428,7 @@
                                             opd_hir_expr_idx: 36,
                                             opr: Incr,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -437,7 +437,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -465,7 +465,7 @@
                                             ),
                                             ropd: 41,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -485,7 +485,7 @@
                                                 ),
                                             ),
                                         ),
-                                        InheritedSymbol {
+                                        InheritedSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -494,7 +494,7 @@
                                                 ),
                                             ),
                                         },
-                                        InheritedSymbol {
+                                        InheritedSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -513,7 +513,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -522,7 +522,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -578,7 +578,7 @@
                                                 ),
                                             ],
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -587,7 +587,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -601,7 +601,7 @@
                                             opr: Assign,
                                             ropd: 54,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -610,7 +610,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -636,7 +636,7 @@
                                             opr: Assign,
                                             ropd: 59,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1265,7 +1265,7 @@
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1355,7 +1355,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1380,7 +1380,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1389,7 +1389,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1414,7 +1414,7 @@
                                                 ),
                                             ],
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1423,7 +1423,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1439,7 +1439,7 @@
                                             ),
                                             ropd: 27,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1448,7 +1448,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1462,7 +1462,7 @@
                                             opr: Assign,
                                             ropd: 30,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1810,7 +1810,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1837,7 +1837,7 @@
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1846,7 +1846,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1855,7 +1855,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1895,7 +1895,7 @@
                                             ),
                                             ropd: 24,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1904,7 +1904,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -1918,7 +1918,7 @@
                                             opr: Assign,
                                             ropd: 27,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2130,7 +2130,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2149,7 +2149,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2168,7 +2168,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2187,7 +2187,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2263,7 +2263,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2288,7 +2288,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2297,7 +2297,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2306,7 +2306,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2346,7 +2346,7 @@
                                             opr: Assign,
                                             ropd: 29,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2355,7 +2355,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2364,7 +2364,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2404,7 +2404,7 @@
                                             opr: Assign,
                                             ropd: 35,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2413,7 +2413,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2422,7 +2422,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2462,7 +2462,7 @@
                                             opr: Assign,
                                             ropd: 41,
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2471,7 +2471,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2480,7 +2480,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2542,7 +2542,7 @@
                                                 ),
                                             ),
                                         ),
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2551,7 +2551,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2583,7 +2583,7 @@
                                                 ),
                                             ),
                                         ),
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -2592,7 +2592,7 @@
                                                 ),
                                             ),
                                         },
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {

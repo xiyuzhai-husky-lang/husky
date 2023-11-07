@@ -216,7 +216,7 @@
                 ),
                 expr_arena: Arena {
                     data: [
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `ct`,
                             regional_token_idx: RegionalTokenIdx(
                                 4,
@@ -238,7 +238,7 @@
                                 ),
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `len`,
                             regional_token_idx: RegionalTokenIdx(
                                 8,
@@ -272,7 +272,7 @@
                             ),
                             ropd: 4,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `len`,
                             regional_token_idx: RegionalTokenIdx(
                                 11,
@@ -487,7 +487,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -597,7 +597,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -709,7 +709,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1758,7 +1758,7 @@
                 ),
                 expr_arena: Arena {
                     data: [
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `x`,
                             regional_token_idx: RegionalTokenIdx(
                                 11,
@@ -1788,7 +1788,7 @@
                             ),
                             ropd: 2,
                         },
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `x`,
                             regional_token_idx: RegionalTokenIdx(
                                 8,
@@ -1807,7 +1807,7 @@
                                 14,
                             ),
                         },
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `x`,
                             regional_token_idx: RegionalTokenIdx(
                                 17,
@@ -1866,7 +1866,7 @@
                             ),
                             ropd: 10,
                         },
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `a`,
                             regional_token_idx: RegionalTokenIdx(
                                 5,
@@ -1895,7 +1895,7 @@
                             ),
                             ropd: 13,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `y`,
                             regional_token_idx: RegionalTokenIdx(
                                 32,
@@ -1925,7 +1925,7 @@
                             ),
                             ropd: 16,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `y`,
                             regional_token_idx: RegionalTokenIdx(
                                 29,
@@ -1944,7 +1944,7 @@
                                 35,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `y`,
                             regional_token_idx: RegionalTokenIdx(
                                 38,
@@ -2003,7 +2003,7 @@
                             ),
                             ropd: 24,
                         },
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `a`,
                             regional_token_idx: RegionalTokenIdx(
                                 26,
@@ -2032,7 +2032,7 @@
                             ),
                             ropd: 27,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `z`,
                             regional_token_idx: RegionalTokenIdx(
                                 44,
@@ -2042,7 +2042,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `y`,
                             regional_token_idx: RegionalTokenIdx(
                                 46,
@@ -2062,7 +2062,7 @@
                             ),
                             ropd: 30,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `y`,
                             regional_token_idx: RegionalTokenIdx(
                                 48,
@@ -2072,7 +2072,7 @@
                                 pattern_symbol_idx: 1,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `z`,
                             regional_token_idx: RegionalTokenIdx(
                                 50,
@@ -2090,7 +2090,7 @@
                             ),
                             ropd: 33,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `y`,
                             regional_token_idx: RegionalTokenIdx(
                                 59,
@@ -2120,7 +2120,7 @@
                             ),
                             ropd: 36,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `y`,
                             regional_token_idx: RegionalTokenIdx(
                                 56,
@@ -2139,7 +2139,7 @@
                                 62,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `y`,
                             regional_token_idx: RegionalTokenIdx(
                                 65,
@@ -2198,7 +2198,7 @@
                             ),
                             ropd: 44,
                         },
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `a`,
                             regional_token_idx: RegionalTokenIdx(
                                 53,
@@ -2217,7 +2217,7 @@
                                 69,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `z`,
                             regional_token_idx: RegionalTokenIdx(
                                 51,
@@ -2245,7 +2245,7 @@
                             ),
                             ropd: 49,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `y`,
                             regional_token_idx: RegionalTokenIdx(
                                 71,
@@ -2567,7 +2567,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2609,7 +2609,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2651,7 +2651,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2832,7 +2832,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3086,7 +3086,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3128,7 +3128,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3164,7 +3164,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3339,7 +3339,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3587,7 +3587,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3623,7 +3623,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3701,7 +3701,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3737,7 +3737,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3813,7 +3813,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3849,7 +3849,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3891,7 +3891,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3927,7 +3927,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4102,7 +4102,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4390,7 +4390,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -7400,7 +7400,7 @@
                                 10,
                             ),
                         },
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `img`,
                             regional_token_idx: RegionalTokenIdx(
                                 15,
@@ -7460,7 +7460,7 @@
                             ),
                             ropd: 8,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `unsearched`,
                             regional_token_idx: RegionalTokenIdx(
                                 26,
@@ -7470,7 +7470,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `j`,
                             regional_token_idx: RegionalTokenIdx(
                                 28,
@@ -7495,7 +7495,7 @@
                                 29,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `unsearched`,
                             regional_token_idx: RegionalTokenIdx(
                                 34,
@@ -7505,7 +7505,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `j`,
                             regional_token_idx: RegionalTokenIdx(
                                 36,
@@ -7530,7 +7530,7 @@
                                 37,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `a`,
                             regional_token_idx: RegionalTokenIdx(
                                 41,
@@ -7588,7 +7588,7 @@
                                 54,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `mask`,
                             regional_token_idx: RegionalTokenIdx(
                                 55,
@@ -7598,7 +7598,7 @@
                                 pattern_symbol_idx: 5,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `j`,
                             regional_token_idx: RegionalTokenIdx(
                                 57,
@@ -7618,7 +7618,7 @@
                                 ),
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `a`,
                             regional_token_idx: RegionalTokenIdx(
                                 62,
@@ -7638,7 +7638,7 @@
                                 ),
                             ),
                         ),
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `shift`,
                             regional_token_idx: RegionalTokenIdx(
                                 66,
@@ -7713,7 +7713,7 @@
                                 False,
                             ),
                         ),
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `flag`,
                             regional_token_idx: RegionalTokenIdx(
                                 75,
@@ -7730,7 +7730,7 @@
                             ),
                             opd: 31,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `flag`,
                             regional_token_idx: RegionalTokenIdx(
                                 77,
@@ -7756,7 +7756,7 @@
                             ),
                             ropd: 34,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `j`,
                             regional_token_idx: RegionalTokenIdx(
                                 84,
@@ -7786,7 +7786,7 @@
                                 ),
                             ),
                         ),
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 86,
@@ -7816,7 +7816,7 @@
                             ),
                             ropd: 40,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `mask`,
                             regional_token_idx: RegionalTokenIdx(
                                 95,
@@ -7826,7 +7826,7 @@
                                 pattern_symbol_idx: 5,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 97,
@@ -7881,7 +7881,7 @@
                                 ),
                             ),
                         },
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `img`,
                             regional_token_idx: RegionalTokenIdx(
                                 108,
@@ -7891,7 +7891,7 @@
                                 ident: `img`,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 110,
@@ -7936,7 +7936,7 @@
                                 113,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `mask`,
                             regional_token_idx: RegionalTokenIdx(
                                 115,
@@ -7946,7 +7946,7 @@
                                 pattern_symbol_idx: 5,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 117,
@@ -7971,7 +7971,7 @@
                                 118,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `old_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 104,
@@ -8015,7 +8015,7 @@
                             ),
                             ropd: 57,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `new_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 122,
@@ -8032,7 +8032,7 @@
                             ),
                             opd: 59,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `old_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 126,
@@ -8042,7 +8042,7 @@
                                 pattern_symbol_idx: 8,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `new_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 128,
@@ -8062,7 +8062,7 @@
                             ),
                             ropd: 62,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `flag`,
                             regional_token_idx: RegionalTokenIdx(
                                 130,
@@ -8088,7 +8088,7 @@
                             ),
                             ropd: 65,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `mask`,
                             regional_token_idx: RegionalTokenIdx(
                                 133,
@@ -8098,7 +8098,7 @@
                                 pattern_symbol_idx: 5,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 135,
@@ -8143,7 +8143,7 @@
                                 138,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `new_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 140,
@@ -8161,7 +8161,7 @@
                             ),
                             ropd: 72,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 142,
@@ -8171,7 +8171,7 @@
                                 pattern_symbol_idx: 7,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `j`,
                             regional_token_idx: RegionalTokenIdx(
                                 144,
@@ -8191,7 +8191,7 @@
                             ),
                             ropd: 75,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `mask`,
                             regional_token_idx: RegionalTokenIdx(
                                 149,
@@ -8201,7 +8201,7 @@
                                 pattern_symbol_idx: 5,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 151,
@@ -8236,7 +8236,7 @@
                                 ),
                             ),
                         },
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `img`,
                             regional_token_idx: RegionalTokenIdx(
                                 160,
@@ -8246,7 +8246,7 @@
                                 ident: `img`,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 162,
@@ -8271,7 +8271,7 @@
                                 163,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `mask`,
                             regional_token_idx: RegionalTokenIdx(
                                 165,
@@ -8281,7 +8281,7 @@
                                 pattern_symbol_idx: 5,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 167,
@@ -8326,7 +8326,7 @@
                                 170,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `old_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 156,
@@ -8370,7 +8370,7 @@
                             ),
                             ropd: 90,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `old_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 173,
@@ -8380,7 +8380,7 @@
                                 pattern_symbol_idx: 10,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `new_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 175,
@@ -8400,7 +8400,7 @@
                             ),
                             ropd: 93,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `flag`,
                             regional_token_idx: RegionalTokenIdx(
                                 177,
@@ -8426,7 +8426,7 @@
                             ),
                             ropd: 96,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `mask`,
                             regional_token_idx: RegionalTokenIdx(
                                 180,
@@ -8436,7 +8436,7 @@
                                 pattern_symbol_idx: 5,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 182,
@@ -8461,7 +8461,7 @@
                                 183,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `new_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 185,
@@ -8479,7 +8479,7 @@
                             ),
                             ropd: 101,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `j`,
                             regional_token_idx: RegionalTokenIdx(
                                 187,
@@ -8529,7 +8529,7 @@
                             ),
                             ropd: 106,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `unsearched`,
                             regional_token_idx: RegionalTokenIdx(
                                 193,
@@ -8539,7 +8539,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `k`,
                             regional_token_idx: RegionalTokenIdx(
                                 195,
@@ -8549,7 +8549,7 @@
                                 104,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `mask`,
                             regional_token_idx: RegionalTokenIdx(
                                 200,
@@ -8559,7 +8559,7 @@
                                 pattern_symbol_idx: 5,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `k`,
                             regional_token_idx: RegionalTokenIdx(
                                 202,
@@ -8625,7 +8625,7 @@
                             ),
                             ropd: 115,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `result`,
                             regional_token_idx: RegionalTokenIdx(
                                 205,
@@ -8645,7 +8645,7 @@
                                 ),
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `mask`,
                             regional_token_idx: RegionalTokenIdx(
                                 211,
@@ -8696,7 +8696,7 @@
                                 213,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `result`,
                             regional_token_idx: RegionalTokenIdx(
                                 215,
@@ -10289,7 +10289,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -10459,7 +10459,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -10495,7 +10495,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -10591,7 +10591,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -10627,7 +10627,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -10723,7 +10723,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -10951,7 +10951,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -10987,7 +10987,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -11114,7 +11114,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -11182,7 +11182,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -11416,7 +11416,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -11481,7 +11481,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -11585,7 +11585,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -11615,7 +11615,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -11729,7 +11729,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -11765,7 +11765,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -11921,7 +11921,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -11990,7 +11990,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -12032,7 +12032,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -12188,7 +12188,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -12224,7 +12224,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -12450,7 +12450,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -12515,7 +12515,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -12553,7 +12553,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -12631,7 +12631,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -12735,7 +12735,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -12771,7 +12771,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -12927,7 +12927,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13003,7 +13003,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13033,7 +13033,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13063,7 +13063,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13099,7 +13099,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13195,7 +13195,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13264,7 +13264,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13306,7 +13306,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13402,7 +13402,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13438,7 +13438,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13724,7 +13724,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13762,7 +13762,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13840,7 +13840,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13944,7 +13944,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -13980,7 +13980,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -14076,7 +14076,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -14152,7 +14152,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -14236,7 +14236,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -14272,7 +14272,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -14368,7 +14368,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -14404,7 +14404,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -14606,7 +14606,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -14671,7 +14671,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -14886,7 +14886,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -23582,7 +23582,7 @@
                                 23,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `raw_contours`,
                             regional_token_idx: RegionalTokenIdx(
                                 24,
@@ -23627,7 +23627,7 @@
                                 29,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `matches`,
                             regional_token_idx: RegionalTokenIdx(
                                 31,
@@ -23637,7 +23637,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `raw_contours`,
                             regional_token_idx: RegionalTokenIdx(
                                 35,
@@ -23707,7 +23707,7 @@
                                 41,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `matches`,
                             regional_token_idx: RegionalTokenIdx(
                                 42,
@@ -23717,7 +23717,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `raw_contours`,
                             regional_token_idx: RegionalTokenIdx(
                                 46,
@@ -23797,7 +23797,7 @@
                                 ),
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `matches`,
                             regional_token_idx: RegionalTokenIdx(
                                 56,
@@ -24533,7 +24533,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -24710,7 +24710,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -24744,7 +24744,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -25037,7 +25037,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -25071,7 +25071,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -25395,7 +25395,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -27370,7 +27370,7 @@
                                 5,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `raw_contours`,
                             regional_token_idx: RegionalTokenIdx(
                                 17,
@@ -27420,7 +27420,7 @@
                             ),
                             ropd: 8,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `raw_contours`,
                             regional_token_idx: RegionalTokenIdx(
                                 26,
@@ -27430,7 +27430,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 28,
@@ -27487,7 +27487,7 @@
                                 35,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `max_hole_ilen`,
                             regional_token_idx: RegionalTokenIdx(
                                 37,
@@ -27497,7 +27497,7 @@
                                 pattern_symbol_idx: 1,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `hole_ilen`,
                             regional_token_idx: RegionalTokenIdx(
                                 39,
@@ -27517,7 +27517,7 @@
                             ),
                             ropd: 16,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `max_hole_ilen`,
                             regional_token_idx: RegionalTokenIdx(
                                 41,
@@ -27527,7 +27527,7 @@
                                 pattern_symbol_idx: 1,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `hole_ilen`,
                             regional_token_idx: RegionalTokenIdx(
                                 43,
@@ -27545,7 +27545,7 @@
                             ),
                             ropd: 19,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `max_hole_ilen`,
                             regional_token_idx: RegionalTokenIdx(
                                 45,
@@ -28147,7 +28147,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -28291,7 +28291,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -28325,7 +28325,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -28561,7 +28561,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -28591,7 +28591,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -28669,7 +28669,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -28699,7 +28699,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -28806,7 +28806,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -30626,7 +30626,7 @@
                             ),
                             ropd: 6,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `max_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 17,
@@ -30653,7 +30653,7 @@
                                 ),
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 25,
@@ -30698,7 +30698,7 @@
                                 30,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `max_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 15,
@@ -30741,7 +30741,7 @@
                             ),
                             ropd: 15,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `max_row`,
                             regional_token_idx: RegionalTokenIdx(
                                 33,
@@ -31211,7 +31211,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -31247,7 +31247,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -31376,7 +31376,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -31737,7 +31737,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -33303,7 +33303,7 @@
                                 ),
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 19,
@@ -33328,7 +33328,7 @@
                                 20,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_span_sum`,
                             regional_token_idx: RegionalTokenIdx(
                                 13,
@@ -33368,7 +33368,7 @@
                             ),
                             ropd: 12,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_span_sum`,
                             regional_token_idx: RegionalTokenIdx(
                                 26,
@@ -33763,7 +33763,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -33886,7 +33886,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -34129,7 +34129,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -35487,7 +35487,7 @@
                                 ),
                             ),
                         ),
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_start`,
                             regional_token_idx: RegionalTokenIdx(
                                 7,
@@ -35534,7 +35534,7 @@
                                 ),
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_start`,
                             regional_token_idx: RegionalTokenIdx(
                                 16,
@@ -35559,7 +35559,7 @@
                                 17,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_start`,
                             regional_token_idx: RegionalTokenIdx(
                                 24,
@@ -35589,7 +35589,7 @@
                             ),
                             ropd: 10,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_end`,
                             regional_token_idx: RegionalTokenIdx(
                                 28,
@@ -35636,7 +35636,7 @@
                                 ),
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_end`,
                             regional_token_idx: RegionalTokenIdx(
                                 38,
@@ -35668,7 +35668,7 @@
                             ),
                             opd: 18,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_end`,
                             regional_token_idx: RegionalTokenIdx(
                                 45,
@@ -35678,7 +35678,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_start`,
                             regional_token_idx: RegionalTokenIdx(
                                 47,
@@ -35698,7 +35698,7 @@
                             ),
                             ropd: 21,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `height`,
                             regional_token_idx: RegionalTokenIdx(
                                 51,
@@ -35738,7 +35738,7 @@
                                 ),
                             ),
                         ),
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_start`,
                             regional_token_idx: RegionalTokenIdx(
                                 60,
@@ -35758,7 +35758,7 @@
                                 28,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_start`,
                             regional_token_idx: RegionalTokenIdx(
                                 64,
@@ -35768,7 +35768,7 @@
                                 pattern_symbol_idx: 1,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `half_height`,
                             regional_token_idx: RegionalTokenIdx(
                                 66,
@@ -35825,7 +35825,7 @@
                                 ),
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i1`,
                             regional_token_idx: RegionalTokenIdx(
                                 74,
@@ -35850,7 +35850,7 @@
                                 75,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `upper_mass`,
                             regional_token_idx: RegionalTokenIdx(
                                 68,
@@ -35900,7 +35900,7 @@
                                 ),
                             ),
                         ),
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_end`,
                             regional_token_idx: RegionalTokenIdx(
                                 86,
@@ -35920,7 +35920,7 @@
                                 43,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_end`,
                             regional_token_idx: RegionalTokenIdx(
                                 90,
@@ -35930,7 +35930,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `half_height`,
                             regional_token_idx: RegionalTokenIdx(
                                 92,
@@ -35987,7 +35987,7 @@
                                 ),
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i2`,
                             regional_token_idx: RegionalTokenIdx(
                                 100,
@@ -36012,7 +36012,7 @@
                                 101,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `lower_mass`,
                             regional_token_idx: RegionalTokenIdx(
                                 94,
@@ -36062,7 +36062,7 @@
                                 ),
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_start`,
                             regional_token_idx: RegionalTokenIdx(
                                 109,
@@ -36072,7 +36072,7 @@
                                 pattern_symbol_idx: 1,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `row_end`,
                             regional_token_idx: RegionalTokenIdx(
                                 111,
@@ -36082,7 +36082,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `upper_mass`,
                             regional_token_idx: RegionalTokenIdx(
                                 113,
@@ -36092,7 +36092,7 @@
                                 pattern_symbol_idx: 5,
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `lower_mass`,
                             regional_token_idx: RegionalTokenIdx(
                                 115,
@@ -37038,7 +37038,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -37185,7 +37185,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -37281,7 +37281,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -37371,7 +37371,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -37518,7 +37518,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -37643,7 +37643,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -37673,7 +37673,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -37739,7 +37739,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -37853,7 +37853,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -37883,7 +37883,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -37913,7 +37913,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -38009,7 +38009,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -38132,7 +38132,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -38368,7 +38368,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -38398,7 +38398,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -38428,7 +38428,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -38524,7 +38524,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -38647,7 +38647,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -38890,7 +38890,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -38920,7 +38920,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -38950,7 +38950,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -38980,7 +38980,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -44772,7 +44772,7 @@
                                 ),
                             ),
                         ),
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `k`,
                             regional_token_idx: RegionalTokenIdx(
                                 7,
@@ -44812,7 +44812,7 @@
                                 ),
                             ),
                         ),
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 16,
@@ -44859,7 +44859,7 @@
                                 ),
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 25,
@@ -44884,7 +44884,7 @@
                                 26,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 30,
@@ -44904,7 +44904,7 @@
                                 14,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 34,
@@ -44914,7 +44914,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `k`,
                             regional_token_idx: RegionalTokenIdx(
                                 36,
@@ -44971,7 +44971,7 @@
                                 ),
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `j`,
                             regional_token_idx: RegionalTokenIdx(
                                 44,
@@ -44996,7 +44996,7 @@
                                 45,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `top_k_row_span_sum`,
                             regional_token_idx: RegionalTokenIdx(
                                 38,
@@ -45036,7 +45036,7 @@
                             ),
                             ropd: 25,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `top_k_row_span_sum`,
                             regional_token_idx: RegionalTokenIdx(
                                 51,
@@ -45522,7 +45522,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -45660,7 +45660,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -45807,7 +45807,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -45903,7 +45903,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -45933,7 +45933,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -45963,7 +45963,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -46083,7 +46083,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -46206,7 +46206,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -46455,7 +46455,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -48573,7 +48573,7 @@
                                 ),
                             ),
                         ),
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `k`,
                             regional_token_idx: RegionalTokenIdx(
                                 7,
@@ -48613,7 +48613,7 @@
                                 ),
                             ),
                         ),
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 16,
@@ -48660,7 +48660,7 @@
                                 ),
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 25,
@@ -48685,7 +48685,7 @@
                                 26,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 30,
@@ -48705,7 +48705,7 @@
                                 14,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `i`,
                             regional_token_idx: RegionalTokenIdx(
                                 34,
@@ -48715,7 +48715,7 @@
                                 pattern_symbol_idx: 2,
                             },
                         },
-                        SynExprData::InheritedSymbol {
+                        SynExprData::InheritedSynSymbol {
                             ident: `k`,
                             regional_token_idx: RegionalTokenIdx(
                                 36,
@@ -48772,7 +48772,7 @@
                                 ),
                             },
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `j`,
                             regional_token_idx: RegionalTokenIdx(
                                 44,
@@ -48797,7 +48797,7 @@
                                 45,
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `top_k_row_span_sum`,
                             regional_token_idx: RegionalTokenIdx(
                                 38,
@@ -48837,7 +48837,7 @@
                             ),
                             ropd: 25,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `top_k_row_span_sum`,
                             regional_token_idx: RegionalTokenIdx(
                                 51,
@@ -49323,7 +49323,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -49461,7 +49461,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -49608,7 +49608,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -49704,7 +49704,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -49734,7 +49734,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -49764,7 +49764,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSymbol {
+                                InheritedSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -49884,7 +49884,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -50007,7 +50007,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -50256,7 +50256,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {

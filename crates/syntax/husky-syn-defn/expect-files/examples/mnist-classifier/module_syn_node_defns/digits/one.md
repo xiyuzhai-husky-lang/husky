@@ -1055,7 +1055,7 @@ Ok(
                                                         24,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `simp_one_match`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         26,
@@ -1516,7 +1516,7 @@ Ok(
                                                         98,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         100,
@@ -1542,7 +1542,7 @@ Ok(
                                                         },
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `simp_one_match`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         105,
@@ -1598,7 +1598,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `simp_one_match`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         112,
@@ -1812,7 +1812,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         145,
@@ -1841,7 +1841,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         154,
@@ -2407,7 +2407,7 @@ Ok(
                                                         226,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `upmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         228,
@@ -2433,7 +2433,7 @@ Ok(
                                                         },
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `upmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         233,
@@ -2462,7 +2462,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `upmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         242,
@@ -2561,7 +2561,7 @@ Ok(
                                                     ),
                                                     ropd: 127,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `upmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         255,
@@ -2590,7 +2590,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `upmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         260,
@@ -2674,7 +2674,7 @@ Ok(
                                                         270,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `long_vertical`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         274,
@@ -2704,7 +2704,7 @@ Ok(
                                                         278,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `long_vertical_dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         280,
@@ -2760,7 +2760,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `upmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         287,
@@ -2789,7 +2789,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `upmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         292,
@@ -2818,7 +2818,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `upmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         297,
@@ -2956,7 +2956,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `long_vertical_dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         314,
@@ -2986,7 +2986,7 @@ Ok(
                                                         318,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `long_vertical_dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         320,
@@ -2996,7 +2996,7 @@ Ok(
                                                         pattern_symbol_idx: 9,
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `long_vertical_dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         324,
@@ -3109,7 +3109,7 @@ Ok(
                                                         333,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `hat`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         335,
@@ -3442,7 +3442,7 @@ Ok(
                                                         380,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost_number_of_strokes`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         382,
@@ -3472,7 +3472,7 @@ Ok(
                                                     ),
                                                     ropd: 196,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         388,
@@ -3501,7 +3501,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         393,
@@ -3565,7 +3565,7 @@ Ok(
                                                         401,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost_hat`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         405,
@@ -3595,7 +3595,7 @@ Ok(
                                                         409,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         413,
@@ -3624,7 +3624,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         418,
@@ -3708,7 +3708,7 @@ Ok(
                                                         428,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost_feet`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         432,
@@ -3748,7 +3748,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost_hat_dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         439,
@@ -3770,7 +3770,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost_feet_dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         443,
@@ -3857,7 +3857,7 @@ Ok(
                                                         451,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `downmost_number_of_strokes`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         453,
@@ -3931,7 +3931,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `a`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         471,
@@ -3941,7 +3941,7 @@ Ok(
                                                         pattern_symbol_idx: 15,
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `b`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         473,
@@ -3961,7 +3961,7 @@ Ok(
                                                     ),
                                                     ropd: 236,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `c`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         477,
@@ -3971,7 +3971,7 @@ Ok(
                                                         pattern_symbol_idx: 17,
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `a`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         479,
@@ -4005,7 +4005,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `c`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         481,
@@ -4032,7 +4032,7 @@ Ok(
                                                     ),
                                                     ropd: 243,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `c`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         486,
@@ -6936,7 +6936,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExprData::InheritedSymbol {
+                                                SynExprData::InheritedSynSymbol {
                                                     ident: `cc`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         4,
@@ -6966,7 +6966,7 @@ Ok(
                                                         8,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
@@ -7012,7 +7012,7 @@ Ok(
                                                     ),
                                                     ropd: 5,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         15,
@@ -7674,7 +7674,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExprData::InheritedSymbol {
+                                                SynExprData::InheritedSynSymbol {
                                                     ident: `cc`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         4,
@@ -7704,7 +7704,7 @@ Ok(
                                                         8,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
@@ -7750,7 +7750,7 @@ Ok(
                                                     ),
                                                     ropd: 5,
                                                 },
-                                                SynExprData::InheritedSymbol {
+                                                SynExprData::InheritedSynSymbol {
                                                     ident: `cc`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         16,
@@ -8439,7 +8439,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                SynExprData::InheritedSymbol {
+                                                SynExprData::InheritedSynSymbol {
                                                     ident: `cc`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         4,
@@ -8469,7 +8469,7 @@ Ok(
                                                         8,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
@@ -8515,7 +8515,7 @@ Ok(
                                                     ),
                                                     ropd: 5,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         16,
@@ -8561,7 +8561,7 @@ Ok(
                                                     ),
                                                     ropd: 9,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         22,
@@ -8583,7 +8583,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `dp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         26,

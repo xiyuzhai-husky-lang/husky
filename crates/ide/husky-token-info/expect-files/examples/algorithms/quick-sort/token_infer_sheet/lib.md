@@ -32,7 +32,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -76,7 +76,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
                             pattern_symbol_idx: 1,
@@ -123,7 +123,7 @@ Ok(
                             2,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -147,7 +147,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 1,
@@ -164,7 +164,7 @@ Ok(
                             1,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 2,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `arr`,
@@ -222,7 +222,7 @@ Ok(
                             4,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 2,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `arr`,
@@ -242,7 +242,7 @@ Ok(
                             7,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 1,
@@ -314,7 +314,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -358,7 +358,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
                             pattern_symbol_idx: 1,
@@ -405,7 +405,7 @@ Ok(
                             2,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -427,7 +427,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         2,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 3,
                         current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
                             pattern_symbol_idx: 2,
@@ -462,7 +462,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         3,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 4,
                         current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
                             pattern_symbol_idx: 3,
@@ -501,7 +501,7 @@ Ok(
                             1,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 3,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `low`,
@@ -518,7 +518,7 @@ Ok(
                             2,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 4,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `high`,
@@ -534,7 +534,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 1,
@@ -580,7 +580,7 @@ Ok(
                             5,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 2,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `arr`,
@@ -597,7 +597,7 @@ Ok(
                             6,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 3,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `low`,
@@ -614,7 +614,7 @@ Ok(
                             7,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 4,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `high`,
@@ -669,7 +669,7 @@ Ok(
                             10,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 2,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `arr`,
@@ -686,7 +686,7 @@ Ok(
                             11,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 3,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `low`,
@@ -703,7 +703,7 @@ Ok(
                             12,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 1,
@@ -760,7 +760,7 @@ Ok(
                             17,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 2,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `arr`,
@@ -777,7 +777,7 @@ Ok(
                             18,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 1,
@@ -796,7 +796,7 @@ Ok(
                             21,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 4,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `high`,
@@ -845,7 +845,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -889,7 +889,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
                             pattern_symbol_idx: 1,
@@ -936,7 +936,7 @@ Ok(
                             2,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -958,7 +958,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         2,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 3,
                         current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
                             pattern_symbol_idx: 2,
@@ -993,7 +993,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         3,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 4,
                         current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
                             pattern_symbol_idx: 3,
@@ -1050,7 +1050,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 1,
@@ -1067,7 +1067,7 @@ Ok(
                             2,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 4,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `high`,
@@ -1103,7 +1103,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         2,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 2,
@@ -1120,7 +1120,7 @@ Ok(
                             4,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 3,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `low`,
@@ -1138,7 +1138,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         3,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 3,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 3,
@@ -1155,7 +1155,7 @@ Ok(
                             7,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 4,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `high`,
@@ -1174,7 +1174,7 @@ Ok(
                             9,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 2,
@@ -1193,7 +1193,7 @@ Ok(
                             12,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 2,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `arr`,
@@ -1210,7 +1210,7 @@ Ok(
                             14,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 2,
@@ -1248,7 +1248,7 @@ Ok(
                             17,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 2,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `arr`,
@@ -1265,7 +1265,7 @@ Ok(
                             18,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 1,
@@ -1283,7 +1283,7 @@ Ok(
                             21,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 2,
@@ -1301,7 +1301,7 @@ Ok(
                             24,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 3,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 3,
@@ -1320,7 +1320,7 @@ Ok(
                             27,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 3,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 3,
@@ -1339,7 +1339,7 @@ Ok(
                             30,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 2,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `arr`,
@@ -1356,7 +1356,7 @@ Ok(
                             32,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 3,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 3,
@@ -1394,7 +1394,7 @@ Ok(
                             35,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 2,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `arr`,
@@ -1411,7 +1411,7 @@ Ok(
                             36,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 1,
@@ -1429,7 +1429,7 @@ Ok(
                             40,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 3,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 3,
@@ -1448,7 +1448,7 @@ Ok(
                             43,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 2,
@@ -1465,7 +1465,7 @@ Ok(
                             44,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 3,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 3,
@@ -1485,7 +1485,7 @@ Ok(
                             46,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 2,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `arr`,
@@ -1513,7 +1513,7 @@ Ok(
                             48,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 2,
@@ -1550,7 +1550,7 @@ Ok(
                             51,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 3,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 3,
@@ -1587,7 +1587,7 @@ Ok(
                             54,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSymbol {
+                    data: TokenInfoData::InheritedSynSymbol {
                         inherited_symbol_idx: 2,
                         inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `arr`,
@@ -1615,7 +1615,7 @@ Ok(
                             56,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 2,
@@ -1652,7 +1652,7 @@ Ok(
                             59,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 1,
@@ -1689,7 +1689,7 @@ Ok(
                             62,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 2,
@@ -1734,7 +1734,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 1,
@@ -1842,7 +1842,7 @@ Ok(
                     src: TokenInfoSource::PatternExpr(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                             pattern_symbol_idx: 1,

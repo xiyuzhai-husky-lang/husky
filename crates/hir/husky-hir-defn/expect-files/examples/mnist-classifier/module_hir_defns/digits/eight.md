@@ -134,7 +134,7 @@
                             HirEagerExprRegion {
                                 hir_eager_expr_arena: Arena {
                                     data: [
-                                        InheritedSymbol {
+                                        InheritedSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -179,7 +179,7 @@
                                             ),
                                             ropd: 4,
                                         },
-                                        InheritedSymbol {
+                                        InheritedSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -234,7 +234,7 @@
                                                 ),
                                             ),
                                         },
-                                        InheritedSymbol {
+                                        InheritedSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -296,7 +296,7 @@
                                             ),
                                             ropd: 17,
                                         },
-                                        InheritedSymbol {
+                                        InheritedSynSymbol {
                                             ident: Ident(
                                                 Coword(
                                                     Id {

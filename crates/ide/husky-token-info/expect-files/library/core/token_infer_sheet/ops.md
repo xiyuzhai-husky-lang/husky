@@ -60,7 +60,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -129,7 +129,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -198,7 +198,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -267,7 +267,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -332,7 +332,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -401,7 +401,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -466,7 +466,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -535,7 +535,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -600,7 +600,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -669,7 +669,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -761,7 +761,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -830,7 +830,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -983,7 +983,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -1045,7 +1045,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -1116,7 +1116,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
@@ -1138,7 +1138,7 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         2,
                     ),
-                    data: TokenInfoData::CurrentSymbol {
+                    data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
                         current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {

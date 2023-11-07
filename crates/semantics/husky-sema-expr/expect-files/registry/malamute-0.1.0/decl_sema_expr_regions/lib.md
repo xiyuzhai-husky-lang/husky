@@ -238,7 +238,7 @@
                 ),
                 expr_arena: Arena {
                     data: [
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
                                 12,
@@ -387,7 +387,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -656,7 +656,7 @@
                 ),
                 expr_arena: Arena {
                     data: [
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
                                 12,
@@ -805,7 +805,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1074,7 +1074,7 @@
                 ),
                 expr_arena: Arena {
                     data: [
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
                                 12,
@@ -1131,7 +1131,7 @@
                                 ),
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
                                 31,
@@ -1152,7 +1152,7 @@
                             function_expr_idx: 5,
                             argument_expr_idx: 6,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `label`,
                             regional_token_idx: RegionalTokenIdx(
                                 32,
@@ -1445,7 +1445,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1615,7 +1615,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -1688,7 +1688,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -2633,7 +2633,7 @@
                 ),
                 expr_arena: Arena {
                     data: [
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
                                 10,
@@ -2674,7 +2674,7 @@
                             function_expr_idx: 2,
                             argument_expr_idx: 3,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
                                 18,
@@ -2695,7 +2695,7 @@
                             function_expr_idx: 4,
                             argument_expr_idx: 5,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `label`,
                             regional_token_idx: RegionalTokenIdx(
                                 19,
@@ -2726,7 +2726,7 @@
                                 ),
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
                                 22,
@@ -2977,7 +2977,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3112,7 +3112,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3185,7 +3185,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -3291,7 +3291,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -4342,7 +4342,7 @@
                             ),
                             expr_arena: Arena {
                                 data: [
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             10,
@@ -4383,7 +4383,7 @@
                                         function_expr_idx: 2,
                                         argument_expr_idx: 3,
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             18,
@@ -4404,7 +4404,7 @@
                                         function_expr_idx: 4,
                                         argument_expr_idx: 5,
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             19,
@@ -4435,7 +4435,7 @@
                                             ),
                                         ),
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             22,
@@ -5044,7 +5044,7 @@
                 ),
                 expr_arena: Arena {
                     data: [
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
                                 10,
@@ -5085,7 +5085,7 @@
                             function_expr_idx: 2,
                             argument_expr_idx: 3,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
                                 18,
@@ -5106,7 +5106,7 @@
                             function_expr_idx: 4,
                             argument_expr_idx: 5,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `label`,
                             regional_token_idx: RegionalTokenIdx(
                                 19,
@@ -5137,7 +5137,7 @@
                                 ),
                             ),
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `Label`,
                             regional_token_idx: RegionalTokenIdx(
                                 22,
@@ -5158,7 +5158,7 @@
                             function_expr_idx: 9,
                             argument_expr_idx: 10,
                         },
-                        SynExprData::CurrentSymbol {
+                        SynExprData::CurrentSynSymbol {
                             ident: `label`,
                             regional_token_idx: RegionalTokenIdx(
                                 23,
@@ -5409,7 +5409,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -5544,7 +5544,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -5617,7 +5617,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -5723,7 +5723,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -5796,7 +5796,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSymbol {
+                                CurrentSynSymbol {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -7011,7 +7011,7 @@
                             ),
                             expr_arena: Arena {
                                 data: [
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             10,
@@ -7052,7 +7052,7 @@
                                         function_expr_idx: 2,
                                         argument_expr_idx: 3,
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             18,
@@ -7073,7 +7073,7 @@
                                         function_expr_idx: 4,
                                         argument_expr_idx: 5,
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             19,
@@ -7104,7 +7104,7 @@
                                             ),
                                         ),
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             22,
@@ -7125,7 +7125,7 @@
                                         function_expr_idx: 9,
                                         argument_expr_idx: 10,
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             23,

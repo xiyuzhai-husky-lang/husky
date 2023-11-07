@@ -75,7 +75,7 @@
                                                     function_expr_idx: 1,
                                                     argument_expr_idx: 2,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `T2`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         17,
@@ -96,7 +96,7 @@
                                                     function_expr_idx: 3,
                                                     argument_expr_idx: 4,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `E2`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         18,
@@ -127,7 +127,7 @@
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `T1`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         21,
@@ -148,7 +148,7 @@
                                                     function_expr_idx: 8,
                                                     argument_expr_idx: 9,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `E1`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         22,
@@ -451,7 +451,7 @@
                                             ),
                                         ),
                                     },
-                                    SynExprData::InheritedSymbol {
+                                    SynExprData::InheritedSynSymbol {
                                         ident: `T2`,
                                         regional_token_idx: RegionalTokenIdx(
                                             7,
@@ -467,7 +467,7 @@
                                         function_expr_idx: 1,
                                         argument_expr_idx: 2,
                                     },
-                                    SynExprData::InheritedSymbol {
+                                    SynExprData::InheritedSynSymbol {
                                         ident: `E2`,
                                         regional_token_idx: RegionalTokenIdx(
                                             8,
@@ -493,7 +493,7 @@
                                             ),
                                         ),
                                     },
-                                    SynExprData::InheritedSymbol {
+                                    SynExprData::InheritedSynSymbol {
                                         ident: `T1`,
                                         regional_token_idx: RegionalTokenIdx(
                                             12,
@@ -509,7 +509,7 @@
                                         function_expr_idx: 6,
                                         argument_expr_idx: 7,
                                     },
-                                    SynExprData::InheritedSymbol {
+                                    SynExprData::InheritedSynSymbol {
                                         ident: `E1`,
                                         regional_token_idx: RegionalTokenIdx(
                                             13,

@@ -149,12 +149,12 @@ where
                         ident_token,
                     } => todo!(),
                 },
-                DisambiguatedTokenData::InheritedSymbol {
+                DisambiguatedTokenData::InheritedSynSymbol {
                     regional_token_idx,
                     ident,
                     ..
                 }
-                | DisambiguatedTokenData::CurrentSymbol {
+                | DisambiguatedTokenData::CurrentSynSymbol {
                     regional_token_idx,
                     ident,
                     ..

@@ -39,13 +39,13 @@ pub enum SemaExprData {
         ident_token: IdentRegionalToken,
         static_dispatch: StaticDispatch,
     },
-    InheritedSymbol {
+    InheritedSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
         inherited_symbol_idx: InheritedSynSymbolIdx,
         inherited_symbol_kind: InheritedSynSymbolKind,
     },
-    CurrentSymbol {
+    CurrentSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
         current_syn_symbol_idx: CurrentSynSymbolIdx,

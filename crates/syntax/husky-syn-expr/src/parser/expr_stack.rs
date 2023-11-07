@@ -68,7 +68,7 @@ impl SynExprData {
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),
-            SynExprData::InheritedSymbol { .. } | SynExprData::CurrentSymbol { .. } => {
+            SynExprData::InheritedSynSymbol { .. } | SynExprData::CurrentSynSymbol { .. } => {
                 BaseEntityPath::None
             }
             SynExprData::SelfValue(_) => todo!(),
@@ -83,13 +83,13 @@ impl SynExprData {
                     SynExprData::Literal(_, _) => todo!(),
                     SynExprData::PrincipalEntityPath { .. } => todo!(),
                     SynExprData::AssociatedItem { .. } => todo!(),
-                    SynExprData::InheritedSymbol {
+                    SynExprData::InheritedSynSymbol {
                         ident,
                         regional_token_idx,
                         inherited_symbol_idx,
                         inherited_symbol_kind,
                     } => todo!(),
-                    SynExprData::CurrentSymbol {
+                    SynExprData::CurrentSynSymbol {
                         ident,
                         regional_token_idx,
                         current_syn_symbol_idx,

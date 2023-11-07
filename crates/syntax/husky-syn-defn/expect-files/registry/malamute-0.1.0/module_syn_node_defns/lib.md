@@ -251,7 +251,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExprData::CurrentSymbol {
+                                            SynExprData::CurrentSynSymbol {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     12,
@@ -497,7 +497,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExprData::CurrentSymbol {
+                                            SynExprData::CurrentSynSymbol {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     12,
@@ -679,7 +679,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExprData::CurrentSymbol {
+                                            SynExprData::CurrentSynSymbol {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     12,
@@ -736,7 +736,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExprData::CurrentSymbol {
+                                            SynExprData::CurrentSynSymbol {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     31,
@@ -757,7 +757,7 @@ Ok(
                                                 function_expr_idx: 5,
                                                 argument_expr_idx: 6,
                                             },
-                                            SynExprData::CurrentSymbol {
+                                            SynExprData::CurrentSynSymbol {
                                                 ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     32,
@@ -1343,7 +1343,7 @@ Ok(
                             ),
                             expr_arena: Arena {
                                 data: [
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             10,
@@ -1384,7 +1384,7 @@ Ok(
                                         function_expr_idx: 2,
                                         argument_expr_idx: 3,
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             18,
@@ -1405,7 +1405,7 @@ Ok(
                                         function_expr_idx: 4,
                                         argument_expr_idx: 5,
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             19,
@@ -1436,7 +1436,7 @@ Ok(
                                             ),
                                         ),
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             22,
@@ -1745,7 +1745,7 @@ Ok(
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        SynExprData::CurrentSymbol {
+                                                        SynExprData::CurrentSynSymbol {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 10,
@@ -1786,7 +1786,7 @@ Ok(
                                                             function_expr_idx: 2,
                                                             argument_expr_idx: 3,
                                                         },
-                                                        SynExprData::CurrentSymbol {
+                                                        SynExprData::CurrentSynSymbol {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 18,
@@ -1807,7 +1807,7 @@ Ok(
                                                             function_expr_idx: 4,
                                                             argument_expr_idx: 5,
                                                         },
-                                                        SynExprData::CurrentSymbol {
+                                                        SynExprData::CurrentSynSymbol {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 19,
@@ -1838,7 +1838,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSymbol {
+                                                        SynExprData::CurrentSynSymbol {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 22,
@@ -2303,7 +2303,7 @@ Ok(
                             ),
                             expr_arena: Arena {
                                 data: [
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             10,
@@ -2344,7 +2344,7 @@ Ok(
                                         function_expr_idx: 2,
                                         argument_expr_idx: 3,
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             18,
@@ -2365,7 +2365,7 @@ Ok(
                                         function_expr_idx: 4,
                                         argument_expr_idx: 5,
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             19,
@@ -2396,7 +2396,7 @@ Ok(
                                             ),
                                         ),
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             22,
@@ -2417,7 +2417,7 @@ Ok(
                                         function_expr_idx: 9,
                                         argument_expr_idx: 10,
                                     },
-                                    SynExprData::CurrentSymbol {
+                                    SynExprData::CurrentSynSymbol {
                                         ident: `label`,
                                         regional_token_idx: RegionalTokenIdx(
                                             23,
@@ -2726,7 +2726,7 @@ Ok(
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        SynExprData::CurrentSymbol {
+                                                        SynExprData::CurrentSynSymbol {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 10,
@@ -2767,7 +2767,7 @@ Ok(
                                                             function_expr_idx: 2,
                                                             argument_expr_idx: 3,
                                                         },
-                                                        SynExprData::CurrentSymbol {
+                                                        SynExprData::CurrentSynSymbol {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 18,
@@ -2788,7 +2788,7 @@ Ok(
                                                             function_expr_idx: 4,
                                                             argument_expr_idx: 5,
                                                         },
-                                                        SynExprData::CurrentSymbol {
+                                                        SynExprData::CurrentSynSymbol {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 19,
@@ -2819,7 +2819,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSymbol {
+                                                        SynExprData::CurrentSynSymbol {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 22,
@@ -2840,7 +2840,7 @@ Ok(
                                                             function_expr_idx: 9,
                                                             argument_expr_idx: 10,
                                                         },
-                                                        SynExprData::CurrentSymbol {
+                                                        SynExprData::CurrentSynSymbol {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 23,

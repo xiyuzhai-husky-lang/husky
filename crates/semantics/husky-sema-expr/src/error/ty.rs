@@ -107,9 +107,9 @@ pub enum DerivedSemaExprTypeError {
     #[error("bracketed item type error")]
     BracketedItemTypeError,
     #[error("current symbol type error")]
-    CurrentSymbolTypeError,
+    CurrentSynSymbolTypeError,
     #[error("inherited symbol type error")]
-    InheritedSymbolTypeError,
+    InheritedSynSymbolTypeError,
     #[error("callable type error")]
     CallableTypeError,
     #[error("function type not inferred in application or function call")]

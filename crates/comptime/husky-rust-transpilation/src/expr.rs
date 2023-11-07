@@ -43,8 +43,8 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::PrincipalEntityPath(principal_entity_path) => {
             principal_entity_path.transpile_to_rust(builder)
         }
-        HirEagerExprData::InheritedSymbol { ident } => ident.transpile_to_rust(builder),
-        HirEagerExprData::CurrentSymbol { ident } => ident.transpile_to_rust(builder),
+        HirEagerExprData::InheritedSynSymbol { ident } => ident.transpile_to_rust(builder),
+        HirEagerExprData::CurrentSynSymbol { ident } => ident.transpile_to_rust(builder),
         HirEagerExprData::FrameVarDecl { ident } => ident.transpile_to_rust(builder),
         HirEagerExprData::SelfType => builder.self_ty(),
         HirEagerExprData::SelfValue => builder.self_value(),

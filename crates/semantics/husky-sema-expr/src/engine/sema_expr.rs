@@ -150,13 +150,13 @@ impl<'a> SemaExprEngine<'a> {
                     });
                 (data_result, ty_result)
             }
-            SynExprData::InheritedSymbol {
+            SynExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
             } => (
-                Ok(SemaExprData::InheritedSymbol {
+                Ok(SemaExprData::InheritedSynSymbol {
                     ident,
                     regional_token_idx,
                     inherited_symbol_idx,
@@ -168,16 +168,16 @@ impl<'a> SemaExprEngine<'a> {
                     .get(inherited_symbol_idx)
                 {
                     Some(ty) => Ok((*ty).into()),
-                    None => Err(DerivedSemaExprTypeError::InheritedSymbolTypeError.into()),
+                    None => Err(DerivedSemaExprTypeError::InheritedSynSymbolTypeError.into()),
                 },
             ),
-            SynExprData::CurrentSymbol {
+            SynExprData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
                 current_syn_symbol_idx,
                 current_syn_symbol_kind,
             } => (
-                Ok(SemaExprData::CurrentSymbol {
+                Ok(SemaExprData::CurrentSynSymbol {
                     ident,
                     regional_token_idx,
                     current_syn_symbol_idx,

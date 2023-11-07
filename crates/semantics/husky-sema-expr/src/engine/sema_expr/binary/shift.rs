@@ -23,7 +23,7 @@ impl<'a> SemaExprEngine<'a> {
             p!(self.symbol_tys.debug(self.db));
             todo!();
             match self.syn_expr_region_data[lopd] {
-                SynExprData::CurrentSymbol {
+                SynExprData::CurrentSynSymbol {
                     ident,
                     regional_token_idx,
                     current_syn_symbol_idx,

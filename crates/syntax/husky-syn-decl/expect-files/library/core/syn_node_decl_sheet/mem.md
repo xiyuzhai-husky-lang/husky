@@ -932,7 +932,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            SynExprData::CurrentSymbol {
+                                            SynExprData::CurrentSynSymbol {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     8,

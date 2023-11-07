@@ -217,13 +217,13 @@ impl<'a> SemaExprEngine<'a> {
                 ident_token,
                 static_dispatch,
             } => todo!(),
-            &SemaExprData::InheritedSymbol {
+            &SemaExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
             } => Ok(self.symbol_terms[inherited_symbol_idx]),
-            SemaExprData::CurrentSymbol {
+            SemaExprData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
                 current_syn_symbol_idx,

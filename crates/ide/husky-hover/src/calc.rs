@@ -92,7 +92,7 @@ impl<'a> HoverResultCalculator<'a> {
             Some(info) => match info.data() {
                 TokenInfoData::Entity(_) => format!(""),
                 TokenInfoData::EntityNode(_, _) => format!(""),
-                TokenInfoData::CurrentSymbol {
+                TokenInfoData::CurrentSynSymbol {
                     current_syn_symbol_idx,
                     syn_expr_region,
                     ..
@@ -103,7 +103,7 @@ impl<'a> HoverResultCalculator<'a> {
                             .debug(self.db)
                     )
                 }
-                TokenInfoData::InheritedSymbol {
+                TokenInfoData::InheritedSynSymbol {
                     inherited_symbol_idx,
                     syn_expr_region,
                     ..

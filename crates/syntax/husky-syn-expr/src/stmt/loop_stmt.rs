@@ -328,13 +328,13 @@ impl<'a> SynStmtContext<'a> {
         };
         let (forext_loop_var_ident, forext_loop_var_regional_token_idx) =
             match self.syn_expr_arena()[forext_loop_var_expr_idx] {
-                SynExprData::InheritedSymbol {
+                SynExprData::InheritedSynSymbol {
                     ident,
                     regional_token_idx,
                     inherited_symbol_idx,
                     inherited_symbol_kind,
                 } => (ident, regional_token_idx),
-                SynExprData::CurrentSymbol {
+                SynExprData::CurrentSynSymbol {
                     ident,
                     regional_token_idx,
                     current_syn_symbol_idx,

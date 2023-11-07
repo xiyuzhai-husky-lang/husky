@@ -272,9 +272,9 @@ impl std::ops::Index<CurrentSynSymbolIdx> for SynSymbolRegion {
 
 pub enum Prevariable {}
 
-/// equal to InheritedSymbolIdx
+/// equal to InheritedSynSymbolIdx
 ///
-/// equal to CurrentSymbolIdx + number of inherited symbols
+/// equal to CurrentSynSymbolIdx + number of inherited symbols
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct LocalSymbolIdx(usize);
 

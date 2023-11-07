@@ -23,12 +23,12 @@ pub type HirLazyExprMap<V> = ArenaMap<HirLazyExpr, V>;
 pub enum HirLazyExpr {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),
-    InheritedSymbol {
+    InheritedSynSymbol {
         ident: Ident,
         // inherited_symbol_idx: InheritedHirLazySymbolIdx,
         // inherited_symbol_kind: InheritedHirLazySymbolKind,
     },
-    CurrentSymbol {
+    CurrentSynSymbol {
         ident: Ident,
         // current_syn_symbol_idx: CurrentHirLazySymbolIdx,
         // current_syn_symbol_kind: CurrentHirLazySymbolKind,
@@ -128,18 +128,18 @@ impl ToHirLazy for SemaExprIdx {
                 ident_token,
                 static_dispatch,
             } => todo!(),
-            SemaExprData::InheritedSymbol {
+            SemaExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
             } => todo!(),
-            SemaExprData::CurrentSymbol {
+            SemaExprData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
                 current_syn_symbol_idx,
                 current_syn_symbol_kind,
-            } => HirLazyExpr::CurrentSymbol { ident: *ident },
+            } => HirLazyExpr::CurrentSynSymbol { ident: *ident },
             SemaExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,

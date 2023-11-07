@@ -11,7 +11,7 @@ impl<'a> SemaExprEngine<'a> {
             .current_syn_symbol_map()
             .get(current_syn_symbol_idx)
             .copied()
-            .ok_or(DerivedSemaExprTypeError::CurrentSymbolTypeError)?
+            .ok_or(DerivedSemaExprTypeError::CurrentSynSymbolTypeError)?
             .into())
     }
 }

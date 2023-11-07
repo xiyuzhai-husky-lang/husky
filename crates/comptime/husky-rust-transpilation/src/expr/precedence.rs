@@ -63,8 +63,8 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
     match data {
         HirEagerExprData::Literal(_)
         | HirEagerExprData::PrincipalEntityPath(_)
-        | HirEagerExprData::InheritedSymbol { .. }
-        | HirEagerExprData::CurrentSymbol { .. }
+        | HirEagerExprData::InheritedSynSymbol { .. }
+        | HirEagerExprData::CurrentSynSymbol { .. }
         | HirEagerExprData::FrameVarDecl { .. }
         | HirEagerExprData::SelfType
         | HirEagerExprData::SelfValue
