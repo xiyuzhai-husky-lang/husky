@@ -13,8 +13,9 @@ use crate::{expr::RustPrecedence, *};
 use husky_coword::Ident;
 use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
 use husky_hir_eager_expr::{
-    variable::HirEagerVariableIdx, HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion,
-    HirEagerPatternExprArena, HirEagerStmtArena,
+    variable::{HirEagerVariableIdx, VariableName},
+    HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion, HirEagerPatternExprArena,
+    HirEagerStmtArena,
 };
 use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyStmtArena};
@@ -447,6 +448,17 @@ impl<'a> RustTranspilationBuilder<'a> {
 impl TranspileToRust for HirEagerVariableIdx {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         use std::fmt::Write;
-        write!(builder.result, "v{}", self.index()).unwrap()
+        let Some(HirExprRegion::Eager(hir_eager_expr_region)) = builder.hir_expr_region else {
+            unreachable!()
+        };
+        let db = builder.db;
+        let hir_eager_variable_region = hir_eager_expr_region.hir_eager_variable_region(db);
+        if builder.result.ends_with(|c: char| c.is_alphabetic()) {
+            builder.write_str(" ")
+        }
+        match hir_eager_variable_region[*self].name() {
+            VariableName::SelfValue => builder.write_str("self"),
+            VariableName::Ident(ident) => builder.write_str(ident.data(db)),
+        }
     }
 }

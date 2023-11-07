@@ -7,21 +7,21 @@ fn major_connected_component() {
     let mut i0 = 0;
     let mut max_row_span_sum = 0;
     for i in 0..connected_components.ilen() {
-        let row_span_sum = connected_components[v2].row_span_sum;
-        if v3 > v1 {
-            v1 = v3;
-            v0 = v2
+        let row_span_sum = connected_components[i].row_span_sum;
+        if row_span_sum > max_row_span_sum {
+            max_row_span_sum = row_span_sum;
+            i0 = i
         }
     }
-    return connected_components[v0];
+    return connected_components[i0];
 }
 
 fn ignored_connected_components_row_span_sum_sum() {
     let mut sum = 0;
     for i in 0..connected_components.ilen() {
-        v0 += connected_components[v1].row_span_sum
+        sum += connected_components[i].row_span_sum
     }
-    return v0 - major_connected_component.row_span_sum;
+    return sum - major_connected_component.row_span_sum;
 }
 
 fn major_raw_contours() {

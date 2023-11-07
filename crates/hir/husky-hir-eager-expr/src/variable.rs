@@ -1,12 +1,26 @@
 use super::*;
 use husky_syn_expr::{
-    CurrentSynSymbol, CurrentSynSymbolKind, CurrentSynSymbolVariant,
+    CurrentSynSymbol, CurrentSynSymbolData, CurrentSynSymbolKind,
     CurrentTemplateParameterSynSymbolVariant, InheritedSynSymbol, InheritedSynSymbolKind,
     SynSymbolMap, SynSymbolOrderedMap, SynSymbolRegion,
 };
 use idx_arena::ArenaIdx;
 
-pub enum HirEagerVariable {
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub struct HirEagerVariable {
+    name: VariableName,
+    data: HirEagerVariableData,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = HirEagerExprDb)]
+pub enum VariableName {
+    SelfValue,
+    Ident(Ident),
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub enum HirEagerVariableData {
     ParenateParameter,
     LetVariable,
     BeVariable,
@@ -16,50 +30,85 @@ pub enum HirEagerVariable {
 }
 
 impl HirEagerVariable {
+    pub fn name(&self) -> VariableName {
+        self.name
+    }
+
+    pub fn data(&self) -> &HirEagerVariableData {
+        &self.data
+    }
+
     fn from_inherited_syn(inherited_syn_symbol: InheritedSynSymbol) -> Option<HirEagerVariable> {
-        match inherited_syn_symbol.kind() {
+        let name = match inherited_syn_symbol.kind() {
+            InheritedSynSymbolKind::TemplateParameter(_)
+            | InheritedSynSymbolKind::ParenateParameter { .. }
+            | InheritedSynSymbolKind::FieldVariable { .. } => {
+                VariableName::Ident(inherited_syn_symbol.ident()?)
+            }
+        };
+        let data = HirEagerVariableData::from_inherited_syn(inherited_syn_symbol.kind())?;
+        Some(Self { name, data })
+    }
+
+    fn from_current_syn(current_syn_symbol: &CurrentSynSymbol) -> Option<Self> {
+        let name = match current_syn_symbol.data() {
+            CurrentSynSymbolData::SelfValue {
+                symbol_modifier_keyword_group,
+            } => VariableName::SelfValue,
+            _ => VariableName::Ident(current_syn_symbol.ident()?),
+        };
+        let data = HirEagerVariableData::from_current_syn(current_syn_symbol.data())?;
+        Some(Self { name, data })
+    }
+}
+
+impl HirEagerVariableData {
+    fn from_inherited_syn(
+        inherited_syn_symbol_kind: InheritedSynSymbolKind,
+    ) -> Option<HirEagerVariableData> {
+        match inherited_syn_symbol_kind {
             InheritedSynSymbolKind::TemplateParameter(_) => None,
             InheritedSynSymbolKind::ParenateParameter { ident } => {
-                Some(HirEagerVariable::ParenateParameter)
+                Some(HirEagerVariableData::ParenateParameter)
             }
             InheritedSynSymbolKind::FieldVariable { ident } => {
-                Some(HirEagerVariable::FieldVariable)
+                Some(HirEagerVariableData::FieldVariable)
             }
         }
     }
 
-    fn from_current_syn(current_syn_symbol: &CurrentSynSymbol) -> Option<Self> {
-        match *current_syn_symbol.variant() {
-            CurrentSynSymbolVariant::TemplateParameter { .. } => None,
-            CurrentSynSymbolVariant::SelfType => todo!(),
-            CurrentSynSymbolVariant::SelfValue {
+    fn from_current_syn(current_syn_symbol_data: &CurrentSynSymbolData) -> Option<Self> {
+        match current_syn_symbol_data {
+            CurrentSynSymbolData::TemplateParameter { .. } => None,
+            CurrentSynSymbolData::SelfType => todo!(),
+            CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group,
             } => todo!(),
-            CurrentSynSymbolVariant::ParenateRegularParameter {
+            CurrentSynSymbolData::ParenateRegularParameter {
                 ident,
                 pattern_symbol_idx,
-            } => Some(HirEagerVariable::ParenateParameter),
-            CurrentSynSymbolVariant::ParenateVariadicParameter {
+            } => Some(HirEagerVariableData::ParenateParameter),
+            CurrentSynSymbolData::ParenateVariadicParameter {
                 symbol_modifier_keyword_group,
                 ident_token,
-            } => Some(HirEagerVariable::ParenateParameter),
-            CurrentSynSymbolVariant::LetVariable {
+            } => Some(HirEagerVariableData::ParenateParameter),
+            CurrentSynSymbolData::LetVariable {
                 ident,
                 pattern_symbol_idx,
-            } => Some(HirEagerVariable::LetVariable),
-            CurrentSynSymbolVariant::BeVariable {
+            } => Some(HirEagerVariableData::LetVariable),
+            CurrentSynSymbolData::BeVariable {
                 ident,
                 pattern_symbol_idx,
-            } => Some(HirEagerVariable::BeVariable),
-            CurrentSynSymbolVariant::CaseVariable {
+            } => Some(HirEagerVariableData::BeVariable),
+            CurrentSynSymbolData::CaseVariable {
                 ident,
                 pattern_symbol_idx,
-            } => Some(HirEagerVariable::CaseVariable),
-            CurrentSynSymbolVariant::FieldVariable { ident_token } => {
-                Some(HirEagerVariable::FieldVariable)
+            } => Some(HirEagerVariableData::CaseVariable),
+            CurrentSynSymbolData::FieldVariable { ident_token } => {
+                Some(HirEagerVariableData::FieldVariable)
             }
-            CurrentSynSymbolVariant::LoopVariable { ident, expr_idx } => {
-                Some(HirEagerVariable::LoopVariable)
+            CurrentSynSymbolData::LoopVariable { ident, expr_idx } => {
+                Some(HirEagerVariableData::LoopVariable)
             }
         }
     }
@@ -68,6 +117,7 @@ impl HirEagerVariable {
 pub type HirEagerVariableArena = Arena<HirEagerVariable>;
 pub type HirEagerVariableIdx = ArenaIdx<HirEagerVariable>;
 
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirEagerVariableRegion {
     arena: HirEagerVariableArena,
 }
@@ -101,5 +151,13 @@ impl HirEagerVariableRegion {
             }
         }
         (Self { arena }, syn_symbol_to_hir_eager_variable_map)
+    }
+}
+
+impl std::ops::Index<HirEagerVariableIdx> for HirEagerVariableRegion {
+    type Output = HirEagerVariable;
+
+    fn index(&self, index: HirEagerVariableIdx) -> &Self::Output {
+        &self.arena[index]
     }
 }

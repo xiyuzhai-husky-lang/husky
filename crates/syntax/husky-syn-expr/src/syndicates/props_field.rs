@@ -81,7 +81,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
             ctx.pattern_expr_region(),
             access_start,
             None,
-            CurrentSynSymbolVariant::FieldVariable { ident_token },
+            CurrentSynSymbolData::FieldVariable { ident_token },
         );
         let variable = ctx.define_symbol(
             symbol,

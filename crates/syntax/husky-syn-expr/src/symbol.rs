@@ -90,7 +90,7 @@ pub struct CurrentSynSymbol {
     access_start: RegionalTokenIdx,
     /// this is none only for lambda variable
     access_end: Option<RegionalTokenIdxRangeEnd>,
-    variant: CurrentSynSymbolVariant,
+    data: CurrentSynSymbolData,
 }
 
 impl CurrentSynSymbol {
@@ -98,13 +98,13 @@ impl CurrentSynSymbol {
         pattern_expr_region: &SynPatternExprRegion,
         access_start: RegionalTokenIdx,
         access_end: Option<RegionalTokenIdxRangeEnd>,
-        variant: CurrentSynSymbolVariant,
+        variant: CurrentSynSymbolData,
     ) -> Self {
         Self {
             modifier: variant.symbol_modifier(pattern_expr_region),
             access_start,
             access_end,
-            variant,
+            data: variant,
         }
     }
 
@@ -113,35 +113,35 @@ impl CurrentSynSymbol {
     }
 
     pub fn kind(&self) -> CurrentSynSymbolKind {
-        self.variant.kind()
+        self.data.kind()
     }
 
-    pub fn variant(&self) -> &CurrentSynSymbolVariant {
-        &self.variant
+    pub fn data(&self) -> &CurrentSynSymbolData {
+        &self.data
     }
 
     pub fn ident(&self) -> Option<Ident> {
-        match self.variant {
-            CurrentSynSymbolVariant::TemplateParameter {
+        match self.data {
+            CurrentSynSymbolData::TemplateParameter {
                 template_parameter_variant:
                     CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. }
                     | CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. },
                 ..
             }
-            | CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. }
-            | CurrentSynSymbolVariant::FieldVariable { ident_token } => Some(ident_token.ident()),
-            CurrentSynSymbolVariant::ParenateRegularParameter { ident, .. }
-            | CurrentSynSymbolVariant::LetVariable { ident, .. }
-            | CurrentSynSymbolVariant::BeVariable { ident, .. }
-            | CurrentSynSymbolVariant::CaseVariable { ident, .. }
-            | CurrentSynSymbolVariant::LoopVariable { ident, .. } => Some(ident),
-            CurrentSynSymbolVariant::TemplateParameter {
+            | CurrentSynSymbolData::ParenateVariadicParameter { ident_token, .. }
+            | CurrentSynSymbolData::FieldVariable { ident_token } => Some(ident_token.ident()),
+            CurrentSynSymbolData::ParenateRegularParameter { ident, .. }
+            | CurrentSynSymbolData::LetVariable { ident, .. }
+            | CurrentSynSymbolData::BeVariable { ident, .. }
+            | CurrentSynSymbolData::CaseVariable { ident, .. }
+            | CurrentSynSymbolData::LoopVariable { ident, .. } => Some(ident),
+            CurrentSynSymbolData::TemplateParameter {
                 template_parameter_variant:
                     CurrentTemplateParameterSynSymbolVariant::Lifetime { .. }
                     | CurrentTemplateParameterSynSymbolVariant::Place { .. },
                 ..
             } => None,
-            CurrentSynSymbolVariant::SelfType | CurrentSynSymbolVariant::SelfValue { .. } => None,
+            CurrentSynSymbolData::SelfType | CurrentSynSymbolData::SelfValue { .. } => None,
         }
     }
 
@@ -196,7 +196,7 @@ pub enum CurrentImplicitParameterSynSymbolKind {
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub enum CurrentSynSymbolVariant {
+pub enum CurrentSynSymbolData {
     TemplateParameter {
         syn_attrs: TemplateParameterSynAttrs,
         annotated_variance_token: Option<VarianceRegionalToken>,
@@ -273,35 +273,35 @@ pub enum TemplateSymbolSynAttr {
     Phantom(PoundRegionalToken, PhantomRegionalToken),
 }
 
-impl CurrentSynSymbolVariant {
+impl CurrentSynSymbolData {
     fn symbol_modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> SymbolModifier {
         match self {
-            CurrentSynSymbolVariant::TemplateParameter {
+            CurrentSynSymbolData::TemplateParameter {
                 template_parameter_variant,
                 ..
             } => SymbolModifier::Const,
-            CurrentSynSymbolVariant::ParenateRegularParameter {
+            CurrentSynSymbolData::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             }
-            | CurrentSynSymbolVariant::LetVariable {
+            | CurrentSynSymbolData::LetVariable {
                 pattern_symbol_idx, ..
             }
-            | CurrentSynSymbolVariant::BeVariable {
+            | CurrentSynSymbolData::BeVariable {
                 pattern_symbol_idx, ..
             }
-            | CurrentSynSymbolVariant::CaseVariable {
+            | CurrentSynSymbolData::CaseVariable {
                 pattern_symbol_idx, ..
             } => pattern_expr_region.pattern_symbol_modifier(*pattern_symbol_idx),
-            CurrentSynSymbolVariant::ParenateVariadicParameter {
+            CurrentSynSymbolData::ParenateVariadicParameter {
                 symbol_modifier_keyword_group,
                 ..
             } => SymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSynSymbolVariant::LoopVariable { ident, expr_idx } => SymbolModifier::None,
-            CurrentSynSymbolVariant::SelfType => SymbolModifier::Const,
-            CurrentSynSymbolVariant::SelfValue {
+            CurrentSynSymbolData::LoopVariable { ident, expr_idx } => SymbolModifier::None,
+            CurrentSynSymbolData::SelfType => SymbolModifier::Const,
+            CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group,
             } => SymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSynSymbolVariant::FieldVariable { ident_token } => SymbolModifier::None,
+            CurrentSynSymbolData::FieldVariable { ident_token } => SymbolModifier::None,
         }
     }
 }
@@ -353,48 +353,48 @@ impl CurrentTemplateParameterSynSymbolVariant {
     }
 }
 
-impl CurrentSynSymbolVariant {
+impl CurrentSynSymbolData {
     pub fn kind(&self) -> CurrentSynSymbolKind {
         match self {
-            CurrentSynSymbolVariant::TemplateParameter {
+            CurrentSynSymbolData::TemplateParameter {
                 template_parameter_variant,
                 ..
             } => CurrentSynSymbolKind::TemplateParameter {
                 template_parameter_kind: template_parameter_variant.kind(),
             },
-            CurrentSynSymbolVariant::ParenateRegularParameter {
+            CurrentSynSymbolData::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             } => CurrentSynSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
-            CurrentSynSymbolVariant::LetVariable {
+            CurrentSynSymbolData::LetVariable {
                 pattern_symbol_idx, ..
             } => CurrentSynSymbolKind::LetVariable {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
-            CurrentSynSymbolVariant::BeVariable {
+            CurrentSynSymbolData::BeVariable {
                 pattern_symbol_idx, ..
             } => CurrentSynSymbolKind::BeVariable {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
-            CurrentSynSymbolVariant::CaseVariable {
+            CurrentSynSymbolData::CaseVariable {
                 pattern_symbol_idx, ..
             } => CurrentSynSymbolKind::CaseVariable {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
-            CurrentSynSymbolVariant::LoopVariable { expr_idx, .. } => {
+            CurrentSynSymbolData::LoopVariable { expr_idx, .. } => {
                 CurrentSynSymbolKind::LoopVariable(*expr_idx)
             }
-            CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => {
+            CurrentSynSymbolData::ParenateVariadicParameter { ident_token, .. } => {
                 CurrentSynSymbolKind::ExplicitVariadicParameter {
                     ident_token: *ident_token,
                 }
             }
-            CurrentSynSymbolVariant::SelfType => todo!(),
-            CurrentSynSymbolVariant::SelfValue {
+            CurrentSynSymbolData::SelfType => todo!(),
+            CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group,
             } => todo!(),
-            CurrentSynSymbolVariant::FieldVariable { ident_token } => {
+            CurrentSynSymbolData::FieldVariable { ident_token } => {
                 CurrentSynSymbolKind::FieldVariable {
                     ident_token: *ident_token,
                 }
@@ -460,6 +460,7 @@ impl From<CurrentSynSymbolIdx> for ParentSynSymbolIdx {
     }
 }
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct SynSymbolMap<V> {
     inherited_syn_symbol_map: InheritedSynSymbolMap<V>,
     current_syn_symbol_map: CurrentSynSymbolMap<V>,

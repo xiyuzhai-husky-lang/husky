@@ -186,7 +186,7 @@
                                     6,
                                 ),
                                 access_end: None,
-                                variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                data: CurrentSynSymbolData::ParenateRegularParameter {
                                     ident: `line_segment_sketch`,
                                     pattern_symbol_idx: 1,
                                 },
@@ -197,7 +197,7 @@
                                     10,
                                 ),
                                 access_end: None,
-                                variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                data: CurrentSynSymbolData::ParenateRegularParameter {
                                     ident: `index`,
                                     pattern_symbol_idx: 2,
                                 },

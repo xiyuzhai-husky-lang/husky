@@ -19,8 +19,8 @@ fn is_eight() {
 }
 
 pub fn big_mouth(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    if v0.relative_bounding_box.ymax() > 0.5 {
-        require!(v0.strokes.first().unwrap().start.x > v0.strokes.first().unwrap().end.x);
+    if cc.relative_bounding_box.ymax() > 0.5 {
+        require!(cc.strokes.first().unwrap().start.x > cc.strokes.first().unwrap().end.x);
     }
-    v0.relative_bounding_box.ymax()
+    cc.relative_bounding_box.ymax()
 }

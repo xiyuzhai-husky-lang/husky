@@ -177,12 +177,14 @@ impl<'a> HirEagerExprBuilder<'a> {
                 self.hir_eager_expr_arena,
                 self.hir_eager_stmt_arena,
                 self.hir_eager_pattern_expr_arena,
+                self.hir_eager_variable_region,
             ),
             HirEagerExprSourceMap::new(
                 self.db,
                 self.syn_to_hir_eager_pattern_expr_idx_map,
                 self.sema_to_hir_eager_expr_idx_map,
                 self.sema_to_hir_eager_stmt_idx_map,
+                self.syn_symbol_to_hir_eager_variable_map,
             ),
         )
     }

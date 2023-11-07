@@ -10,4 +10,6 @@ pub struct HirEagerExprRegion {
     pub hir_eager_stmt_arena: HirEagerStmtArena,
     #[return_ref]
     pub hir_eager_pattern_expr_arena: HirEagerPatternExprArena,
+    #[return_ref]
+    pub hir_eager_variable_region: HirEagerVariableRegion,
 }

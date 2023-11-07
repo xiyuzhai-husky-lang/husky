@@ -189,7 +189,7 @@
                                                 6,
                                             ),
                                             access_end: None,
-                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                            data: CurrentSynSymbolData::ParenateRegularParameter {
                                                 ident: `line_segment_sketch`,
                                                 pattern_symbol_idx: 1,
                                             },
@@ -200,7 +200,7 @@
                                                 10,
                                             ),
                                             access_end: None,
-                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                            data: CurrentSynSymbolData::ParenateRegularParameter {
                                                 ident: `index`,
                                                 pattern_symbol_idx: 2,
                                             },
@@ -2191,7 +2191,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LetVariable {
+                                data: CurrentSynSymbolData::LetVariable {
                                     ident: `L`,
                                     pattern_symbol_idx: 1,
                                 },
@@ -2208,7 +2208,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LetVariable {
+                                data: CurrentSynSymbolData::LetVariable {
                                     ident: `current_displacement`,
                                     pattern_symbol_idx: 2,
                                 },
@@ -2225,7 +2225,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LetVariable {
+                                data: CurrentSynSymbolData::LetVariable {
                                     ident: `previous_displacement`,
                                     pattern_symbol_idx: 3,
                                 },
@@ -2242,7 +2242,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LetVariable {
+                                data: CurrentSynSymbolData::LetVariable {
                                     ident: `is_rotation_counterclockwise_result`,
                                     pattern_symbol_idx: 4,
                                 },
@@ -2259,7 +2259,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LetVariable {
+                                data: CurrentSynSymbolData::LetVariable {
                                     ident: `previous_raw_cross`,
                                     pattern_symbol_idx: 5,
                                 },
@@ -2276,7 +2276,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LetVariable {
+                                data: CurrentSynSymbolData::LetVariable {
                                     ident: `previous_interval`,
                                     pattern_symbol_idx: 6,
                                 },
@@ -2293,7 +2293,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LoopVariable {
+                                data: CurrentSynSymbolData::LoopVariable {
                                     ident: `i1`,
                                     expr_idx: 41,
                                 },
@@ -2310,7 +2310,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LetVariable {
+                                data: CurrentSynSymbolData::LetVariable {
                                     ident: `displacement`,
                                     pattern_symbol_idx: 7,
                                 },
@@ -2327,7 +2327,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LetVariable {
+                                data: CurrentSynSymbolData::LetVariable {
                                     ident: `current_raw_cross`,
                                     pattern_symbol_idx: 8,
                                 },
@@ -2344,7 +2344,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LetVariable {
+                                data: CurrentSynSymbolData::LetVariable {
                                     ident: `current_interval`,
                                     pattern_symbol_idx: 9,
                                 },
@@ -2361,7 +2361,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LoopVariable {
+                                data: CurrentSynSymbolData::LoopVariable {
                                     ident: `i2`,
                                     expr_idx: 70,
                                 },
@@ -2378,7 +2378,7 @@
                                         ),
                                     ),
                                 ),
-                                variant: CurrentSynSymbolVariant::LetVariable {
+                                data: CurrentSynSymbolData::LetVariable {
                                     ident: `displacement`,
                                     pattern_symbol_idx: 10,
                                 },

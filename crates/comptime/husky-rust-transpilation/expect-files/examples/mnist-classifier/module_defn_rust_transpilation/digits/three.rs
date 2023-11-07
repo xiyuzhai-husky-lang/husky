@@ -10,33 +10,33 @@ fn is_three() {
     let uparc = three_fermi_match.matches[1];
     let back = three_fermi_match.matches[2];
     require!(matches!);
-    require!(v0.unwrap().norm > 3);
+    require!(downarc.unwrap().norm > 3);
     require!(matches!);
-    let de = v0.unwrap().end_tangent().angle(true);
-    require!(v5 > 0 || v5 < -100);
-    let downarc_enpoint = v0.unwrap().end();
-    let uparc_startpoint = v1.unwrap().start();
-    let distance = v6.dist(v7);
-    require!(v8 < 20);
+    let de = downarc.unwrap().end_tangent().angle(true);
+    require!(de > 0 || de < -100);
+    let downarc_enpoint = downarc.unwrap().end();
+    let uparc_startpoint = uparc.unwrap().start();
+    let distance = downarc_enpoint.dist(uparc_startpoint);
+    require!(distance < 20);
     require!(three_fermi_match.norm < 2.5);
-    require!(v0.unwrap().angle_change < -100);
+    require!(downarc.unwrap().angle_change < -100);
     OneVsAll::Yes
 }
 
 pub fn uparc(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    let dp = v0.displacement();
-    require!(v1.y <= 0);
-    Some(-v0.bounding_box.ymin())
+    let dp = cc.displacement();
+    require!(dp.y <= 0);
+    Some(-cc.bounding_box.ymin())
 }
 
 pub fn downarc(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    let dp = v0.displacement();
-    require!(v1.y <= 0);
-    Some(-v0.bounding_box.ymin())
+    let dp = cc.displacement();
+    require!(dp.y <= 0);
+    Some(-cc.bounding_box.ymin())
 }
 
 pub fn back(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    let dp = v0.displacement();
-    require!(v1.y >= 0);
-    Some(-v0.bounding_box.ymin())
+    let dp = cc.displacement();
+    require!(dp.y >= 0);
+    Some(-cc.bounding_box.ymin())
 }

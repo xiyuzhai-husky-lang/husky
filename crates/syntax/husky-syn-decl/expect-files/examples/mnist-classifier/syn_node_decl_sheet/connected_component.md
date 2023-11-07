@@ -322,7 +322,7 @@ Ok(
                                                             8,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `row_start`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -337,7 +337,7 @@ Ok(
                                                             12,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `row_end`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -352,7 +352,7 @@ Ok(
                                                             16,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `upper_mass`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -367,7 +367,7 @@ Ok(
                                                             20,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `lower_mass`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -704,7 +704,7 @@ Ok(
                                                             12,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `matches`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -987,7 +987,7 @@ Ok(
                                                             5,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1187,7 +1187,7 @@ Ok(
                                                             8,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `mask`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -1521,7 +1521,7 @@ Ok(
                                                             5,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `a`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1532,7 +1532,7 @@ Ok(
                                                             9,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `x`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -1822,7 +1822,7 @@ Ok(
                                                             6,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `img`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -4856,7 +4856,7 @@ Ok(
                                                             5,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `k`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -5228,7 +5228,7 @@ Ok(
                                                             5,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `k`,
                                                             pattern_symbol_idx: 1,
                                                         },

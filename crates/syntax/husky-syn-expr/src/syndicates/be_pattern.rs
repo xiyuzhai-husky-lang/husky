@@ -32,7 +32,7 @@ where
                     self.pattern_expr_region(),
                     access_start,
                     Some(access_end),
-                    CurrentSynSymbolVariant::BeVariable {
+                    CurrentSynSymbolData::BeVariable {
                         ident: *ident,
                         pattern_symbol_idx: *pattern_symbol,
                     },

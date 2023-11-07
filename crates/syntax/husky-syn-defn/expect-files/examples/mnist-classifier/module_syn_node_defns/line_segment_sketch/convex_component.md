@@ -251,7 +251,7 @@ Ok(
                                                         8,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                    data: CurrentSynSymbolData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `line_segment_sketch`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -266,7 +266,7 @@ Ok(
                                                         14,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                    data: CurrentSynSymbolData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `line_segments`,
                                                             regional_token_idx: RegionalTokenIdx(

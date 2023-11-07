@@ -542,7 +542,7 @@ Ok(
                                                             10,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `points`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -557,7 +557,7 @@ Ok(
                                                             25,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `start`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -572,7 +572,7 @@ Ok(
                                                             40,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `end`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -937,7 +937,7 @@ Ok(
                                                             9,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `contour`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -952,7 +952,7 @@ Ok(
                                                             15,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        data: CurrentSynSymbolData::FieldVariable {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `strokes`,
                                                                 regional_token_idx: RegionalTokenIdx(
@@ -1317,7 +1317,7 @@ Ok(
                                                             5,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `u`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1328,7 +1328,7 @@ Ok(
                                                             9,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -1670,7 +1670,7 @@ Ok(
                                                             5,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `u`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1681,7 +1681,7 @@ Ok(
                                                             9,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -2094,7 +2094,7 @@ Ok(
                                                             5,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -2105,7 +2105,7 @@ Ok(
                                                             10,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `start`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -2116,7 +2116,7 @@ Ok(
                                                             14,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 3,
                                                         },
@@ -2612,7 +2612,7 @@ Ok(
                                                             5,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -2623,7 +2623,7 @@ Ok(
                                                             10,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `start0`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -2634,7 +2634,7 @@ Ok(
                                                             14,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `end`,
                                                             pattern_symbol_idx: 3,
                                                         },
@@ -2645,7 +2645,7 @@ Ok(
                                                             18,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 4,
                                                         },
@@ -3045,7 +3045,7 @@ Ok(
                                                             5,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -3056,7 +3056,7 @@ Ok(
                                                             10,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -4216,7 +4216,7 @@ Ok(
                                                             6,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -4227,7 +4227,7 @@ Ok(
                                                             11,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `from`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -4238,7 +4238,7 @@ Ok(
                                                             15,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `to`,
                                                             pattern_symbol_idx: 3,
                                                         },
@@ -6144,7 +6144,7 @@ Ok(
                                                             6,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -6155,7 +6155,7 @@ Ok(
                                                             11,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        data: CurrentSynSymbolData::ParenateRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 2,
                                                         },
