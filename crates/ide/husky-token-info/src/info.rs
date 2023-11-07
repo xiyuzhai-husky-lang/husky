@@ -56,8 +56,8 @@ pub enum TokenInfoData {
     Entity(EntityPath),
     EntityNode(ItemSynNodePath, EntityKind),
     InheritedSynSymbol {
-        inherited_symbol_idx: InheritedSynSymbolIdx,
-        inherited_symbol_kind: InheritedSynSymbolKind,
+        inherited_syn_symbol_idx: InheritedSynSymbolIdx,
+        inherited_syn_symbol_kind: InheritedSynSymbolKind,
         syn_expr_region: ExprRegionLeash,
     },
     CurrentSynSymbol {
@@ -102,16 +102,16 @@ impl TokenInfoData {
                 | CurrentSynSymbolKind::BeVariable { .. }
                 | CurrentSynSymbolKind::CaseVariable { .. } => TokenClass::Variable,
                 CurrentSynSymbolKind::ExplicitRegularParameter { .. } => TokenClass::Parameter,
-                CurrentSynSymbolKind::FrameVariable(_) => TokenClass::FrameVariable,
+                CurrentSynSymbolKind::LoopVariable(_) => TokenClass::LoopVariable,
                 CurrentSynSymbolKind::TemplateParameter { .. } => TokenClass::ImplicitParameter,
                 CurrentSynSymbolKind::ExplicitVariadicParameter { .. } => TokenClass::Parameter,
                 CurrentSynSymbolKind::FieldVariable { .. } => TokenClass::Variable,
             },
             // TokenProtocol::Variable,
             TokenInfoData::InheritedSynSymbol {
-                inherited_symbol_kind,
+                inherited_syn_symbol_kind,
                 ..
-            } => match inherited_symbol_kind {
+            } => match inherited_syn_symbol_kind {
                 InheritedSynSymbolKind::ParenateParameter { .. } => TokenClass::Parameter,
                 InheritedSynSymbolKind::TemplateParameter { .. } => TokenClass::ImplicitParameter,
                 InheritedSynSymbolKind::FieldVariable { .. } => TokenClass::Variable,

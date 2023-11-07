@@ -133,30 +133,18 @@
                             HirEagerExprRegion {
                                 hir_eager_expr_arena: Arena {
                                     data: [
-                                        SelfType,
-                                        Field {
+                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Field {
                                             owner_hir_expr_idx: 1,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 399,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `line_segments`,
                                         },
-                                        MethodCall {
+                                        HirEagerExprData::MethodCall {
                                             self_argument: 2,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 160,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `visualize`,
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        Block {
+                                        HirEagerExprData::Block {
                                             stmts: ArenaIdxRange(
                                                 1..2,
                                             ),

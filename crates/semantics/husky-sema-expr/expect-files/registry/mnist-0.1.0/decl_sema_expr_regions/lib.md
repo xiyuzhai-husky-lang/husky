@@ -53,7 +53,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -100,7 +100,7 @@
             },
             sema_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -108,7 +108,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -257,7 +257,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -522,7 +522,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -530,7 +530,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -881,7 +881,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -1146,7 +1146,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -1154,7 +1154,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -1477,7 +1477,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -1593,7 +1593,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -1601,7 +1601,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -1783,7 +1783,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -1968,7 +1968,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -1976,7 +1976,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -2205,7 +2205,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -2306,7 +2306,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -2422,7 +2422,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -2430,7 +2430,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -2591,7 +2591,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -2709,7 +2709,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -2717,7 +2717,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -2888,7 +2888,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -2961,7 +2961,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -3069,7 +3069,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -3077,7 +3077,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -3311,7 +3311,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -3496,7 +3496,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -3504,7 +3504,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -3775,7 +3775,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -3876,7 +3876,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -3992,7 +3992,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -4000,7 +4000,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -4192,7 +4192,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -4377,7 +4377,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -4385,7 +4385,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -4614,7 +4614,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -4715,7 +4715,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -4831,7 +4831,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -4839,7 +4839,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -5000,7 +5000,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -5118,7 +5118,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -5126,7 +5126,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -5297,7 +5297,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -5370,7 +5370,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -5478,7 +5478,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -5486,7 +5486,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -5720,7 +5720,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -5905,7 +5905,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -5913,7 +5913,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -6184,7 +6184,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -6285,7 +6285,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -6401,7 +6401,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -6409,7 +6409,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {

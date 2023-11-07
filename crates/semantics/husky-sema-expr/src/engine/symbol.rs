@@ -5,7 +5,7 @@ impl<'a> SemaExprEngine<'a> {
         for current_syn_symbol_idx in self
             .syn_expr_region_data
             .symbol_region()
-            .current_syn_symbol_index_iter()
+            .current_syn_symbol_indices()
         {
             let Some(signature) = self
                 .declarative_term_region

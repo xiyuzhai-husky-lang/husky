@@ -353,8 +353,8 @@ where
                             SynExprData::InheritedSynSymbol {
                                 ident,
                                 regional_token_idx,
-                                inherited_symbol_idx,
-                                inherited_symbol_kind,
+                                inherited_syn_symbol_idx,
+                                inherited_syn_symbol_kind,
                             } => todo!(),
                             SynExprData::CurrentSynSymbol {
                                 ident,
@@ -529,12 +529,12 @@ where
                         ),
                     )
                 }
-                Symbol::Inherited(inherited_symbol_idx, inherited_symbol_kind) => {
+                Symbol::Inherited(inherited_syn_symbol_idx, inherited_syn_symbol_kind) => {
                     DisambiguatedTokenData::InheritedSynSymbol {
                         ident,
                         regional_token_idx,
-                        inherited_symbol_idx,
-                        inherited_symbol_kind,
+                        inherited_syn_symbol_idx,
+                        inherited_syn_symbol_kind,
                     }
                 }
                 Symbol::Current(current_syn_symbol_idx, current_syn_symbol_kind) => {
@@ -561,8 +561,8 @@ pub(crate) enum DisambiguatedTokenData {
     InheritedSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_symbol_idx: InheritedSynSymbolIdx,
-        inherited_symbol_kind: InheritedSynSymbolKind,
+        inherited_syn_symbol_idx: InheritedSynSymbolIdx,
+        inherited_syn_symbol_kind: InheritedSynSymbolKind,
     },
     CurrentSynSymbol {
         ident: Ident,

@@ -84,7 +84,7 @@ impl<T> Arena<T> {
         self.data[start..].iter_mut()
     }
 
-    pub fn index_iter<'a>(&'a self) -> impl Iterator<Item = ArenaIdx<T>> {
+    pub fn indices<'a>(&'a self) -> impl Iterator<Item = ArenaIdx<T>> {
         (0..self.data.len()).map(|i| ArenaIdx::new(i))
     }
 

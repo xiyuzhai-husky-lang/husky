@@ -453,8 +453,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 4,
-                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                        inherited_syn_symbol_idx: 4,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Type {
                                 ident: `E2`,
                             },
@@ -540,8 +540,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 2,
-                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Type {
                                 ident: `T2`,
                             },
@@ -558,8 +558,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 4,
-                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                        inherited_syn_symbol_idx: 4,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Type {
                                 ident: `E2`,
                             },
@@ -597,8 +597,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 1,
-                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Type {
                                 ident: `T1`,
                             },
@@ -615,8 +615,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 3,
-                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                        inherited_syn_symbol_idx: 3,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                             InheritedTemplateParameterSynSymbol::Type {
                                 ident: `E1`,
                             },

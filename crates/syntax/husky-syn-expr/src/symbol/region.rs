@@ -35,7 +35,7 @@ impl AllowSelfType {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct SynSymbolRegion {
-    inherited_symbol_arena: InheritedSynSymbolArena,
+    inherited_syn_symbol_arena: InheritedSynSymbolArena,
     current_syn_symbol_arena: CurrentSynSymbolArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
@@ -60,7 +60,7 @@ pub enum SyndicateTypeConstraint {
         ident_token: IdentRegionalToken,
         ty_expr_idx: SynExprIdx,
     },
-    FrameVariable,
+    LoopVariable,
 }
 
 impl SynSymbolRegion {
@@ -86,7 +86,7 @@ impl SynSymbolRegion {
         }
         Self {
             // ad hoc
-            inherited_symbol_arena: match parent_symbol_region {
+            inherited_syn_symbol_arena: match parent_symbol_region {
                 Some(parent_symbol_region) => parent_symbol_region.bequeath(),
                 None => Default::default(),
             },
@@ -144,42 +144,46 @@ impl SynSymbolRegion {
                 Symbol::Current(current_syn_symbol_idx, current_syn_symbol.kind())
             })
             .or_else(|| {
-                self.inherited_symbol_arena
+                self.inherited_syn_symbol_arena
                     .find_rev_indexed(|symbol| symbol.ident() == Some(ident))
-                    .map(|(inherited_symbol_idx, inherited_symbol)| {
-                        Symbol::Inherited(inherited_symbol_idx, inherited_symbol.kind)
+                    .map(|(inherited_syn_symbol_idx, inherited_syn_symbol)| {
+                        Symbol::Inherited(inherited_syn_symbol_idx, inherited_syn_symbol.kind)
                     })
             })
     }
 
-    pub fn inherited_symbol_iter<'a>(
+    pub fn inherited_syn_symbols<'a>(
         &'a self,
     ) -> impl Iterator<Item = &'a InheritedSynSymbol> + 'a {
-        self.inherited_symbol_arena.data().iter()
+        self.inherited_syn_symbol_arena.data().iter()
     }
 
-    pub fn indexed_inherited_symbol_iter<'a>(
+    pub fn indexed_inherited_syn_symbols<'a>(
         &'a self,
     ) -> impl Iterator<Item = (InheritedSynSymbolIdx, InheritedSynSymbol)> + 'a {
-        self.inherited_symbol_arena.indexed_copy_iter()
+        self.inherited_syn_symbol_arena.indexed_copy_iter()
     }
 
-    pub fn current_syn_symbol_indexed_iter<'a>(
+    pub fn current_syn_symbols<'a>(&'a self) -> impl Iterator<Item = &'a CurrentSynSymbol> + 'a {
+        self.current_syn_symbol_arena.iter()
+    }
+
+    pub fn indexed_current_syn_symbols<'a>(
         &'a self,
     ) -> impl Iterator<Item = (CurrentSynSymbolIdx, &'a CurrentSynSymbol)> + 'a {
         self.current_syn_symbol_arena.indexed_iter()
     }
 
-    pub fn current_syn_symbol_index_iter(&self) -> impl Iterator<Item = CurrentSynSymbolIdx> {
-        self.current_syn_symbol_arena.index_iter()
+    pub fn current_syn_symbol_indices(&self) -> impl Iterator<Item = CurrentSynSymbolIdx> {
+        self.current_syn_symbol_arena.indices()
     }
 
     fn bequeath(&self) -> InheritedSynSymbolArena {
-        let mut inherited_symbol_arena = InheritedSynSymbolArena::default();
-        for (_, inherited_symbol) in self.indexed_inherited_symbol_iter() {
-            inherited_symbol_arena.alloc_one(inherited_symbol);
+        let mut inherited_syn_symbol_arena = InheritedSynSymbolArena::default();
+        for (_, inherited_syn_symbol) in self.indexed_inherited_syn_symbols() {
+            inherited_syn_symbol_arena.alloc_one(inherited_syn_symbol);
         }
-        for (current_syn_symbol_idx, current_syn_symbol) in self.current_syn_symbol_indexed_iter() {
+        for (current_syn_symbol_idx, current_syn_symbol) in self.indexed_current_syn_symbols() {
             let kind = match current_syn_symbol.variant {
                 CurrentSynSymbolVariant::ParenateRegularParameter { ident, .. } => {
                     InheritedSynSymbolKind::ParenateParameter { ident }
@@ -187,7 +191,7 @@ impl SynSymbolRegion {
                 CurrentSynSymbolVariant::LetVariable { .. } => todo!(),
                 CurrentSynSymbolVariant::BeVariable { .. } => todo!(),
                 CurrentSynSymbolVariant::CaseVariable { .. } => todo!(),
-                CurrentSynSymbolVariant::FrameVariable { .. } => todo!(),
+                CurrentSynSymbolVariant::LoopVariable { .. } => todo!(),
                 CurrentSynSymbolVariant::TemplateParameter {
                     ref template_parameter_variant,
                     ..
@@ -209,13 +213,13 @@ impl SynSymbolRegion {
                     }
                 }
             };
-            inherited_symbol_arena.alloc_one(InheritedSynSymbol {
+            inherited_syn_symbol_arena.alloc_one(InheritedSynSymbol {
                 kind,
                 modifier: current_syn_symbol.modifier,
                 parent_symbol_idx: current_syn_symbol_idx.into(),
             });
         }
-        inherited_symbol_arena
+        inherited_syn_symbol_arena
     }
 
     pub fn allow_self_ty(&self) -> AllowSelfType {
@@ -226,8 +230,8 @@ impl SynSymbolRegion {
         self.allow_self_value
     }
 
-    pub fn inherited_symbol_arena(&self) -> &InheritedSynSymbolArena {
-        &self.inherited_symbol_arena
+    pub fn inherited_syn_symbol_arena(&self) -> &InheritedSynSymbolArena {
+        &self.inherited_syn_symbol_arena
     }
 
     pub fn current_syn_symbol_arena(&self) -> &CurrentSynSymbolArena {
@@ -258,7 +262,7 @@ impl std::ops::Index<InheritedSynSymbolIdx> for SynSymbolRegion {
     type Output = InheritedSynSymbol;
 
     fn index(&self, index: InheritedSynSymbolIdx) -> &Self::Output {
-        &self.inherited_symbol_arena[index]
+        &self.inherited_syn_symbol_arena[index]
     }
 }
 
@@ -289,7 +293,7 @@ impl LocalSymbolIdx {
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         symbol_region: &SynSymbolRegion,
     ) -> Self {
-        Self(symbol_region.inherited_symbol_arena.len() + current_syn_symbol_idx.index())
+        Self(symbol_region.inherited_syn_symbol_arena.len() + current_syn_symbol_idx.index())
     }
 }
 

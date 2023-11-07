@@ -4,7 +4,7 @@ fn left_components() {
 }
 
 pub fn left_coordinate_max(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    cc.relative_bounding_box.xmax()
+    v0.relative_bounding_box.xmax()
 }
 
 fn components_max_downwards() {
@@ -22,9 +22,9 @@ fn is_four() {
     require!(matches!);
     let down_match = components_max_downwards.matches[0];
     require!(matches!);
-    let down_match_dp_y = down_match.unwrap().displacement().y;
+    let down_match_dp_y = v4.unwrap().displacement().y;
     let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass;
-    require!(higher_excess > 7);
+    require!(v7 > 7);
     if matches! {
         require!(major_concave_components.ilen() >= 2);
         let four_match_refine_result = components_max_heights.matches[0];
@@ -33,26 +33,26 @@ fn is_four() {
         let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass;
         let upper_arc = components_max_heights.matches[0];
         require!(matches!);
-        require!(upper_arc.unwrap().displacement().y > 0);
-        require!(upper_arc.unwrap().angle_change < -110);
+        require!(v12.unwrap().displacement().y > 0);
+        require!(v12.unwrap().angle_change < -110);
         require!(components_max_heights.norm < 9);
         let a = major_connected_component.top_k_row_right_mass_sum(3);
-        require!(a < 22);
-        require!(a > 9);
+        require!(v14 < 22);
+        require!(v14 > 9);
         return OneVsAll::Yes;
     }
     OneVsAll::Yes
 }
 
 pub fn displacement_downwards(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    let dp = cc.displacement();
-    require!(dp.y < 0);
-    dp.y
+    let dp = v0.displacement();
+    require!(v1.y < 0);
+    v1.y
 }
 
 pub fn cc_box_heights(cc: Leash<ConcaveComponent>) -> Option<f32> {
-    let dp = cc.displacement();
-    require!(dp.y > 0);
-    require!(cc.relative_bounding_box.ymin() > 0.4);
-    cc.relative_bounding_box.ymin()
+    let dp = v0.displacement();
+    require!(v1.y > 0);
+    require!(v0.relative_bounding_box.ymin() > 0.4);
+    v0.relative_bounding_box.ymin()
 }

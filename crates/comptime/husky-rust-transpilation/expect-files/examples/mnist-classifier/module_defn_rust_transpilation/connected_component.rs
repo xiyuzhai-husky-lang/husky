@@ -4,61 +4,61 @@ struct ConnectedComponentDistribution{row_start: i32, row_end: i32, upper_mass: 
 struct EffHoles{matches: Vec<Option<Leash<RawContour>>>}
 
 pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
-    let len = ct.contour_len;
-    require!(len > 4);
-    len + 0
+    let len = v0.contour_len;
+    require!(v1 > 4);
+    v1 + 0
 }
 
 struct ConnectedComponent{mask: BinaryImage28}
 
 pub fn horizontal_extend(a: r32, x: r32) -> r32 {
-    let mut y = a | (x | x << 1 | x >> 1);
-    let mut z = a | (y | y << 1 | y >> 1);
-    while z != y {
-        y = z;
-        z = a | (y | y << 1 | y >> 1)
+    let mut y = v0 | (v1 | v1 << 1 | v1 >> 1);
+    let mut z = v0 | (v2 | v2 << 1 | v2 >> 1);
+    while v3 != v2 {
+        v2 = v3;
+        v3 = v0 | (v2 | v2 << 1 | v2 >> 1)
     }
-    return y;
+    return v2;
 }
 
 pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> {
     let mut result: Vec<ConnectedComponent> = vec![];
-    let mut unsearched = img.clone();
+    let mut unsearched = v0.clone();
     for j in 0..30 {
-        while unsearched[j] {
-            let a = unsearched[j];
-            let shift = a.ctz();
+        while v2[v3] {
+            let a = v2[v3];
+            let shift = v4.ctz();
             let mut mask = new_zeros();
-            mask[j] = horizontal_extend(a, 1 << shift);
+            v6[v3] = horizontal_extend(v4, 1 << v5);
             let mut flag = false;
-            while !flag {
-                flag = true;
-                let mut i = j;
+            while !v7 {
+                v7 = true;
+                let mut i = v3;
                 // Forext incompleteloop {
-                    let old_row = mask[i + 1];
-                    let new_row = old_row | horizontal_extend(img[i + 1], mask[i]);
-                    if !new_row {
+                    let old_row = v6[v8 + 1];
+                    let new_row = v9 | horizontal_extend(v0[v8 + 1], v6[v8]);
+                    if !v10 {
                         break;
                     }
-                    if old_row != new_row {
-                        flag = false;
-                        mask[i + 1] = new_row
+                    if v9 != v10 {
+                        v7 = false;
+                        v6[v8 + 1] = v10
                     }
                 }
                 // Forext incompleteloop {
-                    let old_row = mask[i];
-                    let new_row = old_row | horizontal_extend(img[i], mask[i + 1]);
-                    if old_row != new_row {
-                        flag = false;
-                        mask[i] = new_row
+                    let old_row = v6[v8];
+                    let new_row = v11 | horizontal_extend(v0[v8], v6[v8 + 1]);
+                    if v11 != v12 {
+                        v7 = false;
+                        v6[v8] = v12
                     }
                 }
             }
-            for k in j..30 {
-                unsearched[k] &= !mask[k]
+            for k in v3..30 {
+                v2[v13] &= !v6[v13]
             }
-            result.push(ConnectedComponent(mask))
+            v1.push(ConnectedComponent(v6))
         }
     }
-    return result;
+    return v1;
 }

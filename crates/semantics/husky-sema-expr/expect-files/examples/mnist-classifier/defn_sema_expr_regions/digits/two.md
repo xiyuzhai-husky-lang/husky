@@ -83,7 +83,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -335,7 +335,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -751,7 +751,7 @@
             },
             sema_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -759,7 +759,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -1373,7 +1373,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -1447,8 +1447,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 4,
                             ),
-                            inherited_symbol_idx: 1,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 1,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `cc`,
                             },
                         },
@@ -1638,7 +1638,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
                                 parent_symbol_idx: Current(
@@ -1732,8 +1732,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_symbol_idx: 1,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 1,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -2339,7 +2339,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -2383,7 +2383,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                     ],
@@ -2885,7 +2885,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -2959,8 +2959,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 4,
                             ),
-                            inherited_symbol_idx: 1,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 1,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `cc`,
                             },
                         },
@@ -3150,7 +3150,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
                                 parent_symbol_idx: Current(
@@ -3244,8 +3244,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_symbol_idx: 1,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 1,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -3851,7 +3851,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -3895,7 +3895,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                     ],
@@ -4397,7 +4397,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -4471,8 +4471,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 4,
                             ),
-                            inherited_symbol_idx: 1,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 1,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `cc`,
                             },
                         },
@@ -4662,7 +4662,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
                                 parent_symbol_idx: Current(
@@ -4756,8 +4756,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_symbol_idx: 1,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 1,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -5363,7 +5363,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -5407,7 +5407,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                     ],
@@ -5928,7 +5928,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -8920,7 +8920,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -17666,7 +17666,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -18167,7 +18167,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {

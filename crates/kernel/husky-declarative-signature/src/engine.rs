@@ -81,7 +81,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         let mut current_syn_symbol_indexed_iter = self
             .syn_expr_region_data
             .symbol_region()
-            .current_syn_symbol_indexed_iter();
+            .indexed_current_syn_symbols();
         for (pattern_ty_constraint, symbols) in self
             .syn_expr_region_data
             .symbol_region()
@@ -189,7 +189,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                         .add_new_field_variable_symbol_signature(self.db, symbols.start(), ty)
                 }
                 SyndicateTypeConstraint::LetPattern { .. }
-                | SyndicateTypeConstraint::FrameVariable => {
+                | SyndicateTypeConstraint::LoopVariable => {
                     // need only to compute for decl region
                     return;
                 }
@@ -395,11 +395,11 @@ impl<'a> DeclarativeTermEngine<'a> {
                 ident_token,
             } => todo!(),
             SynExprData::InheritedSynSymbol {
-                inherited_symbol_idx,
+                inherited_syn_symbol_idx,
                 ..
             } => self
                 .symbol_declarative_term_region
-                .inherited_symbol_signature(inherited_symbol_idx)
+                .inherited_syn_symbol_signature(inherited_syn_symbol_idx)
                 .term_symbol()
                 .map(Into::into)
                 .ok_or(DerivedDeclarativeTermError2::InheritedSynSymbolIsNotValidTerm.into()),

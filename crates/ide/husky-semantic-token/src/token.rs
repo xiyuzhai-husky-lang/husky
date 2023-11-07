@@ -36,7 +36,7 @@ impl SemanticToken {
             TokenClass::Field => ext::SemanticTokenType::PROPERTY,
             TokenClass::Punctuation => ext::SemanticTokenType::OPERATOR,
             TokenClass::Variable => ext::SemanticTokenType::VARIABLE,
-            TokenClass::FrameVariable => ext::SemanticTokenType::VARIABLE,
+            TokenClass::LoopVariable => ext::SemanticTokenType::VARIABLE,
             TokenClass::ModuleEntity => ext::SemanticTokenType::NAMESPACE,
             TokenClass::TypeEntity => ext::SemanticTokenType::TYPE,
             TokenClass::ValEntity => ext::SemanticTokenType::VARIABLE,

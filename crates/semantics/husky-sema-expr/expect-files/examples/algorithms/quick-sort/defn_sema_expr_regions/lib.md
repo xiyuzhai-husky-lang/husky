@@ -149,7 +149,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -250,8 +250,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 4,
                             ),
-                            inherited_symbol_idx: 2,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 2,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `arr`,
                             },
                         },
@@ -290,8 +290,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 11,
                             ),
-                            inherited_symbol_idx: 2,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 2,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `arr`,
                             },
                         },
@@ -515,7 +515,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
                                 parent_symbol_idx: Current(
@@ -616,8 +616,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_symbol_idx: 2,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 2,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -761,8 +761,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         11,
                                     ),
-                                    inherited_symbol_idx: 2,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 2,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -1373,7 +1373,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -1433,7 +1433,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             FluffyTerm {
@@ -2489,7 +2489,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -2650,8 +2650,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 2,
                             ),
-                            inherited_symbol_idx: 3,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 3,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `low`,
                             },
                         },
@@ -2660,8 +2660,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 4,
                             ),
-                            inherited_symbol_idx: 4,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 4,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `high`,
                             },
                         },
@@ -2690,8 +2690,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 11,
                             ),
-                            inherited_symbol_idx: 2,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 2,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `arr`,
                             },
                         },
@@ -2700,8 +2700,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 13,
                             ),
-                            inherited_symbol_idx: 3,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 3,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `low`,
                             },
                         },
@@ -2710,8 +2710,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 15,
                             ),
-                            inherited_symbol_idx: 4,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 4,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `high`,
                             },
                         },
@@ -2762,8 +2762,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 19,
                             ),
-                            inherited_symbol_idx: 2,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 2,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `arr`,
                             },
                         },
@@ -2772,8 +2772,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 21,
                             ),
-                            inherited_symbol_idx: 3,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 3,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `low`,
                             },
                         },
@@ -2854,8 +2854,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 29,
                             ),
-                            inherited_symbol_idx: 2,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 2,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `arr`,
                             },
                         },
@@ -2894,8 +2894,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 35,
                             ),
-                            inherited_symbol_idx: 4,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 4,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `high`,
                             },
                         },
@@ -3097,7 +3097,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
                                 parent_symbol_idx: Current(
@@ -3220,8 +3220,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
-                                    inherited_symbol_idx: 3,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 3,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -3262,8 +3262,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_symbol_idx: 4,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 4,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -3377,8 +3377,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         11,
                                     ),
-                                    inherited_symbol_idx: 2,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 2,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -3417,8 +3417,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         13,
                                     ),
-                                    inherited_symbol_idx: 3,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 3,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -3459,8 +3459,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         15,
                                     ),
-                                    inherited_symbol_idx: 4,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 4,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -3643,8 +3643,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         19,
                                     ),
-                                    inherited_symbol_idx: 2,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 2,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -3683,8 +3683,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         21,
                                     ),
-                                    inherited_symbol_idx: 3,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 3,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -3975,8 +3975,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         29,
                                     ),
-                                    inherited_symbol_idx: 2,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 2,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -4123,8 +4123,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         35,
                                     ),
-                                    inherited_symbol_idx: 4,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 4,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -4548,7 +4548,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -4644,7 +4644,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             FluffyTerm {
@@ -6743,7 +6743,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -6908,8 +6908,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 4,
                             ),
-                            inherited_symbol_idx: 4,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 4,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `high`,
                             },
                         },
@@ -6936,8 +6936,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 11,
                             ),
-                            inherited_symbol_idx: 3,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 3,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `low`,
                             },
                         },
@@ -6966,8 +6966,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 18,
                             ),
-                            inherited_symbol_idx: 4,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 4,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `high`,
                             },
                         },
@@ -7014,8 +7014,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 26,
                             ),
-                            inherited_symbol_idx: 2,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 2,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `arr`,
                             },
                         },
@@ -7052,8 +7052,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 33,
                             ),
-                            inherited_symbol_idx: 2,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 2,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `arr`,
                             },
                         },
@@ -7192,8 +7192,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 49,
                             ),
-                            inherited_symbol_idx: 2,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 2,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `arr`,
                             },
                         },
@@ -7230,8 +7230,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 56,
                             ),
-                            inherited_symbol_idx: 2,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 2,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `arr`,
                             },
                         },
@@ -7370,8 +7370,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 72,
                             ),
-                            inherited_symbol_idx: 2,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 2,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `arr`,
                             },
                         },
@@ -7469,8 +7469,8 @@
                             regional_token_idx: RegionalTokenIdx(
                                 84,
                             ),
-                            inherited_symbol_idx: 2,
-                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                            inherited_syn_symbol_idx: 2,
+                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                 ident: `arr`,
                             },
                         },
@@ -8034,7 +8034,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
                                 parent_symbol_idx: Current(
@@ -8258,8 +8258,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_symbol_idx: 4,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 4,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -8340,8 +8340,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         11,
                                     ),
-                                    inherited_symbol_idx: 3,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 3,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -8454,8 +8454,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
-                                    inherited_symbol_idx: 4,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 4,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -8632,8 +8632,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         26,
                                     ),
-                                    inherited_symbol_idx: 2,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 2,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -8837,8 +8837,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         33,
                                     ),
-                                    inherited_symbol_idx: 2,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 2,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -9337,8 +9337,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         49,
                                     ),
-                                    inherited_symbol_idx: 2,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 2,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -9542,8 +9542,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         56,
                                     ),
-                                    inherited_symbol_idx: 2,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 2,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -9982,8 +9982,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         72,
                                     ),
-                                    inherited_symbol_idx: 2,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 2,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -10404,8 +10404,8 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         84,
                                     ),
-                                    inherited_symbol_idx: 2,
-                                    inherited_symbol_kind: ParenateParameter {
+                                    inherited_syn_symbol_idx: 2,
+                                    inherited_syn_symbol_kind: ParenateParameter {
                                         ident: Ident(
                                             Coword(
                                                 Id {
@@ -11863,7 +11863,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -11995,7 +11995,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             FluffyTerm {
@@ -14543,7 +14543,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -14906,7 +14906,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -15889,7 +15889,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -15914,7 +15914,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -16807,7 +16807,7 @@
                                 },
                             },
                             symbol_region: SynSymbolRegion {
-                                inherited_symbol_arena: Arena {
+                                inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 current_syn_symbol_arena: Arena {
@@ -17044,7 +17044,7 @@
                     },
                 },
                 symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
+                    inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
                     current_syn_symbol_arena: Arena {
@@ -17636,7 +17636,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {
@@ -17661,7 +17661,7 @@
                 },
             },
             symbol_terms: SymbolMap {
-                inherited_symbol_map: ArenaMap {
+                inherited_syn_symbol_map: ArenaMap {
                     data: [],
                 },
                 current_syn_symbol_map: ArenaMap {

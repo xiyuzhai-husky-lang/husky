@@ -8,6 +8,7 @@ pub use self::branch_stmt::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::debug_with_db(db = HirLazyExprDb)]
 pub enum HirLazyStmt {
     Let {
         pattern: HirLazyLetVariablesPattern,

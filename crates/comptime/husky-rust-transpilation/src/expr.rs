@@ -7,10 +7,10 @@ pub(crate) use self::precedence::{RustPrecedence, RustPrecedenceRange};
 use self::precedence::hir_eager_expr_precedence;
 use crate::*;
 use husky_hir_eager_expr::{
-    HirEagerCallListItemGroup, HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch,
-    HirEagerExprData, HirEagerExprIdx, HirEagerIfBranch, HirEagerLetVariablesPattern,
-    HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmt, HirEagerStmtIdx,
-    HirEagerStmtIdxRange,
+    variable::HirEagerVariableIdx, HirEagerCallListItemGroup, HirEagerCondition,
+    HirEagerElifBranch, HirEagerElseBranch, HirEagerExprData, HirEagerExprIdx, HirEagerIfBranch,
+    HirEagerLetVariablesPattern, HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmt,
+    HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_opr::BinaryClosedOpr;
@@ -43,9 +43,10 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::PrincipalEntityPath(principal_entity_path) => {
             principal_entity_path.transpile_to_rust(builder)
         }
-        HirEagerExprData::InheritedSynSymbol { ident } => ident.transpile_to_rust(builder),
-        HirEagerExprData::CurrentSynSymbol { ident } => ident.transpile_to_rust(builder),
-        HirEagerExprData::FrameVarDecl { ident } => ident.transpile_to_rust(builder),
+        HirEagerExprData::ConstSymbol(_) => todo!(),
+        HirEagerExprData::Variable(hir_eager_variable_idx) => {
+            hir_eager_variable_idx.transpile_to_rust(builder)
+        }
         HirEagerExprData::SelfType => builder.self_ty(),
         HirEagerExprData::SelfValue => builder.self_value(),
         HirEagerExprData::Binary { lopd, opr, ropd } => match opr {

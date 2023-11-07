@@ -322,7 +322,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             5,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -441,7 +441,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             5,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -578,7 +578,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             5,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -697,7 +697,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             5,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -834,7 +834,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             5,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -953,7 +953,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             5,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -1240,8 +1240,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 1,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `concave_components`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1350,7 +1350,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             10,
                         ),
                         syn_expr_region: ExprRegionLeash(_),
@@ -1366,8 +1366,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 2,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `templates`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1412,8 +1412,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_symbol_idx: 2,
-                        inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                             ident: `templates`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1430,7 +1430,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FrameVariable(
+                        current_syn_symbol_kind: CurrentSynSymbolKind::LoopVariable(
                             10,
                         ),
                         syn_expr_region: ExprRegionLeash(_),

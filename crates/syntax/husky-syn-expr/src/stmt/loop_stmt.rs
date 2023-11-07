@@ -183,7 +183,7 @@ impl<'a> SynStmtContext<'a> {
                 ropd,
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr);
-                let current_syn_symbol_variant = CurrentSynSymbolVariant::FrameVariable {
+                let current_syn_symbol_variant = CurrentSynSymbolVariant::LoopVariable {
                     expr_idx: particulars.for_between_loop_var_expr_idx,
                     ident: particulars.for_between_loop_var_ident,
                 };
@@ -202,7 +202,7 @@ impl<'a> SynStmtContext<'a> {
                 let frame_var_symbol_idx = self
                     .define_symbols(
                         vec![frame_var_symbol],
-                        Some(SyndicateTypeConstraint::FrameVariable),
+                        Some(SyndicateTypeConstraint::LoopVariable),
                     )
                     .start();
                 self.syn_expr_arena_mut().set(
@@ -331,8 +331,8 @@ impl<'a> SynStmtContext<'a> {
                 SynExprData::InheritedSynSymbol {
                     ident,
                     regional_token_idx,
-                    inherited_symbol_idx,
-                    inherited_symbol_kind,
+                    inherited_syn_symbol_idx,
+                    inherited_syn_symbol_kind,
                 } => (ident, regional_token_idx),
                 SynExprData::CurrentSynSymbol {
                     ident,

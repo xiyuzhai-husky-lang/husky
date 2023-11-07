@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 900;\n\ntoken_line_group_idx = 95\n\ntoken = TokenData::Ident(\n    `r`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                40,\n            ),\n        ),\n        data: TokenInfoData::InheritedSynSymbol {\n            inherited_symbol_idx: 4,\n            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {\n                ident: `r`,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nInheritedSynSymbol {\n    parent_symbol_idx: Current(\n        4,\n    ),\n    modifier: None,\n    kind: InheritedSynSymbolKind::ParenateParameter {\n        ident: `r`,\n    },\n}\n",
+                                value: "\ntoken_idx = 900;\n\ntoken_line_group_idx = 95\n\ntoken = TokenData::Ident(\n    `r`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                40,\n            ),\n        ),\n        data: TokenInfoData::InheritedSynSymbol {\n            inherited_syn_symbol_idx: 4,\n            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {\n                ident: `r`,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nInheritedSynSymbol {\n    parent_symbol_idx: Current(\n        4,\n    ),\n    modifier: None,\n    kind: InheritedSynSymbolKind::ParenateParameter {\n        ident: `r`,\n    },\n}\n",
                             },
                         ),
                         range: Some(

@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolOrderedMap<V> {
-    inherited_symbol_map: InheritedSynSymbolOrderedMap<V>,
+    inherited_syn_symbol_map: InheritedSynSymbolOrderedMap<V>,
     current_syn_symbol_map: CurrentSynSymbolOrderedMap<V>,
 }
 
@@ -12,13 +12,13 @@ impl<V> SymbolOrderedMap<V> {
         V: Clone,
     {
         Self {
-            inherited_symbol_map: match parent {
+            inherited_syn_symbol_map: match parent {
                 Some(parent) => {
-                    let mut inherited_symbol_map = parent.inherited_symbol_map.clone();
+                    let mut inherited_syn_symbol_map = parent.inherited_syn_symbol_map.clone();
                     for v in parent.current_syn_symbol_map.iter() {
-                        unsafe { inherited_symbol_map.insert_next_unchecked(v.clone()) }
+                        unsafe { inherited_syn_symbol_map.insert_next_unchecked(v.clone()) }
                     }
-                    inherited_symbol_map
+                    inherited_syn_symbol_map
                 }
                 None => Default::default(),
             },
@@ -30,8 +30,8 @@ impl<V> SymbolOrderedMap<V> {
         self.current_syn_symbol_map.insert_next(idx, v)
     }
 
-    pub fn inherited_symbol_map(&self) -> &InheritedSynSymbolOrderedMap<V> {
-        &self.inherited_symbol_map
+    pub fn inherited_syn_symbol_map(&self) -> &InheritedSynSymbolOrderedMap<V> {
+        &self.inherited_syn_symbol_map
     }
 
     pub fn current_syn_symbol_map(&self) -> &CurrentSynSymbolOrderedMap<V> {
@@ -43,7 +43,7 @@ impl<V> std::ops::Index<InheritedSynSymbolIdx> for SymbolOrderedMap<V> {
     type Output = V;
 
     fn index(&self, index: InheritedSynSymbolIdx) -> &Self::Output {
-        &self.inherited_symbol_map[index]
+        &self.inherited_syn_symbol_map[index]
     }
 }
 

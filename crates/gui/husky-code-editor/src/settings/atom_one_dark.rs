@@ -44,7 +44,7 @@ pub fn atom_one_theme_map(token_class: TokenClass) -> Color32 {
         TokenClass::Punctuation => ATOM_ONE_DARK_COLOR_WHITE,
         TokenClass::Parameter => ATOM_ONE_DARK_COLOR_RED,
         TokenClass::Variable => ATOM_ONE_DARK_COLOR_RED,
-        TokenClass::FrameVariable => ATOM_ONE_DARK_COLOR_WHITE,
+        TokenClass::LoopVariable => ATOM_ONE_DARK_COLOR_WHITE,
         TokenClass::ModuleEntity => ATOM_ONE_DARK_COLOR_WHITE,
         TokenClass::TypeEntity => ATOM_ONE_DARK_COLOR_BRIGHT_YELLOW,
         TokenClass::FunctionEntity => ATOM_ONE_DARK_COLOR_BLUE,

@@ -8,9 +8,12 @@ use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::StaticDispatch;
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
+use husky_hir_ty::HirConstSymbol;
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_sema_opr::{prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
-use husky_syn_expr::{IdentifiableEntityPathExpr, SynExprData, SynExprIdx, SynStmtIdx};
+use husky_syn_expr::{
+    IdentifiableEntityPathExpr, InheritedSynSymbolKind, SynExprData, SynExprIdx, SynStmtIdx,
+};
 use salsa::debug::ExpectWithDb;
 use vec_like::VecMap;
 
@@ -20,24 +23,12 @@ pub type HirEagerExprIdxRange = ArenaIdxRange<HirEagerExprData>;
 pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprData, V>;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::debug_with_db(db = HirEagerExprDb)]
 pub enum HirEagerExprData {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),
-    InheritedSynSymbol {
-        ident: Ident,
-        // inherited_symbol_idx: InheritedHirEagerSymbolIdx,
-        // inherited_symbol_kind: InheritedHirEagerSymbolKind,
-    },
-    CurrentSynSymbol {
-        ident: Ident,
-        // current_syn_symbol_idx: CurrentHirEagerSymbolIdx,
-        // current_syn_symbol_kind: CurrentHirEagerSymbolKind,
-    },
-    FrameVarDecl {
-        ident: Ident,
-        // frame_var_symbol_idx: CurrentHirEagerSymbolIdx,
-        // current_syn_symbol_kind: CurrentHirEagerSymbolKind,
-    },
+    ConstSymbol(HirConstSymbol),
+    Variable(HirEagerVariableIdx),
     SelfType,
     SelfValue,
     Binary {
@@ -134,18 +125,26 @@ impl ToHirEager for SemaExprIdx {
                 },
                 StaticDispatch::AssociatedGn => unreachable!(),
             },
-            SemaExprData::InheritedSynSymbol {
+            &SemaExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
-                inherited_symbol_idx,
-                inherited_symbol_kind,
-            } => HirEagerExprData::InheritedSynSymbol { ident: *ident },
-            SemaExprData::CurrentSynSymbol {
+                inherited_syn_symbol_idx,
+                inherited_syn_symbol_kind,
+            } => match inherited_syn_symbol_kind {
+                InheritedSynSymbolKind::TemplateParameter(_) => todo!(),
+                InheritedSynSymbolKind::ParenateParameter { .. }
+                | InheritedSynSymbolKind::FieldVariable { .. } => HirEagerExprData::Variable(
+                    builder.inherited_syn_symbol_to_hir_eager_variable(inherited_syn_symbol_idx),
+                ),
+            },
+            &SemaExprData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
                 current_syn_symbol_idx,
                 current_syn_symbol_kind,
-            } => HirEagerExprData::CurrentSynSymbol { ident: *ident },
+            } => HirEagerExprData::Variable(
+                builder.current_syn_symbol_to_hir_eager_variable(current_syn_symbol_idx),
+            ),
             SemaExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,

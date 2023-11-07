@@ -134,7 +134,7 @@ impl CurrentSynSymbol {
             | CurrentSynSymbolVariant::LetVariable { ident, .. }
             | CurrentSynSymbolVariant::BeVariable { ident, .. }
             | CurrentSynSymbolVariant::CaseVariable { ident, .. }
-            | CurrentSynSymbolVariant::FrameVariable { ident, .. } => Some(ident),
+            | CurrentSynSymbolVariant::LoopVariable { ident, .. } => Some(ident),
             CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant:
                     CurrentTemplateParameterSynSymbolVariant::Lifetime { .. }
@@ -174,7 +174,7 @@ pub enum CurrentSynSymbolKind {
     FieldVariable {
         ident_token: IdentRegionalToken,
     },
-    FrameVariable(SynExprIdx),
+    LoopVariable(SynExprIdx),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -229,7 +229,7 @@ pub enum CurrentSynSymbolVariant {
     FieldVariable {
         ident_token: IdentRegionalToken,
     },
-    FrameVariable {
+    LoopVariable {
         ident: Ident,
         expr_idx: SynExprIdx,
     },
@@ -296,7 +296,7 @@ impl CurrentSynSymbolVariant {
                 symbol_modifier_keyword_group,
                 ..
             } => SymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSynSymbolVariant::FrameVariable { ident, expr_idx } => SymbolModifier::None,
+            CurrentSynSymbolVariant::LoopVariable { ident, expr_idx } => SymbolModifier::None,
             CurrentSynSymbolVariant::SelfType => SymbolModifier::Const,
             CurrentSynSymbolVariant::SelfValue {
                 symbol_modifier_keyword_group,
@@ -382,8 +382,8 @@ impl CurrentSynSymbolVariant {
             } => CurrentSynSymbolKind::CaseVariable {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
-            CurrentSynSymbolVariant::FrameVariable { expr_idx, .. } => {
-                CurrentSynSymbolKind::FrameVariable(*expr_idx)
+            CurrentSynSymbolVariant::LoopVariable { expr_idx, .. } => {
+                CurrentSynSymbolKind::LoopVariable(*expr_idx)
             }
             CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => {
                 CurrentSynSymbolKind::ExplicitVariadicParameter {
@@ -457,5 +457,93 @@ impl From<InheritedSynSymbolIdx> for ParentSynSymbolIdx {
 impl From<CurrentSynSymbolIdx> for ParentSynSymbolIdx {
     fn from(v: CurrentSynSymbolIdx) -> Self {
         Self::Current(v)
+    }
+}
+
+pub struct SynSymbolMap<V> {
+    inherited_syn_symbol_map: InheritedSynSymbolMap<V>,
+    current_syn_symbol_map: CurrentSynSymbolMap<V>,
+}
+
+impl<V> SynSymbolMap<V> {
+    pub fn push_inherited(&mut self, inherited_syn_symbol_idx: InheritedSynSymbolIdx, v: V) {
+        self.inherited_syn_symbol_map
+            .insert_new(inherited_syn_symbol_idx, v)
+    }
+
+    pub fn push_current(&mut self, current_syn_symbol_idx: CurrentSynSymbolIdx, v: V) {
+        self.current_syn_symbol_map
+            .insert_new(current_syn_symbol_idx, v)
+    }
+}
+
+impl<V> SynSymbolMap<V> {
+    pub fn new(syn_symbol_region: &SynSymbolRegion) -> Self {
+        Self {
+            inherited_syn_symbol_map: InheritedSynSymbolMap::new(
+                syn_symbol_region.inherited_syn_symbol_arena(),
+            ),
+            current_syn_symbol_map: CurrentSynSymbolMap::new(
+                syn_symbol_region.current_syn_symbol_arena(),
+            ),
+        }
+    }
+}
+
+impl<V> std::ops::Index<InheritedSynSymbolIdx> for SynSymbolMap<V> {
+    type Output = V;
+
+    fn index(&self, idx: InheritedSynSymbolIdx) -> &Self::Output {
+        &self.inherited_syn_symbol_map[idx]
+    }
+}
+
+impl<V> std::ops::Index<CurrentSynSymbolIdx> for SynSymbolMap<V> {
+    type Output = V;
+
+    fn index(&self, idx: CurrentSynSymbolIdx) -> &Self::Output {
+        &self.current_syn_symbol_map[idx]
+    }
+}
+
+pub struct SynSymbolOrderedMap<V> {
+    inherited_syn_symbol_ordered_map: InheritedSynSymbolOrderedMap<V>,
+    current_syn_symbol_ordered_map: CurrentSynSymbolOrderedMap<V>,
+}
+
+impl<V> SynSymbolOrderedMap<V> {
+    pub fn push_inherited(&mut self, inherited_syn_symbol_idx: InheritedSynSymbolIdx, v: V) {
+        self.inherited_syn_symbol_ordered_map
+            .insert_next(inherited_syn_symbol_idx, v)
+    }
+
+    pub fn push_current(&mut self, current_syn_symbol_idx: CurrentSynSymbolIdx, v: V) {
+        self.current_syn_symbol_ordered_map
+            .insert_next(current_syn_symbol_idx, v)
+    }
+}
+
+impl<V> Default for SynSymbolOrderedMap<V> {
+    fn default() -> Self {
+        Self {
+            inherited_syn_symbol_ordered_map: Default::default(),
+            current_syn_symbol_ordered_map: Default::default(),
+        }
+    }
+}
+
+impl<V> std::ops::Index<InheritedSynSymbolIdx> for SynSymbolOrderedMap<V> {
+    type Output = V;
+
+    fn index(&self, idx: InheritedSynSymbolIdx) -> &Self::Output {
+        &self.inherited_syn_symbol_ordered_map[idx]
+    }
+}
+
+impl<V> std::ops::Index<CurrentSynSymbolIdx> for SynSymbolOrderedMap<V> {
+    type Output = V;
+
+    fn index(&self, idx: CurrentSynSymbolIdx) -> &Self::Output {
+        &self.current_syn_symbol_ordered_map[idx]
     }
 }

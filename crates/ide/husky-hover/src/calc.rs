@@ -104,13 +104,13 @@ impl<'a> HoverResultCalculator<'a> {
                     )
                 }
                 TokenInfoData::InheritedSynSymbol {
-                    inherited_symbol_idx,
+                    inherited_syn_symbol_idx,
                     syn_expr_region,
                     ..
                 } => {
                     format!(
                         "{:#?}",
-                        syn_expr_region.data(self.db).symbol_region()[*inherited_symbol_idx]
+                        syn_expr_region.data(self.db).symbol_region()[*inherited_syn_symbol_idx]
                             .debug(self.db)
                     )
                 }
