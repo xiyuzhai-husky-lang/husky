@@ -92,14 +92,14 @@ impl SynExprData {
                     SynExprData::CurrentSymbol {
                         ident,
                         regional_token_idx,
-                        current_symbol_idx,
-                        current_symbol_kind,
+                        current_syn_symbol_idx,
+                        current_syn_symbol_kind,
                     } => todo!(),
                     SynExprData::FrameVarDecl {
                         regional_token_idx,
                         ident,
                         frame_var_symbol_idx,
-                        current_symbol_kind,
+                        current_syn_symbol_kind,
                     } => todo!(),
                     SynExprData::SelfType(_) => todo!(),
                     SynExprData::SelfValue(_) => todo!(),

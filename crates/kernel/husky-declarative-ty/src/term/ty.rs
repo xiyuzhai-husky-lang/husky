@@ -12,7 +12,7 @@ pub fn declarative_term_declarative_ty(
     match declarative_term {
         DeclarativeTerm::Literal(_) => todo!(),
         DeclarativeTerm::Symbol(_) => todo!(),
-        DeclarativeTerm::Variable(_) => todo!(),
+        DeclarativeTerm::Rune(_) => todo!(),
         DeclarativeTerm::EntityPath(path) => declarative_term_item_path_declarative_ty(db, path),
         DeclarativeTerm::Category(cat) => cat.ty().map(Into::into).map_err(|_e| todo!()),
         DeclarativeTerm::Universe(_) => todo!(),

@@ -97,9 +97,9 @@ impl<'a> SynExprContext<'a> {
     #[inline(always)]
     pub(crate) fn define_symbol(
         &mut self,
-        variable: SynCurrentSymbol,
+        variable: CurrentSynSymbol,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> SynCurrentSymbolIdx {
+    ) -> CurrentSynSymbolIdx {
         self.syn_symbol_context
             .define_symbol(variable, ty_constraint)
     }
@@ -107,9 +107,9 @@ impl<'a> SynExprContext<'a> {
     #[inline(always)]
     pub(crate) fn define_symbols(
         &mut self,
-        variables: impl IntoIterator<Item = SynCurrentSymbol>,
+        variables: impl IntoIterator<Item = CurrentSynSymbol>,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> SynCurrentSymbolIdxRange {
+    ) -> CurrentSynSymbolIdxRange {
         self.syn_symbol_context
             .define_symbols(variables, ty_constraint)
     }

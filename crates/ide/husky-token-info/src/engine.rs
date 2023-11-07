@@ -317,12 +317,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         {
             self.visit_item_path_expr(item_path_expr_idx, item_path_expr)
         }
-        for (current_symbol_idx, current_symbol) in self
+        for (current_syn_symbol_idx, current_syn_symbol) in self
             .syn_expr_region_data
             .symbol_region()
-            .current_symbol_indexed_iter()
+            .current_syn_symbol_indexed_iter()
         {
-            self.visit_current_symbol(current_symbol_idx, current_symbol)
+            self.visit_current_syn_symbol(current_syn_symbol_idx, current_syn_symbol)
         }
     }
 
@@ -330,21 +330,21 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         match sema_expr_data {
             SemaExprData::CurrentSymbol {
                 regional_token_idx,
-                current_symbol_idx,
-                current_symbol_kind,
+                current_syn_symbol_idx,
+                current_syn_symbol_kind,
                 ..
             }
             | SemaExprData::FrameVarDecl {
                 regional_token_idx,
-                frame_var_symbol_idx: current_symbol_idx,
-                current_symbol_kind,
+                frame_var_symbol_idx: current_syn_symbol_idx,
+                current_syn_symbol_kind,
                 ..
             } => self.add(
                 *regional_token_idx,
                 sema_expr_idx,
                 TokenInfoData::CurrentSymbol {
-                    current_symbol_idx: *current_symbol_idx,
-                    current_symbol_kind: *current_symbol_kind,
+                    current_syn_symbol_idx: *current_syn_symbol_idx,
+                    current_syn_symbol_kind: *current_syn_symbol_kind,
                     syn_expr_region: self.syn_expr_region,
                 },
             ),
@@ -593,23 +593,23 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         }
     }
 
-    fn visit_current_symbol(
+    fn visit_current_syn_symbol(
         &mut self,
-        syn_current_symbol_idx: SynCurrentSymbolIdx,
-        syn_current_symbol: &SynCurrentSymbol,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol: &CurrentSynSymbol,
     ) {
-        let current_symbol_kind = syn_current_symbol.kind();
-        match current_symbol_kind {
-            SynCurrentSymbolKind::LetVariable {
+        let current_syn_symbol_kind = current_syn_symbol.kind();
+        match current_syn_symbol_kind {
+            CurrentSynSymbolKind::LetVariable {
                 pattern_symbol_idx: pattern_symbol,
             }
-            | SynCurrentSymbolKind::BeVariable {
+            | CurrentSynSymbolKind::BeVariable {
                 pattern_symbol_idx: pattern_symbol,
             }
-            | SynCurrentSymbolKind::CaseVariable {
+            | CurrentSynSymbolKind::CaseVariable {
                 pattern_symbol_idx: pattern_symbol,
             }
-            | SynCurrentSymbolKind::ExplicitRegularParameter {
+            | CurrentSynSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: pattern_symbol,
             } => match self.syn_expr_region_data[pattern_symbol] {
                 SynPatternSymbol::Atom(pattern_expr_idx) => {
@@ -621,72 +621,72 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                             ident_token.regional_token_idx(),
                             pattern_expr_idx,
                             TokenInfoData::CurrentSymbol {
-                                current_symbol_idx: syn_current_symbol_idx,
+                                current_syn_symbol_idx: current_syn_symbol_idx,
                                 syn_expr_region: self.syn_expr_region,
-                                current_symbol_kind,
+                                current_syn_symbol_kind,
                             },
                         ),
                         _ => unreachable!(),
                     }
                 }
             },
-            SynCurrentSymbolKind::FrameVariable(_) => (),
-            SynCurrentSymbolKind::TemplateParameter {
+            CurrentSynSymbolKind::FrameVariable(_) => (),
+            CurrentSynSymbolKind::TemplateParameter {
                 template_parameter_kind,
             } => match template_parameter_kind {
                 CurrentImplicitParameterSynSymbolKind::Type { ident_token } => self.add(
                     ident_token.regional_token_idx(),
-                    TokenInfoSource::TemplateParameter(syn_current_symbol_idx),
+                    TokenInfoSource::TemplateParameter(current_syn_symbol_idx),
                     TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: syn_current_symbol_idx,
+                        current_syn_symbol_idx: current_syn_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_symbol_kind,
+                        current_syn_symbol_kind,
                     },
                 ),
                 CurrentImplicitParameterSynSymbolKind::Lifetime { label_token } => self.add(
                     label_token.regional_token_idx(),
-                    syn_current_symbol_idx,
+                    current_syn_symbol_idx,
                     TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: syn_current_symbol_idx,
+                        current_syn_symbol_idx: current_syn_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_symbol_kind,
+                        current_syn_symbol_kind,
                     },
                 ),
                 CurrentImplicitParameterSynSymbolKind::Place { label_token } => self.add(
                     label_token.regional_token_idx(),
-                    syn_current_symbol_idx,
+                    current_syn_symbol_idx,
                     TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: syn_current_symbol_idx,
+                        current_syn_symbol_idx: current_syn_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_symbol_kind,
+                        current_syn_symbol_kind,
                     },
                 ),
                 CurrentImplicitParameterSynSymbolKind::Constant { ident_token } => self.add(
                     ident_token.regional_token_idx(),
-                    syn_current_symbol_idx,
+                    current_syn_symbol_idx,
                     TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: syn_current_symbol_idx,
+                        current_syn_symbol_idx: current_syn_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_symbol_kind,
+                        current_syn_symbol_kind,
                     },
                 ),
             },
-            SynCurrentSymbolKind::ExplicitVariadicParameter { ident_token } => self.add(
+            CurrentSynSymbolKind::ExplicitVariadicParameter { ident_token } => self.add(
                 ident_token.regional_token_idx(),
-                syn_current_symbol_idx,
+                current_syn_symbol_idx,
                 TokenInfoData::CurrentSymbol {
-                    current_symbol_idx: syn_current_symbol_idx,
+                    current_syn_symbol_idx: current_syn_symbol_idx,
                     syn_expr_region: self.syn_expr_region,
-                    current_symbol_kind,
+                    current_syn_symbol_kind,
                 },
             ),
-            SynCurrentSymbolKind::FieldVariable { ident_token } => self.add(
+            CurrentSynSymbolKind::FieldVariable { ident_token } => self.add(
                 ident_token.regional_token_idx(),
-                syn_current_symbol_idx,
+                current_syn_symbol_idx,
                 TokenInfoData::CurrentSymbol {
-                    current_symbol_idx: syn_current_symbol_idx,
+                    current_syn_symbol_idx: current_syn_symbol_idx,
                     syn_expr_region: self.syn_expr_region,
-                    current_symbol_kind,
+                    current_syn_symbol_kind,
                 },
             ),
         }

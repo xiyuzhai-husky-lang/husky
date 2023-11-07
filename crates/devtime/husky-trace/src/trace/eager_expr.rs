@@ -142,7 +142,7 @@ fn eager_expr_trace_have_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> b
                     regional_token_idx,
                     ident,
                     frame_var_symbol_idx,
-                    current_symbol_kind,
+                    current_syn_symbol_kind,
                 } => todo!(),
                 SemaExprData::SelfType(_) => false,
                 SemaExprData::SelfValue(_) => false,

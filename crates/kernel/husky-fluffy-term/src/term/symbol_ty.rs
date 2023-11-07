@@ -20,23 +20,23 @@ impl SymbolType {
     #[inline(always)]
     pub fn new_from_signature(
         engine: &mut impl FluffyTermEngine,
-        current_symbol_idx: SynCurrentSymbolIdx,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
         signature: SymbolSignature,
     ) -> EtherealTermResult<Self> {
         let ty = EtherealTerm::ty_from_declarative(engine.db(), signature.ty()?)?;
-        Ok(Self::new(engine, current_symbol_idx, ty.into()))
+        Ok(Self::new(engine, current_syn_symbol_idx, ty.into()))
     }
 
     pub fn new(
         engine: &mut impl FluffyTermEngine,
-        current_symbol_idx: SynCurrentSymbolIdx,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
         ty: FluffyTerm,
     ) -> Self {
         // ad hoc
         Self(ty)
         // let expr_region_data = engine.expr_region_data();
-        // let local_symbol_idx = current_symbol_idx.into_local_symbol_idx(expr_region_data);
-        // let place = match expr_region_data[current_symbol_idx].modifier() {
+        // let local_symbol_idx = current_syn_symbol_idx.into_local_symbol_idx(expr_region_data);
+        // let place = match expr_region_data[current_syn_symbol_idx].modifier() {
         //     EphemSymbolModifier::None => Place::StackPure {
         //         location: local_symbol_idx.into(),
         //     },

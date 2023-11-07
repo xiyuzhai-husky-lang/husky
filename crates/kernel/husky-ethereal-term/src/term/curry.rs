@@ -10,7 +10,7 @@ pub struct EtherealTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_variable: Option<EtherealTermVariable>,
+    pub parameter_variable: Option<EtherealTermRune>,
     /// X
     pub parameter_ty: EtherealTerm,
     /// Y
@@ -79,10 +79,9 @@ pub(crate) fn term_curry_from_declarative(
         declarative_term_curry.curry_kind(db),
         declarative_term_curry.variance(db),
         match declarative_term_curry.parameter_variable(db) {
-            Some(parameter_variable) => Some(EtherealTermVariable::from_declarative(
-                db,
-                parameter_variable,
-            )?),
+            Some(parameter_variable) => {
+                Some(EtherealTermRune::from_declarative(db, parameter_variable)?)
+            }
             None => None,
         },
         t(declarative_term_curry.parameter_ty(db))?,

@@ -54,7 +54,7 @@ pub struct EtherealTermJar(
     term_ritchie_symbols,
     term_application_symbols,
     // hole
-    EtherealTermVariable,
+    EtherealTermRune,
     // curry
     EtherealTermCurry,
     term_curry_from_declarative,

@@ -69,11 +69,11 @@ impl SymbolDeclarativeTermRegion {
     pub(crate) fn add_new_template_parameter_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
-        idx: SynCurrentSymbolIdx,
+        idx: CurrentSynSymbolIdx,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
         term_symbol: DeclarativeTermSymbol,
     ) {
-        self.add_new_current_symbol_signature(
+        self.add_new_current_syn_symbol_signature(
             db,
             idx,
             SymbolSignature {
@@ -89,7 +89,7 @@ impl SymbolDeclarativeTermRegion {
     pub(crate) fn add_new_parenate_parameter_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
-        current_symbol: SynCurrentSymbolIdx,
+        current_syn_symbol: CurrentSynSymbolIdx,
         modifier: SymbolModifier,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     ) {
@@ -101,9 +101,9 @@ impl SymbolDeclarativeTermRegion {
             SymbolModifier::Le => todo!(),
             SymbolModifier::Tilde => todo!(),
         };
-        self.add_new_current_symbol_signature(
+        self.add_new_current_syn_symbol_signature(
             db,
-            current_symbol,
+            current_syn_symbol,
             SymbolSignature {
                 kind: SymbolSignatureKind::ParenateParameter,
                 modifier,
@@ -117,12 +117,12 @@ impl SymbolDeclarativeTermRegion {
     pub(crate) fn add_new_field_variable_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
-        current_symbol: SynCurrentSymbolIdx,
+        current_syn_symbol: CurrentSynSymbolIdx,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     ) {
-        self.add_new_current_symbol_signature(
+        self.add_new_current_syn_symbol_signature(
             db,
-            current_symbol,
+            current_syn_symbol,
             SymbolSignature {
                 kind: SymbolSignatureKind::FieldVariable,
                 modifier: SymbolModifier::None,
@@ -134,10 +134,10 @@ impl SymbolDeclarativeTermRegion {
     }
 
     #[inline(always)]
-    fn add_new_current_symbol_signature(
+    fn add_new_current_syn_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
-        idx: SynCurrentSymbolIdx,
+        idx: CurrentSynSymbolIdx,
         signature: SymbolSignature,
     ) {
         self.symbol_signatures.insert_next(idx, signature)
@@ -146,7 +146,7 @@ impl SymbolDeclarativeTermRegion {
 
 impl SymbolDeclarativeTermRegion {
     /// will initialize `inherited_symbol_terms`;
-    /// but will leave current_symbol_terms unintialized;
+    /// but will leave current_syn_symbol_terms unintialized;
     /// `self_ty_term` is set to that of parent if parent exists, otherwise none;
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
     pub(crate) fn new(
@@ -244,11 +244,15 @@ impl SymbolDeclarativeTermRegion {
         ty_path: TypePath,
     ) -> DeclarativeTerm {
         let mut self_ty: DeclarativeTerm = DeclarativeTermEntityPath::Type(ty_path.into()).into();
-        for current_symbol_signature in self.symbol_signatures.current_symbol_map().iter().copied()
+        for current_syn_symbol_signature in self
+            .symbol_signatures
+            .current_syn_symbol_map()
+            .iter()
+            .copied()
         {
-            match current_symbol_signature.kind {
+            match current_syn_symbol_signature.kind {
                 SymbolSignatureKind::TemplateParameter => {
-                    let argument = current_symbol_signature
+                    let argument = current_syn_symbol_signature
                         .term_symbol()
                         .expect("should have term");
                     self_ty = self_ty.apply(db, argument)
@@ -278,26 +282,26 @@ impl SymbolDeclarativeTermRegion {
             ParentSynSymbolIdx::Inherited(inherited_symbol_idx) => {
                 self.inherited_symbol_signature(inherited_symbol_idx)
             }
-            ParentSynSymbolIdx::Current(current_symbol_idx) => self
-                .current_symbol_signature(current_symbol_idx)
+            ParentSynSymbolIdx::Current(current_syn_symbol_idx) => self
+                .current_syn_symbol_signature(current_syn_symbol_idx)
                 .expect("should exist"),
         }
     }
 
     pub fn inherited_symbol_signature(
         &self,
-        inherited_symbol_idx: SynInheritedSymbolIdx,
+        inherited_symbol_idx: InheritedSynSymbolIdx,
     ) -> SymbolSignature {
         self.symbol_signatures[inherited_symbol_idx]
     }
 
-    pub fn current_symbol_signature(
+    pub fn current_syn_symbol_signature(
         &self,
-        current_symbol_idx: SynCurrentSymbolIdx,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
     ) -> Option<SymbolSignature> {
         self.symbol_signatures
-            .current_symbol_map()
-            .get(current_symbol_idx.index())
+            .current_syn_symbol_map()
+            .get(current_syn_symbol_idx.index())
             .copied()
     }
 }

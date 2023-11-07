@@ -104,7 +104,7 @@ fn parse_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -187,7 +187,7 @@ fn parse_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -263,7 +263,7 @@ fn parse_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -339,7 +339,7 @@ fn parse_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -412,7 +412,7 @@ fn parse_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -508,7 +508,7 @@ fn parse_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -603,7 +603,7 @@ fn parse_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -713,7 +713,7 @@ fn parse_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -833,7 +833,7 @@ fn parse_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -991,7 +991,7 @@ fn parse_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -1099,7 +1099,7 @@ fn parse_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,
@@ -1208,7 +1208,7 @@ fn parse_application_expr_works() {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: False,

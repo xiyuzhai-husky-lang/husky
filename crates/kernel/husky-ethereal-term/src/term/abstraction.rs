@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealTermAbstraction {
-    x: EtherealTermVariable,
+    x: EtherealTermRune,
     m: EtherealTerm,
 }
 

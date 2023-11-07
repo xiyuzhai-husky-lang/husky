@@ -26,8 +26,8 @@ impl<'a> SemaExprEngine<'a> {
                 SynExprData::CurrentSymbol {
                     ident,
                     regional_token_idx,
-                    current_symbol_idx,
-                    current_symbol_kind,
+                    current_syn_symbol_idx,
+                    current_syn_symbol_kind,
                 } => {
                     todo!()
                 }

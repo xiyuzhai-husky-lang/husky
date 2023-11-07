@@ -66,7 +66,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     }
 
     fn infer_all(mut self) -> DeclarativeTermRegion {
-        self.infer_current_symbol_terms();
+        self.infer_current_syn_symbol_terms();
         self.symbol_declarative_term_region
             .infer_self_ty_parameter_and_self_value_parameter(
                 self.db,
@@ -77,11 +77,11 @@ impl<'a> DeclarativeTermEngine<'a> {
         self.finish()
     }
 
-    fn infer_current_symbol_terms(&mut self) {
-        let mut current_symbol_indexed_iter = self
+    fn infer_current_syn_symbol_terms(&mut self) {
+        let mut current_syn_symbol_indexed_iter = self
             .syn_expr_region_data
             .symbol_region()
-            .current_symbol_indexed_iter();
+            .current_syn_symbol_indexed_iter();
         for (pattern_ty_constraint, symbols) in self
             .syn_expr_region_data
             .symbol_region()
@@ -89,14 +89,15 @@ impl<'a> DeclarativeTermEngine<'a> {
         {
             match pattern_ty_constraint {
                 SyndicateTypeConstraint::TemplateTypeParameter => {
-                    let (current_symbol_idx, current_symbol) = current_symbol_indexed_iter
-                        .next()
-                        .expect("ty constraint should match with current symbols");
-                    let SynCurrentSymbolVariant::TemplateParameter {
+                    let (current_syn_symbol_idx, current_syn_symbol) =
+                        current_syn_symbol_indexed_iter
+                            .next()
+                            .expect("ty constraint should match with current symbols");
+                    let CurrentSynSymbolVariant::TemplateParameter {
                         syn_attrs,
                         annotated_variance_token,
                         template_parameter_variant,
-                    } = current_symbol.variant()
+                    } = current_syn_symbol.variant()
                     else {
                         unreachable!()
                     };
@@ -174,7 +175,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 SyndicateTypeConstraint::OrdinaryParenateParameter {
                     syn_pattern_root,
                     ty_expr_idx: ty,
-                } => self.init_current_symbol_signatures_in_parenate_parameter(
+                } => self.init_current_syn_symbol_signatures_in_parenate_parameter(
                     *syn_pattern_root,
                     *ty,
                     *symbols,
@@ -214,11 +215,11 @@ impl<'a> DeclarativeTermEngine<'a> {
     /// explicit parameters are infered in this crate;
     ///
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
-    fn init_current_symbol_signatures_in_parenate_parameter(
+    fn init_current_syn_symbol_signatures_in_parenate_parameter(
         &mut self,
         parenate_syn_pattern_expr_root: ParenateSynPatternExprRoot,
         ty: SynExprIdx,
-        symbols: SynCurrentSymbolIdxRange,
+        symbols: CurrentSynSymbolIdxRange,
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
@@ -237,17 +238,17 @@ impl<'a> DeclarativeTermEngine<'a> {
         };
         self.infer_pattern_tys_in_parenate_parameter(parenate_syn_pattern_expr_root, ty);
         for symbol in symbols {
-            self.infer_current_symbol_signature_in_parenate_parameter(symbol)
+            self.infer_current_syn_symbol_signature_in_parenate_parameter(symbol)
         }
     }
 
-    fn infer_current_symbol_signature_in_parenate_parameter(
+    fn infer_current_syn_symbol_signature_in_parenate_parameter(
         &mut self,
-        current_symbol_idx: SynCurrentSymbolIdx,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
     ) {
-        let current_symbol = &self.syn_expr_region_data.symbol_region()[current_symbol_idx];
-        match current_symbol.variant() {
-            SynCurrentSymbolVariant::ParenateRegularParameter {
+        let current_syn_symbol = &self.syn_expr_region_data.symbol_region()[current_syn_symbol_idx];
+        match current_syn_symbol.variant() {
+            CurrentSynSymbolVariant::ParenateRegularParameter {
                 ident,
                 pattern_symbol_idx,
             } => {
@@ -255,8 +256,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                 self.symbol_declarative_term_region
                     .add_new_parenate_parameter_symbol_signature(
                         self.db,
-                        current_symbol_idx,
-                        current_symbol.modifier(),
+                        current_syn_symbol_idx,
+                        current_syn_symbol.modifier(),
                         Ok(base_ty),
                     )
             }
@@ -403,10 +404,11 @@ impl<'a> DeclarativeTermEngine<'a> {
                 .map(Into::into)
                 .ok_or(DerivedDeclarativeTermError2::InheritedSymbolIsNotValidTerm.into()),
             SynExprData::CurrentSymbol {
-                current_symbol_idx, ..
+                current_syn_symbol_idx,
+                ..
             } => Ok(self
                 .symbol_declarative_term_region
-                .current_symbol_signature(current_symbol_idx)
+                .current_syn_symbol_signature(current_syn_symbol_idx)
                 .expect("not none")
                 .term_symbol()
                 .ok_or(OriginalDeclarativeTermError2::InvalidSymbolForTerm)?
@@ -613,12 +615,12 @@ impl<'a> DeclarativeTermEngine<'a> {
         }
     }
 
-    pub(crate) fn current_symbol_term(
+    pub(crate) fn current_syn_symbol_term(
         &self,
-        symbol: SynCurrentSymbolIdx,
+        symbol: CurrentSynSymbolIdx,
     ) -> Option<SymbolSignature> {
         self.symbol_declarative_term_region
-            .current_symbol_signature(symbol)
+            .current_syn_symbol_signature(symbol)
     }
 
     pub(crate) fn declarative_term_menu(&self) -> &DeclarativeTermMenu {

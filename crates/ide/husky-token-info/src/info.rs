@@ -7,8 +7,8 @@ use husky_entity_protocol::*;
 use husky_entity_syn_tree::{OnceUseRuleIdx, OnceUseRuleState, UseExprIdx};
 use husky_sema_expr::SemaExprIdx;
 use husky_syn_expr::{
-    SynCurrentSymbolIdx, SynCurrentSymbolKind, SynExprRegion, SynInheritedSymbolIdx,
-    SynInheritedSymbolKind, SynPatternExprIdx, SynPrincipalEntityPathExprIdx,
+    CurrentSynSymbolIdx, CurrentSynSymbolKind, InheritedSynSymbolIdx, InheritedSynSymbolKind,
+    SynExprRegion, SynPatternExprIdx, SynPrincipalEntityPathExprIdx,
 };
 #[cfg(feature = "protocol_support")]
 use husky_token_protocol::*;
@@ -29,7 +29,7 @@ pub enum TokenInfoSource {
     SynPrincipalEntityPathExpr(SynPrincipalEntityPathExprIdx, PrincipalEntityPath),
     PatternExpr(SynPatternExprIdx),
     // todo: add #[skip] attribute
-    TemplateParameter(SynCurrentSymbolIdx),
+    TemplateParameter(CurrentSynSymbolIdx),
     AstIdentifiable,
 }
 
@@ -56,13 +56,13 @@ pub enum TokenInfoData {
     Entity(EntityPath),
     EntityNode(ItemSynNodePath, EntityKind),
     InheritedSymbol {
-        inherited_symbol_idx: SynInheritedSymbolIdx,
-        inherited_symbol_kind: SynInheritedSymbolKind,
+        inherited_symbol_idx: InheritedSynSymbolIdx,
+        inherited_symbol_kind: InheritedSynSymbolKind,
         syn_expr_region: ExprRegionLeash,
     },
     CurrentSymbol {
-        current_symbol_idx: SynCurrentSymbolIdx,
-        current_symbol_kind: SynCurrentSymbolKind,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_kind: CurrentSynSymbolKind,
         syn_expr_region: ExprRegionLeash,
     },
     SelfType,
@@ -95,26 +95,26 @@ impl TokenInfoData {
             TokenInfoData::Entity(path) => path.item_kind(db).class().into(),
             TokenInfoData::EntityNode(path, item_kind) => item_kind.class().into(),
             TokenInfoData::CurrentSymbol {
-                current_symbol_kind,
+                current_syn_symbol_kind,
                 ..
-            } => match current_symbol_kind {
-                SynCurrentSymbolKind::LetVariable { .. }
-                | SynCurrentSymbolKind::BeVariable { .. }
-                | SynCurrentSymbolKind::CaseVariable { .. } => TokenClass::Variable,
-                SynCurrentSymbolKind::ExplicitRegularParameter { .. } => TokenClass::Parameter,
-                SynCurrentSymbolKind::FrameVariable(_) => TokenClass::FrameVariable,
-                SynCurrentSymbolKind::TemplateParameter { .. } => TokenClass::ImplicitParameter,
-                SynCurrentSymbolKind::ExplicitVariadicParameter { .. } => TokenClass::Parameter,
-                SynCurrentSymbolKind::FieldVariable { .. } => TokenClass::Variable,
+            } => match current_syn_symbol_kind {
+                CurrentSynSymbolKind::LetVariable { .. }
+                | CurrentSynSymbolKind::BeVariable { .. }
+                | CurrentSynSymbolKind::CaseVariable { .. } => TokenClass::Variable,
+                CurrentSynSymbolKind::ExplicitRegularParameter { .. } => TokenClass::Parameter,
+                CurrentSynSymbolKind::FrameVariable(_) => TokenClass::FrameVariable,
+                CurrentSynSymbolKind::TemplateParameter { .. } => TokenClass::ImplicitParameter,
+                CurrentSynSymbolKind::ExplicitVariadicParameter { .. } => TokenClass::Parameter,
+                CurrentSynSymbolKind::FieldVariable { .. } => TokenClass::Variable,
             },
             // TokenProtocol::Variable,
             TokenInfoData::InheritedSymbol {
                 inherited_symbol_kind,
                 ..
             } => match inherited_symbol_kind {
-                SynInheritedSymbolKind::ParenateParameter { .. } => TokenClass::Parameter,
-                SynInheritedSymbolKind::TemplateParameter { .. } => TokenClass::ImplicitParameter,
-                SynInheritedSymbolKind::FieldVariable { .. } => TokenClass::Variable,
+                InheritedSynSymbolKind::ParenateParameter { .. } => TokenClass::Parameter,
+                InheritedSynSymbolKind::TemplateParameter { .. } => TokenClass::ImplicitParameter,
+                InheritedSynSymbolKind::FieldVariable { .. } => TokenClass::Variable,
             },
             TokenInfoData::SelfType => TokenClass::SelfType,
             TokenInfoData::SelfValue => TokenClass::SelfValue,

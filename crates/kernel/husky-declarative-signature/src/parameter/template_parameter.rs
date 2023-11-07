@@ -26,7 +26,7 @@ impl DeclarativeTemplateParameter {
             TemplateParameterSyndicateData::Type { .. } => {
                 DeclarativeTemplateParameter {
                     symbol: region
-                        .current_symbol_signature(symbol)
+                        .current_syn_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),
@@ -37,7 +37,7 @@ impl DeclarativeTemplateParameter {
             }
             TemplateParameterSyndicateData::Constant { .. } => DeclarativeTemplateParameter {
                 symbol: region
-                    .current_symbol_signature(symbol)
+                    .current_syn_symbol_signature(symbol)
                     .expect("not none")
                     .term_symbol()
                     .expect("should have term"),
@@ -47,7 +47,7 @@ impl DeclarativeTemplateParameter {
             TemplateParameterSyndicateData::Lifetime { .. } => {
                 DeclarativeTemplateParameter {
                     symbol: region
-                        .current_symbol_signature(symbol)
+                        .current_syn_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),
@@ -59,7 +59,7 @@ impl DeclarativeTemplateParameter {
             TemplateParameterSyndicateData::Place { .. } => {
                 DeclarativeTemplateParameter {
                     symbol: region
-                        .current_symbol_signature(symbol)
+                        .current_syn_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),

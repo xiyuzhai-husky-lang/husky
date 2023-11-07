@@ -2,23 +2,23 @@ use super::*;
 use vec_like::VecSet;
 
 /// unlike DeclarativeTermSymbols
-/// Some(DeclarativeTermVariables { unaccounted_variables: Default::default() })
+/// Some(DeclarativeTermRunes { unaccounted_variables: Default::default() })
 /// means different from None
 ///
 /// the former implies that variables exists, but all accounted
 #[salsa::tracked(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct DeclarativeTermVariables {
+pub struct DeclarativeTermRunes {
     /// unaccounted means the variable is not declared within this term
     #[return_ref]
-    pub unaccounted_variables: VecSet<DeclarativeTermVariable>,
+    pub unaccounted_variables: VecSet<DeclarativeTermRune>,
 }
 
-impl DeclarativeTermVariables {
+impl DeclarativeTermRunes {
     #[inline(always)]
     pub(crate) fn contains(
         self,
         db: &dyn DeclarativeTermDb,
-        variable: DeclarativeTermVariable,
+        variable: DeclarativeTermRune,
     ) -> bool {
         self.unaccounted_variables(db).has(variable)
     }
@@ -38,7 +38,7 @@ impl DeclarativeTermVariables {
     #[inline(always)]
     fn remove(
         variables: impl Into<Option<Self>>,
-        _variable: impl Into<Option<DeclarativeTermVariable>>,
+        _variable: impl Into<Option<DeclarativeTermRune>>,
     ) -> Option<Self> {
         let _variables = variables.into()?;
         todo!()
@@ -48,17 +48,17 @@ impl DeclarativeTerm {
     pub fn contains_variable(
         self,
         db: &dyn DeclarativeTermDb,
-        variable: DeclarativeTermVariable,
+        variable: DeclarativeTermRune,
     ) -> bool {
         self.variables(db)
             .map(|declarative_term_variables| declarative_term_variables.contains(db, variable))
             .unwrap_or_default()
     }
 
-    pub(crate) fn variables(self, db: &dyn DeclarativeTermDb) -> Option<DeclarativeTermVariables> {
+    pub(crate) fn variables(self, db: &dyn DeclarativeTermDb) -> Option<DeclarativeTermRunes> {
         match self {
             DeclarativeTerm::Literal(_) => todo!(),
-            DeclarativeTerm::Variable(variable) => Some(DeclarativeTermVariables::new(
+            DeclarativeTerm::Variable(variable) => Some(DeclarativeTermRunes::new(
                 db,
                 VecSet::new_one_elem_set(variable),
             )),
@@ -95,12 +95,12 @@ impl DeclarativeTerm {
 pub(crate) fn declarative_term_curry_placeholders(
     db: &dyn DeclarativeTermDb,
     term: DeclarativeTermCurry,
-) -> Option<DeclarativeTermVariables> {
+) -> Option<DeclarativeTermRunes> {
     let parameter_ty_variables = term.parameter_ty(db).variables(db);
     let return_ty_variables = term.return_ty(db).variables(db);
-    DeclarativeTermVariables::merge(
+    DeclarativeTermRunes::merge(
         parameter_ty_variables,
-        DeclarativeTermVariables::remove(return_ty_variables, term.parameter_variable(db)),
+        DeclarativeTermRunes::remove(return_ty_variables, term.parameter_variable(db)),
     )
 }
 
@@ -108,20 +108,20 @@ pub(crate) fn declarative_term_curry_placeholders(
 pub(crate) fn declarative_term_ritchie_variables(
     db: &dyn DeclarativeTermDb,
     term: DeclarativeTermRitchie,
-) -> Option<DeclarativeTermVariables> {
-    let mut variables: Option<DeclarativeTermVariables> = None;
+) -> Option<DeclarativeTermRunes> {
+    let mut variables: Option<DeclarativeTermRunes> = None;
     for param in term.params(db) {
-        variables = DeclarativeTermVariables::merge(variables, param.ty().variables(db))
+        variables = DeclarativeTermRunes::merge(variables, param.ty().variables(db))
     }
-    DeclarativeTermVariables::merge(variables, term.return_ty(db).variables(db))
+    DeclarativeTermRunes::merge(variables, term.return_ty(db).variables(db))
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
 pub(crate) fn declarative_term_application_variables(
     db: &dyn DeclarativeTermDb,
     term: DeclarativeTermExplicitApplication,
-) -> Option<DeclarativeTermVariables> {
-    DeclarativeTermVariables::merge(
+) -> Option<DeclarativeTermRunes> {
+    DeclarativeTermRunes::merge(
         term.function(db).variables(db),
         term.argument(db).variables(db),
     )

@@ -1,7 +1,7 @@
 mod associated_item;
 mod binary;
 mod box_list;
-mod current_symbol;
+mod current_syn_symbol;
 mod field;
 mod function_application;
 mod function_call;
@@ -174,30 +174,30 @@ impl<'a> SemaExprEngine<'a> {
             SynExprData::CurrentSymbol {
                 ident,
                 regional_token_idx,
-                current_symbol_idx,
-                current_symbol_kind,
+                current_syn_symbol_idx,
+                current_syn_symbol_kind,
             } => (
                 Ok(SemaExprData::CurrentSymbol {
                     ident,
                     regional_token_idx,
-                    current_symbol_idx,
-                    current_symbol_kind,
+                    current_syn_symbol_idx,
+                    current_syn_symbol_kind,
                 }),
-                self.get_current_symbol_ty(syn_expr_idx, current_symbol_idx),
+                self.get_current_syn_symbol_ty(syn_expr_idx, current_syn_symbol_idx),
             ),
             SynExprData::FrameVarDecl {
                 ident,
                 regional_token_idx,
                 frame_var_symbol_idx,
-                current_symbol_kind,
+                current_syn_symbol_kind,
             } => (
                 Ok(SemaExprData::FrameVarDecl {
                     ident,
                     regional_token_idx,
                     frame_var_symbol_idx,
-                    current_symbol_kind,
+                    current_syn_symbol_kind,
                 }),
-                self.get_current_symbol_ty(syn_expr_idx, frame_var_symbol_idx),
+                self.get_current_syn_symbol_ty(syn_expr_idx, frame_var_symbol_idx),
             ),
             SynExprData::SelfType(regional_token_idx) => (
                 Ok(SemaExprData::SelfType(regional_token_idx)),

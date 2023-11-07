@@ -5,11 +5,11 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         syn_pattern_root: impl Into<SynPatternExprRoot>,
         ty: FluffyTerm,
-        symbols: SynCurrentSymbolIdxRange,
+        symbols: CurrentSynSymbolIdxRange,
     ) {
         self.infer_pattern_ty(syn_pattern_root.into().syn_pattern_expr_idx(), ty);
         for symbol in symbols {
-            self.infer_new_current_symbol_ty(symbol)
+            self.infer_new_current_syn_symbol_ty(symbol)
         }
     }
 
@@ -46,41 +46,41 @@ impl<'a> SemaExprEngine<'a> {
         }
     }
 
-    fn infer_new_current_symbol_ty(&mut self, current_symbol_idx: SynCurrentSymbolIdx) {
-        if let Some(ty) = self.calc_new_current_symbol_ty(current_symbol_idx) {
-            let ty = SymbolType::new(self, current_symbol_idx, ty);
-            self.symbol_tys.insert_new(current_symbol_idx, ty)
+    fn infer_new_current_syn_symbol_ty(&mut self, current_syn_symbol_idx: CurrentSynSymbolIdx) {
+        if let Some(ty) = self.calc_new_current_syn_symbol_ty(current_syn_symbol_idx) {
+            let ty = SymbolType::new(self, current_syn_symbol_idx, ty);
+            self.symbol_tys.insert_new(current_syn_symbol_idx, ty)
         }
     }
 
-    fn calc_new_current_symbol_ty(
+    fn calc_new_current_syn_symbol_ty(
         &mut self,
-        current_symbol_idx: SynCurrentSymbolIdx,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
     ) -> Option<FluffyTerm> {
-        match self.syn_expr_region_data[current_symbol_idx].variant() {
-            SynCurrentSymbolVariant::TemplateParameter {
+        match self.syn_expr_region_data[current_syn_symbol_idx].variant() {
+            CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant,
                 ..
             } => todo!(),
-            SynCurrentSymbolVariant::ParenateRegularParameter {
+            CurrentSynSymbolVariant::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             } => todo!(),
-            SynCurrentSymbolVariant::LetVariable {
+            CurrentSynSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
             }
-            | SynCurrentSymbolVariant::BeVariable {
+            | CurrentSynSymbolVariant::BeVariable {
                 pattern_symbol_idx, ..
             }
-            | SynCurrentSymbolVariant::CaseVariable {
+            | CurrentSynSymbolVariant::CaseVariable {
                 pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
-            SynCurrentSymbolVariant::FrameVariable { .. } => todo!(),
-            SynCurrentSymbolVariant::ParenateVariadicParameter { ident_token, .. } => todo!(),
-            SynCurrentSymbolVariant::SelfType => todo!(),
-            SynCurrentSymbolVariant::SelfValue {
+            CurrentSynSymbolVariant::FrameVariable { .. } => todo!(),
+            CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => todo!(),
+            CurrentSynSymbolVariant::SelfType => todo!(),
+            CurrentSynSymbolVariant::SelfValue {
                 symbol_modifier_keyword_group,
             } => todo!(),
-            SynCurrentSymbolVariant::FieldVariable { ident_token } => todo!(),
+            CurrentSynSymbolVariant::FieldVariable { ident_token } => todo!(),
         }
     }
 

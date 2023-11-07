@@ -9,7 +9,7 @@ use husky_hir_lazy_expr::builder::hir_lazy_expr_region_with_source_map;
 use husky_hir_ty::{menu::HirTypeMenu, HirType};
 use husky_sema_expr::SemaExprRegionData;
 use husky_syn_expr::{
-    ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynCurrentSymbolIdx, SynExprIdx,
+    CurrentSynSymbolIdx, ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynExprIdx,
     SynExprRegion, SynPatternExprRoot,
 };
 
@@ -84,11 +84,11 @@ impl<'a> HirDeclBuilder<'a> {
         self.hir_expr_region
     }
 
-    pub(crate) fn current_symbol_term(
+    pub(crate) fn current_syn_symbol_term(
         &self,
-        current_symbol_idx: SynCurrentSymbolIdx,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
     ) -> EtherealTerm {
-        match self.sema_expr_region_data.symbol_terms()[current_symbol_idx]
+        match self.sema_expr_region_data.symbol_terms()[current_syn_symbol_idx]
             .base_resolved_inner(self.sema_expr_region_data.fluffy_term_region())
         {
             FluffyTermBase::Ethereal(symbol_term) => symbol_term,

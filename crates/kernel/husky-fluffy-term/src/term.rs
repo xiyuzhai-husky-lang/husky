@@ -102,8 +102,8 @@ impl From<EtherealTermSymbol> for FluffyTerm {
     }
 }
 
-impl From<EtherealTermVariable> for FluffyTerm {
-    fn from(value: EtherealTermVariable) -> Self {
+impl From<EtherealTermRune> for FluffyTerm {
+    fn from(value: EtherealTermRune) -> Self {
         Into::<EtherealTerm>::into(value).into()
     }
 }

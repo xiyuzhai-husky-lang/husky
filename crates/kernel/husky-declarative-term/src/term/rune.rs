@@ -10,7 +10,7 @@ use thiserror::Error;
 /// variables are externalized symbols, derived from symbols, and defined in a bottom-up manner
 ///
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct DeclarativeTermVariable {
+pub struct DeclarativeTermRune {
     pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     /// this is the index to disambiguate it from all other symbols with the same type
     /// so that we have better cache hits
@@ -20,7 +20,7 @@ pub struct DeclarativeTermVariable {
 
 pub enum RefinedDeBrujinIndex {}
 
-impl DeclarativeTermVariable {
+impl DeclarativeTermRune {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -32,7 +32,7 @@ impl DeclarativeTermVariable {
     }
 }
 
-impl DeclarativeTermRewriteCopy for DeclarativeTermVariable {
+impl DeclarativeTermRewriteCopy for DeclarativeTermRune {
     fn substitute(
         self,
         db: &dyn DeclarativeTermDb,

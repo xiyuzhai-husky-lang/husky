@@ -8,9 +8,9 @@ mod item_path;
 mod list;
 mod literal;
 mod ritchie;
+mod rune;
 mod subitem;
 mod symbol;
-mod variable;
 mod wrapper;
 
 pub use self::abstraction::*;
@@ -23,9 +23,9 @@ pub use self::item_path::*;
 pub use self::list::*;
 pub use self::literal::*;
 pub use self::ritchie::*;
+pub use self::rune::*;
 pub use self::subitem::*;
 pub use self::symbol::*;
-pub use self::variable::*;
 pub use self::wrapper::*;
 
 use crate::*;
@@ -41,7 +41,7 @@ pub enum DeclarativeTerm {
     Symbol(DeclarativeTermSymbol),
     /// variables are those appearing in lambda expression
     /// variables are derived from symbols
-    Variable(DeclarativeTermVariable),
+    Rune(DeclarativeTermRune),
     EntityPath(DeclarativeTermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -127,7 +127,7 @@ impl DeclarativeTerm {
         match self {
             DeclarativeTerm::Literal(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::Variable(term) => term.show_with_db_fmt(f, db, ctx),
+            DeclarativeTerm::Rune(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::EntityPath(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::Category(term) => f.write_str(&term.to_string()),
             DeclarativeTerm::Universe(term) => f.write_str(&term.to_string()),

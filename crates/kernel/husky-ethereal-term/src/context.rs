@@ -30,7 +30,7 @@ impl TermShowContext {
     pub(crate) fn fmt_variable(
         &mut self,
         db: &dyn EtherealTermDb,
-        variable: EtherealTermVariable,
+        rune: EtherealTermRune,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         // ad hoc
@@ -52,7 +52,7 @@ impl TermShowContext {
     pub(crate) fn fmt_with_variable(
         &mut self,
         db: &dyn EtherealTermDb,
-        variable: EtherealTermVariable,
+        variable: EtherealTermRune,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         // ad hoc
