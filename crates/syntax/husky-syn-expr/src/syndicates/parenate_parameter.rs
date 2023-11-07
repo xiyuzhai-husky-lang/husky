@@ -7,7 +7,7 @@ use parsec::{HasStreamState, TryParseOptionFromStream};
 pub enum ParenateParameterSyndicate {
     Ordinary {
         syn_pattern_root: ParenateSynPatternExprRoot,
-        variables: SynCurrentSymbolIdxRange,
+        variables: CurrentSynSymbolIdxRange,
         colon: ColonRegionalToken,
         ty: SynExprIdx,
     },
@@ -16,7 +16,7 @@ pub enum ParenateParameterSyndicate {
         variadic_variant: SynVariadicParameterVariant,
         symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
-        variable: SynCurrentSymbolIdx,
+        variable: CurrentSynSymbolIdx,
         colon: ColonRegionalToken,
         ty: SynExprIdx,
     },
@@ -24,7 +24,7 @@ pub enum ParenateParameterSyndicate {
         syn_pattern_root: ParenateSynPatternExprRoot,
         symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
-        variable: SynCurrentSymbolIdx,
+        variable: CurrentSynSymbolIdx,
         colon: ColonRegionalToken,
         ty: SynExprIdx,
         eq_token: EqRegionalToken,
@@ -57,11 +57,11 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol_idx)| {
-                    SynCurrentSymbol::new(
+                    CurrentSynSymbol::new(
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        SynCurrentSymbolVariant::ParenateRegularParameter {
+                        CurrentSynSymbolVariant::ParenateRegularParameter {
                             ident: *ident,
                             pattern_symbol_idx: *pattern_symbol_idx,
                         },
@@ -130,11 +130,11 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
                 ctx.try_parse_option::<EphemSymbolModifierRegionalTokens>()?;
             let ident_token = ctx
                 .try_parse_expected::<IdentRegionalToken, _>(OriginalSynExprError::ExpectedIdent)?;
-            let variable = SynCurrentSymbol::new(
+            let variable = CurrentSynSymbol::new(
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                SynCurrentSymbolVariant::ParenateVariadicParameter {
+                CurrentSynSymbolVariant::ParenateVariadicParameter {
                     ident_token,
                     symbol_modifier_keyword_group,
                 },

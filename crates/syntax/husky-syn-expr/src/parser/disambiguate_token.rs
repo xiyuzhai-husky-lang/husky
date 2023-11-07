@@ -359,14 +359,14 @@ where
                             SynExprData::CurrentSymbol {
                                 ident,
                                 regional_token_idx,
-                                current_symbol_idx,
-                                current_symbol_kind,
+                                current_syn_symbol_idx,
+                                current_syn_symbol_kind,
                             } => todo!(),
                             SynExprData::FrameVarDecl {
                                 regional_token_idx,
                                 ident,
                                 frame_var_symbol_idx,
-                                current_symbol_kind,
+                                current_syn_symbol_kind,
                             } => todo!(),
                             SynExprData::SelfType(_) => todo!(),
                             SynExprData::SelfValue(_) => todo!(),
@@ -537,12 +537,12 @@ where
                         inherited_symbol_kind,
                     }
                 }
-                Symbol::Current(current_symbol_idx, current_symbol_kind) => {
+                Symbol::Current(current_syn_symbol_idx, current_syn_symbol_kind) => {
                     DisambiguatedTokenData::CurrentSymbol {
                         ident,
                         regional_token_idx,
-                        current_symbol_idx,
-                        current_symbol_kind,
+                        current_syn_symbol_idx,
+                        current_syn_symbol_kind,
                     }
                 } //  Expr::EntityPath(item_path),
             },
@@ -561,14 +561,14 @@ pub(crate) enum DisambiguatedTokenData {
     InheritedSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_symbol_idx: SynInheritedSymbolIdx,
-        inherited_symbol_kind: SynInheritedSymbolKind,
+        inherited_symbol_idx: InheritedSynSymbolIdx,
+        inherited_symbol_kind: InheritedSynSymbolKind,
     },
     CurrentSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        current_symbol_idx: SynCurrentSymbolIdx,
-        current_symbol_kind: SynCurrentSymbolKind,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_syn_symbol_kind: CurrentSynSymbolKind,
     },
     SelfType(RegionalTokenIdx),
     SelfValue(RegionalTokenIdx),

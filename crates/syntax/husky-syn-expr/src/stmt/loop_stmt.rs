@@ -183,21 +183,21 @@ impl<'a> SynStmtContext<'a> {
                 ropd,
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr);
-                let current_symbol_variant = SynCurrentSymbolVariant::FrameVariable {
+                let current_syn_symbol_variant = CurrentSynSymbolVariant::FrameVariable {
                     expr_idx: particulars.for_between_loop_var_expr_idx,
                     ident: particulars.for_between_loop_var_ident,
                 };
-                let current_symbol_kind = current_symbol_variant.kind();
+                let current_syn_symbol_kind = current_syn_symbol_variant.kind();
                 let access_start = self
                     .ast_token_idx_range(body.start())
                     .start()
                     .regional_token_idx();
                 let access_end = self.ast_token_idx_range(body.end() - 1).end();
-                let frame_var_symbol = SynCurrentSymbol::new(
+                let frame_var_symbol = CurrentSynSymbol::new(
                     self.syn_pattern_expr_region(),
                     access_start,
                     Some(access_end),
-                    current_symbol_variant,
+                    current_syn_symbol_variant,
                 );
                 let frame_var_symbol_idx = self
                     .define_symbols(
@@ -211,7 +211,7 @@ impl<'a> SynStmtContext<'a> {
                         regional_token_idx: particulars.for_between_loop_var_regional_token_idx,
                         ident: particulars.for_between_loop_var_ident,
                         frame_var_symbol_idx,
-                        current_symbol_kind,
+                        current_syn_symbol_kind,
                     },
                 );
                 SynStmtData::ForBetween {
@@ -337,8 +337,8 @@ impl<'a> SynStmtContext<'a> {
                 SynExprData::CurrentSymbol {
                     ident,
                     regional_token_idx,
-                    current_symbol_idx,
-                    current_symbol_kind,
+                    current_syn_symbol_idx,
+                    current_syn_symbol_kind,
                 } => (ident, regional_token_idx),
                 _ => todo!(),
             };

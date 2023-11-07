@@ -8,7 +8,7 @@ pub struct DeclarativeTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_variable: Option<DeclarativeTermVariable>,
+    pub parameter_variable: Option<DeclarativeTermRune>,
     /// X
     pub parameter_ty: DeclarativeTerm,
     /// Y
@@ -53,7 +53,7 @@ impl DeclarativeTermCurry {
         self,
         db: &dyn DeclarativeTermDb,
         symbol: DeclarativeTermSymbol,
-        variable: DeclarativeTermVariable,
+        variable: DeclarativeTermRune,
     ) -> Self {
         DeclarativeTermCurry::new_inner(
             db,

@@ -6,7 +6,7 @@ use super::*;
 // #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct LetPatternSynSyndicate {
     syn_pattern_expr_root: LetSynPatternExprRoot,
-    variables: SynCurrentSymbolIdxRange,
+    variables: CurrentSynSymbolIdxRange,
     colon_token: SynExprResult<Option<ColonRegionalToken>>,
     ty: Option<SynExprIdx>,
 }
@@ -27,11 +27,11 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
         let symbols = symbols
             .iter()
             .map(|(ident, pattern_symbol)| {
-                SynCurrentSymbol::new(
+                CurrentSynSymbol::new(
                     self.pattern_expr_region(),
                     access_start,
                     Some(access_end),
-                    SynCurrentSymbolVariant::LetVariable {
+                    CurrentSynSymbolVariant::LetVariable {
                         ident: *ident,
                         pattern_symbol_idx: *pattern_symbol,
                     },
@@ -68,7 +68,7 @@ impl LetPatternSynSyndicate {
         self.syn_pattern_expr_root
     }
 
-    pub fn variables(&self) -> SynCurrentSymbolIdxRange {
+    pub fn variables(&self) -> CurrentSynSymbolIdxRange {
         self.variables
     }
 

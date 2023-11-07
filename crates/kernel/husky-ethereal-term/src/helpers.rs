@@ -115,7 +115,7 @@ impl EtherealTermSymbol {
     }
 }
 
-impl EtherealTermVariable {
+impl EtherealTermRune {
     fn toolchain(self, db: &dyn EtherealTermDb) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }

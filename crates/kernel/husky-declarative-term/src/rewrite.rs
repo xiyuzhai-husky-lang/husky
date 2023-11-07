@@ -40,7 +40,7 @@ impl DeclarativeTermRewriteCopy for DeclarativeTerm {
         substitution: &DeclarativeTermSubstitution,
     ) -> Self {
         match self {
-            DeclarativeTerm::Variable(symbol) => match symbol == substitution.src() {
+            DeclarativeTerm::Rune(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
                 false => self,
             },

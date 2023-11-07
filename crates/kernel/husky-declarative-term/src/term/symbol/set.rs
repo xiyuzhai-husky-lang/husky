@@ -56,7 +56,7 @@ fn calc_declarative_term_symbols(
             db,
             VecSet::new_one_elem_set(symbol),
         )),
-        DeclarativeTerm::Variable(symbol) => None,
+        DeclarativeTerm::Rune(symbol) => None,
         DeclarativeTerm::EntityPath(path) => match path {
             DeclarativeTermEntityPath::Fugitive(_) => todo!(),
             DeclarativeTermEntityPath::Trait(_) | DeclarativeTermEntityPath::Type(_) => None,

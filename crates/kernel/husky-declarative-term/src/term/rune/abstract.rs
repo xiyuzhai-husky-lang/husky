@@ -16,11 +16,11 @@ impl DeclarativeTerm {
         self,
         db: &dyn DeclarativeTermDb,
         symbol: DeclarativeTermSymbol,
-    ) -> (Self, Option<DeclarativeTermVariable>) {
+    ) -> (Self, Option<DeclarativeTermRune>) {
         let Some(idx) = self.new_variable_idx(db, symbol) else {
             return (self, None);
         };
-        let variable = DeclarativeTermVariable::new(db, symbol.ty(db), idx);
+        let variable = DeclarativeTermRune::new(db, symbol.ty(db), idx);
         (
             self.substitute_symbol_with_variable(db, symbol, variable),
             Some(variable),
@@ -118,7 +118,7 @@ impl DeclarativeTerm {
         self,
         db: &dyn DeclarativeTermDb,
         symbol: DeclarativeTermSymbol,
-        variable: DeclarativeTermVariable,
+        variable: DeclarativeTermRune,
     ) -> Self {
         if !self.contains_symbol(db, symbol) {
             return self;
@@ -191,7 +191,7 @@ pub struct VariableRegistry {
 impl VariableRegistry {
     fn new(
         db: &dyn DeclarativeTermDb,
-        variables: Option<DeclarativeTermVariables>,
+        variables: Option<DeclarativeTermRunes>,
         ty_family: DeclarativeTermFamily,
     ) -> Self {
         let Some(variables) = variables else {

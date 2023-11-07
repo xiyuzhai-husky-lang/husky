@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct CasePatternSemaSyndicate {
     syn_pattern_root: CaseSynPatternExprRoot,
-    variables: SynCurrentSymbolIdxRange,
+    variables: CurrentSynSymbolIdxRange,
 }
 
 impl CasePatternSemaSyndicate {
@@ -13,7 +13,7 @@ impl CasePatternSemaSyndicate {
         self.syn_pattern_root
     }
 
-    pub fn variables(&self) -> SynCurrentSymbolIdxRange {
+    pub fn variables(&self) -> CurrentSynSymbolIdxRange {
         self.variables
     }
 }

@@ -5,8 +5,8 @@ mod constraint;
 mod curry;
 mod item;
 mod ritchie;
+mod rune;
 mod symbol;
-mod variable;
 
 use std::fmt::{Debug, Display};
 
@@ -17,8 +17,8 @@ pub use self::constraint::*;
 pub use self::curry::*;
 pub use self::item::*;
 pub use self::ritchie::*;
+pub use self::rune::*;
 pub use self::symbol::*;
-pub use self::variable::*;
 
 use crate::instantiation::*;
 use crate::*;
@@ -38,7 +38,7 @@ pub enum EtherealTerm {
     /// literal: 1,1.0, true, false; variable, itemPath
     Literal(TermLiteral),
     Symbol(EtherealTermSymbol),
-    Variable(EtherealTermVariable),
+    Variable(EtherealTermRune),
     EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -211,8 +211,8 @@ impl EtherealTerm {
             DeclarativeTerm::Symbol(declarative_term) => {
                 EtherealTermSymbol::from_declarative(db, declarative_term)?.into()
             }
-            DeclarativeTerm::Variable(declarative_term) => {
-                EtherealTermVariable::from_declarative(db, declarative_term)?.into()
+            DeclarativeTerm::Rune(declarative_term) => {
+                EtherealTermRune::from_declarative(db, declarative_term)?.into()
             }
             DeclarativeTerm::EntityPath(declarative_term) => match declarative_term {
                 DeclarativeTermEntityPath::Fugitive(path) => TermEntityPath::Fugitive(path).into(),
@@ -306,8 +306,7 @@ impl EtherealTerm {
             )
             .into(),
             EtherealTerm::Variable(v) => {
-                DeclarativeTermVariable::new(db, Ok(v.ty(db).into_declarative(db)), v.idx(db))
-                    .into()
+                DeclarativeTermRune::new(db, Ok(v.ty(db).into_declarative(db)), v.idx(db)).into()
             }
             EtherealTerm::EntityPath(path) => path.into(),
             EtherealTerm::Category(cat) => DeclarativeTerm::Category(cat),
@@ -385,7 +384,7 @@ pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchi
         RawType::Declarative(declarative_ty) => match declarative_ty {
             DeclarativeTerm::Literal(_) => todo!(),
             DeclarativeTerm::Symbol(_) => todo!(),
-            DeclarativeTerm::Variable(_) => todo!(),
+            DeclarativeTerm::Rune(_) => todo!(),
             DeclarativeTerm::EntityPath(_) => todo!(),
             DeclarativeTerm::Category(_) => todo!(),
             DeclarativeTerm::Universe(_) => todo!(),

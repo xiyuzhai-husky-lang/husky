@@ -226,27 +226,29 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::CurrentSymbol {
                 ident,
                 regional_token_idx,
-                current_symbol_idx,
-                current_symbol_kind,
+                current_syn_symbol_idx,
+                current_syn_symbol_kind,
             } => match self
                 .declarative_term_region
-                .current_symbol_signature(*current_symbol_idx)
+                .current_syn_symbol_signature(*current_syn_symbol_idx)
             {
-                Some(current_symbol_signature) => match current_symbol_signature.term_symbol() {
-                    Some(declarative_term_symbol) => Ok(EtherealTermSymbol::from_declarative(
-                        self.db,
-                        declarative_term_symbol,
-                    )?
-                    .into()),
-                    None => todo!(),
-                },
+                Some(current_syn_symbol_signature) => {
+                    match current_syn_symbol_signature.term_symbol() {
+                        Some(declarative_term_symbol) => Ok(EtherealTermSymbol::from_declarative(
+                            self.db,
+                            declarative_term_symbol,
+                        )?
+                        .into()),
+                        None => todo!(),
+                    }
+                }
                 None => todo!(),
             },
             SemaExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
-                frame_var_symbol_idx: current_symbol_idx,
-                current_symbol_kind,
+                frame_var_symbol_idx: current_syn_symbol_idx,
+                current_syn_symbol_kind,
             } => todo!(),
             SemaExprData::SelfType(regional_token_idx) => match self.self_ty {
                 Some(self_ty_term) => Ok(self_ty_term.into()),

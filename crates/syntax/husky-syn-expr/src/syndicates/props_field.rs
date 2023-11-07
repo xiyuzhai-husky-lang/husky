@@ -11,7 +11,7 @@ pub struct PropsFieldSyndicate {
     colon: ColonRegionalToken,
     ty_expr_idx: SynExprIdx,
     initialization: Option<PropsFieldInitialization>,
-    variable: SynCurrentSymbolIdx,
+    variable: CurrentSynSymbolIdx,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -77,11 +77,11 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
                 None
             };
         let access_start = ctx.save_state().next_regional_token_idx();
-        let symbol = SynCurrentSymbol::new(
+        let symbol = CurrentSynSymbol::new(
             ctx.pattern_expr_region(),
             access_start,
             None,
-            SynCurrentSymbolVariant::FieldVariable { ident_token },
+            CurrentSynSymbolVariant::FieldVariable { ident_token },
         );
         let variable = ctx.define_symbol(
             symbol,

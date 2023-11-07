@@ -12,7 +12,7 @@ impl DeclarativeTerm {
         match self {
             DeclarativeTerm::Literal(_) => todo!(),
             DeclarativeTerm::Symbol(_) => DeclarativeTermFamily::Other,
-            DeclarativeTerm::Variable(_) => todo!(),
+            DeclarativeTerm::Rune(_) => todo!(),
             DeclarativeTerm::EntityPath(path) => match path {
                 DeclarativeTermEntityPath::Fugitive(_) => todo!(),
                 DeclarativeTermEntityPath::Trait(_) => todo!(),
@@ -74,7 +74,7 @@ impl DeclarativeTermSymbol {
     }
 }
 
-impl DeclarativeTermVariable {
+impl DeclarativeTermRune {
     pub(crate) fn ty_family(self, db: &dyn DeclarativeTermDb) -> DeclarativeTermFamily {
         self.ty(db)
             .ok()

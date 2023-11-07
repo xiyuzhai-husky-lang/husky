@@ -210,7 +210,7 @@ pub(crate) fn ethereal_term_application_declarative_ty(
 pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     db: &dyn EtherealTermDb,
     function_ty: DeclarativeTermCurry,
-    function_ty_parameter_variable: DeclarativeTermVariable,
+    function_ty_parameter_variable: DeclarativeTermRune,
     argument: DeclarativeTerm,
     argument_ty: RawType,
     shift: u8,

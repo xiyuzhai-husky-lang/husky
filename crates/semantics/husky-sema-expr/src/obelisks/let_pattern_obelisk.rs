@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LetPatternSemaSyndicate {
     syn_pattern_root: LetSynPatternExprRoot,
-    variables: SynCurrentSymbolIdxRange,
+    variables: CurrentSynSymbolIdxRange,
     colon_token: Option<ColonRegionalToken>,
     ty_sema_expr_idx: Option<SemaExprIdx>,
 }
@@ -15,7 +15,7 @@ impl LetPatternSemaSyndicate {
         self.syn_pattern_root
     }
 
-    pub fn variables(&self) -> SynCurrentSymbolIdxRange {
+    pub fn variables(&self) -> CurrentSynSymbolIdxRange {
         self.variables
     }
 
