@@ -78,8 +78,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::FieldVariable {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `line_segment_sketch`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -128,8 +128,8 @@ Ok(
                         2,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 2,
-                        current_symbol_kind: SynCurrentSymbolKind::FieldVariable {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `line_segments`,
                                 regional_token_idx: RegionalTokenIdx(

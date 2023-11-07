@@ -151,15 +151,15 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     8,
                                 ),
                                 access_end: None,
-                                variant: SynCurrentSymbolVariant::FieldVariable {
+                                variant: CurrentSynSymbolVariant::FieldVariable {
                                     ident_token: IdentRegionalToken {
                                         ident: `line_segment_sketch`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -168,13 +168,13 @@
                                     },
                                 },
                             },
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
                                     14,
                                 ),
                                 access_end: None,
-                                variant: SynCurrentSymbolVariant::FieldVariable {
+                                variant: CurrentSynSymbolVariant::FieldVariable {
                                     ident_token: IdentRegionalToken {
                                         ident: `line_segments`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -633,7 +633,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -674,7 +674,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         None,
                         None,
@@ -1095,7 +1095,7 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: True,
@@ -1280,7 +1280,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -1288,7 +1288,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -1517,7 +1517,7 @@
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [],
                                 },
                                 allow_self_type: True,
@@ -1618,7 +1618,7 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [],
                     },
                     allow_self_type: True,
@@ -1734,7 +1734,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },
@@ -1742,7 +1742,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [],
                 },
             },

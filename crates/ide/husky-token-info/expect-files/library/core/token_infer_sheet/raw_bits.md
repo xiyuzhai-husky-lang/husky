@@ -220,8 +220,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::ExplicitRegularParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),

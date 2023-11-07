@@ -36,8 +36,8 @@ Ok(
                         1,
                     ),
                     data: TokenInfoData::CurrentSymbol {
-                        current_symbol_idx: 1,
-                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `B`,

@@ -83,7 +83,7 @@ Ok(
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_symbol_arena: Arena {
+                                        current_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
@@ -178,7 +178,7 @@ Ok(
                                                         inherited_symbol_arena: Arena {
                                                             data: [],
                                                         },
-                                                        current_symbol_arena: Arena {
+                                                        current_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         allow_self_type: False,
@@ -430,7 +430,7 @@ Ok(
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: False,
@@ -624,7 +624,7 @@ Ok(
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_symbol_arena: Arena {
+                                        current_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
@@ -802,7 +802,7 @@ Ok(
                                                         inherited_symbol_arena: Arena {
                                                             data: [],
                                                         },
-                                                        current_symbol_arena: Arena {
+                                                        current_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
                                                         allow_self_type: False,
@@ -1081,8 +1081,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         45,
                                                     ),
-                                                    current_symbol_idx: 1,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 1,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
@@ -1107,8 +1107,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         49,
                                                     ),
-                                                    current_symbol_idx: 1,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 1,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
@@ -1160,8 +1160,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         56,
                                                     ),
-                                                    current_symbol_idx: 2,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 2,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
@@ -1186,8 +1186,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         62,
                                                     ),
-                                                    current_symbol_idx: 1,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 1,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
@@ -1256,8 +1256,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         74,
                                                     ),
-                                                    current_symbol_idx: 6,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 6,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 6,
                                                     },
                                                 },
@@ -1294,8 +1294,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         78,
                                                     ),
-                                                    current_symbol_idx: 6,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 6,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 6,
                                                     },
                                                 },
@@ -1341,8 +1341,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         85,
                                                     ),
-                                                    current_symbol_idx: 1,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 1,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
@@ -1378,8 +1378,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         94,
                                                     ),
-                                                    current_symbol_idx: 2,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 2,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
@@ -1415,8 +1415,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         103,
                                                     ),
-                                                    current_symbol_idx: 7,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 7,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 7,
                                                     },
                                                 },
@@ -1425,8 +1425,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         107,
                                                     ),
-                                                    current_symbol_idx: 8,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 8,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 8,
                                                     },
                                                 },
@@ -1460,8 +1460,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         110,
                                                     ),
-                                                    current_symbol_idx: 9,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 9,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 9,
                                                     },
                                                 },
@@ -1540,8 +1540,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         120,
                                                     ),
-                                                    current_symbol_idx: 1,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 1,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
@@ -2280,9 +2280,9 @@ Ok(
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             19,
@@ -2294,12 +2294,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
                                                             ident: `downarc`,
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             28,
@@ -2311,12 +2311,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
                                                             ident: `uparc`,
                                                             pattern_symbol_idx: 2,
                                                         },
                                                     },
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             37,
@@ -2328,12 +2328,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
                                                             ident: `back`,
                                                             pattern_symbol_idx: 3,
                                                         },
                                                     },
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             48,
@@ -2345,12 +2345,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::BeVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `some`,
                                                             pattern_symbol_idx: 4,
                                                         },
                                                     },
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             59,
@@ -2362,12 +2362,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::BeVariable {
+                                                        variant: CurrentSynSymbolVariant::BeVariable {
                                                             ident: `some`,
                                                             pattern_symbol_idx: 5,
                                                         },
                                                     },
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             61,
@@ -2379,12 +2379,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
                                                             ident: `de`,
                                                             pattern_symbol_idx: 6,
                                                         },
                                                     },
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             84,
@@ -2396,12 +2396,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
                                                             ident: `downarc_enpoint`,
                                                             pattern_symbol_idx: 7,
                                                         },
                                                     },
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             93,
@@ -2413,12 +2413,12 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
                                                             ident: `uparc_startpoint`,
                                                             pattern_symbol_idx: 8,
                                                         },
                                                     },
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             102,
@@ -2430,7 +2430,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
                                                             ident: `distance`,
                                                             pattern_symbol_idx: 9,
                                                         },
@@ -2726,15 +2726,15 @@ Ok(
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_symbol_arena: Arena {
+                                        current_syn_symbol_arena: Arena {
                                             data: [
-                                                SynCurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -2918,15 +2918,15 @@ Ok(
                                                         inherited_symbol_arena: Arena {
                                                             data: [],
                                                         },
-                                                        current_symbol_arena: Arena {
+                                                        current_syn_symbol_arena: Arena {
                                                             data: [
-                                                                SynCurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: None,
                                                                     access_start: RegionalTokenIdx(
                                                                         5,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                                         ident: `cc`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
@@ -2990,7 +2990,7 @@ Ok(
                                                         4,
                                                     ),
                                                     inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `cc`,
                                                     },
                                                 },
@@ -3019,8 +3019,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
                                                     ),
-                                                    current_symbol_idx: 1,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 1,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
@@ -3077,7 +3077,7 @@ Ok(
                                                         18,
                                                     ),
                                                     inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `cc`,
                                                     },
                                                 },
@@ -3253,20 +3253,20 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    SynInheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
                                                         modifier: None,
-                                                        kind: SynInheritedSymbolKind::ParenateParameter {
+                                                        kind: InheritedSynSymbolKind::ParenateParameter {
                                                             ident: `cc`,
                                                         },
                                                     },
                                                 ],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             3,
@@ -3278,7 +3278,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
                                                             ident: `dp`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -3486,15 +3486,15 @@ Ok(
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_symbol_arena: Arena {
+                                        current_syn_symbol_arena: Arena {
                                             data: [
-                                                SynCurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -3678,15 +3678,15 @@ Ok(
                                                         inherited_symbol_arena: Arena {
                                                             data: [],
                                                         },
-                                                        current_symbol_arena: Arena {
+                                                        current_syn_symbol_arena: Arena {
                                                             data: [
-                                                                SynCurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: None,
                                                                     access_start: RegionalTokenIdx(
                                                                         5,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                                         ident: `cc`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
@@ -3750,7 +3750,7 @@ Ok(
                                                         4,
                                                     ),
                                                     inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `cc`,
                                                     },
                                                 },
@@ -3779,8 +3779,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
                                                     ),
-                                                    current_symbol_idx: 1,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 1,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
@@ -3837,7 +3837,7 @@ Ok(
                                                         18,
                                                     ),
                                                     inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `cc`,
                                                     },
                                                 },
@@ -4013,20 +4013,20 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    SynInheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
                                                         modifier: None,
-                                                        kind: SynInheritedSymbolKind::ParenateParameter {
+                                                        kind: InheritedSynSymbolKind::ParenateParameter {
                                                             ident: `cc`,
                                                         },
                                                     },
                                                 ],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             3,
@@ -4038,7 +4038,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
                                                             ident: `dp`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -4246,15 +4246,15 @@ Ok(
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_symbol_arena: Arena {
+                                        current_syn_symbol_arena: Arena {
                                             data: [
-                                                SynCurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -4438,15 +4438,15 @@ Ok(
                                                         inherited_symbol_arena: Arena {
                                                             data: [],
                                                         },
-                                                        current_symbol_arena: Arena {
+                                                        current_syn_symbol_arena: Arena {
                                                             data: [
-                                                                SynCurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: None,
                                                                     access_start: RegionalTokenIdx(
                                                                         5,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                                         ident: `cc`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
@@ -4510,7 +4510,7 @@ Ok(
                                                         4,
                                                     ),
                                                     inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `cc`,
                                                     },
                                                 },
@@ -4539,8 +4539,8 @@ Ok(
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
                                                     ),
-                                                    current_symbol_idx: 1,
-                                                    current_symbol_kind: SynCurrentSymbolKind::LetVariable {
+                                                    current_syn_symbol_idx: 1,
+                                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
@@ -4597,7 +4597,7 @@ Ok(
                                                         18,
                                                     ),
                                                     inherited_symbol_idx: 1,
-                                                    inherited_symbol_kind: SynInheritedSymbolKind::ParenateParameter {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                         ident: `cc`,
                                                     },
                                                 },
@@ -4773,20 +4773,20 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    SynInheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
                                                         modifier: None,
-                                                        kind: SynInheritedSymbolKind::ParenateParameter {
+                                                        kind: InheritedSynSymbolKind::ParenateParameter {
                                                             ident: `cc`,
                                                         },
                                                     },
                                                 ],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: RegionalTokenIdx(
                                                             3,
@@ -4798,7 +4798,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        variant: SynCurrentSymbolVariant::LetVariable {
+                                                        variant: CurrentSynSymbolVariant::LetVariable {
                                                             ident: `dp`,
                                                             pattern_symbol_idx: 1,
                                                         },

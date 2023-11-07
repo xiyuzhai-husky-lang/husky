@@ -56,15 +56,15 @@
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
-                    current_symbol_arena: Arena {
+                    current_syn_symbol_arena: Arena {
                         data: [
-                            SynCurrentSymbol {
+                            CurrentSynSymbol {
                                 modifier: Const,
                                 access_start: RegionalTokenIdx(
                                     6,
                                 ),
                                 access_end: None,
-                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                     syn_attrs: TemplateParameterSynAttrs {
                                         syn_attrs: [],
                                     },
@@ -132,7 +132,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             SymbolType(
@@ -157,7 +157,7 @@
                 inherited_symbol_map: ArenaMap {
                     data: [],
                 },
-                current_symbol_map: ArenaMap {
+                current_syn_symbol_map: ArenaMap {
                     data: [
                         Some(
                             FluffyTerm {

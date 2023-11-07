@@ -129,15 +129,15 @@ Ok(
                                             inherited_symbol_arena: Arena {
                                                 data: [],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: RegionalTokenIdx(
                                                             9,
                                                         ),
                                                         access_end: None,
-                                                        variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
                                                             },
@@ -153,13 +153,13 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    SynCurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: RegionalTokenIdx(
                                                             12,
                                                         ),
                                                         access_end: None,
-                                                        variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
                                                             },

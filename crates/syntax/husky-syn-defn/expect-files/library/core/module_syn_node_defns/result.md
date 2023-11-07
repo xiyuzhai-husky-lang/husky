@@ -114,15 +114,15 @@ Ok(
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_symbol_arena: Arena {
+                                        current_syn_symbol_arena: Arena {
                                             data: [
-                                                SynCurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -137,13 +137,13 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                SynCurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         8,
                                                     ),
                                                     access_end: None,
-                                                    variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -368,8 +368,8 @@ Ok(
                                         regional_token_idx: RegionalTokenIdx(
                                             17,
                                         ),
-                                        current_symbol_idx: 2,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 2,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `T2`,
@@ -389,8 +389,8 @@ Ok(
                                         regional_token_idx: RegionalTokenIdx(
                                             18,
                                         ),
-                                        current_symbol_idx: 4,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 4,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E2`,
@@ -420,8 +420,8 @@ Ok(
                                         regional_token_idx: RegionalTokenIdx(
                                             21,
                                         ),
-                                        current_symbol_idx: 1,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 1,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `T1`,
@@ -441,8 +441,8 @@ Ok(
                                         regional_token_idx: RegionalTokenIdx(
                                             22,
                                         ),
-                                        current_symbol_idx: 3,
-                                        current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                        current_syn_symbol_idx: 3,
+                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E1`,
@@ -571,15 +571,15 @@ Ok(
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
-                                current_symbol_arena: Arena {
+                                current_syn_symbol_arena: Arena {
                                     data: [
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 4,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -594,13 +594,13 @@ Ok(
                                                 },
                                             },
                                         },
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 6,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -615,13 +615,13 @@ Ok(
                                                 },
                                             },
                                         },
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 8,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -636,13 +636,13 @@ Ok(
                                                 },
                                             },
                                         },
-                                        SynCurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: RegionalTokenIdx(
                                                 10,
                                             ),
                                             access_end: None,
-                                            variant: SynCurrentSymbolVariant::TemplateParameter {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
                                                 syn_attrs: TemplateParameterSynAttrs {
                                                     syn_attrs: [],
                                                 },
@@ -809,8 +809,8 @@ Ok(
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 17,
                                                             ),
-                                                            current_symbol_idx: 2,
-                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_idx: 2,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T2`,
@@ -830,8 +830,8 @@ Ok(
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 18,
                                                             ),
-                                                            current_symbol_idx: 4,
-                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_idx: 4,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E2`,
@@ -861,8 +861,8 @@ Ok(
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 21,
                                                             ),
-                                                            current_symbol_idx: 1,
-                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_idx: 1,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T1`,
@@ -882,8 +882,8 @@ Ok(
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 22,
                                                             ),
-                                                            current_symbol_idx: 3,
-                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_idx: 3,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E1`,
@@ -1012,15 +1012,15 @@ Ok(
                                                     inherited_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_symbol_arena: Arena {
+                                                    current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            SynCurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     4,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [],
                                                                     },
@@ -1035,13 +1035,13 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynCurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [],
                                                                     },
@@ -1056,13 +1056,13 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynCurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     8,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [],
                                                                     },
@@ -1077,13 +1077,13 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynCurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     10,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [],
                                                                     },
@@ -1176,7 +1176,7 @@ Ok(
                                                     4,
                                                 ),
                                                 inherited_symbol_idx: 4,
-                                                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E2`,
                                                     },
@@ -1208,45 +1208,45 @@ Ok(
                                     symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [
-                                                SynInheritedSymbol {
+                                                InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
                                                         1,
                                                     ),
                                                     modifier: Const,
-                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T1`,
                                                         },
                                                     ),
                                                 },
-                                                SynInheritedSymbol {
+                                                InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
                                                         2,
                                                     ),
                                                     modifier: Const,
-                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T2`,
                                                         },
                                                     ),
                                                 },
-                                                SynInheritedSymbol {
+                                                InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
                                                         3,
                                                     ),
                                                     modifier: Const,
-                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E1`,
                                                         },
                                                     ),
                                                 },
-                                                SynInheritedSymbol {
+                                                InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
                                                         4,
                                                     ),
                                                     modifier: Const,
-                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E2`,
                                                         },
@@ -1254,7 +1254,7 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        current_symbol_arena: Arena {
+                                        current_syn_symbol_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
@@ -1431,8 +1431,8 @@ Ok(
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 17,
                                                             ),
-                                                            current_symbol_idx: 2,
-                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_idx: 2,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T2`,
@@ -1452,8 +1452,8 @@ Ok(
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 18,
                                                             ),
-                                                            current_symbol_idx: 4,
-                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_idx: 4,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E2`,
@@ -1483,8 +1483,8 @@ Ok(
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 21,
                                                             ),
-                                                            current_symbol_idx: 1,
-                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_idx: 1,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T1`,
@@ -1504,8 +1504,8 @@ Ok(
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 22,
                                                             ),
-                                                            current_symbol_idx: 3,
-                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                            current_syn_symbol_idx: 3,
+                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E1`,
@@ -1634,15 +1634,15 @@ Ok(
                                                     inherited_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_symbol_arena: Arena {
+                                                    current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            SynCurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     4,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [],
                                                                     },
@@ -1657,13 +1657,13 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynCurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [],
                                                                     },
@@ -1678,13 +1678,13 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynCurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     8,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [],
                                                                     },
@@ -1699,13 +1699,13 @@ Ok(
                                                                     },
                                                                 },
                                                             },
-                                                            SynCurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     10,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                         syn_attrs: [],
                                                                     },
@@ -1808,7 +1808,7 @@ Ok(
                                                     7,
                                                 ),
                                                 inherited_symbol_idx: 2,
-                                                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T2`,
                                                     },
@@ -1824,7 +1824,7 @@ Ok(
                                                     8,
                                                 ),
                                                 inherited_symbol_idx: 4,
-                                                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E2`,
                                                     },
@@ -1850,7 +1850,7 @@ Ok(
                                                     12,
                                                 ),
                                                 inherited_symbol_idx: 1,
-                                                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T1`,
                                                     },
@@ -1866,7 +1866,7 @@ Ok(
                                                     13,
                                                 ),
                                                 inherited_symbol_idx: 3,
-                                                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                                     InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E1`,
                                                     },
@@ -1971,45 +1971,45 @@ Ok(
                                     symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [
-                                                SynInheritedSymbol {
+                                                InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
                                                         1,
                                                     ),
                                                     modifier: Const,
-                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T1`,
                                                         },
                                                     ),
                                                 },
-                                                SynInheritedSymbol {
+                                                InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
                                                         2,
                                                     ),
                                                     modifier: Const,
-                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T2`,
                                                         },
                                                     ),
                                                 },
-                                                SynInheritedSymbol {
+                                                InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
                                                         3,
                                                     ),
                                                     modifier: Const,
-                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E1`,
                                                         },
                                                     ),
                                                 },
-                                                SynInheritedSymbol {
+                                                InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
                                                         4,
                                                     ),
                                                     modifier: Const,
-                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                         InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E2`,
                                                         },
@@ -2017,15 +2017,15 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        current_symbol_arena: Arena {
+                                        current_syn_symbol_arena: Arena {
                                             data: [
-                                                SynCurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                         ident: `result`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -2128,8 +2128,8 @@ Ok(
                                                                             regional_token_idx: RegionalTokenIdx(
                                                                                 17,
                                                                             ),
-                                                                            current_symbol_idx: 2,
-                                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                                            current_syn_symbol_idx: 2,
+                                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                                     ident_token: IdentRegionalToken {
                                                                                         ident: `T2`,
@@ -2149,8 +2149,8 @@ Ok(
                                                                             regional_token_idx: RegionalTokenIdx(
                                                                                 18,
                                                                             ),
-                                                                            current_symbol_idx: 4,
-                                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                                            current_syn_symbol_idx: 4,
+                                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                                     ident_token: IdentRegionalToken {
                                                                                         ident: `E2`,
@@ -2180,8 +2180,8 @@ Ok(
                                                                             regional_token_idx: RegionalTokenIdx(
                                                                                 21,
                                                                             ),
-                                                                            current_symbol_idx: 1,
-                                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                                            current_syn_symbol_idx: 1,
+                                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                                     ident_token: IdentRegionalToken {
                                                                                         ident: `T1`,
@@ -2201,8 +2201,8 @@ Ok(
                                                                             regional_token_idx: RegionalTokenIdx(
                                                                                 22,
                                                                             ),
-                                                                            current_symbol_idx: 3,
-                                                                            current_symbol_kind: SynCurrentSymbolKind::TemplateParameter {
+                                                                            current_syn_symbol_idx: 3,
+                                                                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
                                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                                     ident_token: IdentRegionalToken {
                                                                                         ident: `E1`,
@@ -2331,15 +2331,15 @@ Ok(
                                                                     inherited_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
-                                                                    current_symbol_arena: Arena {
+                                                                    current_syn_symbol_arena: Arena {
                                                                         data: [
-                                                                            SynCurrentSymbol {
+                                                                            CurrentSynSymbol {
                                                                                 modifier: Const,
                                                                                 access_start: RegionalTokenIdx(
                                                                                     4,
                                                                                 ),
                                                                                 access_end: None,
-                                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                                         syn_attrs: [],
                                                                                     },
@@ -2354,13 +2354,13 @@ Ok(
                                                                                     },
                                                                                 },
                                                                             },
-                                                                            SynCurrentSymbol {
+                                                                            CurrentSynSymbol {
                                                                                 modifier: Const,
                                                                                 access_start: RegionalTokenIdx(
                                                                                     6,
                                                                                 ),
                                                                                 access_end: None,
-                                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                                         syn_attrs: [],
                                                                                     },
@@ -2375,13 +2375,13 @@ Ok(
                                                                                     },
                                                                                 },
                                                                             },
-                                                                            SynCurrentSymbol {
+                                                                            CurrentSynSymbol {
                                                                                 modifier: Const,
                                                                                 access_start: RegionalTokenIdx(
                                                                                     8,
                                                                                 ),
                                                                                 access_end: None,
-                                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                                         syn_attrs: [],
                                                                                     },
@@ -2396,13 +2396,13 @@ Ok(
                                                                                     },
                                                                                 },
                                                                             },
-                                                                            SynCurrentSymbol {
+                                                                            CurrentSynSymbol {
                                                                                 modifier: Const,
                                                                                 access_start: RegionalTokenIdx(
                                                                                     10,
                                                                                 ),
                                                                                 access_end: None,
-                                                                                variant: SynCurrentSymbolVariant::TemplateParameter {
+                                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
                                                                                     syn_attrs: TemplateParameterSynAttrs {
                                                                                         syn_attrs: [],
                                                                                     },
@@ -2505,7 +2505,7 @@ Ok(
                                                                     7,
                                                                 ),
                                                                 inherited_symbol_idx: 2,
-                                                                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                                                     InheritedTemplateParameterSynSymbol::Type {
                                                                         ident: `T2`,
                                                                     },
@@ -2521,7 +2521,7 @@ Ok(
                                                                     8,
                                                                 ),
                                                                 inherited_symbol_idx: 4,
-                                                                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                                                     InheritedTemplateParameterSynSymbol::Type {
                                                                         ident: `E2`,
                                                                     },
@@ -2547,7 +2547,7 @@ Ok(
                                                                     12,
                                                                 ),
                                                                 inherited_symbol_idx: 1,
-                                                                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                                                     InheritedTemplateParameterSynSymbol::Type {
                                                                         ident: `T1`,
                                                                     },
@@ -2563,7 +2563,7 @@ Ok(
                                                                     13,
                                                                 ),
                                                                 inherited_symbol_idx: 3,
-                                                                inherited_symbol_kind: SynInheritedSymbolKind::TemplateParameter(
+                                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
                                                                     InheritedTemplateParameterSynSymbol::Type {
                                                                         ident: `E1`,
                                                                     },
@@ -2668,45 +2668,45 @@ Ok(
                                                     symbol_region: SynSymbolRegion {
                                                         inherited_symbol_arena: Arena {
                                                             data: [
-                                                                SynInheritedSymbol {
+                                                                InheritedSynSymbol {
                                                                     parent_symbol_idx: Current(
                                                                         1,
                                                                     ),
                                                                     modifier: Const,
-                                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                                         InheritedTemplateParameterSynSymbol::Type {
                                                                             ident: `T1`,
                                                                         },
                                                                     ),
                                                                 },
-                                                                SynInheritedSymbol {
+                                                                InheritedSynSymbol {
                                                                     parent_symbol_idx: Current(
                                                                         2,
                                                                     ),
                                                                     modifier: Const,
-                                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                                         InheritedTemplateParameterSynSymbol::Type {
                                                                             ident: `T2`,
                                                                         },
                                                                     ),
                                                                 },
-                                                                SynInheritedSymbol {
+                                                                InheritedSynSymbol {
                                                                     parent_symbol_idx: Current(
                                                                         3,
                                                                     ),
                                                                     modifier: Const,
-                                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                                         InheritedTemplateParameterSynSymbol::Type {
                                                                             ident: `E1`,
                                                                         },
                                                                     ),
                                                                 },
-                                                                SynInheritedSymbol {
+                                                                InheritedSynSymbol {
                                                                     parent_symbol_idx: Current(
                                                                         4,
                                                                     ),
                                                                     modifier: Const,
-                                                                    kind: SynInheritedSymbolKind::TemplateParameter(
+                                                                    kind: InheritedSynSymbolKind::TemplateParameter(
                                                                         InheritedTemplateParameterSynSymbol::Type {
                                                                             ident: `E2`,
                                                                         },
@@ -2714,15 +2714,15 @@ Ok(
                                                                 },
                                                             ],
                                                         },
-                                                        current_symbol_arena: Arena {
+                                                        current_syn_symbol_arena: Arena {
                                                             data: [
-                                                                SynCurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: None,
                                                                     access_start: RegionalTokenIdx(
                                                                         5,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: SynCurrentSymbolVariant::ParenateRegularParameter {
+                                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                                         ident: `result`,
                                                                         pattern_symbol_idx: 1,
                                                                     },
@@ -2834,62 +2834,62 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    SynInheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
                                                         modifier: Const,
-                                                        kind: SynInheritedSymbolKind::TemplateParameter(
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
                                                             InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `T1`,
                                                             },
                                                         ),
                                                     },
-                                                    SynInheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             2,
                                                         ),
                                                         modifier: Const,
-                                                        kind: SynInheritedSymbolKind::TemplateParameter(
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
                                                             InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `T2`,
                                                             },
                                                         ),
                                                     },
-                                                    SynInheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             3,
                                                         ),
                                                         modifier: Const,
-                                                        kind: SynInheritedSymbolKind::TemplateParameter(
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
                                                             InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E1`,
                                                             },
                                                         ),
                                                     },
-                                                    SynInheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             4,
                                                         ),
                                                         modifier: Const,
-                                                        kind: SynInheritedSymbolKind::TemplateParameter(
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
                                                             InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E2`,
                                                             },
                                                         ),
                                                     },
-                                                    SynInheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
                                                         modifier: None,
-                                                        kind: SynInheritedSymbolKind::ParenateParameter {
+                                                        kind: InheritedSynSymbolKind::ParenateParameter {
                                                             ident: `result`,
                                                         },
                                                     },
                                                 ],
                                             },
-                                            current_symbol_arena: Arena {
+                                            current_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
                                             allow_self_type: True,
