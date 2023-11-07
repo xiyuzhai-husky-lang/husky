@@ -11,8 +11,8 @@ use idx_arena::*;
 
 pub enum CExprHir {
     Literal(CLiteralHir),
-    InheritedSymbol,
-    CurrentSymbol,
+    InheritedSynSymbol,
+    CurrentSynSymbol,
     BinaryOpn {
         lopd: CExprHirIdx,
         opr: CBinaryOprHir,
@@ -52,7 +52,9 @@ pub type CExprHirIdxRange = ArenaIdxRange<CExprHir>;
 impl CHirTranspile for CExprHir {
     fn resistance(&self) -> u8 {
         match self {
-            CExprHir::Literal(_) | CExprHir::InheritedSymbol | CExprHir::CurrentSymbol => u8::MAX,
+            CExprHir::Literal(_) | CExprHir::InheritedSynSymbol | CExprHir::CurrentSynSymbol => {
+                u8::MAX
+            }
             CExprHir::BinaryOpn { .. } => 2,
             CExprHir::PrefixOpn { .. } => 4,
             CExprHir::SuffixOpn { .. } => 5,
@@ -66,8 +68,8 @@ impl CHirTranspile for CExprHir {
     fn transpile(&self, transpiler: &mut CTranspiler, ctx: CTranspilerContext) {
         match self {
             CExprHir::Literal(_) => todo!(),
-            CExprHir::InheritedSymbol => todo!(),
-            CExprHir::CurrentSymbol => todo!(),
+            CExprHir::InheritedSynSymbol => todo!(),
+            CExprHir::CurrentSynSymbol => todo!(),
             CExprHir::BinaryOpn {
                 lopd: _,
                 opr: _,

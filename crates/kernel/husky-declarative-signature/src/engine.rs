@@ -394,7 +394,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),
-            SynExprData::InheritedSymbol {
+            SynExprData::InheritedSynSymbol {
                 inherited_symbol_idx,
                 ..
             } => self
@@ -402,8 +402,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                 .inherited_symbol_signature(inherited_symbol_idx)
                 .term_symbol()
                 .map(Into::into)
-                .ok_or(DerivedDeclarativeTermError2::InheritedSymbolIsNotValidTerm.into()),
-            SynExprData::CurrentSymbol {
+                .ok_or(DerivedDeclarativeTermError2::InheritedSynSymbolIsNotValidTerm.into()),
+            SynExprData::CurrentSynSymbol {
                 current_syn_symbol_idx,
                 ..
             } => Ok(self

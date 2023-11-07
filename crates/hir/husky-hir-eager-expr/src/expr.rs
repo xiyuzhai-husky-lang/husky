@@ -23,12 +23,12 @@ pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprData, V>;
 pub enum HirEagerExprData {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),
-    InheritedSymbol {
+    InheritedSynSymbol {
         ident: Ident,
         // inherited_symbol_idx: InheritedHirEagerSymbolIdx,
         // inherited_symbol_kind: InheritedHirEagerSymbolKind,
     },
-    CurrentSymbol {
+    CurrentSynSymbol {
         ident: Ident,
         // current_syn_symbol_idx: CurrentHirEagerSymbolIdx,
         // current_syn_symbol_kind: CurrentHirEagerSymbolKind,
@@ -134,18 +134,18 @@ impl ToHirEager for SemaExprIdx {
                 },
                 StaticDispatch::AssociatedGn => unreachable!(),
             },
-            SemaExprData::InheritedSymbol {
+            SemaExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
-            } => HirEagerExprData::InheritedSymbol { ident: *ident },
-            SemaExprData::CurrentSymbol {
+            } => HirEagerExprData::InheritedSynSymbol { ident: *ident },
+            SemaExprData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
                 current_syn_symbol_idx,
                 current_syn_symbol_kind,
-            } => HirEagerExprData::CurrentSymbol { ident: *ident },
+            } => HirEagerExprData::CurrentSynSymbol { ident: *ident },
             SemaExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,

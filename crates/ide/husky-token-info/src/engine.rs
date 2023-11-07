@@ -328,7 +328,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
 
     fn visit_expr(&mut self, sema_expr_idx: SemaExprIdx, sema_expr_data: &SemaExprData) {
         match sema_expr_data {
-            SemaExprData::CurrentSymbol {
+            SemaExprData::CurrentSynSymbol {
                 regional_token_idx,
                 current_syn_symbol_idx,
                 current_syn_symbol_kind,
@@ -342,13 +342,13 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => self.add(
                 *regional_token_idx,
                 sema_expr_idx,
-                TokenInfoData::CurrentSymbol {
+                TokenInfoData::CurrentSynSymbol {
                     current_syn_symbol_idx: *current_syn_symbol_idx,
                     current_syn_symbol_kind: *current_syn_symbol_kind,
                     syn_expr_region: self.syn_expr_region,
                 },
             ),
-            SemaExprData::InheritedSymbol {
+            SemaExprData::InheritedSynSymbol {
                 regional_token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
@@ -356,7 +356,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => self.add(
                 *regional_token_idx,
                 sema_expr_idx,
-                TokenInfoData::InheritedSymbol {
+                TokenInfoData::InheritedSynSymbol {
                     inherited_symbol_idx: *inherited_symbol_idx,
                     syn_expr_region: self.syn_expr_region,
                     inherited_symbol_kind: *inherited_symbol_kind,
@@ -620,7 +620,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                         } => self.override_add(
                             ident_token.regional_token_idx(),
                             pattern_expr_idx,
-                            TokenInfoData::CurrentSymbol {
+                            TokenInfoData::CurrentSynSymbol {
                                 current_syn_symbol_idx: current_syn_symbol_idx,
                                 syn_expr_region: self.syn_expr_region,
                                 current_syn_symbol_kind,
@@ -637,7 +637,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 CurrentImplicitParameterSynSymbolKind::Type { ident_token } => self.add(
                     ident_token.regional_token_idx(),
                     TokenInfoSource::TemplateParameter(current_syn_symbol_idx),
-                    TokenInfoData::CurrentSymbol {
+                    TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: current_syn_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
                         current_syn_symbol_kind,
@@ -646,7 +646,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 CurrentImplicitParameterSynSymbolKind::Lifetime { label_token } => self.add(
                     label_token.regional_token_idx(),
                     current_syn_symbol_idx,
-                    TokenInfoData::CurrentSymbol {
+                    TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: current_syn_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
                         current_syn_symbol_kind,
@@ -655,7 +655,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 CurrentImplicitParameterSynSymbolKind::Place { label_token } => self.add(
                     label_token.regional_token_idx(),
                     current_syn_symbol_idx,
-                    TokenInfoData::CurrentSymbol {
+                    TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: current_syn_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
                         current_syn_symbol_kind,
@@ -664,7 +664,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 CurrentImplicitParameterSynSymbolKind::Constant { ident_token } => self.add(
                     ident_token.regional_token_idx(),
                     current_syn_symbol_idx,
-                    TokenInfoData::CurrentSymbol {
+                    TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: current_syn_symbol_idx,
                         syn_expr_region: self.syn_expr_region,
                         current_syn_symbol_kind,
@@ -674,7 +674,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             CurrentSynSymbolKind::ExplicitVariadicParameter { ident_token } => self.add(
                 ident_token.regional_token_idx(),
                 current_syn_symbol_idx,
-                TokenInfoData::CurrentSymbol {
+                TokenInfoData::CurrentSynSymbol {
                     current_syn_symbol_idx: current_syn_symbol_idx,
                     syn_expr_region: self.syn_expr_region,
                     current_syn_symbol_kind,
@@ -683,7 +683,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             CurrentSynSymbolKind::FieldVariable { ident_token } => self.add(
                 ident_token.regional_token_idx(),
                 current_syn_symbol_idx,
-                TokenInfoData::CurrentSymbol {
+                TokenInfoData::CurrentSynSymbol {
                     current_syn_symbol_idx: current_syn_symbol_idx,
                     syn_expr_region: self.syn_expr_region,
                     current_syn_symbol_kind,

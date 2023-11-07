@@ -1573,7 +1573,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::InheritedSymbol {
+                                                SynExprData::InheritedSynSymbol {
                                                     ident: `pt`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         18,
@@ -1608,7 +1608,7 @@ Ok(
                                                         19,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `ab`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         21,
@@ -1618,7 +1618,7 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `ap`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         25,
@@ -1677,7 +1677,7 @@ Ok(
                                                     ),
                                                     ropd: 10,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `ap`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         30,
@@ -1724,7 +1724,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::InheritedSymbol {
+                                                SynExprData::InheritedSynSymbol {
                                                     ident: `pt`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         46,
@@ -1759,7 +1759,7 @@ Ok(
                                                         47,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `ab`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         49,
@@ -1769,7 +1769,7 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `bp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         53,
@@ -1828,7 +1828,7 @@ Ok(
                                                     ),
                                                     ropd: 21,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `bp`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         58,
@@ -1858,7 +1858,7 @@ Ok(
                                                         62,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `ab`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         65,
@@ -1868,7 +1868,7 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `ap`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         69,
@@ -1903,7 +1903,7 @@ Ok(
                                                         70,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `ab`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         76,

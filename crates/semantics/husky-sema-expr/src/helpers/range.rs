@@ -302,10 +302,10 @@ impl<'a> SemaExprRangeCalculator<'a> {
     fn calc_expr_range(&mut self, expr: &SemaExprData) -> RegionalTokenIdxRange {
         match expr {
             SemaExprData::Literal(regional_token_idx, _)
-            | SemaExprData::InheritedSymbol {
+            | SemaExprData::InheritedSynSymbol {
                 regional_token_idx, ..
             }
-            | SemaExprData::CurrentSymbol {
+            | SemaExprData::CurrentSynSymbol {
                 regional_token_idx, ..
             }
             | SemaExprData::FrameVarDecl {

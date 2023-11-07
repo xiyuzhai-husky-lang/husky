@@ -55,12 +55,12 @@ impl TokenInfo {
 pub enum TokenInfoData {
     Entity(EntityPath),
     EntityNode(ItemSynNodePath, EntityKind),
-    InheritedSymbol {
+    InheritedSynSymbol {
         inherited_symbol_idx: InheritedSynSymbolIdx,
         inherited_symbol_kind: InheritedSynSymbolKind,
         syn_expr_region: ExprRegionLeash,
     },
-    CurrentSymbol {
+    CurrentSynSymbol {
         current_syn_symbol_idx: CurrentSynSymbolIdx,
         current_syn_symbol_kind: CurrentSynSymbolKind,
         syn_expr_region: ExprRegionLeash,
@@ -94,7 +94,7 @@ impl TokenInfoData {
         match self {
             TokenInfoData::Entity(path) => path.item_kind(db).class().into(),
             TokenInfoData::EntityNode(path, item_kind) => item_kind.class().into(),
-            TokenInfoData::CurrentSymbol {
+            TokenInfoData::CurrentSynSymbol {
                 current_syn_symbol_kind,
                 ..
             } => match current_syn_symbol_kind {
@@ -108,7 +108,7 @@ impl TokenInfoData {
                 CurrentSynSymbolKind::FieldVariable { .. } => TokenClass::Variable,
             },
             // TokenProtocol::Variable,
-            TokenInfoData::InheritedSymbol {
+            TokenInfoData::InheritedSynSymbol {
                 inherited_symbol_kind,
                 ..
             } => match inherited_symbol_kind {

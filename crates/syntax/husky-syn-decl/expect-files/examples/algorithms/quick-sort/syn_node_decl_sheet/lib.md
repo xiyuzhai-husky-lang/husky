@@ -154,7 +154,7 @@ Ok(
                                                         15,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `T`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         16,
@@ -525,7 +525,7 @@ Ok(
                                                         14,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `T`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         15,
@@ -1056,7 +1056,7 @@ Ok(
                                                         14,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `T`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         15,

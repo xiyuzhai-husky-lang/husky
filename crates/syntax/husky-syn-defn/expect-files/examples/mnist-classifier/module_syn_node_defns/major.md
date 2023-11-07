@@ -736,7 +736,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `i`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         25,
@@ -773,7 +773,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `row_span_sum`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         30,
@@ -783,7 +783,7 @@ Ok(
                                                         pattern_symbol_idx: 3,
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `max_row_span_sum`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         32,
@@ -803,7 +803,7 @@ Ok(
                                                     ),
                                                     ropd: 12,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `max_row_span_sum`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         34,
@@ -813,7 +813,7 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `row_span_sum`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         36,
@@ -831,7 +831,7 @@ Ok(
                                                     ),
                                                     ropd: 15,
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `i0`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         37,
@@ -841,7 +841,7 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `i`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         39,
@@ -869,7 +869,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `i0`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         43,
@@ -1679,7 +1679,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `i`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         19,
@@ -1704,7 +1704,7 @@ Ok(
                                                         20,
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `sum`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         15,
@@ -1746,7 +1746,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                SynExprData::CurrentSymbol {
+                                                SynExprData::CurrentSynSymbol {
                                                     ident: `sum`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         24,

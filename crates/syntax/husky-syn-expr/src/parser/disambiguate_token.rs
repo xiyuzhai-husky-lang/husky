@@ -350,13 +350,13 @@ where
                             SynExprData::Literal(_, _) => todo!(),
                             SynExprData::PrincipalEntityPath { .. } => todo!(),
                             SynExprData::AssociatedItem { .. } => todo!(),
-                            SynExprData::InheritedSymbol {
+                            SynExprData::InheritedSynSymbol {
                                 ident,
                                 regional_token_idx,
                                 inherited_symbol_idx,
                                 inherited_symbol_kind,
                             } => todo!(),
-                            SynExprData::CurrentSymbol {
+                            SynExprData::CurrentSynSymbol {
                                 ident,
                                 regional_token_idx,
                                 current_syn_symbol_idx,
@@ -530,7 +530,7 @@ where
                     )
                 }
                 Symbol::Inherited(inherited_symbol_idx, inherited_symbol_kind) => {
-                    DisambiguatedTokenData::InheritedSymbol {
+                    DisambiguatedTokenData::InheritedSynSymbol {
                         ident,
                         regional_token_idx,
                         inherited_symbol_idx,
@@ -538,7 +538,7 @@ where
                     }
                 }
                 Symbol::Current(current_syn_symbol_idx, current_syn_symbol_kind) => {
-                    DisambiguatedTokenData::CurrentSymbol {
+                    DisambiguatedTokenData::CurrentSynSymbol {
                         ident,
                         regional_token_idx,
                         current_syn_symbol_idx,
@@ -558,13 +558,13 @@ where
 pub(crate) enum DisambiguatedTokenData {
     Literal(RegionalTokenIdx, LiteralData),
     IdentifiableEntityPath(IdentifiableEntityPathExpr),
-    InheritedSymbol {
+    InheritedSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
         inherited_symbol_idx: InheritedSynSymbolIdx,
         inherited_symbol_kind: InheritedSynSymbolKind,
     },
-    CurrentSymbol {
+    CurrentSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
