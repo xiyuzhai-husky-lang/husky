@@ -20,6 +20,7 @@ salsa = { path = "../../abstractions/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # hir
+husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
 husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
