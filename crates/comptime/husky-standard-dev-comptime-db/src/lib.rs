@@ -13,6 +13,8 @@ use std::panic::RefUnwindSafe;
     husky_hir_lazy_expr::db::HirLazyExprJar,
     husky_hir_expr::db::HirExprJar,
     husky_hir_deps::db::HirDepsJar,
+    husky_hir_decl::db::HirDeclJar,
+    husky_hir_defn::db::HirDefnJar,
     // ide
     husky_token_info::db::TokenInfoJar,
     // kernel
