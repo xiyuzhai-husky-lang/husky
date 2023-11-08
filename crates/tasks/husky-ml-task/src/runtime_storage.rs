@@ -4,9 +4,8 @@ use dashmap::{
     DashMap,
 };
 use either::*;
-use husky_hir_deps::{HasDeps, HirDepsDb, HirValDeps};
 use husky_regular_value::RegularValue;
-use husky_val::Val;
+use husky_val::{deps::ValDeps, Val, ValDb};
 use husky_vm::VMResult;
 use std::{
     panic::AssertUnwindSafe,
@@ -15,7 +14,7 @@ use std::{
 
 #[derive(Debug, Default)]
 pub struct MlDevRuntimeStorage {
-    map: DashMap<MlDevRuntimeStorageKey, Arc<Mutex<Option<(HirValDeps, VMResult<RegularValue>)>>>>,
+    map: DashMap<MlDevRuntimeStorageKey, Arc<Mutex<Option<(ValDeps, VMResult<RegularValue>)>>>>,
 }
 
 // ad hoc
@@ -32,7 +31,7 @@ impl MlDevRuntimeStorage {
         &self,
         key: MlDevRuntimeStorageKey,
         f: impl FnOnce() -> VMResult<RegularValue>,
-        db: &dyn HirDepsDb,
+        db: &dyn ValDb,
     ) -> VMResult<RegularValue> {
         fn share(result: &VMResult<RegularValue>) -> VMResult<RegularValue> {
             match result {

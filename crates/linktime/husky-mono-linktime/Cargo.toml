@@ -7,10 +7,9 @@ edition = "2021"
 [dependencies]
 dashmap.workspace = true
 smallvec.workspace = true
-# comptime
-husky-hir-deps = { path = "../../hir/husky-hir-deps" }
+# fs
+husky-regular-value = { path = "../../kernel/husky-regular-value" }
 # kernel
 husky-task = { path = "../../kernel/husky-task" }
-husky-regular-value = { path = "../../kernel/husky-regular-value" }
 husky-vfs = { path = "../../fs/husky-vfs" }
-husky-linkage-path = { path = "../../kernel/husky-linkage-path" }
+husky-linkage-path = { path = "../../linkage/husky-linkage-path" }

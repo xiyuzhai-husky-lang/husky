@@ -42,7 +42,7 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }
 # runtime
-husky-val-repr = { path = "../../comptime/husky-val-repr" }
+husky-val-repr = { path = "../../val/husky-val-repr" }
 husky-eval = { path = "../../runtime/husky-eval" }
 husky-instruction = { path = "../../comptime/husky-instruction" }
 husky-data-viewer = { path = "../../runtime/husky-data-viewer" }

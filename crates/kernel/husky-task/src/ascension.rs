@@ -1,10 +1,11 @@
 use crate::*;
+use husky_linkage_path::db::LinkagePathDb;
 use husky_vfs::VfsDb;
 use husky_visual_protocol::IsVisualProtocol;
 
 pub trait IsDevAscension {
     type Base: 'static;
-    type ComptimeDb: Default + VfsDb;
+    type ComptimeDb: Default + VfsDb + LinkagePathDb;
     type Linktime: IsLinktime<Self::ComptimeDb>;
     type Value;
     type RuntimeStorage: Default + Send;

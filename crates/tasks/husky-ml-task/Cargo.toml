@@ -9,17 +9,18 @@ flurry.workspace = true
 dashmap.workspace = true
 either.workspace = true
 # abstractions
-# comptime
-husky-hir-deps = { path = "../../hir/husky-hir-deps" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
-husky-val = { path = "../../kernel/husky-val" }
 husky-task = { path = "../../kernel/husky-task" }
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
+# linkage
+husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
 # linktime
 husky-mono-linktime = { path = "../../linktime/husky-mono-linktime" }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
+# val
+husky-val = { path = "../../val/husky-val" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }

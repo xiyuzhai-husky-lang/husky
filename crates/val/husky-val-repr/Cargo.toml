@@ -27,7 +27,7 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-val = { path = "../../kernel/husky-val" }
+husky-val = { path = "../../val/husky-val" }
 # lex
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # syntax
