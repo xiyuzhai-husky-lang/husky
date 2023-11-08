@@ -2,12 +2,46 @@ use crate::*;
 use husky_entity_path::FugitivePath;
 use smallvec::SmallVec;
 
-#[salsa::interned(db = ValDb, jar = ValJar)]
+#[salsa::interned(db = ValDb, jar = ValJar, override_debug)]
 pub struct Val {
+    pub domain: ValDomain,
     pub opr: ValOpr,
     #[return_ref]
     pub opds: SmallVec<[Val; 2]>,
-    pub domain: ValDomain,
+}
+
+impl<_Db: ValDb + ?Sized> ::salsa::DebugWithDb<_Db> for Val {
+    fn fmt(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        _db: &_Db,
+        _level: salsa::DebugFormatLevel,
+    ) -> ::std::fmt::Result {
+        #[allow(unused_imports)]
+        use ::salsa::debug::helper::Fallback;
+        let _db = <_Db as ::salsa::DbWithJar<ValJar>>::as_jar_db(_db);
+        let mut debug_struct = &mut f.debug_struct("Val");
+        if _level.is_root() {
+            debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
+        }
+        debug_struct =
+            debug_struct.field(
+                "domain",
+                &::salsa::debug::helper::SalsaDebug::<
+                    ValDomain,
+                    <ValJar as salsa::jar::Jar<'_>>::DynDb,
+                >::salsa_debug(
+                    #[allow(clippy::needless_borrow)]
+                    &self.domain(_db),
+                    _db,
+                    _level.next(),
+                ),
+            );
+        debug_struct = debug_struct.field("opr", & ::salsa::debug::helper::SalsaDebug:: <ValOpr, <ValJar as salsa::jar::Jar<'_> > ::DynDb> ::salsa_debug(#[allow(clippy::needless_borrow)]
+    &self.opr(_db),_db,_level.next()));
+        debug_struct = debug_struct.field("opds", &self.opds(_db));
+        debug_struct.finish()
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

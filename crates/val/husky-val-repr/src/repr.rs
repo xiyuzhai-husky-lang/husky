@@ -1,24 +1,68 @@
 use crate::*;
-use husky_entity_path::FugitivePath;
+use husky_entity_path::{EntityPathDb, FugitivePath};
 use husky_val::{Val, ValDomain, ValOpr};
 use smallvec::{smallvec, SmallVec};
 
-#[salsa::interned(db = ValReprDb, jar = ValReprJar)]
+#[salsa::interned(db = ValReprDb, jar = ValReprJar, override_debug)]
 pub struct ValRepr {
+    pub domain: ValDomainRepr,
     pub opr: ValOpr,
     #[return_ref]
     pub opds: SmallVec<[ValRepr; 2]>,
-    pub domain: ValDomainRepr,
     pub caching_strategy: ValReprCachingStrategy,
+}
+
+impl<_Db: ValReprDb + ?Sized> ::salsa::DebugWithDb<_Db> for ValRepr {
+    fn fmt(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        _db: &_Db,
+        _level: salsa::DebugFormatLevel,
+    ) -> ::std::fmt::Result {
+        #[allow(unused_imports)]
+        use ::salsa::debug::helper::Fallback;
+        let _db = <_Db as ::salsa::DbWithJar<ValReprJar>>::as_jar_db(_db);
+        let mut debug_struct = &mut f.debug_struct("Val");
+        if _level.is_root() {
+            debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
+        }
+        debug_struct = debug_struct.field(
+            "domain",
+            &::salsa::debug::helper::SalsaDebug::<
+                ValDomain,
+                <ValReprJar as salsa::jar::Jar<'_>>::DynDb,
+            >::salsa_debug(
+                #[allow(clippy::needless_borrow)]
+                &self.domain(_db),
+                _db,
+                _level.next(),
+            ),
+        );
+        debug_struct =
+            debug_struct.field(
+                "opr",
+                &::salsa::debug::helper::SalsaDebug::<
+                    ValOpr,
+                    <ValReprJar as salsa::jar::Jar<'_>>::DynDb,
+                >::salsa_debug(
+                    #[allow(clippy::needless_borrow)]
+                    &self.opr(_db),
+                    _db,
+                    _level.next(),
+                ),
+            );
+        debug_struct = debug_struct.field("opds", &self.opds(_db));
+        debug_struct.finish()
+    }
 }
 
 impl ValRepr {
     pub(crate) fn new_val_item(path: FugitivePath, db: &dyn ValReprDb) -> Self {
+        let domain = ValDomainRepr::Omni;
         let opr = ValOpr::Fugitive(path);
         let opds = smallvec![];
-        let domain = ValDomainRepr::Omni;
         let caching_strategy = ValReprCachingStrategy::Cache;
-        Self::new(db, opr, opds, domain, caching_strategy)
+        Self::new(db, domain, opr, opds, caching_strategy)
     }
 }
 
@@ -54,13 +98,13 @@ impl ValRepr {
 fn val_repr_val(db: &dyn ValReprDb, val_repr: ValRepr) -> Val {
     Val::new(
         db,
+        val_repr.domain(db).val(db),
         val_repr.opr(db),
         val_repr
             .opds(db)
             .iter()
             .map(|val_repr| val_repr.val(db))
             .collect(),
-        val_repr.domain(db).val(db),
     )
 }
 
@@ -100,4 +144,13 @@ fn val_item_val_reprs(db: &DB, module_path: ModulePath) -> Vec<ValRepr> {
             _ => None,
         })
         .collect()
+}
+
+#[test]
+fn val_item_val_repr_works() {
+    // todo: why compiler needs this line to work?
+    use husky_ast::test_utils::AstTestUtils;
+    let db = DB::default();
+    DB::default()
+        .ast_expect_test_debug_with_db(val_item_val_reprs, &AstTestConfig::new("val_item_val_repr"))
 }

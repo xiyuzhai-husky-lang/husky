@@ -1,4 +1,5 @@
-pub(crate) use husky_vfs::ModulePath;
+pub(crate) use husky_ast::test_utils::AstTestConfig;
+pub(crate) use husky_vfs::{test_utils::VfsTestUtils, ModulePath};
 
 use crate::*;
 use husky_ast::AstJar;
@@ -63,6 +64,7 @@ use husky_vfs::VfsJar;
     husky_val::db::ValJar,
     crate::db::ValReprJar
 )]
+#[derive(Default)]
 pub struct DB {
     storage: salsa::Storage<Self>,
 }
