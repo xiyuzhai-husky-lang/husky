@@ -11,6 +11,6 @@ small-cell-stack = { path = "../../abstractions/small-cell-stack" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
-husky-linkage-path = { path = "../../kernel/husky-linkage-path" }
+husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }

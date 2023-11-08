@@ -35,7 +35,7 @@ husky-regional-token = { path = "../../lex/husky-regional-token" }
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
 # runtime
-husky-val-repr = { path = "../../comptime/husky-val-repr" }
+husky-val-repr = { path = "../../val/husky-val-repr" }
 husky-eval = { path = "../../runtime/husky-eval" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }

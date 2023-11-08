@@ -1,16 +1,17 @@
 mod runtime_storage;
 
 use self::runtime_storage::*;
-use husky_hir_deps::HirDepsDb;
+use husky_linkage_path::db::LinkagePathDb;
 use husky_mono_linktime::MonoLinkTime;
 use husky_regular_value::RegularValue;
 use husky_task::{linkage::IsLinkage, IsDevAscension, IsTask};
+use husky_val::ValDb;
 use husky_visual_protocol::IsVisualProtocol;
 use std::marker::PhantomData;
 
 pub struct MlTask<ComptimeDb, VisualProtocol>
 where
-    ComptimeDb: HirDepsDb,
+    ComptimeDb: ValDb,
     VisualProtocol: IsVisualProtocol,
 {
     _marker: PhantomData<(ComptimeDb, VisualProtocol)>,
@@ -18,7 +19,7 @@ where
 
 impl<ComptimeDb, VisualProtocol> MlTask<ComptimeDb, VisualProtocol>
 where
-    ComptimeDb: HirDepsDb,
+    ComptimeDb: ValDb,
     VisualProtocol: IsVisualProtocol,
 {
     pub fn new() -> Self {
@@ -30,7 +31,7 @@ where
 
 impl<ComptimeDb, VisualProtocol> IsTask for MlTask<ComptimeDb, VisualProtocol>
 where
-    ComptimeDb: Default + husky_vfs::VfsDb + HirDepsDb + Send + 'static,
+    ComptimeDb: Default + husky_vfs::VfsDb + ValDb + LinkagePathDb + Send + 'static,
     VisualProtocol: IsVisualProtocol + Send,
 {
     type DevAscension = MlDevAscension<ComptimeDb, VisualProtocol>;
@@ -38,12 +39,12 @@ where
 
 pub struct MlDevAscension<ComptimeDb, VisualProtocol>(PhantomData<(ComptimeDb, VisualProtocol)>)
 where
-    ComptimeDb: HirDepsDb,
+    ComptimeDb: ValDb,
     VisualProtocol: IsVisualProtocol;
 
 impl<ComptimeDb, VisualProtocol> IsDevAscension for MlDevAscension<ComptimeDb, VisualProtocol>
 where
-    ComptimeDb: Default + husky_vfs::VfsDb + HirDepsDb + Send,
+    ComptimeDb: Default + husky_vfs::VfsDb + ValDb + LinkagePathDb + Send,
     VisualProtocol: IsVisualProtocol,
 {
     type Base = DevInput;

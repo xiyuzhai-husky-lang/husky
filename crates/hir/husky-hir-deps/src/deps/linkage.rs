@@ -2,7 +2,7 @@ use crate::*;
 use husky_linkage_path::LinkagePath;
 
 impl HasDeps for LinkagePath {
-    type Deps = HirLinkageDeps;
+    type Deps = LinkageDeps;
 
     fn deps(self, db: &dyn HirDepsDb) -> Self::Deps {
         todo!()
@@ -10,4 +10,4 @@ impl HasDeps for LinkagePath {
 }
 
 #[salsa::interned(db = HirDepsDb, jar = HirDepsJar)]
-pub struct HirLinkageDeps {}
+pub struct LinkageDeps {}

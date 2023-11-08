@@ -33,7 +33,7 @@ husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 # runtime
 husky-eval = { path = "../../runtime/husky-eval" }
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
-husky-val-repr = { path = "../../comptime/husky-val-repr" }
+husky-val-repr = { path = "../../val/husky-val-repr" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }

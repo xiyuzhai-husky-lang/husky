@@ -1,8 +1,7 @@
 mod internal;
 
 use self::internal::BootLinkTimeInternal;
-use husky_hir_deps::{HirDepsDb, HirLinkageDeps};
-use husky_linkage_path::LinkagePath;
+use husky_linkage_path::{db::LinkagePathDb, LinkagePath};
 use husky_regular_value::RegularValue;
 use husky_task::{
     linkage::{IsLinkage, IsLinktime},
@@ -15,7 +14,7 @@ use std::{collections::HashMap, marker::PhantomData};
 // then use rustc to obtain a single dylib
 pub struct BootLinkTime<Db, Linkage>
 where
-    Db: HirDepsDb,
+    Db: LinkagePathDb,
     Linkage: IsLinkage,
 {
     internal: std::sync::RwLock<BootLinkTimeInternal<Db, Linkage>>,
@@ -23,7 +22,7 @@ where
 
 impl<Db, Linkage> Default for BootLinkTime<Db, Linkage>
 where
-    Db: HirDepsDb,
+    Db: LinkagePathDb,
     Linkage: IsLinkage,
 {
     fn default() -> Self {
@@ -36,14 +35,14 @@ where
 // ad hoc
 unsafe impl<Db, Linkage> Send for BootLinkTime<Db, Linkage>
 where
-    Db: HirDepsDb,
+    Db: LinkagePathDb,
     Linkage: IsLinkage,
 {
 }
 
 impl<Db, Linkage> IsLinktime<Db> for BootLinkTime<Db, Linkage>
 where
-    Db: HirDepsDb,
+    Db: LinkagePathDb,
     Linkage: IsLinkage,
 {
     type Linkage = Linkage;

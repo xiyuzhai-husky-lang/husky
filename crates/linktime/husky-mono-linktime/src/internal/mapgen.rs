@@ -4,8 +4,8 @@ use super::*;
 pub(super) fn generate_map<Linkage: IsLinkage>(
     target_crate: CratePath,
     library: &MonoLibraryStorage,
-    db: &dyn HirDepsDb,
-) -> HashMap<LinkagePath, (HirLinkageDeps, Linkage)> {
+    db: &dyn LinkagePathDb,
+) -> HashMap<LinkagePath, (LinkageDeps, Linkage)> {
     // todo!()
     // ad hoc
     Default::default()

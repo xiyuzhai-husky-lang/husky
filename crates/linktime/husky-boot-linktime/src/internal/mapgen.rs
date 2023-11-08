@@ -4,7 +4,7 @@ use super::*;
 pub(super) fn generate_map<Linkage: IsLinkage>(
     target_crate: CratePath,
     library: &BootLibraryStorage,
-    db: &dyn HirDepsDb,
-) -> HashMap<LinkagePath, (HirLinkageDeps, Linkage)> {
+    db: &dyn LinkagePathDb,
+) -> HashMap<LinkagePath, (LinkageDeps, Linkage)> {
     todo!()
 }

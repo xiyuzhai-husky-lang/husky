@@ -8,5 +8,4 @@ edition = "2021"
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 # kernel
-husky-linkage-path = { path = "../../kernel/husky-linkage-path" }
-husky-val = { path = "../../kernel/husky-val" }
+husky-linkage-path = { path = "../../linkage/husky-linkage-path" }

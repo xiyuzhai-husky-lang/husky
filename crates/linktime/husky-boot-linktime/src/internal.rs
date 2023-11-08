@@ -1,26 +1,25 @@
 mod libgen;
 mod mapgen;
 
-use crate::*;
-use husky_hir_deps::HasDeps;
-use husky_vfs::CratePath;
-
 use self::libgen::generate_library;
 use self::mapgen::generate_map;
+use crate::*;
+use husky_linkage_path::deps::LinkageDeps;
+use husky_vfs::CratePath;
 
 pub struct BootLinkTimeInternal<ComptimeDb, Linkage>
 where
-    ComptimeDb: HirDepsDb,
+    ComptimeDb: LinkagePathDb,
     Linkage: IsLinkage,
 {
     library_storage: BootLibraryStorage,
-    map: HashMap<LinkagePath, (HirLinkageDeps, Linkage)>,
+    map: HashMap<LinkagePath, (LinkageDeps, Linkage)>,
     _marker: PhantomData<ComptimeDb>,
 }
 
 impl<Db, Linkage> Default for BootLinkTimeInternal<Db, Linkage>
 where
-    Db: HirDepsDb,
+    Db: LinkagePathDb,
     Linkage: IsLinkage,
 {
     fn default() -> Self {
@@ -36,7 +35,7 @@ pub struct BootLibraryStorage {}
 
 impl<ComptimeDb, Linkage: IsLinkage> BootLinkTimeInternal<ComptimeDb, Linkage>
 where
-    ComptimeDb: HirDepsDb,
+    ComptimeDb: LinkagePathDb,
     Linkage: IsLinkage,
 {
     pub(crate) fn new(target_crate: CratePath, db: &ComptimeDb) -> Self {
@@ -65,7 +64,7 @@ where
         todo!("reload")
     }
 
-    fn reload(&mut self, db: &dyn HirDepsDb) {
+    fn reload(&mut self, db: &dyn LinkagePathDb) {
         todo!()
         // self.library_storage = generate_library(self.target_crate, db);
         // self.map = generate_map(self.target_crate, &self.library_storage, db)

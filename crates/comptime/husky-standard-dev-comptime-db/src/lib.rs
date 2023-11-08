@@ -4,8 +4,15 @@ use std::panic::RefUnwindSafe;
 #[salsa::db(
     // comptime
     husky_val_repr::db::ValReprJar,
+    // devtime
+    husky_trace::db::TraceJar,
     // fs
     husky_vfs::VfsJar,
+    // hir
+    husky_hir_eager_expr::db::HirEagerExprJar,
+    husky_hir_lazy_expr::db::HirLazyExprJar,
+    husky_hir_expr::db::HirExprJar,
+    husky_hir_deps::db::HirDepsJar,
     // ide
     husky_token_info::db::TokenInfoJar,
     // kernel
@@ -24,6 +31,12 @@ use std::panic::RefUnwindSafe;
     husky_token::TokenJar,
     husky_toml_token::TomlTokenJar,
     husky_text::db::TextJar,
+    // linkage
+    husky_linkage_path::db::LinkagePathJar,
+    // semantics
+    husky_sema_expr::SemaExprJar,
+    husky_corgi_config::CorgiConfigJar,
+    husky_manifest::ManifestJar,
     // syntax
     husky_ast::AstJar,
     husky_toml_ast::TomlAstJar,
@@ -33,17 +46,8 @@ use std::panic::RefUnwindSafe;
     husky_syn_expr::SynExprJar,
     husky_syn_decl::SynDeclJar,
     husky_syn_defn::SynDefnJar,
-    // semantics
-    husky_sema_expr::SemaExprJar,
-    husky_corgi_config::CorgiConfigJar,
-    husky_manifest::ManifestJar,
-    // comptime
-    husky_hir_eager_expr::db::HirEagerExprJar,
-    husky_hir_lazy_expr::db::HirLazyExprJar,
-    husky_hir_expr::db::HirExprJar,
-    husky_hir_deps::db::HirDepsJar,
-    // devtime
-    husky_trace::db::TraceJar
+    // val
+    husky_val::db::ValJar
 )]
 pub struct StandardDevComptimeDb {
     storage: salsa::Storage<Self>,

@@ -9,7 +9,7 @@ dashmap.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 # comptime
-husky-val-repr = { path = "../../comptime/husky-val-repr" }
+husky-val-repr = { path = "../../val/husky-val-repr" }
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
 husky-hir-expr = { path = "../../hir/husky-hir-expr" }
@@ -37,6 +37,8 @@ husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 husky-text = { path = "../../lex/husky-text" }
+# linkage
+husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
 # protocols
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # semantics
@@ -52,5 +54,7 @@ husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
+# val
+husky-val = { path = "../../val/husky-val" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }

@@ -1,8 +1,7 @@
 mod internal;
 
 use self::internal::MonoLinkTimeInternal;
-use husky_hir_deps::{HirDepsDb, HirLinkageDeps};
-use husky_linkage_path::LinkagePath;
+use husky_linkage_path::{db::LinkagePathDb, LinkagePath};
 use husky_regular_value::RegularValue;
 use husky_task::{
     linkage::{IsLinkage, IsLinktime},
@@ -15,7 +14,7 @@ use std::{collections::HashMap, marker::PhantomData};
 // then use rustc to obtain a single dylib
 pub struct MonoLinkTime<Db, Linkage>
 where
-    Db: HirDepsDb,
+    Db: LinkagePathDb,
     Linkage: IsLinkage,
 {
     internal: std::sync::RwLock<MonoLinkTimeInternal<Db, Linkage>>,
@@ -23,7 +22,7 @@ where
 
 impl<Db, Linkage> IsLinktime<Db> for MonoLinkTime<Db, Linkage>
 where
-    Db: HirDepsDb + Send,
+    Db: LinkagePathDb + Send,
     Linkage: IsLinkage,
 {
     type Linkage = Linkage;

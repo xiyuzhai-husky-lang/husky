@@ -27,7 +27,7 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
-husky-val-repr = { path = "../../comptime/husky-val-repr" }
+husky-val-repr = { path = "../../val/husky-val-repr" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
@@ -35,7 +35,7 @@ husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-data-viewer = { path = "../../runtime/husky-data-viewer" }
 husky-opr = { path = "../../kernel/husky-opr" }
 # kernel
-husky-val = { path = "../../kernel/husky-val" }
+husky-val = { path = "../../val/husky-val" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 

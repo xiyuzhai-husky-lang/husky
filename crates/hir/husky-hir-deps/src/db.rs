@@ -10,6 +10,6 @@ pub struct HirDepsJar(
     DepPaths0,
     DepPaths1,
     DepPaths2,
-    HirLinkageDeps,
+    LinkageDeps,
     HirValDeps,
 );
