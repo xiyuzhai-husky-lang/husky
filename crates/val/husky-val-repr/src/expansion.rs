@@ -1,10 +1,13 @@
 use crate::db::ValReprDb;
 use crate::*;
+#[cfg(test)]
+use husky_hir_defn::HirDefn;
 use husky_hir_lazy_expr::{
     variable::HirLazyVariableMap, HirLazyExpr, HirLazyExprIdx, HirLazyExprMap, HirLazyExprRegion,
     HirLazyExprRegionData, HirLazyStmt, HirLazyStmtIdx, HirLazyStmtIdxRange, HirLazyStmtMap,
 };
 use husky_val::ValOpr;
+use husky_vfs::ModulePath;
 use smallvec::{smallvec, SmallVec};
 
 #[derive(Debug, PartialEq, Eq)]
@@ -28,6 +31,7 @@ pub(crate) fn val_repr_expansion(
 
 pub struct ValReprExpansionBuilder<'a> {
     db: &'a dyn ValReprDb,
+    domain_repr: ValDomainRepr,
     body: HirLazyExprIdx,
     hir_lazy_expr_region_data: HirLazyExprRegionData<'a>,
     // todo: change this to ordered map
@@ -40,6 +44,7 @@ pub struct ValReprExpansionBuilder<'a> {
 impl<'a> ValReprExpansionBuilder<'a> {
     fn new(
         db: &'a dyn ValReprDb,
+        domain_repr: ValDomainRepr,
         body: HirLazyExprIdx,
         hir_lazy_expr_region: HirLazyExprRegion,
         argument_val_reprs: SmallVec<[ValRepr; 4]>,
@@ -58,6 +63,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
         }
         Self {
             db,
+            domain_repr,
             body,
             hir_lazy_expr_region_data,
             hir_lazy_variable_val_repr_map: variable_val_repr_map,
@@ -75,7 +81,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
         let mut domain = ValDomainRepr::Omni;
         match self.hir_lazy_expr_region_data.hir_lazy_expr_arena()[self.body] {
             HirLazyExpr::Block { stmts } => {
-                self.root_hir_lazy_stmt_val_reprs = self.build_stmts(stmts, ValDomainRepr::Omni)
+                self.root_hir_lazy_stmt_val_reprs = self.build_stmts(stmts, self.domain_repr)
             }
             _ => todo!(),
         }

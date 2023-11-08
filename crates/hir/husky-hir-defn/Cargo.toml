@@ -25,13 +25,15 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
+# hir
+husky-hir-ty = { path = "../../hir/husky-hir-ty" }
+husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
+husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
+husky-hir-expr = { path = "../../hir/husky-hir-expr" }
+husky-hir-decl = { path = "../../hir/husky-hir-decl" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-# infer
-husky-manifest = { path = "../../semantics/husky-manifest" }
-husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
-# kernel
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
@@ -42,6 +44,8 @@ husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # semantics
+husky-manifest = { path = "../../semantics/husky-manifest" }
+husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
