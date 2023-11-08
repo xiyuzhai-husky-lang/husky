@@ -1,26 +1,32 @@
 [
-    Val {
-        [salsa id]: 23,
-        domain_repr: Omni,
-        opr: Fugitive(
-            FugitivePath(
-                Id {
-                    value: 26,
-                },
+    (
+        FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+        Val {
+            [salsa id]: 23,
+            domain_repr: Omni,
+            opr: Fugitive(
+                FugitivePath(
+                    Id {
+                        value: 26,
+                    },
+                ),
             ),
-        ),
-        opds: [],
-    },
-    Val {
-        [salsa id]: 24,
-        domain_repr: Omni,
-        opr: Fugitive(
-            FugitivePath(
-                Id {
-                    value: 28,
-                },
+            opds: [],
+        },
+    ),
+    (
+        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+        Val {
+            [salsa id]: 24,
+            domain_repr: Omni,
+            opr: Fugitive(
+                FugitivePath(
+                    Id {
+                        value: 28,
+                    },
+                ),
             ),
-        ),
-        opds: [],
-    },
+            opds: [],
+        },
+    ),
 ]
