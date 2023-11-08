@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::FugitivePath;
 use husky_val::{Val, ValDomain, ValOpr};
-use smallvec::SmallVec;
+use smallvec::{smallvec, SmallVec};
 
 #[salsa::interned(db = ValReprDb, jar = ValReprJar)]
 pub struct ValRepr {
@@ -10,6 +10,16 @@ pub struct ValRepr {
     pub opds: SmallVec<[ValRepr; 2]>,
     pub domain: ValDomainRepr,
     pub caching_strategy: ValReprCachingStrategy,
+}
+
+impl ValRepr {
+    pub(crate) fn new_val_item(path: FugitivePath, db: &dyn ValReprDb) -> Self {
+        let opr = ValOpr::Fugitive(path);
+        let opds = smallvec![];
+        let domain = ValDomainRepr::Omni;
+        let caching_strategy = ValReprCachingStrategy::Cache;
+        Self::new(db, opr, opds, domain, caching_strategy)
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -25,7 +35,10 @@ pub enum ValDomainRepr {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ValReprCachingStrategy(pub bool);
+pub enum ValReprCachingStrategy {
+    Cache,
+    Skip,
+}
 
 impl ValRepr {
     pub fn val(self, db: &dyn ValReprDb) -> Val {
@@ -66,4 +79,25 @@ impl ValDomainRepr {
             }
         }
     }
+}
+
+#[cfg(test)]
+fn val_item_val_reprs(db: &DB, module_path: ModulePath) -> Vec<ValRepr> {
+    use husky_entity_kind::FugitiveKind;
+    use husky_entity_path::{ItemPath, MajorItemPath};
+    use husky_entity_syn_tree::helpers::paths::module_item_paths;
+    use husky_hir_defn::HasHirDefn;
+
+    module_item_paths(db, module_path)
+        .as_ref()
+        .expect("all modules should be guaranteed to be valid")
+        .iter()
+        .filter_map(|&path| match path {
+            ItemPath::MajorItem(MajorItemPath::Fugitive(path)) => match path.fugitive_kind(db) {
+                FugitiveKind::Val => Some(ValRepr::new_val_item(path, db)),
+                _ => None,
+            },
+            _ => None,
+        })
+        .collect()
 }
