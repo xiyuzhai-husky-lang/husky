@@ -6,8 +6,9 @@ use husky_hir_defn::HirDefn;
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
-    variable::HirLazyVariableMap, HirLazyExpr, HirLazyExprIdx, HirLazyExprMap, HirLazyExprRegion,
-    HirLazyExprRegionData, HirLazyStmt, HirLazyStmtIdx, HirLazyStmtIdxRange, HirLazyStmtMap,
+    helpers::control_flow::HirLazyExprRegionControlFlowChart, variable::HirLazyVariableMap,
+    HirLazyExpr, HirLazyExprIdx, HirLazyExprMap, HirLazyExprRegion, HirLazyExprRegionData,
+    HirLazyStmt, HirLazyStmtIdx, HirLazyStmtIdxRange, HirLazyStmtMap,
 };
 use husky_hir_opr::suffix::HirSuffixOpr;
 use husky_val::ValOpr;
@@ -85,6 +86,7 @@ struct ValReprExpansionBuilder<'a> {
     hir_lazy_expr_val_repr_map: HirLazyExprMap<ValRepr>,
     hir_lazy_stmt_val_repr_map: HirLazyStmtMap<ValRepr>,
     root_hir_lazy_stmt_val_reprs: SmallVec<[ValRepr; 4]>,
+    hir_lazy_expr_control_flow_region: &'a HirLazyExprRegionControlFlowChart,
     db: &'a dyn ValReprDb,
 }
 
@@ -121,6 +123,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 hir_lazy_expr_region_data.hir_lazy_stmt_arena(),
             ),
             root_hir_lazy_stmt_val_reprs: smallvec![],
+            hir_lazy_expr_control_flow_region: hir_lazy_expr_region.control_flow(db),
         }
     }
 
