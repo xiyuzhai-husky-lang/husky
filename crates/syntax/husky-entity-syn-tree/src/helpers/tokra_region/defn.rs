@@ -21,7 +21,7 @@ impl DefnTokraRegion {
     pub fn data<'a>(self, db: &'a dyn EntitySynTreeDb) -> DefnTokraRegionData<'a> {
         DefnTokraRegionData {
             tokens_data: self._tokens_data(db),
-            ast_arena: self.ast_arena(db).arena_ref(),
+            ast_arena: self.ast_arena(db).to_ref(),
             root_body: self.root_body(db),
             ast_token_idx_ranges: self.ast_token_idx_ranges(db),
             token_group_starts: self.token_group_starts(db),

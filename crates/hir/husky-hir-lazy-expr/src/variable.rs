@@ -116,6 +116,7 @@ impl HirLazyVariableData {
 
 pub type HirLazyVariableArena = Arena<HirLazyVariable>;
 pub type HirLazyVariableIdx = ArenaIdx<HirLazyVariable>;
+pub type HirLazyVariableMap<V> = ArenaMap<HirLazyVariable, V>;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirLazyVariableRegion {
@@ -151,6 +152,10 @@ impl HirLazyVariableRegion {
             }
         }
         (Self { arena }, syn_symbol_to_hir_eager_variable_map)
+    }
+
+    pub fn arena(&self) -> &HirLazyVariableArena {
+        &self.arena
     }
 }
 

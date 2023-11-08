@@ -125,7 +125,7 @@ impl SemaStmtArena {
     }
 
     pub fn arena_ref<'a>(&'a self) -> SemaStmtArenaRef<'a> {
-        SemaStmtArenaRef(self.0.arena_ref())
+        SemaStmtArenaRef(self.0.to_ref())
     }
 }
 
