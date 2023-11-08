@@ -7,7 +7,14 @@ pub struct Val {
     pub opr: ValOpr,
     #[return_ref]
     pub opds: SmallVec<[Val; 2]>,
-    pub domain: Option<Val>,
+    pub domain: Option<ValDomain>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum ValDomain {
+    ConditionSatisfied(Val),
+    ConditionNotSatisfied(Val),
+    StmtNotReturned(Val),
 }
 
 impl Val {

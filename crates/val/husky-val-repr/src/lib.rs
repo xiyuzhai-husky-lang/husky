@@ -1,5 +1,6 @@
 #![feature(trait_upcasting)]
 pub mod db;
+mod eval;
 pub mod expansion;
 pub mod repr;
 

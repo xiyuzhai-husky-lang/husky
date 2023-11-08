@@ -16,3 +16,5 @@ pub trait IsDevAscension {
 pub type DevAscension<Task: IsTask> = Task::DevAscension;
 
 pub type DevComptimeDb<Task: IsTask> = <DevAscension<Task> as IsDevAscension>::ComptimeDb;
+
+pub type Value<Task: IsTask> = <DevAscension<Task> as IsDevAscension>::Value;
