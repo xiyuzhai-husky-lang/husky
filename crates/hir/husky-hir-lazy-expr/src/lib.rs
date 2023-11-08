@@ -8,7 +8,6 @@ mod pattern_expr;
 mod region;
 pub mod source_map;
 mod stmt;
-mod symbol;
 pub mod variable;
 
 pub use self::expr::*;

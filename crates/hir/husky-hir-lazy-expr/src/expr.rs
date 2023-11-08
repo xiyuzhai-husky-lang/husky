@@ -12,9 +12,11 @@ use husky_sema_opr::prefix::SemaPrefixOpr;
 use husky_sema_opr::suffix::SemaSuffixOpr;
 use husky_syn_expr::{IdentifiableEntityPathExpr, SynExprData, SynExprIdx};
 use husky_term_prelude::{RitchieKind, TermLiteral};
+use idx_arena::ArenaRef;
 use salsa::debug::ExpectWithDb;
 
 pub type HirLazyExprArena = Arena<HirLazyExpr>;
+pub type HirLazyExprArenaRef<'a> = ArenaRef<'a, HirLazyExpr>;
 pub type HirLazyExprIdx = ArenaIdx<HirLazyExpr>;
 pub type HirLazyExprIdxRange = ArenaIdxRange<HirLazyExpr>;
 pub type HirLazyExprMap<V> = ArenaMap<HirLazyExpr, V>;

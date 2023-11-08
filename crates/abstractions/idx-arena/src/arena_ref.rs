@@ -14,7 +14,7 @@ impl<'a, T> Clone for ArenaRef<'a, T> {
 impl<'a, T> Copy for ArenaRef<'a, T> {}
 
 impl<T> Arena<T> {
-    pub fn arena_ref<'a>(&'a self) -> ArenaRef<'a, T> {
+    pub fn to_ref<'a>(&'a self) -> ArenaRef<'a, T> {
         ArenaRef { data: self.data() }
     }
 }

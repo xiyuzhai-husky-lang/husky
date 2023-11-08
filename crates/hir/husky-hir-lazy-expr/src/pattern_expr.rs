@@ -2,6 +2,7 @@ use crate::*;
 use husky_entity_path::PatternPath;
 use husky_syn_expr::{SynPatternExpr, SynPatternExprIdx, SynPatternExprRoot};
 use husky_term_prelude::TermLiteral;
+use idx_arena::ArenaRef;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirLazyPatternExpr {
@@ -42,6 +43,7 @@ pub enum HirLazyPatternExpr {
 }
 
 pub type HirLazyPatternExprArena = Arena<HirLazyPatternExpr>;
+pub type HirLazyPatternExprArenaRef<'a> = ArenaRef<'a, HirLazyPatternExpr>;
 pub type HirLazyPatternExprIdx = ArenaIdx<HirLazyPatternExpr>;
 pub type HirLazyPatternExprIdxRange = ArenaIdxRange<HirLazyPatternExpr>;
 pub type HirLazyPatternExprMap<V> = ArenaMap<HirLazyPatternExpr, V>;

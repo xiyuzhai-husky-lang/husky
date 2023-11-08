@@ -2,6 +2,7 @@ mod branch_stmt;
 
 use husky_sema_expr::{SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 use husky_syn_expr::{SynStmtData, SynStmtIdx, SynStmtIdxRange};
+use idx_arena::ArenaRef;
 
 pub use self::branch_stmt::*;
 
@@ -35,6 +36,7 @@ pub enum HirLazyStmt {
 }
 
 pub type HirLazyStmtArena = Arena<HirLazyStmt>;
+pub type HirLazyStmtArenaRef<'a> = ArenaRef<'a, HirLazyStmt>;
 pub type HirLazyStmtIdx = ArenaIdx<HirLazyStmt>;
 pub type HirLazyStmtIdxRange = ArenaIdxRange<HirLazyStmt>;
 pub type HirLazyStmtMap<V> = ArenaMap<HirLazyStmt, V>;

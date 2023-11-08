@@ -8,14 +8,19 @@ pub struct ValRepr {
     pub opr: ValOpr,
     #[return_ref]
     pub opds: SmallVec<[ValRepr; 2]>,
-    pub domain: Option<ValDomainRepr>,
+    pub domain: ValDomainRepr,
     pub caching_strategy: ValReprCachingStrategy,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ValDomainRepr {
+    /// everything
+    Omni,
+    /// those where the val repr of type bool is defined and equals true
     ConditionSatisfied(ValRepr),
+    /// those where the val repr of type bool is defined and equals false
     ConditionNotSatisfied(ValRepr),
+    /// those where the val repr of type ControlFlow<(), _> is defined and equals Continue(())
     StmtNotReturned(ValRepr),
 }
 
@@ -42,13 +47,14 @@ fn val_repr_val(db: &dyn ValReprDb, val_repr: ValRepr) -> Val {
             .iter()
             .map(|val_repr| val_repr.val(db))
             .collect(),
-        val_repr.domain(db).map(|domain| domain.val(db)),
+        val_repr.domain(db).val(db),
     )
 }
 
 impl ValDomainRepr {
     pub fn val(self, db: &dyn ValReprDb) -> ValDomain {
         match self {
+            ValDomainRepr::Omni => ValDomain::Omni,
             ValDomainRepr::ConditionSatisfied(val_repr) => {
                 ValDomain::ConditionSatisfied(val_repr.val(db))
             }
