@@ -1,23 +1,23 @@
 [
     Val {
-        [salsa id]: 23,
-        domain: Omni,
+        [salsa id]: 21,
+        domain_repr: Omni,
         opr: Fugitive(
             FugitivePath(
                 Id {
-                    value: 26,
+                    value: 66,
                 },
             ),
         ),
         opds: [],
     },
     Val {
-        [salsa id]: 24,
-        domain: Omni,
+        [salsa id]: 22,
+        domain_repr: Omni,
         opr: Fugitive(
             FugitivePath(
                 Id {
-                    value: 28,
+                    value: 70,
                 },
             ),
         ),

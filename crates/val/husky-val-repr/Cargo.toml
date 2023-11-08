@@ -21,6 +21,7 @@ salsa = { path = "../../abstractions/salsa" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # hir
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
+husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
@@ -38,10 +39,7 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 # hir
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
-husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
-husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 husky-hir-decl = { path = "../../hir/husky-hir-decl" }
-husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 # kernel
 husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-coword = { path = "../../kernel/husky-coword" }

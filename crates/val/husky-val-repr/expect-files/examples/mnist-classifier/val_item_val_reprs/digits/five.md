@@ -1,7 +1,7 @@
 [
     Val {
         [salsa id]: 3,
-        domain: Omni,
+        domain_repr: Omni,
         opr: Fugitive(
             FugitivePath(
                 Id {

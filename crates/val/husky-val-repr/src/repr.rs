@@ -5,7 +5,7 @@ use smallvec::{smallvec, SmallVec};
 
 #[salsa::interned(db = ValReprDb, jar = ValReprJar, override_debug)]
 pub struct ValRepr {
-    pub domain: ValDomainRepr,
+    pub domain_repr: ValDomainRepr,
     pub opr: ValOpr,
     #[return_ref]
     pub opds: SmallVec<[ValRepr; 2]>,
@@ -27,13 +27,13 @@ impl<_Db: ValReprDb + ?Sized> ::salsa::DebugWithDb<_Db> for ValRepr {
             debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
         }
         debug_struct = debug_struct.field(
-            "domain",
+            "domain_repr",
             &::salsa::debug::helper::SalsaDebug::<
                 ValDomain,
                 <ValReprJar as salsa::jar::Jar<'_>>::DynDb,
             >::salsa_debug(
                 #[allow(clippy::needless_borrow)]
-                &self.domain(_db),
+                &self.domain_repr(_db),
                 _db,
                 _level.next(),
             ),
@@ -88,17 +88,13 @@ impl ValRepr {
     pub fn val(self, db: &dyn ValReprDb) -> Val {
         val_repr_val(db, self)
     }
-
-    pub fn expansion(self, db: &dyn ValReprDb) -> ValReprExpansion {
-        todo!()
-    }
 }
 
 #[salsa::tracked(jar = ValReprJar)]
 fn val_repr_val(db: &dyn ValReprDb, val_repr: ValRepr) -> Val {
     Val::new(
         db,
-        val_repr.domain(db).val(db),
+        val_repr.domain_repr(db).val(db),
         val_repr.opr(db),
         val_repr
             .opds(db)
@@ -126,7 +122,7 @@ impl ValDomainRepr {
 }
 
 #[cfg(test)]
-fn val_item_val_reprs(db: &DB, module_path: ModulePath) -> Vec<ValRepr> {
+pub(crate) fn val_item_val_reprs(db: &DB, module_path: ModulePath) -> Vec<(FugitivePath, ValRepr)> {
     use husky_entity_kind::FugitiveKind;
     use husky_entity_path::{ItemPath, MajorItemPath};
     use husky_entity_syn_tree::helpers::paths::module_item_paths;
@@ -138,7 +134,7 @@ fn val_item_val_reprs(db: &DB, module_path: ModulePath) -> Vec<ValRepr> {
         .iter()
         .filter_map(|&path| match path {
             ItemPath::MajorItem(MajorItemPath::Fugitive(path)) => match path.fugitive_kind(db) {
-                FugitiveKind::Val => Some(ValRepr::new_val_item(path, db)),
+                FugitiveKind::Val => Some((path, ValRepr::new_val_item(path, db))),
                 _ => None,
             },
             _ => None,
@@ -151,6 +147,8 @@ fn val_item_val_repr_works() {
     // todo: why compiler needs this line to work?
     use husky_ast::test_utils::AstTestUtils;
     let db = DB::default();
-    DB::default()
-        .ast_expect_test_debug_with_db(val_item_val_reprs, &AstTestConfig::new("val_item_val_repr"))
+    DB::default().ast_expect_test_debug_with_db(
+        val_item_val_reprs,
+        &AstTestConfig::new("val_item_val_reprs"),
+    )
 }
