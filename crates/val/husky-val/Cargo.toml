@@ -5,4 +5,8 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+smallvec.workspace = true
+# abstractions
 salsa = { path = "../../abstractions/salsa" }
+# kernel
+husky-entity-path = { path = "../../kernel/husky-entity-path" }

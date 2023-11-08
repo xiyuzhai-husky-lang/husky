@@ -13,10 +13,11 @@ doctest = false
 rustc-hash.workspace = true
 itertools = "^0.10.3"
 lsp-types.workspace = true
-salsa = { path = "../../abstractions/salsa" }
+smallvec.workspace = true
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstractions
+salsa = { path = "../../abstractions/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
@@ -38,7 +39,8 @@ husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 # vm
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 husky-vm = { path = "../../vm/husky-vm" }
-# comptime
+# hir
+husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 husky-instruction = { path = "../../comptime/husky-instruction" }
 # husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
