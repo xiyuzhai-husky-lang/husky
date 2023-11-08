@@ -6,7 +6,7 @@ pub use self::html::*;
 
 use crate::*;
 use husky_entity_path::PrincipalEntityPath;
-use husky_hir_opr::binary::HirBinaryOpr;
+use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
 use husky_sema_opr::prefix::SemaPrefixOpr;
 use husky_sema_opr::suffix::SemaSuffixOpr;
@@ -28,18 +28,12 @@ pub enum HirLazyExpr {
     PrincipalEntityPath(PrincipalEntityPath),
     InheritedSynSymbol {
         ident: Ident,
-        // inherited_syn_symbol_idx: InheritedHirLazySymbolIdx,
-        // inherited_syn_symbol_kind: InheritedHirLazySymbolKind,
     },
     CurrentSynSymbol {
         ident: Ident,
-        // current_syn_symbol_idx: CurrentHirLazySymbolIdx,
-        // current_syn_symbol_kind: CurrentHirLazySymbolKind,
     },
     FrameVarDecl {
         ident: Ident,
-        // frame_var_symbol_idx: CurrentHirLazySymbolIdx,
-        // current_syn_symbol_kind: CurrentHirLazySymbolKind,
     },
     SelfType,
     SelfValue,
@@ -53,14 +47,12 @@ pub enum HirLazyExpr {
         target: HirLazyBeVariablesPattern,
     },
     Prefix {
-        // ad hoc, should have HirLazyPrefixOpr
-        opr: SemaPrefixOpr,
+        opr: HirPrefixOpr,
         opd_hir_expr_idx: HirLazyExprIdx,
     },
     Suffix {
         opd_hir_expr_idx: HirLazyExprIdx,
-        // ad hoc, should have HirLazySuffixOpr
-        opr: SemaSuffixOpr,
+        opr: HirSuffixOpr,
     },
     FnCall {
         function: HirLazyExprIdx,
@@ -166,20 +158,20 @@ impl ToHirLazy for SemaExprIdx {
                 src: src.to_hir_lazy(builder),
                 target: target.to_hir_lazy(builder),
             },
-            SemaExprData::Prefix {
+            &SemaExprData::Prefix {
                 opr,
                 opd_sema_expr_idx,
                 ..
             } => HirLazyExpr::Prefix {
-                opr: *opr,
+                opr: HirPrefixOpr::from_sema(opr),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
-            SemaExprData::Suffix {
+            &SemaExprData::Suffix {
                 opd_sema_expr_idx,
                 opr,
                 ..
             } => HirLazyExpr::Suffix {
-                opr: *opr,
+                opr: HirSuffixOpr::from_sema(opr),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
             SemaExprData::FunctionApplication {
