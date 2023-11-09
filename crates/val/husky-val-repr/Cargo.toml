@@ -28,6 +28,8 @@ husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-task = { path = "../../kernel/husky-task" }
+# linkage
+husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
 # val
 husky-val = { path = "../../val/husky-val" }
 # utils

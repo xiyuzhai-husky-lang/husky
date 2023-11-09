@@ -47,8 +47,6 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::Variable(hir_eager_variable_idx) => {
             hir_eager_variable_idx.transpile_to_rust(builder)
         }
-        HirEagerExprData::SelfType => builder.self_ty(),
-        HirEagerExprData::SelfValue => builder.self_value(),
         HirEagerExprData::Binary { lopd, opr, ropd } => match opr {
             HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {
                 (RustPrecedenceRange::Geq(RustPrecedence::Suffix), lopd).transpile_to_rust(builder);

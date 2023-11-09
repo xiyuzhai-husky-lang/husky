@@ -563,6 +563,7 @@
                                 arena: Arena {
                                     data: [],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },

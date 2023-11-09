@@ -21,6 +21,7 @@ pub enum VariableName {
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum HirEagerVariableData {
+    SelfValue,
     ParenateParameter,
     LetVariable,
     BeVariable,
@@ -120,6 +121,7 @@ pub type HirEagerVariableIdx = ArenaIdx<HirEagerVariable>;
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirEagerVariableRegion {
     arena: HirEagerVariableArena,
+    self_value_variable: Option<HirEagerVariableIdx>,
 }
 
 impl HirEagerVariableRegion {
@@ -127,6 +129,7 @@ impl HirEagerVariableRegion {
         syn_symbol_region: &SynSymbolRegion,
     ) -> (Self, SynSymbolMap<HirEagerVariableIdx>) {
         let mut arena = HirEagerVariableArena::default();
+        let mut self_value_variable = None;
         let mut syn_symbol_to_hir_eager_variable_map =
             SynSymbolMap::<HirEagerVariableIdx>::new(syn_symbol_region);
         for (inherited_syn_symbol_idx, inherited_syn_symbol) in
@@ -135,6 +138,7 @@ impl HirEagerVariableRegion {
             if let Some(hir_eager_variable) =
                 HirEagerVariable::from_inherited_syn(inherited_syn_symbol)
             {
+                let is_self_value = hir_eager_variable.data == HirEagerVariableData::SelfValue;
                 let hir_eager_variable_idx = arena.alloc_one(hir_eager_variable);
                 syn_symbol_to_hir_eager_variable_map
                     .push_inherited(inherited_syn_symbol_idx, hir_eager_variable_idx)
@@ -150,7 +154,17 @@ impl HirEagerVariableRegion {
                     .push_current(current_syn_symbol_idx, hir_eager_variable_idx)
             }
         }
-        (Self { arena }, syn_symbol_to_hir_eager_variable_map)
+        (
+            Self {
+                arena,
+                self_value_variable,
+            },
+            syn_symbol_to_hir_eager_variable_map,
+        )
+    }
+
+    pub fn self_value_variable(&self) -> Option<HirEagerVariableIdx> {
+        self.self_value_variable
     }
 }
 

@@ -4,7 +4,7 @@
         Val {
             [salsa id]: 13,
             domain_repr: Omni,
-            opr: Fugitive(
+            opr: ValItem(
                 FugitivePath(
                     Id {
                         value: 52,
@@ -19,7 +19,7 @@
         Val {
             [salsa id]: 14,
             domain_repr: Omni,
-            opr: Fugitive(
+            opr: ValItem(
                 FugitivePath(
                     Id {
                         value: 54,
@@ -34,7 +34,7 @@
         Val {
             [salsa id]: 15,
             domain_repr: Omni,
-            opr: Fugitive(
+            opr: ValItem(
                 FugitivePath(
                     Id {
                         value: 57,

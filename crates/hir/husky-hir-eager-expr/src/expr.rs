@@ -29,8 +29,6 @@ pub enum HirEagerExprData {
     PrincipalEntityPath(PrincipalEntityPath),
     ConstSymbol(HirConstSymbol),
     Variable(HirEagerVariableIdx),
-    SelfType,
-    SelfValue,
     Binary {
         lopd: HirEagerExprIdx,
         opr: HirBinaryOpr,
@@ -151,8 +149,10 @@ impl ToHirEager for SemaExprIdx {
                 frame_var_symbol_idx,
                 current_syn_symbol_kind,
             } => todo!(),
-            SemaExprData::SelfType(_) => HirEagerExprData::SelfType,
-            SemaExprData::SelfValue(_) => HirEagerExprData::SelfValue,
+            SemaExprData::SelfType(_) => unreachable!(),
+            SemaExprData::SelfValue(_) => {
+                HirEagerExprData::Variable(builder.self_value_variable().unwrap())
+            }
             &SemaExprData::Binary {
                 lopd,
                 opr,

@@ -68,6 +68,7 @@
                                 arena: Arena {
                                     data: [],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -144,6 +145,7 @@
                                 arena: Arena {
                                     data: [],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -197,6 +199,7 @@
                                 arena: Arena {
                                     data: [],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -269,6 +272,7 @@
                                 arena: Arena {
                                     data: [],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
