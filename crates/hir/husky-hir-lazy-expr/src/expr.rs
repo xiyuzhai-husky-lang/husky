@@ -35,8 +35,6 @@ pub enum HirLazyExpr {
     FrameVarDecl {
         ident: Ident,
     },
-    SelfType,
-    SelfValue,
     Binary {
         lopd: HirLazyExprIdx,
         opr: HirBinaryOpr,

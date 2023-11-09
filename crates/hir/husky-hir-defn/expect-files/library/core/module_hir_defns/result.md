@@ -62,6 +62,7 @@
                                 arena: Arena {
                                     data: [],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -324,6 +325,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),

@@ -1,14 +1,14 @@
 use crate::*;
 use husky_entity_path::{EntityPathDb, FugitivePath};
-use husky_val::{Val, ValDomain, ValOpr};
+use husky_val::{Val, ValDomain, ValOpn};
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::interned(db = ValReprDb, jar = ValReprJar, override_debug)]
 pub struct ValRepr {
     pub val_domain_repr: ValDomainRepr,
-    pub opr: ValOpr,
+    pub opr: ValOpn,
     #[return_ref]
-    pub opds: SmallVec<[ValRepr; 2]>,
+    pub opds: SmallVec<[ValRepr; 4]>,
     pub caching_strategy: ValCachingStrategy,
 }
 
@@ -42,7 +42,7 @@ impl<_Db: ValReprDb + ?Sized> ::salsa::DebugWithDb<_Db> for ValRepr {
             debug_struct.field(
                 "opr",
                 &::salsa::debug::helper::SalsaDebug::<
-                    ValOpr,
+                    ValOpn,
                     <ValReprJar as salsa::jar::Jar<'_>>::DynDb,
                 >::salsa_debug(
                     #[allow(clippy::needless_borrow)]
@@ -59,7 +59,7 @@ impl<_Db: ValReprDb + ?Sized> ::salsa::DebugWithDb<_Db> for ValRepr {
 impl ValRepr {
     pub(crate) fn new_val_item(path: FugitivePath, db: &dyn ValReprDb) -> Self {
         let domain = ValDomainRepr::Omni;
-        let opr = ValOpr::Fugitive(path);
+        let opr = ValOpn::ValItem(path);
         let opds = smallvec![];
         let caching_strategy = ValCachingStrategy::Cache;
         Self::new(db, domain, opr, opds, caching_strategy)

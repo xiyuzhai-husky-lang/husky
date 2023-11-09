@@ -111,9 +111,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             | HirLazyExpr::PrincipalEntityPath(_)
             | HirLazyExpr::InheritedSynSymbol { .. }
             | HirLazyExpr::CurrentSynSymbol { .. }
-            | HirLazyExpr::FrameVarDecl { .. }
-            | HirLazyExpr::SelfType
-            | HirLazyExpr::SelfValue => (),
+            | HirLazyExpr::FrameVarDecl { .. } => (),
             HirLazyExpr::Binary { lopd, ropd, .. } => {
                 self.expr_has_control_flow(lopd)?;
                 self.expr_has_control_flow(ropd)?

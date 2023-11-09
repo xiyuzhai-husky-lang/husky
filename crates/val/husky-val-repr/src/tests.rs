@@ -60,9 +60,11 @@ use husky_vfs::VfsJar;
     husky_hir_expr::db::HirExprJar,
     husky_hir_decl::db::HirDeclJar,
     husky_hir_defn::db::HirDefnJar,
+    // linkage
+    husky_linkage_path::db::LinkagePathJar,
     // val
     husky_val::db::ValJar,
-    crate::db::ValReprJar
+    crate::db::ValReprJar,
 )]
 #[derive(Default)]
 pub struct DB {

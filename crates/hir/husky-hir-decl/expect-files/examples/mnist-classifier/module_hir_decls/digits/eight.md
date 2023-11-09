@@ -107,6 +107,7 @@
                                     },
                                 ],
                             },
+                            self_value_variable: None,
                         },
                     },
                 },
