@@ -172,9 +172,10 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 {
                     HirLazyPatternExpr::Literal(_) => todo!(),
                     HirLazyPatternExpr::Ident { ident } => {
+                        debug_assert_eq!(pattern.variables().len(), 1);
                         self.hir_lazy_variable_val_repr_map
-                            .insert_new(todo!(), todo!());
-                        todo!()
+                            .insert_new(pattern.variables()[0], initial_value_val_repr);
+                        return None;
                     }
                     HirLazyPatternExpr::Unit(_) => todo!(),
                     HirLazyPatternExpr::Tuple { path, fields } => todo!(),
@@ -210,7 +211,9 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
-            } => todo!(),
+            } => {
+                todo!()
+            }
             HirLazyStmt::Match {} => todo!(),
         };
         let val_repr = val_domain_repr_guard.new_stmt_val_repr(opn, arguments);
@@ -335,7 +338,15 @@ impl<'a> ValReprExpansionBuilder<'a> {
             } => todo!(),
             HirLazyExprData::NewTuple { ref items } => todo!(),
             HirLazyExprData::Index { owner, ref items } => todo!(),
-            HirLazyExprData::List { ref items } => todo!(),
+            HirLazyExprData::NewList { ref items } => (
+                ValOpn::NewList,
+                items
+                    .iter()
+                    .map(|&item| {
+                        ValArgumentRepr::Ordinary(self.build_expr(val_domain_repr_guard, item))
+                    })
+                    .collect(),
+            ),
             HirLazyExprData::Block { stmts } => todo!(),
             HirLazyExprData::EmptyHtmlTag {
                 function_ident,

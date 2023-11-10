@@ -132,7 +132,9 @@ impl ToHirEager for SemaExprIdx {
                 InheritedSynSymbolKind::TemplateParameter(_) => todo!(),
                 InheritedSynSymbolKind::ParenateParameter { .. }
                 | InheritedSynSymbolKind::FieldVariable { .. } => HirEagerExprData::Variable(
-                    builder.inherited_syn_symbol_to_hir_eager_variable(inherited_syn_symbol_idx),
+                    builder
+                        .inherited_syn_symbol_to_hir_eager_variable(inherited_syn_symbol_idx)
+                        .unwrap(),
                 ),
             },
             &SemaExprData::CurrentSynSymbol {
@@ -141,7 +143,9 @@ impl ToHirEager for SemaExprIdx {
                 current_syn_symbol_idx,
                 current_syn_symbol_kind,
             } => HirEagerExprData::Variable(
-                builder.current_syn_symbol_to_hir_eager_variable(current_syn_symbol_idx),
+                builder
+                    .current_syn_symbol_to_hir_eager_variable(current_syn_symbol_idx)
+                    .unwrap(),
             ),
             SemaExprData::FrameVarDecl {
                 regional_token_idx,

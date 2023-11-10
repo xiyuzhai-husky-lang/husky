@@ -159,15 +159,19 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn inherited_syn_symbol_to_hir_eager_variable(
         &self,
         inherited_syn_symbol_idx: InheritedSynSymbolIdx,
-    ) -> HirEagerVariableIdx {
-        self.syn_symbol_to_hir_eager_variable_map[inherited_syn_symbol_idx]
+    ) -> Option<HirEagerVariableIdx> {
+        self.syn_symbol_to_hir_eager_variable_map
+            .get_inherited(inherited_syn_symbol_idx)
+            .copied()
     }
 
     pub(crate) fn current_syn_symbol_to_hir_eager_variable(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> HirEagerVariableIdx {
-        self.syn_symbol_to_hir_eager_variable_map[current_syn_symbol_idx]
+    ) -> Option<HirEagerVariableIdx> {
+        self.syn_symbol_to_hir_eager_variable_map
+            .get_current(current_syn_symbol_idx)
+            .copied()
     }
 
     fn finish(self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {

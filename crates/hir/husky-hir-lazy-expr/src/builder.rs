@@ -5,8 +5,8 @@ use husky_sema_expr::{
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, SynExprIdx, SynExprRegion, SynExprRegionData, SynExprRootKind,
-    SynPatternExprMap, SynStmtIdx, SynSymbolMap, InheritedSynSymbolIdx,
+    CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprIdx, SynExprRegion, SynExprRegionData,
+    SynExprRootKind, SynPatternExprMap, SynStmtIdx, SynSymbolMap,
 };
 use salsa::DebugWithDb;
 
@@ -145,15 +145,19 @@ impl<'a> HirLazyExprBuilder<'a> {
     pub(crate) fn inherited_syn_symbol_to_hir_lazy_variable(
         &self,
         inherited_syn_symbol_idx: InheritedSynSymbolIdx,
-    ) -> HirLazyVariableIdx {
-        self.syn_symbol_to_hir_lazy_variable_map[inherited_syn_symbol_idx]
+    ) -> Option<HirLazyVariableIdx> {
+        self.syn_symbol_to_hir_lazy_variable_map
+            .get_inherited(inherited_syn_symbol_idx)
+            .copied()
     }
 
     pub(crate) fn current_syn_symbol_to_hir_lazy_variable(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> HirLazyVariableIdx {
-        self.syn_symbol_to_hir_lazy_variable_map[current_syn_symbol_idx]
+    ) -> Option<HirLazyVariableIdx> {
+        self.syn_symbol_to_hir_lazy_variable_map
+            .get_current(current_syn_symbol_idx)
+            .copied()
     }
 
     pub fn finish(self) -> (HirLazyExprRegion, HirLazyExprSourceMap) {

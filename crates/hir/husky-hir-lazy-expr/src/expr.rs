@@ -74,7 +74,7 @@ pub enum HirLazyExprData {
         owner: HirLazyExprIdx,
         items: SmallVec<[HirLazyExprIdx; 4]>,
     },
-    List {
+    NewList {
         items: SmallVec<[HirLazyExprIdx; 4]>,
     },
     Block {
@@ -120,21 +120,31 @@ impl ToHirLazy for SemaExprIdx {
                 regional_token_idx,
                 inherited_syn_symbol_idx,
                 inherited_syn_symbol_kind,
-            } => todo!(),
+            } => HirLazyExprData::Variable(
+                builder
+                    .inherited_syn_symbol_to_hir_lazy_variable(inherited_syn_symbol_idx)
+                    .unwrap(),
+            ),
             SemaExprData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
                 current_syn_symbol_idx,
                 current_syn_symbol_kind,
             } => HirLazyExprData::Variable(
-                builder.current_syn_symbol_to_hir_lazy_variable(current_syn_symbol_idx),
+                builder
+                    .current_syn_symbol_to_hir_lazy_variable(current_syn_symbol_idx)
+                    .unwrap(),
             ),
             SemaExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
                 frame_var_symbol_idx,
                 current_syn_symbol_kind,
-            } => todo!(),
+            } => HirLazyExprData::Variable(
+                builder
+                    .current_syn_symbol_to_hir_lazy_variable(frame_var_symbol_idx)
+                    .unwrap(),
+            ),
             SemaExprData::SelfType(_) => todo!(),
             SemaExprData::SelfValue(_) => todo!(),
             SemaExprData::Binary {
@@ -268,7 +278,7 @@ impl ToHirLazy for SemaExprIdx {
             } => {
                 todo!()
             }
-            SemaExprData::NewList { ref items, .. } => HirLazyExprData::List {
+            SemaExprData::NewList { ref items, .. } => HirLazyExprData::NewList {
                 items: items
                     .iter()
                     .map(|item| item.sema_expr_idx().to_hir_lazy(builder))

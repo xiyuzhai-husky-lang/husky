@@ -80,6 +80,7 @@ pub enum ValOpn {
     Linkage(LinkagePath),
     EvalDiscarded,
     Literal(TermLiteral),
+    NewList,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
