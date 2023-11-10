@@ -3,8 +3,9 @@ use husky_task::{IsTask, Value};
 use husky_val::ValOpn;
 
 impl ValRepr {
-    pub fn eval<Task: IsTask>(self, db: &dyn ValReprDb) -> Value<Task> {
-        match self.opr(db) {
+    pub fn eval<Task: IsTask>(self, db: &dyn ValReprDb) -> (ValControlFlow, Value<Task>) {
+        match self.opn(db) {
+            ValOpn::Literal(_) => todo!(),
             ValOpn::ValItem(_) => todo!(),
             ValOpn::Require => todo!(),
             ValOpn::Linkage(_) => todo!(),
@@ -12,6 +13,13 @@ impl ValRepr {
             ValOpn::Prefix(_) => todo!(),
             ValOpn::Suffix(_) => todo!(),
             ValOpn::Binary(_) => todo!(),
+            ValOpn::EvalDiscarded => todo!(),
         }
     }
+}
+
+pub enum ValControlFlow {
+    Continue,
+    Break,
+    Return,
 }

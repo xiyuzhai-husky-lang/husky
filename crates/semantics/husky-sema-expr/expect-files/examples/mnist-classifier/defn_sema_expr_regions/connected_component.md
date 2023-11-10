@@ -21975,7 +21975,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         1,
                                     ),
@@ -22841,7 +22841,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         3,
                                     ),
@@ -24210,7 +24210,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         5,
                                     ),
@@ -28034,7 +28034,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         9,
                                     ),
@@ -31283,7 +31283,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         21,
                                     ),
@@ -33793,7 +33793,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         15,
                                     ),
@@ -37092,7 +37092,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         12,
                                     ),
@@ -37425,7 +37425,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         34,
                                     ),
@@ -38039,7 +38039,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         70,
                                     ),
@@ -38554,7 +38554,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         96,
                                     ),
@@ -42843,7 +42843,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         1,
                                     ),
@@ -43847,7 +43847,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         1,
                                     ),
@@ -45714,7 +45714,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         21,
                                     ),
@@ -46113,7 +46113,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         40,
                                     ),
@@ -49515,7 +49515,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         21,
                                     ),
@@ -49914,7 +49914,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         40,
                                     ),

@@ -88,6 +88,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -163,7 +164,9 @@
                             HirEagerExprRegion {
                                 hir_eager_expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 1,
                                             ident: `line_segments`,
@@ -194,8 +197,16 @@
                                 },
                                 hir_eager_variable_region: HirEagerVariableRegion {
                                     arena: Arena {
-                                        data: [],
+                                        data: [
+                                            HirEagerVariable {
+                                                name: SelfValue,
+                                                data: SelfValue,
+                                            },
+                                        ],
                                     },
+                                    self_value_variable: Some(
+                                        1,
+                                    ),
                                 },
                             },
                         ),

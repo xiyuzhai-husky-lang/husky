@@ -9,7 +9,9 @@ smallvec.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 # kernel
+husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 # hir
 husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 # linkage

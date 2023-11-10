@@ -88,6 +88,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -119,6 +120,7 @@
                                 arena: Arena {
                                     data: [],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -226,6 +228,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -319,6 +322,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -427,6 +431,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -508,6 +513,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -616,6 +622,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -709,6 +716,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -849,6 +857,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -1071,6 +1080,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -1179,6 +1189,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -1338,6 +1349,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -1510,6 +1522,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -1780,6 +1793,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -1857,6 +1871,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -1932,6 +1947,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -2210,6 +2226,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -2296,6 +2313,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -4644,6 +4662,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -4720,7 +4739,9 @@
                             HirEagerExprRegion {
                                 hir_eager_expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 1,
                                             ident: `points`,
@@ -4760,8 +4781,16 @@
                                 },
                                 hir_eager_variable_region: HirEagerVariableRegion {
                                     arena: Arena {
-                                        data: [],
+                                        data: [
+                                            HirEagerVariable {
+                                                name: SelfValue,
+                                                data: SelfValue,
+                                            },
+                                        ],
                                     },
+                                    self_value_variable: Some(
+                                        1,
+                                    ),
                                 },
                             },
                         ),
@@ -4833,8 +4862,16 @@
                             },
                             hir_eager_variable_region: HirEagerVariableRegion {
                                 arena: Arena {
-                                    data: [],
+                                    data: [
+                                        HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                    ],
                                 },
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -4857,7 +4894,9 @@
                                                 },
                                             ),
                                         },
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Literal(
                                             TermLiteral::F32(
                                                 NotNan(
@@ -4897,8 +4936,16 @@
                                 },
                                 hir_eager_variable_region: HirEagerVariableRegion {
                                     arena: Arena {
-                                        data: [],
+                                        data: [
+                                            HirEagerVariable {
+                                                name: SelfValue,
+                                                data: SelfValue,
+                                            },
+                                        ],
                                     },
+                                    self_value_variable: Some(
+                                        1,
+                                    ),
                                 },
                             },
                         ),
@@ -4948,8 +4995,16 @@
                             },
                             hir_eager_variable_region: HirEagerVariableRegion {
                                 arena: Arena {
-                                    data: [],
+                                    data: [
+                                        HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                    ],
                                 },
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -4959,7 +5014,9 @@
                             HirEagerExprRegion {
                                 hir_eager_expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 1,
                                             ident: `points`,
@@ -4978,34 +5035,36 @@
                                             ],
                                         },
                                         HirEagerExprData::Variable(
-                                            1,
+                                            2,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 5,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
-                                            1,
+                                            2,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 7,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
-                                            1,
+                                            2,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 9,
                                             ident: `y`,
                                         },
                                         HirEagerExprData::Variable(
-                                            1,
+                                            2,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 11,
                                             ident: `y`,
                                         },
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 13,
                                             ident: `points`,
@@ -5016,13 +5075,15 @@
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 16,
                                             ident: `points`,
                                         },
                                         HirEagerExprData::Variable(
-                                            6,
+                                            7,
                                         ),
                                         HirEagerExprData::Index {
                                             owner_hir_expr_idx: 17,
@@ -5031,13 +5092,13 @@
                                             ],
                                         },
                                         HirEagerExprData::Variable(
-                                            2,
+                                            3,
                                         ),
                                         HirEagerExprData::Variable(
-                                            2,
+                                            3,
                                         ),
                                         HirEagerExprData::Variable(
-                                            7,
+                                            8,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 22,
@@ -5059,13 +5120,13 @@
                                             ropd: 24,
                                         },
                                         HirEagerExprData::Variable(
-                                            3,
+                                            4,
                                         ),
                                         HirEagerExprData::Variable(
-                                            3,
+                                            4,
                                         ),
                                         HirEagerExprData::Variable(
-                                            7,
+                                            8,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 28,
@@ -5087,13 +5148,13 @@
                                             ropd: 30,
                                         },
                                         HirEagerExprData::Variable(
-                                            4,
+                                            5,
                                         ),
                                         HirEagerExprData::Variable(
-                                            4,
+                                            5,
                                         ),
                                         HirEagerExprData::Variable(
-                                            7,
+                                            8,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 34,
@@ -5115,13 +5176,13 @@
                                             ropd: 36,
                                         },
                                         HirEagerExprData::Variable(
-                                            5,
+                                            6,
                                         ),
                                         HirEagerExprData::Variable(
-                                            5,
+                                            6,
                                         ),
                                         HirEagerExprData::Variable(
-                                            7,
+                                            8,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 40,
@@ -5157,10 +5218,10 @@
                                             ),
                                         ),
                                         HirEagerExprData::Variable(
-                                            2,
+                                            3,
                                         ),
                                         HirEagerExprData::Variable(
-                                            3,
+                                            4,
                                         ),
                                         HirEagerExprData::FnCall {
                                             function_hir_expr_idx: 45,
@@ -5182,10 +5243,10 @@
                                             ),
                                         ),
                                         HirEagerExprData::Variable(
-                                            4,
+                                            5,
                                         ),
                                         HirEagerExprData::Variable(
-                                            5,
+                                            6,
                                         ),
                                         HirEagerExprData::FnCall {
                                             function_hir_expr_idx: 49,
@@ -5388,6 +5449,10 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerVariable {
+                                                name: SelfValue,
+                                                data: SelfValue,
+                                            },
+                                            HirEagerVariable {
                                                 name: Ident(
                                                     Ident(
                                                         Coword(
@@ -5473,6 +5538,9 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: Some(
+                                        1,
+                                    ),
                                 },
                             },
                         ),
@@ -5522,8 +5590,16 @@
                             },
                             hir_eager_variable_region: HirEagerVariableRegion {
                                 arena: Arena {
-                                    data: [],
+                                    data: [
+                                        HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                    ],
                                 },
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -5533,7 +5609,9 @@
                             HirEagerExprRegion {
                                 hir_eager_expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 1,
                                             ident: `cc`,
@@ -5559,7 +5637,9 @@
                                             owner_hir_expr_idx: 5,
                                             ident: `bounding_box`,
                                         },
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 7,
                                             ident: `bounding_box`,
@@ -5594,8 +5674,16 @@
                                 },
                                 hir_eager_variable_region: HirEagerVariableRegion {
                                     arena: Arena {
-                                        data: [],
+                                        data: [
+                                            HirEagerVariable {
+                                                name: SelfValue,
+                                                data: SelfValue,
+                                            },
+                                        ],
                                     },
+                                    self_value_variable: Some(
+                                        1,
+                                    ),
                                 },
                             },
                         ),
@@ -5645,8 +5733,16 @@
                             },
                             hir_eager_variable_region: HirEagerVariableRegion {
                                 arena: Arena {
-                                    data: [],
+                                    data: [
+                                        HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                    ],
                                 },
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -5668,7 +5764,9 @@
                                                 0,
                                             ),
                                         ),
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 3,
                                             ident: `points`,
@@ -5679,13 +5777,15 @@
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 6,
                                             ident: `points`,
                                         },
                                         HirEagerExprData::Variable(
-                                            2,
+                                            3,
                                         ),
                                         HirEagerExprData::Literal(
                                             TermLiteral::I32(
@@ -5705,13 +5805,15 @@
                                                 10,
                                             ],
                                         },
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 12,
                                             ident: `points`,
                                         },
                                         HirEagerExprData::Variable(
-                                            2,
+                                            3,
                                         ),
                                         HirEagerExprData::Index {
                                             owner_hir_expr_idx: 13,
@@ -5720,17 +5822,17 @@
                                             ],
                                         },
                                         HirEagerExprData::Variable(
-                                            1,
+                                            2,
                                         ),
                                         HirEagerExprData::Variable(
-                                            3,
+                                            4,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 17,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
-                                            4,
+                                            5,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 19,
@@ -5750,14 +5852,14 @@
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
-                                            3,
+                                            4,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 23,
                                             ident: `y`,
                                         },
                                         HirEagerExprData::Variable(
-                                            4,
+                                            5,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 25,
@@ -5790,12 +5892,16 @@
                                             ),
                                             ropd: 29,
                                         },
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 31,
                                             ident: `points`,
                                         },
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 33,
                                             ident: `points`,
@@ -5824,7 +5930,9 @@
                                                 37,
                                             ],
                                         },
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 39,
                                             ident: `points`,
@@ -5843,17 +5951,17 @@
                                             ],
                                         },
                                         HirEagerExprData::Variable(
-                                            1,
+                                            2,
                                         ),
                                         HirEagerExprData::Variable(
-                                            5,
+                                            6,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 44,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
-                                            6,
+                                            7,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 46,
@@ -5873,14 +5981,14 @@
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
-                                            5,
+                                            6,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 50,
                                             ident: `y`,
                                         },
                                         HirEagerExprData::Variable(
-                                            6,
+                                            7,
                                         ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 52,
@@ -5914,7 +6022,7 @@
                                             ropd: 56,
                                         },
                                         HirEagerExprData::Variable(
-                                            1,
+                                            2,
                                         ),
                                         HirEagerExprData::Block {
                                             stmts: ArenaIdxRange(
@@ -6064,6 +6172,10 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerVariable {
+                                                name: SelfValue,
+                                                data: SelfValue,
+                                            },
+                                            HirEagerVariable {
                                                 name: Ident(
                                                     Ident(
                                                         Coword(
@@ -6137,6 +6249,9 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: Some(
+                                        1,
+                                    ),
                                 },
                             },
                         ),
@@ -6237,6 +6352,10 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                        HirEagerVariable {
                                             name: Ident(
                                                 Ident(
                                                     Coword(
@@ -6262,6 +6381,9 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -6271,7 +6393,9 @@
                             HirEagerExprRegion {
                                 hir_eager_expr_arena: Arena {
                                     data: [
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 1,
                                             ident: `points`,
@@ -6282,16 +6406,18 @@
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 4,
                                             ident: `points`,
                                         },
                                         HirEagerExprData::Variable(
-                                            1,
+                                            2,
                                         ),
                                         HirEagerExprData::Variable(
-                                            3,
+                                            4,
                                         ),
                                         HirEagerExprData::Binary {
                                             lopd: 6,
@@ -6306,16 +6432,18 @@
                                                 8,
                                             ],
                                         },
-                                        HirEagerExprData::SelfType,
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
                                         HirEagerExprData::Field {
                                             owner_hir_expr_idx: 10,
                                             ident: `points`,
                                         },
                                         HirEagerExprData::Variable(
-                                            2,
+                                            3,
                                         ),
                                         HirEagerExprData::Variable(
-                                            3,
+                                            4,
                                         ),
                                         HirEagerExprData::Binary {
                                             lopd: 12,
@@ -6331,10 +6459,10 @@
                                             ],
                                         },
                                         HirEagerExprData::Variable(
-                                            4,
+                                            5,
                                         ),
                                         HirEagerExprData::Variable(
-                                            5,
+                                            6,
                                         ),
                                         HirEagerExprData::MethodCall {
                                             self_argument: 16,
@@ -6420,6 +6548,10 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerVariable {
+                                                name: SelfValue,
+                                                data: SelfValue,
+                                            },
+                                            HirEagerVariable {
                                                 name: Ident(
                                                     Ident(
                                                         Coword(
@@ -6481,6 +6613,9 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: Some(
+                                        1,
+                                    ),
                                 },
                             },
                         ),

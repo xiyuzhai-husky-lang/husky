@@ -389,7 +389,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         1,
                                     ),

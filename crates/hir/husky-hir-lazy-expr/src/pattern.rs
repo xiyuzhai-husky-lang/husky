@@ -11,6 +11,12 @@ pub struct HirLazyLetVariablesPattern {
     ty: Option<HirType>,
 }
 
+impl HirLazyLetVariablesPattern {
+    pub fn pattern_expr_idx(&self) -> HirLazyPatternExprIdx {
+        self.pattern_expr_idx
+    }
+}
+
 impl<'a> HirLazyExprBuilder<'a> {
     pub(super) fn new_let_variables_pattern(
         &mut self,

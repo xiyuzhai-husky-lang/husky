@@ -118,6 +118,8 @@ pub enum DerivedSemaExprTypeError {
     AsOperationRightOperandTermNotInferred,
     #[error("return type not given in ritchie call")]
     ReturnTypeNotGivenInRitchieCall,
+    #[error("self type not inferred")]
+    SelfTypeNotInferred,
     #[error("self type not inferred for self value")]
     SelfTypeNotInferredForSelfValue,
     #[error("unresolved local term")]

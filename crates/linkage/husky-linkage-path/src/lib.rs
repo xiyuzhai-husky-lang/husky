@@ -6,7 +6,7 @@ use self::deps::*;
 use husky_entity_path::{FugitivePath, ItemPath};
 use husky_hir_ty::HirTemplateArgumentLiterals;
 
-#[salsa::interned(db = LinkagePathDb, jar = LinkagePathJar)]
+#[salsa::interned(db = LinkagePathDb, jar = LinkagePathJar, constructor = new)]
 pub struct LinkagePath {
     data: LinkagePathData,
 }
@@ -16,8 +16,22 @@ impl LinkagePath {
         todo!()
     }
 
-    pub fn new_item(db: &dyn LinkagePathDb) -> Self {
-        todo!()
+    pub fn new_field(db: &dyn LinkagePathDb) -> Self {
+        Self::new(db, LinkagePathData::Field)
+    }
+
+    pub fn new_item(
+        db: &dyn LinkagePathDb,
+        path: impl Into<ItemPath>,
+        template_arguments: HirTemplateArgumentLiterals,
+    ) -> Self {
+        Self::new(
+            db,
+            LinkagePathData::Item {
+                path: path.into(),
+                template_arguments,
+            },
+        )
     }
 }
 
@@ -28,7 +42,7 @@ pub enum LinkagePathData {
         path: ItemPath,
         template_arguments: HirTemplateArgumentLiterals,
     },
-    Todo,
+    Field,
 }
 
 impl LinkagePath {

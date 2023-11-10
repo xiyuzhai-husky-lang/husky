@@ -48,7 +48,7 @@ pub enum HirEagerExprData {
     },
     FnCall {
         function_hir_expr_idx: HirEagerExprIdx,
-        template_arguments: Option<HirEagerGenericArgumentList>,
+        template_arguments: Option<HirEagerTemplateArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     Field {
@@ -58,7 +58,7 @@ pub enum HirEagerExprData {
     MethodCall {
         self_argument: HirEagerExprIdx,
         ident: Ident,
-        template_arguments: Option<HirEagerGenericArgumentList>,
+        template_arguments: Option<HirEagerTemplateArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     NewTuple {
@@ -87,7 +87,7 @@ pub enum HirEagerExprData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct HirEagerGenericArgumentList {/*todo */}
+pub struct HirEagerTemplateArgumentList {/*todo */}
 
 #[cfg(feature = "rust-syn-gen")]
 impl Expr {}
@@ -149,7 +149,9 @@ impl ToHirEager for SemaExprIdx {
                 frame_var_symbol_idx,
                 current_syn_symbol_kind,
             } => todo!(),
-            SemaExprData::SelfType(_) => unreachable!(),
+            SemaExprData::SelfType(_) => {
+                unreachable!()
+            }
             SemaExprData::SelfValue(_) => {
                 HirEagerExprData::Variable(builder.self_value_variable().unwrap())
             }

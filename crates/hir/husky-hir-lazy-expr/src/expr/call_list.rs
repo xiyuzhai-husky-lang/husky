@@ -1,12 +1,12 @@
 use super::*;
 use husky_sema_expr::SemaRitchieParameterArgumentMatch;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[enum_class::from_variants]
 pub enum HirLazyCallListItemGroup {
     Regular(HirLazyExprIdx),
-    Variadic,
-    Keyed,
+    Variadic(Vec<HirLazyExprIdx>),
+    Keyed(Ident, HirLazyExprIdx),
 }
 
 impl<'a> HirLazyExprBuilder<'a> {
@@ -27,8 +27,20 @@ impl<'a> HirLazyExprBuilder<'a> {
             SemaRitchieParameterArgumentMatch::Regular(_, item) => {
                 HirLazyCallListItemGroup::Regular(item.argument_expr_idx().to_hir_lazy(self))
             }
-            SemaRitchieParameterArgumentMatch::Variadic(_, _) => HirLazyCallListItemGroup::Variadic,
-            SemaRitchieParameterArgumentMatch::Keyed(_, _) => HirLazyCallListItemGroup::Keyed,
+            SemaRitchieParameterArgumentMatch::Variadic(_, items) => {
+                HirLazyCallListItemGroup::Variadic(
+                    items
+                        .iter()
+                        .map(|item| item.argument_expr_idx().to_hir_lazy(self))
+                        .collect(),
+                )
+            }
+            SemaRitchieParameterArgumentMatch::Keyed(param, item) => {
+                HirLazyCallListItemGroup::Keyed(
+                    param.key(),
+                    item.argument_expr_idx().to_hir_lazy(self),
+                )
+            }
         }
     }
 }

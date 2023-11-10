@@ -1,7 +1,9 @@
 use crate::*;
+use husky_coword::Ident;
 use husky_entity_path::FugitivePath;
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_linkage_path::LinkagePath;
+use husky_term_prelude::TermLiteral;
 use smallvec::SmallVec;
 
 #[salsa::interned(db = ValDb, jar = ValJar, override_debug)]
@@ -9,7 +11,14 @@ pub struct Val {
     pub domain: ValDomain,
     pub opn: ValOpn,
     #[return_ref]
-    pub opds: SmallVec<[Val; 2]>,
+    pub arguments: SmallVec<[ValArgument; 2]>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub enum ValArgument {
+    Ordinary(Val),
+    Keyed(Ident, Val),
+    Variadic(Vec<Val>),
 }
 
 impl<_Db: ValDb + ?Sized> ::salsa::DebugWithDb<_Db> for Val {
@@ -41,7 +50,7 @@ impl<_Db: ValDb + ?Sized> ::salsa::DebugWithDb<_Db> for Val {
             );
         debug_struct = debug_struct.field("opn", & ::salsa::debug::helper::SalsaDebug:: <ValOpn, <ValJar as salsa::jar::Jar<'_> > ::DynDb> ::salsa_debug(#[allow(clippy::needless_borrow)]
     &self.opn(_db),_db,_level.next()));
-        debug_struct = debug_struct.field("opds", &self.opds(_db));
+        debug_struct = debug_struct.field("arguments", &self.arguments(_db));
         debug_struct.finish()
     }
 }
@@ -69,6 +78,8 @@ pub enum ValOpn {
     Suffix(HirSuffixOpr),
     Binary(HirBinaryOpr),
     Linkage(LinkagePath),
+    EvalDiscarded,
+    Literal(TermLiteral),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

@@ -22,7 +22,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 57,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -110,6 +110,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -230,6 +231,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -261,7 +263,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 59,
+                                        value: 60,
                                     },
                                 ),
                             ),
@@ -349,6 +351,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -503,6 +506,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -589,6 +593,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -808,6 +813,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -839,7 +845,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 62,
+                                        value: 63,
                                     },
                                 ),
                             ),

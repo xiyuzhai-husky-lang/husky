@@ -25,8 +25,10 @@ husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
 husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 # kernel
+husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
+husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-task = { path = "../../kernel/husky-task" }
 # linkage
 husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
@@ -44,11 +46,9 @@ husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-decl = { path = "../../hir/husky-hir-decl" }
 # kernel
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }

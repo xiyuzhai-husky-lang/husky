@@ -22,7 +22,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 73,
+                                        value: 74,
                                     },
                                 ),
                             ),
@@ -110,6 +110,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -223,6 +224,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -249,7 +251,7 @@
                     body_with_hir_expr_region: Some(
                         (
                             Lazy(
-                                86,
+                                93,
                             ),
                             Lazy(
                                 HirLazyExprRegion(
