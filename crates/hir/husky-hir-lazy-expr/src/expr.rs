@@ -7,6 +7,7 @@ pub use self::html::*;
 use crate::*;
 use husky_entity_path::PrincipalEntityPath;
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
+use husky_hir_ty::HirConstSymbol;
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
 use husky_sema_opr::prefix::SemaPrefixOpr;
 use husky_sema_opr::suffix::SemaSuffixOpr;
@@ -15,26 +16,19 @@ use husky_term_prelude::{RitchieKind, TermLiteral};
 use idx_arena::ArenaRef;
 use salsa::debug::ExpectWithDb;
 
-pub type HirLazyExprArena = Arena<HirLazyExpr>;
-pub type HirLazyExprArenaRef<'a> = ArenaRef<'a, HirLazyExpr>;
-pub type HirLazyExprIdx = ArenaIdx<HirLazyExpr>;
-pub type HirLazyExprIdxRange = ArenaIdxRange<HirLazyExpr>;
-pub type HirLazyExprMap<V> = ArenaMap<HirLazyExpr, V>;
+pub type HirLazyExprArena = Arena<HirLazyExprData>;
+pub type HirLazyExprArenaRef<'a> = ArenaRef<'a, HirLazyExprData>;
+pub type HirLazyExprIdx = ArenaIdx<HirLazyExprData>;
+pub type HirLazyExprIdxRange = ArenaIdxRange<HirLazyExprData>;
+pub type HirLazyExprMap<V> = ArenaMap<HirLazyExprData, V>;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = HirLazyExprDb)]
-pub enum HirLazyExpr {
+pub enum HirLazyExprData {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),
-    InheritedSynSymbol {
-        ident: Ident,
-    },
-    CurrentSynSymbol {
-        ident: Ident,
-    },
-    FrameVarDecl {
-        ident: Ident,
-    },
+    ConstSymbol(HirConstSymbol),
+    Variable(HirLazyVariableIdx),
     Binary {
         lopd: HirLazyExprIdx,
         opr: HirBinaryOpr,
@@ -54,12 +48,12 @@ pub enum HirLazyExpr {
     },
     FnCall {
         function: HirLazyExprIdx,
-        generic_arguments: Option<HirLazyGenericArgumentList>,
+        generic_arguments: Option<HirLazyTemplateArgumentList>,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
     GnCall {
         function: HirLazyExprIdx,
-        generic_arguments: Option<HirLazyGenericArgumentList>,
+        generic_arguments: Option<HirLazyTemplateArgumentList>,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
     Field {
@@ -69,7 +63,7 @@ pub enum HirLazyExpr {
     MethodFnCall {
         self_argument: HirLazyExprIdx,
         ident: Ident,
-        template_arguments: Option<HirLazyGenericArgumentList>,
+        template_arguments: Option<HirLazyTemplateArgumentList>,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
     NewTuple {
@@ -96,30 +90,30 @@ pub enum HirLazyExpr {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct HirLazyGenericArgumentList {/*todo */}
+pub struct HirLazyTemplateArgumentList {/*todo */}
 
 impl ToHirLazy for SemaExprIdx {
     type Output = HirLazyExprIdx;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
-        let hir_lazy_expr = match self.data(builder.sema_expr_arena_ref()) {
+        let hir_lazy_expr = match *self.data(builder.sema_expr_arena_ref()) {
             SemaExprData::Literal(_, _) => {
                 let EtherealTerm::Literal(lit) = builder.expr_term(*self) else {
                     unreachable!()
                 };
-                HirLazyExpr::Literal(lit)
+                HirLazyExprData::Literal(lit)
             }
             SemaExprData::PrincipalEntityPath {
                 path_expr_idx,
                 path,
                 ty_path_disambiguation,
-            } => HirLazyExpr::PrincipalEntityPath(*path),
+            } => HirLazyExprData::PrincipalEntityPath(path),
             SemaExprData::AssociatedItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
-                static_dispatch,
+                ref static_dispatch,
             } => todo!(),
             SemaExprData::InheritedSynSymbol {
                 ident,
@@ -132,7 +126,9 @@ impl ToHirLazy for SemaExprIdx {
                 regional_token_idx,
                 current_syn_symbol_idx,
                 current_syn_symbol_kind,
-            } => HirLazyExpr::CurrentSynSymbol { ident: *ident },
+            } => HirLazyExprData::Variable(
+                builder.current_syn_symbol_to_hir_lazy_variable(current_syn_symbol_idx),
+            ),
             SemaExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
@@ -141,9 +137,9 @@ impl ToHirLazy for SemaExprIdx {
             } => todo!(),
             SemaExprData::SelfType(_) => todo!(),
             SemaExprData::SelfValue(_) => todo!(),
-            &SemaExprData::Binary {
+            SemaExprData::Binary {
                 lopd, opr, ropd, ..
-            } => HirLazyExpr::Binary {
+            } => HirLazyExprData::Binary {
                 lopd: lopd.to_hir_lazy(builder),
                 opr: HirBinaryOpr::from_sema(opr),
                 ropd: ropd.to_hir_lazy(builder),
@@ -152,23 +148,23 @@ impl ToHirLazy for SemaExprIdx {
                 src,
                 be_regional_token_idx,
                 ref target,
-            } => HirLazyExpr::Be {
+            } => HirLazyExprData::Be {
                 src: src.to_hir_lazy(builder),
                 target: target.to_hir_lazy(builder),
             },
-            &SemaExprData::Prefix {
+            SemaExprData::Prefix {
                 opr,
                 opd_sema_expr_idx,
                 ..
-            } => HirLazyExpr::Prefix {
+            } => HirLazyExprData::Prefix {
                 opr: HirPrefixOpr::from_sema(opr),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
-            &SemaExprData::Suffix {
+            SemaExprData::Suffix {
                 opd_sema_expr_idx,
                 opr,
                 ..
-            } => HirLazyExpr::Suffix {
+            } => HirLazyExprData::Suffix {
                 opr: HirSuffixOpr::from_sema(opr),
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
@@ -180,10 +176,10 @@ impl ToHirLazy for SemaExprIdx {
             }
             SemaExprData::FunctionFnCall {
                 function_sema_expr_idx,
-                template_arguments,
-                ritchie_parameter_argument_matches,
+                ref template_arguments,
+                ref ritchie_parameter_argument_matches,
                 ..
-            } => HirLazyExpr::FnCall {
+            } => HirLazyExprData::FnCall {
                 function: function_sema_expr_idx.to_hir_lazy(builder),
                 generic_arguments: template_arguments.as_ref().map(|_| todo!()),
                 item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),
@@ -202,7 +198,7 @@ impl ToHirLazy for SemaExprIdx {
                 owner_sema_expr_idx,
                 ident_token,
                 ..
-            } => HirLazyExpr::Field {
+            } => HirLazyExprData::Field {
                 owner: owner_sema_expr_idx.to_hir_lazy(builder),
                 ident: ident_token.ident(),
             },
@@ -210,7 +206,7 @@ impl ToHirLazy for SemaExprIdx {
                 self_argument,
                 dot_regional_token_idx,
                 ident_token,
-                template_arguments: ref generic_arguments,
+                ref template_arguments,
                 lpar_regional_token_idx,
                 ref items,
                 rpar_regional_token_idx,
@@ -220,11 +216,11 @@ impl ToHirLazy for SemaExprIdx {
             SemaExprData::MethodFnCall {
                 self_argument_sema_expr_idx,
                 ident_token,
-                template_arguments,
-                ritchie_parameter_argument_matches,
-                dispatch: method_dynamic_dispatch,
+                ref template_arguments,
+                ref ritchie_parameter_argument_matches,
+                ref dispatch,
                 ..
-            } => HirLazyExpr::MethodFnCall {
+            } => HirLazyExprData::MethodFnCall {
                 self_argument: self_argument_sema_expr_idx.to_hir_lazy(builder),
                 ident: ident_token.ident(),
                 template_arguments: template_arguments.as_ref().map(|_| todo!()),
@@ -257,20 +253,22 @@ impl ToHirLazy for SemaExprIdx {
             } => todo!(),
             SemaExprData::Index {
                 owner_sema_expr_idx,
-                index_sema_list_items: indices,
-                index_dynamic_dispatch,
+                ref index_sema_list_items,
+                ref index_dynamic_dispatch,
                 ..
-            } => HirLazyExpr::Index {
+            } => HirLazyExprData::Index {
                 owner: owner_sema_expr_idx.to_hir_lazy(builder),
-                items: indices
+                items: index_sema_list_items
                     .iter()
                     .map(|item| item.sema_expr_idx().to_hir_lazy(builder))
                     .collect(),
             },
-            SemaExprData::CompositionWithList { owner, items, .. } => {
+            SemaExprData::CompositionWithList {
+                owner, ref items, ..
+            } => {
                 todo!()
             }
-            SemaExprData::NewList { items, .. } => HirLazyExpr::List {
+            SemaExprData::NewList { ref items, .. } => HirLazyExprData::List {
                 items: items
                     .iter()
                     .map(|item| item.sema_expr_idx().to_hir_lazy(builder))
@@ -282,7 +280,7 @@ impl ToHirLazy for SemaExprIdx {
                 ref items,
                 rbox_regional_token_idx,
             } => todo!(),
-            SemaExprData::Block { stmts } => HirLazyExpr::Block {
+            SemaExprData::Block { stmts } => HirLazyExprData::Block {
                 stmts: stmts.to_hir_lazy(builder),
             },
             SemaExprData::EmptyHtmlTag {
@@ -300,12 +298,12 @@ impl ToHirLazy for SemaExprIdx {
             } => todo!(),
             SemaExprData::ArrayFunctor {
                 lbox_regional_token_idx,
-                items,
+                ref items,
                 rbox_regional_token_idx,
             } => todo!(),
             SemaExprData::NewList {
                 lbox_regional_token_idx,
-                items,
+                ref items,
                 rbox_regional_token_idx,
             } => todo!(),
         };

@@ -207,11 +207,11 @@ impl<'a> SemaExprEngine<'a> {
                         Err(e) => Err(e.into()),
                         Ok(Right(_)) => unreachable!(),
                     }, // todo: impl binding
-                    None => Err(DerivedSemaExprTypeError::SelfTypeNotInferredForSelfValue.into()),
+                    None => Err(DerivedSemaExprTypeError::SelfTypeNotInferred.into()),
                 },
             ),
             SynExprData::SelfValue(regional_token_idx) => (
-                Ok(SemaExprData::SelfType(regional_token_idx)),
+                Ok(SemaExprData::SelfValue(regional_token_idx)),
                 match self.self_ty {
                     Some(self_ty) => Ok(self_ty.into()), // todo: impl binding
                     None => Err(DerivedSemaExprTypeError::SelfTypeNotInferredForSelfValue.into()),

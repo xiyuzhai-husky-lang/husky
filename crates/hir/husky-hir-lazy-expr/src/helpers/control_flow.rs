@@ -11,6 +11,22 @@ pub struct HirLazyExprRegionControlFlowChart {
     hir_lazy_stmt_control_flow_chart: HirLazyStmtMap<HasControlFlow>,
 }
 
+impl std::ops::Index<HirLazyExprIdx> for HirLazyExprRegionControlFlowChart {
+    type Output = HasControlFlow;
+
+    fn index(&self, index: HirLazyExprIdx) -> &Self::Output {
+        &self.hir_lazy_expr_control_flow_chart[index]
+    }
+}
+
+impl std::ops::Index<HirLazyStmtIdx> for HirLazyExprRegionControlFlowChart {
+    type Output = HasControlFlow;
+
+    fn index(&self, index: HirLazyStmtIdx) -> &Self::Output {
+        &self.hir_lazy_stmt_control_flow_chart[index]
+    }
+}
+
 impl HirLazyExprRegion {
     pub fn control_flow<'a>(
         self,
@@ -21,7 +37,7 @@ impl HirLazyExprRegion {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum HasControlFlow {
+pub enum HasControlFlow {
     True = 1,
     False = -1,
 }
@@ -49,7 +65,7 @@ impl std::ops::Try for HasControlFlow {
     }
 }
 
-struct HasControlFlowR;
+pub struct HasControlFlowR;
 
 impl FromResidual<HasControlFlowR> for HasControlFlow {
     fn from_residual(residual: HasControlFlowR) -> Self {
@@ -99,31 +115,34 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
         }
     }
 
-    fn infer_new_expr(&mut self, hir_lazy_expr_idx: HirLazyExprIdx, hir_lazy_expr: &HirLazyExpr) {
+    fn infer_new_expr(
+        &mut self,
+        hir_lazy_expr_idx: HirLazyExprIdx,
+        hir_lazy_expr: &HirLazyExprData,
+    ) {
         let has_control_flow = self.infer_new_expr_aux(hir_lazy_expr);
         self.hir_lazy_expr_control_flow_chart
             .insert_new(hir_lazy_expr_idx, has_control_flow)
     }
 
-    fn infer_new_expr_aux(&mut self, hir_lazy_expr: &HirLazyExpr) -> HasControlFlow {
+    fn infer_new_expr_aux(&mut self, hir_lazy_expr: &HirLazyExprData) -> HasControlFlow {
         match *hir_lazy_expr {
-            HirLazyExpr::Literal(_)
-            | HirLazyExpr::PrincipalEntityPath(_)
-            | HirLazyExpr::InheritedSynSymbol { .. }
-            | HirLazyExpr::CurrentSynSymbol { .. }
-            | HirLazyExpr::FrameVarDecl { .. } => (),
-            HirLazyExpr::Binary { lopd, ropd, .. } => {
+            HirLazyExprData::Literal(_)
+            | HirLazyExprData::PrincipalEntityPath(_)
+            | HirLazyExprData::ConstSymbol(_)
+            | HirLazyExprData::Variable(_) => (),
+            HirLazyExprData::Binary { lopd, ropd, .. } => {
                 self.expr_has_control_flow(lopd)?;
                 self.expr_has_control_flow(ropd)?
             }
-            HirLazyExpr::Be { src, ref target } => self.expr_has_control_flow(src)?,
-            HirLazyExpr::Prefix {
+            HirLazyExprData::Be { src, ref target } => self.expr_has_control_flow(src)?,
+            HirLazyExprData::Prefix {
                 opd_hir_expr_idx, ..
             } => self.expr_has_control_flow(opd_hir_expr_idx)?,
-            HirLazyExpr::Suffix {
+            HirLazyExprData::Suffix {
                 opd_hir_expr_idx, ..
             } => self.expr_has_control_flow(opd_hir_expr_idx)?,
-            HirLazyExpr::FnCall {
+            HirLazyExprData::FnCall {
                 function,
                 ref generic_arguments,
                 ref item_groups,
@@ -131,7 +150,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 self.expr_has_control_flow(function)?;
                 self.infer_new_item_groups(item_groups)?
             }
-            HirLazyExpr::GnCall {
+            HirLazyExprData::GnCall {
                 function,
                 ref generic_arguments,
                 ref item_groups,
@@ -139,8 +158,8 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 self.expr_has_control_flow(function)?;
                 self.infer_new_item_groups(item_groups)?
             }
-            HirLazyExpr::Field { owner, ident } => self.expr_has_control_flow(owner)?,
-            HirLazyExpr::MethodFnCall {
+            HirLazyExprData::Field { owner, ident } => self.expr_has_control_flow(owner)?,
+            HirLazyExprData::MethodFnCall {
                 self_argument,
                 ident,
                 ref template_arguments,
@@ -149,22 +168,22 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 self.expr_has_control_flow(self_argument)?;
                 self.infer_new_item_groups(item_groups)?
             }
-            HirLazyExpr::NewTuple { ref items } => {
+            HirLazyExprData::NewTuple { ref items } => {
                 for item in items {
                     todo!()
                 }
             }
-            HirLazyExpr::Index { owner, ref items } => {
+            HirLazyExprData::Index { owner, ref items } => {
                 self.expr_has_control_flow(owner)?;
                 self.infer_new_exprs(items)?
             }
-            HirLazyExpr::List { ref items } => self.infer_new_exprs(items)?,
-            HirLazyExpr::Block { stmts } => {
+            HirLazyExprData::List { ref items } => self.infer_new_exprs(items)?,
+            HirLazyExprData::Block { stmts } => {
                 for stmt in stmts {
                     self.infer_new_stmt(stmt)?
                 }
             }
-            HirLazyExpr::EmptyHtmlTag {
+            HirLazyExprData::EmptyHtmlTag {
                 function_ident,
                 ref arguments,
             } => {
@@ -177,8 +196,8 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                     }
                 }
             }
-            HirLazyExpr::Todo => (),
-            HirLazyExpr::AssociatedFn => (),
+            HirLazyExprData::Todo => (),
+            HirLazyExprData::AssociatedFn => (),
         }
         HasControlFlow::False
     }
@@ -192,10 +211,14 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 HirLazyCallListItemGroup::Regular(item_expr_idx) => {
                     self.expr_has_control_flow(item_expr_idx)?
                 }
-                // ad hoc
-                HirLazyCallListItemGroup::Variadic => (),
-                // ad hoc
-                HirLazyCallListItemGroup::Keyed => (),
+                HirLazyCallListItemGroup::Variadic(ref item_expr_idxs) => {
+                    for &item_expr_idx in item_expr_idxs {
+                        self.expr_has_control_flow(item_expr_idx)?
+                    }
+                }
+                HirLazyCallListItemGroup::Keyed(_, item_expr_idx) => {
+                    self.expr_has_control_flow(item_expr_idx)?
+                }
             }
         }
         HasControlFlow::False
@@ -237,7 +260,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             HirLazyStmt::Return { result } => HasControlFlow::True,
             HirLazyStmt::Require { condition } => HasControlFlow::True,
             HirLazyStmt::Assert { condition } => self.expr_has_control_flow(condition),
-            HirLazyStmt::Eval { expr_idx } => self.expr_has_control_flow(expr_idx),
+            HirLazyStmt::Eval { expr_idx, .. } => self.expr_has_control_flow(expr_idx),
             HirLazyStmt::IfElse {
                 ref if_branch,
                 ref elif_branches,

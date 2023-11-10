@@ -312,6 +312,10 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerVariable {
+                                                name: SelfValue,
+                                                data: SelfValue,
+                                            },
+                                            HirEagerVariable {
                                                 name: Ident(
                                                     Ident(
                                                         Coword(
@@ -325,7 +329,9 @@
                                             },
                                         ],
                                     },
-                                    self_value_variable: None,
+                                    self_value_variable: Some(
+                                        1,
+                                    ),
                                 },
                             },
                         ),

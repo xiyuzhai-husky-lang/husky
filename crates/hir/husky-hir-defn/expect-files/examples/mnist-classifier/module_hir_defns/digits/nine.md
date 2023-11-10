@@ -22,7 +22,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                             ),
@@ -55,7 +55,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 51,
+                                        value: 52,
                                     },
                                 ),
                             ),
@@ -88,7 +88,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 52,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -176,6 +176,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -292,6 +293,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -378,6 +380,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -532,6 +535,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),

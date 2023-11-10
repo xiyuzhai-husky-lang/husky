@@ -22,7 +22,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 70,
+                                        value: 71,
                                     },
                                 ),
                             ),
@@ -110,6 +110,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -226,6 +227,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -312,6 +314,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -428,6 +431,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -514,6 +518,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -630,6 +635,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -661,7 +667,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 72,
+                                        value: 73,
                                     },
                                 ),
                             ),

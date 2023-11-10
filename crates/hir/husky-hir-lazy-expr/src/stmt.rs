@@ -26,6 +26,7 @@ pub enum HirLazyStmt {
     },
     Eval {
         expr_idx: HirLazyExprIdx,
+        discarded: bool,
     },
     IfElse {
         if_branch: HirLazyIfBranch,
@@ -78,6 +79,7 @@ impl ToHirLazy for SemaStmtIdx {
                 eol_semicolon,
             } => HirLazyStmt::Eval {
                 expr_idx: expr_idx.to_hir_lazy(builder),
+                discarded: eol_semicolon.as_ref().expect("no error").is_some(),
             },
             SemaStmtData::Break { .. } => unreachable!(),
             SemaStmtData::ForBetween { .. } => unreachable!(),

@@ -4699,7 +4699,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         11,
                                     ),
@@ -4970,7 +4970,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         25,
                                     ),
@@ -7227,7 +7227,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         11,
                                     ),
@@ -7498,7 +7498,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         25,
                                     ),
@@ -9775,7 +9775,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         11,
                                     ),
@@ -10046,7 +10046,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SelfValue(
                                     RegionalTokenIdx(
                                         25,
                                     ),

@@ -1,15 +1,27 @@
+mod val_domain_repr_guard;
+
+pub(crate) use self::val_domain_repr_guard::ValDomainReprGuard;
+
 use crate::*;
+use husky_coword::Ident;
 use husky_entity_path::{EntityPathDb, FugitivePath};
-use husky_val::{Val, ValDomain, ValOpn};
+use husky_val::{Val, ValArgument, ValDomain, ValOpn};
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::interned(db = ValReprDb, jar = ValReprJar, override_debug)]
 pub struct ValRepr {
     pub val_domain_repr: ValDomainRepr,
-    pub opr: ValOpn,
+    pub opn: ValOpn,
     #[return_ref]
-    pub opds: SmallVec<[ValRepr; 4]>,
-    pub caching_strategy: ValCachingStrategy,
+    pub arguments: SmallVec<[ValArgumentRepr; 4]>,
+    pub caching_class: ValCachingClass,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub enum ValArgumentRepr {
+    Ordinary(ValRepr),
+    Keyed(Ident, ValRepr),
+    Variadic(Vec<ValRepr>),
 }
 
 impl<_Db: ValReprDb + ?Sized> ::salsa::DebugWithDb<_Db> for ValRepr {
@@ -40,18 +52,18 @@ impl<_Db: ValReprDb + ?Sized> ::salsa::DebugWithDb<_Db> for ValRepr {
         );
         debug_struct =
             debug_struct.field(
-                "opr",
+                "opn",
                 &::salsa::debug::helper::SalsaDebug::<
                     ValOpn,
                     <ValReprJar as salsa::jar::Jar<'_>>::DynDb,
                 >::salsa_debug(
                     #[allow(clippy::needless_borrow)]
-                    &self.opr(_db),
+                    &self.opn(_db),
                     _db,
                     _level.next(),
                 ),
             );
-        debug_struct = debug_struct.field("opds", &self.opds(_db));
+        debug_struct = debug_struct.field("arguments", &self.arguments(_db));
         debug_struct.finish()
     }
 }
@@ -61,8 +73,8 @@ impl ValRepr {
         let domain = ValDomainRepr::Omni;
         let opr = ValOpn::ValItem(path);
         let opds = smallvec![];
-        let caching_strategy = ValCachingStrategy::Cache;
-        Self::new(db, domain, opr, opds, caching_strategy)
+        let caching_class = ValCachingClass::ValItem;
+        Self::new(db, domain, opr, opds, caching_class)
     }
 }
 
@@ -79,9 +91,11 @@ pub enum ValDomainRepr {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum ValCachingStrategy {
-    Cache,
-    Skip,
+pub enum ValCachingClass {
+    ValItem,
+    Variable,
+    Expr,
+    Stmt,
 }
 
 impl ValRepr {
@@ -95,13 +109,25 @@ fn val_repr_val(db: &dyn ValReprDb, val_repr: ValRepr) -> Val {
     Val::new(
         db,
         val_repr.val_domain_repr(db).val(db),
-        val_repr.opr(db),
+        val_repr.opn(db),
         val_repr
-            .opds(db)
+            .arguments(db)
             .iter()
-            .map(|val_repr| val_repr.val(db))
+            .map(|val_repr| val_repr.val_argument(db))
             .collect(),
     )
+}
+
+impl ValArgumentRepr {
+    fn val_argument(&self, db: &dyn ValReprDb) -> ValArgument {
+        match *self {
+            ValArgumentRepr::Ordinary(val_repr) => ValArgument::Ordinary(val_repr.val(db)),
+            ValArgumentRepr::Keyed(ident, val_repr) => ValArgument::Keyed(ident, val_repr.val(db)),
+            ValArgumentRepr::Variadic(ref val_reprs) => {
+                ValArgument::Variadic(val_reprs.iter().map(|val_repr| val_repr.val(db)).collect())
+            }
+        }
+    }
 }
 
 impl ValDomainRepr {

@@ -153,9 +153,16 @@
                             },
                             hir_eager_variable_region: HirEagerVariableRegion {
                                 arena: Arena {
-                                    data: [],
+                                    data: [
+                                        HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                    ],
                                 },
-                                self_value_variable: None,
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -236,6 +243,10 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                        HirEagerVariable {
                                             name: Ident(
                                                 Ident(
                                                     Coword(
@@ -249,7 +260,9 @@
                                         },
                                     ],
                                 },
-                                self_value_variable: None,
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -316,9 +329,16 @@
                             },
                             hir_eager_variable_region: HirEagerVariableRegion {
                                 arena: Arena {
-                                    data: [],
+                                    data: [
+                                        HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                    ],
                                 },
-                                self_value_variable: None,
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -385,9 +405,16 @@
                             },
                             hir_eager_variable_region: HirEagerVariableRegion {
                                 arena: Arena {
-                                    data: [],
+                                    data: [
+                                        HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                    ],
                                 },
-                                self_value_variable: None,
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -454,9 +481,16 @@
                             },
                             hir_eager_variable_region: HirEagerVariableRegion {
                                 arena: Arena {
-                                    data: [],
+                                    data: [
+                                        HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                    ],
                                 },
-                                self_value_variable: None,
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -523,9 +557,16 @@
                             },
                             hir_eager_variable_region: HirEagerVariableRegion {
                                 arena: Arena {
-                                    data: [],
+                                    data: [
+                                        HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                    ],
                                 },
-                                self_value_variable: None,
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -636,6 +677,10 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                        HirEagerVariable {
                                             name: Ident(
                                                 Ident(
                                                     Coword(
@@ -661,7 +706,9 @@
                                         },
                                     ],
                                 },
-                                self_value_variable: None,
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },
@@ -746,6 +793,10 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerVariable {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                        HirEagerVariable {
                                             name: Ident(
                                                 Ident(
                                                     Coword(
@@ -759,7 +810,9 @@
                                         },
                                     ],
                                 },
-                                self_value_variable: None,
+                                self_value_variable: Some(
+                                    1,
+                                ),
                             },
                         },
                     },

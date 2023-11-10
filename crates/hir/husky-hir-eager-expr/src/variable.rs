@@ -1,6 +1,6 @@
 use super::*;
 use husky_syn_expr::{
-    CurrentSynSymbol, CurrentSynSymbolData, CurrentSynSymbolKind,
+    AllowSelfValue, CurrentSynSymbol, CurrentSynSymbolData, CurrentSynSymbolKind,
     CurrentTemplateParameterSynSymbolVariant, InheritedSynSymbol, InheritedSynSymbolKind,
     SynSymbolMap, SynSymbolOrderedMap, SynSymbolRegion,
 };
@@ -129,16 +129,22 @@ impl HirEagerVariableRegion {
         syn_symbol_region: &SynSymbolRegion,
     ) -> (Self, SynSymbolMap<HirEagerVariableIdx>) {
         let mut arena = HirEagerVariableArena::default();
-        let mut self_value_variable = None;
+        let self_value_variable = match syn_symbol_region.allow_self_value() {
+            AllowSelfValue::True => Some(arena.alloc_one(HirEagerVariable {
+                name: VariableName::SelfValue,
+                data: HirEagerVariableData::SelfValue,
+            })),
+            AllowSelfValue::False => None,
+        };
         let mut syn_symbol_to_hir_eager_variable_map =
             SynSymbolMap::<HirEagerVariableIdx>::new(syn_symbol_region);
+
         for (inherited_syn_symbol_idx, inherited_syn_symbol) in
             syn_symbol_region.indexed_inherited_syn_symbols()
         {
             if let Some(hir_eager_variable) =
                 HirEagerVariable::from_inherited_syn(inherited_syn_symbol)
             {
-                let is_self_value = hir_eager_variable.data == HirEagerVariableData::SelfValue;
                 let hir_eager_variable_idx = arena.alloc_one(hir_eager_variable);
                 syn_symbol_to_hir_eager_variable_map
                     .push_inherited(inherited_syn_symbol_idx, hir_eager_variable_idx)

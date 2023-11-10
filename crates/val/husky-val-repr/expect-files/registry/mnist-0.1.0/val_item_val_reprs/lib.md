@@ -4,14 +4,14 @@
         Val {
             [salsa id]: 32,
             domain_repr: Omni,
-            opr: ValItem(
+            opn: ValItem(
                 FugitivePath(
                     Id {
                         value: 81,
                     },
                 ),
             ),
-            opds: [],
+            arguments: [],
         },
     ),
 ]

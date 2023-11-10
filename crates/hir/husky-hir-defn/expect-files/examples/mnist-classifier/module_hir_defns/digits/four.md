@@ -22,7 +22,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 43,
+                                        value: 44,
                                     },
                                 ),
                             ),
@@ -110,6 +110,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -167,6 +168,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -198,7 +200,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 45,
+                                        value: 46,
                                     },
                                 ),
                             ),
@@ -231,7 +233,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 46,
+                                        value: 47,
                                     },
                                 ),
                             ),
@@ -264,7 +266,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 47,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -352,6 +354,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -468,6 +471,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -554,6 +558,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -708,6 +713,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),

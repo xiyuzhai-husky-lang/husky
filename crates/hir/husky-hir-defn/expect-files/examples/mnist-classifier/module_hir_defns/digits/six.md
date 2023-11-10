@@ -22,7 +22,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 63,
+                                        value: 64,
                                     },
                                 ),
                             ),
@@ -55,7 +55,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 64,
+                                        value: 65,
                                     },
                                 ),
                             ),
@@ -83,7 +83,7 @@
                     body_with_hir_expr_region: Some(
                         (
                             Lazy(
-                                109,
+                                126,
                             ),
                             Lazy(
                                 HirLazyExprRegion(
@@ -176,6 +176,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -292,6 +293,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),
@@ -378,6 +380,7 @@
                                         },
                                     ],
                                 },
+                                self_value_variable: None,
                             },
                         },
                     },
@@ -678,6 +681,7 @@
                                             },
                                         ],
                                     },
+                                    self_value_variable: None,
                                 },
                             },
                         ),

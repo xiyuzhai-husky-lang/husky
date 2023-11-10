@@ -297,7 +297,7 @@ Ok(
                             1,
                         ),
                     ),
-                    data: TokenInfoData::SelfType,
+                    data: TokenInfoData::SelfValue,
                 },
             ),
             None,
