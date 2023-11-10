@@ -476,6 +476,14 @@ impl<V> SynSymbolMap<V> {
         self.current_syn_symbol_map
             .insert_new(current_syn_symbol_idx, v)
     }
+
+    pub fn get_inherited(&self, inherited_syn_symbol_idx: InheritedSynSymbolIdx) -> Option<&V> {
+        self.inherited_syn_symbol_map.get(inherited_syn_symbol_idx)
+    }
+
+    pub fn get_current(&self, current_syn_symbol_idx: CurrentSynSymbolIdx) -> Option<&V> {
+        self.current_syn_symbol_map.get(current_syn_symbol_idx)
+    }
 }
 
 impl<V> SynSymbolMap<V> {

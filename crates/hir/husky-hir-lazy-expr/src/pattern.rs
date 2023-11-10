@@ -7,6 +7,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyLetVariablesPattern {
     pattern_expr_idx: HirLazyPatternExprIdx,
+    variables: SmallVec<[HirLazyVariableIdx; 2]>,
     // variables: CurrentHirLazySymbolIdxRange,
     ty: Option<HirType>,
 }
@@ -14,6 +15,10 @@ pub struct HirLazyLetVariablesPattern {
 impl HirLazyLetVariablesPattern {
     pub fn pattern_expr_idx(&self) -> HirLazyPatternExprIdx {
         self.pattern_expr_idx
+    }
+
+    pub fn variables(&self) -> &[HirLazyVariableIdx] {
+        &self.variables
     }
 }
 
@@ -24,6 +29,11 @@ impl<'a> HirLazyExprBuilder<'a> {
     ) -> HirLazyLetVariablesPattern {
         HirLazyLetVariablesPattern {
             pattern_expr_idx: self.new_pattern_expr(let_variables_pattern.syn_pattern_root()),
+            variables: let_variables_pattern
+                .variables()
+                .into_iter()
+                .filter_map(|var| self.current_syn_symbol_to_hir_lazy_variable(var))
+                .collect(),
             ty: let_variables_pattern
                 .ty_sema_expr_idx()
                 .map(|ty_sema_expr_idx| {

@@ -14,6 +14,7 @@ impl ValRepr {
             ValOpn::Suffix(_) => todo!(),
             ValOpn::Binary(_) => todo!(),
             ValOpn::EvalDiscarded => todo!(),
+            ValOpn::NewList => todo!(),
         }
     }
 }
