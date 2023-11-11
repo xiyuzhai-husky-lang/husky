@@ -20,6 +20,14 @@ impl LinkagePath {
         Self::new(db, LinkagePathData::Field)
     }
 
+    pub fn new_method(db: &dyn LinkagePathDb) -> Self {
+        Self::new(db, LinkagePathData::Method)
+    }
+
+    pub fn new_index(db: &dyn LinkagePathDb) -> Self {
+        Self::new(db, LinkagePathData::Index)
+    }
+
     pub fn new_item(
         db: &dyn LinkagePathDb,
         path: impl Into<ItemPath>,
@@ -43,6 +51,8 @@ pub enum LinkagePathData {
         template_arguments: HirTemplateArgumentLiterals,
     },
     Field,
+    Index,
+    Method,
 }
 
 impl LinkagePath {

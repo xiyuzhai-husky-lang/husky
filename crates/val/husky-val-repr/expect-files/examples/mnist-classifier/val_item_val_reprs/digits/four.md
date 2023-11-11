@@ -4,12 +4,8 @@
         Val {
             [salsa id]: 4,
             domain_repr: Omni,
-            opn: ValItem(
-                FugitivePath(
-                    Id {
-                        value: 44,
-                    },
-                ),
+            opn: ValOpn::ValItem(
+                FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
             ),
             arguments: [],
         },
@@ -19,12 +15,8 @@
         Val {
             [salsa id]: 5,
             domain_repr: Omni,
-            opn: ValItem(
-                FugitivePath(
-                    Id {
-                        value: 46,
-                    },
-                ),
+            opn: ValOpn::ValItem(
+                FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
             ),
             arguments: [],
         },
@@ -34,12 +26,8 @@
         Val {
             [salsa id]: 6,
             domain_repr: Omni,
-            opn: ValItem(
-                FugitivePath(
-                    Id {
-                        value: 47,
-                    },
-                ),
+            opn: ValOpn::ValItem(
+                FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
             ),
             arguments: [],
         },
@@ -49,12 +37,8 @@
         Val {
             [salsa id]: 7,
             domain_repr: Omni,
-            opn: ValItem(
-                FugitivePath(
-                    Id {
-                        value: 48,
-                    },
-                ),
+            opn: ValOpn::ValItem(
+                FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
             ),
             arguments: [],
         },

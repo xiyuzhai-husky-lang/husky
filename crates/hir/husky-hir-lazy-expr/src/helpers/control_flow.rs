@@ -142,7 +142,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             HirLazyExprData::Suffix {
                 opd_hir_expr_idx, ..
             } => self.expr_has_control_flow(opd_hir_expr_idx)?,
-            HirLazyExprData::FnCall {
+            HirLazyExprData::FunctionFnCall {
                 function,
                 ref generic_arguments,
                 ref item_groups,

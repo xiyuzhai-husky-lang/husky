@@ -38,3 +38,7 @@ https://marketplace.visualstudio.com/manage/publishers/husky-lang
 ## lsp-type version
 
 94.1 sucks, so many bugs it caused, use 94.0
+
+## debug_with_db not working
+
+check that the db trait extends the other db trait

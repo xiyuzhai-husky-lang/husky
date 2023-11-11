@@ -46,7 +46,7 @@ pub enum HirLazyExprData {
         opd_hir_expr_idx: HirLazyExprIdx,
         opr: HirSuffixOpr,
     },
-    FnCall {
+    FunctionFnCall {
         function: HirLazyExprIdx,
         generic_arguments: Option<HirLazyTemplateArgumentList>,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
@@ -189,7 +189,7 @@ impl ToHirLazy for SemaExprIdx {
                 ref template_arguments,
                 ref ritchie_parameter_argument_matches,
                 ..
-            } => HirLazyExprData::FnCall {
+            } => HirLazyExprData::FunctionFnCall {
                 function: function_sema_expr_idx.to_hir_lazy(builder),
                 generic_arguments: template_arguments.as_ref().map(|_| todo!()),
                 item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),

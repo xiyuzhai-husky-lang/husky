@@ -4,12 +4,8 @@
         Val {
             [salsa id]: 32,
             domain_repr: Omni,
-            opn: ValItem(
-                FugitivePath(
-                    Id {
-                        value: 81,
-                    },
-                ),
+            opn: ValOpn::ValItem(
+                FugitivePath(`mnist::input`, `Val`),
             ),
             arguments: [],
         },

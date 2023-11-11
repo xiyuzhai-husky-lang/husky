@@ -11,7 +11,7 @@ pub struct Val {
     pub domain: ValDomain,
     pub opn: ValOpn,
     #[return_ref]
-    pub arguments: SmallVec<[ValArgument; 2]>,
+    pub arguments: SmallVec<[ValArgument; 4]>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -19,6 +19,10 @@ pub enum ValArgument {
     Ordinary(Val),
     Keyed(Ident, Val),
     Variadic(Vec<Val>),
+    Branch {
+        condition: Option<Val>,
+        stmts: SmallVec<[Val; 4]>,
+    },
 }
 
 impl<_Db: ValDb + ?Sized> ::salsa::DebugWithDb<_Db> for Val {
@@ -70,10 +74,13 @@ impl Val {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db(db = ValDb, jar = ValJar)]
 pub enum ValOpn {
+    Return,
+    Require,
+    Assert,
     ValItem(FugitivePath),
     FunctionGn(FugitivePath),
-    Require,
     Prefix(HirPrefixOpr),
     Suffix(HirSuffixOpr),
     Binary(HirBinaryOpr),
@@ -81,6 +88,9 @@ pub enum ValOpn {
     EvalDiscarded,
     Literal(TermLiteral),
     NewList,
+    Branches,
+    TypeVariant(husky_entity_path::TypeVariantPath),
+    Be,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

@@ -52,4 +52,13 @@ impl<'a> ValDomainReprGuard<'a> {
     pub(crate) fn after_stmt(&mut self, val_repr: ValRepr) {
         self.val_domain_repr = ValDomainRepr::StmtNotReturned(val_repr)
     }
+
+    // change self
+    pub(crate) fn under_condition(&mut self, condition: ValRepr) -> ValDomainReprGuard<'a> {
+        self.val_domain_repr = ValDomainRepr::ConditionNotSatisfied(condition);
+        ValDomainReprGuard {
+            db: self.db,
+            val_domain_repr: ValDomainRepr::ConditionSatisfied(condition),
+        }
+    }
 }

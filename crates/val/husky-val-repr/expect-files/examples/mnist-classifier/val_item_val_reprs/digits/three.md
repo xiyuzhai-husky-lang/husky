@@ -4,12 +4,8 @@
         Val {
             [salsa id]: 19,
             domain_repr: Omni,
-            opn: ValItem(
-                FugitivePath(
-                    Id {
-                        value: 39,
-                    },
-                ),
+            opn: ValOpn::ValItem(
+                FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
             ),
             arguments: [],
         },
@@ -19,12 +15,8 @@
         Val {
             [salsa id]: 20,
             domain_repr: Omni,
-            opn: ValItem(
-                FugitivePath(
-                    Id {
-                        value: 40,
-                    },
-                ),
+            opn: ValOpn::ValItem(
+                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
             ),
             arguments: [],
         },

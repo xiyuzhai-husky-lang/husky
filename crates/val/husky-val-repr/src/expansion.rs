@@ -14,6 +14,7 @@ use husky_hir_lazy_expr::{
 };
 use husky_hir_opr::suffix::HirSuffixOpr;
 use husky_linkage_path::LinkagePath;
+use husky_print_utils::p;
 use husky_term_prelude::TermLiteral;
 use husky_val::ValOpn;
 use husky_vfs::ModulePath;
@@ -143,7 +144,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
 
     fn build_stmts(
         &mut self,
-        mut val_domain_repr_guard: ValDomainReprGuard,
+        mut val_domain_repr_guard: ValDomainReprGuard<'a>,
         stmts: HirLazyStmtIdxRange,
     ) -> SmallVec<[ValRepr; 4]> {
         let mut val_reprs = smallvec![];
@@ -158,7 +159,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
 
     fn build_stmt(
         &mut self,
-        val_domain_repr_guard: &mut ValDomainReprGuard,
+        val_domain_repr_guard: &mut ValDomainReprGuard<'a>,
         stmt: HirLazyStmtIdx,
     ) -> Option<ValRepr> {
         let (opn, arguments) = match self.hir_lazy_expr_region_data.hir_lazy_stmt_arena()[stmt] {
@@ -173,8 +174,11 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     HirLazyPatternExpr::Literal(_) => todo!(),
                     HirLazyPatternExpr::Ident { ident } => {
                         debug_assert_eq!(pattern.variables().len(), 1);
-                        self.hir_lazy_variable_val_repr_map
-                            .insert_new(pattern.variables()[0], initial_value_val_repr);
+                        self.hir_lazy_variable_val_repr_map.insert_new(
+                            pattern.variables()[0],
+                            initial_value_val_repr
+                                .with_caching_class(ValCachingClass::Variable, self.db),
+                        );
                         return None;
                     }
                     HirLazyPatternExpr::Unit(_) => todo!(),
@@ -185,12 +189,24 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     HirLazyPatternExpr::Range { start, end } => todo!(),
                 }
             }
-            HirLazyStmt::Return { result } => {
-                // ValRepr::new(db, opr, arguments, domain, caching_strategy);
-                todo!()
-            }
-            HirLazyStmt::Require { condition } => todo!(),
-            HirLazyStmt::Assert { condition } => todo!(),
+            HirLazyStmt::Return { result } => (
+                ValOpn::Return,
+                smallvec![ValArgumentRepr::Ordinary(
+                    self.build_expr(val_domain_repr_guard, result)
+                )],
+            ),
+            HirLazyStmt::Require { condition } => (
+                ValOpn::Require,
+                smallvec![ValArgumentRepr::Ordinary(
+                    self.build_expr(val_domain_repr_guard, condition)
+                )],
+            ),
+            HirLazyStmt::Assert { condition } => (
+                ValOpn::Assert,
+                smallvec![ValArgumentRepr::Ordinary(
+                    self.build_expr(val_domain_repr_guard, condition)
+                )],
+            ),
             HirLazyStmt::Eval {
                 expr_idx,
                 discarded,
@@ -212,7 +228,35 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref elif_branches,
                 ref else_branch,
             } => {
-                todo!()
+                let mut val_domain_repr_guard = val_domain_repr_guard.clone();
+                let mut branches: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
+                let if_condition =
+                    self.build_expr(&mut val_domain_repr_guard, if_branch.condition());
+                branches.push(ValArgumentRepr::Branch {
+                    condition: Some(if_condition),
+                    stmts: self.build_stmts(
+                        val_domain_repr_guard.under_condition(if_condition),
+                        if_branch.stmts(),
+                    ),
+                });
+                for elif_branch in elif_branches {
+                    let elif_condition =
+                        self.build_expr(&mut val_domain_repr_guard, elif_branch.condition());
+                    branches.push(ValArgumentRepr::Branch {
+                        condition: Some(elif_condition),
+                        stmts: self.build_stmts(
+                            val_domain_repr_guard.under_condition(elif_condition),
+                            elif_branch.stmts(),
+                        ),
+                    });
+                }
+                if let Some(else_branch) = else_branch {
+                    branches.push(ValArgumentRepr::Branch {
+                        condition: None,
+                        stmts: self.build_stmts(val_domain_repr_guard, else_branch.stmts()),
+                    });
+                }
+                (ValOpn::Branches, branches)
             }
             HirLazyStmt::Match {} => todo!(),
         };
@@ -221,10 +265,19 @@ impl<'a> ValReprExpansionBuilder<'a> {
         Some(val_repr)
     }
 
-    // exprs don't change domain
     fn build_expr(
         &mut self,
-        val_domain_repr_guard: &mut ValDomainReprGuard,
+        val_domain_repr_guard: &mut ValDomainReprGuard<'a>,
+        expr: HirLazyExprIdx,
+    ) -> ValRepr {
+        let val_repr = self.build_expr_aux(val_domain_repr_guard, expr);
+        self.hir_lazy_expr_val_repr_map.insert_new(expr, val_repr);
+        val_repr
+    }
+
+    fn build_expr_aux(
+        &mut self,
+        val_domain_repr_guard: &mut ValDomainReprGuard<'a>,
         expr: HirLazyExprIdx,
     ) -> ValRepr {
         let hir_lazy_expr_arena = self.hir_lazy_expr_region_data.hir_lazy_expr_arena();
@@ -242,10 +295,10 @@ impl<'a> ValReprExpansionBuilder<'a> {
                         FugitiveKind::Val => return ValRepr::new_val_item(path, self.db),
                     },
                 },
-                PrincipalEntityPath::TypeVariant(_) => todo!(),
+                PrincipalEntityPath::TypeVariant(path) => (ValOpn::TypeVariant(path), smallvec![]),
             },
             HirLazyExprData::ConstSymbol(_) => todo!(),
-            HirLazyExprData::Variable(_) => todo!(),
+            HirLazyExprData::Variable(var) => return self.hir_lazy_variable_val_repr_map[var],
             HirLazyExprData::Binary { lopd, opr, ropd } => {
                 let opn = ValOpn::Binary(opr);
                 let arguments = smallvec![
@@ -254,7 +307,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ];
                 (opn, arguments)
             }
-            HirLazyExprData::Be { src, ref target } => todo!(),
+            HirLazyExprData::Be { src, ref target } => (
+                ValOpn::Be,
+                smallvec![ValArgumentRepr::Ordinary(
+                    self.build_expr(val_domain_repr_guard, src)
+                )],
+            ),
             HirLazyExprData::Prefix {
                 opr,
                 opd_hir_expr_idx,
@@ -275,7 +333,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 )];
                 (opn, arguments)
             }
-            HirLazyExprData::FnCall {
+            HirLazyExprData::FunctionFnCall {
                 function,
                 ref generic_arguments,
                 ref item_groups,
@@ -292,28 +350,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                         },
                     ));
                     let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
-                    for item_group in item_groups {
-                        match *item_group {
-                            HirLazyCallListItemGroup::Regular(item) => {
-                                arguments.push(ValArgumentRepr::Ordinary(
-                                    self.build_expr(val_domain_repr_guard, item),
-                                ))
-                            }
-                            HirLazyCallListItemGroup::Variadic(ref items) => {
-                                let items: Vec<_> = items
-                                    .iter()
-                                    .map(|&item| self.build_expr(val_domain_repr_guard, item))
-                                    .collect();
-                                arguments.push(ValArgumentRepr::Variadic(items))
-                            }
-                            HirLazyCallListItemGroup::Keyed(key, item) => {
-                                arguments.push(ValArgumentRepr::Keyed(
-                                    key,
-                                    self.build_expr(val_domain_repr_guard, item),
-                                ))
-                            }
-                        }
-                    }
+                    self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
                     (opr, arguments)
                 }
                 HirLazyExprData::AssociatedFn => todo!(),
@@ -335,9 +372,28 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ident,
                 ref template_arguments,
                 ref item_groups,
-            } => todo!(),
+            } => {
+                let mut arguments = smallvec![ValArgumentRepr::Ordinary(
+                    self.build_expr(val_domain_repr_guard, self_argument)
+                )];
+                if template_arguments.is_some() {
+                    todo!()
+                }
+                self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
+                (ValOpn::Linkage(LinkagePath::new_method(self.db)), arguments)
+            }
             HirLazyExprData::NewTuple { ref items } => todo!(),
-            HirLazyExprData::Index { owner, ref items } => todo!(),
+            HirLazyExprData::Index { owner, ref items } => {
+                let mut arguments = smallvec![ValArgumentRepr::Ordinary(
+                    self.build_expr(val_domain_repr_guard, owner)
+                )];
+                for &item in items {
+                    arguments.push(ValArgumentRepr::Ordinary(
+                        self.build_expr(val_domain_repr_guard, item),
+                    ))
+                }
+                (ValOpn::Linkage(LinkagePath::new_index(self.db)), arguments)
+            }
             HirLazyExprData::NewList { ref items } => (
                 ValOpn::NewList,
                 items
@@ -355,13 +411,36 @@ impl<'a> ValReprExpansionBuilder<'a> {
             HirLazyExprData::Todo => todo!(),
             HirLazyExprData::AssociatedFn => todo!(),
         };
-        let val_repr = val_domain_repr_guard.new_expr_val_repr(
+        val_domain_repr_guard.new_expr_val_repr(
             opn,
             arguments,
             self.hir_lazy_expr_control_flow_region[expr],
-        );
-        self.hir_lazy_expr_val_repr_map.insert_new(expr, val_repr);
-        val_repr
+        )
+    }
+
+    fn build_item_groups(
+        &mut self,
+        item_groups: &[HirLazyCallListItemGroup],
+        val_domain_repr_guard: &mut ValDomainReprGuard<'a>,
+        arguments: &mut SmallVec<[ValArgumentRepr; 4]>,
+    ) {
+        for item_group in item_groups {
+            match *item_group {
+                HirLazyCallListItemGroup::Regular(item) => arguments.push(
+                    ValArgumentRepr::Ordinary(self.build_expr(val_domain_repr_guard, item)),
+                ),
+                HirLazyCallListItemGroup::Variadic(ref items) => {
+                    let items: Vec<_> = items
+                        .iter()
+                        .map(|&item| self.build_expr(val_domain_repr_guard, item))
+                        .collect();
+                    arguments.push(ValArgumentRepr::Variadic(items))
+                }
+                HirLazyCallListItemGroup::Keyed(key, item) => arguments.push(
+                    ValArgumentRepr::Keyed(key, self.build_expr(val_domain_repr_guard, item)),
+                ),
+            }
+        }
     }
 
     fn finish(self) -> ValReprExpansion {
