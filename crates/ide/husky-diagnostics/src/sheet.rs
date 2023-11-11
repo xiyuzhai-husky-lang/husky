@@ -13,7 +13,6 @@ pub(crate) use self::sema_expr::*;
 pub(crate) use self::syn_expr::*;
 pub(crate) use self::syn_tree::*;
 pub(crate) use self::token::*;
-use husky_print_utils::p;
 
 use crate::*;
 

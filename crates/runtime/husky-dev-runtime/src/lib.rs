@@ -4,8 +4,6 @@ mod config;
 mod db;
 mod evaluator;
 mod hot_reload;
-mod impl_necessary;
-mod impl_train;
 
 pub use self::config::*;
 

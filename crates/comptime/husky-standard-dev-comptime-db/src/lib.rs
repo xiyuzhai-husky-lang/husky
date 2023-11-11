@@ -55,15 +55,6 @@ pub struct StandardDevComptimeDb {
     storage: salsa::Storage<Self>,
 }
 
-impl husky_vm::InterpreterQueryGroup for StandardDevComptimeDb {
-    fn item_opt_instruction_sheet_by_uid(
-        &self,
-        uid: husky_vm::EntityUid,
-    ) -> Option<husky_vm::Instructions> {
-        todo!()
-    }
-}
-
 impl salsa::Database for StandardDevComptimeDb {}
 
 // ad hoc: is this correct?

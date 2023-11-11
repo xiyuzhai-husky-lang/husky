@@ -40,4 +40,3 @@ husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
 ] }
 husky-vm-binding = { path = "../husky-vm-binding" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
-husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
