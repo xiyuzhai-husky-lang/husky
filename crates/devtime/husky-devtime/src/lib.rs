@@ -10,7 +10,7 @@ use husky_task::{
     visual::{VisualComponent, VisualProtocol},
     DevComptimeDb, IsTask,
 };
-use husky_trace::{db::TraceDb, Trace};
+use husky_trace::{db::TraceDb, trace::Trace};
 use std::path::Path;
 
 use self::state::*;
