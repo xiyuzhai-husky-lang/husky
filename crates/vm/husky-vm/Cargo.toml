@@ -30,7 +30,6 @@ husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 # vm
 husky-any = { path = "../../vm/husky-any" }
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
-husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 husky-vm-register-method = { path = "../husky-vm-register-method" }
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [

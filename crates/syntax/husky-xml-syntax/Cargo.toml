@@ -8,6 +8,5 @@ edition = "2021"
 husky-coword = { path = "../../kernel/husky-coword" }
 serde.workspace = true
 serde_json.workspace = true
-husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
