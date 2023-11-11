@@ -6,7 +6,6 @@ use dashmap::{
 use either::*;
 use husky_regular_value::RegularValue;
 use husky_val::{deps::ValDeps, Val, ValDb};
-use husky_vm::VMResult;
 use std::{
     panic::AssertUnwindSafe,
     sync::{Arc, Mutex, OnceLock},
@@ -25,6 +24,8 @@ pub struct MlDevRuntimeStorageKey {
     val: Val,
     input: Option<DevInput>,
 }
+
+type VMResult<T> = Result<T, ()>;
 
 impl MlDevRuntimeStorage {
     pub fn get_or_try_init<E>(

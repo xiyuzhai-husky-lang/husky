@@ -18,6 +18,5 @@ use husky_syn_expr::*;
 use husky_text_protocol::range::TextRange;
 use husky_val_repr::{db::ValReprDb, *};
 use husky_vfs::*;
-use husky_vm::{History, HistoryEntry, Instructions, LoopFrameData, VMConditionBranch};
 use serde::Serialize;
 use std::sync::Arc;

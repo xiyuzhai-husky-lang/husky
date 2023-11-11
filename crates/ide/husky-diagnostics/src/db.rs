@@ -1,10 +1,6 @@
-use husky_sema_expr::SemaExprDb;
-
 use crate::*;
-use husky_print_utils::p;
-use reserve::Reserve;
+use husky_sema_expr::SemaExprDb;
 use salsa::DbWithJar;
-use salsa::DebugWithDb;
 
 pub trait DiagnosticsDb: DbWithJar<DiagnosticsJar> + SemaExprDb {
     fn diagnostic_sheet(&self, module_path: ModulePath) -> DiagnosticSheet;
@@ -18,5 +14,3 @@ where
         diagnostic_sheet(self, module_path)
     }
 }
-
-pub type DiagnosticReserve = Reserve<Vec<Diagnostic>>;

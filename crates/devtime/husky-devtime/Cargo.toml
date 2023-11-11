@@ -9,7 +9,6 @@ serde.workspace = true
 serde_json.workspace = true
 # abstractions
 vec-like = { path = "../../abstractions/vec-like" }
-trackable = { path = "../../abstractions/trackable" }
 serde-impl = { path = "../../abstractions/serde-impl", features = ["json"] }
 # comptime
 husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
@@ -34,8 +33,6 @@ husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-val-repr = { path = "../../val/husky-val-repr" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
-husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }

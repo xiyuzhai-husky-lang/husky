@@ -9,7 +9,6 @@ salsa = { path = "../../abstractions/salsa" }
 lsp-types.workspace = true
 indexmap = "1.8.1"
 libloading = "0.7.3"
-convert_case = "0.6.0"
 relative-path = "1.7.2"
 # abstractions
 idx-arena = { path = "../../abstractions/idx-arena" }

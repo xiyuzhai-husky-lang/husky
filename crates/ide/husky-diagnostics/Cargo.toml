@@ -6,10 +6,9 @@ edition = "2021"
 [dependencies]
 serde.workspace = true
 serde_json.workspace = true
-salsa = { path = "../../abstractions/salsa" }
 lsp-types.workspace = true
 # abstractions
-reserve = { path = "../../abstractions/reserve" }
+salsa = { path = "../../abstractions/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # infer

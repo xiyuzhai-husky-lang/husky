@@ -47,5 +47,3 @@ husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
-# vm
-husky-vm = { path = "../../vm/husky-vm" }
