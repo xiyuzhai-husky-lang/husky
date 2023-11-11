@@ -18,54 +18,15 @@ pub struct ValRepr {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = ValReprDb, jar = ValReprJar)]
 pub enum ValArgumentRepr {
     Ordinary(ValRepr),
     Keyed(Ident, ValRepr),
     Variadic(Vec<ValRepr>),
-}
-
-impl<_Db: ValReprDb + ?Sized> ::salsa::DebugWithDb<_Db> for ValRepr {
-    fn fmt(
-        &self,
-        f: &mut ::std::fmt::Formatter<'_>,
-        _db: &_Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> ::std::fmt::Result {
-        #[allow(unused_imports)]
-        use ::salsa::debug::helper::Fallback;
-        let _db = <_Db as ::salsa::DbWithJar<ValReprJar>>::as_jar_db(_db);
-        let mut debug_struct = &mut f.debug_struct("Val");
-        if _level.is_root() {
-            debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
-        }
-        debug_struct = debug_struct.field(
-            "domain_repr",
-            &::salsa::debug::helper::SalsaDebug::<
-                ValDomain,
-                <ValReprJar as salsa::jar::Jar<'_>>::DynDb,
-            >::salsa_debug(
-                #[allow(clippy::needless_borrow)]
-                &self.val_domain_repr(_db),
-                _db,
-                _level.next(),
-            ),
-        );
-        debug_struct =
-            debug_struct.field(
-                "opn",
-                &::salsa::debug::helper::SalsaDebug::<
-                    ValOpn,
-                    <ValReprJar as salsa::jar::Jar<'_>>::DynDb,
-                >::salsa_debug(
-                    #[allow(clippy::needless_borrow)]
-                    &self.opn(_db),
-                    _db,
-                    _level.next(),
-                ),
-            );
-        debug_struct = debug_struct.field("arguments", &self.arguments(_db));
-        debug_struct.finish()
-    }
+    Branch {
+        condition: Option<ValRepr>,
+        stmts: SmallVec<[ValRepr; 4]>,
+    },
 }
 
 impl ValRepr {
@@ -75,6 +36,20 @@ impl ValRepr {
         let opds = smallvec![];
         let caching_class = ValCachingClass::ValItem;
         Self::new(db, domain, opr, opds, caching_class)
+    }
+
+    pub(crate) fn with_caching_class(
+        self,
+        caching_class: ValCachingClass,
+        db: &dyn ValReprDb,
+    ) -> Self {
+        Self::new(
+            db,
+            self.val_domain_repr(db),
+            self.opn(db),
+            self.arguments(db).clone(),
+            caching_class,
+        )
     }
 }
 
@@ -126,6 +101,13 @@ impl ValArgumentRepr {
             ValArgumentRepr::Variadic(ref val_reprs) => {
                 ValArgument::Variadic(val_reprs.iter().map(|val_repr| val_repr.val(db)).collect())
             }
+            ValArgumentRepr::Branch {
+                condition,
+                ref stmts,
+            } => ValArgument::Branch {
+                condition: condition.map(|condition| condition.val(db)),
+                stmts: stmts.iter().map(|&stmt| stmt.val(db)).collect(),
+            },
         }
     }
 }
@@ -177,4 +159,48 @@ fn val_item_val_repr_works() {
         val_item_val_reprs,
         &AstTestConfig::new("val_item_val_reprs"),
     )
+}
+
+impl<_Db: ValReprDb + ?Sized> ::salsa::DebugWithDb<_Db> for ValRepr {
+    fn fmt(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        _db: &_Db,
+        _level: salsa::DebugFormatLevel,
+    ) -> ::std::fmt::Result {
+        #[allow(unused_imports)]
+        use ::salsa::debug::helper::Fallback;
+        let _db = <_Db as ::salsa::DbWithJar<ValReprJar>>::as_jar_db(_db);
+        let mut debug_struct = &mut f.debug_struct("Val");
+        if _level.is_root() {
+            debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
+        }
+        debug_struct = debug_struct.field(
+            "domain_repr",
+            &::salsa::debug::helper::SalsaDebug::<
+                ValDomain,
+                <ValReprJar as salsa::jar::Jar<'_>>::DynDb,
+            >::salsa_debug(
+                #[allow(clippy::needless_borrow)]
+                &self.val_domain_repr(_db),
+                _db,
+                _level.next(),
+            ),
+        );
+        debug_struct =
+            debug_struct.field(
+                "opn",
+                &::salsa::debug::helper::SalsaDebug::<
+                    ValOpn,
+                    <ValReprJar as salsa::jar::Jar<'_>>::DynDb,
+                >::salsa_debug(
+                    #[allow(clippy::needless_borrow)]
+                    &self.opn(_db),
+                    _db,
+                    _level.next(),
+                ),
+            );
+        debug_struct = debug_struct.field("arguments", &self.arguments(_db));
+        debug_struct.finish()
+    }
 }
