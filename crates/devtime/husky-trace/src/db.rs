@@ -5,13 +5,13 @@ use husky_token_info::TokenInfoDb;
 
 use crate::*;
 
-pub trait TraceDb: salsa::DbWithJar<TraceJar> + TokenInfoDb + TextDb + HirExprDb {
+pub trait TraceDb: salsa::DbWithJar<TraceJar> + TokenInfoDb + TextDb + ValReprDb {
     fn root_traces(&self, crate_path: CratePath) -> &[Trace];
 }
 
 impl<Db> TraceDb for Db
 where
-    Db: salsa::DbWithJar<TraceJar> + TokenInfoDb + TextDb + HirExprDb,
+    Db: salsa::DbWithJar<TraceJar> + TokenInfoDb + TextDb + ValReprDb,
 {
     fn root_traces(&self, crate_path: CratePath) -> &[Trace] {
         crate::trace::root_traces(self, crate_path).as_ref()
