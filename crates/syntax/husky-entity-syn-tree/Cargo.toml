@@ -9,8 +9,6 @@ description = "Generic LSP server scaffold."
 [dependencies]
 thiserror.workspace = true
 smallvec.workspace = true
-# forks
-thin-vec = { path = "../../../forks/thin-vec" }
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 enum-class = { path = "../../abstractions/enum-class" }

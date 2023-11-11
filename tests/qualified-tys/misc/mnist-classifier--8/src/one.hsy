@@ -1,3 +1,0 @@
-func haha -> ?i32:
-    require 2 > 0
-    1

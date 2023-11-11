@@ -1,5 +1,0 @@
-task:
-    ml::datasets::synthetic::trivial::real1d::dataset1()
-    
-main:
-    require 1 be 1 | 2

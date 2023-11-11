@@ -1,8 +1,0 @@
-use crate::line_segment_sketch::*
-
-struct ConvexCompoent:
-    line_segment_sketch: &LineSegmentSketch
-    line_segments: [%]LineSegmentStroke
-
-    visual:
-        line_segments

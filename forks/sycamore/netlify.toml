@@ -1,8 +1,0 @@
-[[redirects]]
-from = "/api"
-to = "/api/sycamore/index.html"
-
-[[redirects]]
-from = "/*"
-status = 200
-to = "/index.html"
