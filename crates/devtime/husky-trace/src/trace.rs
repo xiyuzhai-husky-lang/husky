@@ -17,8 +17,13 @@ use self::lazy_stmt::*;
 use self::loop_group::*;
 use self::submodule::*;
 use self::val_item::*;
-use crate::registry::trace_path::{TracePathDisambiguator, TracePathRegistry};
-use crate::{registry::*, *};
+use crate::{
+    registry::{
+        trace_path::{TracePathDisambiguator, TracePathRegistry},
+        *,
+    },
+    *,
+};
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::MajorItemPath;
 use husky_entity_path::{FugitivePath, ItemPath};
@@ -30,6 +35,7 @@ use husky_trace_protocol::{
     view::TraceViewData,
     IsTrace,
 };
+use husky_val_repr::repr::ValRepr;
 use salsa::AsId;
 use vec_like::VecPairMap;
 
@@ -96,6 +102,10 @@ impl Trace {
             Trace::EagerExpr(slf) => slf.subtraces(db),
             Trace::EagerStmt(slf) => slf.subtraces(db),
         }
+    }
+
+    pub fn val_repr(self, db: &dyn TraceDb) -> ValRepr {
+        todo!()
     }
 }
 
@@ -171,4 +181,13 @@ pub(crate) fn root_traces(db: &dyn TraceDb, crate_path: CratePath) -> Vec<Trace>
         .iter()
         .filter_map(|&item_path| Trace::from_item_path(item_path, db))
         .collect()
+}
+
+#[test]
+fn root_traces_works() {
+    let mut db = DB::default();
+    db.ast_expect_test_debug_with_db(
+        |db, crate_path| root_traces(db, crate_path),
+        &AstTestConfig::new("root_traces"),
+    )
 }
