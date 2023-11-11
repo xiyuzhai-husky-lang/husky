@@ -23,6 +23,7 @@ use crate::{registry::*, *};
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::MajorItemPath;
 use husky_entity_path::{FugitivePath, ItemPath};
+use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_sema_expr::SemaExprIdx;
 use husky_trace_protocol::{
     id::{TraceId, TraceKind},
@@ -48,7 +49,7 @@ pub enum Trace {
 }
 
 impl Trace {
-    pub(crate) fn from_item_path(item_path: ItemPath, db: &dyn TraceDb) -> Option<Self> {
+    fn from_item_path(item_path: ItemPath, db: &dyn TraceDb) -> Option<Self> {
         match item_path {
             ItemPath::Submodule(submodule_path) => {
                 SubmoduleTrace::from_submodule_path(submodule_path, db).map(Into::into)
@@ -58,30 +59,19 @@ impl Trace {
         }
     }
 
-    pub fn from_major_item_path(major_item_path: MajorItemPath, db: &dyn TraceDb) -> Option<Self> {
+    fn from_major_item_path(major_item_path: MajorItemPath, db: &dyn TraceDb) -> Option<Self> {
         match major_item_path {
             MajorItemPath::Fugitive(fugitive_path) => Self::from_fugitive_path(fugitive_path, db),
             _ => None,
         }
     }
 
-    pub fn from_fugitive_path(fugitive_path: FugitivePath, db: &dyn TraceDb) -> Option<Self> {
+    fn from_fugitive_path(fugitive_path: FugitivePath, db: &dyn TraceDb) -> Option<Self> {
         match fugitive_path.fugitive_kind(db) {
             FugitiveKind::Val => Some(ValItemTrace::from_val_item_path(fugitive_path, db).into()),
             FugitiveKind::FunctionFn | FugitiveKind::FunctionGn | FugitiveKind::AliasType => None,
         }
     }
-
-    // pub fn associated_expr_traces<'a>(
-    //     self,
-    //     db: &'a dyn TraceDb,
-    // ) -> Option<&'a [(SemaExprIdx, Trace)]> {
-    //     match self {
-    //         Trace::LazyStmt(trace) => Some(trace.associated_expr_traces(db)),
-    //         Trace::EagerStmt(trace) => Some(trace.associated_expr_traces(db)),
-    //         _ => None,
-    //     }
-    // }
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
         match self {
@@ -171,3 +161,15 @@ impl Into<TraceId> for Trace {
 }
 
 impl IsTrace for Trace {}
+
+#[salsa::tracked(jar = TraceJar, return_ref)]
+pub(crate) fn root_traces(db: &dyn TraceDb, crate_path: CratePath) -> Vec<Trace> {
+    let root_module_path = crate_path.root_module_path(db);
+    let Ok(item_paths) = module_item_paths(db, root_module_path) else {
+        unreachable!("module path should be guaranteed to be valid")
+    };
+    item_paths
+        .iter()
+        .filter_map(|&item_path| Trace::from_item_path(item_path, db))
+        .collect()
+}
