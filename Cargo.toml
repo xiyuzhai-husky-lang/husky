@@ -18,7 +18,6 @@ members = [
     "crates/semantics/*",
     "crates/syntax/*",
     "crates/tasks/*",
-    "crates/try/*",
     "crates/utils/*",
     "crates/vm/*",
     "crates/benchmarks/*"

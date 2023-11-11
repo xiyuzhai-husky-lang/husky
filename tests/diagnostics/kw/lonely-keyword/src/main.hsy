@@ -1,6 +1,0 @@
-struct A:
-    x: i32
-
-    def
-
-func

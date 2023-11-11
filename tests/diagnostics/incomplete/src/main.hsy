@@ -1,9 +1,0 @@
-def basi
-
-def feature_without_arrow:
-
-def feature_without_arrow->:
-
-struct B:
-    x: i32
-    y: i32 := 

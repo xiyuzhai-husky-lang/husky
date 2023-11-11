@@ -1,7 +1,6 @@
 examples_dir=examples
 tests_dir=tests
 
-include tests/makefile
 include examples/makefile
 
 update-python-requirements:

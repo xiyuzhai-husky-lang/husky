@@ -1,7 +1,0 @@
-task:
-    ml::datasets::synthetic::trivial::real1d::dataset1()
-
-main:
-    assert (1).abs() == 1
-    assert 1.0.cos() > 0.0
-    1

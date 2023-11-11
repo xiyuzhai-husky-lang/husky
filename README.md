@@ -47,22 +47,12 @@ The first versions of Husky is writing with C++, which is abundant soon after a 
 
 However, TODO
 
-## Call for Contribution
-
-Husky is not only an open-source project of coding, but is also an open project of research, which means anyone is welcome to join at any time. For example, we currently have an ongoing project on ImageNet which will take 16 months to complete. It's going to involve 100+ people in the final paper. So anyone interested can first join in the project and learn and master coding techniques and machine learning and algorithmic techniques. Afterwards, one can apply the knowledge to other project he or she feel interested in. We'll give everyone full suppport in their own projects using the Husky programming language.
-
-Roughly speaking, contributors can play two roles:
-
-- husky language user. Use the language to do amazing things, like machine learning, reinforcement learning, frontend development, etc. A user in the early stage will help demonstrate the power of the new language, and also help eliminate bugs and improve the design.
-- Husky language developer. Design and implementation. TODO
-
-Contribution will be faithfully recorded. Those who made innovative contribution will become authors in the corresponding papers.
-
 ### Husky Language User
 
 After the husk language is completed, we can use Husky language to deal with all the task that deep learning can do. We are currently gathering strength to solve the basic problem in the CV task, ImageNet classification, which can be used as the basis for other tasks. 
 
 We divide 1000 categories of ImageNet into 100 subtasks, and each person is responsible for no more than 10 categories. Each task requires limited time and effort. In the process you will gain a deeper understanding of Husky's principles.
+
 ### Husky Language Developer
 
 Develop new compiler for Husky. We are currently considering the design of incremental compilation of the husky programming language. Anyone who is interested in this area is welcome to guide us. The husky programming language will avoid many of the pitfalls of rust and julia at the compile stage. The general idea is to intelligently select some functions as dynamic linkage or even interpreted according to the specific domain to avoid unnecessary relinking. We think this is one of the most important directions of PL, we can discuss it first and then find more experts.
@@ -85,32 +75,17 @@ Make sure rust toolchains are installed. To install vscode extension, npm is als
 
 TODO
 
-What will probably work is,
-
-```sh
-git clone https://github.com/husky-lang-org/husky
-cd husky
-```
-
-then in one terminal do
-
-```sh
-cd gui/husky-tracer-gui-sycamore
-trunk serve
-```
-
-in another terminal do
-
-```sh
-make mnist-compiled
-```
-
-then in browser open `localhost:8080`.
 ## Showcase
+
+TODO
 
 ## Designs
 
+TODO
+
 ### Pythonic Syntax
+
+TODO
 
 ![alt text](snapshots/pythonic-syntax2.png)
 
@@ -184,5 +159,3 @@ The Husky source code is organized as follows:
 | `docs/`           | documentation                                                      |
 | `examples/`       | examples of husky                                                  |
 | `extensions/`     |                                                                    |
-| `forks/`          | forks of some 3rd party dependencies                               |
-| `gui/`            | various frontend                                                   |

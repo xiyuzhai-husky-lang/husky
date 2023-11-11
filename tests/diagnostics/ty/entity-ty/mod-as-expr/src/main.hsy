@@ -1,7 +1,0 @@
-mod hello
-
-func a() -> i32:
-    hello
-
-main:
-    hello

@@ -1,9 +1,0 @@
-enum A:
-    Haha
-
-task:
-    ml::datasets::synthetic::trivial::real1d::dataset1()
-
-main:
-    a = A::Haha
-    1

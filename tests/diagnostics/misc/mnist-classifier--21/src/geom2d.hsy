@@ -1,2 +1,0 @@
-struct Point2d:
-    x: float, y: float
