@@ -14,7 +14,7 @@ where
     Db: salsa::DbWithJar<TraceJar> + TokenInfoDb + TextDb + HirExprDb,
 {
     fn root_traces(&self, crate_path: CratePath) -> &[Trace] {
-        crate::helpers::root_traces(self, crate_path).as_ref()
+        crate::trace::root_traces(self, crate_path).as_ref()
     }
 }
 
@@ -51,5 +51,5 @@ pub struct TraceJar(
     LoopGroupTracePath,
     LoopGroupTrace,
     // helpers
-    crate::helpers::root_traces,
+    crate::trace::root_traces,
 );
