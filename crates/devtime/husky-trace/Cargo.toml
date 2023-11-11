@@ -15,7 +15,6 @@ husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
 husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 # devtime
-husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # ide
@@ -34,9 +33,8 @@ husky-regional-token = { path = "../../lex/husky-regional-token" }
 # protocols
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
-# runtime
+# val
 husky-val-repr = { path = "../../val/husky-val-repr" }
-husky-eval = { path = "../../runtime/husky-eval" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }

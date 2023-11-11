@@ -1,4 +1,3 @@
-use husky_data_viewer::DataViewerDb;
 use husky_task::DevComptimeDb;
 use husky_val_repr::db::ValReprDb;
 use husky_vm::InterpreterQueryGroup;

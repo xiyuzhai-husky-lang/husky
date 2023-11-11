@@ -14,7 +14,6 @@ serde-impl = { path = "../../abstractions/serde-impl", features = ["json"] }
 # comptime
 husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
 # devtime
-husky-trace-protocol-old = { path = "../../devtime/husky-trace-protocol-old" }
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
@@ -31,7 +30,6 @@ husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 # runtime
-husky-eval = { path = "../../runtime/husky-eval" }
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-val-repr = { path = "../../val/husky-val-repr" }
 # syntax
