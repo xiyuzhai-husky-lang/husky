@@ -11,6 +11,20 @@ pub struct TraceViewData {
     have_subtraces: bool,
 }
 
+impl TraceViewData {
+    pub fn associated_trace_ids(&self) -> Vec<TraceId> {
+        let mut associated_trace_ids: Vec<TraceId> = vec![];
+        for line_data in &self.lines_data {
+            for token_data in &line_data.tokens_data {
+                if let Some(associated_trace_id) = token_data.associated_trace_id {
+                    associated_trace_ids.push(associated_trace_id)
+                }
+            }
+        }
+        associated_trace_ids
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceViewLineData {
     tokens_data: Vec<TraceViewTokenData>,

@@ -36,6 +36,10 @@ impl ValItemTrace {
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
         val_item_trace_subtraces(db, self)
     }
+
+    pub fn val_repr(self, db: &dyn TraceDb) -> ValRepr {
+        val_item_trace_val_repr(db, self)
+    }
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
@@ -91,4 +95,9 @@ fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> V
             _ => todo!(),
         },
     }
+}
+
+#[salsa::tracked(jar = TraceJar)]
+fn val_item_trace_val_repr(db: &dyn TraceDb, trace: ValItemTrace) -> ValRepr {
+    ValRepr::new_val_item(trace.path(db).val_item_path(db), db)
 }

@@ -15,6 +15,7 @@ use husky_sema_expr::{
     SemaStmtIdxRange,
 };
 use husky_token_info::TokenInfoSource;
+use husky_val_repr::expansion::ValReprExpansion;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]
 pub struct LazyStmtTracePath {
@@ -148,17 +149,12 @@ impl LazyStmtTrace {
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
-        match self.data(db) {
-            LazyStmtTraceData::BasicStmt => unreachable!("shouldn't be here"),
-            LazyStmtTraceData::IfBranch { stmts, .. } => todo!(),
-            LazyStmtTraceData::ElifBranch { .. } => todo!(),
-            LazyStmtTraceData::ElseBranch { .. } => todo!(),
-        }
+        lazy_stmt_trace_subtraces(db, self)
     }
 
-    // pub fn associated_expr_traces<'a>(self, db: &'a dyn TraceDb) -> &'a [(SemaExprIdx, Trace)] {
-    //     lazy_stmt_associated_expr_traces(db, self)
-    // }
+    pub fn val_repr(self, db: &dyn TraceDb) -> Option<ValRepr> {
+        lazy_stmt_trace_val_repr(db, self)
+    }
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
@@ -203,12 +199,36 @@ fn lazy_stmt_trace_view_lines(db: &dyn TraceDb, trace: LazyStmtTrace) -> TraceVi
 #[salsa::tracked(jar = TraceJar, return_ref)]
 fn lazy_stmt_trace_subtraces(db: &dyn TraceDb, trace: LazyStmtTrace) -> Vec<Trace> {
     match trace.data(db) {
-        LazyStmtTraceData::BasicStmt => unreachable!(),
+        LazyStmtTraceData::BasicStmt => vec![],
         LazyStmtTraceData::IfBranch { stmts, .. }
         | LazyStmtTraceData::ElifBranch { stmts, .. }
         | LazyStmtTraceData::ElseBranch { stmts, .. } => {
             LazyStmtTrace::from_stmts(trace.path(db), trace, stmts, trace.sema_expr_region(db), db)
         }
+    }
+}
+
+#[salsa::tracked(jar = TraceJar)]
+fn lazy_stmt_trace_val_repr(db: &dyn TraceDb, trace: LazyStmtTrace) -> Option<ValRepr> {
+    let val_repr_expansion = lazy_stmt_trace_val_repr_expansion(db, trace);
+    let sema_stmt_idx = trace.sema_stmt_idx(db);
+    Some(val_repr_expansion.hir_lazy_stmt_val_repr_map(db)[trace.hir_lazy_stmt_idx(db)?])
+}
+
+#[salsa::tracked(jar = TraceJar)]
+fn lazy_stmt_trace_val_repr_expansion(db: &dyn TraceDb, trace: LazyStmtTrace) -> ValReprExpansion {
+    match trace.biological_parent(db) {
+        LazyStmtTraceBiologicalParent::ValItem(trace) => trace.val_repr(db).expansion(db).unwrap(),
+        LazyStmtTraceBiologicalParent::LazyCall(_) => todo!(),
+        LazyStmtTraceBiologicalParent::LazyStmt(trace) => match trace.biological_parent(db) {
+            LazyStmtTraceBiologicalParent::ValItem(parent) => {
+                parent.val_repr(db).expansion(db).unwrap()
+            }
+            LazyStmtTraceBiologicalParent::LazyCall(_) => todo!(),
+            LazyStmtTraceBiologicalParent::LazyStmt(parent) => {
+                lazy_stmt_trace_val_repr_expansion(db, parent)
+            }
+        },
     }
 }
 
@@ -246,7 +266,7 @@ impl IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry {
                         LazyExprTrace::new(
                             self.parent_trace.path(db),
                             self.parent_trace,
-                            sema_expr_idx,
+                            LazyExprTraceData::Expr(sema_expr_idx, todo!()),
                             self.sema_expr_region,
                             &mut self.lazy_expr_trace_path_registry,
                             db,
@@ -270,7 +290,7 @@ impl IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry {
                         LazyExprTrace::new(
                             self.parent_trace.path(db),
                             self.parent_trace,
-                            syn_pattern_expr_idx,
+                            LazyExprTraceData::PatternExpr(syn_pattern_expr_idx),
                             self.sema_expr_region,
                             &mut self.lazy_expr_trace_path_registry,
                             db,
