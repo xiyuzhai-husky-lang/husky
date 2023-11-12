@@ -1,4 +1,4 @@
-use husky_hir_lazy_expr::HirLazyExprRegion;
+use husky_hir_lazy_expr::{HirLazyExprIdx, HirLazyExprRegion};
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
 
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
@@ -57,9 +57,8 @@ pub enum LazyExprTraceBiologicalParent {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[enum_class::from_variants]
 pub enum LazyExprTraceData {
-    Expr(SemaExprIdx),
+    Expr(SemaExprIdx, Option<HirLazyExprIdx>),
     PatternExpr(SynPatternExprIdx),
 }
 
@@ -95,12 +94,16 @@ impl LazyExprTrace {
 
     pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
         match self.data(db) {
-            LazyExprTraceData::Expr(_) => todo!(),
+            LazyExprTraceData::Expr(_, _) => todo!(),
             LazyExprTraceData::PatternExpr(_) => todo!(),
         }
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
+        todo!()
+    }
+
+    pub fn val_repr(self, db: &dyn TraceDb) -> Option<ValRepr> {
         todo!()
     }
 }
@@ -112,7 +115,7 @@ fn lazy_expr_trace_view_lines(db: &dyn TraceDb, trace: LazyExprTrace) -> TraceVi
     let sema_expr_range_region_data = sema_expr_range_region.data(db);
     let region_path = sema_expr_region.path(db);
     let regional_token_idx_range = match trace.data(db) {
-        LazyExprTraceData::Expr(sema_expr_idx) => sema_expr_range_region_data[sema_expr_idx],
+        LazyExprTraceData::Expr(sema_expr_idx, _) => sema_expr_range_region_data[sema_expr_idx],
         LazyExprTraceData::PatternExpr(_) => todo!(),
     };
     let token_idx_range =
@@ -123,4 +126,9 @@ fn lazy_expr_trace_view_lines(db: &dyn TraceDb, trace: LazyExprTrace) -> TraceVi
         VoidAssociatedTraceRegistry,
         db,
     )
+}
+
+#[salsa::tracked(jar = TraceJar, return_ref)]
+fn lazy_expr_trace_val_repr(db: &dyn TraceDb, trace: LazyExprTrace) -> Option<ValRepr> {
+    todo!()
 }

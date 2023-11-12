@@ -23,6 +23,10 @@ impl LazyCallTrace {
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
         todo!()
     }
+
+    pub fn val_repr(self, db: &dyn TraceDb) -> ValRepr {
+        todo!()
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

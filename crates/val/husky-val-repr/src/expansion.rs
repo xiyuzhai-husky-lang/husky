@@ -23,13 +23,13 @@ use smallvec::{smallvec, SmallVec};
 #[salsa::tracked(db = ValReprDb, jar = ValReprJar)]
 pub struct ValReprExpansion {
     #[return_ref]
-    hir_lazy_variable_val_repr_map: HirLazyVariableMap<ValRepr>,
+    pub hir_lazy_variable_val_repr_map: HirLazyVariableMap<ValRepr>,
     #[return_ref]
-    hir_lazy_expr_val_repr_map: HirLazyExprMap<ValRepr>,
+    pub hir_lazy_expr_val_repr_map: HirLazyExprMap<ValRepr>,
     #[return_ref]
-    hir_lazy_stmt_val_repr_map: HirLazyStmtMap<ValRepr>,
+    pub hir_lazy_stmt_val_repr_map: HirLazyStmtMap<ValRepr>,
     #[return_ref]
-    root_hir_lazy_stmt_val_reprs: SmallVec<[ValRepr; 4]>,
+    pub root_hir_lazy_stmt_val_reprs: SmallVec<[ValRepr; 4]>,
 }
 
 impl ValRepr {

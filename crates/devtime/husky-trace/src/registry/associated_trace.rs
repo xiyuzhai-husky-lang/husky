@@ -2,12 +2,13 @@ use crate::{db::TraceDb, Trace};
 use husky_token_info::TokenInfoSource;
 use husky_trace_protocol::id::TraceId;
 
-pub(crate) trait IsAssociatedTraceRegistry {
+pub(crate) trait IsAssociatedTraceRegistry: Sized {
     fn get_or_issue_associated_trace(
         &mut self,
         source: TokenInfoSource,
         db: &dyn TraceDb,
     ) -> Option<Trace>;
+
     fn get_or_issue_associated_trace_id(
         &mut self,
         source: TokenInfoSource,

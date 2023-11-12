@@ -104,8 +104,27 @@ impl Trace {
         }
     }
 
-    pub fn val_repr(self, db: &dyn TraceDb) -> ValRepr {
-        todo!()
+    #[cfg(test)]
+    fn val_repr(self, db: &dyn TraceDb) -> Option<ValRepr> {
+        match self {
+            Trace::Submodule(_) => None,
+            Trace::ValItem(slf) => Some(slf.val_repr(db)),
+            Trace::LazyCall(slf) => Some(slf.val_repr(db)),
+            Trace::LazyExpr(slf) => slf.val_repr(db),
+            Trace::LazyStmt(slf) => slf.val_repr(db),
+            Trace::EagerCall(_) => None,
+            Trace::EagerExpr(_) => None,
+            Trace::EagerStmt(_) => None,
+        }
+    }
+
+    #[cfg(test)]
+    fn associated_traces(self, db: &dyn TraceDb) -> Vec<Trace> {
+        self.view_data(db)
+            .associated_trace_ids()
+            .into_iter()
+            .map(Into::into)
+            .collect()
     }
 }
 
@@ -192,22 +211,32 @@ fn root_traces_works() {
     )
 }
 
-fn find_traces(crate_path: CratePath, max_depth: u8, db: &dyn TraceDb) -> Vec<Trace> {
-    let mut traces: Vec<Trace> = vec![];
+fn find_traces<R>(
+    crate_path: CratePath,
+    max_depth: u8,
+    db: &dyn TraceDb,
+    f: impl Fn(Trace) -> R,
+) -> Vec<(Trace, R)> {
+    let mut traces: Vec<(Trace, R)> = vec![];
     for &root_trace in root_traces(db, crate_path) {
-        traces.push(root_trace);
-        find_traces_aux(root_trace, max_depth - 1, &mut traces, db)
+        find_traces_aux(root_trace, max_depth - 1, &f, &mut traces, db)
     }
     traces
 }
 
-fn find_traces_aux(trace: Trace, max_depth: u8, traces: &mut Vec<Trace>, db: &dyn TraceDb) {
+fn find_traces_aux<R>(
+    trace: Trace,
+    max_depth: u8,
+    f: &impl Fn(Trace) -> R,
+    traces: &mut Vec<(Trace, R)>,
+    db: &dyn TraceDb,
+) {
+    traces.push((trace, f(trace)));
     if max_depth == 0 {
         return;
     }
     for &subtrace in trace.subtraces(db) {
-        traces.push(subtrace);
-        find_traces_aux(subtrace, max_depth - 1, traces, db)
+        find_traces_aux(subtrace, max_depth - 1, f, traces, db)
     }
 }
 
@@ -215,7 +244,16 @@ fn find_traces_aux(trace: Trace, max_depth: u8, traces: &mut Vec<Trace>, db: &dy
 fn find_traces_works() {
     let mut db = DB::default();
     db.ast_expect_test_debug_with_db(
-        |db, crate_path| find_traces(crate_path, 3, db),
+        |db, crate_path| find_traces(crate_path, 5, db, |_| ()),
         &AstTestConfig::new("find_traces"),
+    )
+}
+
+#[test]
+fn trace_val_repr_works() {
+    let mut db = DB::default();
+    db.ast_expect_test_debug_with_db(
+        |db, crate_path| find_traces(crate_path, 5, db, |trace| trace.val_repr(db)),
+        &AstTestConfig::new("trace_val_repr"),
     )
 }
