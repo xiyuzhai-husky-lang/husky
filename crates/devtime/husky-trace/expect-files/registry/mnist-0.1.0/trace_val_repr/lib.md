@@ -8,13 +8,14 @@
             },
         ),
         Some(
-            Val {
-                [salsa id]: 32,
-                domain_repr: Omni,
+            ValRepr {
+                [salsa id]: 441,
+                val_domain_repr: Omni,
                 opn: ValOpn::ValItem(
                     FugitivePath(`mnist::input`, `Val`),
                 ),
                 arguments: [],
+                caching_class: ValItem,
             },
         ),
     ),

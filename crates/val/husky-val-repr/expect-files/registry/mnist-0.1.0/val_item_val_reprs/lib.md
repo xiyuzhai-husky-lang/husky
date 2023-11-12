@@ -1,13 +1,14 @@
 [
     (
         FugitivePath(`mnist::input`, `Val`),
-        Val {
+        ValRepr {
             [salsa id]: 32,
-            domain_repr: Omni,
+            val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist::input`, `Val`),
             ),
             arguments: [],
+            caching_class: ValItem,
         },
     ),
 ]

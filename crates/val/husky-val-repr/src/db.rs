@@ -8,4 +8,10 @@ pub trait ValReprDb: salsa::DbWithJar<ValReprJar> + ValDb + HirDefnDb + LinkageP
 impl<Db> ValReprDb for Db where Db: salsa::DbWithJar<ValReprJar> + ValDb + HirDefnDb + LinkagePathDb {}
 
 #[salsa::jar(db = ValReprDb)]
-pub struct ValReprJar(ValRepr, val_repr_val, ValReprExpansion, val_repr_expansion);
+pub struct ValReprJar(
+    ValRepr,
+    val_repr_val,
+    val_item_val_repr,
+    ValReprExpansion,
+    val_repr_expansion,
+);

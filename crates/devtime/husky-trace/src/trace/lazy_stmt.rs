@@ -6,6 +6,7 @@ use crate::registry::{
 use husky_entity_path::PrincipalEntityPath;
 use husky_hir_lazy_expr::HirLazyStmtIdx;
 use husky_hir_lazy_expr::{builder::hir_lazy_expr_region_with_source_map, HirLazyExprRegion};
+use husky_print_utils::p;
 use husky_regional_token::{
     ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, IfRegionalToken,
     RegionalTokenIdxRange,
@@ -211,8 +212,10 @@ fn lazy_stmt_trace_subtraces(db: &dyn TraceDb, trace: LazyStmtTrace) -> Vec<Trac
 #[salsa::tracked(jar = TraceJar)]
 fn lazy_stmt_trace_val_repr(db: &dyn TraceDb, trace: LazyStmtTrace) -> Option<ValRepr> {
     let val_repr_expansion = lazy_stmt_trace_val_repr_expansion(db, trace);
-    let sema_stmt_idx = trace.sema_stmt_idx(db);
-    Some(val_repr_expansion.hir_lazy_stmt_val_repr_map(db)[trace.hir_lazy_stmt_idx(db)?])
+    val_repr_expansion
+        .hir_lazy_stmt_val_repr_map(db)
+        .get(trace.hir_lazy_stmt_idx(db)?)
+        .copied()
 }
 
 #[salsa::tracked(jar = TraceJar)]
