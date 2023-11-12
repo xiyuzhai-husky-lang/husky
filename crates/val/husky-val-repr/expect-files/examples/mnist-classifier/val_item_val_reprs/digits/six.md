@@ -1,35 +1,38 @@
 [
     (
         FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-        Val {
+        ValRepr {
             [salsa id]: 16,
-            domain_repr: Omni,
+            val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
             ),
             arguments: [],
+            caching_class: ValItem,
         },
     ),
     (
         FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
-        Val {
+        ValRepr {
             [salsa id]: 17,
-            domain_repr: Omni,
+            val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
             ),
             arguments: [],
+            caching_class: ValItem,
         },
     ),
     (
         FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-        Val {
+        ValRepr {
             [salsa id]: 18,
-            domain_repr: Omni,
+            val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
             ),
             arguments: [],
+            caching_class: ValItem,
         },
     ),
 ]

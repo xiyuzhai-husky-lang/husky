@@ -1,13 +1,14 @@
 [
     (
         FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-        Val {
+        ValRepr {
             [salsa id]: 3,
-            domain_repr: Omni,
+            val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
             ),
             arguments: [],
+            caching_class: ValItem,
         },
     ),
 ]

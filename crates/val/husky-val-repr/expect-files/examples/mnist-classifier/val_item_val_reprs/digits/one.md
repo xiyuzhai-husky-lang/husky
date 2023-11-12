@@ -1,24 +1,26 @@
 [
     (
         FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-        Val {
+        ValRepr {
             [salsa id]: 11,
-            domain_repr: Omni,
+            val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
             ),
             arguments: [],
+            caching_class: ValItem,
         },
     ),
     (
         FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-        Val {
+        ValRepr {
             [salsa id]: 12,
-            domain_repr: Omni,
+            val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
             arguments: [],
+            caching_class: ValItem,
         },
     ),
 ]

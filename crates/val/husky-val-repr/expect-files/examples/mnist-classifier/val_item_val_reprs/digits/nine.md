@@ -1,35 +1,38 @@
 [
     (
         FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-        Val {
+        ValRepr {
             [salsa id]: 8,
-            domain_repr: Omni,
+            val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
             ),
             arguments: [],
+            caching_class: ValItem,
         },
     ),
     (
         FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-        Val {
+        ValRepr {
             [salsa id]: 9,
-            domain_repr: Omni,
+            val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
             ),
             arguments: [],
+            caching_class: ValItem,
         },
     ),
     (
         FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-        Val {
+        ValRepr {
             [salsa id]: 10,
-            domain_repr: Omni,
+            val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
             ),
             arguments: [],
+            caching_class: ValItem,
         },
     ),
 ]

@@ -121,15 +121,16 @@
                     ],
                 },
                 hir_lazy_expr_val_repr_map: [
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             LinkagePath {
                                 data: Field,
@@ -144,16 +145,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 15,
@@ -166,9 +169,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 17,
@@ -221,9 +225,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 18,
@@ -242,16 +247,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 19,
@@ -260,9 +267,10 @@
                         ),
                         opn: ValOpn::NewList,
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 21,
@@ -301,9 +309,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 21,
@@ -342,9 +351,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 22,
@@ -365,9 +375,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 24,
@@ -382,9 +393,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 25,
@@ -412,16 +424,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: ConditionSatisfied(
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
                                     value: 26,
@@ -442,9 +456,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 27,
@@ -457,9 +472,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 28,
@@ -507,9 +523,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 29,
@@ -528,16 +545,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 30,
@@ -558,9 +577,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 31,
@@ -575,9 +595,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 32,
@@ -605,16 +626,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: ConditionSatisfied(
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
                                     value: 33,
@@ -635,9 +658,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 34,
@@ -652,9 +676,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 35,
@@ -682,9 +707,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 38,
@@ -698,16 +724,18 @@
                             },
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: ConditionNotSatisfied(
+                    ValRepr {
+                        val_domain_repr: ConditionNotSatisfied(
                             ValRepr(
                                 Id {
                                     value: 26,
@@ -728,9 +756,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 40,
@@ -745,9 +774,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 41,
@@ -775,16 +805,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 43,
@@ -799,9 +831,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 44,
@@ -829,16 +862,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 46,
@@ -859,9 +894,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 47,
@@ -878,9 +914,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 48,
@@ -908,16 +945,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 49,
@@ -938,9 +977,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 51,
@@ -957,9 +997,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 52,
@@ -987,16 +1028,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 53,
@@ -1017,9 +1060,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 55,
@@ -1036,9 +1080,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 56,
@@ -1066,9 +1111,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 48,
@@ -1096,9 +1142,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 57,
@@ -1115,9 +1162,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 21,
@@ -1156,9 +1204,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: ConditionSatisfied(
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
                                     value: 59,
@@ -1179,9 +1228,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 60,
@@ -1196,9 +1246,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 61,
@@ -1226,9 +1277,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 21,
@@ -1267,9 +1319,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 63,
@@ -1290,9 +1343,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 64,
@@ -1313,9 +1367,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 65,
@@ -1328,9 +1383,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 66,
@@ -1378,9 +1434,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 67,
@@ -1399,9 +1456,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 68,
@@ -1416,16 +1474,18 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 69,
@@ -1446,9 +1506,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 70,
@@ -1476,16 +1537,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 71,
@@ -1506,9 +1569,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 72,
@@ -1536,9 +1600,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 73,
@@ -1553,9 +1618,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 74,
@@ -1583,9 +1649,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 76,
@@ -1599,9 +1666,10 @@
                             },
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 48,
@@ -1629,9 +1697,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 79,
@@ -1650,9 +1719,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 80,
@@ -1673,9 +1743,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 81,
@@ -1696,9 +1767,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 48,
@@ -1726,9 +1798,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 82,
@@ -1747,9 +1820,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 83,
@@ -1770,9 +1844,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 84,
@@ -1793,9 +1868,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 85,
@@ -1823,16 +1899,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 86,
@@ -1853,9 +1931,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 88,
@@ -1870,9 +1949,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 89,
@@ -1900,16 +1980,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 91,
@@ -1922,9 +2004,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 92,
@@ -1952,16 +2035,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 93,
@@ -1982,16 +2067,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 94,
@@ -2012,16 +2099,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 95,
@@ -2042,9 +2131,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 96,
@@ -2057,9 +2147,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 97,
@@ -2122,9 +2213,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 98,
@@ -2143,16 +2235,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 99,
@@ -2173,9 +2267,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 100,
@@ -2192,9 +2287,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 101,
@@ -2222,9 +2318,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 102,
@@ -2243,9 +2340,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 103,
@@ -2266,16 +2364,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 104,
@@ -2296,9 +2396,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 105,
@@ -2315,9 +2416,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 106,
@@ -2345,9 +2447,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 107,
@@ -2366,9 +2469,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 108,
@@ -2389,9 +2493,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 109,
@@ -2412,9 +2517,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 110,
@@ -2427,9 +2533,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 111,
@@ -2482,9 +2589,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 112,
@@ -2503,9 +2611,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 52,
@@ -2533,9 +2642,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 113,
@@ -2552,9 +2662,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 52,
@@ -2582,9 +2693,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: ConditionSatisfied(
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
                                     value: 114,
@@ -2603,9 +2715,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 115,
@@ -2626,9 +2739,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 116,
@@ -2649,9 +2763,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 52,
@@ -2679,9 +2794,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 117,
@@ -2700,9 +2816,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 118,
@@ -2723,9 +2840,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 119,
@@ -2746,9 +2864,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 120,
@@ -2776,9 +2895,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 121,
@@ -2791,9 +2911,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 122,
@@ -2821,9 +2942,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 52,
@@ -2851,9 +2973,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 124,
@@ -2872,9 +2995,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 125,
@@ -2895,9 +3019,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 52,
@@ -2925,9 +3050,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 126,
@@ -2946,9 +3072,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 127,
@@ -2969,9 +3096,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 128,
@@ -2992,9 +3120,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 129,
@@ -3007,9 +3136,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 130,
@@ -3037,9 +3167,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 131,
@@ -3067,9 +3198,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 131,
@@ -3097,9 +3229,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 132,
@@ -3120,9 +3253,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 132,
@@ -3143,9 +3277,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 134,
@@ -3166,9 +3301,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 136,
@@ -3183,9 +3319,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 137,
@@ -3213,9 +3350,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 52,
@@ -3243,9 +3381,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 139,
@@ -3264,9 +3403,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 140,
@@ -3287,9 +3427,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 52,
@@ -3317,9 +3458,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 141,
@@ -3338,9 +3480,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 142,
@@ -3361,9 +3504,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 52,
@@ -3391,9 +3535,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 143,
@@ -3412,9 +3557,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 144,
@@ -3435,9 +3581,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 145,
@@ -3458,9 +3605,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 146,
@@ -3473,9 +3621,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 147,
@@ -3533,9 +3682,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 148,
@@ -3554,9 +3704,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 132,
@@ -3577,9 +3728,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 149,
@@ -3600,9 +3752,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 132,
@@ -3623,9 +3776,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 150,
@@ -3646,9 +3800,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 132,
@@ -3669,9 +3824,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 151,
@@ -3692,9 +3848,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 152,
@@ -3722,9 +3879,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 153,
@@ -3737,9 +3895,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 154,
@@ -3792,9 +3951,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 155,
@@ -3813,9 +3973,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 56,
@@ -3843,9 +4004,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 157,
@@ -3862,16 +4024,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: ConditionSatisfied(
+                    ValRepr {
+                        val_domain_repr: ConditionSatisfied(
                             ValRepr(
                                 Id {
                                     value: 158,
@@ -3892,9 +4056,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 159,
@@ -3911,9 +4076,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 160,
@@ -3941,9 +4107,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 161,
@@ -3962,9 +4129,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 162,
@@ -3985,16 +4153,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 163,
@@ -4015,9 +4185,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 164,
@@ -4034,9 +4205,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 165,
@@ -4064,9 +4236,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 166,
@@ -4085,9 +4258,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 167,
@@ -4108,16 +4282,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 168,
@@ -4138,9 +4314,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 169,
@@ -4157,9 +4334,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 170,
@@ -4187,9 +4365,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 171,
@@ -4208,9 +4387,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 172,
@@ -4231,9 +4411,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 173,
@@ -4254,9 +4435,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 174,
@@ -4269,9 +4451,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 175,
@@ -4329,9 +4512,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 176,
@@ -4350,9 +4534,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 85,
@@ -4380,9 +4565,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 178,
@@ -4395,9 +4581,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 179,
@@ -4425,9 +4612,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 48,
@@ -4455,9 +4643,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 181,
@@ -4476,9 +4665,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 182,
@@ -4499,9 +4689,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 48,
@@ -4529,9 +4720,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 183,
@@ -4550,9 +4742,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 184,
@@ -4573,9 +4766,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 185,
@@ -4596,9 +4790,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 186,
@@ -4626,9 +4821,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 186,
@@ -4656,9 +4852,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 187,
@@ -4679,9 +4876,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 48,
@@ -4709,9 +4907,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 189,
@@ -4730,9 +4929,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 191,
@@ -4753,9 +4953,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 48,
@@ -4783,9 +4984,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 192,
@@ -4804,9 +5006,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 193,
@@ -4827,9 +5030,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 194,
@@ -4850,9 +5054,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 195,
@@ -4865,9 +5070,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 196,
@@ -4895,9 +5101,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 197,
@@ -4925,9 +5132,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 197,
@@ -4955,9 +5163,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 198,
@@ -4978,9 +5187,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 187,
@@ -5001,9 +5211,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 200,
@@ -5024,9 +5235,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 198,
@@ -5047,9 +5259,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 202,
@@ -5070,9 +5283,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 203,
@@ -5085,9 +5299,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 204,
@@ -5140,9 +5355,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 205,
@@ -5161,9 +5377,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 85,
@@ -5191,9 +5408,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 206,
@@ -5206,9 +5424,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 207,
@@ -5236,16 +5455,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 209,
@@ -5266,16 +5487,18 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: Omni,
+                    ValRepr {
+                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         arguments: [],
+                        caching_class: ValItem,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 210,
@@ -5296,9 +5519,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 209,
@@ -5319,9 +5543,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 210,
@@ -5342,9 +5567,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 212,
@@ -5372,9 +5598,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 212,
@@ -5402,9 +5629,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 209,
@@ -5425,9 +5653,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 214,
@@ -5455,9 +5684,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 212,
@@ -5485,9 +5715,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 216,
@@ -5502,9 +5733,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 218,
@@ -5523,9 +5755,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 219,
@@ -5553,9 +5786,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 212,
@@ -5583,9 +5817,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Variable,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 221,
@@ -5600,9 +5835,10 @@
                             ),
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 222,
@@ -5630,9 +5866,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 224,
@@ -5646,11 +5883,12 @@
                             },
                         ),
                         arguments: [],
+                        caching_class: Stmt,
                     },
                 ],
                 hir_lazy_stmt_val_repr_map: [
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 36,
@@ -5667,9 +5905,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 30,
@@ -5695,9 +5934,10 @@
                                 ],
                             },
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 62,
@@ -5714,9 +5954,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 75,
@@ -5733,9 +5974,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 77,
@@ -5752,9 +5994,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 123,
@@ -5771,9 +6014,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 138,
@@ -5790,9 +6034,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 42,
@@ -5809,9 +6054,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 45,
@@ -5828,9 +6074,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 57,
@@ -5871,9 +6118,10 @@
                                 ],
                             },
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 90,
@@ -5890,9 +6138,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 113,
@@ -5933,9 +6182,10 @@
                                 ],
                             },
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 157,
@@ -5961,9 +6211,10 @@
                                 ],
                             },
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 180,
@@ -5980,9 +6231,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 208,
@@ -5999,9 +6251,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 220,
@@ -6018,9 +6271,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 223,
@@ -6037,9 +6291,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 22,
@@ -6150,11 +6405,12 @@
                                 ],
                             },
                         ],
+                        caching_class: Stmt,
                     },
                 ],
                 root_hir_lazy_stmt_val_reprs: [
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 18,
@@ -6173,9 +6429,10 @@
                                 ),
                             ),
                         ],
+                        caching_class: Stmt,
                     },
-                    Val {
-                        domain_repr: StmtNotReturned(
+                    ValRepr {
+                        val_domain_repr: StmtNotReturned(
                             ValRepr(
                                 Id {
                                     value: 22,
@@ -6286,6 +6543,7 @@
                                 ],
                             },
                         ],
+                        caching_class: Stmt,
                     },
                 ],
             },
