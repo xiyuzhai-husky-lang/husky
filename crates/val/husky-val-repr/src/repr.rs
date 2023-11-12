@@ -156,8 +156,6 @@ pub(crate) fn val_item_val_reprs(db: &DB, module_path: ModulePath) -> Vec<(Fugit
 
 #[test]
 fn val_item_val_repr_works() {
-    // todo: why compiler needs this line to work?
-    use husky_ast::test_utils::AstTestUtils;
     let db = DB::default();
     DB::default().ast_expect_test_debug_with_db(
         val_item_val_reprs,
