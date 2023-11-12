@@ -191,3 +191,31 @@ fn root_traces_works() {
         &AstTestConfig::new("root_traces"),
     )
 }
+
+fn find_traces(crate_path: CratePath, max_depth: u8, db: &dyn TraceDb) -> Vec<Trace> {
+    let mut traces: Vec<Trace> = vec![];
+    for &root_trace in root_traces(db, crate_path) {
+        traces.push(root_trace);
+        find_traces_aux(root_trace, max_depth - 1, &mut traces, db)
+    }
+    traces
+}
+
+fn find_traces_aux(trace: Trace, max_depth: u8, traces: &mut Vec<Trace>, db: &dyn TraceDb) {
+    if max_depth == 0 {
+        return;
+    }
+    for &subtrace in trace.subtraces(db) {
+        traces.push(subtrace);
+        find_traces_aux(subtrace, max_depth - 1, traces, db)
+    }
+}
+
+#[test]
+fn find_traces_works() {
+    let mut db = DB::default();
+    db.ast_expect_test_debug_with_db(
+        |db, crate_path| find_traces(crate_path, 3, db),
+        &AstTestConfig::new("find_traces"),
+    )
+}

@@ -19,8 +19,14 @@ where
     }
 }
 
-#[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
+#[derive(Default, Clone, Copy, PartialEq, Eq)]
 pub struct TracePathDisambiguator<PathData>(u8, PhantomData<PathData>);
+
+impl<PathData> std::fmt::Debug for TracePathDisambiguator<PathData> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.0.fmt(f)
+    }
+}
 
 impl<PathData> std::hash::Hash for TracePathDisambiguator<PathData> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {

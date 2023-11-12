@@ -475,7 +475,7 @@ fn eager_stmt_trace_view_lines(db: &dyn TraceDb, trace: EagerStmtTrace) -> Trace
 #[salsa::tracked(jar = TraceJar, return_ref)]
 fn eager_stmt_trace_subtraces(db: &dyn TraceDb, trace: EagerStmtTrace) -> Vec<Trace> {
     match trace.data(db) {
-        EagerStmtTraceData::BasicStmt => unreachable!(),
+        EagerStmtTraceData::BasicStmt => vec![],
         EagerStmtTraceData::IfBranch { stmts, .. }
         | EagerStmtTraceData::ElifBranch { stmts, .. }
         | EagerStmtTraceData::ElseBranch { stmts, .. }
