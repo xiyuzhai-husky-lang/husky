@@ -39,9 +39,9 @@ pub struct TraitAssociatedFnSynDefn {
 
 impl TraitAssociatedFnSynDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
-        path: TraitItemPath,
-        decl: TraitAssociatedFnSynDecl,
+        _db: &dyn SynDefnDb,
+        _path: TraitItemPath,
+        _decl: TraitAssociatedFnSynDecl,
     ) -> DeclResult<TraitAssociatedFnSynDefn> {
         todo!()
         // let syn_node_path = decl.syn_node_path(db);

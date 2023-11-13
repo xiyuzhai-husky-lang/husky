@@ -18,7 +18,7 @@ pub enum OriginalSynDefnError {
 }
 
 impl From<DeclError> for SynDefnError {
-    fn from(value: DeclError) -> Self {
+    fn from(_value: DeclError) -> Self {
         SynDefnError::Derived(DerivedSynDefnError::Decl)
     }
 }

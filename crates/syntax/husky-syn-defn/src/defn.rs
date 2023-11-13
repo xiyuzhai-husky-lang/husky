@@ -7,7 +7,7 @@ mod ty_variant;
 
 pub use self::associated_item::*;
 pub use self::attr::*;
-pub use self::impl_block::*;
+
 pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
@@ -140,7 +140,7 @@ impl SynDefn {
         }
     }
 
-    pub fn ast_idx(self, db: &dyn SynDefnDb) -> AstIdx {
+    pub fn ast_idx(self, _db: &dyn SynDefnDb) -> AstIdx {
         todo!()
         // self.decl(db).ast_idx(db)
     }
