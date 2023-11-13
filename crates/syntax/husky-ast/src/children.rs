@@ -45,10 +45,10 @@ pub enum DefnBlock {
 impl DefnBlock {
     pub fn children(self) -> Option<AstIdxRange> {
         match self {
-            DefnBlock::Fugitive { path, body } => body.map(|v| v.ast_idx_range()),
-            DefnBlock::Submodule { path } => None,
-            DefnBlock::Type { path, variants } => variants.map(|v| v.ast_idx_range()),
-            DefnBlock::Trait { path, items } => items.map(|items| items.ast_idx_range()),
+            DefnBlock::Fugitive { path: _, body } => body.map(|v| v.ast_idx_range()),
+            DefnBlock::Submodule { path: _ } => None,
+            DefnBlock::Type { path: _, variants } => variants.map(|v| v.ast_idx_range()),
+            DefnBlock::Trait { path: _, items } => items.map(|items| items.ast_idx_range()),
             DefnBlock::AssociatedItem { body } => body.map(|v| v.ast_idx_range()),
         }
     }
@@ -61,11 +61,11 @@ impl DefnBlock {
     #[inline(always)]
     pub fn item_path(self) -> Option<ItemPath> {
         match self {
-            DefnBlock::Fugitive { path, body } => Some(path.into()),
+            DefnBlock::Fugitive { path, body: _ } => Some(path.into()),
             DefnBlock::Submodule { path } => Some(path.into()),
-            DefnBlock::Type { path, variants } => Some(path.into()),
-            DefnBlock::Trait { path, items } => Some(path.into()),
-            DefnBlock::AssociatedItem { body } => None,
+            DefnBlock::Type { path, variants: _ } => Some(path.into()),
+            DefnBlock::Trait { path, items: _ } => Some(path.into()),
+            DefnBlock::AssociatedItem { body: _ } => None,
         }
     }
 }

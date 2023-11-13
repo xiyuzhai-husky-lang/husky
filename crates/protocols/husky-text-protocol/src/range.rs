@@ -3,7 +3,6 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 use std::{
     fmt::Write,
-    path::{Path, PathBuf},
 };
 
 #[derive(Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]

@@ -70,7 +70,7 @@ where
 }
 
 impl<T, E> std::ops::FromResidual<Option<Infallible>> for MaybeResult<T, E> {
-    fn from_residual(residual: Option<Infallible>) -> Self {
+    fn from_residual(_residual: Option<Infallible>) -> Self {
         Nothing
     }
 }

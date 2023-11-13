@@ -9,7 +9,7 @@ impl TransformFromTomlAst<ManifestAstTransformContext> for ManifestDevDependenci
     type Ast = TomlSection;
 
     fn transform_from<'a, 'b>(
-        parser: TomlTransformer<'a, 'b, ManifestAstTransformContext, Self::Ast>,
+        _parser: TomlTransformer<'a, 'b, ManifestAstTransformContext, Self::Ast>,
     ) -> ManifestAstResult<Self> {
         todo!()
     }

@@ -152,7 +152,7 @@ where
         }
     }
 
-    pub fn extend(&mut self, other: &Self)
+    pub fn extend(&mut self, _other: &Self)
     where
         K: Copy + PartialEq + Eq,
     {

@@ -1,6 +1,6 @@
 use crate::*;
 
-pub(crate) type CorgiConfigAstTransformer<'a, 'b, A: TomlAst> =
+pub(crate) type CorgiConfigAstTransformer<'a, 'b, A> =
     TomlTransformer<'a, 'b, CorgiConfigAstTransformContext, A>;
 
 pub struct CorgiConfigAstTransformContext;

@@ -11,12 +11,12 @@ pub use self::error::*;
 pub use self::has_manifest::*;
 pub use self::sections::*;
 
-use self::dependency::*;
+
 use husky_corgi_config::HasCorgiConfig;
 use husky_manifest_ast::{HasPackageManifestAstSheet, PackageManifestAstSheet};
-use husky_print_utils::p;
+
 use husky_vfs::*;
-use salsa::{DbWithJar, DebugWithDb};
+use salsa::{DbWithJar};
 
 #[salsa::jar(db = ManifestDb)]
 pub struct ManifestJar(

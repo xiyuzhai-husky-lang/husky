@@ -59,7 +59,6 @@ where
     <S::SerdeImpl as IsSerdeImpl>::Error: Send,
 {
     use tower_http::{
-        services::ServeDir,
         trace::{DefaultMakeSpan, TraceLayer},
     };
     use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
@@ -114,7 +113,7 @@ where
                         };
                         match S::SerdeImpl::to_string(&response) {
                             Ok(response) => {
-                                if let Err(e) = stream.send(Message::Text(response)).await {
+                                if let Err(_e) = stream.send(Message::Text(response)).await {
                                     todo!()
                                 }
                             }

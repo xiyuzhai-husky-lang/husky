@@ -44,7 +44,7 @@ impl<'a> AstParser<'a> {
 
     fn alloc_elif_stmts(&mut self) -> AstIdxRange {
         let mut elif_stmts = vec![];
-        while let Some((idx, token_group, first_noncomment_token)) = self
+        while let Some((idx, _token_group, first_noncomment_token)) = self
             .token_groups
             .peek_token_group_of_exact_indent_with_its_first_token(self.indent())
         {
@@ -60,7 +60,7 @@ impl<'a> AstParser<'a> {
     }
 
     fn alloc_else_stmt(&mut self) -> Option<AstIdx> {
-        let (idx, token_group, first_noncomment_token) = self
+        let (idx, _token_group, first_noncomment_token) = self
             .token_groups
             .peek_token_group_of_exact_indent_with_its_first_token(self.indent())?;
         match first_noncomment_token {
@@ -98,7 +98,7 @@ impl<'a> AstParser<'a> {
 
     fn parse_case_stmts(&mut self) -> AstIdxRange {
         let mut verticals = vec![];
-        while let Some((idx, token_group, first)) = self
+        while let Some((idx, _token_group, first)) = self
             .token_groups
             .peek_token_group_of_exact_indent_with_its_first_token(self.indent())
         {

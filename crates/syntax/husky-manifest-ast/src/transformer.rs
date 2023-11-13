@@ -1,8 +1,8 @@
-use husky_coword::Coword;
+
 
 use crate::*;
 
-pub(crate) type ManifestAstTransformer<'a, 'b, A: TomlAst> =
+pub(crate) type ManifestAstTransformer<'a, 'b, A> =
     TomlTransformer<'a, 'b, ManifestAstTransformContext, A>;
 
 pub struct ManifestAstTransformContext;

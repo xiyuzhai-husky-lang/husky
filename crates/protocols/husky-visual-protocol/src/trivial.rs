@@ -15,7 +15,7 @@ impl IsVisual for TrivialVisual {
     type Component = ();
 
     #[inline(always)]
-    fn from_components(components: &[Self::Component]) -> Self {
+    fn from_components(_components: &[Self::Component]) -> Self {
         TrivialVisual
     }
 }

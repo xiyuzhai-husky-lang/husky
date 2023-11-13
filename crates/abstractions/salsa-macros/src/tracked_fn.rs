@@ -314,7 +314,7 @@ fn key_tuple_ty(item_fn: &syn::ItemFn) -> syn::Type {
 
 fn configuration_struct(item_fn: &syn::ItemFn) -> syn::ItemStruct {
     let fn_name = item_fn.sig.ident.clone();
-    let visibility = &item_fn.vis;
+    let _visibility = &item_fn.vis;
 
     let salsa_struct_ty = salsa_struct_ty(item_fn);
     let intern_map: syn::Type = match function_type(item_fn) {
@@ -738,7 +738,7 @@ fn specify_fn(
 /// Given a function def tagged with `#[return_ref]`, modifies `fn_sig` so that
 /// it returns an `&Value` instead of `Value`. May introduce a name for the
 /// database lifetime if required.
-fn make_fn_return_ref(mut fn_sig: &mut syn::Signature) -> syn::Result<()> {
+fn make_fn_return_ref(fn_sig: &mut syn::Signature) -> syn::Result<()> {
     // An input should be a `&dyn Db`.
     // We need to ensure it has a named lifetime parameter.
     let (db_lifetime, _) = db_lifetime_and_ty(fn_sig)?;

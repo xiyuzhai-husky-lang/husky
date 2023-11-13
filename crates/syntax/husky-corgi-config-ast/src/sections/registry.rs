@@ -15,7 +15,7 @@ impl TransformFromTomlAst<CorgiConfigAstTransformContext> for CorgiConfigRegistr
     type Ast = TomlSection;
 
     fn transform_from<'a, 'b>(
-        mut section_transformer: TomlTransformer<'a, 'b, CorgiConfigAstTransformContext, Self::Ast>,
+        section_transformer: TomlTransformer<'a, 'b, CorgiConfigAstTransformContext, Self::Ast>,
     ) -> CorgiConfigAstResult<Self> {
         let key = section_transformer.menu().path_coword();
         Ok(CorgiConfigRegistrySectionAst {

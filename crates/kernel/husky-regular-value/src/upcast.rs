@@ -76,7 +76,7 @@ impl RegularValue {
         RegularValue::RSize(val)
     }
 
-    pub fn upcast_unit(val: ()) -> Self {
+    pub fn upcast_unit(_val: ()) -> Self {
         RegularValue::Unit(())
     }
 

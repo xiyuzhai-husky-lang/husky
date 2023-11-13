@@ -19,7 +19,7 @@ impl TransformFromTomlAst<ManifestAstTransformContext> for ManifestDependenciesS
     type Ast = TomlSection;
 
     fn transform_from<'a, 'b>(
-        mut transformer: TomlTransformer<'a, 'b, ManifestAstTransformContext, Self::Ast>,
+        transformer: TomlTransformer<'a, 'b, ManifestAstTransformContext, Self::Ast>,
     ) -> ManifestAstResult<Self> {
         Ok(Self {
             section_idx: transformer.section_idx(),

@@ -1,7 +1,7 @@
 use crate::options::Options;
-use proc_macro2::Span;
-use syn::{spanned::Spanned, Item};
-use syn::{Ident, ItemStruct, Path};
+
+use syn::{Item};
+
 
 type Args = Options<WrapId>;
 

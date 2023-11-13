@@ -9,7 +9,7 @@ pub use self::bool::*;
 pub use self::char::*;
 pub use self::float::*;
 pub use self::integer::*;
-pub use self::string::*;
+
 pub use self::tuple_index::*;
 
 use crate::*;

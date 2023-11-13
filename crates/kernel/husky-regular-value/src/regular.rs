@@ -20,7 +20,7 @@ where
 }
 
 impl PartialEq for Box<dyn __RegularStandDyn> {
-    fn eq(&self, other: &Self) -> bool {
+    fn eq(&self, _other: &Self) -> bool {
         todo!()
         // self.0 == other.0 && self.1 == other.1
     }
@@ -35,7 +35,7 @@ impl Clone for Box<dyn __RegularStandDyn> {
 impl Eq for Box<dyn __RegularStandDyn> {}
 
 impl PartialEq for &'static dyn __RegularStandDyn {
-    fn eq(&self, other: &Self) -> bool {
+    fn eq(&self, _other: &Self) -> bool {
         todo!()
     }
 }

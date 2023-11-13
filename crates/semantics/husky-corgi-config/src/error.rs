@@ -13,7 +13,7 @@ pub type CorgiConfigResult<T> = Result<T, CorgiConfigError>;
 pub type CorgiConfigResultRef<'a, T> = Result<T, &'a CorgiConfigError>;
 
 impl From<&CorgiConfigError> for CorgiConfigError {
-    fn from(value: &CorgiConfigError) -> Self {
+    fn from(_value: &CorgiConfigError) -> Self {
         todo!()
     }
 }
@@ -25,19 +25,19 @@ pub enum OriginalCorgiConfigError {}
 pub enum DerivedCorgiConfigError {}
 
 impl From<VfsError> for CorgiConfigError {
-    fn from(value: VfsError) -> Self {
+    fn from(_value: VfsError) -> Self {
         todo!()
     }
 }
 
 impl From<&VfsError> for CorgiConfigError {
-    fn from(value: &VfsError) -> Self {
+    fn from(_value: &VfsError) -> Self {
         todo!()
     }
 }
 
 impl From<&CorgiConfigAstError> for CorgiConfigError {
-    fn from(value: &CorgiConfigAstError) -> Self {
+    fn from(_value: &CorgiConfigAstError) -> Self {
         todo!()
     }
 }

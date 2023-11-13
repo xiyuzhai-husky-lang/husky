@@ -23,14 +23,14 @@ pub use self::sheet::*;
 pub use self::specs::*;
 
 use self::parser::*;
-use either::*;
+
 use husky_coword::*;
 use husky_entity_kind::EntityKind;
 use husky_entity_path::{ItemPath, TypeVariantPath};
-use husky_scope::Scope;
+
 use husky_scope_expr::VisibilityExpr;
 use husky_token::{
-    AttrIdentToken, IdentToken, TokenGroupIdx, TokenIdx, TokenStreamState, VerticalToken,
+    IdentToken, TokenGroupIdx, TokenStreamState, VerticalToken,
 };
 use husky_token_data::*;
 use husky_vfs::*;
