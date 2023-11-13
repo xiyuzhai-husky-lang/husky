@@ -38,7 +38,7 @@ impl<UiComponent, UiComponentConfig, UiActionBuffer> eframe::App
 where
     UiComponent: IsUiComponent<egui::Ui, UiComponentConfig, UiActionBuffer>,
 {
-    fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
+    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
             self.component
                 .update(ui, &mut self.settings, &mut self.action_buffer)

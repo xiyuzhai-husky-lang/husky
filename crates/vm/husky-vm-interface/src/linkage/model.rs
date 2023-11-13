@@ -75,8 +75,8 @@ pub trait Model:
 impl<T: Model> ModelDyn for T {
     fn train_dyn(
         &self,
-        arguments: Vec<GenericArgument>,
-        labels: Vec<i32>,
+        _arguments: Vec<GenericArgument>,
+        _labels: Vec<i32>,
     ) -> VMResult<RegularValue> {
         todo!()
         // Ok(self.train(arguments, labels)?.to_register())
@@ -84,8 +84,8 @@ impl<T: Model> ModelDyn for T {
 
     fn eval_dyn(
         &self,
-        internal: &RegularValue,
-        arguments: &[RegularValue],
+        _internal: &RegularValue,
+        _arguments: &[RegularValue],
     ) -> VMResult<RegularValue> {
         todo!()
         // let internal: &T::Internal = internal.downcast_temp_ref(T::internal_ty_vtable());
