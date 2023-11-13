@@ -7,9 +7,9 @@ use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
-use husky_declarative_ty::DeclarativeTypeJar;
+
 use husky_entity_path::EntityPathJar;
-use husky_entity_syn_tree::{EntitySynTreeJar, EntitySynTreeResult};
+use husky_entity_syn_tree::{EntitySynTreeJar};
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
 use husky_fluffy_term::FluffyTermJar;

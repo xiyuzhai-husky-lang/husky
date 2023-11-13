@@ -18,7 +18,7 @@ pub enum TypeVariantEtherealSignatureTemplate {
 }
 
 impl TypeVariantEtherealSignatureTemplate {
-    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> EtherealTerm {
+    pub fn self_ty(self, _db: &dyn EtherealSignatureDb) -> EtherealTerm {
         match self {
             TypeVariantEtherealSignatureTemplate::Props(_) => todo!(),
             TypeVariantEtherealSignatureTemplate::Unit(_) => todo!(),

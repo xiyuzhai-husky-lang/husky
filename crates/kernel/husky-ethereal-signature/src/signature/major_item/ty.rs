@@ -21,10 +21,10 @@ pub use self::unit_struct::*;
 use crate::*;
 use husky_coword::Ident;
 use husky_declarative_signature::{
-    HasDeclarativeSignatureTemplate, TypeDeclarativeSignature, TypeDeclarativeSignatureTemplate,
+    HasDeclarativeSignatureTemplate, TypeDeclarativeSignatureTemplate,
 };
 use husky_entity_path::TypePath;
-use husky_print_utils::p;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
@@ -189,7 +189,7 @@ impl HasPropsFieldEtherealSignature for TypeEtherealSignatureTemplate {
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
         match self {
-            TypeEtherealSignatureTemplate::Enum(ethereal_signature_template) => Nothing,
+            TypeEtherealSignatureTemplate::Enum(_ethereal_signature_template) => Nothing,
             TypeEtherealSignatureTemplate::PropsStruct(ethereal_signature_template) => {
                 ethereal_signature_template.regular_field_ethereal_signature(db, arguments, ident)
             }

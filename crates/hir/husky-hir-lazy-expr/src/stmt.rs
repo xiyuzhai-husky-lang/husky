@@ -1,7 +1,7 @@
 mod branch_stmt;
 
 use husky_sema_expr::{SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
-use husky_syn_expr::{SynStmtData, SynStmtIdx, SynStmtIdxRange};
+
 use idx_arena::ArenaRef;
 
 pub use self::branch_stmt::*;
@@ -48,7 +48,7 @@ impl ToHirLazy for SemaStmtIdx {
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         Some(match self.data(builder.sema_stmt_arena_ref()) {
             SemaStmtData::Let {
-                let_token,
+                let_token: _,
                 let_pattern_sema_obelisk: let_variables_pattern,
                 initial_value_sema_expr_idx: initial_value,
                 ..
@@ -57,19 +57,19 @@ impl ToHirLazy for SemaStmtIdx {
                 initial_value: initial_value.to_hir_lazy(builder),
             },
             SemaStmtData::Return {
-                return_token,
+                return_token: _,
                 result,
             } => HirLazyStmt::Return {
                 result: result.to_hir_lazy(builder),
             },
             SemaStmtData::Require {
-                require_token,
+                require_token: _,
                 condition,
             } => HirLazyStmt::Require {
                 condition: condition.to_hir_lazy(builder),
             },
             SemaStmtData::Assert {
-                assert_token,
+                assert_token: _,
                 condition,
             } => HirLazyStmt::Assert {
                 condition: condition.to_hir_lazy(builder),
@@ -101,7 +101,7 @@ impl ToHirLazy for SemaStmtIdx {
                     .as_ref()
                     .map(|else_branch| else_branch.to_hir_lazy(builder)),
             },
-            SemaStmtData::Match { match_token, .. } => todo!(),
+            SemaStmtData::Match {  .. } => todo!(),
         })
     }
 }

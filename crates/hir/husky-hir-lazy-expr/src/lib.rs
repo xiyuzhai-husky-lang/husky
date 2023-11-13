@@ -25,7 +25,7 @@ use husky_ethereal_term::EtherealTerm;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use smallvec::*;
 
-pub trait ToHirLazy {
+pub(crate) trait ToHirLazy {
     type Output;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output;

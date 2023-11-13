@@ -53,7 +53,7 @@ impl std::ops::Try for HasControlFlow {
 
     type Residual = HasControlFlowR;
 
-    fn from_output(output: Self::Output) -> Self {
+    fn from_output(_output: Self::Output) -> Self {
         Self::False
     }
 
@@ -68,7 +68,7 @@ impl std::ops::Try for HasControlFlow {
 pub struct HasControlFlowR;
 
 impl FromResidual<HasControlFlowR> for HasControlFlow {
-    fn from_residual(residual: HasControlFlowR) -> Self {
+    fn from_residual(_residual: HasControlFlowR) -> Self {
         HasControlFlow::True
     }
 }
@@ -135,7 +135,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 self.expr_has_control_flow(lopd)?;
                 self.expr_has_control_flow(ropd)?
             }
-            HirLazyExprData::Be { src, ref target } => self.expr_has_control_flow(src)?,
+            HirLazyExprData::Be { src, target: _ } => self.expr_has_control_flow(src)?,
             HirLazyExprData::Prefix {
                 opd_hir_expr_idx, ..
             } => self.expr_has_control_flow(opd_hir_expr_idx)?,
@@ -144,7 +144,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             } => self.expr_has_control_flow(opd_hir_expr_idx)?,
             HirLazyExprData::FunctionFnCall {
                 function,
-                ref generic_arguments,
+                generic_arguments: _,
                 ref item_groups,
             } => {
                 self.expr_has_control_flow(function)?;
@@ -152,24 +152,24 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             }
             HirLazyExprData::GnCall {
                 function,
-                ref generic_arguments,
+                generic_arguments: _,
                 ref item_groups,
             } => {
                 self.expr_has_control_flow(function)?;
                 self.infer_new_item_groups(item_groups)?
             }
-            HirLazyExprData::Field { owner, ident } => self.expr_has_control_flow(owner)?,
+            HirLazyExprData::Field { owner, ident: _ } => self.expr_has_control_flow(owner)?,
             HirLazyExprData::MethodFnCall {
                 self_argument,
-                ident,
-                ref template_arguments,
+                ident: _,
+                template_arguments: _,
                 ref item_groups,
             } => {
                 self.expr_has_control_flow(self_argument)?;
                 self.infer_new_item_groups(item_groups)?
             }
             HirLazyExprData::NewTuple { ref items } => {
-                for item in items {
+                for _item in items {
                     todo!()
                 }
             }
@@ -184,7 +184,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 }
             }
             HirLazyExprData::EmptyHtmlTag {
-                function_ident,
+                function_ident: _,
                 ref arguments,
             } => {
                 for argument in arguments.iter() {
@@ -254,11 +254,11 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
     fn infer_new_stmt_aux(&mut self, hir_lazy_stmt: &HirLazyStmt) -> HasControlFlow {
         match *hir_lazy_stmt {
             HirLazyStmt::Let {
-                ref pattern,
+                pattern: _,
                 initial_value,
             } => self.expr_has_control_flow(initial_value),
-            HirLazyStmt::Return { result } => HasControlFlow::True,
-            HirLazyStmt::Require { condition } => HasControlFlow::True,
+            HirLazyStmt::Return { result: _ } => HasControlFlow::True,
+            HirLazyStmt::Require { condition: _ } => HasControlFlow::True,
             HirLazyStmt::Assert { condition } => self.expr_has_control_flow(condition),
             HirLazyStmt::Eval { expr_idx, .. } => self.expr_has_control_flow(expr_idx),
             HirLazyStmt::IfElse {
@@ -280,7 +280,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
         }
     }
 
-    fn finish(mut self) -> HirLazyExprRegionControlFlowChart {
+    fn finish(self) -> HirLazyExprRegionControlFlowChart {
         HirLazyExprRegionControlFlowChart {
             hir_lazy_expr_control_flow_chart: self.hir_lazy_expr_control_flow_chart,
             hir_lazy_stmt_control_flow_chart: self.hir_lazy_stmt_control_flow_chart,

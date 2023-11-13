@@ -4,9 +4,9 @@ mod method_fn;
 mod method_function;
 
 pub use self::associated_fn::*;
-pub use self::associated_val::*;
+
 pub use self::method_fn::*;
-pub use self::method_function::*;
+
 
 use super::*;
 
@@ -17,7 +17,7 @@ pub enum TraitItemEtherealSignatureTemplate {
 }
 
 impl TraitItemEtherealSignatureTemplate {
-    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+    pub fn self_ty(self, _db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
         match self {
             TraitItemEtherealSignatureTemplate::AssociatedFn(_) => None,
         }
@@ -29,7 +29,7 @@ impl HasEtherealSignatureTemplate for TraitItemPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        _db: &dyn EtherealSignatureDb,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         todo!()
     }

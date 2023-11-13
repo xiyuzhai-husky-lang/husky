@@ -1,6 +1,6 @@
 use husky_hir_ty::HirType;
 use husky_sema_expr::LetPatternSemaSyndicate;
-use husky_syn_expr::{BePatternSynSyndicate, LetPatternSynSyndicate};
+use husky_syn_expr::{BePatternSynSyndicate};
 
 use crate::*;
 
@@ -44,7 +44,7 @@ pub struct HirEagerBeVariablesPattern {}
 impl ToHirEager for BePatternSynSyndicate {
     type Output = HirEagerBeVariablesPattern;
 
-    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+    fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerBeVariablesPattern {}
     }
 }

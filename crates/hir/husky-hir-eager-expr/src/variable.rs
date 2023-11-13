@@ -1,8 +1,7 @@
 use super::*;
 use husky_syn_expr::{
-    AllowSelfValue, CurrentSynSymbol, CurrentSynSymbolData, CurrentSynSymbolKind,
-    CurrentTemplateParameterSynSymbolVariant, InheritedSynSymbol, InheritedSynSymbolKind,
-    SynSymbolMap, SynSymbolOrderedMap, SynSymbolRegion,
+    AllowSelfValue, CurrentSynSymbol, CurrentSynSymbolData, InheritedSynSymbol, InheritedSynSymbolKind,
+    SynSymbolMap, SynSymbolRegion,
 };
 use idx_arena::ArenaIdx;
 
@@ -54,7 +53,7 @@ impl HirEagerVariable {
     fn from_current_syn(current_syn_symbol: &CurrentSynSymbol) -> Option<Self> {
         let name = match current_syn_symbol.data() {
             CurrentSynSymbolData::SelfValue {
-                symbol_modifier_keyword_group,
+                symbol_modifier_keyword_group: _,
             } => VariableName::SelfValue,
             _ => VariableName::Ident(current_syn_symbol.ident()?),
         };
@@ -69,10 +68,10 @@ impl HirEagerVariableData {
     ) -> Option<HirEagerVariableData> {
         match inherited_syn_symbol_kind {
             InheritedSynSymbolKind::TemplateParameter(_) => None,
-            InheritedSynSymbolKind::ParenateParameter { ident } => {
+            InheritedSynSymbolKind::ParenateParameter { ident: _ } => {
                 Some(HirEagerVariableData::ParenateParameter)
             }
-            InheritedSynSymbolKind::FieldVariable { ident } => {
+            InheritedSynSymbolKind::FieldVariable { ident: _ } => {
                 Some(HirEagerVariableData::FieldVariable)
             }
         }
@@ -83,32 +82,32 @@ impl HirEagerVariableData {
             CurrentSynSymbolData::TemplateParameter { .. } => None,
             CurrentSynSymbolData::SelfType => todo!(),
             CurrentSynSymbolData::SelfValue {
-                symbol_modifier_keyword_group,
+                symbol_modifier_keyword_group: _,
             } => todo!(),
             CurrentSynSymbolData::ParenateRegularParameter {
-                ident,
-                pattern_symbol_idx,
+                ident: _,
+                pattern_symbol_idx: _,
             } => Some(HirEagerVariableData::ParenateParameter),
             CurrentSynSymbolData::ParenateVariadicParameter {
-                symbol_modifier_keyword_group,
-                ident_token,
+                symbol_modifier_keyword_group: _,
+                ident_token: _,
             } => Some(HirEagerVariableData::ParenateParameter),
             CurrentSynSymbolData::LetVariable {
-                ident,
-                pattern_symbol_idx,
+                ident: _,
+                pattern_symbol_idx: _,
             } => Some(HirEagerVariableData::LetVariable),
             CurrentSynSymbolData::BeVariable {
-                ident,
-                pattern_symbol_idx,
+                ident: _,
+                pattern_symbol_idx: _,
             } => Some(HirEagerVariableData::BeVariable),
             CurrentSynSymbolData::CaseVariable {
-                ident,
-                pattern_symbol_idx,
+                ident: _,
+                pattern_symbol_idx: _,
             } => Some(HirEagerVariableData::CaseVariable),
-            CurrentSynSymbolData::FieldVariable { ident_token } => {
+            CurrentSynSymbolData::FieldVariable { ident_token: _ } => {
                 Some(HirEagerVariableData::FieldVariable)
             }
-            CurrentSynSymbolData::LoopVariable { ident, expr_idx } => {
+            CurrentSynSymbolData::LoopVariable { ident: _, expr_idx: _ } => {
                 Some(HirEagerVariableData::LoopVariable)
             }
         }

@@ -1,6 +1,6 @@
 use husky_hir_ty::HirType;
 use husky_sema_expr::LetPatternSemaSyndicate;
-use husky_syn_expr::{BePatternSynSyndicate, LetPatternSynSyndicate};
+use husky_syn_expr::BePatternSynSyndicate;
 
 use crate::*;
 
@@ -49,7 +49,7 @@ pub struct HirLazyBeVariablesPattern {}
 impl ToHirLazy for BePatternSynSyndicate {
     type Output = HirLazyBeVariablesPattern;
 
-    fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
+    fn to_hir_lazy(&self, _builder: &mut HirLazyExprBuilder) -> Self::Output {
         HirLazyBeVariablesPattern {}
     }
 }

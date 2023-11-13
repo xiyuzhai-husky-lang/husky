@@ -32,7 +32,7 @@ impl FugitiveEtherealSignatureTemplate {
             FugitiveEtherealSignatureTemplate::TypeAlias(template) => {
                 template.template_parameters(db)
             }
-            FugitiveEtherealSignatureTemplate::Val(template) => &[],
+            FugitiveEtherealSignatureTemplate::Val(_template) => &[],
         }
     }
 }

@@ -66,25 +66,25 @@ impl<'a> HirLazyExprBuilder<'a> {
         match self.syn_expr_region_data()[syn_pattern_expr_idx] {
             SynPatternExpr::Literal { .. } => todo!(),
             SynPatternExpr::Ident {
-                symbol_modifier_tokens: symbol_modifier_keyword_group,
+                symbol_modifier_tokens: _symbol_modifier_keyword_group,
                 ident_token,
             } => HirLazyPatternExpr::Ident {
                 // symbol_modifier: (),
                 ident: ident_token.ident(),
             },
             SynPatternExpr::TypeVariantUnit { .. } => todo!(),
-            SynPatternExpr::Tuple { name, fields } => todo!(),
-            SynPatternExpr::Props { name, fields } => todo!(),
-            SynPatternExpr::OneOf { ref options } => todo!(),
+            SynPatternExpr::Tuple { name: _, fields: _ } => todo!(),
+            SynPatternExpr::Props { name: _, fields: _ } => todo!(),
+            SynPatternExpr::OneOf { options: _ } => todo!(),
             SynPatternExpr::Binding {
-                ident_token,
-                asperand_token,
-                src,
+                ident_token: _,
+                asperand_token: _,
+                src: _,
             } => todo!(),
             SynPatternExpr::Range {
-                start,
-                dot_dot_token,
-                end,
+                start: _,
+                dot_dot_token: _,
+                end: _,
             } => todo!(),
         }
     }

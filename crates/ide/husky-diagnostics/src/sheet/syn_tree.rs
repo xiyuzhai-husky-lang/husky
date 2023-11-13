@@ -2,9 +2,9 @@ use super::*;
 use husky_ast::Ast;
 use husky_entity_syn_tree::{
     helpers::tokra_region::HasDeclTokraRegion, EntitySynTreeError, ImplBlockIllForm,
-    MajorPathExprError, OnceUseRuleState, OriginalEntityTreeError, OriginalMajorPathExprError,
+    MajorPathExprError, OriginalEntityTreeError, OriginalMajorPathExprError,
 };
-use salsa::DebugWithDb;
+
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct EntityTreeDiagnosticSheet {
@@ -36,11 +36,11 @@ pub(crate) fn item_tree_diagnostic_sheet(
 impl Diagnose for OriginalEntityTreeError {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
-    fn message(&self, db: &Self::Context<'_>) -> String {
+    fn message(&self, _db: &Self::Context<'_>) -> String {
         match self {
             OriginalEntityTreeError::UnresolvedRootIdent(_) => format!("unresolved identifier"),
             OriginalEntityTreeError::NoVisibleSubitem => format!("NoSubitem"),
-            OriginalEntityTreeError::EntitySymbolAlreadyDefined { old, new } => {
+            OriginalEntityTreeError::EntitySymbolAlreadyDefined { old: _, new: _ } => {
                 format!("EntitySymbolAlreadyDefined")
             }
             OriginalEntityTreeError::ExpectIdentAfterKeyword => {
@@ -61,12 +61,12 @@ impl Diagnose for OriginalEntityTreeError {
                 ctx.token_idx_text_range(ident_token.token_idx())
             }
             OriginalEntityTreeError::NoVisibleSubitem => todo!(),
-            OriginalEntityTreeError::EntitySymbolAlreadyDefined { old, new } => {
+            OriginalEntityTreeError::EntitySymbolAlreadyDefined { old: _, new } => {
                 match ctx.ast_sheet()[new.decl_ast_idx(db)] {
                     Ast::Use {
-                        token_group_idx,
-                        ref visibility_expr,
-                        state_after_visibility_expr,
+                        token_group_idx: _,
+                        visibility_expr: _,
+                        state_after_visibility_expr: _,
                     } => todo!(),
                     Ast::Identifiable { ident_token, .. }
                     | Ast::TypeVariant { ident_token, .. } => {

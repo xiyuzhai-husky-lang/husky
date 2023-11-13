@@ -8,7 +8,7 @@ pub use self::associated_fn::*;
 pub use self::associated_ty::*;
 pub use self::associated_val::*;
 pub use self::method_fn::*;
-pub use self::method_function::*;
+
 
 use super::*;
 

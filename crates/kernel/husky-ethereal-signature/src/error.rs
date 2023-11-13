@@ -41,7 +41,7 @@ impl From<EtherealTermError> for EtherealSignatureError {
 }
 
 impl From<&EntityTreeBundleError> for EtherealSignatureError {
-    fn from(e: &EntityTreeBundleError) -> Self {
+    fn from(_e: &EntityTreeBundleError) -> Self {
         EtherealSignatureError::EntityTreeBundleError
     }
 }
