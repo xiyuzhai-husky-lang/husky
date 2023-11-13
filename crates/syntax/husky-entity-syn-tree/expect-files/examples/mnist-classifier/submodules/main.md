@@ -1,25 +1,23 @@
-Ok(
-    [
-        SubmodulePath(
-            `mnist_classifier::connected_component`,
-        ),
-        SubmodulePath(
-            `mnist_classifier::raw_contour`,
-        ),
-        SubmodulePath(
-            `mnist_classifier::geom2d`,
-        ),
-        SubmodulePath(
-            `mnist_classifier::line_segment_sketch`,
-        ),
-        SubmodulePath(
-            `mnist_classifier::fermi`,
-        ),
-        SubmodulePath(
-            `mnist_classifier::digits`,
-        ),
-        SubmodulePath(
-            `mnist_classifier::major`,
-        ),
-    ],
-)
+[
+    SubmodulePath(
+        `mnist_classifier::connected_component`,
+    ),
+    SubmodulePath(
+        `mnist_classifier::raw_contour`,
+    ),
+    SubmodulePath(
+        `mnist_classifier::geom2d`,
+    ),
+    SubmodulePath(
+        `mnist_classifier::line_segment_sketch`,
+    ),
+    SubmodulePath(
+        `mnist_classifier::fermi`,
+    ),
+    SubmodulePath(
+        `mnist_classifier::digits`,
+    ),
+    SubmodulePath(
+        `mnist_classifier::major`,
+    ),
+]

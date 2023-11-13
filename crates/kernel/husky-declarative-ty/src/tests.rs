@@ -51,10 +51,7 @@ fn major_item_declarative_tys(
     db: &DB,
     module_path: ModulePath,
 ) -> Vec<(ItemPath, DeclarativeTypeResult<DeclarativeTerm>)> {
-    let Ok(item_tree_sheet) = db.item_syn_tree_sheet(module_path) else {
-        return vec![];
-    };
-    item_tree_sheet
+    db.item_syn_tree_sheet(module_path)
         .major_paths(db)
         .map(|path| {
             (

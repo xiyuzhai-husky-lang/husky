@@ -4,7 +4,7 @@ use husky_vfs::VfsPathMenu;
 
 pub trait FluffyTermEngine<'a>: Sized {
     fn db(&self) -> &'a dyn FluffyTermDb;
-    fn trai_in_use_items_table(&self) -> EntityTreeResultRef<'a, TraitInUseItemsTable<'a>>;
+    fn trai_in_use_items_table(&self) -> TraitInUseItemsTable<'a>;
     fn fluffy_term_region(&self) -> &FluffyTermRegion;
     fn fluffy_term_region_mut(&mut self) -> &mut FluffyTermRegion;
     fn fluffy_terms(&self) -> &FluffyTerms {

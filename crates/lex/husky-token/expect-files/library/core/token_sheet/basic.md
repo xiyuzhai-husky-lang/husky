@@ -1,190 +1,188 @@
-Ok(
-    TokenSheetData {
-        tokens: [
-            TokenData::Keyword(
-                Keyword::Use,
+TokenSheetData {
+    tokens: [
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Ident(
+            `bool`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Ident(
-                `bool`,
+        ),
+        TokenData::Ident(
+            `never`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Ident(
+            `unit`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Ident(
-                `never`,
+        ),
+        TokenData::Ident(
+            `Trait`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Ident(
+            `Module`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Ident(
-                `unit`,
+        ),
+        TokenData::Ident(
+            `Lifetime`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Ident(
+            `Place`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
+        ),
+    ],
+    token_group_starts: [
+        TokenGroupStart(
+            TokenIdx(
+                1,
             ),
-            TokenData::Ident(
-                `Trait`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                5,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                9,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                13,
             ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                17,
             ),
-            TokenData::Ident(
-                `Module`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                21,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                25,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                29,
             ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
-            ),
-            TokenData::Ident(
-                `Lifetime`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
-            ),
-            TokenData::Keyword(
-                Keyword::Pub,
-            ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
-            ),
-            TokenData::Ident(
-                `Place`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
-            ),
-        ],
-        token_group_starts: [
-            TokenGroupStart(
-                TokenIdx(
-                    1,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    5,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    9,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    13,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    17,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    21,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    25,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    29,
-                ),
-            ),
-        ],
-        indents: [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-        ],
-    },
-)
+        ),
+    ],
+    indents: [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+    ],
+}

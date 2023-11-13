@@ -2,7 +2,7 @@ use crate::{registry::associated_trace::IsAssociatedTraceRegistry, *};
 
 use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenIdx, TokenIdxRange};
-use husky_token_info::{TokenInfoSheetRef};
+use husky_token_info::TokenInfoSheetRef;
 use husky_trace_protocol::view::{TraceViewLineData, TraceViewTokenData};
 
 #[derive(Debug, PartialEq, Eq)]
@@ -55,7 +55,7 @@ where
         // db.text
         Self {
             db,
-            ranged_token_sheet: db.ranged_token_sheet(module_path).unwrap(),
+            ranged_token_sheet: db.ranged_token_sheet(module_path),
             token_info_sheet: db.token_info_sheet_ref(module_path).unwrap(),
             text: module_path.text(db),
             lines_data: vec![],

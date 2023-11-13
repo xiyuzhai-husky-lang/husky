@@ -26,7 +26,6 @@ husky-token-protocol = { path = "../../protocols/husky-token-protocol", features
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 # utils
 husky-websocket-utils = { path = "../../utils/husky-websocket-utils", features = [
-    "imgui_client",
     "serde_json"
 ] }
 
@@ -41,7 +40,8 @@ client = [
     "dep:futures",
     "dep:futures-util",
     "dep:tokio",
-    "dep:tokio-tungstenite"
+    "dep:tokio-tungstenite",
+    "husky-websocket-utils/imgui_client"
 ]
 server = [
     "message",
@@ -50,5 +50,6 @@ server = [
     "dep:futures",
     "dep:futures-util",
     "dep:tokio",
-    "dep:tokio-tungstenite"
+    "dep:tokio-tungstenite",
+    "husky-websocket-utils/easy_server"
 ]

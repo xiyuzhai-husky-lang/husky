@@ -10,6 +10,6 @@ type Task = MlTask<StandardDevComptimeDb, Graphics2dVisualProtocol>;
 fn main() {
     let task = Task::new();
     let path: PathBuf = "examples/mnist-classifier".into();
-    let devtime = Devtime::new(task, &path, None);
+    let devtime = Devtime::new(task, &path, None).expect("valid");
     devtime.serve_traces(AD_HOC_WEBSOCKET_ADDRESS)
 }

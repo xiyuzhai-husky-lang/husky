@@ -1,7 +1,6 @@
 use crate::*;
 use husky_regional_token::RegionalTokenIdx;
 
-
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct UseSymbol {
     #[id]
@@ -138,7 +137,7 @@ pub(crate) fn module_symbol_context<'a>(
     db: &'a dyn EntitySynTreeDb,
     module_path: ModulePath,
 ) -> EntitySynTreeResult<ModuleSymbolContext<'a>> {
-    let item_tree_sheet = db.item_syn_tree_sheet(module_path)?;
+    let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     Ok(ModuleSymbolContext {
         crate_prelude: CratePrelude::new(db, module_path.crate_path(db))?,
         module_symbols: item_tree_sheet.module_symbols().into(),

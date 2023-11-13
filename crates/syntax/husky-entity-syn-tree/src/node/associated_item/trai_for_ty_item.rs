@@ -119,7 +119,7 @@ pub(crate) fn trai_for_ty_impl_block_items(
 ) -> Vec<(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemSynNode)> {
     let impl_block_syn_node = impl_block_syn_node_path.syn_node(db);
     let module_path = impl_block_syn_node_path.module_path(db);
-    let ast_sheet = db.ast_sheet(module_path).unwrap();
+    let ast_sheet = db.ast_sheet(module_path);
     let Some(items) = impl_block_syn_node.items(db) else {
         return vec![];
     };

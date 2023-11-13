@@ -131,7 +131,7 @@ pub(crate) fn ty_impl_block_items(
 ) -> Vec<(Ident, TypeItemSynNodePath, TypeItemSynNode)> {
     let impl_block_syn_node = syn_node_path.syn_node(db);
     let module_path = syn_node_path.module_path(db);
-    let ast_sheet = db.ast_sheet(module_path).unwrap();
+    let ast_sheet = db.ast_sheet(module_path);
     let items = impl_block_syn_node.items(db);
     let mut registry = ItemSynNodePathRegistry::default();
     items
@@ -178,7 +178,7 @@ pub trait HasItemNodePaths: Copy {
     fn item_syn_node_paths<'a>(
         self,
         db: &'a dyn EntitySynTreeDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Self::ItemNodePath)]>;
+    ) -> &'a [(Ident, Self::ItemNodePath)];
 }
 
 impl HasItemNodePaths for TypePath {
@@ -187,8 +187,8 @@ impl HasItemNodePaths for TypePath {
     fn item_syn_node_paths<'a>(
         self,
         db: &'a dyn EntitySynTreeDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemSynNodePath)]> {
-        ty_item_syn_node_paths(db, self).as_ref().map(|v| v as &[_])
+    ) -> &'a [(Ident, TypeItemSynNodePath)] {
+        ty_item_syn_node_paths(db, self)
     }
 }
 
@@ -196,10 +196,10 @@ impl HasItemNodePaths for TypePath {
 pub(crate) fn ty_item_syn_node_paths(
     db: &dyn EntitySynTreeDb,
     path: TypePath,
-) -> EntitySynTreeBundleResult<Vec<(Ident, TypeItemSynNodePath)>> {
+) -> Vec<(Ident, TypeItemSynNodePath)> {
     let crate_path = path.module_path(db).crate_path(db);
-    let item_tree_crate_bundle = db.item_syn_tree_bundle(crate_path)?;
-    Ok(item_tree_crate_bundle
+    let item_tree_crate_bundle = db.item_syn_tree_bundle(crate_path);
+    item_tree_crate_bundle
         .all_ty_impl_block_syn_node_paths()
         .filter_map(|syn_node_path| {
             // ad hoc
@@ -213,7 +213,7 @@ pub(crate) fn ty_item_syn_node_paths(
             })
         })
         .flatten()
-        .collect())
+        .collect()
 }
 
 pub trait HasItemPathsMap: Copy {
@@ -224,16 +224,13 @@ pub trait HasItemPathsMap: Copy {
     fn item_paths_map<'a>(
         self,
         db: &'a dyn EntitySynTreeDb,
-    ) -> EntityTreeBundleResultRef<
-        'a,
-        &'a [(
-            Ident,
-            (
-                Self::ItemKind,
-                EntitySynTreeResult<SmallVec<[Self::ItemPath; 1]>>,
-            ),
-        )],
-    >;
+    ) -> &'a [(
+        Ident,
+        (
+            Self::ItemKind,
+            EntitySynTreeResult<SmallVec<[Self::ItemPath; 1]>>,
+        ),
+    )];
 }
 
 impl HasItemPathsMap for TypePath {
@@ -244,17 +241,14 @@ impl HasItemPathsMap for TypePath {
     fn item_paths_map<'a>(
         self,
         db: &'a dyn EntitySynTreeDb,
-    ) -> EntityTreeBundleResultRef<
-        'a,
-        &'a [(
-            Ident,
-            (
-                TypeItemKind,
-                EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
-            ),
-        )],
-    > {
-        ty_item_paths_map(db, self).as_ref().map(|v| v as &[_])
+    ) -> &'a [(
+        Ident,
+        (
+            TypeItemKind,
+            EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
+        ),
+    )] {
+        ty_item_paths_map(db, self)
     }
 }
 
@@ -262,17 +256,15 @@ impl HasItemPathsMap for TypePath {
 pub(crate) fn ty_item_paths_map(
     db: &dyn EntitySynTreeDb,
     path: TypePath,
-) -> EntitySynTreeBundleResult<
-    IdentPairMap<(
-        TypeItemKind,
-        EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
-    )>,
-> {
+) -> IdentPairMap<(
+    TypeItemKind,
+    EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
+)> {
     let mut paths: IdentPairMap<(
         TypeItemKind,
         EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
     )> = Default::default();
-    for (ident, syn_node_path) in path.item_syn_node_paths(db)?.iter().copied() {
+    for (ident, syn_node_path) in path.item_syn_node_paths(db).iter().copied() {
         if let Some(path) = syn_node_path.path(db) {
             let ty_item_kind = path.item_kind(db);
             paths.update_value_or_insert(
@@ -288,5 +280,5 @@ pub(crate) fn ty_item_paths_map(
             )
         }
     }
-    Ok(paths)
+    paths
 }

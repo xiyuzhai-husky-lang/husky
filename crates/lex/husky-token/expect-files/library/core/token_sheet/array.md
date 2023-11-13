@@ -1,95 +1,93 @@
-Ok(
-    TokenSheetData {
-        tokens: [
-            TokenData::Keyword(
-                Keyword::Use,
+TokenSheetData {
+    tokens: [
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Ident(
+            `Array`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::LaOrLt,
             ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Const,
+        ),
+        TokenData::Ident(
+            `L`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
             ),
-            TokenData::Ident(
-                `Array`,
+        ),
+        TokenData::Ident(
+            `usize`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::LaOrLt,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Modifier(
+                Covariant,
             ),
-            TokenData::Keyword(
-                Keyword::Const,
+        ),
+        TokenData::Ident(
+            `E`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::RaOrGt,
             ),
-            TokenData::Ident(
-                `L`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
+        ),
+    ],
+    token_group_starts: [
+        TokenGroupStart(
+            TokenIdx(
+                1,
             ),
-            TokenData::Ident(
-                `usize`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                5,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            TokenData::Keyword(
-                Keyword::Modifier(
-                    Covariant,
-                ),
-            ),
-            TokenData::Ident(
-                `E`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
-            ),
-        ],
-        token_group_starts: [
-            TokenGroupStart(
-                TokenIdx(
-                    1,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    5,
-                ),
-            ),
-        ],
-        indents: [
-            0,
-            0,
-        ],
-    },
-)
+        ),
+    ],
+    indents: [
+        0,
+        0,
+    ],
+}

@@ -7,9 +7,20 @@ use with_db::PartialOrdWithDb;
 #[cfg(test)]
 use with_db::WithDb;
 
-#[salsa::interned(jar = VfsJar, override_debug)]
+#[salsa::interned(jar = VfsJar, override_debug, constructor = new_inner)]
 pub struct ModulePath {
     pub data: ModulePathData,
+}
+
+impl ModulePath {
+    pub fn new(db: &dyn VfsDb, data: ModulePathData) -> VfsResult<Self> {
+        let slf = Self::new_inner(db, data);
+        let diff_path = module_diff_path(db, slf)?;
+        db.file_from_diff_path(diff_path)?
+            .text(db)?
+            .ok_or(VfsError::FileNotExists(diff_path))?;
+        Ok(slf)
+    }
 }
 
 pub trait HasModulePath<Db>: Copy
@@ -100,12 +111,16 @@ impl ModulePath {
         }
     }
 
-    pub fn new_root(db: &dyn VfsDb, crate_path: CratePath) -> Self {
+    /// use CratePath::root_module_path instead in other crates
+    pub(crate) fn new_root(db: &dyn VfsDb, crate_path: CratePath) -> VfsResult<Self> {
         Self::new(db, ModulePathData::Root(crate_path))
     }
 
-    pub fn new_child(db: &dyn VfsDb, parent: ModulePath, ident: Ident) -> SubmodulePath {
-        SubmodulePath(Self::new(db, ModulePathData::Child { parent, ident }))
+    pub fn new_child(db: &dyn VfsDb, parent: ModulePath, ident: Ident) -> VfsResult<SubmodulePath> {
+        Ok(SubmodulePath(Self::new(
+            db,
+            ModulePathData::Child { parent, ident },
+        )?))
     }
 
     pub fn toolchain(self, db: &dyn VfsDb) -> Toolchain {
@@ -124,12 +139,14 @@ impl ModulePath {
         }
     }
 
-    pub fn raw_text<Db: ?Sized + VfsDb>(self, db: &Db) -> VfsResult<&str> {
+    pub fn raw_text<Db: ?Sized + VfsDb>(self, db: &Db) -> &str {
         let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
-        let diff_path = module_diff_path(db, self)?;
-        db.file_from_diff_path(diff_path)?
-            .text(db)?
-            .ok_or(VfsError::FileNotExists(diff_path))
+        let diff_path = module_diff_path(db, self).unwrap();
+        db.file_from_diff_path(diff_path)
+            .unwrap()
+            .text(db)
+            .unwrap()
+            .unwrap()
     }
 }
 

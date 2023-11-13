@@ -1,19 +1,17 @@
-Ok(
-    [
-        ItemPath::Submodule(
-            SubmodulePath(
-                `std::prelude`,
-            ),
+[
+    ItemPath::Submodule(
+        SubmodulePath(
+            `std::prelude`,
         ),
-        ItemPath::Submodule(
-            SubmodulePath(
-                `std::logic`,
-            ),
+    ),
+    ItemPath::Submodule(
+        SubmodulePath(
+            `std::logic`,
         ),
-        ItemPath::Submodule(
-            SubmodulePath(
-                `std::ops`,
-            ),
+    ),
+    ItemPath::Submodule(
+        SubmodulePath(
+            `std::ops`,
         ),
-    ],
-)
+    ),
+]

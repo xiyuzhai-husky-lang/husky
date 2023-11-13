@@ -128,7 +128,7 @@ pub(crate) fn ty_item_ethereal_signature_templates_map(
     IdentPairMap<EtherealSignatureResult<TypeItemEtherealSignatureTemplates>>,
 > {
     Ok(
-        IdentPairMap::from_iter_assuming_no_repetitions(ty_path.item_paths_map(db)?.iter().map(
+        IdentPairMap::from_iter_assuming_no_repetitions(ty_path.item_paths_map(db).iter().map(
             |(ident, (ty_item_kind, result))| -> (
                 Ident,
                 EtherealSignatureResult<TypeItemEtherealSignatureTemplates>,

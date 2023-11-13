@@ -44,7 +44,7 @@ use husky_toml_token::TomlTokenJar;
     TermPreludeJar,
     DeclarativeTermJar,
     DeclarativeSignatureJar,
-    DeclarativeTypeJar,
+    husky_declarative_ty::db::DeclarativeTypeJar,
     EtherealTermJar,
     EtherealSignatureJar,
     FluffyTermJar,

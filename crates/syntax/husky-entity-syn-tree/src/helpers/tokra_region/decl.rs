@@ -1,6 +1,6 @@
 use super::*;
 use husky_decl_ast::DeclAst;
-use husky_token::{TokenIdxRange};
+use husky_token::TokenIdxRange;
 
 ///
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
@@ -68,12 +68,8 @@ fn build_decl_tokra_region(
     ast_idx: AstIdx,
     db: &dyn EntitySynTreeDb,
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
-    let token_sheet_data = db
-        .token_sheet_data(module_path)
-        .expect("all modules should be valid");
-    let ast_sheet = db
-        .ast_sheet(module_path)
-        .expect("all modules should be valid");
+    let token_sheet_data = db.token_sheet_data(module_path);
+    let ast_sheet = db.ast_sheet(module_path);
     let (token_group_idx, ast, saved_regional_stream_state) = match ast_sheet[ast_idx] {
         Ast::Attr {
             token_group_idx,

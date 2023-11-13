@@ -34,14 +34,14 @@ impl<'a> TokenInfoEngine<'a> {
         db: &'a dyn TokenInfoDb,
         module_path: ModulePath,
     ) -> EntitySynTreeResult<Self> {
-        let token_sheet_data = &db.token_sheet_data(module_path)?;
+        let token_sheet_data = &db.token_sheet_data(module_path);
         Ok(Self {
             db,
             module_path,
             token_sheet_data,
-            ast_sheet: db.ast_sheet(module_path)?,
-            item_tree_presheet: db.item_syn_tree_presheet(module_path)?,
-            item_tree_sheet: db.item_syn_tree_sheet(module_path)?,
+            ast_sheet: db.ast_sheet(module_path),
+            item_tree_presheet: db.item_syn_tree_presheet(module_path),
+            item_tree_sheet: db.item_syn_tree_sheet(module_path),
             sheet: TokenInfoSheet::new(token_sheet_data),
             module_symbol_context: db.module_symbol_context(module_path)?,
         })
@@ -55,8 +55,6 @@ impl<'a> TokenInfoEngine<'a> {
 
     fn visit_syn_nodes(&mut self) -> EntitySynTreeResult<()> {
         for syn_node_path in module_item_syn_node_paths(self.db, self.module_path)
-            .as_ref()
-            .expect("deprecated error")
             .iter()
             .copied()
         {

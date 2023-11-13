@@ -1,44 +1,42 @@
-Ok(
-    [
-        ItemPath::Submodule(
-            SubmodulePath(
-                `mnist_classifier::connected_component`,
-            ),
+[
+    ItemPath::Submodule(
+        SubmodulePath(
+            `mnist_classifier::connected_component`,
         ),
-        ItemPath::Submodule(
-            SubmodulePath(
-                `mnist_classifier::raw_contour`,
-            ),
+    ),
+    ItemPath::Submodule(
+        SubmodulePath(
+            `mnist_classifier::raw_contour`,
         ),
-        ItemPath::Submodule(
-            SubmodulePath(
-                `mnist_classifier::geom2d`,
-            ),
+    ),
+    ItemPath::Submodule(
+        SubmodulePath(
+            `mnist_classifier::geom2d`,
         ),
-        ItemPath::Submodule(
-            SubmodulePath(
-                `mnist_classifier::line_segment_sketch`,
-            ),
+    ),
+    ItemPath::Submodule(
+        SubmodulePath(
+            `mnist_classifier::line_segment_sketch`,
         ),
-        ItemPath::Submodule(
-            SubmodulePath(
-                `mnist_classifier::fermi`,
-            ),
+    ),
+    ItemPath::Submodule(
+        SubmodulePath(
+            `mnist_classifier::fermi`,
         ),
-        ItemPath::Submodule(
-            SubmodulePath(
-                `mnist_classifier::digits`,
-            ),
+    ),
+    ItemPath::Submodule(
+        SubmodulePath(
+            `mnist_classifier::digits`,
         ),
-        ItemPath::Submodule(
-            SubmodulePath(
-                `mnist_classifier::major`,
-            ),
+    ),
+    ItemPath::Submodule(
+        SubmodulePath(
+            `mnist_classifier::major`,
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::main`, `Val`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Fugitive(
+            FugitivePath(`mnist_classifier::main`, `Val`),
         ),
-    ],
-)
+    ),
+]

@@ -1,7 +1,7 @@
 use crate::*;
 
 use husky_coword::Ident;
-use husky_token::{IdentToken};
+use husky_token::IdentToken;
 use vec_like::VecMap;
 
 // can see other modules in the crate

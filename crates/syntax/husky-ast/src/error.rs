@@ -2,9 +2,8 @@ use crate::*;
 use husky_scope_expr::{
     DerivedVisibilityExprError, OriginalVisibilityExprError, VisibilityExprError,
 };
-use husky_token::{
-    TokenGroupIdx, TokenIdx, TokenStreamState,
-};
+use husky_token::{TokenGroupIdx, TokenIdx, TokenStreamState};
+use husky_vfs::error::VfsError;
 use original_error::OriginalError;
 use thiserror::Error;
 
@@ -143,6 +142,12 @@ pub enum DerivedAstError {
 
 impl From<&AstError> for AstError {
     fn from(_value: &AstError) -> Self {
+        todo!()
+    }
+}
+
+impl From<VfsError> for AstError {
+    fn from(e: VfsError) -> Self {
         todo!()
     }
 }

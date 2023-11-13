@@ -1,39 +1,11 @@
-Ok(
-    EntitySynTreePresheet {
-        module_path: `core::marker`,
-        major_item_node_table: MajorEntityNodeTable {
-            entries: [
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Trait(
-                                TraitSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitPath(`core::marker::Copy`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 2,
-                            ident_token: IdentToken {
-                                ident: `Copy`,
-                                token_idx: TokenIdx(
-                                    7,
-                                ),
-                            },
-                            block: Trait {
-                                path: TraitPath(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                                items: None,
-                            },
-                        },
-                    ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Trait(
+EntitySynTreePresheet {
+    module_path: `core::marker`,
+    major_item_node_table: MajorEntityNodeTable {
+        entries: [
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Trait(
                             TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::marker::Copy`),
@@ -41,41 +13,41 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `Copy`,
-                    visibility: Scope::Pub,
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Trait(
-                                TraitSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitPath(`core::marker::Sized`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::Pub,
+                        ast_idx: 2,
+                        ident_token: IdentToken {
+                            ident: `Copy`,
+                            token_idx: TokenIdx(
+                                7,
+                            ),
+                        },
+                        block: Trait {
+                            path: TraitPath(
+                                Id {
+                                    value: 7,
                                 },
                             ),
-                            visibility: Scope::Pub,
-                            ast_idx: 3,
-                            ident_token: IdentToken {
-                                ident: `Sized`,
-                                token_idx: TokenIdx(
-                                    11,
-                                ),
-                            },
-                            block: Trait {
-                                path: TraitPath(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                                items: None,
+                            items: None,
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
+                        TraitSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::marker::Copy`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Trait(
+                ),
+                ident: `Copy`,
+                visibility: Scope::Pub,
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Trait(
                             TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::marker::Sized`),
@@ -83,74 +55,100 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `Sized`,
-                    visibility: Scope::Pub,
-                },
-            ],
-        },
-        use_one_trackers: OnceUseRules(
-            [
-                OnceUseRule {
-                    ast_idx: 1,
-                    use_expr_idx: 2,
-                    visibility: Scope::PubUnder(
-                        `core::marker`,
-                    ),
-                    variant: OnceUseRuleVariant::Parent {
-                        parent_name_token: PathNameToken::CrateRoot(
-                            CrateToken {
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
-                        ),
-                        children: ArenaIdxRange(
-                            1..2,
-                        ),
-                    },
-                    parent: None,
-                    state: OnceUseRuleState::Unresolved,
-                },
-            ],
-        ),
-        use_all_trackers: UseAllModuleSymbolsRules(
-            [],
-        ),
-        use_expr_arena: Arena {
-            data: [
-                UseExpr::All {
-                    star_token: StarToken(
-                        TokenIdx(
-                            4,
-                        ),
-                    ),
-                },
-                UseExpr::Parent(
-                    ParentUseExpr {
-                        parent_name_token: PathNameToken::CrateRoot(
-                            CrateToken {
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
-                        ),
-                        colon_colon_token: Ok(
-                            ColonColonToken(
-                                TokenIdx(
-                                    3,
-                                ),
+                        visibility: Scope::Pub,
+                        ast_idx: 3,
+                        ident_token: IdentToken {
+                            ident: `Sized`,
+                            token_idx: TokenIdx(
+                                11,
                             ),
-                        ),
-                        children: Ok(
-                            UseExprChildren::Single {
-                                child: 1,
-                            },
-                        ),
+                        },
+                        block: Trait {
+                            path: TraitPath(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                            items: None,
+                        },
                     },
                 ),
-            ],
-        },
-        errors: [],
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
+                        TraitSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::marker::Sized`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                ident: `Sized`,
+                visibility: Scope::Pub,
+            },
+        ],
     },
-)
+    use_one_trackers: OnceUseRules(
+        [
+            OnceUseRule {
+                ast_idx: 1,
+                use_expr_idx: 2,
+                visibility: Scope::PubUnder(
+                    `core::marker`,
+                ),
+                variant: OnceUseRuleVariant::Parent {
+                    parent_name_token: PathNameToken::CrateRoot(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    children: ArenaIdxRange(
+                        1..2,
+                    ),
+                },
+                parent: None,
+                state: OnceUseRuleState::Unresolved,
+            },
+        ],
+    ),
+    use_all_trackers: UseAllModuleSymbolsRules(
+        [],
+    ),
+    use_expr_arena: Arena {
+        data: [
+            UseExpr::All {
+                star_token: StarToken(
+                    TokenIdx(
+                        4,
+                    ),
+                ),
+            },
+            UseExpr::Parent(
+                ParentUseExpr {
+                    parent_name_token: PathNameToken::CrateRoot(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    colon_colon_token: Ok(
+                        ColonColonToken(
+                            TokenIdx(
+                                3,
+                            ),
+                        ),
+                    ),
+                    children: Ok(
+                        UseExprChildren::Single {
+                            child: 1,
+                        },
+                    ),
+                },
+            ),
+        ],
+    },
+    errors: [],
+}

@@ -18,11 +18,7 @@ impl<'a> CratePrelude<'a> {
             if crate_path == db.vfs_path_menu(crate_path.toolchain(db)).core_library() {
                 None
             } else {
-                Some(
-                    none_core_crate_universal_prelude(db, crate_path.toolchain(db))
-                        .as_ref()?
-                        .as_ref(),
-                )
+                Some(none_core_crate_universal_prelude(db, crate_path.toolchain(db)).as_ref())
             };
         Ok(Self {
             universal_prelude,
@@ -51,13 +47,13 @@ pub struct UniversalPrelude {}
 pub(crate) fn none_core_crate_universal_prelude(
     db: &dyn EntitySynTreeDb,
     toolchain: Toolchain,
-) -> PreludeResult<EntitySymbolTable> {
+) -> EntitySymbolTable {
     let vfs_path_menu = db.vfs_path_menu(toolchain);
     let _item_path_menu = db.item_path_menu(toolchain);
     let coword_menu = db.coword_menu();
     let core_prelude_module = vfs_path_menu.core_prelude().inner();
     let mut table = EntitySymbolTable::default();
-    table.insert(EntitySymbolEntry {
+    table.push(EntitySymbolEntry {
         ident: coword_menu.core_ident(),
         visibility: Scope::Pub,
         symbol: EntitySymbol::UniversalPrelude {
@@ -66,7 +62,6 @@ pub(crate) fn none_core_crate_universal_prelude(
     });
     table.extend(
         item_tree_sheet(db, core_prelude_module)
-            .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e)))?
             .module_symbols()
             .data()
             .iter()
@@ -78,7 +73,7 @@ pub(crate) fn none_core_crate_universal_prelude(
                 },
             }),
     );
-    Ok(table)
+    table
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
@@ -89,9 +84,12 @@ fn crate_specific_prelude(
     let package_path = crate_path.package_path(db);
     let package_dependencies = package_path.package_dependencies(db)?;
     let mut entries: EntitySymbolTable = Default::default();
-    entries.insert(EntitySymbolEntry::new_crate_root(db, crate_path));
-    entries.extend(package_dependencies.iter().map(|package_dependency| {
-        EntitySymbolEntry::new_package_dependency(db, package_dependency)
-    }));
+    entries.push(EntitySymbolEntry::new_crate_root(db, crate_path));
+    for package_dependency in package_dependencies {
+        entries.push(EntitySymbolEntry::new_package_dependency(
+            db,
+            package_dependency,
+        )?);
+    }
     Ok(entries)
 }

@@ -9,18 +9,14 @@ pub use self::error::*;
 pub(crate) fn item_tree_crate_bundle(
     db: &dyn EntitySynTreeDb,
     crate_path: CratePath,
-) -> EntitySynTreeBundleResult<EntitySynTreeCrateBundle> {
-    Ok(EntityTreeCollector::new(db, crate_path)?.collect_all())
+) -> EntitySynTreeCrateBundle {
+    EntityTreeCollector::new(db, crate_path).collect_all()
 }
 
 #[test]
 fn item_tree_crate_bundle_works() {
     DB::default().ast_expect_test_debug_with_db(
-        |db, crate_path| -> EntitySynTreeBundleResult<_> {
-            Ok(item_tree_crate_bundle(db, crate_path)
-                .as_ref()
-                .map_err(|e| e.clone())?)
-        },
+        |db, crate_path| item_tree_crate_bundle(db, crate_path),
         &AstTestConfig::new("item_tree_bundle"),
     )
 }

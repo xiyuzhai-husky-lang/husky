@@ -7,7 +7,6 @@ mod ty_variant;
 
 pub use self::associated_item::*;
 pub use self::attr::*;
-
 pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
@@ -83,14 +82,12 @@ impl HasSynNodeDefn for ItemSynNodePath {
 }
 
 pub trait HasNodeDefns: Copy {
-    fn node_defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynNodeDefn]>;
+    fn node_defns(self, db: &dyn SynDefnDb) -> &[SynNodeDefn];
 }
 
 impl HasNodeDefns for ModulePath {
-    fn node_defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynNodeDefn]> {
-        Ok(module_syn_node_defns(db, self)
-            .as_ref()
-            .expect("syn tree error is deprecated"))
+    fn node_defns(self, db: &dyn SynDefnDb) -> &[SynNodeDefn] {
+        module_syn_node_defns(db, self)
     }
 }
 
@@ -98,14 +95,12 @@ impl HasNodeDefns for ModulePath {
 pub(crate) fn module_syn_node_defns(
     db: &dyn SynDefnDb,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<SynNodeDefn>> {
-    Ok(module_item_syn_node_paths(db, module_path)
-        .as_ref()
-        .expect("syn tree error is deprecated")
+) -> Vec<SynNodeDefn> {
+    module_item_syn_node_paths(db, module_path)
         .iter()
         .copied()
         .map(|syn_node_path| syn_node_path.syn_node_defn(db))
-        .collect())
+        .collect()
 }
 
 #[test]
@@ -221,8 +216,6 @@ pub(crate) fn module_syn_defns(
     module_path: ModulePath,
 ) -> EntitySynTreeResult<Vec<SynDefn>> {
     Ok(module_item_paths(db, module_path)
-        .as_ref()
-        .expect_with_db(db, "syn tree error is deprecated")
         .iter()
         .copied()
         .filter_map(|path| path.syn_defn(db).ok())

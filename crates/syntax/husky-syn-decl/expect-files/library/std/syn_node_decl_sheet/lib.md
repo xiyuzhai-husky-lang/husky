@@ -1,10 +1,20 @@
-Ok(
-    SynNodeDeclSheet {
-        [salsa id]: 20,
-        decls: [
-            (
-                ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
+SynNodeDeclSheet {
+    [salsa id]: 20,
+    decls: [
+        (
+            ItemSynNodePath::Submodule(
+                SubmoduleSynNodePath {
+                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                        path: SubmodulePath(
+                            `std::prelude`,
+                        ),
+                        disambiguator: 0,
+                    },
+                },
+            ),
+            ItemSynNodeDecl::Submodule(
+                SubmoduleSynNodeDecl {
+                    syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
                                 `std::prelude`,
@@ -12,23 +22,23 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                ),
-                ItemSynNodeDecl::Submodule(
-                    SubmoduleSynNodeDecl {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `std::prelude`,
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    },
-                ),
+                },
             ),
-            (
-                ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
+        ),
+        (
+            ItemSynNodePath::Submodule(
+                SubmoduleSynNodePath {
+                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                        path: SubmodulePath(
+                            `std::logic`,
+                        ),
+                        disambiguator: 0,
+                    },
+                },
+            ),
+            ItemSynNodeDecl::Submodule(
+                SubmoduleSynNodeDecl {
+                    syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
                                 `std::logic`,
@@ -36,23 +46,23 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                ),
-                ItemSynNodeDecl::Submodule(
-                    SubmoduleSynNodeDecl {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `std::logic`,
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    },
-                ),
+                },
             ),
-            (
-                ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
+        ),
+        (
+            ItemSynNodePath::Submodule(
+                SubmoduleSynNodePath {
+                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                        path: SubmodulePath(
+                            `std::ops`,
+                        ),
+                        disambiguator: 0,
+                    },
+                },
+            ),
+            ItemSynNodeDecl::Submodule(
+                SubmoduleSynNodeDecl {
+                    syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
                                 `std::ops`,
@@ -60,20 +70,8 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                ),
-                ItemSynNodeDecl::Submodule(
-                    SubmoduleSynNodeDecl {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `std::ops`,
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    },
-                ),
+                },
             ),
-        ],
-    },
-)
+        ),
+    ],
+}

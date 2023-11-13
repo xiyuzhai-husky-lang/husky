@@ -39,107 +39,125 @@ impl VfsPathMenu {
         let core_package =
             PackagePath::new_toolchain_package(db, toolchain, coword_menu.core_name());
         let std_package = PackagePath::new_toolchain_package(db, toolchain, coword_menu.std_name());
-        let core_library = CratePath::new(db, core_package, CrateKind::Library);
-        let std_library = CratePath::new(db, std_package, CrateKind::Library);
-        let core_root = ModulePath::new_root(db, core_library);
-        let std_root = ModulePath::new_root(db, std_library);
+        let core_library =
+            CratePath::new(core_package, CrateKind::Library, db).expect("should be valid");
+        let std_library =
+            CratePath::new(std_package, CrateKind::Library, db).expect("should be valid");
+        let core_root = core_library.root_module_path(db);
+        let std_root = std_library.root_module_path(db);
         // todo: refactor with it_ident_borrowed_uncheck or Ident::from_borrowed_unchecked
         let core_array = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("array")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_basic = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("basic")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_clone = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("clone")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_default = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("default")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_vec = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("vec")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_marker = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("marker")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_mem = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("mem")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_num = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("num")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_ops = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("ops")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_option = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("option")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_prelude = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("prelude")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_raw_bits = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("raw_bits")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_result = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("result")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_slice = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("slice")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_str = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("str")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         let core_visual = ModulePath::new_child(
             db,
             core_root,
             db.it_ident_borrowed("visual")
                 .expect("should be valid identifier"),
-        );
+        )
+        .expect("should be valid");
         Self {
             core_package,
             std_package,

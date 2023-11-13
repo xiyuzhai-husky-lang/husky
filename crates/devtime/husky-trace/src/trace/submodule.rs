@@ -73,10 +73,7 @@ pub(crate) fn submodule_trace_subtraces(
     db: &dyn TraceDb,
     submodule_trace: SubmoduleTrace,
 ) -> Vec<Trace> {
-    let Ok(item_paths) = module_item_paths(db, submodule_trace.submodule_path.inner()) else {
-        unreachable!("module path should be guaranteed to be valid")
-    };
-    item_paths
+    module_item_paths(db, submodule_trace.submodule_path.inner())
         .iter()
         .filter_map(|&item_path| Trace::from_item_path(item_path, db))
         .collect()
@@ -91,10 +88,7 @@ pub enum SubmoduleSubtrace {
 
 #[salsa::tracked(jar = TraceJar)]
 fn submodule_contains_val_item(db: &dyn TraceDb, submodule_path: SubmodulePath) -> bool {
-    let Ok(subitem_paths) = module_item_paths(db, submodule_path.module_path(db)) else {
-        unreachable!()
-    };
-    for &subitem_path in subitem_paths {
+    for &subitem_path in module_item_paths(db, submodule_path.module_path(db)) {
         match subitem_path {
             ItemPath::Submodule(subitem_submodule_path) => {
                 if submodule_contains_val_item(db, subitem_submodule_path) {

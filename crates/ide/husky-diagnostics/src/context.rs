@@ -22,14 +22,14 @@ pub(crate) struct SheetDiagnosticsContext<'a> {
 
 impl<'a> SheetDiagnosticsContext<'a> {
     pub(crate) fn new(db: &'a dyn DiagnosticsDb, module_path: ModulePath) -> Self {
-        let ranged_token_sheet = db.ranged_token_sheet(module_path).unwrap();
+        let ranged_token_sheet = db.ranged_token_sheet(module_path);
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         Self {
             db,
             token_sheet_data,
             ranged_token_sheet,
-            ast_sheet: module_path.ast_sheet(db).expect("todo"),
-            ast_token_idx_range_sheet: db.ast_token_idx_range_sheet(module_path).unwrap(),
+            ast_sheet: module_path.ast_sheet(db),
+            ast_token_idx_range_sheet: db.ast_token_idx_range_sheet(module_path),
         }
     }
 
@@ -92,7 +92,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
     pub(crate) fn new(db: &'a dyn DiagnosticsDb, syn_expr_region: SynExprRegion) -> Self {
         let syn_expr_region_data = &syn_expr_region.data(db);
         let module_path = syn_expr_region_data.path().module_path(db);
-        let ranged_token_sheet = db.ranged_token_sheet(module_path).unwrap();
+        let ranged_token_sheet = db.ranged_token_sheet(module_path);
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         let sema_expr_region_data = db.sema_expr_region(syn_expr_region).data(db);
         let expr_range_region = db.expr_range_region(syn_expr_region);

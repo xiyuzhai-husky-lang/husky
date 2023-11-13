@@ -1,14 +1,7 @@
-use husky_entity_kind::{
-    MajorItemConnectionKind, MajorItemKind, TypeKind,
-};
-use husky_entity_path::*;
-
-
-
-use parsec::{IsStreamParser};
-
-
 use super::*;
+use husky_entity_kind::{MajorItemConnectionKind, MajorItemKind, TypeKind};
+use husky_entity_path::*;
+use parsec::IsStreamParser;
 
 impl<'a> AstParser<'a> {
     pub(super) fn parse_defn<C: NormalAstChildren>(
@@ -41,7 +34,7 @@ impl<'a> AstParser<'a> {
         let ident = ident_token.ident();
         let block = match item_kind {
             EntityKind::Module => DefnBlock::Submodule {
-                path: ModulePath::new_child(self.db, self.module_path, ident),
+                path: ModulePath::new_child(self.db, self.module_path, ident)?,
             },
             EntityKind::MajorItem {
                 module_item_kind,

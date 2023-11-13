@@ -1,116 +1,114 @@
-Ok(
-    TokenSheetData {
-        tokens: [
-            TokenData::Keyword(
-                Keyword::Use,
+TokenSheetData {
+    tokens: [
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Trait,
+        ),
+        TokenData::Ident(
+            `PartialEq`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Trait,
+        ),
+        TokenData::Ident(
+            `Eq`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Keyword(
-                Keyword::Trait,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Trait,
+        ),
+        TokenData::Ident(
+            `PartialOrd`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Ident(
-                `PartialEq`,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Trait,
+        ),
+        TokenData::Ident(
+            `Ord`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
+        ),
+    ],
+    token_group_starts: [
+        TokenGroupStart(
+            TokenIdx(
+                1,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                5,
             ),
-            TokenData::Keyword(
-                Keyword::Trait,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                9,
             ),
-            TokenData::Ident(
-                `Eq`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                13,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                17,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
-            ),
-            TokenData::Keyword(
-                Keyword::Trait,
-            ),
-            TokenData::Ident(
-                `PartialOrd`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
-            ),
-            TokenData::Keyword(
-                Keyword::Pub,
-            ),
-            TokenData::Keyword(
-                Keyword::Trait,
-            ),
-            TokenData::Ident(
-                `Ord`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
-            ),
-        ],
-        token_group_starts: [
-            TokenGroupStart(
-                TokenIdx(
-                    1,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    5,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    9,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    13,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    17,
-                ),
-            ),
-        ],
-        indents: [
-            0,
-            0,
-            0,
-            0,
-            0,
-        ],
-    },
-)
+        ),
+    ],
+    indents: [
+        0,
+        0,
+        0,
+        0,
+        0,
+    ],
+}

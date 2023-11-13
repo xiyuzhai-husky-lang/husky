@@ -1,138 +1,136 @@
-Ok(
-    TokenSheetData {
-        tokens: [
-            TokenData::Keyword(
-                Keyword::Use,
+TokenSheetData {
+    tokens: [
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Ident(
+            `Option`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Enum,
+            ),
+        ),
+        TokenData::Ident(
+            `Option`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::LaOrLt,
+            ),
+        ),
+        TokenData::Ident(
+            `T`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::RaOrGt,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Vertical,
+            ),
+        ),
+        TokenData::Ident(
+            `Some`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
                 ),
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
-            ),
-            TokenData::Keyword(
-                Keyword::Use,
-            ),
-            TokenData::Ident(
-                `Option`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Ident(
+            `T`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Vertical,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Ident(
+            `None`,
+        ),
+    ],
+    token_group_starts: [
+        TokenGroupStart(
+            TokenIdx(
+                1,
             ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Enum,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                5,
             ),
-            TokenData::Ident(
-                `Option`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                10,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::LaOrLt,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                16,
             ),
-            TokenData::Ident(
-                `T`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                21,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Vertical,
-                ),
-            ),
-            TokenData::Ident(
-                `Some`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Par,
-                    ),
-                ),
-            ),
-            TokenData::Ident(
-                `T`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Par,
-                    ),
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Vertical,
-                ),
-            ),
-            TokenData::Ident(
-                `None`,
-            ),
-        ],
-        token_group_starts: [
-            TokenGroupStart(
-                TokenIdx(
-                    1,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    5,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    10,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    16,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    21,
-                ),
-            ),
-        ],
-        indents: [
-            0,
-            0,
-            0,
-            0,
-            0,
-        ],
-    },
-)
+        ),
+    ],
+    indents: [
+        0,
+        0,
+        0,
+        0,
+        0,
+    ],
+}

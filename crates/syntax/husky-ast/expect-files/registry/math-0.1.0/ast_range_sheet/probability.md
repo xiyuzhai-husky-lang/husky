@@ -1,5 +1,3 @@
-Ok(
-    AstTokenIdxRangeSheet {
-        ast_token_idx_ranges: [],
-    },
-)
+AstTokenIdxRangeSheet {
+    ast_token_idx_ranges: [],
+}

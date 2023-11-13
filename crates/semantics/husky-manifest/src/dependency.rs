@@ -1,5 +1,5 @@
 use crate::*;
-use husky_manifest_ast::{ManifestDependencyAst};
+use husky_manifest_ast::ManifestDependencyAst;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct PackageDependency {

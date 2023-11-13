@@ -2,23 +2,23 @@ use crate::*;
 use husky_vfs::error::VfsResult;
 
 pub trait HasAstSheet: Copy {
-    fn ast_sheet(self, db: &dyn AstDb) -> VfsResult<&AstSheet>;
-    fn ast_token_idx_range_sheet(self, db: &dyn AstDb) -> VfsResult<&AstTokenIdxRangeSheet>;
+    fn ast_sheet(self, db: &dyn AstDb) -> &AstSheet;
+    fn ast_token_idx_range_sheet(self, db: &dyn AstDb) -> &AstTokenIdxRangeSheet;
 }
 
 impl HasAstSheet for ModulePath {
-    fn ast_sheet(self, db: &dyn AstDb) -> VfsResult<&AstSheet> {
-        Ok(ast_sheet(db, self).as_ref()?)
+    fn ast_sheet(self, db: &dyn AstDb) -> &AstSheet {
+        ast_sheet(db, self)
     }
 
-    fn ast_token_idx_range_sheet(self, db: &dyn AstDb) -> VfsResult<&AstTokenIdxRangeSheet> {
-        Ok(ast_token_idx_range_sheet(db, self).as_ref()?)
+    fn ast_token_idx_range_sheet(self, db: &dyn AstDb) -> &AstTokenIdxRangeSheet {
+        ast_token_idx_range_sheet(db, self)
     }
 }
 
 #[salsa::tracked(jar = AstJar, return_ref)]
-pub(crate) fn ast_sheet(db: &dyn AstDb, module_path: ModulePath) -> VfsResult<AstSheet> {
-    Ok(AstParser::new(db, module_path)?.parse_all())
+pub(crate) fn ast_sheet(db: &dyn AstDb, module_path: ModulePath) -> AstSheet {
+    AstParser::new(db, module_path).parse_all()
 }
 
 #[derive(Debug, PartialEq, Eq)]

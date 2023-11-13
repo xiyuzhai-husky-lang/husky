@@ -64,17 +64,16 @@ impl UseAllModuleSymbolsRule {
         &self,
         db: &'a dyn EntitySynTreeDb,
         presheets: &'a [EntityTreePresheetMut],
-    ) -> EntitySynTreeResult<EntitySymbolTableRef<'a>> {
+    ) -> EntitySymbolTableRef<'a> {
         if self.is_same_crate {
             // avoids cyclic dependency
-            Ok(presheets
+            presheets
                 .get_entry(self.parent_module_path)
                 .unwrap()
-                .module_specific_symbols())
+                .module_specific_symbols()
         } else {
-            Ok(db
-                .item_syn_tree_sheet(self.parent_module_path)?
-                .module_symbols())
+            db.item_syn_tree_sheet(self.parent_module_path)
+                .module_symbols()
         }
     }
 

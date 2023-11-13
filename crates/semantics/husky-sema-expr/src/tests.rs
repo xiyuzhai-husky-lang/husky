@@ -43,7 +43,7 @@ use husky_vfs::*;
     TermPreludeJar,
     DeclarativeTermJar,
     DeclarativeSignatureJar,
-    DeclarativeTypeJar,
+    husky_declarative_ty::db::DeclarativeTypeJar,
     EtherealTermJar,
     EtherealSignatureJar,
     FluffyTermJar,
@@ -57,10 +57,7 @@ pub(crate) struct DB {
 impl salsa::Database for DB {}
 
 fn decl_sema_expr_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegion> {
-    let Ok(syn_decl_sheet) = db.syn_decl_sheet(module_path) else {
-        return vec![];
-    };
-    syn_decl_sheet
+    db.syn_decl_sheet(module_path)
         .decls(db)
         .iter()
         .copied()

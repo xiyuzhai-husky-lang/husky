@@ -2,25 +2,17 @@ use crate::*;
 
 use husky_ast::AstDb;
 
-
-
 use husky_manifest::ManifestDb;
 use husky_vfs::{error::VfsResult, *};
 
 use salsa::DbWithJar;
 
 pub trait EntitySynTreeDb: DbWithJar<EntitySynTreeJar> + AstDb + EntityPathDb + ManifestDb {
-    fn submodules(&self, module_path: ModulePath) -> VfsResult<&[SubmodulePath]>;
+    fn submodules(&self, module_path: ModulePath) -> &[SubmodulePath];
     fn all_modules_within_crate(&self, crate_path: CratePath) -> &[ModulePath];
-    fn item_syn_tree_bundle(
-        &self,
-        crate_path: CratePath,
-    ) -> EntitySynTreeBundleResult<&EntitySynTreeCrateBundle>;
-    fn item_syn_tree_presheet(&self, module_path: ModulePath) -> VfsResult<&EntitySynTreePresheet>;
-    fn item_syn_tree_sheet(
-        &self,
-        module_path: ModulePath,
-    ) -> EntitySynTreeResult<&EntitySynTreeSheet>;
+    fn item_syn_tree_bundle(&self, crate_path: CratePath) -> &EntitySynTreeCrateBundle;
+    fn item_syn_tree_presheet(&self, module_path: ModulePath) -> &EntitySynTreePresheet;
+    fn item_syn_tree_sheet(&self, module_path: ModulePath) -> &EntitySynTreeSheet;
     fn module_symbol_context<'a>(
         &'a self,
         module_path: ModulePath,
@@ -36,31 +28,23 @@ impl<T> EntitySynTreeDb for T
 where
     T: DbWithJar<EntitySynTreeJar> + AstDb + EntityPathDb + ManifestDb,
 {
-    fn submodules(&self, module_path: ModulePath) -> VfsResult<&[SubmodulePath]> {
-        Ok(submodules(self, module_path).as_ref()?)
+    fn submodules(&self, module_path: ModulePath) -> &[SubmodulePath] {
+        submodules(self, module_path)
     }
 
     fn all_modules_within_crate(&self, crate_path: CratePath) -> &[ModulePath] {
         all_modules_within_crate(self, crate_path)
     }
 
-    fn item_syn_tree_bundle(
-        &self,
-        crate_path: CratePath,
-    ) -> EntitySynTreeBundleResult<&EntitySynTreeCrateBundle> {
-        Ok(item_tree_crate_bundle(self, crate_path)
-            .as_ref()
-            .map_err(|e| e.clone())?)
+    fn item_syn_tree_bundle(&self, crate_path: CratePath) -> &EntitySynTreeCrateBundle {
+        item_tree_crate_bundle(self, crate_path)
     }
 
-    fn item_syn_tree_presheet(&self, module_path: ModulePath) -> VfsResult<&EntitySynTreePresheet> {
-        Ok(item_tree_presheet(self, module_path).as_ref()?)
+    fn item_syn_tree_presheet(&self, module_path: ModulePath) -> &EntitySynTreePresheet {
+        item_tree_presheet(self, module_path)
     }
 
-    fn item_syn_tree_sheet(
-        &self,
-        module_path: ModulePath,
-    ) -> EntitySynTreeResult<&EntitySynTreeSheet> {
+    fn item_syn_tree_sheet(&self, module_path: ModulePath) -> &EntitySynTreeSheet {
         item_tree_sheet(self, module_path)
     }
 

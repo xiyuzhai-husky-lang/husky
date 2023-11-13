@@ -18,10 +18,7 @@ pub(crate) fn expr_diagnostic_sheet(
     module_path: ModulePath,
 ) -> ExprDiagnosticSheet {
     let mut sheet_collector = ModuleDiagnosticsCollector::new(db, module_path);
-    if let (Ok(ranged_token_sheet), Ok(defns)) =
-        (db.ranged_token_sheet(module_path), module_path.defns(db))
-    {
-        let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
+    if let Ok(defns) = module_path.defns(db) {
         for defn in defns.iter().copied() {
             let decl = defn.syn_decl(db);
             if let Some(syn_expr_region) = decl.syn_expr_region(db) {

@@ -1,7 +1,6 @@
 use husky_defn_ast::{DefnAst, DefnAstArena, DefnAstArenaRef, DefnAstIdx, DefnAstIdxRange};
 use husky_token::{TokenIdxRange, TokenSheetData};
 
-
 use super::*;
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
@@ -146,7 +145,7 @@ struct SynDefnTokraRegionBuilder<'a> {
 impl<'a> SynDefnTokraRegionBuilder<'a> {
     fn new(module_path: ModulePath, db: &'a dyn EntitySynTreeDb, ast_idx: AstIdx) -> Option<Self> {
         // let
-        let ast_sheet = module_path.ast_sheet(db).expect("modules should be valid");
+        let ast_sheet = module_path.ast_sheet(db);
         let root_body = match ast_sheet[ast_idx] {
             Ast::Identifiable { block, .. } => block.children()?,
             _ => unreachable!(),
@@ -180,8 +179,8 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
         };
         let regional_token_group_idx_base =
             RegionalTokenGroupIdxBase::from_token_group_idx(first_token_group_idx);
-        let ast_token_idx_range_sheet = module_path.ast_token_idx_range_sheet(db).expect("todo");
-        let token_sheet_data = db.token_sheet_data(module_path).expect("todo");
+        let ast_token_idx_range_sheet = module_path.ast_token_idx_range_sheet(db);
+        let token_sheet_data = db.token_sheet_data(module_path);
         let token_idx_range: TokenIdxRange = ast_token_idx_range_sheet[first_ast_idx]
             .join(ast_token_idx_range_sheet[root_body.end() - 1]);
         let tokens_data = token_sheet_data[token_idx_range].to_vec();

@@ -5,9 +5,9 @@ use super::*;
 pub fn module_item_syn_node_paths(
     db: &dyn EntitySynTreeDb,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<ItemSynNodePath>> {
+) -> Vec<ItemSynNodePath> {
     let mut node_paths: Vec<ItemSynNodePath> = Default::default();
-    let item_tree_sheet = db.item_syn_tree_sheet(module_path)?;
+    let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     let mut push = |syn_node_path| {
         node_paths.push(syn_node_path);
         for &(attr_syn_node_path, _) in syn_node_path.attr_syn_nodes(db) {
@@ -51,19 +51,16 @@ pub fn module_item_syn_node_paths(
             }
         }
     }
-    Ok(node_paths)
+    node_paths
 }
 
 // include submodules, module items, associated items
 // todo: type variants
 // todo: trait item
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-pub fn module_item_paths(
-    db: &dyn EntitySynTreeDb,
-    module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<ItemPath>> {
+pub fn module_item_paths(db: &dyn EntitySynTreeDb, module_path: ModulePath) -> Vec<ItemPath> {
     let mut paths: Vec<ItemPath> = Default::default();
-    let item_tree_sheet = db.item_syn_tree_sheet(module_path)?;
+    let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
         if let Some(path) = syn_node_path.path(db) {
             paths.push(path)
@@ -90,7 +87,7 @@ pub fn module_item_paths(
             }
         }
     }
-    Ok(paths)
+    paths
 }
 
 #[test]

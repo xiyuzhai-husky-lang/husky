@@ -24,10 +24,7 @@ impl RegionPath {
         self.module_path(db).toolchain(db)
     }
 
-    pub fn token_sheet_data<'a>(
-        self,
-        db: &'a dyn EntitySynTreeDb,
-    ) -> VfsResult<&'a TokenSheetData> {
+    pub fn token_sheet_data<'a>(self, db: &'a dyn EntitySynTreeDb) -> &'a TokenSheetData {
         db.token_sheet_data(self.module_path(db))
     }
 }

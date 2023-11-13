@@ -1,5 +1,7 @@
 use std::{collections::HashMap, str::FromStr};
 
+use salsa::debug::ExpectWithDb;
+
 use super::*;
 
 pub struct AdHocPackage {
@@ -23,12 +25,14 @@ impl AdHocPackage {
             &package_fs_path,
         )
         .unwrap();
-        let crate_path = package_path.lib_crate(db);
         db.set_content(
-            &package_fs_path.join("src/lib.rs"),
+            &package_fs_path.join("src/lib.hsy"),
             FileContent::LiveDoc(lib_content.to_string()),
         )
         .unwrap();
+        let crate_path = package_path
+            .lib_crate(db)
+            .expect_with_db(db, "should be okay");
         let non_root_module_paths = HashMap::default();
         for _ in non_root_modules {
             todo!()

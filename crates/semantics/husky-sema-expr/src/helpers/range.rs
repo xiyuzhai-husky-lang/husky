@@ -35,10 +35,7 @@ pub fn sema_expr_range_region(
 #[cfg(test)]
 fn decl_sema_expr_range_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRangeRegion> {
     use husky_syn_decl::SynDeclDb;
-    let Ok(syn_decl_sheet) = db.syn_decl_sheet(module_path) else {
-        return vec![];
-    };
-    syn_decl_sheet
+    db.syn_decl_sheet(module_path)
         .decls(db)
         .iter()
         .copied()

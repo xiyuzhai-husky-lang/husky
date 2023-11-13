@@ -120,7 +120,7 @@ pub(crate) fn ty_impl_block_syn_node(
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockSynNode {
     let module_path = syn_node_path.module_path(db);
-    let item_tree_sheet = db.item_syn_tree_sheet(module_path).expect("valid module");
+    let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     item_tree_sheet.ty_impl_block_syn_node(syn_node_path)
 }
 

@@ -134,10 +134,7 @@ pub(crate) fn handle_folding_range(
 ) -> Result<Option<Vec<FoldingRange>>> {
     let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
     let module = snapshot.resolve_module_path(snapshot.current_toolchain()?, &path)?;
-    match snapshot.folding_ranges(module) {
-        Ok(folding_ranges) => Ok(Some(folding_ranges.to_vec())),
-        Err(e) => Err(Box::new(e.clone())),
-    }
+    Ok(Some(snapshot.folding_ranges(module).to_vec()))
 }
 
 pub(crate) fn handle_decl_help(
@@ -159,9 +156,7 @@ pub(crate) fn handle_hover(
         lsp_ext::PositionOrRange::Range(range) => range.start,
     };
     let position: TextPosition = position.into();
-    snapshot
-        .hover_result(module_path, position)
-        .map_err(|e| e.into())
+    Ok(snapshot.hover_result(module_path, position))
 }
 
 pub(crate) fn handle_prepare_rename(

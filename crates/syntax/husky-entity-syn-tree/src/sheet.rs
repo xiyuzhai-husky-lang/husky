@@ -204,17 +204,11 @@ impl EntitySynTreeSheet {
 }
 
 pub trait HasEntityTreeSheet: Copy {
-    fn item_tree_sheet<'a>(
-        self,
-        db: &'a dyn EntitySynTreeDb,
-    ) -> EntitySynTreeResult<&'a EntitySynTreeSheet>;
+    fn item_tree_sheet<'a>(self, db: &'a dyn EntitySynTreeDb) -> &'a EntitySynTreeSheet;
 }
 
 impl HasEntityTreeSheet for ModulePath {
-    fn item_tree_sheet<'a>(
-        self,
-        db: &'a dyn EntitySynTreeDb,
-    ) -> EntitySynTreeResult<&'a EntitySynTreeSheet> {
+    fn item_tree_sheet<'a>(self, db: &'a dyn EntitySynTreeDb) -> &'a EntitySynTreeSheet {
         item_tree_sheet(db, self)
     }
 }
@@ -222,14 +216,13 @@ impl HasEntityTreeSheet for ModulePath {
 pub(crate) fn item_tree_sheet(
     db: &dyn EntitySynTreeDb,
     module_path: ModulePath,
-) -> EntitySynTreeResult<&EntitySynTreeSheet> {
+) -> &EntitySynTreeSheet {
     let crate_path = module_path.crate_path(db);
-    let item_tree_bundle = item_tree_crate_bundle(db, crate_path)
-        .as_ref()
-        .map_err(|e| e.clone())?;
+    let item_tree_bundle = item_tree_crate_bundle(db, crate_path);
     item_tree_bundle
         .get_sheet(module_path)
-        .ok_or_else(|| DerivedEntityTreeError::InvalidModulePath(module_path).into())
+        .expect("module should be guaranteed to be valid!!")
+    // .ok_or_else(|| DerivedEntityTreeError::InvalidModulePath(module_path).into())
 }
 
 #[test]
