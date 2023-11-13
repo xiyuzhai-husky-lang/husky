@@ -70,3 +70,8 @@ mnist-developer:
 
 mnist-developer-mock-client:
 	cargo run --bin husky-mnist-classifier-developer-mock-client
+
+save:
+	git add -A
+	git commit -m "save"
+	git push
