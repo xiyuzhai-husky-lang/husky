@@ -5,7 +5,7 @@
 #![feature(let_chains)]
 mod cache;
 mod db;
-mod error;
+pub mod error;
 mod file;
 mod jar;
 #[cfg(feature = "lsp_support")]
@@ -21,7 +21,6 @@ mod watch;
 
 pub use cache::VfsCache;
 pub use db::VfsDb;
-pub use error::*;
 pub use file::Notebook;
 pub use jar::VfsJar;
 #[cfg(feature = "lsp_support")]
@@ -32,10 +31,10 @@ pub use test_utils::*;
 pub use toolchain::*;
 pub use watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
 
+use self::error::*;
+use self::file::*;
 use dashmap::{mapref::entry::Entry, DashMap};
-use file::*;
 use husky_coword::*;
-use husky_print_utils::p;
 use notify_debouncer_mini::notify::RecursiveMode;
 
 use salsa::storage::HasJar;

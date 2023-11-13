@@ -2,47 +2,32 @@ use super::*;
 use husky_decl_ast::DeclAst;
 use husky_token::{TokenGroupIdx, TokenIdxRange, TokenSheetData};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct DeclTokraRegionSourceMap {
-    regional_token_idx_base: RegionalTokenIdxBase,
-    ast_idx: AstIdx,
-}
-
-impl DeclTokraRegionSourceMap {
-    pub fn regional_token_idx_base(&self) -> RegionalTokenIdxBase {
-        self.regional_token_idx_base
-    }
-
-    pub fn ast_idx(&self) -> ArenaIdx<Ast> {
-        self.ast_idx
-    }
-}
-
+///
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct DeclTokraRegion {
     #[return_ref]
-    _tokens_data: Vec<TokenData>,
+    tokens_data: Vec<TokenData>,
     pub saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
     pub ast: DeclAst,
-}
-
-impl DeclTokraRegion {
-    pub fn data<'a>(self, db: &'a dyn EntitySynTreeDb) -> DeclTokraRegionData<'a> {
-        DeclTokraRegionData {
-            tokens_data: self._tokens_data(db),
-            saved_regional_token_stream_state: self.saved_regional_token_stream_state(db),
-        }
-    }
-
-    pub fn tokens_data<'a>(self, db: &'a dyn EntitySynTreeDb) -> RegionalTokensData<'a> {
-        RegionalTokensData::new(self._tokens_data(db))
-    }
 }
 
 #[derive(Debug, Clone, Copy)]
 pub struct DeclTokraRegionData<'a> {
     saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
     tokens_data: &'a [TokenData],
+}
+
+impl DeclTokraRegion {
+    pub fn data<'a>(self, db: &'a dyn EntitySynTreeDb) -> DeclTokraRegionData<'a> {
+        DeclTokraRegionData {
+            tokens_data: self.tokens_data(db),
+            saved_regional_token_stream_state: self.saved_regional_token_stream_state(db),
+        }
+    }
+
+    pub fn regional_tokens_data<'a>(self, db: &'a dyn EntitySynTreeDb) -> RegionalTokensData<'a> {
+        RegionalTokensData::new(self.tokens_data(db))
+    }
 }
 
 impl<'a> DeclTokraRegionData<'a> {
@@ -59,6 +44,22 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for DeclTokraRegionData<'a> {
 
     fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {
         &self.tokens_data[idx.index()]
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct DeclTokraRegionSourceMap {
+    regional_token_idx_base: RegionalTokenIdxBase,
+    ast_idx: AstIdx,
+}
+
+impl DeclTokraRegionSourceMap {
+    pub fn regional_token_idx_base(&self) -> RegionalTokenIdxBase {
+        self.regional_token_idx_base
+    }
+
+    pub fn ast_idx(&self) -> ArenaIdx<Ast> {
+        self.ast_idx
     }
 }
 
@@ -148,7 +149,7 @@ pub trait HasDeclTokraRegion:
         let start = decl_tokra_region_source_map
             .regional_token_idx_base
             .index_base();
-        let end = start + decl_tokra_region.tokens_data(db).len();
+        let end = start + decl_tokra_region.regional_tokens_data(db).len();
         unsafe {
             TokenIdxRange::new(
                 TokenIdx::from_usize_index_ext(start),

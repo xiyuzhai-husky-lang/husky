@@ -1,5 +1,5 @@
 use crate::*;
-use husky_vfs::{DiffPath, VfsResult};
+use husky_vfs::{error::VfsResult, DiffPath};
 
 pub trait CorgiConfigAstDb: salsa::DbWithJar<CorgiConfigAstJar> + TomlAstDb {
     fn corgi_config_ast_sheet(&self, path: DiffPath) -> VfsResult<Option<&CorgiConfigAstSheet>>;

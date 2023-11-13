@@ -9,6 +9,7 @@ use crate::*;
 use husky_entity_path::DisconnectedConnectionRegistry;
 use husky_print_utils::p;
 use husky_token::*;
+use husky_vfs::error::VfsResult;
 use parsec::{HasStreamState, IsStreamParser, TryParseOptionFromStream};
 use salsa::DebugWithDb;
 use utils::*;

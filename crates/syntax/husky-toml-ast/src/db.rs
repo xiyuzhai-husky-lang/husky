@@ -1,5 +1,6 @@
 use crate::*;
 use husky_toml_token::TomlTokenDb;
+use husky_vfs::error::{VfsError, VfsResult};
 use salsa::DbWithJar;
 
 pub trait TomlAstDb: DbWithJar<TomlAstJar> + TomlTokenDb {

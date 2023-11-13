@@ -1,7 +1,6 @@
 use crate::*;
 use husky_manifest::{HasPackageManifest, ManifestError};
-use husky_print_utils::p;
-use husky_vfs::*;
+use husky_vfs::{error::VfsError, *};
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]

@@ -5,7 +5,7 @@ use husky_ast::AstDb;
 use husky_entity_kind::EntityKind;
 use husky_entity_path::ItemPath;
 use husky_manifest::ManifestDb;
-use husky_vfs::*;
+use husky_vfs::{error::VfsResult, *};
 
 use salsa::DbWithJar;
 

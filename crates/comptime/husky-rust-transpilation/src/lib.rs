@@ -5,6 +5,7 @@ mod defn;
 mod expr;
 #[cfg(test)]
 mod tests;
+mod unit;
 
 use self::builder::*;
 use self::db::*;

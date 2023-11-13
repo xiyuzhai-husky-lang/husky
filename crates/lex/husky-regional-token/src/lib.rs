@@ -1,3 +1,6 @@
+//! `Region` is a concept coined to achieve fast incremental compilation, it is the smallest unit of change.
+//!
+//!
 #![feature(trait_upcasting)]
 mod base;
 #[cfg(test)]
