@@ -37,7 +37,7 @@ impl TomlTable {
 
     fn insert_section<'a>(
         &mut self,
-        db: &dyn TomlAstDb,
+        _db: &dyn TomlAstDb,
         idx: TomlSectionIdx,
         section: &TomlSection,
     ) {

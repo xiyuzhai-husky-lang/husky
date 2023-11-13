@@ -8,7 +8,7 @@ where
 
     #[inline(always)]
     fn transform_from<'a, 'b>(
-        mut transformer: TomlTransformer<'a, 'b, Context, Self::Ast>,
+        transformer: TomlTransformer<'a, 'b, Context, Self::Ast>,
     ) -> Result<Self, <Context as TomlDeserializeContext>::Error> {
         match transformer.visitor.expr() {
             TomlExpr::String(s) => {

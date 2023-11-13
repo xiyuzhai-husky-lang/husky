@@ -25,9 +25,10 @@ use husky_opr::Bracket;
 use husky_token::TokenGroupStart;
 use husky_token::*;
 use husky_token_data::{db::TokenDataDb, *};
+#[cfg(test)]
+use parsec::TryParseOptionFromStream;
 use parsec::{HasStreamState, IsStreamParser};
 use std::num::NonZeroU32;
-
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct RegionalTokenGroupIdxBase(u32);
@@ -310,7 +311,6 @@ where
     T: for<'a> TryParseOptionFromStream<RegionalTokenStream<'a>, Error = Error>,
 {
     use husky_vfs::snippet::Snippet;
-    use parsec::TryParseOptionFromStream;
 
     let token_sheet = db.snippet_token_sheet_data(Snippet::new(db, input.to_owned()));
     RegionalTokenStream::new_snippet_regional_token_stream(token_sheet.tokens()).try_parse_option()

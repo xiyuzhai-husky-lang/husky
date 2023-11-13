@@ -176,6 +176,7 @@ fn collect_package_relative_dirs_aux<Db: ?Sized + CowordDb>(
 
 #[test]
 fn collect_package_relative_dirs_works() {
+    use salsa::DebugWithDb;
     let db = DB::default();
     let cargo_manifest_dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
     let library_dir = cargo_manifest_dir
@@ -339,7 +340,7 @@ pub fn clear_directory(path: &Path) -> Result<(), std::io::Error> {
         if entry_path.is_dir() {
             // If the entry is a directory, clear it recursively
             clear_directory(&entry_path)?;
-            std::fs::remove_dir(entry_path);
+            std::fs::remove_dir(entry_path)?;
         } else {
             // If the entry is a file, delete it
             std::fs::remove_file(entry_path)?;

@@ -1,7 +1,7 @@
 mod document;
 mod notebook;
 
-pub use document::*;
+
 pub use notebook::*;
 
 use crate::*;
@@ -27,7 +27,7 @@ impl File {
 }
 
 impl FileContent {
-    pub(crate) fn text(&self, path: &Path) -> VfsResult<Option<&str>> {
+    pub(crate) fn text(&self, _path: &Path) -> VfsResult<Option<&str>> {
         match self {
             FileContent::NotExists => Ok(None),
             FileContent::OnDisk(text) | FileContent::LiveDoc(text) => Ok(Some(text)),

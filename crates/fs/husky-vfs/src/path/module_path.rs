@@ -2,8 +2,10 @@ mod ancestry;
 
 use super::*;
 pub use ancestry::*;
-use salsa::{DbWithJar, DebugWithDb, DisplayWithDb};
-use with_db::{PartialOrdWithDb, WithDb};
+use salsa::{DbWithJar, DisplayWithDb};
+use with_db::PartialOrdWithDb;
+#[cfg(test)]
+use with_db::WithDb;
 
 #[salsa::interned(jar = VfsJar, override_debug)]
 pub struct ModulePath {
@@ -21,7 +23,7 @@ impl<Db> HasModulePath<Db> for ModulePath
 where
     Db: ?Sized + VfsDb,
 {
-    fn module_path(self, db: &Db) -> ModulePath {
+    fn module_path(self, _db: &Db) -> ModulePath {
         self
     }
 }
@@ -258,6 +260,7 @@ where
 
 #[test]
 fn module_path_debug_with_db_works() {
+    use salsa::DebugWithDb;
     fn t(db: &DB, module_path: ModulePath, level: salsa::DebugFormatLevel, expect: &str) {
         assert_eq!(
             format!("{:?}", module_path.debug_with(db, level.next())),

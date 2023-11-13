@@ -1,7 +1,5 @@
 use crate::*;
-use std::{
-    ffi::c_void,
-};
+use std::ffi::c_void;
 
 pub trait __EvalContext {
     fn item_uid(&self, item_route_text: &str) -> u64;

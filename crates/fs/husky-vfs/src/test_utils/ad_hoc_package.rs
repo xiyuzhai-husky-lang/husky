@@ -29,7 +29,7 @@ impl AdHocPackage {
             FileContent::LiveDoc(lib_content.to_string()),
         )
         .unwrap();
-        let mut non_root_module_paths = HashMap::default();
+        let non_root_module_paths = HashMap::default();
         for _ in non_root_modules {
             todo!()
         }

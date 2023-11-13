@@ -70,7 +70,7 @@ where
         self.event_tx.send(VfsWatcherEvent::Snapshot);
         match self.snapshot_rx.recv() {
             Ok(snapshot) => f(snapshot),
-            Err(e) => {
+            Err(_e) => {
                 todo!()
             }
         }

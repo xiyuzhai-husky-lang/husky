@@ -51,12 +51,10 @@ pub trait IsStreamParser: HasStreamState {
         f: impl FnOnce(<P as TryParseOptionFromStream<Self>>::Error) -> Error,
     ) -> Result<Option<P>, Error>;
 
-    #[inline(always)]
     fn try_parse<P: TryParseFromStream<Self>>(
         &mut self,
     ) -> Result<P, <P as TryParseFromStream<Self>>::Error>;
 
-    #[inline(always)]
     fn parse<P: ParseFromStream<Self>>(&mut self) -> P;
 
     fn try_parse_err_as_none<P: TryParseOptionFromStream<Self>>(&mut self) -> Option<P>;
