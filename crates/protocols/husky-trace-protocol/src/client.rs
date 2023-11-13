@@ -3,19 +3,18 @@ pub mod mock;
 
 use std::sync::Arc;
 
-use self::error::*;
+
 use crate::{
     cache::action::TraceCacheToggleExpansion, message::*, view::action::TraceViewAction, *,
 };
-#[cfg(feature = "mock")]
-use husky_visual_protocol::IsVisualProtocol;
-use husky_visual_protocol::{mock::MockVisualProtocol, IsVisualComponent};
+
+use husky_visual_protocol::{IsVisualComponent};
 use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
 };
 use notify::Notify;
-use tokio::task::JoinHandle;
-use tokio_tungstenite::connect_async;
+
+
 
 pub struct TraceClient<VisualComponent: IsVisualComponent, Notifier>
 where
@@ -144,7 +143,7 @@ where
                 Some(TraceCacheToggleExpansion::new(trace_id).into())
             }
             TraceViewAction::Marker { _marker } => todo!(),
-            TraceViewAction::ToggleExpansion { trace_id } => todo!(),
+            TraceViewAction::ToggleExpansion { trace_id: _ } => todo!(),
             &TraceViewAction::ToggleAssociatedTrace {
                 trace_id,
                 associated_trace_id,

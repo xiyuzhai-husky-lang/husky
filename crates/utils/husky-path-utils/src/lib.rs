@@ -10,13 +10,13 @@ pub use self::error::*;
 pub use self::rel::*;
 use husky_minimal_toml_utils::read_package_name_from_manifest;
 pub use module_tree::*;
-use salsa::DebugWithDb;
+
 pub use std::path::{Path, PathBuf};
 
 #[cfg(test)]
 use self::tests::*;
 use husky_check_utils::should_satisfy;
-use husky_coword::{CowordDb, CowordJar, Name};
+use husky_coword::{CowordDb, Name};
 use relative_path::{RelativePath, RelativePathBuf};
 
 pub fn path_has_file_name(path: &Path, name: &str) -> bool {

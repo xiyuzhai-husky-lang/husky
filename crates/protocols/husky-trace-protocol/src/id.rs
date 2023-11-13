@@ -1,7 +1,7 @@
 use std::num::NonZeroU32;
 
 use crate::*;
-use shifted_unsigned_int::ShiftedU32;
+
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct TraceId {

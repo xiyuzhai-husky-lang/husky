@@ -110,7 +110,7 @@ where
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCache<VisualComponent>) -> Self::Outcome {
+    fn act(&self, _cache: &mut TraceCache<VisualComponent>) -> Self::Outcome {
         todo!()
     }
 }

@@ -37,7 +37,7 @@ struct NotebookApp {
 impl Default for NotebookApp {
     fn default() -> Self {
         let action_buffer = Default::default();
-        let mut dock_state = egui_dock::DockState::new(vec![]);
+        let dock_state = egui_dock::DockState::new(vec![]);
         let docs = Docs::default();
         let settings = Default::default();
         Self {
