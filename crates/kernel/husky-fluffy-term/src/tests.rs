@@ -40,7 +40,7 @@ use husky_vfs::VfsJar;
     TermPreludeJar,
     DeclarativeTermJar,
     DeclarativeSignatureJar,
-    DeclarativeTypeJar,
+    husky_declarative_ty::db::DeclarativeTypeJar,
     EtherealTermJar,
     EtherealSignatureJar,
     FluffyTermJar

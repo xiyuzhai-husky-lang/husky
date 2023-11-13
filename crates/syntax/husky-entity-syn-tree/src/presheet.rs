@@ -16,8 +16,8 @@ use vec_like::{AsVecMapEntry, VecPairMap};
 pub(crate) fn item_tree_presheet(
     db: &dyn EntitySynTreeDb,
     module_path: ModulePath,
-) -> VfsResult<EntitySynTreePresheet> {
-    Ok(EntityTreePresheetBuilder::new(db, module_path)?.build())
+) -> EntitySynTreePresheet {
+    EntityTreePresheetBuilder::new(db, module_path).build()
 }
 
 #[test]
@@ -138,17 +138,17 @@ struct EntityTreePresheetBuilder<'a> {
 }
 
 impl<'a> EntityTreePresheetBuilder<'a> {
-    fn new(db: &'a dyn EntitySynTreeDb, module_path: ModulePath) -> VfsResult<Self> {
-        Ok(Self {
+    fn new(db: &'a dyn EntitySynTreeDb, module_path: ModulePath) -> Self {
+        Self {
             db,
             module_path,
-            ast_sheet: db.ast_sheet(module_path)?,
-            token_sheet_data: db.token_sheet_data(module_path).unwrap(),
+            ast_sheet: db.ast_sheet(module_path),
+            token_sheet_data: db.token_sheet_data(module_path),
             use_expr_arena: Default::default(),
             item_node_table: Default::default(),
             item_use_trackers: Default::default(),
             registry: Default::default(),
-        })
+        }
     }
 
     fn build(mut self) -> EntitySynTreePresheet {

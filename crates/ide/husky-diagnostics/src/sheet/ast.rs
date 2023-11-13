@@ -17,19 +17,13 @@ pub(crate) fn ast_diagnostic_sheet(
 ) -> AstDiagnosticSheet {
     let mut diagnostics = vec![];
     let ctx = SheetDiagnosticsContext::new(db, module_path);
-    if let (Ok(ranged_token_sheet), Ok(ast_sheet)) = (
-        db.ranged_token_sheet(module_path),
-        db.ast_sheet(module_path),
-    ) {
-        let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for ast in ast_sheet.data() {
-            match ast {
-                Ast::Err {
-                    token_group_idx,
-                    error: AstError::Original(error),
-                } => diagnostics.push((*token_group_idx, error).to_diagnostic(&ctx)),
-                _ => (),
-            }
+    for ast in db.ast_sheet(module_path).data() {
+        match ast {
+            Ast::Err {
+                token_group_idx,
+                error: AstError::Original(error),
+            } => diagnostics.push((*token_group_idx, error).to_diagnostic(&ctx)),
+            _ => (),
         }
     }
     // todo

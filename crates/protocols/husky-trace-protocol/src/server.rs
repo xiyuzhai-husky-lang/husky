@@ -1,6 +1,4 @@
-use std::{
-    net::{ToSocketAddrs},
-};
+use std::net::ToSocketAddrs;
 
 use crate::{
     cache::action::{TraceCacheNewTrace, TraceCacheSetSubtraces, TraceCacheToggleExpansion},
@@ -8,8 +6,8 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
-use husky_visual_protocol::{IsVisualComponent};
-use husky_websocket_utils::easy_server::{IsEasyWebsocketServer};
+use husky_visual_protocol::IsVisualComponent;
+use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
 
 pub struct TraceServer<Tracetime: IsTracetime> {
     cache: Option<TraceCache<Tracetime::VisualComponent>>,

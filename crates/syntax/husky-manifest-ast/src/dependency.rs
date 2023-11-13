@@ -1,5 +1,5 @@
 use crate::*;
-use husky_coword::{Name};
+use husky_coword::Name;
 use vec_like::AsVecMapEntry;
 
 #[derive(Debug, PartialEq, Eq)]

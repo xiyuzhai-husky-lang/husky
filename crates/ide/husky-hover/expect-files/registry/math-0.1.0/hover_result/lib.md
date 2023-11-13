@@ -1,304 +1,302 @@
-Ok(
-    [
-        (
-            TokenIdx(
-                1,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "Other\ntoken_idx = 0;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 0,
-                                    character: 0,
-                                },
-                                end: Position {
-                                    line: 0,
-                                    character: 3,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
+[
+    (
+        TokenIdx(
+            1,
         ),
-        (
-            TokenIdx(
-                2,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `algebra`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::algebra`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "Other\ntoken_idx = 0;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 0,
+                                character: 0,
                             },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 0,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 0,
-                                    character: 11,
-                                },
+                            end: Position {
+                                line: 0,
+                                character: 3,
                             },
-                        ),
-                    },
-                    actions: [],
+                        },
+                    ),
                 },
-            ),
+                actions: [],
+            },
         ),
-        (
-            TokenIdx(
-                3,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "Other\ntoken_idx = 2;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+    ),
+    (
+        TokenIdx(
+            2,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `algebra`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::algebra`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 0,
+                                character: 4,
                             },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 1,
-                                    character: 0,
-                                },
-                                end: Position {
-                                    line: 1,
-                                    character: 3,
-                                },
+                            end: Position {
+                                line: 0,
+                                character: 11,
                             },
-                        ),
-                    },
-                    actions: [],
+                        },
+                    ),
                 },
-            ),
+                actions: [],
+            },
         ),
-        (
-            TokenIdx(
-                4,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `algebraic_geometry`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::algebraic_geometry`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
+    ),
+    (
+        TokenIdx(
+            3,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "Other\ntoken_idx = 2;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 1,
+                                character: 0,
                             },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 1,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 1,
-                                    character: 22,
-                                },
+                            end: Position {
+                                line: 1,
+                                character: 3,
                             },
-                        ),
-                    },
-                    actions: [],
+                        },
+                    ),
                 },
-            ),
+                actions: [],
+            },
         ),
-        (
-            TokenIdx(
-                5,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "Other\ntoken_idx = 4;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+    ),
+    (
+        TokenIdx(
+            4,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `algebraic_geometry`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::algebraic_geometry`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 1,
+                                character: 4,
                             },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 2,
-                                    character: 0,
-                                },
-                                end: Position {
-                                    line: 2,
-                                    character: 3,
-                                },
+                            end: Position {
+                                line: 1,
+                                character: 22,
                             },
-                        ),
-                    },
-                    actions: [],
+                        },
+                    ),
                 },
-            ),
+                actions: [],
+            },
         ),
-        (
-            TokenIdx(
-                6,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `algebraic_topology`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::algebraic_topology`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
+    ),
+    (
+        TokenIdx(
+            5,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "Other\ntoken_idx = 4;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 2,
+                                character: 0,
                             },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 2,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 2,
-                                    character: 22,
-                                },
+                            end: Position {
+                                line: 2,
+                                character: 3,
                             },
-                        ),
-                    },
-                    actions: [],
+                        },
+                    ),
                 },
-            ),
+                actions: [],
+            },
         ),
-        (
-            TokenIdx(
-                7,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "Other\ntoken_idx = 6;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+    ),
+    (
+        TokenIdx(
+            6,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `algebraic_topology`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::algebraic_topology`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 2,
+                                character: 4,
                             },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 3,
-                                    character: 0,
-                                },
-                                end: Position {
-                                    line: 3,
-                                    character: 3,
-                                },
+                            end: Position {
+                                line: 2,
+                                character: 22,
                             },
-                        ),
-                    },
-                    actions: [],
+                        },
+                    ),
                 },
-            ),
+                actions: [],
+            },
         ),
-        (
-            TokenIdx(
-                8,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 7;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `category_theory`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::category_theory`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
+    ),
+    (
+        TokenIdx(
+            7,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "Other\ntoken_idx = 6;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 3,
+                                character: 0,
                             },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 3,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 3,
-                                    character: 19,
-                                },
+                            end: Position {
+                                line: 3,
+                                character: 3,
                             },
-                        ),
-                    },
-                    actions: [],
+                        },
+                    ),
                 },
-            ),
+                actions: [],
+            },
         ),
-        (
-            TokenIdx(
-                9,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "Other\ntoken_idx = 8;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+    ),
+    (
+        TokenIdx(
+            8,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\ntoken_idx = 7;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `category_theory`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::category_theory`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 3,
+                                character: 4,
                             },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 4,
-                                    character: 0,
-                                },
-                                end: Position {
-                                    line: 4,
-                                    character: 3,
-                                },
+                            end: Position {
+                                line: 3,
+                                character: 19,
                             },
-                        ),
-                    },
-                    actions: [],
+                        },
+                    ),
                 },
-            ),
+                actions: [],
+            },
         ),
-        (
-            TokenIdx(
-                10,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Ident(\n    `probability`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::probability`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
+    ),
+    (
+        TokenIdx(
+            9,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "Other\ntoken_idx = 8;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 4,
+                                character: 0,
                             },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 4,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 4,
-                                    character: 15,
-                                },
+                            end: Position {
+                                line: 4,
+                                character: 3,
                             },
-                        ),
-                    },
-                    actions: [],
+                        },
+                    ),
                 },
-            ),
+                actions: [],
+            },
         ),
-    ],
-)
+    ),
+    (
+        TokenIdx(
+            10,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Ident(\n    `probability`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                SubmoduleSynNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: SubmodulePath(\n                            `math::probability`,\n                        ),\n                        disambiguator: 0,\n                    },\n                },\n            ),\n            Module,\n        ),\n    },\n);\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 4,
+                                character: 4,
+                            },
+                            end: Position {
+                                line: 4,
+                                character: 15,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+]

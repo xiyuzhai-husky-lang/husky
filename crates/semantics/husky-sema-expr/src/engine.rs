@@ -51,7 +51,7 @@ pub(crate) struct SemaExprEngine<'a> {
     self_value: Option<EtherealTermSymbol>,
     self_lifetime: Option<EtherealTermSymbol>,
     self_place: Option<EtherealTermSymbol>,
-    trai_in_use_items_table: EntityTreeResultRef<'a, TraitInUseItemsTable<'a>>,
+    trai_in_use_items_table: TraitInUseItemsTable<'a>,
 }
 
 impl<'a> FluffyTermEngine<'a> for SemaExprEngine<'a> {
@@ -78,7 +78,7 @@ impl<'a> FluffyTermEngine<'a> for SemaExprEngine<'a> {
         self.term_menu
     }
 
-    fn trai_in_use_items_table(&self) -> EntityTreeResultRef<'a, TraitInUseItemsTable<'a>> {
+    fn trai_in_use_items_table(&self) -> TraitInUseItemsTable<'a> {
         self.trai_in_use_items_table
     }
 }

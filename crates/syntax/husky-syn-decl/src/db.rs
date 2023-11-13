@@ -5,26 +5,21 @@ use husky_entity_syn_tree::EntitySynTreeResult;
 use husky_vfs::ModulePath;
 use salsa::DbWithJar;
 
-
 pub trait SynDeclDb: DbWithJar<SynDeclJar> + SynExprDb {
-    fn syn_node_decl_sheet(&self, module_path: ModulePath)
-        -> EntitySynTreeResult<SynNodeDeclSheet>;
+    fn syn_node_decl_sheet(&self, module_path: ModulePath) -> SynNodeDeclSheet;
 
-    fn syn_decl_sheet(&self, module_path: ModulePath) -> EntitySynTreeResult<SynDeclSheet>;
+    fn syn_decl_sheet(&self, module_path: ModulePath) -> SynDeclSheet;
 }
 
 impl<Db> SynDeclDb for Db
 where
     Db: DbWithJar<SynDeclJar> + SynExprDb,
 {
-    fn syn_node_decl_sheet(
-        &self,
-        module_path: ModulePath,
-    ) -> EntitySynTreeResult<SynNodeDeclSheet> {
+    fn syn_node_decl_sheet(&self, module_path: ModulePath) -> SynNodeDeclSheet {
         syn_node_decl_sheet(self, module_path)
     }
 
-    fn syn_decl_sheet(&self, module_path: ModulePath) -> EntitySynTreeResult<SynDeclSheet> {
+    fn syn_decl_sheet(&self, module_path: ModulePath) -> SynDeclSheet {
         syn_decl_sheet(self, module_path)
     }
 }

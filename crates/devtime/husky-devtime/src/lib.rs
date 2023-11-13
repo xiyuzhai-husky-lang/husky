@@ -5,12 +5,9 @@ use husky_dev_comptime::DevComptimeTarget;
 pub use husky_trace_protocol::server::IsTracetime;
 
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
-use husky_task::{
-    helpers::DevLinkTime,
-    visual::{VisualComponent},
-    DevComptimeDb, IsTask,
-};
+use husky_task::{helpers::DevLinkTime, visual::VisualComponent, DevComptimeDb, IsTask};
 use husky_trace::{db::TraceDb, trace::Trace};
+use husky_vfs::error::VfsResult;
 use std::path::Path;
 
 use self::state::*;
@@ -31,11 +28,11 @@ where
         task: Task,
         target_crate: &Path,
         runtime_config: Option<DevRuntimeConfig<Task>>,
-    ) -> Self {
-        Self {
-            runtime: DevRuntime::new(task, target_crate, runtime_config),
+    ) -> VfsResult<Self> {
+        Ok(Self {
+            runtime: DevRuntime::new(task, target_crate, runtime_config)?,
             state: Default::default(),
-        }
+        })
     }
 
     pub fn db(&self) -> &DevComptimeDb<Task> {

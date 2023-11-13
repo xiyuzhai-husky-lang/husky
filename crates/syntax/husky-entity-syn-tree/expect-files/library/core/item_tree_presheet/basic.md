@@ -1,39 +1,11 @@
-Ok(
-    EntitySynTreePresheet {
-        module_path: `core::basic`,
-        major_item_node_table: MajorEntityNodeTable {
-            entries: [
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::bool`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::Pub,
-                            ast_idx: 2,
-                            ident_token: IdentToken {
-                                ident: `bool`,
-                                token_idx: TokenIdx(
-                                    7,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                                variants: None,
-                            },
-                        },
-                    ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Type(
+EntitySynTreePresheet {
+    module_path: `core::basic`,
+    major_item_node_table: MajorEntityNodeTable {
+        entries: [
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::bool`, `Extern`),
@@ -41,41 +13,41 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `bool`,
-                    visibility: Scope::Pub,
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::never`, `Extern`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::Pub,
+                        ast_idx: 2,
+                        ident_token: IdentToken {
+                            ident: `bool`,
+                            token_idx: TokenIdx(
+                                7,
+                            ),
+                        },
+                        block: Type {
+                            path: TypePath(
+                                Id {
+                                    value: 2,
                                 },
                             ),
-                            visibility: Scope::Pub,
-                            ast_idx: 3,
-                            ident_token: IdentToken {
-                                ident: `never`,
-                                token_idx: TokenIdx(
-                                    11,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                                variants: None,
+                            variants: None,
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
+                        TypeSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`core::basic::bool`, `Extern`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Type(
+                ),
+                ident: `bool`,
+                visibility: Scope::Pub,
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::never`, `Extern`),
@@ -83,41 +55,41 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `never`,
-                    visibility: Scope::Pub,
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::unit`, `Extern`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::Pub,
+                        ast_idx: 3,
+                        ident_token: IdentToken {
+                            ident: `never`,
+                            token_idx: TokenIdx(
+                                11,
+                            ),
+                        },
+                        block: Type {
+                            path: TypePath(
+                                Id {
+                                    value: 3,
                                 },
                             ),
-                            visibility: Scope::Pub,
-                            ast_idx: 4,
-                            ident_token: IdentToken {
-                                ident: `unit`,
-                                token_idx: TokenIdx(
-                                    15,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
-                                variants: None,
+                            variants: None,
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
+                        TypeSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`core::basic::never`, `Extern`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Type(
+                ),
+                ident: `never`,
+                visibility: Scope::Pub,
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::unit`, `Extern`),
@@ -125,41 +97,41 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `unit`,
-                    visibility: Scope::Pub,
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::Trait`, `Extern`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::Pub,
+                        ast_idx: 4,
+                        ident_token: IdentToken {
+                            ident: `unit`,
+                            token_idx: TokenIdx(
+                                15,
+                            ),
+                        },
+                        block: Type {
+                            path: TypePath(
+                                Id {
+                                    value: 4,
                                 },
                             ),
-                            visibility: Scope::Pub,
-                            ast_idx: 5,
-                            ident_token: IdentToken {
-                                ident: `Trait`,
-                                token_idx: TokenIdx(
-                                    19,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                                variants: None,
+                            variants: None,
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
+                        TypeSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`core::basic::unit`, `Extern`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Type(
+                ),
+                ident: `unit`,
+                visibility: Scope::Pub,
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::Trait`, `Extern`),
@@ -167,41 +139,41 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `Trait`,
-                    visibility: Scope::Pub,
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::Module`, `Extern`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::Pub,
+                        ast_idx: 5,
+                        ident_token: IdentToken {
+                            ident: `Trait`,
+                            token_idx: TokenIdx(
+                                19,
+                            ),
+                        },
+                        block: Type {
+                            path: TypePath(
+                                Id {
+                                    value: 5,
                                 },
                             ),
-                            visibility: Scope::Pub,
-                            ast_idx: 6,
-                            ident_token: IdentToken {
-                                ident: `Module`,
-                                token_idx: TokenIdx(
-                                    23,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                                variants: None,
+                            variants: None,
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
+                        TypeSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`core::basic::Trait`, `Extern`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Type(
+                ),
+                ident: `Trait`,
+                visibility: Scope::Pub,
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::Module`, `Extern`),
@@ -209,41 +181,41 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `Module`,
-                    visibility: Scope::Pub,
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::Lifetime`, `Extern`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::Pub,
+                        ast_idx: 6,
+                        ident_token: IdentToken {
+                            ident: `Module`,
+                            token_idx: TokenIdx(
+                                23,
+                            ),
+                        },
+                        block: Type {
+                            path: TypePath(
+                                Id {
+                                    value: 6,
                                 },
                             ),
-                            visibility: Scope::Pub,
-                            ast_idx: 7,
-                            ident_token: IdentToken {
-                                ident: `Lifetime`,
-                                token_idx: TokenIdx(
-                                    27,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                                variants: None,
+                            variants: None,
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
+                        TypeSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`core::basic::Module`, `Extern`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Type(
+                ),
+                ident: `Module`,
+                visibility: Scope::Pub,
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::Lifetime`, `Extern`),
@@ -251,41 +223,41 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `Lifetime`,
-                    visibility: Scope::Pub,
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::Place`, `Extern`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::Pub,
+                        ast_idx: 7,
+                        ident_token: IdentToken {
+                            ident: `Lifetime`,
+                            token_idx: TokenIdx(
+                                27,
+                            ),
+                        },
+                        block: Type {
+                            path: TypePath(
+                                Id {
+                                    value: 7,
                                 },
                             ),
-                            visibility: Scope::Pub,
-                            ast_idx: 8,
-                            ident_token: IdentToken {
-                                ident: `Place`,
-                                token_idx: TokenIdx(
-                                    31,
-                                ),
-                            },
-                            block: Type {
-                                path: TypePath(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                                variants: None,
+                            variants: None,
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
+                        TypeSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`core::basic::Lifetime`, `Extern`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Type(
+                ),
+                ident: `Lifetime`,
+                visibility: Scope::Pub,
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::Place`, `Extern`),
@@ -293,74 +265,100 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `Place`,
-                    visibility: Scope::Pub,
-                },
-            ],
-        },
-        use_one_trackers: OnceUseRules(
-            [
-                OnceUseRule {
-                    ast_idx: 1,
-                    use_expr_idx: 2,
-                    visibility: Scope::PubUnder(
-                        `core::basic`,
-                    ),
-                    variant: OnceUseRuleVariant::Parent {
-                        parent_name_token: PathNameToken::CrateRoot(
-                            CrateToken {
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
-                        ),
-                        children: ArenaIdxRange(
-                            1..2,
-                        ),
-                    },
-                    parent: None,
-                    state: OnceUseRuleState::Unresolved,
-                },
-            ],
-        ),
-        use_all_trackers: UseAllModuleSymbolsRules(
-            [],
-        ),
-        use_expr_arena: Arena {
-            data: [
-                UseExpr::All {
-                    star_token: StarToken(
-                        TokenIdx(
-                            4,
-                        ),
-                    ),
-                },
-                UseExpr::Parent(
-                    ParentUseExpr {
-                        parent_name_token: PathNameToken::CrateRoot(
-                            CrateToken {
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
-                        ),
-                        colon_colon_token: Ok(
-                            ColonColonToken(
-                                TokenIdx(
-                                    3,
-                                ),
+                        visibility: Scope::Pub,
+                        ast_idx: 8,
+                        ident_token: IdentToken {
+                            ident: `Place`,
+                            token_idx: TokenIdx(
+                                31,
                             ),
-                        ),
-                        children: Ok(
-                            UseExprChildren::Single {
-                                child: 1,
-                            },
-                        ),
+                        },
+                        block: Type {
+                            path: TypePath(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                            variants: None,
+                        },
                     },
                 ),
-            ],
-        },
-        errors: [],
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
+                        TypeSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`core::basic::Place`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                ident: `Place`,
+                visibility: Scope::Pub,
+            },
+        ],
     },
-)
+    use_one_trackers: OnceUseRules(
+        [
+            OnceUseRule {
+                ast_idx: 1,
+                use_expr_idx: 2,
+                visibility: Scope::PubUnder(
+                    `core::basic`,
+                ),
+                variant: OnceUseRuleVariant::Parent {
+                    parent_name_token: PathNameToken::CrateRoot(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    children: ArenaIdxRange(
+                        1..2,
+                    ),
+                },
+                parent: None,
+                state: OnceUseRuleState::Unresolved,
+            },
+        ],
+    ),
+    use_all_trackers: UseAllModuleSymbolsRules(
+        [],
+    ),
+    use_expr_arena: Arena {
+        data: [
+            UseExpr::All {
+                star_token: StarToken(
+                    TokenIdx(
+                        4,
+                    ),
+                ),
+            },
+            UseExpr::Parent(
+                ParentUseExpr {
+                    parent_name_token: PathNameToken::CrateRoot(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    colon_colon_token: Ok(
+                        ColonColonToken(
+                            TokenIdx(
+                                3,
+                            ),
+                        ),
+                    ),
+                    children: Ok(
+                        UseExprChildren::Single {
+                            child: 1,
+                        },
+                    ),
+                },
+            ),
+        ],
+    },
+    errors: [],
+}

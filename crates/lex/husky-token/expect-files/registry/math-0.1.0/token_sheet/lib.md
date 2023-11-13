@@ -1,70 +1,68 @@
-Ok(
-    TokenSheetData {
-        tokens: [
-            TokenData::Keyword(
-                Keyword::Mod,
+TokenSheetData {
+    tokens: [
+        TokenData::Keyword(
+            Keyword::Mod,
+        ),
+        TokenData::Ident(
+            `algebra`,
+        ),
+        TokenData::Keyword(
+            Keyword::Mod,
+        ),
+        TokenData::Ident(
+            `algebraic_geometry`,
+        ),
+        TokenData::Keyword(
+            Keyword::Mod,
+        ),
+        TokenData::Ident(
+            `algebraic_topology`,
+        ),
+        TokenData::Keyword(
+            Keyword::Mod,
+        ),
+        TokenData::Ident(
+            `category_theory`,
+        ),
+        TokenData::Keyword(
+            Keyword::Mod,
+        ),
+        TokenData::Ident(
+            `probability`,
+        ),
+    ],
+    token_group_starts: [
+        TokenGroupStart(
+            TokenIdx(
+                1,
             ),
-            TokenData::Ident(
-                `algebra`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                3,
             ),
-            TokenData::Keyword(
-                Keyword::Mod,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                5,
             ),
-            TokenData::Ident(
-                `algebraic_geometry`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                7,
             ),
-            TokenData::Keyword(
-                Keyword::Mod,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                9,
             ),
-            TokenData::Ident(
-                `algebraic_topology`,
-            ),
-            TokenData::Keyword(
-                Keyword::Mod,
-            ),
-            TokenData::Ident(
-                `category_theory`,
-            ),
-            TokenData::Keyword(
-                Keyword::Mod,
-            ),
-            TokenData::Ident(
-                `probability`,
-            ),
-        ],
-        token_group_starts: [
-            TokenGroupStart(
-                TokenIdx(
-                    1,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    3,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    5,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    7,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    9,
-                ),
-            ),
-        ],
-        indents: [
-            0,
-            0,
-            0,
-            0,
-            0,
-        ],
-    },
-)
+        ),
+    ],
+    indents: [
+        0,
+        0,
+        0,
+        0,
+        0,
+    ],
+}

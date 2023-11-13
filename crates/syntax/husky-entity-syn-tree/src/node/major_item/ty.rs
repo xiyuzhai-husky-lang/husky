@@ -66,9 +66,7 @@ fn ty_node(db: &dyn EntitySynTreeDb, syn_node_path: TypeSynNodePath) -> MajorIte
     let module_path = syn_node_path.module_path(db);
     // it's important to use presheet instead of sheet
     // otherwise cyclic when use all type variant paths
-    let item_presheet = db
-        .item_syn_tree_presheet(module_path)
-        .expect("should correspond to valid node");
+    let item_presheet = db.item_syn_tree_presheet(module_path);
     let Some(major_item_node) = item_presheet.major_item_node(syn_node_path.into()) else {
         p!(syn_node_path.debug(db));
         unreachable!("should be some, must be some erros in library")
@@ -92,10 +90,7 @@ fn ty_attrs(
     db: &dyn EntitySynTreeDb,
     ty_syn_node_path: TypeSynNodePath,
 ) -> SmallVec<[(AttrSynNodePath, AttrSynNode); 2]> {
-    let ast_sheet = ty_syn_node_path
-        .module_path(db)
-        .ast_sheet(db)
-        .expect("todo: module paths should be guaranteed to be valid");
+    let ast_sheet = ty_syn_node_path.module_path(db).ast_sheet(db);
     let mut registry = ItemSynNodePathRegistry::default();
     ast_sheet.procure_attrs(
         ty_syn_node_path.maybe_ambiguous_path(db).path.into(),

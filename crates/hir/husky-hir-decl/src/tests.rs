@@ -8,7 +8,7 @@ use husky_coword::CowordJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 use husky_declarative_ty::DeclarativeTypeJar;
-use husky_entity_path::{EntityPathJar};
+use husky_entity_path::EntityPathJar;
 use husky_entity_syn_tree::{helpers::paths::module_item_paths, EntitySynTreeJar};
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
@@ -17,7 +17,7 @@ use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 
 use husky_sema_expr::SemaExprJar;
-use husky_syn_decl::{SynDeclJar};
+use husky_syn_decl::SynDeclJar;
 use husky_syn_defn::SynDefnJar;
 use husky_syn_expr::SynExprJar;
 use husky_term_prelude::TermPreludeJar;
@@ -45,7 +45,7 @@ use husky_toml_token::TomlTokenJar;
     TermPreludeJar,
     DeclarativeTermJar,
     DeclarativeSignatureJar,
-    DeclarativeTypeJar,
+    husky_declarative_ty::db::DeclarativeTypeJar,
     EtherealTermJar,
     EtherealSignatureJar,
     FluffyTermJar,
@@ -65,8 +65,6 @@ impl salsa::Database for DB {}
 
 fn module_hir_decls(db: &DB, module_path: ModulePath) -> Vec<HirDecl> {
     module_item_paths(db, module_path)
-        .as_ref()
-        .expect("all modules should be guaranteed to be valid")
         .iter()
         .filter_map(|path| path.hir_decl(db))
         .collect()

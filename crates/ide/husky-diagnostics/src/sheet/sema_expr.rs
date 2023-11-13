@@ -20,10 +20,7 @@ pub(crate) fn expr_ty_diagnostic_sheet(
     module_path: ModulePath,
 ) -> ExprTypeDiagnosticSheet {
     let mut diagnostics = vec![];
-    if let (Ok(ranged_token_sheet), Ok(defns)) =
-        (db.ranged_token_sheet(module_path), module_path.defns(db))
-    {
-        let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
+    if let Ok(defns) = module_path.defns(db) {
         for defn in defns {
             let decl = defn.syn_decl(db);
             if let Some(syn_expr_region) = decl.syn_expr_region(db) {

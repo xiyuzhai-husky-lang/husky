@@ -71,32 +71,28 @@ pub(crate) fn resolve_module_path(
         let package_name = read_package_name_from_manifest(db, &manifest_path)
             .ok_or(VfsError::FailToReadPackageNameFromManifest)?;
         match file_stem {
-            "lib" => ModulePath::new_root(
-                db,
-                CratePath::new(
+            "lib" => CratePath::new(
+                PackagePath::new_local_or_toolchain_package(
                     db,
-                    PackagePath::new_local_or_toolchain_package(
-                        db,
-                        toolchain,
-                        package_name,
-                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
-                    )?,
-                    CrateKind::Library,
-                ),
-            ),
-            "main" => ModulePath::new_root(
+                    toolchain,
+                    package_name,
+                    parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
+                )?,
+                CrateKind::Library,
                 db,
-                CratePath::new(
+            )?
+            .root_module_path(db),
+            "main" => CratePath::new(
+                PackagePath::new_local_or_toolchain_package(
                     db,
-                    PackagePath::new_local_or_toolchain_package(
-                        db,
-                        toolchain,
-                        package_name,
-                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
-                    )?,
-                    CrateKind::Main,
-                ),
-            ),
+                    toolchain,
+                    package_name,
+                    parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
+                )?,
+                CrateKind::Main,
+                db,
+            )?
+            .root_module_path(db),
             _ => {
                 let lib_path = parent.join("lib.hsy");
                 if lib_path.exists() {
@@ -105,7 +101,7 @@ pub(crate) fn resolve_module_path(
                         resolve_module_path(db, toolchain, lib_path)?,
                         db.it_ident_borrowed(file_stem)
                             .ok_or(VfsError::ModulePathResolveFailure)?,
-                    )
+                    )?
                     .into()
                 } else {
                     let main_path = parent.join("main.hsy");
@@ -115,7 +111,7 @@ pub(crate) fn resolve_module_path(
                             resolve_module_path(db, toolchain, main_path)?,
                             db.it_ident_borrowed(file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
-                        )
+                        )?
                         .into()
                     } else {
                         todo!()
@@ -133,7 +129,7 @@ pub(crate) fn resolve_module_path(
             resolve_module_path(db, toolchain, parent_module_path)?,
             db.it_ident_borrowed(file_stem)
                 .ok_or(VfsError::ModulePathResolveFailure)?,
-        )
+        )?
         .into()
     })
 }

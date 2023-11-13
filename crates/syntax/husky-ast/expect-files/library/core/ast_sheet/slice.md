@@ -1,485 +1,483 @@
-Ok(
-    AstSheet {
-        ast_arena: Arena {
-            data: [
-                Ast::Identifiable {
-                    token_group_idx: TokenGroupIdx(
-                        3,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    20,
-                                ),
-                            },
-                        },
-                    },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `len`,
-                        token_idx: TokenIdx(
-                            22,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            23,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
-                },
-                Ast::Identifiable {
-                    token_group_idx: TokenGroupIdx(
-                        4,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    28,
-                                ),
-                            },
-                        },
-                    },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `swap`,
-                        token_idx: TokenIdx(
-                            30,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            31,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
-                },
-                Ast::Identifiable {
-                    token_group_idx: TokenGroupIdx(
-                        8,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 17,
-                                },
+AstSheet {
+    ast_arena: Arena {
+        data: [
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    3,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: Pub,
+                    variant: Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                20,
                             ),
-                        ),
-                        variant: Protected,
-                    },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TraitForTypeItem(
-                            AssociatedType,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `Output`,
-                        token_idx: TokenIdx(
-                            74,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            75,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
-                },
-                Ast::Identifiable {
-                    token_group_idx: TokenGroupIdx(
-                        10,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    84,
-                                ),
-                            },
                         },
                     },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `ilen`,
-                        token_idx: TokenIdx(
-                            86,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            87,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
                 },
-                Ast::Identifiable {
-                    token_group_idx: TokenGroupIdx(
-                        11,
+                item_kind: AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
                     ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    92,
-                                ),
-                            },
-                        },
-                    },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `start`,
-                        token_idx: TokenIdx(
-                            94,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            95,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
                 },
-                Ast::Identifiable {
-                    token_group_idx: TokenGroupIdx(
-                        12,
+                ident_token: IdentToken {
+                    ident: `len`,
+                    token_idx: TokenIdx(
+                        22,
                     ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    100,
-                                ),
-                            },
-                        },
-                    },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `end`,
-                        token_idx: TokenIdx(
-                            102,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            103,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
                 },
-                Ast::Identifiable {
-                    token_group_idx: TokenGroupIdx(
-                        13,
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        23,
                     ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    108,
-                                ),
-                            },
-                        },
-                    },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `first`,
-                        token_idx: TokenIdx(
-                            110,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            111,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
+                    drained: false,
                 },
-                Ast::Identifiable {
-                    token_group_idx: TokenGroupIdx(
-                        14,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    118,
-                                ),
-                            },
-                        },
-                    },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `last`,
-                        token_idx: TokenIdx(
-                            120,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            121,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
+                block: AssociatedItem {
+                    body: None,
                 },
-                Ast::Use {
-                    token_group_idx: TokenGroupIdx(
-                        0,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 17,
-                                },
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    4,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: Pub,
+                    variant: Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                28,
                             ),
-                        ),
-                        variant: Protected,
-                    },
-                    state_after_visibility_expr: None,
-                },
-                Ast::Identifiable {
-                    token_group_idx: TokenGroupIdx(
-                        1,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    5,
-                                ),
-                            },
                         },
                     },
-                    item_kind: MajorItem {
-                        module_item_kind: Type(
-                            Extern,
-                        ),
-                        connection: Connected,
-                    },
-                    ident_token: IdentToken {
-                        ident: `Slice`,
-                        token_idx: TokenIdx(
-                            7,
-                        ),
-                    },
-                    is_generic: true,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            8,
-                        ),
-                        drained: false,
-                    },
-                    block: Type {
-                        path: TypePath(
+                },
+                item_kind: AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+                ident_token: IdentToken {
+                    ident: `swap`,
+                    token_idx: TokenIdx(
+                        30,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        31,
+                    ),
+                    drained: false,
+                },
+                block: AssociatedItem {
+                    body: None,
+                },
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    8,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: PubUnder(
+                        ModulePath(
                             Id {
-                                value: 34,
-                            },
-                        ),
-                        variants: None,
-                    },
-                },
-                Ast::ImplBlock {
-                    token_group_idx: TokenGroupIdx(
-                        2,
-                    ),
-                    items: Some(
-                        Type(
-                            TypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    1..3,
-                                ),
+                                value: 17,
                             },
                         ),
                     ),
+                    variant: Protected,
                 },
-                Ast::Attr {
-                    token_group_idx: TokenGroupIdx(
-                        5,
+                item_kind: AssociatedItem {
+                    associated_item_kind: TraitForTypeItem(
+                        AssociatedType,
                     ),
-                    ident: `derive`,
                 },
-                Ast::Identifiable {
-                    token_group_idx: TokenGroupIdx(
-                        6,
+                ident_token: IdentToken {
+                    ident: `Output`,
+                    token_idx: TokenIdx(
+                        74,
                     ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    52,
-                                ),
-                            },
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        75,
+                    ),
+                    drained: false,
+                },
+                block: AssociatedItem {
+                    body: None,
+                },
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    10,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: Pub,
+                    variant: Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                84,
+                            ),
                         },
                     },
-                    item_kind: MajorItem {
-                        module_item_kind: Type(
-                            Extern,
-                        ),
-                        connection: Connected,
-                    },
-                    ident_token: IdentToken {
-                        ident: `CyclicSlice`,
-                        token_idx: TokenIdx(
-                            54,
-                        ),
-                    },
-                    is_generic: true,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            55,
-                        ),
-                        drained: false,
-                    },
-                    block: Type {
-                        path: TypePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
-                        variants: None,
+                },
+                item_kind: AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+                ident_token: IdentToken {
+                    ident: `ilen`,
+                    token_idx: TokenIdx(
+                        86,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        87,
+                    ),
+                    drained: false,
+                },
+                block: AssociatedItem {
+                    body: None,
+                },
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    11,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: Pub,
+                    variant: Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                92,
+                            ),
+                        },
                     },
                 },
-                Ast::ImplBlock {
-                    token_group_idx: TokenGroupIdx(
+                item_kind: AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+                ident_token: IdentToken {
+                    ident: `start`,
+                    token_idx: TokenIdx(
+                        94,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        95,
+                    ),
+                    drained: false,
+                },
+                block: AssociatedItem {
+                    body: None,
+                },
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    12,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: Pub,
+                    variant: Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                100,
+                            ),
+                        },
+                    },
+                },
+                item_kind: AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+                ident_token: IdentToken {
+                    ident: `end`,
+                    token_idx: TokenIdx(
+                        102,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        103,
+                    ),
+                    drained: false,
+                },
+                block: AssociatedItem {
+                    body: None,
+                },
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    13,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: Pub,
+                    variant: Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                108,
+                            ),
+                        },
+                    },
+                },
+                item_kind: AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+                ident_token: IdentToken {
+                    ident: `first`,
+                    token_idx: TokenIdx(
+                        110,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        111,
+                    ),
+                    drained: false,
+                },
+                block: AssociatedItem {
+                    body: None,
+                },
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    14,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: Pub,
+                    variant: Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                118,
+                            ),
+                        },
+                    },
+                },
+                item_kind: AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+                ident_token: IdentToken {
+                    ident: `last`,
+                    token_idx: TokenIdx(
+                        120,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        121,
+                    ),
+                    drained: false,
+                },
+                block: AssociatedItem {
+                    body: None,
+                },
+            },
+            Ast::Use {
+                token_group_idx: TokenGroupIdx(
+                    0,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: PubUnder(
+                        ModulePath(
+                            Id {
+                                value: 17,
+                            },
+                        ),
+                    ),
+                    variant: Protected,
+                },
+                state_after_visibility_expr: None,
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    1,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: Pub,
+                    variant: Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                5,
+                            ),
+                        },
+                    },
+                },
+                item_kind: MajorItem {
+                    module_item_kind: Type(
+                        Extern,
+                    ),
+                    connection: Connected,
+                },
+                ident_token: IdentToken {
+                    ident: `Slice`,
+                    token_idx: TokenIdx(
                         7,
                     ),
-                    items: Some(
-                        TraitForType(
-                            TraitForTypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    3..4,
-                                ),
-                            },
-                        ),
+                },
+                is_generic: true,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        8,
+                    ),
+                    drained: false,
+                },
+                block: Type {
+                    path: TypePath(
+                        Id {
+                            value: 34,
+                        },
+                    ),
+                    variants: None,
+                },
+            },
+            Ast::ImplBlock {
+                token_group_idx: TokenGroupIdx(
+                    2,
+                ),
+                items: Some(
+                    Type(
+                        TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                1..3,
+                            ),
+                        },
+                    ),
+                ),
+            },
+            Ast::Attr {
+                token_group_idx: TokenGroupIdx(
+                    5,
+                ),
+                ident: `derive`,
+            },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    6,
+                ),
+                visibility_expr: VisibilityExpr {
+                    visibility: Pub,
+                    variant: Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                52,
+                            ),
+                        },
+                    },
+                },
+                item_kind: MajorItem {
+                    module_item_kind: Type(
+                        Extern,
+                    ),
+                    connection: Connected,
+                },
+                ident_token: IdentToken {
+                    ident: `CyclicSlice`,
+                    token_idx: TokenIdx(
+                        54,
                     ),
                 },
-                Ast::ImplBlock {
-                    token_group_idx: TokenGroupIdx(
-                        9,
+                is_generic: true,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        55,
                     ),
-                    items: Some(
-                        Type(
-                            TypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    4..9,
-                                ),
-                            },
-                        ),
-                    ),
+                    drained: false,
                 },
-            ],
-        },
-        top_level_asts: ArenaIdxRange(
-            9..16,
-        ),
-        siblings: [
-            ArenaIdxRange(
-                1..1,
-            ),
-            ArenaIdxRange(
-                1..1,
-            ),
-            ArenaIdxRange(
-                1..3,
-            ),
-            ArenaIdxRange(
-                3..3,
-            ),
-            ArenaIdxRange(
-                3..4,
-            ),
-            ArenaIdxRange(
-                4..4,
-            ),
-            ArenaIdxRange(
-                4..4,
-            ),
-            ArenaIdxRange(
-                4..4,
-            ),
-            ArenaIdxRange(
-                4..4,
-            ),
-            ArenaIdxRange(
-                4..4,
-            ),
-            ArenaIdxRange(
-                4..9,
-            ),
-            ArenaIdxRange(
-                9..16,
-            ),
+                block: Type {
+                    path: TypePath(
+                        Id {
+                            value: 35,
+                        },
+                    ),
+                    variants: None,
+                },
+            },
+            Ast::ImplBlock {
+                token_group_idx: TokenGroupIdx(
+                    7,
+                ),
+                items: Some(
+                    TraitForType(
+                        TraitForTypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                3..4,
+                            ),
+                        },
+                    ),
+                ),
+            },
+            Ast::ImplBlock {
+                token_group_idx: TokenGroupIdx(
+                    9,
+                ),
+                items: Some(
+                    Type(
+                        TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                4..9,
+                            ),
+                        },
+                    ),
+                ),
+            },
         ],
     },
-)
+    top_level_asts: ArenaIdxRange(
+        9..16,
+    ),
+    siblings: [
+        ArenaIdxRange(
+            1..1,
+        ),
+        ArenaIdxRange(
+            1..1,
+        ),
+        ArenaIdxRange(
+            1..3,
+        ),
+        ArenaIdxRange(
+            3..3,
+        ),
+        ArenaIdxRange(
+            3..4,
+        ),
+        ArenaIdxRange(
+            4..4,
+        ),
+        ArenaIdxRange(
+            4..4,
+        ),
+        ArenaIdxRange(
+            4..4,
+        ),
+        ArenaIdxRange(
+            4..4,
+        ),
+        ArenaIdxRange(
+            4..4,
+        ),
+        ArenaIdxRange(
+            4..9,
+        ),
+        ArenaIdxRange(
+            9..16,
+        ),
+    ],
+}

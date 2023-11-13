@@ -16,22 +16,18 @@ pub struct TraitInUseItemsTable<'a> {
 }
 
 impl<'a> TraitInUseItemsTable<'a> {
-    pub fn query(
-        db: &'a dyn EntitySynTreeDb,
-        module_path: ModulePath,
-    ) -> EntityTreeResultRef<'a, Self> {
+    pub fn query(db: &'a dyn EntitySynTreeDb, module_path: ModulePath) -> Self {
         let toolchain = module_path.toolchain(db);
-        Ok(Self {
+        Self {
             prelude_trait_items_table: if module_path.crate_path(db)
                 == db.vfs_path_menu(toolchain).core_library()
             {
                 &[]
             } else {
-                non_core_crate_prelude_trait_items_table(db, toolchain).as_ref()?
+                non_core_crate_prelude_trait_items_table(db, toolchain)
             },
-            module_specific_trait_items_table: module_specific_trait_items_table(db, module_path)
-                .as_ref()?,
-        })
+            module_specific_trait_items_table: module_specific_trait_items_table(db, module_path),
+        }
     }
 
     pub fn available_trait_items_with_given_ident(
@@ -59,31 +55,19 @@ impl<'a> TraitInUseItemsTable<'a> {
 fn non_core_crate_prelude_trait_items_table(
     db: &dyn EntitySynTreeDb,
     toolchain: Toolchain,
-) -> EntitySynTreeResult<TraitInUseItemsTableImpl> {
-    Ok(trait_items_table_impl(
+) -> TraitInUseItemsTableImpl {
+    trait_items_table_impl(
         db,
-        none_core_crate_universal_prelude(db, toolchain)
-            .as_ref()?
-            .as_ref(),
-    ))
+        none_core_crate_universal_prelude(db, toolchain).as_ref(),
+    )
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 fn module_specific_trait_items_table(
     db: &dyn EntitySynTreeDb,
     module_path: ModulePath,
-) -> EntitySynTreeResult<TraitInUseItemsTableImpl> {
-    Ok(trait_items_table_impl(
-        db,
-        module_path
-            .item_tree_sheet(db)
-            .as_ref()
-            .map_err(|e| -> EntitySynTreeError {
-                p!(e.debug(db));
-                todo!()
-            })?
-            .module_symbols(),
-    ))
+) -> TraitInUseItemsTableImpl {
+    trait_items_table_impl(db, module_path.item_tree_sheet(db).module_symbols())
 }
 
 type TraitInUseItemsTableImpl = SmallVecPairMap<Ident, SmallVec<[TraitInUseItemRecord; 2]>, 16>;
@@ -159,6 +143,9 @@ impl<'a> TraitInUseItemsWithGivenIdent<'a> {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-fn trai_item_table(_db: &dyn EntitySynTreeDb, _traits: TraitOrderedSet) -> TraitInUseItemsTableImpl {
+fn trai_item_table(
+    _db: &dyn EntitySynTreeDb,
+    _traits: TraitOrderedSet,
+) -> TraitInUseItemsTableImpl {
     todo!()
 }

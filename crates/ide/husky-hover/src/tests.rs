@@ -46,7 +46,7 @@ use husky_toml_token::TomlTokenJar;
     TermPreludeJar,
     DeclarativeTermJar,
     DeclarativeSignatureJar,
-    DeclarativeTypeJar,
+    husky_declarative_ty::db::DeclarativeTypeJar,
     EtherealTermJar,
     EtherealSignatureJar,
     FluffyTermJar,
@@ -64,19 +64,19 @@ impl salsa::Database for DB {}
 fn hover_result_works() {
     const N: usize = 20;
     DB::default().ast_expect_test_debug(
-        |db, module_path| -> EntitySynTreeResult<Vec<(TokenIdx, Option<HoverResult>)>> {
-            let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
+        |db, module_path| -> Vec<(TokenIdx, Option<HoverResult>)> {
+            let ranged_token_sheet = db.ranged_token_sheet(module_path);
             let len = ranged_token_sheet.len();
             let step = (len / N).max(1);
             let mut hover_results = vec![];
             for token_idx in ranged_token_sheet.token_index_iter() {
                 // only push some of them, but all of them have to be computed
-                let hover_result = calc_hover_result(db, module_path, token_idx)?;
+                let hover_result = calc_hover_result(db, module_path, token_idx);
                 if token_idx.index() % step == 0 {
                     hover_results.push((token_idx, hover_result))
                 }
             }
-            Ok(hover_results)
+            hover_results
         },
         &AstTestConfig::new("hover_result"),
     )

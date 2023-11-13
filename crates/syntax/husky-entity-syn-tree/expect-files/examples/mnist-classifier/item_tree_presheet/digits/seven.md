@@ -1,47 +1,11 @@
-Ok(
-    EntitySynTreePresheet {
-        module_path: `mnist_classifier::digits::seven`,
-        major_item_node_table: MajorEntityNodeTable {
-            entries: [
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            ast_idx: 40,
-                            ident_token: IdentToken {
-                                ident: `simple_seven_match`,
-                                token_idx: TokenIdx(
-                                    6,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 31,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
-                    ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+EntitySynTreePresheet {
+    module_path: `mnist_classifier::digits::seven`,
+    major_item_node_table: MajorEntityNodeTable {
+        entries: [
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
@@ -49,51 +13,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `simple_seven_match`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::seven`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        ast_idx: 40,
+                        ident_token: IdentToken {
+                            ident: `simple_seven_match`,
+                            token_idx: TokenIdx(
+                                6,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 31,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::seven`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
                             ),
-                            ast_idx: 41,
-                            ident_token: IdentToken {
-                                ident: `simple_leftdown_pattern`,
-                                token_idx: TokenIdx(
-                                    19,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 32,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            2..5,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `simple_seven_match`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::seven`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
@@ -101,51 +65,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `simple_leftdown_pattern`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::seven`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        ast_idx: 41,
+                        ident_token: IdentToken {
+                            ident: `simple_leftdown_pattern`,
+                            token_idx: TokenIdx(
+                                19,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 32,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::seven`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        2..5,
+                                    ),
+                                },
                             ),
-                            ast_idx: 42,
-                            ident_token: IdentToken {
-                                ident: `special_seven_match`,
-                                token_idx: TokenIdx(
-                                    49,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 33,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            5..6,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `simple_leftdown_pattern`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::seven`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
@@ -153,51 +117,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `special_seven_match`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::seven`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        ast_idx: 42,
+                        ident_token: IdentToken {
+                            ident: `special_seven_match`,
+                            token_idx: TokenIdx(
+                                49,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 33,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::seven`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        5..6,
+                                    ),
+                                },
                             ),
-                            ast_idx: 43,
-                            ident_token: IdentToken {
-                                ident: `leftupcc_pattern`,
-                                token_idx: TokenIdx(
-                                    64,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 34,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            6..10,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `special_seven_match`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::seven`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
@@ -205,51 +169,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `leftupcc_pattern`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::seven`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        ast_idx: 43,
+                        ident_token: IdentToken {
+                            ident: `leftupcc_pattern`,
+                            token_idx: TokenIdx(
+                                64,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 34,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::seven`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        6..10,
+                                    ),
+                                },
                             ),
-                            ast_idx: 44,
-                            ident_token: IdentToken {
-                                ident: `leftdowncc_pattern`,
-                                token_idx: TokenIdx(
-                                    107,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 35,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            10..16,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `leftupcc_pattern`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::seven`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
@@ -257,51 +221,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `leftdowncc_pattern`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::seven`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        ast_idx: 44,
+                        ident_token: IdentToken {
+                            ident: `leftdowncc_pattern`,
+                            token_idx: TokenIdx(
+                                107,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 35,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        10..16,
+                                    ),
+                                },
                             ),
-                            ast_idx: 45,
-                            ident_token: IdentToken {
-                                ident: `is_seven`,
-                                token_idx: TokenIdx(
-                                    165,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            29..39,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `leftdowncc_pattern`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::seven`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
@@ -309,76 +273,110 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `is_seven`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
-                    ),
-                },
-            ],
-        },
-        use_one_trackers: OnceUseRules(
-            [
-                OnceUseRule {
-                    ast_idx: 39,
-                    use_expr_idx: 2,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::seven`,
-                    ),
-                    variant: OnceUseRuleVariant::Parent {
-                        parent_name_token: PathNameToken::Super(
-                            SuperToken {
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits`,
                         ),
-                        children: ArenaIdxRange(
-                            1..2,
-                        ),
-                    },
-                    parent: None,
-                    state: OnceUseRuleState::Unresolved,
-                },
-            ],
-        ),
-        use_all_trackers: UseAllModuleSymbolsRules(
-            [],
-        ),
-        use_expr_arena: Arena {
-            data: [
-                UseExpr::All {
-                    star_token: StarToken(
-                        TokenIdx(
-                            4,
-                        ),
-                    ),
-                },
-                UseExpr::Parent(
-                    ParentUseExpr {
-                        parent_name_token: PathNameToken::Super(
-                            SuperToken {
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
-                        ),
-                        colon_colon_token: Ok(
-                            ColonColonToken(
-                                TokenIdx(
-                                    3,
-                                ),
+                        ast_idx: 45,
+                        ident_token: IdentToken {
+                            ident: `is_seven`,
+                            token_idx: TokenIdx(
+                                165,
                             ),
-                        ),
-                        children: Ok(
-                            UseExprChildren::Single {
-                                child: 1,
-                            },
-                        ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 36,
+                                },
+                            ),
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        29..39,
+                                    ),
+                                },
+                            ),
+                        },
                     },
                 ),
-            ],
-        },
-        errors: [],
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                ident: `is_seven`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits`,
+                ),
+            },
+        ],
     },
-)
+    use_one_trackers: OnceUseRules(
+        [
+            OnceUseRule {
+                ast_idx: 39,
+                use_expr_idx: 2,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::seven`,
+                ),
+                variant: OnceUseRuleVariant::Parent {
+                    parent_name_token: PathNameToken::Super(
+                        SuperToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    children: ArenaIdxRange(
+                        1..2,
+                    ),
+                },
+                parent: None,
+                state: OnceUseRuleState::Unresolved,
+            },
+        ],
+    ),
+    use_all_trackers: UseAllModuleSymbolsRules(
+        [],
+    ),
+    use_expr_arena: Arena {
+        data: [
+            UseExpr::All {
+                star_token: StarToken(
+                    TokenIdx(
+                        4,
+                    ),
+                ),
+            },
+            UseExpr::Parent(
+                ParentUseExpr {
+                    parent_name_token: PathNameToken::Super(
+                        SuperToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    colon_colon_token: Ok(
+                        ColonColonToken(
+                            TokenIdx(
+                                3,
+                            ),
+                        ),
+                    ),
+                    children: Ok(
+                        UseExprChildren::Single {
+                            child: 1,
+                        },
+                    ),
+                },
+            ),
+        ],
+    },
+    errors: [],
+}

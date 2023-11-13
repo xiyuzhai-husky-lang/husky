@@ -1,94 +1,92 @@
-Ok(
-    [
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Add`),
-            ),
+[
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::Add`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::AddAssign`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::AddAssign`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitAnd`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::BitAnd`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitAndAssign`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::BitAndAssign`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitOr`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::BitOr`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitOrAssign`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::BitOrAssign`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitXor`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::BitXor`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitXorAssign`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::BitXorAssign`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Div`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::Div`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::DivAssign`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::DivAssign`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::IntIndex`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::IntIndex`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Mul`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::Mul`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::MulAssign`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::MulAssign`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Neg`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::Neg`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Not`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::Not`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Sub`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::Sub`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Unveil`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::ops::Unveil`),
         ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::ops::ControlFlow`, `Enum`),
-            ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Type(
+            TypePath(`core::ops::ControlFlow`, `Enum`),
         ),
-    ],
-)
+    ),
+]

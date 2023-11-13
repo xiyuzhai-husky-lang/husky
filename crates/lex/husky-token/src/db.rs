@@ -6,8 +6,8 @@ use husky_vfs::{snippet::Snippet, *};
 use salsa::DbWithJar;
 
 pub trait TokenDb: DbWithJar<TokenJar> + VfsDb + TokenDataDb {
-    fn ranged_token_sheet(&self, module_path: ModulePath) -> VfsResult<&RangedTokenSheet>;
-    fn token_sheet_data(&self, module_path: ModulePath) -> VfsResult<&TokenSheetData>;
+    fn ranged_token_sheet(&self, module_path: ModulePath) -> &RangedTokenSheet;
+    fn token_sheet_data(&self, module_path: ModulePath) -> &TokenSheetData;
     fn snippet_token_sheet_data(&self, snippet: Snippet) -> &TokenSheetData;
 }
 
@@ -15,12 +15,12 @@ impl<T> TokenDb for T
 where
     T: DbWithJar<TokenJar> + VfsDb + TokenDataDb,
 {
-    fn token_sheet_data(&self, module_path: ModulePath) -> VfsResult<&TokenSheetData> {
-        Ok(token_sheet(self, module_path)?.data(self))
+    fn token_sheet_data(&self, module_path: ModulePath) -> &TokenSheetData {
+        token_sheet(self, module_path).data(self)
     }
 
-    fn ranged_token_sheet(&self, module_path: ModulePath) -> VfsResult<&RangedTokenSheet> {
-        Ok(ranged_token_sheet(self, module_path).as_ref()?)
+    fn ranged_token_sheet(&self, module_path: ModulePath) -> &RangedTokenSheet {
+        ranged_token_sheet(self, module_path)
     }
 
     fn snippet_token_sheet_data(&self, snippet: Snippet) -> &TokenSheetData {

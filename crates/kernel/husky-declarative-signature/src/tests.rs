@@ -47,10 +47,7 @@ fn module_declarative_signature_templates(
     db: &DB,
     module_path: ModulePath,
 ) -> Vec<(ItemPath, DeclarativeSignatureResult<SignatureTemplate>)> {
-    let Ok(syn_decl_sheet) = syn_decl_sheet(db, module_path) else {
-        return vec![];
-    };
-    syn_decl_sheet
+    syn_decl_sheet(db, module_path)
         .decls(db)
         .iter()
         .copied()

@@ -161,7 +161,7 @@ pub(crate) fn calc_impl_block_items(
     module_path: ModulePath,
     body: ImplBlockItems,
 ) -> Vec<(Ident, AssociatedItemSynNode)> {
-    let ast_sheet = db.ast_sheet(module_path).unwrap();
+    let ast_sheet = db.ast_sheet(module_path);
     body.ast_idx_range()
         .into_iter()
         .filter_map(|ast_idx| {
@@ -195,9 +195,8 @@ pub(crate) fn calc_impl_block_items(
                 }
                 Ast::Err { .. } => None,
                 _ => {
-                    let ast_token_idx_range_sheet =
-                        db.ast_token_idx_range_sheet(module_path).unwrap();
-                    let _token_sheet_data = db.token_sheet_data(module_path).unwrap();
+                    let ast_token_idx_range_sheet = db.ast_token_idx_range_sheet(module_path);
+                    let _token_sheet_data = db.token_sheet_data(module_path);
                     let _ast_range = ast_token_idx_range_sheet[ast_idx];
                     // p!(ast_range);
                     // assert!(token_sheet_data.len() >= ast_range.end().token_idx().raw());

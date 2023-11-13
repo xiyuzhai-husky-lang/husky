@@ -1,120 +1,118 @@
-Ok(
-    TokenSheetData {
-        tokens: [
-            TokenData::Keyword(
-                Keyword::Use,
+TokenSheetData {
+    tokens: [
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Super,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Super,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Super,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
                 ),
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Fugitive(
+                Val,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Par,
-                    ),
+        ),
+        TokenData::Ident(
+            `is_five`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Ident(
+            `OneVsAll`,
+        ),
+        TokenData::Ident(
+            `MnistLabel`,
+        ),
+        TokenData::Ident(
+            `MnistLabel`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Super,
+        ),
+        TokenData::Ident(
+            `Five`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Eq,
+            ),
+        ),
+        TokenData::Ident(
+            `OneVsAll`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Par,
-                    ),
-                ),
+        ),
+        TokenData::Ident(
+            `Yes`,
+        ),
+    ],
+    token_group_starts: [
+        TokenGroupStart(
+            TokenIdx(
+                1,
             ),
-            TokenData::Keyword(
-                Keyword::Fugitive(
-                    Val,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                5,
             ),
-            TokenData::Ident(
-                `is_five`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                18,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
-            TokenData::Ident(
-                `OneVsAll`,
-            ),
-            TokenData::Ident(
-                `MnistLabel`,
-            ),
-            TokenData::Ident(
-                `MnistLabel`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Ident(
-                `Five`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            TokenData::Ident(
-                `OneVsAll`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Ident(
-                `Yes`,
-            ),
-        ],
-        token_group_starts: [
-            TokenGroupStart(
-                TokenIdx(
-                    1,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    5,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    18,
-                ),
-            ),
-        ],
-        indents: [
-            0,
-            0,
-            4,
-        ],
-    },
-)
+        ),
+    ],
+    indents: [
+        0,
+        0,
+        4,
+    ],
+}

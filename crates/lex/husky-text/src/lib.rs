@@ -8,7 +8,6 @@ use husky_text_protocol::{line_map::*, range::*};
 use husky_vfs::ModulePath;
 use line_map::module_text_line_map;
 
-
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub struct Text<'a> {
     raw_text: &'a str,
@@ -22,7 +21,7 @@ pub trait HasText: Copy {
 impl HasText for ModulePath {
     fn text<'a>(self, db: &'a dyn TextDb) -> Text<'a> {
         Text {
-            raw_text: self.raw_text(db).unwrap(),
+            raw_text: self.raw_text(db),
             line_map: module_text_line_map(db, self),
         }
     }

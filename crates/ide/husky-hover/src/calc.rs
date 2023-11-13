@@ -1,7 +1,7 @@
 use husky_entity_syn_tree::EntitySynTreeResult;
 use husky_text_protocol::range::TextRange;
 
-use husky_token::{TokenGroupIdx};
+use husky_token::TokenGroupIdx;
 use husky_token_data::{Keyword, TokenData};
 use husky_token_info::{TokenInfo, TokenInfoData};
 
@@ -11,8 +11,10 @@ pub(crate) fn calc_hover_result(
     db: &dyn HoverDb,
     module_path: ModulePath,
     token_idx: TokenIdx,
-) -> EntitySynTreeResult<Option<HoverResult>> {
-    Ok(HoverResultCalculator::new(db, module_path, token_idx)?.gen_content())
+) -> Option<HoverResult> {
+    HoverResultCalculator::new(db, module_path, token_idx)
+        .ok()?
+        .gen_content()
 }
 
 struct HoverResultCalculator<'a> {
@@ -34,8 +36,8 @@ impl<'a> HoverResultCalculator<'a> {
         module_path: ModulePath,
         token_idx: TokenIdx,
     ) -> EntitySynTreeResult<Self> {
-        let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
-        let token_sheet_data = db.token_sheet_data(module_path)?;
+        let ranged_token_sheet = db.ranged_token_sheet(module_path);
+        let token_sheet_data = db.token_sheet_data(module_path);
         let token_info_sheet = db.token_info_sheet(module_path)?;
         let token_group_idx = token_sheet_data.token_group_idx(token_idx);
         Ok(Self {

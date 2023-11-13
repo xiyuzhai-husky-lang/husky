@@ -15,11 +15,9 @@ pub(crate) fn token_diagnostic_sheet(
 ) -> TokenDiagnosticSheet {
     let ctx = SheetDiagnosticsContext::new(db, module_path);
     let mut diagnostics = vec![];
-    if let Ok(ranged_token_sheet) = db.ranged_token_sheet(module_path) {
-        for (range, token) in ranged_token_sheet.ranged_token_iter(db) {
-            if let TokenData::Error(e) = token {
-                diagnostics.push((range, e).to_diagnostic(&ctx))
-            }
+    for (range, token) in db.ranged_token_sheet(module_path).ranged_token_iter(db) {
+        if let TokenData::Error(e) = token {
+            diagnostics.push((range, e).to_diagnostic(&ctx))
         }
     }
     TokenDiagnosticSheet::new(db, diagnostics)

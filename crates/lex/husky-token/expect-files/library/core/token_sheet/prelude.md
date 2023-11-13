@@ -1,439 +1,437 @@
-Ok(
-    TokenSheetData {
-        tokens: [
-            TokenData::Keyword(
-                Keyword::Pub,
+TokenSheetData {
+    tokens: [
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Use,
-            ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Ident(
+            `basic`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Ident(
-                `basic`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
+        ),
+        TokenData::Ident(
+            `num`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Keyword(
-                Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Ident(
+            `raw_bits`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Ident(
-                `num`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
+        ),
+        TokenData::Ident(
+            `fmt`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Keyword(
-                Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Ident(
+            `visual`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Ident(
-                `raw_bits`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
+        ),
+        TokenData::Ident(
+            `marker`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Keyword(
-                Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Ident(
+            `clone`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Ident(
-                `fmt`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
+        ),
+        TokenData::Ident(
+            `option`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Keyword(
-                Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Ident(
+            `cmp`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Ident(
-                `visual`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
+        ),
+        TokenData::Ident(
+            `slice`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Keyword(
-                Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Ident(
+            `vec`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Ident(
-                `marker`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
+        ),
+    ],
+    token_group_starts: [
+        TokenGroupStart(
+            TokenIdx(
+                1,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                8,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                15,
             ),
-            TokenData::Keyword(
-                Keyword::Use,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                22,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                29,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                36,
             ),
-            TokenData::Ident(
-                `clone`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                43,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                50,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                57,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                64,
             ),
-            TokenData::Keyword(
-                Keyword::Use,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                71,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Ident(
-                `option`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
-            ),
-            TokenData::Keyword(
-                Keyword::Pub,
-            ),
-            TokenData::Keyword(
-                Keyword::Use,
-            ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Ident(
-                `cmp`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
-            ),
-            TokenData::Keyword(
-                Keyword::Pub,
-            ),
-            TokenData::Keyword(
-                Keyword::Use,
-            ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Ident(
-                `slice`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
-            ),
-            TokenData::Keyword(
-                Keyword::Pub,
-            ),
-            TokenData::Keyword(
-                Keyword::Use,
-            ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Ident(
-                `vec`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
-            ),
-        ],
-        token_group_starts: [
-            TokenGroupStart(
-                TokenIdx(
-                    1,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    8,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    15,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    22,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    29,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    36,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    43,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    50,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    57,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    64,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    71,
-                ),
-            ),
-        ],
-        indents: [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-        ],
-    },
-)
+        ),
+    ],
+    indents: [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+    ],
+}

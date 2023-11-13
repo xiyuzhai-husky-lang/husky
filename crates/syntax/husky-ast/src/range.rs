@@ -13,17 +13,17 @@ pub struct AstTokenIdxRangeSheet {
 pub(crate) fn ast_token_idx_range_sheet(
     db: &dyn AstDb,
     module_path: ModulePath,
-) -> VfsResult<AstTokenIdxRangeSheet> {
-    let token_sheet_data = db.token_sheet_data(module_path)?;
-    let ast_sheet = db.ast_sheet(module_path)?;
-    Ok(AstTokenIdxRangeSheet {
+) -> AstTokenIdxRangeSheet {
+    let token_sheet_data = db.token_sheet_data(module_path);
+    let ast_sheet = db.ast_sheet(module_path);
+    AstTokenIdxRangeSheet {
         ast_token_idx_ranges: AstTokenIdxRangeCalculator {
             token_sheet_data,
             ast_sheet,
             ast_ranges: Default::default(),
         }
         .calc_all(),
-    })
+    }
 }
 
 #[test]

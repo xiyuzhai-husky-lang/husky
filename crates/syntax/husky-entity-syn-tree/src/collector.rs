@@ -16,25 +16,19 @@ pub(crate) struct EntityTreeCollector<'a> {
 }
 
 impl<'a> EntityTreeCollector<'a> {
-    pub(crate) fn new(
-        db: &'a dyn EntitySynTreeDb,
-        crate_path: CratePath,
-    ) -> EntitySynTreeBundleResult<Self> {
-        let crate_root = ModulePath::new_root(db, crate_path);
+    pub(crate) fn new(db: &'a dyn EntitySynTreeDb, crate_path: CratePath) -> Self {
+        let crate_root = crate_path.root_module_path(db);
         let all_modules = db.all_modules_within_crate(crate_path);
         let presheets = VecMap::from_iter_assuming_no_repetitions(
-            all_modules.into_iter().filter_map(|module_path| {
-                item_tree_presheet(db, *module_path)
-                    .as_ref()
-                    .ok()
-                    .map(|presheet| presheet.presheet_mut(db))
-            }),
+            all_modules
+                .into_iter()
+                .map(|module_path| item_tree_presheet(db, *module_path).presheet_mut(db)),
         )
         .expect("no repetitions");
         let toolchain = crate_path.toolchain(db);
         let path_menu = db.vfs_path_menu(toolchain);
         let core_prelude_module = path_menu.core_prelude().inner();
-        Ok(Self {
+        Self {
             db,
             crate_path,
             crate_root_path: crate_root,
@@ -42,7 +36,7 @@ impl<'a> EntityTreeCollector<'a> {
             presheets,
             core_prelude_module,
             major_path_expr_arena: Default::default(),
-        })
+        }
     }
 
     pub(crate) fn collect_all(mut self) -> EntitySynTreeCrateBundle {
@@ -86,7 +80,7 @@ impl<'a> EntityTreeCollector<'a> {
         let mut impl_blocks_for_each_module = vec![];
         for presheet in self.presheets.iter() {
             let module_path = presheet.module_path();
-            let ast_sheet = self.db.ast_sheet(module_path).unwrap();
+            let ast_sheet = self.db.ast_sheet(module_path);
             let impl_blocks = VecPairMap::from_iter_assuming_no_repetitions(
                 ast_sheet
                     .all_ast_indexed_iter()
@@ -104,7 +98,6 @@ impl<'a> EntityTreeCollector<'a> {
                             *items,
                             self.db
                                 .token_sheet_data(module_path)
-                                .unwrap()
                                 .token_group_token_stream(*token_group_idx, None),
                             &mut self.major_path_expr_arena,
                         )),
@@ -140,14 +133,9 @@ impl<'a> EntityTreeCollector<'a> {
                 let progress = rule
                     .progress()
                     .expect("should be okay otherwise there shouldn't be an action");
-                let parent_symbols = match rule.parent_module_specific_symbols(db, &self.presheets)
-                {
-                    Ok(parent_symbols) => parent_symbols.data(),
-                    Err(e) => {
-                        self.presheets[module_path].mark_use_all_rule_as_erroneous(rule_idx, e);
-                        return;
-                    }
-                };
+                let parent_symbols = rule
+                    .parent_module_specific_symbols(db, &self.presheets)
+                    .data();
                 // &self.presheets[parent].module_specific_symbols().data();
                 // only need to process those starting from progress
                 let new_uses: Vec<EntitySymbolEntry> = parent_symbols[progress..]

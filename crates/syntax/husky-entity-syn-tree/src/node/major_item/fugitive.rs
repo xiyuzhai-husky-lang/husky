@@ -59,7 +59,7 @@ pub(crate) fn fugitive_syn_node(
     syn_node_path: FugitiveSynNodePath,
 ) -> MajorItemSynNode {
     let module_path = syn_node_path.module_path(db);
-    let item_sheet = module_path.item_tree_sheet(db).expect("valid file");
+    let item_sheet = module_path.item_tree_sheet(db);
     match item_sheet
         .major_item_node(syn_node_path.into())
         .expect("should be some")

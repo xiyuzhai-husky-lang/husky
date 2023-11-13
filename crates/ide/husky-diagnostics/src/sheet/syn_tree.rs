@@ -19,16 +19,15 @@ pub(crate) fn item_tree_diagnostic_sheet(
 ) -> EntityTreeDiagnosticSheet {
     let mut diagnostics = vec![];
     let ctx = SheetDiagnosticsContext::new(db, module_path);
-    if let Ok(item_tree_sheet) = db.item_syn_tree_sheet(module_path) {
-        for e in item_tree_sheet.errors() {
-            match e {
-                EntitySynTreeError::Original(e) => diagnostics.push(e.to_diagnostic(&ctx)),
-                EntitySynTreeError::Derived(_) => (),
-            }
+    let item_syn_tree_sheet = db.item_syn_tree_sheet(module_path);
+    for e in item_syn_tree_sheet.errors() {
+        match e {
+            EntitySynTreeError::Original(e) => diagnostics.push(e.to_diagnostic(&ctx)),
+            EntitySynTreeError::Derived(_) => (),
         }
-        for impl_block_ill_form in item_tree_sheet.all_ill_formed_impl_block_syn_nodes(db) {
-            diagnostics.push(impl_block_ill_form.to_diagnostic(&ctx))
-        }
+    }
+    for impl_block_ill_form in item_syn_tree_sheet.all_ill_formed_impl_block_syn_nodes(db) {
+        diagnostics.push(impl_block_ill_form.to_diagnostic(&ctx))
     }
     // todo
     EntityTreeDiagnosticSheet::new(db, diagnostics)

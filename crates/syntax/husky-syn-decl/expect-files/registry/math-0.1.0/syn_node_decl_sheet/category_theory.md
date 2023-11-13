@@ -1,6 +1,4 @@
-Ok(
-    SynNodeDeclSheet {
-        [salsa id]: 53,
-        decls: [],
-    },
-)
+SynNodeDeclSheet {
+    [salsa id]: 53,
+    decls: [],
+}

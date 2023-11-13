@@ -1,6 +1,6 @@
 use super::*;
 
-use vec_like::{SmallVecPairMap};
+use vec_like::SmallVecPairMap;
 
 #[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct TraitSynNodePath {
@@ -70,7 +70,7 @@ impl HasSynNodePath for TraitPath {
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn trai_node(db: &dyn EntitySynTreeDb, syn_node_path: TraitSynNodePath) -> MajorItemSynNode {
     let module_path = syn_node_path.module_path(db);
-    let item_sheet = module_path.item_tree_sheet(db).expect("valid file");
+    let item_sheet = module_path.item_tree_sheet(db);
     match item_sheet
         .major_item_node(syn_node_path.into())
         .expect("should be some")

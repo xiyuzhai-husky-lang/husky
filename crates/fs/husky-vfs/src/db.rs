@@ -184,10 +184,10 @@ where
         let mut crates: Vec<CratePath> = vec![];
         let package_dir = package_path.dir(self).as_ref()?.path(self);
         if package_dir.join("src/lib.hsy").exists() {
-            crates.push(CratePath::new(self, package_path, CrateKind::Library));
+            crates.push(CratePath::new(package_path, CrateKind::Library, self)?);
         }
         if package_dir.join("src/main.hsy").exists() {
-            crates.push(CratePath::new(self, package_path, CrateKind::Main));
+            crates.push(CratePath::new(package_path, CrateKind::Main, self)?);
         }
         if package_dir.join("src/bin").exists() {
             todo!()
@@ -222,12 +222,9 @@ where
                         .and_then(|filename| filename.to_str())
                         .and_then(|filename| db.it_ident_borrowed(filename))
                     {
-                        collect_probable_modules(
-                            db,
-                            ModulePath::new_child(db, parent, ident).into(),
-                            &path,
-                            modules,
-                        )?
+                        if let Ok(child) = ModulePath::new_child(db, parent, ident) {
+                            collect_probable_modules(db, child.inner(), &path, modules)?
+                        }
                     }
                 } else if path.is_file() && path.extension().and_then(|s| s.to_str()) == Some("hsy")
                 {
@@ -241,7 +238,9 @@ where
                         };
                         if push_flag {
                             if let Some(ident) = db.it_ident_borrowed(file_stem) {
-                                modules.push(ModulePath::new_child(db, parent, ident).into())
+                                if let Ok(new_child) = ModulePath::new_child(db, parent, ident) {
+                                    modules.push(new_child.into())
+                                }
                             }
                         }
                     }
@@ -256,25 +255,31 @@ where
         };
         let package_dir = diff_path.data(self);
         if package_dir.join("src/lib.hsy").exists() {
-            let root_module =
-                ModulePath::new_root(self, CratePath::new(self, package, CrateKind::Library));
-            modules.push(root_module);
-            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)
-                .unwrap();
-            if package_dir.join("src/main.hsy").exists() {
-                todo!()
-            }
-            if package_dir.join("src/bin").exists() {
-                todo!()
+            if let Ok(root_module) = ModulePath::new_root(
+                self,
+                CratePath::new(package, CrateKind::Library, self).expect("should be valid"),
+            ) {
+                modules.push(root_module);
+                collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)
+                    .unwrap();
+                if package_dir.join("src/main.hsy").exists() {
+                    todo!()
+                }
+                if package_dir.join("src/bin").exists() {
+                    todo!()
+                }
             }
         } else if package_dir.join("src/main.hsy").exists() {
-            let root_module =
-                ModulePath::new_root(self, CratePath::new(self, package, CrateKind::Main));
-            modules.push(root_module);
-            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)
-                .unwrap();
-            if package_dir.join("src/bin").exists() {
-                todo!()
+            if let Ok(root_module) = ModulePath::new_root(
+                self,
+                CratePath::new(package, CrateKind::Main, self).expect("should be valid"),
+            ) {
+                modules.push(root_module);
+                collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)
+                    .unwrap();
+                if package_dir.join("src/bin").exists() {
+                    todo!()
+                }
             }
         }
         modules

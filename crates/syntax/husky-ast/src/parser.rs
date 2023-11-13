@@ -43,9 +43,9 @@ impl<'a> HasStreamState for AstParser<'a> {
 }
 
 impl<'a> AstParser<'a> {
-    pub(crate) fn new(db: &'a dyn AstDb, module_path: ModulePath) -> VfsResult<Self> {
-        let token_sheet = db.token_sheet_data(module_path)?;
-        Ok(Self {
+    pub(crate) fn new(db: &'a dyn AstDb, module_path: ModulePath) -> Self {
+        let token_sheet = db.token_sheet_data(module_path);
+        Self {
             db,
             module_path,
             token_sheet,
@@ -54,7 +54,7 @@ impl<'a> AstParser<'a> {
             ast_arena: Default::default(),
             disambiguator_registry: Default::default(),
             siblings: Default::default(),
-        })
+        }
     }
 
     pub(crate) fn parse_all(mut self) -> AstSheet {

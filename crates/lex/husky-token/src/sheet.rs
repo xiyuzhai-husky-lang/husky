@@ -1,8 +1,6 @@
 use crate::*;
 use husky_text_protocol::position::TextPosition;
 
-
-
 impl std::ops::Index<TokenIdx> for TokenSheetData {
     type Output = TokenData;
 
@@ -146,16 +144,13 @@ impl RangedTokenSheet {
 }
 
 #[salsa::tracked(jar = TokenJar, return_ref)]
-pub(crate) fn ranged_token_sheet(
-    db: &dyn TokenDb,
-    module_path: ModulePath,
-) -> VfsResult<RangedTokenSheet> {
-    Ok(tokenize::tokenize(db, module_path.raw_text(db)?))
+pub(crate) fn ranged_token_sheet(db: &dyn TokenDb, module_path: ModulePath) -> RangedTokenSheet {
+    tokenize::tokenize(db, module_path.raw_text(db))
 }
 
 #[salsa::tracked(jar = TokenJar)]
-pub(crate) fn token_sheet(db: &dyn TokenDb, module_path: ModulePath) -> VfsResult<TokenSheet> {
-    Ok(ranged_token_sheet(db, module_path).as_ref()?.token_sheet)
+pub(crate) fn token_sheet(db: &dyn TokenDb, module_path: ModulePath) -> TokenSheet {
+    ranged_token_sheet(db, module_path).token_sheet
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

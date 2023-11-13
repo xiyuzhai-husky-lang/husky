@@ -2,7 +2,7 @@ use super::*;
 
 use husky_coword::Ident;
 
-use std::{path::Path};
+use std::path::Path;
 use url::Url;
 
 /// deprecated
@@ -101,12 +101,12 @@ impl PackagePath {
         package_manifest_path(db, self)
     }
 
-    pub fn lib_crate(self, db: &dyn VfsDb) -> CratePath {
-        CratePath::new(db, self, CrateKind::Library)
+    pub fn lib_crate(self, db: &dyn VfsDb) -> VfsResult<CratePath> {
+        CratePath::new(self, CrateKind::Library, db)
     }
 
-    pub fn lib_module(self, db: &dyn VfsDb) -> ModulePath {
-        ModulePath::new_root(db, self.lib_crate(db))
+    pub fn lib_module(self, db: &dyn VfsDb) -> VfsResult<ModulePath> {
+        Ok(self.lib_crate(db)?.root_module_path(db))
     }
 }
 

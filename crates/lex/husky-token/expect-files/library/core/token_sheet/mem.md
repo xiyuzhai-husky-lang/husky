@@ -1,266 +1,264 @@
-Ok(
-    TokenSheetData {
-        tokens: [
-            TokenData::Keyword(
-                Keyword::Use,
+TokenSheetData {
+    tokens: [
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Ident(
+            `Ref`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::LaOrLt,
             ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Modifier(
+                Covariant,
             ),
-            TokenData::Ident(
-                `Ref`,
+        ),
+        TokenData::Label(
+            `'a`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::LaOrLt,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Modifier(
+                Covariant,
             ),
-            TokenData::Keyword(
-                Keyword::Modifier(
-                    Covariant,
-                ),
+        ),
+        TokenData::Ident(
+            `E`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::RaOrGt,
             ),
-            TokenData::Label(
-                `'a`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Keyword(
-                Keyword::Modifier(
-                    Covariant,
-                ),
+        ),
+        TokenData::Ident(
+            `RefMut`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::LaOrLt,
             ),
-            TokenData::Ident(
-                `E`,
+        ),
+        TokenData::Keyword(
+            Keyword::Modifier(
+                Covariant,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
-                ),
+        ),
+        TokenData::Label(
+            `'a`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Modifier(
+                Invariant,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Ident(
+            `E`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::RaOrGt,
             ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Ident(
-                `RefMut`,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::LaOrLt,
-                ),
+        ),
+        TokenData::Ident(
+            `Leash`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::LaOrLt,
             ),
-            TokenData::Keyword(
-                Keyword::Modifier(
-                    Covariant,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Modifier(
+                Covariant,
             ),
-            TokenData::Label(
-                `'a`,
+        ),
+        TokenData::Ident(
+            `E`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::RaOrGt,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Keyword(
-                Keyword::Modifier(
-                    Invariant,
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Impl,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::LaOrLt,
             ),
-            TokenData::Ident(
-                `E`,
+        ),
+        TokenData::Ident(
+            `E`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::RaOrGt,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
-                ),
+        ),
+        TokenData::Ident(
+            `Copy`,
+        ),
+        TokenData::Keyword(
+            Keyword::Connection(
+                For,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
+        ),
+        TokenData::Ident(
+            `Leash`,
+        ),
+        TokenData::Ident(
+            `E`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
             ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
+        ),
+        TokenData::Ident(
+            `At`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::LaOrLt,
             ),
-            TokenData::Ident(
-                `Leash`,
+        ),
+        TokenData::Label(
+            `'α`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Comma,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::LaOrLt,
-                ),
+        ),
+        TokenData::Ident(
+            `E`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::RaOrGt,
             ),
-            TokenData::Keyword(
-                Keyword::Modifier(
-                    Covariant,
-                ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Ident(
-                `E`,
+        ),
+    ],
+    token_group_starts: [
+        TokenGroupStart(
+            TokenIdx(
+                1,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                5,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                16,
             ),
-            TokenData::Keyword(
-                Keyword::Impl,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                27,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::LaOrLt,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                35,
             ),
-            TokenData::Ident(
-                `E`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                44,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
-                ),
-            ),
-            TokenData::Ident(
-                `Copy`,
-            ),
-            TokenData::Keyword(
-                Keyword::Connection(
-                    For,
-                ),
-            ),
-            TokenData::Ident(
-                `Leash`,
-            ),
-            TokenData::Ident(
-                `E`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
-            ),
-            TokenData::Keyword(
-                Keyword::Pub,
-            ),
-            TokenData::Keyword(
-                Keyword::TypeEntity(
-                    Extern,
-                ),
-            ),
-            TokenData::Ident(
-                `At`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::LaOrLt,
-                ),
-            ),
-            TokenData::Label(
-                `'α`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            TokenData::Ident(
-                `E`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
-            ),
-        ],
-        token_group_starts: [
-            TokenGroupStart(
-                TokenIdx(
-                    1,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    5,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    16,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    27,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    35,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    44,
-                ),
-            ),
-        ],
-        indents: [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-        ],
-    },
-)
+        ),
+    ],
+    indents: [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+    ],
+}

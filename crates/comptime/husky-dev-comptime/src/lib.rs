@@ -2,7 +2,7 @@ use std::path::Path;
 
 use husky_coword::Name;
 use husky_task::{helpers::DevLinkTime, linkage::IsLinktime, DevComptimeDb, IsTask};
-use husky_vfs::{CrateKind, CratePath, PackagePath, VfsDb};
+use husky_vfs::{CrateKind, CratePath, PackagePath, VfsDb, error::VfsResult};
 
 pub struct DevComptime<Task: IsTask> {
     db: DevComptimeDb<Task>,
@@ -18,7 +18,7 @@ pub enum DevComptimeTarget {
 }
 
 impl<Task: IsTask> DevComptime<Task> {
-    pub fn new(target_crate_path: &Path) -> Self {
+    pub fn new(target_crate_path: &Path) -> VfsResult<Self> {
         let db: DevComptimeDb<Task> = Default::default();
         let toolchain = match db.current_toolchain() {
             Ok(toolchain) => toolchain,
@@ -33,12 +33,12 @@ impl<Task: IsTask> DevComptime<Task> {
             Ok(package_path) => package_path,
             Err(_e) => todo!(),
         };
-        let target_crate_path = CratePath::new(&db, target_package_path, CrateKind::Main);
-        Self {
+        let target_crate_path = CratePath::new(target_package_path, CrateKind::Main, &db)?;
+        Ok(Self {
             linktime: IsLinktime::new_linktime(target_crate_path, &db),
             target: DevComptimeTarget::SingleCrate(target_crate_path),
             db,
-        }
+        })
     }
 
     pub fn target(&self) -> DevComptimeTarget {

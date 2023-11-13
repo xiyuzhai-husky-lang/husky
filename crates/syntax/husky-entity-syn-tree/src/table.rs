@@ -6,6 +6,7 @@ use crate::*;
 use husky_manifest::PackageDependency;
 
 use husky_token::IdentToken;
+use husky_vfs::error::VfsResult;
 
 #[derive(Debug, Default, PartialEq, Eq)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
@@ -20,7 +21,7 @@ impl EntitySymbolTable {
         &self.0
     }
 
-    pub(crate) fn insert(&mut self, new_entry: EntitySymbolEntry) -> EntitySynTreeResult<()> {
+    pub(crate) fn push(&mut self, new_entry: EntitySymbolEntry) -> EntitySynTreeResult<()> {
         // todo: should there be checks?
         self.0.push(new_entry);
         Ok(())
@@ -31,7 +32,7 @@ impl EntitySymbolTable {
         iter: impl IntoIterator<Item = EntitySymbolEntry>,
     ) -> EntitySynTreeResult<()> {
         for new_entry in iter {
-            self.insert(new_entry)?
+            self.push(new_entry)?
         }
         Ok(())
     }
@@ -74,7 +75,7 @@ pub struct EntitySymbolEntry {
 
 impl EntitySymbolEntry {
     pub(crate) fn new_crate_root(db: &dyn EntitySynTreeDb, crate_path: CratePath) -> Self {
-        let root_module_path = ModulePath::new_root(db, crate_path);
+        let root_module_path = crate_path.root_module_path(db);
         Self {
             ident: db.coword_menu().crate_ident(),
             visibility: Scope::PubUnder(root_module_path),
@@ -85,15 +86,15 @@ impl EntitySymbolEntry {
     pub(crate) fn new_package_dependency(
         db: &dyn EntitySynTreeDb,
         package_dependency: &PackageDependency,
-    ) -> Self {
+    ) -> VfsResult<Self> {
         let package_path = package_dependency.package_path();
-        Self {
+        Ok(Self {
             ident: package_path.ident(db),
             visibility: Scope::Pub,
             symbol: EntitySymbol::PackageDependency {
-                item_path: package_path.lib_module(db).into(),
+                item_path: package_path.lib_module(db)?.into(),
             },
-        }
+        })
     }
 
     pub(crate) fn new_use_symbol_entry(

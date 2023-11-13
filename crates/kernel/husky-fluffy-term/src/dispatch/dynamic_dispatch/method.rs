@@ -26,7 +26,7 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
             expr_idx,
             ident_regional_token,
             engine
-                .trai_in_use_items_table()?
+                .trai_in_use_items_table()
                 .available_trait_items_with_given_ident(ident_regional_token.ident())?,
             indirections,
         )

@@ -1,179 +1,177 @@
-Ok(
-    TokenSheetData {
-        tokens: [
-            TokenData::Keyword(
-                Keyword::Use,
+TokenSheetData {
+    tokens: [
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    Crate,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Trait,
+        ),
+        TokenData::Ident(
+            `Clone`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Fugitive(
+                Fn,
+            ),
+        ),
+        TokenData::Ident(
+            `clone`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
                 ),
             ),
-            TokenData::Keyword(
-                Keyword::Pub,
-            ),
-            TokenData::Keyword(
-                Keyword::Trait,
-            ),
-            TokenData::Ident(
-                `Clone`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    CurryType,
                 ),
             ),
-            TokenData::Keyword(
-                Keyword::Fugitive(
-                    Fn,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                SelfType,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Impl,
+        ),
+        TokenData::Ident(
+            `Clone`,
+        ),
+        TokenData::Keyword(
+            Keyword::Connection(
+                For,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `derive`,
+        ),
+        TokenData::Ident(
+            `_`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Fugitive(
+                Fn,
+            ),
+        ),
+        TokenData::Ident(
+            `clone`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
                 ),
             ),
-            TokenData::Ident(
-                `clone`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Par,
-                    ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Par,
-                    ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    CurryType,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        CurryType,
-                    ),
-                ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                SelfType,
             ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    SelfType,
-                ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
+        ),
+    ],
+    token_group_starts: [
+        TokenGroupStart(
+            TokenIdx(
+                1,
             ),
-            TokenData::Keyword(
-                Keyword::Impl,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                5,
             ),
-            TokenData::Ident(
-                `Clone`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                9,
             ),
-            TokenData::Keyword(
-                Keyword::Connection(
-                    For,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                16,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Pound,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                23,
             ),
-            TokenData::Ident(
-                `derive`,
-            ),
-            TokenData::Ident(
-                `_`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
-            TokenData::Keyword(
-                Keyword::Fugitive(
-                    Fn,
-                ),
-            ),
-            TokenData::Ident(
-                `clone`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Par,
-                    ),
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Par,
-                    ),
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        CurryType,
-                    ),
-                ),
-            ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    SelfType,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
-            ),
-        ],
-        token_group_starts: [
-            TokenGroupStart(
-                TokenIdx(
-                    1,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    5,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    9,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    16,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    23,
-                ),
-            ),
-        ],
-        indents: [
-            0,
-            0,
-            4,
-            0,
-            4,
-        ],
-    },
-)
+        ),
+    ],
+    indents: [
+        0,
+        0,
+        4,
+        0,
+        4,
+    ],
+}

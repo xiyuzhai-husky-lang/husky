@@ -1,47 +1,11 @@
-Ok(
-    EntitySynTreePresheet {
-        module_path: `mnist_classifier::digits::four`,
-        major_item_node_table: MajorEntityNodeTable {
-            entries: [
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            ast_idx: 39,
-                            ident_token: IdentToken {
-                                ident: `left_components`,
-                                token_idx: TokenIdx(
-                                    6,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
-                    ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+EntitySynTreePresheet {
+    module_path: `mnist_classifier::digits::four`,
+    major_item_node_table: MajorEntityNodeTable {
+        entries: [
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
@@ -49,51 +13,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `left_components`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::four`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 39,
+                        ident_token: IdentToken {
+                            ident: `left_components`,
+                            token_idx: TokenIdx(
+                                6,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 14,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::four`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
                             ),
-                            ast_idx: 40,
-                            ident_token: IdentToken {
-                                ident: `left_coordinate_max`,
-                                token_idx: TokenIdx(
-                                    21,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            2..3,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `left_components`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::four`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
@@ -101,51 +65,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `left_coordinate_max`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::four`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 40,
+                        ident_token: IdentToken {
+                            ident: `left_coordinate_max`,
+                            token_idx: TokenIdx(
+                                21,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 15,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::four`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        2..3,
+                                    ),
+                                },
                             ),
-                            ast_idx: 41,
-                            ident_token: IdentToken {
-                                ident: `components_max_downwards`,
-                                token_idx: TokenIdx(
-                                    40,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            3..4,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `left_coordinate_max`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::four`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
@@ -153,51 +117,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `components_max_downwards`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::four`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 41,
+                        ident_token: IdentToken {
+                            ident: `components_max_downwards`,
+                            token_idx: TokenIdx(
+                                40,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 16,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::four`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        3..4,
+                                    ),
+                                },
                             ),
-                            ast_idx: 42,
-                            ident_token: IdentToken {
-                                ident: `components_max_heights`,
-                                token_idx: TokenIdx(
-                                    53,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            4..5,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `components_max_downwards`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::four`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
@@ -205,51 +169,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `components_max_heights`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::four`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 42,
+                        ident_token: IdentToken {
+                            ident: `components_max_heights`,
+                            token_idx: TokenIdx(
+                                53,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 17,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::four`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        4..5,
+                                    ),
+                                },
                             ),
-                            ast_idx: 43,
-                            ident_token: IdentToken {
-                                ident: `is_four`,
-                                token_idx: TokenIdx(
-                                    66,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            20..31,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `components_max_heights`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::four`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
@@ -257,51 +221,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `is_four`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::four`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 43,
+                        ident_token: IdentToken {
+                            ident: `is_four`,
+                            token_idx: TokenIdx(
+                                66,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 18,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::four`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        20..31,
+                                    ),
+                                },
                             ),
-                            ast_idx: 44,
-                            ident_token: IdentToken {
-                                ident: `displacement_downwards`,
-                                token_idx: TokenIdx(
-                                    255,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            31..34,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `is_four`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::four`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
@@ -309,51 +273,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `displacement_downwards`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::four`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 44,
+                        ident_token: IdentToken {
+                            ident: `displacement_downwards`,
+                            token_idx: TokenIdx(
+                                255,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 19,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::four`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        31..34,
+                                    ),
+                                },
                             ),
-                            ast_idx: 45,
-                            ident_token: IdentToken {
-                                ident: `cc_box_heights`,
-                                token_idx: TokenIdx(
-                                    284,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            34..38,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `displacement_downwards`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::four`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
@@ -361,76 +325,110 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `cc_box_heights`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::four`,
-                    ),
-                },
-            ],
-        },
-        use_one_trackers: OnceUseRules(
-            [
-                OnceUseRule {
-                    ast_idx: 38,
-                    use_expr_idx: 2,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::four`,
-                    ),
-                    variant: OnceUseRuleVariant::Parent {
-                        parent_name_token: PathNameToken::Super(
-                            SuperToken {
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::four`,
                         ),
-                        children: ArenaIdxRange(
-                            1..2,
-                        ),
-                    },
-                    parent: None,
-                    state: OnceUseRuleState::Unresolved,
-                },
-            ],
-        ),
-        use_all_trackers: UseAllModuleSymbolsRules(
-            [],
-        ),
-        use_expr_arena: Arena {
-            data: [
-                UseExpr::All {
-                    star_token: StarToken(
-                        TokenIdx(
-                            4,
-                        ),
-                    ),
-                },
-                UseExpr::Parent(
-                    ParentUseExpr {
-                        parent_name_token: PathNameToken::Super(
-                            SuperToken {
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
-                        ),
-                        colon_colon_token: Ok(
-                            ColonColonToken(
-                                TokenIdx(
-                                    3,
-                                ),
+                        ast_idx: 45,
+                        ident_token: IdentToken {
+                            ident: `cc_box_heights`,
+                            token_idx: TokenIdx(
+                                284,
                             ),
-                        ),
-                        children: Ok(
-                            UseExprChildren::Single {
-                                child: 1,
-                            },
-                        ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        34..38,
+                                    ),
+                                },
+                            ),
+                        },
                     },
                 ),
-            ],
-        },
-        errors: [],
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                ident: `cc_box_heights`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::four`,
+                ),
+            },
+        ],
     },
-)
+    use_one_trackers: OnceUseRules(
+        [
+            OnceUseRule {
+                ast_idx: 38,
+                use_expr_idx: 2,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::four`,
+                ),
+                variant: OnceUseRuleVariant::Parent {
+                    parent_name_token: PathNameToken::Super(
+                        SuperToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    children: ArenaIdxRange(
+                        1..2,
+                    ),
+                },
+                parent: None,
+                state: OnceUseRuleState::Unresolved,
+            },
+        ],
+    ),
+    use_all_trackers: UseAllModuleSymbolsRules(
+        [],
+    ),
+    use_expr_arena: Arena {
+        data: [
+            UseExpr::All {
+                star_token: StarToken(
+                    TokenIdx(
+                        4,
+                    ),
+                ),
+            },
+            UseExpr::Parent(
+                ParentUseExpr {
+                    parent_name_token: PathNameToken::Super(
+                        SuperToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    colon_colon_token: Ok(
+                        ColonColonToken(
+                            TokenIdx(
+                                3,
+                            ),
+                        ),
+                    ),
+                    children: Ok(
+                        UseExprChildren::Single {
+                            child: 1,
+                        },
+                    ),
+                },
+            ),
+        ],
+    },
+    errors: [],
+}

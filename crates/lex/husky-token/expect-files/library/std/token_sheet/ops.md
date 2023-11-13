@@ -1,165 +1,163 @@
-Ok(
-    TokenSheetData {
-        tokens: [
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Pound,
+TokenSheetData {
+    tokens: [
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Box,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Box,
-                    ),
+        ),
+        TokenData::Ident(
+            `to_rust`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Eq,
+            ),
+        ),
+        TokenData::Literal(
+            LiteralData::String(
+                StringLiteralData {
+                    data: "std::ops::Add",
+                },
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Box,
                 ),
             ),
-            TokenData::Ident(
-                `to_rust`,
+        ),
+        TokenData::Keyword(
+            Keyword::Trait,
+        ),
+        TokenData::Ident(
+            `Add`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::LaOrLt,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Eq,
+        ),
+        TokenData::Ident(
+            `B`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::RaOrGt,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Fugitive(
+                Type,
+            ),
+        ),
+        TokenData::Ident(
+            `Output`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Fugitive(
+                Fn,
+            ),
+        ),
+        TokenData::Ident(
+            `add`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
                 ),
             ),
-            TokenData::Literal(
-                LiteralData::String(
-                    StringLiteralData {
-                        data: "std::ops::Add",
-                    },
+        ),
+        TokenData::Ident(
+            `other`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Ident(
+            `B`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
                 ),
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Box,
-                    ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    CurryType,
                 ),
             ),
-            TokenData::Keyword(
-                Keyword::Trait,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                SelfType,
             ),
-            TokenData::Ident(
-                `Add`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::LaOrLt,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ScopeResolution,
                 ),
             ),
-            TokenData::Ident(
-                `B`,
+        ),
+        TokenData::Ident(
+            `Output`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
-                ),
+        ),
+    ],
+    token_group_starts: [
+        TokenGroupStart(
+            TokenIdx(
+                1,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                7,
             ),
-            TokenData::Keyword(
-                Keyword::Fugitive(
-                    Type,
-                ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                13,
             ),
-            TokenData::Ident(
-                `Output`,
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                16,
             ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
-            ),
-            TokenData::Keyword(
-                Keyword::Fugitive(
-                    Fn,
-                ),
-            ),
-            TokenData::Ident(
-                `add`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Par,
-                    ),
-                ),
-            ),
-            TokenData::Ident(
-                `other`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
-            TokenData::Ident(
-                `B`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Par,
-                    ),
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        CurryType,
-                    ),
-                ),
-            ),
-            TokenData::Keyword(
-                Keyword::Pronoun(
-                    SelfType,
-                ),
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            TokenData::Ident(
-                `Output`,
-            ),
-            TokenData::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
-            ),
-        ],
-        token_group_starts: [
-            TokenGroupStart(
-                TokenIdx(
-                    1,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    7,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    13,
-                ),
-            ),
-            TokenGroupStart(
-                TokenIdx(
-                    16,
-                ),
-            ),
-        ],
-        indents: [
-            0,
-            0,
-            4,
-            4,
-        ],
-    },
-)
+        ),
+    ],
+    indents: [
+        0,
+        0,
+        4,
+        4,
+    ],
+}

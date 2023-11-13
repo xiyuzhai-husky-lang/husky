@@ -94,7 +94,7 @@ pub(crate) fn ty_variant_syn_nodes(
     ty_node_path: TypeSynNodePath,
 ) -> Vec<(Ident, TypeVariantSynNodePath, TypeVariantSynNode)> {
     let module_path = ty_node_path.module_path(db);
-    let ast_sheet = db.ast_sheet(module_path).expect("valid module");
+    let ast_sheet = db.ast_sheet(module_path);
     match ty_node_path.ty_kind(db) {
         TypeKind::Enum | TypeKind::Inductive => (),
         _ => return vec![],
@@ -114,7 +114,6 @@ pub(crate) fn ty_variant_syn_nodes(
         .indexed_iter(variants.ast_idx_range())
         .map(|(ast_idx, variant_ast)| match variant_ast {
             Ast::TypeVariant {
-                
                 variant_path,
                 ident_token,
                 ..

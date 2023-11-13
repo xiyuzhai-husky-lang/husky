@@ -1,8 +1,7 @@
 use super::*;
 use crate::ParentUseExpr;
 use husky_entity_kind::TypeKind;
-use husky_token::{PathNameToken};
-
+use husky_token::PathNameToken;
 
 #[derive(Debug)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
@@ -254,7 +253,7 @@ impl<'a> EntityTreePresheetMut<'a> {
             OnceUseRuleVariant::Leaf { ident_token: _ } => {
                 match self
                     .symbol_table
-                    .insert(EntitySymbolEntry::new_use_symbol_entry(
+                    .push(EntitySymbolEntry::new_use_symbol_entry(
                         db,
                         original_symbol,
                         rule,

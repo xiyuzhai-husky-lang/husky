@@ -7,19 +7,15 @@ mod hot_reload;
 
 pub use self::config::*;
 
-
-
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 
 use husky_task::{
     helpers::{DevLinkTime, DevRuntimeStorage},
     DevComptimeDb, IsTask,
 };
+use husky_vfs::error::VfsResult;
 
-
-
-use std::{path::Path};
-
+use std::path::Path;
 
 pub struct DevRuntime<Task: IsTask> {
     task: Task,
@@ -29,13 +25,17 @@ pub struct DevRuntime<Task: IsTask> {
 }
 
 impl<Task: IsTask> DevRuntime<Task> {
-    pub fn new(task: Task, target_crate: &Path, config: Option<DevRuntimeConfig<Task>>) -> Self {
-        Self {
+    pub fn new(
+        task: Task,
+        target_crate: &Path,
+        config: Option<DevRuntimeConfig<Task>>,
+    ) -> VfsResult<Self> {
+        Ok(Self {
             task,
             config: config.unwrap_or_default(),
             storage: Default::default(),
-            comptime: DevComptime::new(target_crate),
-        }
+            comptime: DevComptime::new(target_crate)?,
+        })
     }
 
     pub fn db(&self) -> &DevComptimeDb<Task> {

@@ -1,9 +1,7 @@
-Ok(
-    [
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`std::ops::Add`),
-            ),
+[
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`std::ops::Add`),
         ),
-    ],
-)
+    ),
+]

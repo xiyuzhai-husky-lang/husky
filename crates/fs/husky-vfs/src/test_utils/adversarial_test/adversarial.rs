@@ -39,7 +39,7 @@ impl VfsAdversarial {
     where
         Db: VfsDb + ?Sized,
     {
-        let original_text = module_path.raw_text(db).unwrap();
+        let original_text = module_path.raw_text(db);
         let original_text = original_text.to_owned();
         let edited_text = self.edit(&original_text);
         let file = db
@@ -111,13 +111,13 @@ impl VfsAdversarial {
     }
 
     fn new_rand_insert_string(text: &str, rng: &mut XRng) -> Option<VfsAdversarial> {
-        static pieces: &'static [&'static str] = &[
+        static PIECES: &'static [&'static str] = &[
             "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q",
             "r", "s", "t", "u", "v", "w", "x", "y", "z", "$", "%",
         ];
         Some(VfsAdversarial::InsertString {
             position: new_rand_position(text, rng)?,
-            insertion: new_rand_string2(rng, 5, pieces),
+            insertion: new_rand_string2(rng, 5, PIECES),
         })
     }
 

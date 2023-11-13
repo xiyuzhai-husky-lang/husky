@@ -1,47 +1,11 @@
-Ok(
-    EntitySynTreePresheet {
-        module_path: `mnist_classifier::digits::three`,
-        major_item_node_table: MajorEntityNodeTable {
-            entries: [
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            ast_idx: 29,
-                            ident_token: IdentToken {
-                                ident: `three_fermi_match`,
-                                token_idx: TokenIdx(
-                                    6,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 42,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                    },
-                                ),
-                            },
-                        },
-                    ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+EntitySynTreePresheet {
+    module_path: `mnist_classifier::digits::three`,
+    major_item_node_table: MajorEntityNodeTable {
+        entries: [
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
@@ -49,51 +13,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `three_fermi_match`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::three`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 29,
+                        ident_token: IdentToken {
+                            ident: `three_fermi_match`,
+                            token_idx: TokenIdx(
+                                6,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 42,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
                             ),
-                            ast_idx: 30,
-                            ident_token: IdentToken {
-                                ident: `is_three`,
-                                token_idx: TokenIdx(
-                                    27,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 43,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            2..19,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `three_fermi_match`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::three`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
@@ -101,51 +65,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `is_three`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits`,
+                        ),
+                        ast_idx: 30,
+                        ident_token: IdentToken {
+                            ident: `is_three`,
+                            token_idx: TokenIdx(
+                                27,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 43,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::three`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        2..19,
+                                    ),
+                                },
                             ),
-                            ast_idx: 31,
-                            ident_token: IdentToken {
-                                ident: `uparc`,
-                                token_idx: TokenIdx(
-                                    165,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 44,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            19..22,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `is_three`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
@@ -153,51 +117,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `uparc`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::three`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 31,
+                        ident_token: IdentToken {
+                            ident: `uparc`,
+                            token_idx: TokenIdx(
+                                165,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 44,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::three`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        19..22,
+                                    ),
+                                },
                             ),
-                            ast_idx: 32,
-                            ident_token: IdentToken {
-                                ident: `downarc`,
-                                token_idx: TokenIdx(
-                                    202,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            22..25,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `uparc`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::three`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
@@ -205,51 +169,51 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `downarc`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::three`,
-                    ),
-                },
-                EntityNodeEntry {
-                    node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
-                            syn_node_path: MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
-                                        disambiguator: 0,
-                                    },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 32,
+                        ident_token: IdentToken {
+                            ident: `downarc`,
+                            token_idx: TokenIdx(
+                                202,
+                            ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 45,
                                 },
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::digits::three`,
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        22..25,
+                                    ),
+                                },
                             ),
-                            ast_idx: 33,
-                            ident_token: IdentToken {
-                                ident: `back`,
-                                token_idx: TokenIdx(
-                                    239,
-                                ),
-                            },
-                            block: Fugitive {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                                body: Some(
-                                    FugitiveBody {
-                                        ast_idx_range: ArenaIdxRange(
-                                            25..28,
-                                        ),
-                                    },
-                                ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+                                disambiguator: 0,
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
+                ),
+                ident: `downarc`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::three`,
+                ),
+            },
+            EntityNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
@@ -257,76 +221,110 @@ Ok(
                                 },
                             },
                         ),
-                    ),
-                    ident: `back`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::three`,
-                    ),
-                },
-            ],
-        },
-        use_one_trackers: OnceUseRules(
-            [
-                OnceUseRule {
-                    ast_idx: 28,
-                    use_expr_idx: 2,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::three`,
-                    ),
-                    variant: OnceUseRuleVariant::Parent {
-                        parent_name_token: PathNameToken::Super(
-                            SuperToken {
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::three`,
                         ),
-                        children: ArenaIdxRange(
-                            1..2,
-                        ),
-                    },
-                    parent: None,
-                    state: OnceUseRuleState::Unresolved,
-                },
-            ],
-        ),
-        use_all_trackers: UseAllModuleSymbolsRules(
-            [],
-        ),
-        use_expr_arena: Arena {
-            data: [
-                UseExpr::All {
-                    star_token: StarToken(
-                        TokenIdx(
-                            4,
-                        ),
-                    ),
-                },
-                UseExpr::Parent(
-                    ParentUseExpr {
-                        parent_name_token: PathNameToken::Super(
-                            SuperToken {
-                                token_idx: TokenIdx(
-                                    2,
-                                ),
-                            },
-                        ),
-                        colon_colon_token: Ok(
-                            ColonColonToken(
-                                TokenIdx(
-                                    3,
-                                ),
+                        ast_idx: 33,
+                        ident_token: IdentToken {
+                            ident: `back`,
+                            token_idx: TokenIdx(
+                                239,
                             ),
-                        ),
-                        children: Ok(
-                            UseExprChildren::Single {
-                                child: 1,
-                            },
-                        ),
+                        },
+                        block: Fugitive {
+                            path: FugitivePath(
+                                Id {
+                                    value: 46,
+                                },
+                            ),
+                            body: Some(
+                                FugitiveBody {
+                                    ast_idx_range: ArenaIdxRange(
+                                        25..28,
+                                    ),
+                                },
+                            ),
+                        },
                     },
                 ),
-            ],
-        },
-        errors: [],
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                ident: `back`,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::three`,
+                ),
+            },
+        ],
     },
-)
+    use_one_trackers: OnceUseRules(
+        [
+            OnceUseRule {
+                ast_idx: 28,
+                use_expr_idx: 2,
+                visibility: Scope::PubUnder(
+                    `mnist_classifier::digits::three`,
+                ),
+                variant: OnceUseRuleVariant::Parent {
+                    parent_name_token: PathNameToken::Super(
+                        SuperToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    children: ArenaIdxRange(
+                        1..2,
+                    ),
+                },
+                parent: None,
+                state: OnceUseRuleState::Unresolved,
+            },
+        ],
+    ),
+    use_all_trackers: UseAllModuleSymbolsRules(
+        [],
+    ),
+    use_expr_arena: Arena {
+        data: [
+            UseExpr::All {
+                star_token: StarToken(
+                    TokenIdx(
+                        4,
+                    ),
+                ),
+            },
+            UseExpr::Parent(
+                ParentUseExpr {
+                    parent_name_token: PathNameToken::Super(
+                        SuperToken {
+                            token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                    ),
+                    colon_colon_token: Ok(
+                        ColonColonToken(
+                            TokenIdx(
+                                3,
+                            ),
+                        ),
+                    ),
+                    children: Ok(
+                        UseExprChildren::Single {
+                            child: 1,
+                        },
+                    ),
+                },
+            ),
+        ],
+    },
+    errors: [],
+}
