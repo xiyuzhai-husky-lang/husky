@@ -103,7 +103,7 @@ impl<'a> TomlSectionParseIter<'a> {
                         key: *key,
                         value: *value,
                     };
-                    if let Err(e) = entries.insert_new(new_entry) {
+                    if let Err(_e) = entries.insert_new(new_entry) {
                         todo!()
                     }
                 }

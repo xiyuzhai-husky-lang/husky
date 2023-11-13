@@ -309,7 +309,7 @@ impl PrincipalEntityPath {
 impl From<MajorEntityPath> for PrincipalEntityPath {
     fn from(path: MajorEntityPath) -> Self {
         match path {
-            MajorEntityPath::Module(path) => todo!(),
+            MajorEntityPath::Module(_path) => todo!(),
             // path.into(),
             MajorEntityPath::MajorItem(path) => path.into(),
         }

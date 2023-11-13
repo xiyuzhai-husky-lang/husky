@@ -1,8 +1,8 @@
 use super::*;
 
 use husky_coword::Ident;
-use salsa::DebugWithDb;
-use std::{borrow::BorrowMut, path::Path};
+
+use std::{path::Path};
 use url::Url;
 
 /// deprecated

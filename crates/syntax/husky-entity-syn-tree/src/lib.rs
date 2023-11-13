@@ -41,13 +41,12 @@ use self::submodule::*;
 use self::tests::*;
 use self::utils::*;
 use husky_ast::*;
-use husky_coword::{CowordDb, Ident};
-
+use husky_coword::Ident;
 use husky_entity_path::*;
 use husky_scope::*;
 use husky_scope_expr::*;
 use husky_token_data::*;
-
+use husky_vfs::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;
 use vec_like::AsVecMapEntry;

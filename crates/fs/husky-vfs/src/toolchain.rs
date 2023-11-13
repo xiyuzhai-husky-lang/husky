@@ -28,7 +28,7 @@ impl Toolchain {
     pub fn registry_path(self, db: &dyn VfsDb) -> &Path {
         match self.data(db) {
             ToolchainData::Published(_) => todo!(),
-            ToolchainData::Local { library_path } => todo!(),
+            ToolchainData::Local { library_path: _ } => todo!(),
         }
     }
 }

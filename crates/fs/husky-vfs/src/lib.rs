@@ -19,17 +19,17 @@ mod tests;
 mod toolchain;
 mod watch;
 
-pub use cache::VfsCache;
-pub use db::VfsDb;
-pub use file::Notebook;
-pub use jar::VfsJar;
+pub use self::cache::VfsCache;
+pub use self::db::VfsDb;
+pub use self::file::Notebook;
+pub use self::jar::VfsJar;
 #[cfg(feature = "lsp_support")]
-pub use lsp_support::*;
-pub use path::*;
+pub use self::lsp_support::*;
+pub use self::path::*;
 #[cfg(feature = "test-utils")]
-pub use test_utils::*;
-pub use toolchain::*;
-pub use watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
+pub use self::test_utils::*;
+pub use self::toolchain::*;
+pub use self::watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
 
 use self::error::*;
 use self::file::*;

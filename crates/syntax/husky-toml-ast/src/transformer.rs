@@ -7,8 +7,8 @@ use husky_coword::Name;
 use husky_vfs::error::VfsError;
 use vec_like::{AsVecMapEntry, VecMap};
 
-use self::expr::*;
-use self::transform::*;
+
+
 use crate::*;
 
 pub trait TomlAst: Sized {
@@ -29,7 +29,7 @@ where
 {
 }
 
-pub type TomlVisitor<'a, A: TomlAst> = <A as TomlAst>::Visitor<'a>;
+pub type TomlVisitor<'a, A> = <A as TomlAst>::Visitor<'a>;
 
 pub struct TomlTransformer<'a, 'b, Context: TomlDeserializeContext, A: TomlAst> {
     db: &'a Context::Db<'a>,
@@ -58,7 +58,7 @@ impl<'a, 'b, Context: TomlDeserializeContext, Ast: TomlAst> TomlTransformer<'a, 
         self.menu
     }
 
-    pub fn transform_into<Target>(mut self) -> Result<Target, Context::Error>
+    pub fn transform_into<Target>(self) -> Result<Target, Context::Error>
     where
         Target: TransformFromTomlAst<Context, Ast = Ast>,
     {
@@ -86,7 +86,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
         }))
     }
 
-    pub fn finish(mut self) -> Vec<Context::Error> {
+    pub fn finish(self) -> Vec<Context::Error> {
         std::mem::take(self.errors)
     }
 

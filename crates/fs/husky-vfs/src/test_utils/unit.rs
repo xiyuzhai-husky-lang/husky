@@ -40,7 +40,7 @@ impl VfsTestUnit for PackagePath {
         _db: &dyn VfsDb,
         _adversarial_kind: AdversarialKind,
         _package_adversarials_dir: &Path,
-        config: &VfsTestConfig,
+        _config: &VfsTestConfig,
     ) -> Option<PathBuf> {
         None
     }
@@ -79,7 +79,7 @@ impl VfsTestUnit for CratePath {
         _db: &dyn VfsDb,
         _adversarial_kind: AdversarialKind,
         _package_adversarials_dir: &Path,
-        config: &VfsTestConfig,
+        _config: &VfsTestConfig,
     ) -> Option<PathBuf> {
         None
     }
