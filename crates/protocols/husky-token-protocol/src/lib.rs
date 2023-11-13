@@ -40,7 +40,7 @@ pub enum TokenClass {
 }
 
 impl TokenClass {
-    fn description(self) -> &'static str {
+    pub fn description(self) -> &'static str {
         match self {
             TokenClass::Attribute => "attribute token",
             TokenClass::Comment => "comment token",
