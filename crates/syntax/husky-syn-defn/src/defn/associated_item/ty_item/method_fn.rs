@@ -1,6 +1,6 @@
 use super::*;
-use husky_ast::Ast;
-use salsa::DebugWithDb;
+
+
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeMethodFnSynNodeDefn {

@@ -18,9 +18,9 @@ pub struct TypeAssociatedTypeSynDefn {
 
 impl TypeAssociatedTypeSynDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
-        path: TypeItemPath,
-        decl: TypeAssociatedTypeSynDecl,
+        _db: &dyn SynDefnDb,
+        _path: TypeItemPath,
+        _decl: TypeAssociatedTypeSynDecl,
     ) -> SynDefnResult<Self> {
         todo!()
     }

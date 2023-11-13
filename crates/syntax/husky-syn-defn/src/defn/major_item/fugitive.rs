@@ -32,7 +32,7 @@ impl FugitiveSynNodeDefn {
         }
     }
 
-    pub fn syn_node_path(self, db: &dyn SynDefnDb) -> FugitiveSynNodePath {
+    pub fn syn_node_path(self, _db: &dyn SynDefnDb) -> FugitiveSynNodePath {
         todo!()
         // match self {
         //     FugitiveDefn::Fn(defn) => defn.path(db),

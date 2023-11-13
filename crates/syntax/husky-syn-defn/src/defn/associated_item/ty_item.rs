@@ -11,7 +11,7 @@ pub use self::memoized_field::*;
 pub use self::method_fn::*;
 
 use super::*;
-use husky_entity_path::AssociatedItemPath;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDefnDb)]

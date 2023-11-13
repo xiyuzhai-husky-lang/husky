@@ -18,7 +18,7 @@ pub enum TypeVariantSynNodeDefn {
 }
 
 impl TypeVariantSynNodeDefn {
-    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> TypeVariantSynNodeDecl {
+    pub fn syn_node_decl(self, _db: &dyn SynDefnDb) -> TypeVariantSynNodeDecl {
         todo!()
     }
 }
@@ -26,7 +26,7 @@ impl TypeVariantSynNodeDefn {
 impl HasSynNodeDefn for TypeVariantSynNodePath {
     type SynNodeDefn = TypeVariantSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
+    fn syn_node_defn(self, _db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         todo!()
     }
 }

@@ -11,14 +11,14 @@ pub use self::db::*;
 pub use self::defn::*;
 pub use self::error::*;
 
-use self::utils::*;
-use husky_ast::*;
+
+
 use husky_entity_path::*;
 use husky_entity_syn_tree::*;
 use husky_syn_decl::*;
 use husky_syn_expr::*;
 use husky_vfs::{ModulePath, SubmodulePath};
-use salsa::DbWithJar;
+
 
 #[salsa::jar(db = SynDefnDb)]
 pub struct SynDefnJar(
