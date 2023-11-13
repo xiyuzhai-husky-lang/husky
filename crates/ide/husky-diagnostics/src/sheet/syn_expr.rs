@@ -4,7 +4,7 @@ use husky_syn_expr::{
     OriginalSynExprError, SynExprData, SynExprError, SynExprRegion, SynExprResult,
     SynPrincipalEntityPathExpr, SynStmtData,
 };
-use salsa::DebugWithDb;
+
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct ExprDiagnosticSheet {
@@ -55,68 +55,68 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
         for stmt in expr_region_data.stmt_arena().data() {
             match stmt {
                 SynStmtData::Let {
-                    let_token,
+                    let_token: _,
                     let_variables_pattern,
                     assign_token,
-                    initial_value,
+                    initial_value: _,
                 } => {
                     self.visit_syn_expr_result(let_variables_pattern);
                     self.visit_syn_expr_result(assign_token);
                 }
                 SynStmtData::Return {
-                    return_token,
-                    result,
+                    return_token: _,
+                    result: _,
                 } => {}
                 SynStmtData::Require {
-                    require_token,
-                    condition,
+                    require_token: _,
+                    condition: _,
                 } => {}
                 SynStmtData::Assert {
-                    assert_token,
-                    condition,
+                    assert_token: _,
+                    condition: _,
                 } => {}
-                SynStmtData::Break { break_token } => {}
-                SynStmtData::Eval { eol_semicolon, .. } => {}
+                SynStmtData::Break { break_token: _ } => {}
+                SynStmtData::Eval {  .. } => {}
                 SynStmtData::ForBetween {
-                    for_token,
+                    
                     particulars,
                     eol_colon,
-                    block,
+                    
                     ..
                 } => {
                     self.visit_syn_expr_result(&particulars.range);
                     self.visit_syn_expr_result(eol_colon);
                 }
                 SynStmtData::ForIn {
-                    for_token,
-                    condition,
-                    eol_colon,
-                    block,
+                    for_token: _,
+                    condition: _,
+                    eol_colon: _,
+                    block: _,
                 } => todo!(),
                 SynStmtData::ForExt {
-                    forext_token,
-                    particulars,
+                    forext_token: _,
+                    particulars: _,
                     eol_colon,
-                    block,
+                    block: _,
                 } => {
                     self.visit_syn_expr_result(eol_colon);
                     // todo: handle errors in particulars
                 }
                 SynStmtData::While {
-                    while_token,
+                    while_token: _,
                     condition,
                     eol_colon,
-                    block,
+                    block: _,
                 } => {
                     self.visit_syn_expr_result(condition);
                     self.visit_syn_expr_result(eol_colon);
                 }
                 SynStmtData::DoWhile {
-                    do_token,
-                    while_token,
+                    do_token: _,
+                    while_token: _,
                     condition,
                     eol_colon,
-                    block,
+                    block: _,
                 } => {
                     self.visit_syn_expr_result(condition);
                     self.visit_syn_expr_result(eol_colon);
@@ -137,7 +137,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                     }
                 }
                 SynStmtData::Match {
-                    match_token,
+                    match_token: _,
                     match_expr,
                     eol_with_token,
                     ref case_branches,
@@ -251,7 +251,7 @@ impl Diagnose for OriginalSynExprError {
             OriginalSynExprError::ExpectedConstantImplicitParameterType(_) => {
                 format!("Syntax Error: expected constant implicit parameter type")
             }
-            OriginalSynExprError::ExpectedHeavyArrowAfterCasePattern(token_stream_state) => {
+            OriginalSynExprError::ExpectedHeavyArrowAfterCasePattern(_token_stream_state) => {
                 format!("Syntax Error: expected `=>` after case pattern")
             }
             OriginalSynExprError::ExpectedBlock(_) => format!("Syntax Error: expected block"),
@@ -259,12 +259,12 @@ impl Diagnose for OriginalSynExprError {
                 format!("Syntax Error: unterminated list")
             }
             OriginalSynExprError::UnterminatedFunctionCallKeyedArgumentList {
-                bra_regional_token_idx,
+                bra_regional_token_idx: _,
             } => {
                 format!("Syntax Error: unterminated function call keyed argument list")
             }
             OriginalSynExprError::UnterminatedMethodCallKeyedArgumentList {
-                bra_regional_token_idx,
+                bra_regional_token_idx: _,
             } => {
                 format!("Syntax Error: unterminated method call keyed argument list")
             }
@@ -315,13 +315,13 @@ impl Diagnose for OriginalSynExprError {
                 format!("Syntax Error: UnexpectedLeftCurlyBrace")
             }
             OriginalSynExprError::ExpectedTraits(_) => todo!(),
-            OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
+            OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token: _ } => todo!(),
             OriginalSynExprError::ExpectedExplicitParameterDefaultValue(_) => todo!(),
             OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
             OriginalSynExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
             OriginalSynExprError::EntityTree {
-                regional_token_idx,
-                error,
+                regional_token_idx: _,
+                error: _,
             } => todo!(),
         }
     }

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_sema_expr::SemaExprIdx;
+
 use husky_syn_expr::{SynExprIdx, SynExprRegion};
 
 pub fn hir_eager_body_with_expr_region(

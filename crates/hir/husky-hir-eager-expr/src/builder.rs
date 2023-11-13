@@ -1,14 +1,13 @@
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
-use husky_fluffy_term::{FluffyTerm, FluffyTermBase};
+use husky_fluffy_term::FluffyTermBase;
 use husky_sema_expr::{
     SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprData, SynExprIdx, SynExprRegion,
-    SynExprRegionData, SynExprRootKind, SynPatternExprIdx, SynPatternExprMap,
-    SynPatternExprRootKind, SynStmtData, SynStmtIdx, SynSymbolMap, SynSymbolOrderedMap,
+    CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprRegionData, SynExprRootKind,
+    SynPatternExprIdx, SynPatternExprMap, SynPatternExprRootKind, SynSymbolMap,
 };
 use salsa::DebugWithDb;
 
@@ -203,7 +202,7 @@ pub fn hir_eager_expr_region_with_source_map(
     db: &dyn HirEagerExprDb,
     sema_expr_region: SemaExprRegion,
 ) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
-    let mut builder = HirEagerExprBuilder::new(db, sema_expr_region);
+    let builder = HirEagerExprBuilder::new(db, sema_expr_region);
     builder.build_all_then_finish()
 }
 

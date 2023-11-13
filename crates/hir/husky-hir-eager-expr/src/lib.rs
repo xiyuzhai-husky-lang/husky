@@ -24,10 +24,10 @@ use husky_coword::*;
 use husky_entity_path::*;
 use husky_term_prelude::*;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
-use salsa::DebugWithDb;
+
 use smallvec::*;
 
-pub trait ToHirEager {
+pub(crate) trait ToHirEager {
     type Output;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output;

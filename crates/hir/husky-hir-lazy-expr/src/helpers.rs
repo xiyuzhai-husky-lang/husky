@@ -1,7 +1,7 @@
 pub mod control_flow;
 
-use crate::{source_map::HirLazyExprSourceMap, *};
-use husky_sema_expr::SemaExprIdx;
+use crate::{*};
+
 use husky_syn_expr::{SynExprIdx, SynExprRegion};
 
 #[inline(always)]

@@ -1,8 +1,8 @@
 use super::*;
-use husky_entity_syn_tree::{EntitySynTreeBundleResult, HasAssociatedItemPaths};
+use husky_entity_syn_tree::{HasAssociatedItemPaths};
 use husky_term_prelude::TermTypeExpectation;
 use smallvec::SmallVec;
-use vec_like::{SmallVecPairMap, VecMapGetEntry};
+use vec_like::{VecMapGetEntry};
 
 #[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
 pub struct TraitForTypeImplBlockEtherealSignatureTemplate {

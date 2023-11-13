@@ -1,9 +1,8 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
-use husky_entity_kind::*;
-use husky_entity_path::{EntityPath, ItemPath, PrincipalEntityPath};
-#[cfg(feature = "protocol_support")]
-use husky_entity_protocol::*;
+
+use husky_entity_path::{EntityPath, PrincipalEntityPath};
+
 use husky_entity_syn_tree::{OnceUseRuleIdx, OnceUseRuleState, UseExprIdx};
 use husky_sema_expr::SemaExprIdx;
 use husky_syn_expr::{
@@ -93,7 +92,7 @@ impl TokenInfoData {
     pub fn token_class(&self, db: &dyn TokenInfoDb) -> TokenClass {
         match self {
             TokenInfoData::Entity(path) => path.item_kind(db).class().into(),
-            TokenInfoData::EntityNode(path, item_kind) => item_kind.class().into(),
+            TokenInfoData::EntityNode(_path, item_kind) => item_kind.class().into(),
             TokenInfoData::CurrentSynSymbol {
                 current_syn_symbol_kind,
                 ..

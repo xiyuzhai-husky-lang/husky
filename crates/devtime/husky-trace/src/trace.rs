@@ -204,6 +204,7 @@ fn root_traces_works() {
     )
 }
 
+#[cfg(test)]
 fn find_traces<R>(
     crate_path: CratePath,
     max_depth: u8,
@@ -217,6 +218,7 @@ fn find_traces<R>(
     traces
 }
 
+#[cfg(test)]
 fn find_traces_aux<R>(
     trace: Trace,
     max_depth: u8,
@@ -231,6 +233,9 @@ fn find_traces_aux<R>(
     for &subtrace in trace.subtraces(db) {
         find_traces_aux(subtrace, max_depth - 1, f, traces, db)
     }
+    // for associated_trace in trace.associated_traces(db) {
+    //     find_traces_aux(associated_trace, max_depth - 1, f, traces, db)
+    // }
 }
 
 #[test]

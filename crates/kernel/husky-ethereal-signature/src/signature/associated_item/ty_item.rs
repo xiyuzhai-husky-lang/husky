@@ -10,7 +10,7 @@ use husky_entity_syn_tree::HasItemPathsMap;
 
 pub use self::associated_fn::*;
 pub use self::associated_ty::*;
-pub use self::associated_val::*;
+
 pub use self::memoized_field::*;
 pub use self::method_fn::*;
 pub use self::method_function::*;
@@ -185,7 +185,7 @@ pub(crate) fn ty_item_ethereal_signature_templates_map(
                     //         todo!()
                     //     }
                     // },
-                    Err(e) => Err(EtherealSignatureError::EntityTreeError),
+                    Err(_e) => Err(EtherealSignatureError::EntityTreeError),
                 };
                 (*ident, result)
             },

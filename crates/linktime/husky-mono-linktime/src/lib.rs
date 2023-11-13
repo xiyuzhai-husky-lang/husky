@@ -2,10 +2,9 @@ mod internal;
 
 use self::internal::MonoLinkTimeInternal;
 use husky_linkage_path::{db::LinkagePathDb, LinkagePath};
-use husky_regular_value::RegularValue;
+
 use husky_task::{
     linkage::{IsLinkage, IsLinktime},
-    *,
 };
 use husky_vfs::CratePath;
 use std::{collections::HashMap, marker::PhantomData};

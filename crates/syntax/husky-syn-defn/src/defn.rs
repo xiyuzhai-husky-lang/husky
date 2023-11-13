@@ -15,7 +15,7 @@ use crate::*;
 use husky_ast::AstIdx;
 use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_item_syn_node_paths};
 use husky_syn_expr::helpers::block_expr::parse_defn_block_expr;
-use salsa::debug::ExpectWithDb;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynDefnDb)]

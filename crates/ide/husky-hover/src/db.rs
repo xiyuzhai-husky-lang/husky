@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_entity_syn_tree::EntitySynTreeResult;
+
 use husky_text_protocol::{
     position::{FilePosition, TextPosition},
     range::RangeInfo,

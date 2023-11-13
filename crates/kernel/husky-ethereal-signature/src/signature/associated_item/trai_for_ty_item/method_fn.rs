@@ -14,7 +14,7 @@ pub struct TraitForTypeMethodFnEtherealSignatureTemplate {
 impl TraitForTypeMethodFnEtherealSignatureTemplate {
     pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        path: TraitForTypeItemPath,
+        _path: TraitForTypeItemPath,
         dec_sig_tmpl: TraitForTypeMethodFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         let self_ty = EtherealTerm::ty_from_declarative(db, dec_sig_tmpl.self_ty(db))?;

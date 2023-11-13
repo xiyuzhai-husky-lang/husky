@@ -1,5 +1,5 @@
 use husky_sema_expr::SemaHtmlArgumentExpr;
-use husky_syn_expr::SynHtmlArgumentExpr;
+
 
 use super::*;
 
@@ -38,9 +38,9 @@ impl ToHirEager for SemaHtmlArgumentExpr {
                 expr: expr.to_hir_eager(builder),
             },
             SemaHtmlArgumentExpr::Shortened {
-                lcurl,
+                lcurl: _,
                 property_ident,
-                rcurl,
+                rcurl: _,
             } => HirEagerHtmlArgumentExpr {
                 property_ident: property_ident.ident(),
                 expr: todo!(),

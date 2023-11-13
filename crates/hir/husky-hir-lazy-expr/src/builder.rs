@@ -5,8 +5,8 @@ use husky_sema_expr::{
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprIdx, SynExprRegion, SynExprRegionData,
-    SynExprRootKind, SynPatternExprMap, SynStmtIdx, SynSymbolMap,
+    CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprRegionData,
+    SynExprRootKind, SynPatternExprMap, SynSymbolMap,
 };
 use salsa::DebugWithDb;
 
@@ -190,6 +190,6 @@ pub fn hir_lazy_expr_region_with_source_map(
     db: &dyn HirLazyExprDb,
     sema_expr_region: SemaExprRegion,
 ) -> (HirLazyExprRegion, HirLazyExprSourceMap) {
-    let mut builder = HirLazyExprBuilder::new(db, sema_expr_region);
+    let builder = HirLazyExprBuilder::new(db, sema_expr_region);
     builder.build_all_then_finish()
 }

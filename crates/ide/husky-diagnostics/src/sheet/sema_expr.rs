@@ -2,11 +2,10 @@ use super::*;
 use husky_fluffy_term::*;
 use husky_sema_expr::{
     OriginalExprTermError, OriginalSemaExprDataError, OriginalSemaExprTypeError, SemaExprTermError,
-    SemaExprTypeError,
 };
 use husky_syn_defn::HasDefns;
-use husky_syn_expr::{SynExprIdx, SynExprRegion};
-use salsa::{DebugWithDb, DisplayWithDb};
+use husky_syn_expr::{SynExprRegion};
+use salsa::{DisplayWithDb};
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct ExprTypeDiagnosticSheet {
@@ -42,7 +41,7 @@ fn collect_expr_ty_diagnostics(
 ) {
     let ctx: RegionDiagnosticsContext = RegionDiagnosticsContext::new(db, syn_expr_region);
     let sema_expr_region_data = ctx.sema_expr_region_data();
-    for (expr_idx, fluffy_term_result) in sema_expr_region_data.sema_expr_terms().iter() {
+    for (_expr_idx, fluffy_term_result) in sema_expr_region_data.sema_expr_terms().iter() {
         match fluffy_term_result {
             Err(SemaExprTermError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
             _ => (),
@@ -123,8 +122,8 @@ impl Diagnose for OriginalSemaExprDataError {
                 )
             }
             OriginalSemaExprDataError::RitchieParameterArgumentMismatch {
-                match_error,
-                ritchie_arguments,
+                match_error: _,
+                ritchie_arguments: _,
             } => todo!(), // OriginalSemaExprDataError::UnexpectedArgument => {
                           //     format!("Type Error: unexpected argument")
                           // }
@@ -138,7 +137,7 @@ impl Diagnose for OriginalSemaExprDataError {
         DiagnosticSeverity::Error
     }
 
-    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
+    fn range(&self, _ctx: &RegionDiagnosticsContext) -> TextRange {
         todo!()
         // match self {
         //     OriginalSemaExprTypeError::NoSuchField { ident_token, .. } => {
@@ -155,7 +154,7 @@ impl Diagnose for OriginalSemaExprDataError {
 impl Diagnose for OriginalSemaExprTypeError {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
+    fn message(&self, _ctx: &RegionDiagnosticsContext) -> String {
         // MOM
         match self {
             OriginalSemaExprTypeError::UnresolvedTerm => {
@@ -206,7 +205,7 @@ impl Diagnose for OriginalSemaExprTypeError {
         DiagnosticSeverity::Error
     }
 
-    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
+    fn range(&self, _ctx: &RegionDiagnosticsContext) -> TextRange {
         todo!()
         // match self {
         //     OriginalSemaExprTypeError::NoSuchField { ident_token, .. } => {
@@ -233,7 +232,7 @@ impl Diagnose for (HoleSource, &'_ OriginalHollowTermResolveError) {
         DiagnosticSeverity::Error
     }
 
-    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
+    fn range(&self, _ctx: &RegionDiagnosticsContext) -> TextRange {
         match self.0 {
             HoleSource::Expr(_) => todo!(),
             HoleSource::Expectation(_) => todo!(),
@@ -262,13 +261,13 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())
             ),
-            OriginalFluffyTermExpectationError::ExpectedCategory { expectee } => {
+            OriginalFluffyTermExpectationError::ExpectedCategory { expectee: _ } => {
                 format!("Term Error: expected category",)
             }
             OriginalFluffyTermExpectationError::ExpectedFunctionType => {
                 format!("Term Error: expected function type",)
             }
-            OriginalFluffyTermExpectationError::ExpectedSubtype { expectee } => {
+            OriginalFluffyTermExpectationError::ExpectedSubtype { expectee: _ } => {
                 format!("Term Error: expected subtype",)
             }
             OriginalFluffyTermExpectationError::ExpectedCoersion {  expectee, expected, contract } => {

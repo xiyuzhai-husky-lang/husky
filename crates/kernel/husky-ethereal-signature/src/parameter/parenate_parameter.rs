@@ -1,6 +1,6 @@
 use super::*;
 use husky_declarative_signature::DeclarativeParenateParameters;
-use husky_term_prelude::Contract;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = EtherealSignatureDb)]

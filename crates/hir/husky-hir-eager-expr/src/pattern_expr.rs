@@ -71,18 +71,18 @@ impl<'a> HirEagerExprBuilder<'a> {
                 symbol_modifier: symbol_modifier_tokens.map(Into::into),
             },
             SynPatternExpr::TypeVariantUnit { .. } => todo!(),
-            SynPatternExpr::Tuple { name, fields } => todo!(),
-            SynPatternExpr::Props { name, fields } => todo!(),
-            SynPatternExpr::OneOf { ref options } => todo!(),
+            SynPatternExpr::Tuple { name: _, fields: _ } => todo!(),
+            SynPatternExpr::Props { name: _, fields: _ } => todo!(),
+            SynPatternExpr::OneOf { options: _ } => todo!(),
             SynPatternExpr::Binding {
-                ident_token,
-                asperand_token,
-                src,
+                ident_token: _,
+                asperand_token: _,
+                src: _,
             } => todo!(),
             SynPatternExpr::Range {
-                start,
-                dot_dot_token,
-                end,
+                start: _,
+                dot_dot_token: _,
+                end: _,
             } => todo!(),
         }
     }

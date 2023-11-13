@@ -5,7 +5,7 @@ use husky_sema_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 
-use husky_entity_kind::EntityKind;
+
 use husky_entity_syn_tree::{
     helpers::{
         paths::module_item_syn_node_paths,
@@ -14,7 +14,7 @@ use husky_entity_syn_tree::{
     ParentUseExpr,
 };
 use husky_sema_expr::{
-    SemaExprData, SemaExprIdx, SemaExprRegion, SemaExprRegionData, SemaHtmlArgumentExpr,
+    SemaExprData, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr,
 };
 use husky_syn_expr::*;
 
@@ -207,17 +207,17 @@ impl<'a> TokenInfoEngine<'a> {
         }
     }
 
-    fn visit_fn_node(&mut self, syn_node_defn: FnSynNodeDefn) {}
+    fn visit_fn_node(&mut self, _syn_node_defn: FnSynNodeDefn) {}
 
-    fn visit_val_node(&mut self, syn_node_defn: ValSynNodeDefn) {}
+    fn visit_val_node(&mut self, _syn_node_defn: ValSynNodeDefn) {}
 
     fn visit_gn_node(&mut self, syn_node_defn: GnSynNodeDefn) {
-        let syn_node_decl = syn_node_defn.syn_node_decl(self.db);
+        let _syn_node_decl = syn_node_defn.syn_node_decl(self.db);
         // todo!()
     }
 
     fn visit_value(&mut self, syn_node_defn: ValSynNodeDefn) {
-        let syn_node_decl = syn_node_defn.syn_node_decl(self.db);
+        let _syn_node_decl = syn_node_defn.syn_node_decl(self.db);
         // todo!()
     }
 
@@ -235,15 +235,15 @@ impl<'a> TokenInfoEngine<'a> {
         }
     }
 
-    fn visit_ty_item_syn_node(&self, syn_node_defn: TypeItemSynNodeDefn) {
+    fn visit_ty_item_syn_node(&self, _syn_node_defn: TypeItemSynNodeDefn) {
         // todo!()
     }
 
-    fn visit_trai_item_node(&self, syn_node_defn: TraitItemSynNodeDefn) {
+    fn visit_trai_item_node(&self, _syn_node_defn: TraitItemSynNodeDefn) {
         // todo!()
     }
 
-    fn visit_trai_for_ty_item_syn_node(&self, syn_node_defn: TraitForTypeItemSynNodeDefn) {
+    fn visit_trai_for_ty_item_syn_node(&self, _syn_node_defn: TraitForTypeItemSynNodeDefn) {
         // todo!()
     }
 }
@@ -387,7 +387,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 TokenInfoData::Method,
             ),
             SemaExprData::At {
-                at_regional_token_idx,
+                at_regional_token_idx: _,
                 place_label_regional_token,
             } => {
                 if let Some(_) = place_label_regional_token {
@@ -425,11 +425,11 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | SemaExprData::Be { .. } => (),
             SemaExprData::FunctionApplication { .. } => (),
             SemaExprData::Index {
-                owner_sema_expr_idx,
-                lbox_regional_token_idx,
-                index_sema_list_items,
-                rbox_regional_token_idx,
-                index_dynamic_dispatch,
+                owner_sema_expr_idx: _,
+                lbox_regional_token_idx: _,
+                index_sema_list_items: _,
+                rbox_regional_token_idx: _,
+                index_dynamic_dispatch: _,
             } => (),
             SemaExprData::CompositionWithList {
                 owner: _,
@@ -453,10 +453,10 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 );
             }
             SemaExprData::EmptyHtmlTag {
-                empty_html_bra_idx,
+                empty_html_bra_idx: _,
                 function_ident,
                 ref arguments,
-                empty_html_ket,
+                empty_html_ket: _,
             } => {
                 self.add(
                     function_ident.regional_token_idx(),
@@ -492,7 +492,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             }
             SemaExprData::FunctionGnCall { .. } => todo!(),
             SemaExprData::Ritchie { .. } => (),
-            SemaExprData::Sorry { regional_token_idx } => todo!(),
+            SemaExprData::Sorry { regional_token_idx: _ } => todo!(),
             SemaExprData::Todo { regional_token_idx } => {
                 self.add(*regional_token_idx, sema_expr_idx, TokenInfoData::Todo)
             }
@@ -518,7 +518,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             }
             SemaExprData::ArrayFunctor {
                 lbox_regional_token_idx,
-                items,
+                items: _,
                 rbox_regional_token_idx,
             } => {
                 self.add(

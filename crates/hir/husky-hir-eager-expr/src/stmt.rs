@@ -6,12 +6,9 @@ pub use self::loop_stmt::*;
 
 use crate::*;
 use husky_sema_expr::{SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
-use husky_syn_expr::{
-    LetPatternSynSyndicate, SynForBetweenLoopBoundary, SynForBetweenParticulars,
-    SynForBetweenRange, SynStmtData, SynStmtIdx, SynStmtIdxRange,
-};
+
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
-use salsa::debug::ExpectWithDb;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerStmt {
@@ -73,7 +70,7 @@ impl ToHirEager for SemaStmtIdx {
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         Some(match self.data(builder.sema_stmt_arena_ref()) {
             SemaStmtData::Let {
-                let_token,
+                let_token: _,
                 ref let_pattern_sema_obelisk,
                 initial_value_sema_expr_idx: initial_value,
                 ..
@@ -82,24 +79,24 @@ impl ToHirEager for SemaStmtIdx {
                 initial_value: initial_value.to_hir_eager(builder),
             },
             SemaStmtData::Return {
-                return_token,
+                return_token: _,
                 result,
             } => HirEagerStmt::Return {
                 result: result.to_hir_eager(builder),
             },
             SemaStmtData::Require {
-                require_token,
+                require_token: _,
                 condition,
             } => HirEagerStmt::Require {
                 condition: HirEagerCondition(condition.to_hir_eager(builder)),
             },
             SemaStmtData::Assert {
-                assert_token,
+                assert_token: _,
                 condition,
             } => HirEagerStmt::Assert {
                 condition: HirEagerCondition(condition.to_hir_eager(builder)),
             },
-            SemaStmtData::Break { break_token } => HirEagerStmt::Break,
+            SemaStmtData::Break { break_token: _ } => HirEagerStmt::Break,
             SemaStmtData::Eval {
                 sema_expr_idx: expr_idx,
                 eol_semicolon,
@@ -108,25 +105,25 @@ impl ToHirEager for SemaStmtIdx {
                 discarded: eol_semicolon.as_ref().expect("no error").is_some(),
             },
             SemaStmtData::ForBetween {
-                for_token,
+                for_token: _,
                 ref particulars,
-                for_loop_var_symbol_idx: frame_var_symbol_idx,
-                ref eol_colon,
+                for_loop_var_symbol_idx: _frame_var_symbol_idx,
+                eol_colon: _,
                 ref block,
             } => HirEagerStmt::ForBetween {
                 particulars: particulars.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
             SemaStmtData::ForIn {
-                for_token,
-                ref condition,
-                ref eol_colon,
-                ref block,
+                for_token: _,
+                condition: _,
+                eol_colon: _,
+                block: _,
             } => todo!(),
             SemaStmtData::Forext {
-                forext_token,
+                forext_token: _,
                 ref particulars,
-                ref eol_colon,
+                eol_colon: _,
                 ref block,
             } => HirEagerStmt::Forext {
                 particulars: particulars.to_hir_eager(builder),
@@ -158,7 +155,7 @@ impl ToHirEager for SemaStmtIdx {
                     .as_ref()
                     .map(|else_branch| else_branch.to_hir_eager(builder)),
             },
-            SemaStmtData::Match { match_token, .. } => HirEagerStmt::Match {},
+            SemaStmtData::Match {  .. } => HirEagerStmt::Match {},
         })
     }
 }

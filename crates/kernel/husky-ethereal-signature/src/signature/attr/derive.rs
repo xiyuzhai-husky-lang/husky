@@ -1,7 +1,7 @@
 use husky_entity_syn_tree::HasAttrPaths;
-use husky_print_utils::p;
+
 use husky_term_prelude::TermTypeExpectation;
-use vec_like::{OrderedSmallVecSet, SmallVecPairMap, SmallVecSet, VecMapGetEntry};
+use vec_like::{OrderedSmallVecSet, SmallVecPairMap, VecMapGetEntry};
 
 use super::*;
 
