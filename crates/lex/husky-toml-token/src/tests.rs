@@ -17,8 +17,8 @@ impl Database for DB {}
 fn err(input: &str, err: TomlTokenError) {
     let db = DB::default();
     let mut t = TomlTokenIter::new(&db, input);
-    let token = t.next().unwrap().variant().clone();
-    assert_eq!(token, TomlTokenVariant::Err(err));
+    let token = t.next().unwrap().data().clone();
+    assert_eq!(token, TomlTokenData::Err(err));
     assert!(t.next().is_none());
 }
 
@@ -26,10 +26,10 @@ fn err(input: &str, err: TomlTokenError) {
 fn literal_strings() {
     fn t(db: &dyn CowordDb, input: &str, val: &str, multiline: bool) {
         let mut t = TomlTokenIter::new(db, input);
-        let token = t.next().unwrap().variant().clone();
+        let token = t.next().unwrap().data().clone();
         assert_eq!(
             token,
-            TomlTokenVariant::StringLiteral {
+            TomlTokenData::StringLiteral {
                 val: Arc::new(val.to_owned()),
                 multiline,
             }
@@ -54,8 +54,8 @@ fn basic_strings() {
         let mut t = TomlTokenIter::new(db, input);
         let token = t.next().unwrap();
         assert_eq!(
-            token.variant(),
-            &TomlTokenVariant::StringLiteral {
+            token.data(),
+            &TomlTokenData::StringLiteral {
                 val: Arc::new(val.to_owned()),
                 multiline,
             }
@@ -110,8 +110,8 @@ fn keylike() {
         let mut t = TomlTokenIter::new(db, input);
         let token = t.next().unwrap();
         assert_eq!(
-            token.variant(),
-            &TomlTokenVariant::Word(db.it_coword_borrowed(input))
+            token.data(),
+            &TomlTokenData::Word(db.it_coword_borrowed(input))
         );
         assert!(t.next().is_none());
     }
@@ -129,7 +129,7 @@ fn keylike() {
 
 #[test]
 fn all() {
-    fn t(db: &dyn CowordDb, input: &str, expected: &[((usize, usize), TomlTokenVariant, &str)]) {
+    fn t(db: &dyn CowordDb, input: &str, expected: &[((usize, usize), TomlTokenData, &str)]) {
         let mut tokens = TomlTokenIter::new(db, input);
         let mut actual: Vec<(TomlToken, &str)> = Vec::new();
         while let Some(token) = tokens.next() {
@@ -137,7 +137,7 @@ fn all() {
             actual.push((token, code));
         }
         for (a, b) in actual.iter().zip(expected) {
-            assert_eq!((a.0.span().into(), a.0.variant(), a.1), (b.0, &b.1, b.2));
+            assert_eq!((a.0.span().into(), a.0.data(), a.1), (b.0, &b.1, b.2));
         }
         assert_eq!(actual.len(), expected.len());
     }
@@ -146,22 +146,14 @@ fn all() {
     t(
         &db,
         " a ",
-        &[(
-            (1, 2),
-            TomlTokenVariant::Word(db.it_coword_borrowed("a")),
-            "a",
-        )],
+        &[((1, 2), TomlTokenData::Word(db.it_coword_borrowed("a")), "a")],
     );
 
     t(
         &db,
         " a\t [[]] \t [] {} , . =\n# foo \r\n#foo \n ",
         &[
-            (
-                (1, 2),
-                TomlTokenVariant::Word(db.it_coword_borrowed("a")),
-                "a",
-            ),
+            ((1, 2), TomlTokenData::Word(db.it_coword_borrowed("a")), "a"),
             ((4, 5), TomlSpecialToken::LeftBox.into(), "["),
             ((5, 6), TomlSpecialToken::LeftBox.into(), "["),
             ((6, 7), TomlSpecialToken::RightBox.into(), "]"),
@@ -173,8 +165,8 @@ fn all() {
             ((17, 18), TomlSpecialToken::Comma.into(), ","),
             ((19, 20), TomlSpecialToken::Period.into(), "."),
             ((21, 22), TomlSpecialToken::Equals.into(), "="),
-            ((23, 29), TomlTokenVariant::Comment, "# foo "),
-            ((31, 36), TomlTokenVariant::Comment, "#foo "),
+            ((23, 29), TomlTokenData::Comment, "# foo "),
+            ((31, 36), TomlTokenData::Comment, "#foo "),
         ],
     );
 }
@@ -194,8 +186,8 @@ fn bad_comment() {
     let mut t = TomlTokenIter::new(&db, "#\u{0}");
     t.next().unwrap();
     assert_eq!(
-        t.next().unwrap().variant(),
-        &TomlTokenVariant::Err(TomlTokenError::UnexpectedChar('\u{0}'))
+        t.next().unwrap().data(),
+        &TomlTokenData::Err(TomlTokenError::UnexpectedChar('\u{0}'))
     );
     assert!(t.next().is_none());
 }

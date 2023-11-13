@@ -22,9 +22,9 @@ pub enum TomlSpecialToken {
     RightBox,
 }
 
-impl From<TomlSpecialToken> for TomlTokenVariant {
+impl From<TomlSpecialToken> for TomlTokenData {
     fn from(val: TomlSpecialToken) -> Self {
-        TomlTokenVariant::Special(val)
+        TomlTokenData::Special(val)
     }
 }
 

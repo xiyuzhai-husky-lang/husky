@@ -1,14 +1,14 @@
 use super::*;
 
 impl<'a> TomlTokenIter<'a> {
-    pub(crate) fn next_keylike(&mut self, start: usize) -> TomlTokenVariant {
+    pub(crate) fn next_keylike(&mut self, start: usize) -> TomlTokenData {
         while let Some(ch) = self.peek_char() {
             if !is_keylike(ch) {
                 break;
             }
             self.next_char();
         }
-        TomlTokenVariant::Word(
+        TomlTokenData::Word(
             self.db
                 .it_coword_borrowed(&self.input[start..self.current()]),
         )

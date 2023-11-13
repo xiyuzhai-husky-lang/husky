@@ -19,9 +19,9 @@ pub(crate) fn produce_line_group_starts(tokens: &[TomlToken]) -> Vec<usize> {
                     j += 1;
                 } else {
                     if line_indent1 == line_indent0 {
-                        match line_start_token.variant() {
-                            TomlTokenVariant::Special(TomlSpecialToken::RightCurly)
-                            | TomlTokenVariant::Special(TomlSpecialToken::RightBox) => j += 1,
+                        match line_start_token.data() {
+                            TomlTokenData::Special(TomlSpecialToken::RightCurly)
+                            | TomlTokenData::Special(TomlSpecialToken::RightBox) => j += 1,
                             _ => break,
                         }
                     }

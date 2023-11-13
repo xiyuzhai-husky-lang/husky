@@ -31,7 +31,7 @@ impl<'a> Iterator for TomlTokenIter<'a> {
             '\'' => self.next_literal_string(),
             '"' => self.next_basic_string(),
             ch if is_keylike(ch) => self.next_keylike(start_offset),
-            ch => TomlTokenVariant::Err(TomlTokenError::UnexpectedChar(ch)),
+            ch => TomlTokenData::Err(TomlTokenError::UnexpectedChar(ch)),
         };
 
         Some(self.emit_token(start_offset, start_position, variant))
@@ -58,7 +58,7 @@ impl<'a> TomlTokenIter<'a> {
         &self,
         start_offset: usize,
         start_position: TextPosition,
-        variant: TomlTokenVariant,
+        variant: TomlTokenData,
     ) -> TomlToken {
         TomlToken::new(
             DocumentSpan {

@@ -37,16 +37,12 @@ pub type StringValue = Arc<String>;
 pub struct TomlToken {
     span: DocumentSpan,
     range: TextRange,
-    variant: TomlTokenVariant,
+    data: TomlTokenData,
 }
 
 impl TomlToken {
-    pub fn new(span: DocumentSpan, range: TextRange, variant: TomlTokenVariant) -> Self {
-        Self {
-            span,
-            range,
-            variant,
-        }
+    pub fn new(span: DocumentSpan, range: TextRange, data: TomlTokenData) -> Self {
+        Self { span, range, data }
     }
 
     pub fn span(&self) -> DocumentSpan {
@@ -57,14 +53,14 @@ impl TomlToken {
         self.range
     }
 
-    pub fn variant(&self) -> &TomlTokenVariant {
-        &self.variant
+    pub fn data(&self) -> &TomlTokenData {
+        &self.data
     }
 }
 
 /// variants for tokens in toml file
 #[derive(Debug, Eq, PartialEq, Clone)]
-pub enum TomlTokenVariant {
+pub enum TomlTokenData {
     Comment,
     Special(TomlSpecialToken),
     Word(Coword),
@@ -72,31 +68,29 @@ pub enum TomlTokenVariant {
     Err(TomlTokenError),
 }
 
-impl TomlTokenVariant {
+impl TomlTokenData {
     pub fn describe(&self) -> &'static str {
         match *self {
-            TomlTokenVariant::Word(_) => "a word",
-            TomlTokenVariant::Comment => "a comment",
-            TomlTokenVariant::Special(special) => special.describe(),
-            TomlTokenVariant::StringLiteral { multiline, .. } => {
+            TomlTokenData::Word(_) => "a word",
+            TomlTokenData::Comment => "a comment",
+            TomlTokenData::Special(special) => special.describe(),
+            TomlTokenData::StringLiteral { multiline, .. } => {
                 if multiline {
                     "a multiline string"
                 } else {
                     "a string"
                 }
             }
-            TomlTokenVariant::Err(_) => todo!(),
+            TomlTokenData::Err(_) => todo!(),
         }
     }
 }
 
-impl std::ops::FromResidual<Result<core::convert::Infallible, TomlTokenError>>
-    for TomlTokenVariant
-{
+impl std::ops::FromResidual<Result<core::convert::Infallible, TomlTokenError>> for TomlTokenData {
     fn from_residual(residual: Result<core::convert::Infallible, TomlTokenError>) -> Self {
         match residual {
             Ok(_) => unreachable!(),
-            Err(e) => TomlTokenVariant::Err(e),
+            Err(e) => TomlTokenData::Err(e),
         }
     }
 }
