@@ -88,22 +88,24 @@ where
         let await_status = Arc::new(std::sync::Mutex::new(CreationAwaitStatus::Await));
         let (request_tx, request_rx) = tokio::sync::mpsc::channel(1);
         let (response_tx, response_rx) = tokio::sync::mpsc::channel(1);
-        let await_status = await_status.clone();
-        tokio_runtime.spawn(async move {
-            println!("server_address = {server_address}");
-            match tokio_tungstenite::connect_async(server_address).await {
-                Ok((stream, response)) => {
-                    *await_status.lock().unwrap() = CreationAwaitStatus::Ok {
-                        stream,
-                        response,
-                        request_rx,
-                        response_tx,
-                        notifier,
+        tokio_runtime.spawn({
+            let await_status = await_status.clone();
+            async move {
+                println!("server_address = {server_address}");
+                match tokio_tungstenite::connect_async(server_address).await {
+                    Ok((stream, response)) => {
+                        *await_status.lock().unwrap() = CreationAwaitStatus::Ok {
+                            stream,
+                            response,
+                            request_rx,
+                            response_tx,
+                            notifier,
+                        }
                     }
-                }
-                Err(e) => {
-                    p!(e);
-                    todo!()
+                    Err(e) => {
+                        p!(e);
+                        todo!()
+                    }
                 }
             }
         });
@@ -274,29 +276,6 @@ where
             Err(e) => todo!("e = {e}"),
         };
         self.creation_status = CreationStatus::Ok
-    }
-
-    async fn launch_aux(
-        _stream: tokio_tungstenite::WebSocketStream<
-            tokio_tungstenite::MaybeTlsStream<tokio::net::TcpStream>,
-        >,
-        _request_rx: tokio::sync::mpsc::Receiver<Request>,
-        _response_tx: tokio::sync::mpsc::Sender<Response>,
-        _communication_status: Arc<AtomicCommunicationStatus>,
-    ) {
-
-        // When we are done we may want our client to close connection cleanly.
-        // let who = "who";
-        // println!("Sending close to {who}...");
-        // if let Err(e) = sender
-        //     .send(Message::Close(Some(CloseFrame {
-        //         code: CloseCode::Normal,
-        //         reason: Cow::from("Goodbye"),
-        //     })))
-        //     .await
-        // {
-        //     println!("Could not send Close due to {e:?}, probably it is ok?");
-        // };
     }
 }
 
