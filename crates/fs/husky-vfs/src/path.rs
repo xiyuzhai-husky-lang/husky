@@ -98,9 +98,8 @@ pub(crate) fn resolve_module_path(
                 ),
             ),
             _ => {
-                if let lib_path = parent.join("lib.hsy")
-                    && lib_path.exists()
-                {
+                let lib_path = parent.join("lib.hsy");
+                if lib_path.exists() {
                     ModulePath::new_child(
                         db,
                         resolve_module_path(db, toolchain, lib_path)?,
@@ -108,18 +107,19 @@ pub(crate) fn resolve_module_path(
                             .ok_or(VfsError::ModulePathResolveFailure)?,
                     )
                     .into()
-                } else if let main_path = parent.join("main.hsy")
-                    && main_path.exists()
-                {
-                    ModulePath::new_child(
-                        db,
-                        resolve_module_path(db, toolchain, main_path)?,
-                        db.it_ident_borrowed(file_stem)
-                            .ok_or(VfsError::ModulePathResolveFailure)?,
-                    )
-                    .into()
                 } else {
-                    todo!()
+                    let main_path = parent.join("main.hsy");
+                    if main_path.exists() {
+                        ModulePath::new_child(
+                            db,
+                            resolve_module_path(db, toolchain, main_path)?,
+                            db.it_ident_borrowed(file_stem)
+                                .ok_or(VfsError::ModulePathResolveFailure)?,
+                        )
+                        .into()
+                    } else {
+                        todo!()
+                    }
                 }
             }
         }

@@ -15,13 +15,16 @@ pub fn apply_live_file_changes<Db: VfsDb>(
     update_live_packages(db, path);
     update_content(db, path, |text| {
         husky_text_protocol::change::apply_document_changes(text, changes)
-    });
+    })?;
     Ok(())
 }
 
 fn update_live_packages(db: &dyn VfsDb, path: &Path) {
     if let Ok(toolchain) = db.current_toolchain() {
-        db.resolve_module_path(toolchain, path);
+        match db.resolve_module_path(toolchain, path) {
+            Ok(_) => todo!(),
+            Err(_) => todo!(),
+        };
     }
 }
 

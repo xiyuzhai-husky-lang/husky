@@ -13,10 +13,8 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
-
 use husky_regional_token::*;
 use husky_token_data::{TokenData, TokenDataResult};
-use parsec::{HasStreamState};
 
 type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
 

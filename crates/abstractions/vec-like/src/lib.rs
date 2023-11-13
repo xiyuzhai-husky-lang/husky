@@ -1,4 +1,5 @@
 mod append_only;
+pub mod error;
 mod ordered_small_vec_set;
 mod small_vec_map;
 mod small_vec_set;

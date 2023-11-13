@@ -2,13 +2,12 @@ mod props_ty_variant;
 mod tuple_ty_variant;
 mod unit_ty_variant;
 
-use husky_token_data::Punctuation;
-
 pub use self::props_ty_variant::*;
 pub use self::tuple_ty_variant::*;
 pub use self::unit_ty_variant::*;
 
 use super::*;
+use husky_token_data::Punctuation;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]
@@ -55,6 +54,7 @@ pub(crate) fn ty_variant_syn_node_decl(
 
 impl<'a> DeclParser<'a, TypeVariantSynNodePath> {
     fn parse_ty_variant_syn_node_decl(&self) -> TypeVariantSynNodeDecl {
+        use parsec::HasStreamState;
         let db = self.db();
         let mut parser = self.expr_parser(
             Some(

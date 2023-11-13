@@ -74,6 +74,7 @@ impl ExternTypeSynDecl {
 
 #[test]
 fn extern_ty_decl_works() {
+    use husky_vfs::VfsTestUtils;
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let item_path_menu = db.item_path_menu(toolchain);

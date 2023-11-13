@@ -67,7 +67,10 @@ where
     DB: ParallelDatabase,
 {
     pub fn query<S>(&self, f: impl FnOnce(salsa::Snapshot<DB>) -> S) -> S {
-        self.event_tx.send(VfsWatcherEvent::Snapshot);
+        match self.event_tx.send(VfsWatcherEvent::Snapshot) {
+            Ok(_) => (),
+            Err(_) => todo!(),
+        };
         match self.snapshot_rx.recv() {
             Ok(snapshot) => f(snapshot),
             Err(_e) => {

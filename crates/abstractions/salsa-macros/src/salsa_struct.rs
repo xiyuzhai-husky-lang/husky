@@ -40,7 +40,7 @@ pub(crate) enum SalsaStructKind {
 }
 
 pub(crate) struct SalsaStruct<A: AllowedOptions> {
-    kind: SalsaStructKind,
+    _kind: SalsaStructKind,
     args: Options<A>,
     struct_item: syn::ItemStruct,
     fields: Vec<SalsaField>,
@@ -59,14 +59,14 @@ impl<A: AllowedOptions> SalsaStruct<A> {
     }
 
     pub(crate) fn with_struct(
-        kind: SalsaStructKind,
+        _kind: SalsaStructKind,
         args: proc_macro::TokenStream,
         struct_item: syn::ItemStruct,
     ) -> syn::Result<Self> {
         let args: Options<A> = syn::parse(args)?;
         let fields = Self::extract_options(&struct_item)?;
         Ok(Self {
-            kind,
+            _kind,
             args,
             struct_item,
             fields,
@@ -97,8 +97,8 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         self.fields.iter()
     }
 
-    pub(crate) fn is_identity_field(&self, field: &SalsaField) -> bool {
-        match self.kind {
+    pub(crate) fn _is_identity_field(&self, field: &SalsaField) -> bool {
+        match self._kind {
             SalsaStructKind::Input | SalsaStructKind::Tracked => field.has_id_attr,
             SalsaStructKind::Interned => true,
         }
