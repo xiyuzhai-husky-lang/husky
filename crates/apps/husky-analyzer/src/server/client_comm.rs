@@ -4,9 +4,9 @@ use crossbeam_channel::Sender;
 
 use dashmap::{mapref::entry::Entry, DashMap};
 use husky_diagnostics::DiagnosticsDb;
-use husky_vfs::{ModulePath, VfsDb};
+use husky_vfs::{ModulePath};
 use lsp_types::notification::Notification;
-use salsa::DebugWithDb;
+
 
 use crate::{convert::to_lsp_types::url_from_diff_path, db::AnalyzerDB};
 

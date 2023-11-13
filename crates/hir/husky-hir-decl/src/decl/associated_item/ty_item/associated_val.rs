@@ -9,11 +9,11 @@ pub struct TypeAssociatedValHirDecl {
 
 impl TypeAssociatedValHirDecl {
     pub(super) fn from_syn(
-        path: TypeItemPath,
+        _path: TypeItemPath,
         syn_decl: TypeAssociatedValSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
+        let _builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         todo!()
         // let mut builder = HirEagerExprBuilder::new(db, syn_decl.expr_region(db));
         // let return_ty = builder.hir_ty(ethereal_signature_template.return_ty(db), db);

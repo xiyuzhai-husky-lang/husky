@@ -62,7 +62,7 @@ impl DeclarativeTerm {
                 db,
                 VecSet::new_one_elem_set(variable),
             )),
-            DeclarativeTerm::Symbol(symbol) => None,
+            DeclarativeTerm::Symbol(_symbol) => None,
             DeclarativeTerm::EntityPath(path) => match path {
                 DeclarativeTermEntityPath::Fugitive(_) => todo!(),
                 DeclarativeTermEntityPath::Trait(_) | DeclarativeTermEntityPath::Type(_) => None,

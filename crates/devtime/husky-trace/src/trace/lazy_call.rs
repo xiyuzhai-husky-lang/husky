@@ -16,15 +16,15 @@ pub struct LazyCallTrace {
 }
 
 impl LazyCallTrace {
-    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
+    pub fn view_data(self, _db: &dyn TraceDb) -> TraceViewData {
         todo!()
     }
 
-    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
+    pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
         todo!()
     }
 
-    pub fn val_repr(self, db: &dyn TraceDb) -> ValRepr {
+    pub fn val_repr(self, _db: &dyn TraceDb) -> ValRepr {
         todo!()
     }
 }

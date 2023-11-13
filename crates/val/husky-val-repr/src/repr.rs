@@ -4,7 +4,7 @@ pub(crate) use self::val_domain_repr_guard::ValDomainReprGuard;
 
 use crate::*;
 use husky_coword::Ident;
-use husky_entity_path::{EntityPathDb, FugitivePath};
+use husky_entity_path::{FugitivePath};
 use husky_val::{Val, ValArgument, ValDomain, ValOpn};
 use smallvec::{smallvec, SmallVec};
 
@@ -138,7 +138,7 @@ pub(crate) fn val_item_val_reprs(db: &DB, module_path: ModulePath) -> Vec<(Fugit
     use husky_entity_kind::FugitiveKind;
     use husky_entity_path::{ItemPath, MajorItemPath};
     use husky_entity_syn_tree::helpers::paths::module_item_paths;
-    use husky_hir_defn::HasHirDefn;
+    
 
     module_item_paths(db, module_path)
         .as_ref()
@@ -156,7 +156,7 @@ pub(crate) fn val_item_val_reprs(db: &DB, module_path: ModulePath) -> Vec<(Fugit
 
 #[test]
 fn val_item_val_repr_works() {
-    let db = DB::default();
+    let _db = DB::default();
     DB::default().ast_expect_test_debug_with_db(
         val_item_val_reprs,
         &AstTestConfig::new("val_item_val_reprs"),

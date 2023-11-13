@@ -12,12 +12,12 @@ pub struct TraitForTypeAssociatedValHirDecl {
 
 impl TraitForTypeAssociatedValHirDecl {
     pub(super) fn from_syn(
-        path: TraitForTypeItemPath,
+        _path: TraitForTypeItemPath,
         syn_decl: TraitForTypeAssociatedValSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
-        let template_parameters =
+        let _template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
         todo!()
         // let self_value_parameter =

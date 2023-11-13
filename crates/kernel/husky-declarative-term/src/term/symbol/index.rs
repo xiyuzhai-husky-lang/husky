@@ -1,4 +1,4 @@
-use crate::helpers::DeclarativeTermFamily;
+
 
 use super::*;
 use husky_entity_path::TypePath;
@@ -282,7 +282,7 @@ impl TermSymbolRegistry {
             })
             .next()
         {
-            Some(latest_disambiguator) => todo!(),
+            Some(_latest_disambiguator) => todo!(),
             None => {
                 let index =
                     DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ConstPathLeading {
@@ -312,7 +312,7 @@ impl TermSymbolRegistry {
             })
             .next()
         {
-            Some(latest_disambiguator) => todo!(),
+            Some(_latest_disambiguator) => todo!(),
             None => {
                 let index =
                     DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ConstOther {
@@ -341,7 +341,7 @@ impl TermSymbolRegistry {
             })
             .next()
         {
-            Some(latest_disambiguator) => todo!(),
+            Some(_latest_disambiguator) => todo!(),
             None => {
                 let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ConstErr {
                     attrs,
@@ -372,7 +372,7 @@ impl TermSymbolRegistry {
             })
             .next()
         {
-            Some(latest_disambiguator) => todo!(),
+            Some(_latest_disambiguator) => todo!(),
             None => {
                 let index =
                     DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::EphemPathLeading {
@@ -404,7 +404,7 @@ impl TermSymbolRegistry {
             })
             .next()
         {
-            Some(latest_disambiguator) => todo!(),
+            Some(_latest_disambiguator) => todo!(),
             None => {
                 let index =
                     DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::EphemOther {

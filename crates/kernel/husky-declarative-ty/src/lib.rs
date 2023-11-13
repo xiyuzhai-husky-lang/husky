@@ -24,7 +24,7 @@ use husky_coword::*;
 use husky_declarative_signature::*;
 use husky_declarative_term::*;
 use husky_entity_path::*;
-use husky_syn_decl::HasSynDecl;
+
 use husky_term_prelude::*;
 
 #[salsa::jar(db = DeclarativeTypeDb)]

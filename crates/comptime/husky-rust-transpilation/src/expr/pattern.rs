@@ -25,11 +25,11 @@ impl TranspileToRust for HirEagerPatternExprIdx {
                 ident.transpile_to_rust(builder)
             }
             HirEagerPatternExpr::Unit(_) => todo!(),
-            HirEagerPatternExpr::Tuple { path, fields } => todo!(),
-            HirEagerPatternExpr::Props { path, fields } => todo!(),
-            HirEagerPatternExpr::OneOf { options } => todo!(),
-            HirEagerPatternExpr::Binding { ident, src } => todo!(),
-            HirEagerPatternExpr::Range { start, end } => todo!(),
+            HirEagerPatternExpr::Tuple { path: _, fields: _ } => todo!(),
+            HirEagerPatternExpr::Props { path: _, fields: _ } => todo!(),
+            HirEagerPatternExpr::OneOf { options: _ } => todo!(),
+            HirEagerPatternExpr::Binding { ident: _, src: _ } => todo!(),
+            HirEagerPatternExpr::Range { start: _, end: _ } => todo!(),
         }
     }
 }

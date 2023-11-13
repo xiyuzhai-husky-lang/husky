@@ -1,12 +1,12 @@
 use crate::*;
-use husky_entity_syn_tree::EntitySynTreeError;
-use husky_print_utils::p;
+
+
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenStreamState};
 use husky_syn_expr::OriginalSynExprError;
 use husky_token_data::TokenDataError;
-use husky_vfs::error::VfsError;
+
 use original_error::OriginalError;
-use parsec::*;
+
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -28,7 +28,7 @@ impl From<TokenDataError> for SynNodeDeclError {
 }
 
 impl From<SynExprError> for DeclError {
-    fn from(value: SynExprError) -> Self {
+    fn from(_value: SynExprError) -> Self {
         todo!()
     }
 }
@@ -110,7 +110,7 @@ pub type DeclResult<T> = Result<T, DeclError>;
 
 impl From<&SynNodeDeclError> for DeclError {
     #[track_caller]
-    fn from(value: &SynNodeDeclError) -> Self {
+    fn from(_value: &SynNodeDeclError) -> Self {
         todo!("not yet expect errors in from of impl From<&SynNodeDeclError> for DeclError");
         DeclError::NodeDecl
     }

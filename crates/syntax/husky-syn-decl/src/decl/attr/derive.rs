@@ -1,4 +1,4 @@
-use parsec::{parse_separated_list2, PunctuatedSmallList};
+use parsec::{PunctuatedSmallList};
 
 use super::*;
 

@@ -1,6 +1,6 @@
 use super::*;
 use crate::builder::keyword::RustKeyword;
-use husky_vfs::SubmodulePath;
+
 
 impl TranspileToRust for SubmoduleHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {

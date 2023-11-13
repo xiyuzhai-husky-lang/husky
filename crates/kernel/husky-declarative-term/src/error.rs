@@ -1,5 +1,5 @@
 use husky_entity_path::{EntityPathError, ItemPath};
-use std::sync::Arc;
+
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone, Copy)]

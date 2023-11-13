@@ -10,7 +10,7 @@ pub use self::ty_item::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_kind::{AssociatedItemKind, EntityKind, TraitItemKind, TypeItemKind};
+use husky_entity_kind::{TraitItemKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]
@@ -133,7 +133,7 @@ impl AssociatedItemSynDecl {
 impl HasSynDecl for AssociatedItemPath {
     type Decl = AssociatedItemSynDecl;
 
-    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, _db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         todo!()
     }
 }

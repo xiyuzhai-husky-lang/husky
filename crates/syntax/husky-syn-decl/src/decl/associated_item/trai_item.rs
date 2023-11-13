@@ -10,7 +10,7 @@ pub use self::associated_val::*;
 pub use self::method_fn::*;
 
 use super::*;
-use husky_decl_ast::DeclAst;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]
@@ -55,7 +55,7 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, _db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -136,7 +136,7 @@ impl TraitItemSynDecl {
 impl HasSynDecl for TraitItemPath {
     type Decl = TraitItemSynDecl;
 
-    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, _db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         todo!()
     }
 }

@@ -1,5 +1,5 @@
 use super::*;
-use husky_coword::IdentPairMap;
+
 use husky_entity_kind::TypeKind;
 
 #[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
@@ -114,7 +114,7 @@ pub(crate) fn ty_variant_syn_nodes(
         .indexed_iter(variants.ast_idx_range())
         .map(|(ast_idx, variant_ast)| match variant_ast {
             Ast::TypeVariant {
-                token_group_idx,
+                
                 variant_path,
                 ident_token,
                 ..

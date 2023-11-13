@@ -1,8 +1,7 @@
 use crate::{db::ValReprDb, *};
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{FugitivePath, MajorItemPath, PrincipalEntityPath};
-#[cfg(test)]
-use husky_hir_defn::HirDefn;
+
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
@@ -12,10 +11,10 @@ use husky_hir_lazy_expr::{
     HirLazyExprRegionData, HirLazyPatternExpr, HirLazyStmt, HirLazyStmtIdx, HirLazyStmtIdxRange,
     HirLazyStmtMap,
 };
-use husky_hir_opr::suffix::HirSuffixOpr;
+
 use husky_linkage_path::LinkagePath;
-use husky_print_utils::p;
-use husky_term_prelude::TermLiteral;
+
+
 use husky_val::ValOpn;
 use husky_vfs::ModulePath;
 use smallvec::{smallvec, SmallVec};
@@ -133,7 +132,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
     }
 
     fn build_all(&mut self) {
-        let mut val_domain_repr_guard = ValDomainReprGuard::new(self.db, self.val_domain_repr);
+        let val_domain_repr_guard = ValDomainReprGuard::new(self.db, self.val_domain_repr);
         match self.hir_lazy_expr_region_data.hir_lazy_expr_arena()[self.body] {
             HirLazyExprData::Block { stmts } => {
                 self.root_hir_lazy_stmt_val_reprs = self.build_stmts(val_domain_repr_guard, stmts)
@@ -172,7 +171,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     [pattern.pattern_expr_idx()]
                 {
                     HirLazyPatternExpr::Literal(_) => todo!(),
-                    HirLazyPatternExpr::Ident { ident } => {
+                    HirLazyPatternExpr::Ident { ident: _ } => {
                         debug_assert_eq!(pattern.variables().len(), 1);
                         self.hir_lazy_variable_val_repr_map.insert_new(
                             pattern.variables()[0],
@@ -182,11 +181,11 @@ impl<'a> ValReprExpansionBuilder<'a> {
                         return None;
                     }
                     HirLazyPatternExpr::Unit(_) => todo!(),
-                    HirLazyPatternExpr::Tuple { path, fields } => todo!(),
-                    HirLazyPatternExpr::Props { path, fields } => todo!(),
-                    HirLazyPatternExpr::OneOf { options } => todo!(),
-                    HirLazyPatternExpr::Binding { ident, src } => todo!(),
-                    HirLazyPatternExpr::Range { start, end } => todo!(),
+                    HirLazyPatternExpr::Tuple { path: _, fields: _ } => todo!(),
+                    HirLazyPatternExpr::Props { path: _, fields: _ } => todo!(),
+                    HirLazyPatternExpr::OneOf { options: _ } => todo!(),
+                    HirLazyPatternExpr::Binding { ident: _, src: _ } => todo!(),
+                    HirLazyPatternExpr::Range { start: _, end: _ } => todo!(),
                 }
             }
             HirLazyStmt::Return { result } => (
@@ -307,7 +306,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ];
                 (opn, arguments)
             }
-            HirLazyExprData::Be { src, ref target } => (
+            HirLazyExprData::Be { src, target: _ } => (
                 ValOpn::Be,
                 smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, src)
@@ -357,11 +356,11 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 _ => todo!(),
             },
             HirLazyExprData::GnCall {
-                function,
-                ref generic_arguments,
-                ref item_groups,
+                function: _,
+                generic_arguments: _,
+                item_groups: _,
             } => todo!(),
-            HirLazyExprData::Field { owner, ident } => (
+            HirLazyExprData::Field { owner, ident: _ } => (
                 ValOpn::Linkage(LinkagePath::new_field(self.db)),
                 smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, owner)
@@ -369,7 +368,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
             ),
             HirLazyExprData::MethodFnCall {
                 self_argument,
-                ident,
+                ident: _,
                 ref template_arguments,
                 ref item_groups,
             } => {
@@ -382,7 +381,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
                 (ValOpn::Linkage(LinkagePath::new_method(self.db)), arguments)
             }
-            HirLazyExprData::NewTuple { ref items } => todo!(),
+            HirLazyExprData::NewTuple { items: _ } => todo!(),
             HirLazyExprData::Index { owner, ref items } => {
                 let mut arguments = smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, owner)
@@ -403,10 +402,10 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     })
                     .collect(),
             ),
-            HirLazyExprData::Block { stmts } => todo!(),
+            HirLazyExprData::Block { stmts: _ } => todo!(),
             HirLazyExprData::EmptyHtmlTag {
-                function_ident,
-                ref arguments,
+                function_ident: _,
+                arguments: _,
             } => todo!(),
             HirLazyExprData::Todo => todo!(),
             HirLazyExprData::AssociatedFn => todo!(),
@@ -469,7 +468,7 @@ fn val_item_val_repr_expansions(
 fn val_item_val_repr_expansions_works() {
     // todo: why compiler needs this line to work?
     use husky_ast::test_utils::AstTestUtils;
-    let db = DB::default();
+    let _db = DB::default();
     DB::default().ast_expect_test_debug_with_db(
         val_item_val_repr_expansions,
         &AstTestConfig::new("val_item_val_repr_expansions"),

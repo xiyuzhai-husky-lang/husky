@@ -1,4 +1,4 @@
-use husky_hir_lazy_expr::{HirLazyExprIdx, HirLazyExprRegion};
+use husky_hir_lazy_expr::{HirLazyExprIdx};
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
 
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
@@ -99,11 +99,11 @@ impl LazyExprTrace {
         }
     }
 
-    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
+    pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
         todo!()
     }
 
-    pub fn val_repr(self, db: &dyn TraceDb) -> Option<ValRepr> {
+    pub fn val_repr(self, _db: &dyn TraceDb) -> Option<ValRepr> {
         todo!()
     }
 }
@@ -129,6 +129,6 @@ fn lazy_expr_trace_view_lines(db: &dyn TraceDb, trace: LazyExprTrace) -> TraceVi
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-fn lazy_expr_trace_val_repr(db: &dyn TraceDb, trace: LazyExprTrace) -> Option<ValRepr> {
+fn lazy_expr_trace_val_repr(_db: &dyn TraceDb, _trace: LazyExprTrace) -> Option<ValRepr> {
     todo!()
 }

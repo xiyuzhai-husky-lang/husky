@@ -24,8 +24,8 @@ pub(crate) struct VoidAssociatedTraceRegistry;
 impl IsAssociatedTraceRegistry for VoidAssociatedTraceRegistry {
     fn get_or_issue_associated_trace(
         &mut self,
-        source: TokenInfoSource,
-        db: &dyn TraceDb,
+        _source: TokenInfoSource,
+        _db: &dyn TraceDb,
     ) -> Option<Trace> {
         None
     }

@@ -59,13 +59,13 @@ impl TranspileToRust for TypeMethodFnHirDecl {
 }
 
 impl TranspileToRust for TypeAssociatedTypeHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
 
 impl TranspileToRust for TypeAssociatedValHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
@@ -79,7 +79,7 @@ impl TranspileToRust for TypeMemoizedFieldHirDefn {
         };
         builder.keyword(RustKeyword::Fn);
         self.path(db).ident(db).transpile_to_rust(builder);
-        let hir_decl = self.hir_decl(db);
+        let _hir_decl = self.hir_decl(db);
         builder
             .heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| builder.self_value());
         builder.eager_body(hir_eager_expr_region, body)

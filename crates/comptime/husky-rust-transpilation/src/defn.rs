@@ -13,7 +13,7 @@ use husky_hir_decl::parameter::{
     template::{HirTemplateParameter, HirTemplateParameterData, HirTemplateParameters},
 };
 use husky_hir_defn::*;
-use husky_hir_ty::{ritchie::HirRitchieParameter, HirTemplateSymbol, HirTypeSymbol};
+use husky_hir_ty::{ritchie::HirRitchieParameter};
 use husky_print_utils::p;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
@@ -56,17 +56,17 @@ impl TranspileToRust for HirTemplateParameter {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         // self.symbol().transpile_to_rust(builder)
         match self.data() {
-            HirTemplateParameterData::Type { ident, traits } => {
+            HirTemplateParameterData::Type { ident, traits: _ } => {
                 ident.transpile_to_rust(builder)
                 // todo: traits
             }
-            HirTemplateParameterData::Constant { ident, ty } => {
+            HirTemplateParameterData::Constant { ident, ty: _ } => {
                 use salsa::DebugWithDb;
                 p!(ident.debug(builder.db()));
                 todo!()
             }
-            HirTemplateParameterData::Lifetime { label } => todo!(),
-            HirTemplateParameterData::Place { label } => todo!(),
+            HirTemplateParameterData::Lifetime { label: _ } => todo!(),
+            HirTemplateParameterData::Place { label: _ } => todo!(),
         }
     }
 }
@@ -110,7 +110,7 @@ impl TranspileToRust for HirEagerParenateParameters {
 }
 
 impl TranspileToRust for HirRitchieParameter {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }

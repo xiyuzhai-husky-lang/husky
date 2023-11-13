@@ -3,7 +3,7 @@ pub(crate) mod trai;
 pub(crate) mod ty;
 
 use super::*;
-use husky_entity_path::MajorItemPath;
+
 
 impl TranspileToRust for MajorItemHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {

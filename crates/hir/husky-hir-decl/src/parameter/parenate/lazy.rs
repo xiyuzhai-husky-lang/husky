@@ -13,43 +13,43 @@ pub enum HirLazyParenateParameter {
 
 impl HirLazyParenateParameter {
     pub(crate) fn from_self_value_parameter_syndicate(
-        syndicate: Option<SelfValueParameterSyndicate>,
-        db: &dyn HirDeclDb,
+        _syndicate: Option<SelfValueParameterSyndicate>,
+        _db: &dyn HirDeclDb,
     ) -> Self {
         HirLazyParenateParameter::SelfValue
     }
 
     pub(crate) fn from_syn(
         syndicate: &ParenateParameterSyndicate,
-        builder: &HirDeclBuilder,
+        _builder: &HirDeclBuilder,
     ) -> Option<Self> {
         Some(match syndicate {
             ParenateParameterSyndicate::Ordinary {
-                syn_pattern_root,
-                variables,
-                colon,
-                ty,
+                syn_pattern_root: _,
+                variables: _,
+                colon: _,
+                ty: _,
             } => HirLazyParenateParameter::Ordinary {
                 pattern_expr_idx: todo!(),
             },
             ParenateParameterSyndicate::Variadic {
-                dot_dot_dot_token,
-                variadic_variant,
-                symbol_modifier_keyword_group,
-                ident_token,
-                variable,
-                colon,
-                ty,
+                dot_dot_dot_token: _,
+                variadic_variant: _,
+                symbol_modifier_keyword_group: _,
+                ident_token: _,
+                variable: _,
+                colon: _,
+                ty: _,
             } => HirLazyParenateParameter::Variadic,
             ParenateParameterSyndicate::Keyed {
-                syn_pattern_root,
-                symbol_modifier_keyword_group,
-                ident_token,
-                variable,
-                colon,
-                ty,
-                eq_token,
-                default,
+                syn_pattern_root: _,
+                symbol_modifier_keyword_group: _,
+                ident_token: _,
+                variable: _,
+                colon: _,
+                ty: _,
+                eq_token: _,
+                default: _,
             } => HirLazyParenateParameter::Keyed,
         })
     }

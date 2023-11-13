@@ -197,7 +197,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 ..
             } => {
                 let visibility = visibility_expr.visibility();
-                let ident = ident_token.ident();
+                let _ident = ident_token.ident();
                 if let Some(item_path) = block.item_path() {
                     self.item_node_table.try_add_new_node(
                         self.db,

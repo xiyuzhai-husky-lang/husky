@@ -93,7 +93,7 @@ impl OnceUseRule {
         use_expr_root: UseExprRoot,
         visibility_expr: &VisibilityExpr,
         use_expr_arena: &UseExprArena,
-        module_path: ModulePath,
+        _module_path: ModulePath,
     ) -> Option<Self> {
         let parent_use_expr_idx = use_expr_root.parent_use_expr_idx();
         let ParentUseExpr {

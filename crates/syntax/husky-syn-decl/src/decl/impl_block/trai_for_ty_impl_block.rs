@@ -1,6 +1,6 @@
 use super::*;
-use husky_print_utils::p;
-use salsa::DebugWithDb;
+
+
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeImplBlockSynNodeDecl {

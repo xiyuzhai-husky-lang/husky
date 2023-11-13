@@ -45,7 +45,7 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        let (id, params, panic_context) = match self.parse::<R>() {
+        let (id, params, _panic_context) = match self.parse::<R>() {
             Some(it) => it,
             None => return Ok(self),
         };
@@ -72,7 +72,7 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        let (_id, params, panic_context) = match self.parse::<R>() {
+        let (_id, params, _panic_context) = match self.parse::<R>() {
             Some(it) => it,
             None => return Ok(self),
         };
@@ -100,7 +100,7 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + Send + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        let (id, params, panic_context) = match self.parse::<R>() {
+        let (id, params, _panic_context) = match self.parse::<R>() {
             Some(it) => it,
             None => return self,
         };

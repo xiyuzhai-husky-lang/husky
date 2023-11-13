@@ -6,7 +6,7 @@ use crate::registry::{
 use husky_entity_path::PrincipalEntityPath;
 use husky_hir_lazy_expr::HirLazyStmtIdx;
 use husky_hir_lazy_expr::{builder::hir_lazy_expr_region_with_source_map, HirLazyExprRegion};
-use husky_print_utils::p;
+
 use husky_regional_token::{
     ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, IfRegionalToken,
     RegionalTokenIdxRange,
@@ -278,7 +278,7 @@ impl IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry {
                     .into(),
             ),
             TokenInfoSource::SynPrincipalEntityPathExpr(
-                syn_principal_entity_path_expr_idx,
+                _syn_principal_entity_path_expr_idx,
                 syn_principal_entity_path,
             ) => match syn_principal_entity_path {
                 PrincipalEntityPath::Module(_) => None,
@@ -323,10 +323,10 @@ impl LazyStmtTrace {
         for stmt in stmts {
             match stmt.data(sema_stmt_arena) {
                 SemaStmtData::Let {
-                    let_token,
-                    let_pattern_sema_obelisk,
-                    eq_token,
-                    initial_value_sema_expr_idx,
+                    let_token: _,
+                    let_pattern_sema_obelisk: _,
+                    eq_token: _,
+                    initial_value_sema_expr_idx: _,
                 } => {
                     let path_data = LazyStmtTracePathData::Let {};
                     let lazy_stmt_trace = LazyStmtTrace::new(
@@ -342,8 +342,8 @@ impl LazyStmtTrace {
                     subtraces.push(lazy_stmt_trace.into())
                 }
                 SemaStmtData::Return {
-                    return_token,
-                    result,
+                    return_token: _,
+                    result: _,
                 } => {
                     let path_data = LazyStmtTracePathData::Return {};
                     let lazy_stmt_trace = LazyStmtTrace::new(
@@ -359,8 +359,8 @@ impl LazyStmtTrace {
                     subtraces.push(lazy_stmt_trace.into())
                 }
                 SemaStmtData::Require {
-                    require_token,
-                    condition,
+                    require_token: _,
+                    condition: _,
                 } => {
                     let path_data = LazyStmtTracePathData::Require {};
                     let lazy_stmt_trace = LazyStmtTrace::new(
@@ -376,8 +376,8 @@ impl LazyStmtTrace {
                     subtraces.push(lazy_stmt_trace.into())
                 }
                 SemaStmtData::Assert {
-                    assert_token,
-                    condition,
+                    assert_token: _,
+                    condition: _,
                 } => {
                     let path_data = LazyStmtTracePathData::Assert {};
                     let lazy_stmt_trace = LazyStmtTrace::new(
@@ -392,7 +392,7 @@ impl LazyStmtTrace {
                     );
                     subtraces.push(lazy_stmt_trace.into())
                 }
-                SemaStmtData::Break { break_token } => {
+                SemaStmtData::Break { break_token: _ } => {
                     let path_data = LazyStmtTracePathData::Break {};
                     let lazy_stmt_trace = LazyStmtTrace::new(
                         parent_trace,
@@ -407,8 +407,8 @@ impl LazyStmtTrace {
                     subtraces.push(lazy_stmt_trace.into())
                 }
                 SemaStmtData::Eval {
-                    sema_expr_idx,
-                    eol_semicolon,
+                    sema_expr_idx: _,
+                    eol_semicolon: _,
                 } => {
                     let path_data = LazyStmtTracePathData::Eval {};
                     let lazy_stmt_trace = LazyStmtTrace::new(
@@ -424,36 +424,36 @@ impl LazyStmtTrace {
                     subtraces.push(lazy_stmt_trace.into())
                 }
                 SemaStmtData::ForBetween {
-                    for_token,
-                    particulars,
-                    for_loop_var_symbol_idx,
-                    eol_colon,
-                    block,
+                    for_token: _,
+                    particulars: _,
+                    for_loop_var_symbol_idx: _,
+                    eol_colon: _,
+                    block: _,
                 } => todo!(),
                 SemaStmtData::ForIn {
-                    for_token,
-                    condition,
-                    eol_colon,
-                    block,
+                    for_token: _,
+                    condition: _,
+                    eol_colon: _,
+                    block: _,
                 } => todo!(),
                 SemaStmtData::Forext {
-                    forext_token,
-                    particulars,
-                    eol_colon,
-                    block,
+                    forext_token: _,
+                    particulars: _,
+                    eol_colon: _,
+                    block: _,
                 } => todo!(),
                 SemaStmtData::While {
-                    while_token,
-                    condition,
-                    eol_colon,
-                    block,
+                    while_token: _,
+                    condition: _,
+                    eol_colon: _,
+                    block: _,
                 } => todo!(),
                 SemaStmtData::DoWhile {
-                    do_token,
-                    while_token,
-                    condition,
-                    eol_colon,
-                    block,
+                    do_token: _,
+                    while_token: _,
+                    condition: _,
+                    eol_colon: _,
+                    block: _,
                 } => todo!(),
                 SemaStmtData::IfElse {
                     sema_if_branch,
@@ -521,10 +521,10 @@ impl LazyStmtTrace {
                     }
                 }
                 SemaStmtData::Match {
-                    match_token,
-                    match_target_sema_expr_idx,
-                    eol_with_token,
-                    sema_case_branches,
+                    match_token: _,
+                    match_target_sema_expr_idx: _,
+                    eol_with_token: _,
+                    sema_case_branches: _,
                 } => todo!(),
             }
         }

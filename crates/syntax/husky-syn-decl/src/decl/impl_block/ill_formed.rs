@@ -1,6 +1,6 @@
 use super::*;
-use husky_print_utils::p;
-use salsa::DebugWithDb;
+
+
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct IllFormedImplBlockSynNodeDecl {
@@ -11,7 +11,7 @@ pub struct IllFormedImplBlockSynNodeDecl {
 }
 
 impl IllFormedImplBlockSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, _db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         // ad hoc
         SmallVec::default()
     }
@@ -37,10 +37,10 @@ pub(crate) fn ill_formed_impl_block_syn_node_decl(
 impl<'a> DeclParser<'a, IllFormedImplBlockSynNodePath> {
     fn parse_ill_formed_impl_block_syn_node_decl(
         &self,
-        syn_node_path: IllFormedImplBlockSynNodePath,
+        _syn_node_path: IllFormedImplBlockSynNodePath,
     ) -> IllFormedImplBlockSynNodeDecl {
         let db = self.db();
-        let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
+        let parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         IllFormedImplBlockSynNodeDecl::new(db, self.syn_node_path(), parser.finish())
     }
 }

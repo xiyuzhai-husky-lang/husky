@@ -7,14 +7,14 @@ pub(crate) use self::precedence::{RustPrecedence, RustPrecedenceRange};
 use self::precedence::hir_eager_expr_precedence;
 use crate::*;
 use husky_hir_eager_expr::{
-    variable::HirEagerVariableIdx, HirEagerCallListItemGroup, HirEagerCondition,
+    HirEagerCallListItemGroup, HirEagerCondition,
     HirEagerElifBranch, HirEagerElseBranch, HirEagerExprData, HirEagerExprIdx, HirEagerIfBranch,
     HirEagerLetVariablesPattern, HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmt,
     HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_opr::BinaryClosedOpr;
-use husky_term_prelude::TermLiteral;
+
 
 impl TranspileToRust for (RustPrecedenceRange, HirEagerExprIdx) {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
@@ -70,7 +70,7 @@ fn transpile_hir_eager_expr_to_rust(
                 greater(ropd).transpile_to_rust(builder)
             }
         },
-        HirEagerExprData::Be { src, ref target } => builder.macro_name(RustMacroName::Matches),
+        HirEagerExprData::Be { src: _, target: _ } => builder.macro_name(RustMacroName::Matches),
         HirEagerExprData::Prefix {
             opr,
             opd_hir_expr_idx,
@@ -92,7 +92,7 @@ fn transpile_hir_eager_expr_to_rust(
             ref item_groups,
         } => {
             geq(function_hir_expr_idx).transpile_to_rust(builder);
-            if let Some(template_arguments) = template_arguments {
+            if let Some(_template_arguments) = template_arguments {
                 todo!()
             }
             builder.bracketed_comma_list(RustBracket::Par, item_groups)
@@ -114,12 +114,12 @@ fn transpile_hir_eager_expr_to_rust(
             geq(self_argument).transpile_to_rust(builder);
             builder.punctuation(RustPunctuation::Dot);
             ident.transpile_to_rust(builder);
-            if let Some(template_arguments) = template_arguments {
+            if let Some(_template_arguments) = template_arguments {
                 todo!()
             }
             builder.bracketed_comma_list(RustBracket::Par, item_groups)
         }
-        HirEagerExprData::NewTuple { ref items } => {
+        HirEagerExprData::NewTuple { items: _ } => {
             todo!()
         }
         HirEagerExprData::Index {
@@ -137,8 +137,8 @@ fn transpile_hir_eager_expr_to_rust(
         }
         HirEagerExprData::Block { stmts } => stmts.transpile_to_rust(builder),
         HirEagerExprData::EmptyHtmlTag {
-            function_ident,
-            ref arguments,
+            function_ident: _,
+            arguments: _,
         } =>
         /* ad hoc */
         {

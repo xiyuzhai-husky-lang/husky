@@ -8,7 +8,7 @@ pub struct TraitForTypeAssociatedValSynNodeDecl {
 }
 
 impl TraitForTypeAssociatedValSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, _db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         // ad hoc
         Default::default()
     }

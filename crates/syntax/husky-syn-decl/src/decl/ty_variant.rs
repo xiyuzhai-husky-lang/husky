@@ -28,7 +28,7 @@ impl TypeVariantSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, _db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         match self {
             TypeVariantSynNodeDecl::Props(_) => todo!(),
             TypeVariantSynNodeDecl::Unit(_) => todo!(),
@@ -119,7 +119,7 @@ impl TypeVariantSynDecl {
         })
     }
 
-    pub fn path(self, db: &dyn SynDeclDb) -> TypeVariantPath {
+    pub fn path(self, _db: &dyn SynDeclDb) -> TypeVariantPath {
         match self {
             TypeVariantSynDecl::Props(_) => todo!(),
             TypeVariantSynDecl::Unit(_) => todo!(),

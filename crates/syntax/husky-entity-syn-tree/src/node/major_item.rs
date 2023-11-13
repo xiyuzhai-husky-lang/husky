@@ -61,12 +61,12 @@ impl MajorItemSynNodePath {
         }
     }
 
-    pub fn ident(self, db: &dyn EntitySynTreeDb) -> Ident {
+    pub fn ident(self, _db: &dyn EntitySynTreeDb) -> Ident {
         todo!("")
         // self.path(db).ident(db)
     }
 
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
+    pub(crate) fn syn_node(self, _db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
         todo!()
     }
 

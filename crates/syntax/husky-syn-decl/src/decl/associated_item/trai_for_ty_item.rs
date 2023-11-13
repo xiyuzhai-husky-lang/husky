@@ -7,11 +7,11 @@ mod method_fn;
 pub use self::associated_fn::*;
 pub use self::associated_ty::*;
 pub use self::associated_val::*;
-pub use self::memoized_field::*;
+
 pub use self::method_fn::*;
 
 use super::*;
-use husky_decl_ast::DeclAst;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]

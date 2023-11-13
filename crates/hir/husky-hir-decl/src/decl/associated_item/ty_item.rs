@@ -11,7 +11,7 @@ pub use self::memoized_field::*;
 pub use self::method_fn::*;
 
 use super::*;
-use husky_print_utils::p;
+
 use husky_syn_decl::TypeItemSynDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -66,7 +66,7 @@ impl HasHirDecl for TypeItemPath {
 
 #[salsa::tracked(jar = HirDeclJar)]
 pub(crate) fn ty_item_hir_decl(db: &dyn HirDeclDb, path: TypeItemPath) -> Option<TypeItemHirDecl> {
-    use salsa::DebugWithDb;
+    
     match path.syn_decl(db).expect("ok") {
         TypeItemSynDecl::AssociatedFn(syn_decl) => {
             Some(TypeAssociatedFnHirDecl::from_syn(path, syn_decl, db).into())

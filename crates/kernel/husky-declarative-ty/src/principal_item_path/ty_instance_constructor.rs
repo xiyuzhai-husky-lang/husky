@@ -38,7 +38,7 @@ pub fn ty_instance_constructor_path_declarative_ty(
 
 fn props_struct_ty_instance_constructor_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
-    path: TypePath,
+    _path: TypePath,
     variances: &[Variance],
     signature: PropsStructTypeDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -65,7 +65,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
 
 fn tuple_struct_ty_constructor_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
-    path: TypePath,
+    _path: TypePath,
     variances: &[Variance],
     signature: TupleStructTypeDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {

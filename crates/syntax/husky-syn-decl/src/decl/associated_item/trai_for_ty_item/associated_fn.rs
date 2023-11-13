@@ -49,9 +49,9 @@ pub struct TraitForTypeAssociatedFnSynDecl {
 
 impl TraitForTypeAssociatedFnSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
-        path: TraitForTypeItemPath,
-        syn_node_decl: TraitForTypeAssociatedFnSynNodeDecl,
+        _db: &dyn SynDeclDb,
+        _path: TraitForTypeItemPath,
+        _syn_node_decl: TraitForTypeAssociatedFnSynNodeDecl,
     ) -> DeclResult<Self> {
         todo!()
     }

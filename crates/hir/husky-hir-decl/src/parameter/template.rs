@@ -1,6 +1,6 @@
 use crate::*;
 use husky_hir_ty::trai::HirTrait;
-use husky_print_utils::p;
+
 use husky_syn_expr::{TemplateParameterSyndicate, TemplateParameterSyndicateData};
 use smallvec::SmallVec;
 
@@ -47,9 +47,9 @@ impl HirTemplateParameter {
                 },
             },
             &TemplateParameterSyndicateData::Constant {
-                const_token,
+                const_token: _,
                 ident_token,
-                colon_token,
+                colon_token: _,
                 ty_expr,
             } => {
                 let ident = ident_token.ident();

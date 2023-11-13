@@ -9,9 +9,9 @@ pub struct TraitAssociatedFnHirDefn {
 
 impl TraitAssociatedFnHirDefn {
     pub(super) fn new(
-        db: &dyn HirDefnDb,
-        path: TraitItemPath,
-        hir_decl: TraitAssociatedFnHirDecl,
+        _db: &dyn HirDefnDb,
+        _path: TraitItemPath,
+        _hir_decl: TraitAssociatedFnHirDecl,
     ) -> TraitAssociatedFnHirDefn {
         todo!()
         // let syn_node_path = hir_decl.syn_node_path(db);

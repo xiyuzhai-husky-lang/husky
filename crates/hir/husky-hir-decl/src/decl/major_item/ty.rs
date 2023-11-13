@@ -16,9 +16,9 @@ pub use self::unit_struct::*;
 
 use super::*;
 use husky_entity_path::TypePath;
-use husky_print_utils::p;
+
 use husky_syn_decl::TypeSynDecl;
-use salsa::DebugWithDb;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -94,8 +94,8 @@ fn ty_hir_decl(db: &dyn HirDeclDb, path: TypePath) -> Option<TypeHirDecl> {
         TypeSynDecl::Record(syn_decl) => {
             Some(RecordTypeHirDecl::from_syn(path, syn_decl, db).into())
         }
-        TypeSynDecl::Inductive(syn_decl) => None,
-        TypeSynDecl::Structure(syn_decl) => None,
+        TypeSynDecl::Inductive(_syn_decl) => None,
+        TypeSynDecl::Structure(_syn_decl) => None,
         TypeSynDecl::Extern(syn_decl) => {
             Some(ExternTypeHirDecl::from_syn(path, syn_decl, db).into())
         }

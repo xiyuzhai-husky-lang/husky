@@ -9,9 +9,9 @@ pub struct TraitMethodFnHirDefn {
 
 impl TraitMethodFnHirDefn {
     pub(super) fn new(
-        db: &dyn HirDefnDb,
-        path: TraitItemPath,
-        hir_decl: TraitMethodFnHirDecl,
+        _db: &dyn HirDefnDb,
+        _path: TraitItemPath,
+        _hir_decl: TraitMethodFnHirDecl,
     ) -> Self {
         todo!()
         // let TraitItemHirNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {

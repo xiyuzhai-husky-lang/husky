@@ -112,8 +112,8 @@ impl HasSynDecl for ImplBlockPath {
 }
 
 pub(crate) fn impl_block_syn_decl(
-    db: &dyn SynDeclDb,
-    impl_block: ImplBlockPath,
+    _db: &dyn SynDeclDb,
+    _impl_block: ImplBlockPath,
 ) -> DeclResult<ImplBlockSynDecl> {
     todo!()
     // match impl_block {

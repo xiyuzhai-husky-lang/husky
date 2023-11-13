@@ -1,6 +1,6 @@
 use super::*;
-use smallvec::SmallVec;
-use vec_like::{SmallVecMap, SmallVecPairMap};
+
+use vec_like::{SmallVecPairMap};
 
 #[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct TraitSynNodePath {

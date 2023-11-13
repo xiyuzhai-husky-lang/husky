@@ -1,7 +1,7 @@
 mod trai_for_ty_impl_block;
 mod ty_impl_block;
 
-use husky_hir_decl::ImplBlockHirDecl;
+
 
 use super::*;
 

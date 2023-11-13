@@ -1,6 +1,6 @@
 use super::*;
-use husky_hir_ty::trai::HirTrait;
-use smallvec::SmallVec;
+
+
 
 #[salsa::tracked(db = HirDeclDb, jar = HirDeclJar, constructor = new)]
 pub struct TraitForTypeImplBlockHirDecl {

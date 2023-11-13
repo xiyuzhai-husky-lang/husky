@@ -11,7 +11,7 @@ pub use self::memoized_field::*;
 pub use self::method_fn::*;
 
 use super::*;
-use husky_entity_path::AssociatedItemPath;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = HirDefnDb)]
@@ -53,9 +53,9 @@ impl TypeItemHirDefn {
             TypeItemHirDefn::MethodFn(hir_defn) => {
                 hir_defn.hir_eager_expr_region(db).map(Into::into)
             }
-            TypeItemHirDefn::AssociatedType(hir_defn) => todo!(),
+            TypeItemHirDefn::AssociatedType(_hir_defn) => todo!(),
             //  hir_defn.hir_expr_region(db).into(),
-            TypeItemHirDefn::AssociatedVal(hir_defn) => todo!(),
+            TypeItemHirDefn::AssociatedVal(_hir_defn) => todo!(),
             // Some(hir_defn.hir_expr_region(db).into()),
             TypeItemHirDefn::MemoizedField(hir_defn) => {
                 hir_defn.hir_eager_expr_region(db).map(Into::into)

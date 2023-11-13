@@ -2,7 +2,7 @@ use dashmap::mapref::entry::Entry;
 use lsp_types::{SemanticToken, SemanticTokens, SemanticTokensEdit, Url};
 
 use super::*;
-use std::{sync::atomic::AtomicU32, time::Instant};
+use std::{sync::atomic::AtomicU32};
 
 pub(crate) fn handle_semantic_tokens_full(
     snapshot: AnalyzerDBSnapshot,

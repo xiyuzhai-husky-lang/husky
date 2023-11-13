@@ -5,12 +5,12 @@ mod ty_instance_constructor;
 mod utils;
 
 pub use self::fugitive::*;
-pub use self::trai::*;
-pub use self::ty_constructor::*;
+
+
 pub use self::ty_instance_constructor::*;
 
 use crate::*;
-use husky_syn_decl::{HasSynDecl, TypeVariantSynDecl};
+
 #[cfg(test)]
 use salsa::assert_eq_with_db;
 use utils::*;
@@ -240,7 +240,7 @@ fn ty_ontology_path_declarative_ty_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let item_path_menu = db.item_path_menu(toolchain);
-    let array_ty_ontology_path_declarative_ty =
+    let _array_ty_ontology_path_declarative_ty =
         ty_ontology_path_declarative_ty(&db, item_path_menu.array_ty_path());
     // use husky_print_utils::*;
     // use salsa::DebugWithDb;
@@ -256,7 +256,7 @@ pub fn ty_variant_path_declarative_ty(
     path: TypeVariantPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     // todo: GADT
-    let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
+    let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let signature_template = match path.declarative_signature_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),

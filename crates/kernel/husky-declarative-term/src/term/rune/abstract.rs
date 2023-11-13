@@ -1,4 +1,4 @@
-use husky_entity_path::TypePath;
+
 
 use crate::helpers::DeclarativeTermFamily;
 
@@ -176,9 +176,9 @@ impl DeclarativeTerm {
 }
 
 fn variable_registry(
-    db: &dyn DeclarativeTermDb,
-    declarative_term: DeclarativeTerm,
-    symbol: DeclarativeTermSymbol,
+    _db: &dyn DeclarativeTermDb,
+    _declarative_term: DeclarativeTerm,
+    _symbol: DeclarativeTermSymbol,
 ) -> VariableRegistry {
     todo!()
 }
@@ -215,7 +215,7 @@ impl VariableRegistry {
         self.next
     }
 
-    fn merge(&mut self, other: Self) {
+    fn merge(&mut self, _other: Self) {
         todo!()
     }
 }

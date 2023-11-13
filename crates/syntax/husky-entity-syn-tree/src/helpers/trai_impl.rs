@@ -15,7 +15,7 @@ pub fn trai_side_derive_any_trai_for_ty_impl_block_paths_map(
     for path in bundle.trai_for_ty_impl_block_paths_filtered_by_trai_path(db, trai_path) {
         match path.ty_sketch(db) {
             TypeSketch::DeriveAny => paths.push(path),
-            TypeSketch::Path(ty_path) => continue,
+            TypeSketch::Path(_ty_path) => continue,
         }
     }
     paths

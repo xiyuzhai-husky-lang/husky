@@ -20,7 +20,7 @@ impl<'a> ValDomainReprGuard<'a> {
         &mut self,
         opn: ValOpn,
         arguments: SmallVec<[ValArgumentRepr; 4]>,
-        has_control_flow: HasControlFlow,
+        _has_control_flow: HasControlFlow,
     ) -> ValRepr {
         let val_repr = ValRepr::new(
             self.db,

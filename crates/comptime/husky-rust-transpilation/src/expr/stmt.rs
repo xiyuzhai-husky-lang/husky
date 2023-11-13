@@ -86,18 +86,18 @@ impl TranspileToRust for (IsLastStmt, HirEagerStmtIdx) {
                 }
                 block.transpile_to_rust(builder)
             }),
-            HirEagerStmt::Forext { particulars, block } => builder.on_new_line(|builder| {
+            HirEagerStmt::Forext { particulars: _, block } => builder.on_new_line(|builder| {
                 builder.comment("Forext incomplete");
                 builder.keyword(RustKeyword::Loop);
                 block.transpile_to_rust(builder)
             }),
-            HirEagerStmt::ForIn { condition, block } => todo!(),
+            HirEagerStmt::ForIn { condition: _, block: _ } => todo!(),
             HirEagerStmt::While { condition, stmts } => builder.on_new_line(|builder| {
                 builder.keyword(RustKeyword::While);
                 condition.transpile_to_rust(builder);
                 stmts.transpile_to_rust(builder)
             }),
-            HirEagerStmt::DoWhile { condition, block } => {
+            HirEagerStmt::DoWhile { condition: _, block: _ } => {
                 builder.comment("DoWhile incomplete");
                 builder.on_new_line(|builder| {
                     builder.keyword(RustKeyword::While);

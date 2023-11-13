@@ -1,6 +1,6 @@
 use crate::*;
 use husky_regional_token::RegionalTokenIdx;
-use husky_token::{IdentToken, TokenIdx};
+
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct UseSymbol {

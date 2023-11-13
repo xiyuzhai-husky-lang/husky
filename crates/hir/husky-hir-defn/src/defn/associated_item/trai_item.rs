@@ -49,14 +49,14 @@ pub(crate) fn trai_item_hir_defn(
 ) -> Option<TraitItemHirDefn> {
     let hir_decl = path.hir_decl(db)?;
     match hir_decl {
-        TraitItemHirDecl::AssociatedFn(hir_decl) => {
+        TraitItemHirDecl::AssociatedFn(_hir_decl) => {
             todo!()
             // TraitAssociatedFnHirDefn::new(db, path, hir_decl)?.into()
         }
         TraitItemHirDecl::MethodFn(hir_decl) => {
             Some(TraitMethodFnHirDefn::new(db, path, hir_decl).into())
         }
-        TraitItemHirDecl::AssociatedType(hir_decl) => todo!(),
-        TraitItemHirDecl::AssociatedVal(hir_decl) => todo!(),
+        TraitItemHirDecl::AssociatedType(_hir_decl) => todo!(),
+        TraitItemHirDecl::AssociatedVal(_hir_decl) => todo!(),
     }
 }

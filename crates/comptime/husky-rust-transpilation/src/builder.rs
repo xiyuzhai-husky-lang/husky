@@ -9,7 +9,7 @@ pub(crate) use self::keyword::*;
 pub(crate) use self::macro_name::*;
 pub(crate) use self::punctuation::*;
 
-use crate::{expr::RustPrecedence, *};
+use crate::{*};
 use husky_coword::Ident;
 use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
 use husky_hir_eager_expr::{
@@ -293,8 +293,8 @@ impl TranspileToRust for HirTemplateSymbol {
         match self {
             HirTemplateSymbol::Type(symbol) => match symbol {
                 HirTypeSymbol::Type {
-                    attrs,
-                    variance,
+                    attrs: _,
+                    variance: _,
                     disambiguator,
                 } => match disambiguator {
                     0 => builder.write_str("A"),

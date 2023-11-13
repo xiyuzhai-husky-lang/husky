@@ -69,7 +69,7 @@ pub(crate) fn ty_hir_defn(db: &dyn HirDefnDb, path: TypePath) -> Option<TypeHirD
             TupleStructTypeHirDefn::new(db, path, hir_decl).into()
         }
         TypeHirDecl::UnitStruct(hir_decl) => UnitStructTypeHirDefn::new(db, path, hir_decl).into(),
-        TypeHirDecl::Record(hir_decl) => todo!(),
+        TypeHirDecl::Record(_hir_decl) => todo!(),
         // RecordTypeHirDefn::new(db, path, hir_decl).into(),
         TypeHirDecl::Extern(hir_decl) => ExternTypeHirDefn::new(db, path, hir_decl).into(),
         TypeHirDecl::Union(hir_decl) => UnionTypeHirDefn::new(db, path, hir_decl).into(),

@@ -4,7 +4,7 @@ pub use self::prelude::*;
 
 use crate::*;
 use husky_manifest::PackageDependency;
-use husky_print_utils::p;
+
 use husky_token::IdentToken;
 
 #[derive(Debug, Default, PartialEq, Eq)]

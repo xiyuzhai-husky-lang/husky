@@ -15,7 +15,7 @@ impl From<IllFormedItemSynNodeDecl> for ItemSynNodeDecl {
 impl HasSynNodeDecl for IllFormedItemSynNodePath {
     type NodeDecl = IllFormedItemSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, _db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         todo!()
     }
 }

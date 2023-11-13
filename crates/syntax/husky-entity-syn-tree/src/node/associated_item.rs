@@ -34,11 +34,11 @@ impl AssociatedItemSynNodePath {
             AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
                 syn_node_path.path(db).map(Into::into)
             }
-            AssociatedItemSynNodePath::IllFormedItem(syn_node_path) => None,
+            AssociatedItemSynNodePath::IllFormedItem(_syn_node_path) => None,
         }
     }
 
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> AssociatedItemSynNode {
+    pub(crate) fn syn_node(self, _db: &dyn EntitySynTreeDb) -> AssociatedItemSynNode {
         todo!()
     }
 }
@@ -64,7 +64,7 @@ where
 impl HasSynNodePath for AssociatedItemPath {
     type SynNodePath = AssociatedItemSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, _db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         todo!()
     }
 }
@@ -77,13 +77,13 @@ pub(crate) enum AssociatedItemSynNode {
 
 impl AssociatedItemSynNode {
     pub fn new_impl_associated_item(
-        db: &dyn EntitySynTreeDb,
-        impl_block: ImplBlockSynNode,
-        ast_idx: AstIdx,
-        ident: Ident,
-        associated_item_kind: AssociatedItemKind,
-        visibility: Scope,
-        is_generic: bool,
+        _db: &dyn EntitySynTreeDb,
+        _impl_block: ImplBlockSynNode,
+        _ast_idx: AstIdx,
+        _ident: Ident,
+        _associated_item_kind: AssociatedItemKind,
+        _visibility: Scope,
+        _is_generic: bool,
     ) -> Self {
         todo!()
         // let id = AssociatedItemPath {
@@ -197,8 +197,8 @@ pub(crate) fn calc_impl_block_items(
                 _ => {
                     let ast_token_idx_range_sheet =
                         db.ast_token_idx_range_sheet(module_path).unwrap();
-                    let token_sheet_data = db.token_sheet_data(module_path).unwrap();
-                    let ast_range = ast_token_idx_range_sheet[ast_idx];
+                    let _token_sheet_data = db.token_sheet_data(module_path).unwrap();
+                    let _ast_range = ast_token_idx_range_sheet[ast_idx];
                     // p!(ast_range);
                     // assert!(token_sheet_data.len() >= ast_range.end().token_idx().raw());
                     // p!(token_sheet_data[ast_range.start().token_idx()].debug(db));

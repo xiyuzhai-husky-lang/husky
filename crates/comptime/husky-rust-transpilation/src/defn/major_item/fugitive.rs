@@ -46,7 +46,7 @@ impl TranspileToRust for FunctionFnFugitiveHirDecl {
 }
 
 impl TranspileToRust for FunctionGnHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {}
+    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {}
 }
 
 impl TranspileToRust for ValFugitiveHirDefn {

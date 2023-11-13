@@ -9,7 +9,7 @@ pub use self::region::*;
 use self::db::*;
 use husky_hir_eager_expr::*;
 use husky_hir_lazy_expr::*;
-use husky_sema_expr::SemaExprIdx;
+
 use husky_syn_expr::SynExprIdx;
 
 // pub trait ToHir {

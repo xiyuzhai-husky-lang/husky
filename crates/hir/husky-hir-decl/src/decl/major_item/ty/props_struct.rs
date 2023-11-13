@@ -22,7 +22,7 @@ pub struct PropsFieldHirDecl {
 impl PropsStructTypeHirDecl {
     pub(super) fn from_syn(
         path: TypePath,
-        syn_decl: PropsStructTypeSynDecl,
+        _syn_decl: PropsStructTypeSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
         let TypeSynDecl::PropsStruct(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {

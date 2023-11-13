@@ -12,25 +12,25 @@ impl TranspileToRust for TraitItemHirDefn {
 }
 
 impl TranspileToRust for TraitAssociatedFnHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
 
 impl TranspileToRust for TraitMethodFnHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
 
 impl TranspileToRust for TraitAssociatedTypeHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
 
 impl TranspileToRust for TraitAssociatedValHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
