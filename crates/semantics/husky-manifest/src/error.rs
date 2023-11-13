@@ -1,7 +1,6 @@
 use husky_corgi_config::CorgiConfigError;
 use husky_manifest_ast::ManifestAstError;
-use husky_print_utils::p;
-use husky_vfs::VfsError;
+use husky_vfs::error::VfsError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -30,7 +29,6 @@ impl From<&VfsError> for ManifestError {
 
 impl From<VfsError> for ManifestError {
     fn from(_value: VfsError) -> Self {
-        p!(_value);
         todo!()
     }
 }

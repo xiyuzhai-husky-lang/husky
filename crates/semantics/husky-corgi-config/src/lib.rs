@@ -11,7 +11,7 @@ pub use self::sections::*;
 
 use self::builder::*;
 use husky_corgi_config_ast::*;
-use husky_vfs::*;
+use husky_vfs::{*, error::VfsResult};
 
 #[salsa::jar(db = CorgiConfigDb)]
 pub struct CorgiConfigJar(

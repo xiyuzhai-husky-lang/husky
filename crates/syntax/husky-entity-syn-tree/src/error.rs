@@ -3,7 +3,7 @@ use husky_ast::AstIdx;
 use husky_entity_path::{EntityPathError, TypePath};
 use husky_manifest::ManifestError;
 use husky_token::{IdentToken, TokenIdx};
-use husky_vfs::{ModulePath, ToolchainError, VfsError};
+use husky_vfs::{error::VfsError, ModulePath, ToolchainError};
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]

@@ -4,6 +4,7 @@ mod transform;
 use std::path::Path;
 
 use husky_coword::Name;
+use husky_vfs::error::VfsError;
 use vec_like::{AsVecMapEntry, VecMap};
 
 use self::expr::*;

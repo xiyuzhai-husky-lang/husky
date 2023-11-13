@@ -1,4 +1,5 @@
 use crate::*;
+use husky_vfs::error::VfsError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]

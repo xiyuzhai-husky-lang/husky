@@ -1,7 +1,6 @@
 use crate::*;
 use husky_ast::AstError;
-use husky_vfs::VfsError;
-use salsa::DebugWithDb;
+use husky_vfs::error::VfsError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
@@ -32,7 +31,7 @@ impl From<&FoldingRangeError> for FoldingRangeError {
 
 pub type FoldingRangeResult<T> = Result<T, FoldingRangeError>;
 
-impl<Db: FoldingRangeDb> DebugWithDb<Db> for FoldingRangeError {
+impl<Db: FoldingRangeDb> salsa::DebugWithDb<Db> for FoldingRangeError {
     fn fmt(
         &self,
         _f: &mut std::fmt::Formatter<'_>,

@@ -1,7 +1,6 @@
 use crate::*;
-use husky_print_utils::p;
 use husky_text_protocol::position::TextPosition;
-use husky_vfs::VfsError;
+use husky_vfs::error::VfsError;
 use salsa::DebugWithDb;
 
 impl std::ops::Index<TokenIdx> for TokenSheetData {

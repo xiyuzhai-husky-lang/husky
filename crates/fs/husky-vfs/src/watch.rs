@@ -71,7 +71,6 @@ where
         match self.snapshot_rx.recv() {
             Ok(snapshot) => f(snapshot),
             Err(e) => {
-                p!(e);
                 todo!()
             }
         }

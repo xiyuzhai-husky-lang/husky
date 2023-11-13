@@ -1,5 +1,7 @@
 use crate::*;
 
+/// `RegionalTokensData` is a slice of `TokenData` indexed by `RegionalTokenIdx`, i.e.
+/// the index relatively to the starting token of a region
 #[derive(Clone, Copy)]
 pub struct RegionalTokensData<'a> {
     tokens_data: &'a [TokenData],

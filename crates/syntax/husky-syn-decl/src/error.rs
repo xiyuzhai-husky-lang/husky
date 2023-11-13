@@ -4,7 +4,7 @@ use husky_print_utils::p;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenStreamState};
 use husky_syn_expr::OriginalSynExprError;
 use husky_token_data::TokenDataError;
-use husky_vfs::VfsError;
+use husky_vfs::error::VfsError;
 use original_error::OriginalError;
 use parsec::*;
 use thiserror::Error;

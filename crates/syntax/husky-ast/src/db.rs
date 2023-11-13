@@ -2,7 +2,7 @@ use crate::*;
 
 use husky_entity_path::EntityPathDb;
 use husky_token::TokenDb;
-use husky_vfs::*;
+use husky_vfs::{*, error::VfsResult};
 
 pub trait AstDb: DbWithJar<AstJar> + TokenDb + EntityPathDb {
     #[deprecated(note = "use HasAstSheet trait instead")]

@@ -134,7 +134,7 @@ impl<'a> SemaExprEngine<'a> {
             parent_expr_region.map(|parent_expr_region| db.sema_expr_region(parent_expr_region));
         let regional_tokens_data = match syn_expr_region_data.path() {
             RegionPath::Snippet(_) => todo!(),
-            RegionPath::Decl(path) => path.decl_tokra_region(db).tokens_data(db),
+            RegionPath::Decl(path) => path.decl_tokra_region(db).regional_tokens_data(db),
             RegionPath::Defn(path) => path
                 .defn_tokra_region(db)
                 .expect("guaranteed")

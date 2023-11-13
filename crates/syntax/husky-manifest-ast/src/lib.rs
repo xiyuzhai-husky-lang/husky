@@ -16,7 +16,7 @@ pub use self::sections::*;
 use self::transformer::*;
 use husky_text_protocol::range::TextRange;
 use husky_toml_ast::*;
-use husky_vfs::*;
+use husky_vfs::{error::VfsResult, *};
 
 #[salsa::jar(db = ManifestAstDb)]
 pub struct ManifestAstJar(package_manifest_ast_sheet_aux, manifest_ast_menu);
