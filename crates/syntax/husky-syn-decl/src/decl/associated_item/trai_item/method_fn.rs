@@ -18,7 +18,7 @@ pub struct TraitMethodFnSynNodeDecl {
 }
 
 impl From<TraitMethodFnSynNodeDecl> for ItemSynNodeDecl {
-    fn from(syn_node_decl: TraitMethodFnSynNodeDecl) -> Self {
+    fn from(_syn_node_decl: TraitMethodFnSynNodeDecl) -> Self {
         todo!()
     }
 }

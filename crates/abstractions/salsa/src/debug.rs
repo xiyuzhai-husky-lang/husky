@@ -416,13 +416,13 @@ where
 }
 
 impl<Db: ?Sized> DebugWithDb<Db> for RelativePathBuf {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db, _level: DebugFormatLevel) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(&self, f)
     }
 }
 
 impl<Db: ?Sized> DebugWithDb<Db> for RelativePath {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db, _level: DebugFormatLevel) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(&self, f)
     }
 }

@@ -1,5 +1,5 @@
 use super::*;
-use crate::{builder::keyword::RustKeyword, expr::RustPrecedenceRange};
+use crate::{builder::keyword::RustKeyword};
 
 impl TranspileToRust for TraitForTypeItemHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
@@ -15,7 +15,7 @@ impl TranspileToRust for TraitForTypeItemHirDefn {
 }
 
 impl TranspileToRust for TraitForTypeAssociatedFnHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }
@@ -54,7 +54,7 @@ impl TranspileToRust for TraitForTypeAssociatedTypeHirDefn {
 }
 
 impl TranspileToRust for TraitForTypeAssociatedValHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }
 }

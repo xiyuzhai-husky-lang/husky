@@ -17,7 +17,7 @@ use husky_ethereal_signature::*;
 use husky_ethereal_term::*;
 use husky_hir_eager_expr::*;
 use husky_hir_expr::*;
-use husky_hir_lazy_expr::*;
+
 use husky_hir_ty::*;
 use husky_vfs::*;
 use smallvec::*;

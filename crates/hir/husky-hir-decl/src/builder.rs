@@ -5,7 +5,7 @@ use husky_hir_eager_expr::HirEagerPatternExprIdx;
 use husky_hir_expr::{
     helpers::hir_expr_region_with_source_map, source_map::HirExprSourceMap, HirExprRegion,
 };
-use husky_hir_lazy_expr::builder::hir_lazy_expr_region_with_source_map;
+
 use husky_hir_ty::{menu::HirTypeMenu, HirType};
 use husky_sema_expr::SemaExprRegionData;
 use husky_syn_expr::{

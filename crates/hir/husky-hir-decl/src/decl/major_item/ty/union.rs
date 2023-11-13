@@ -10,8 +10,8 @@ pub struct UnionTypeHirDecl {
 }
 
 impl UnionTypeHirDecl {
-    pub(super) fn from_syn(path: TypePath, syn_decl: UnionTypeSynDecl, db: &dyn HirDeclDb) -> Self {
-        let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
+    pub(super) fn from_syn(_path: TypePath, syn_decl: UnionTypeSynDecl, db: &dyn HirDeclDb) -> Self {
+        let _builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         todo!()
     }
 }

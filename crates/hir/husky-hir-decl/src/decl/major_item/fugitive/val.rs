@@ -11,7 +11,7 @@ pub struct ValFugitiveHirDecl {
 impl ValFugitiveHirDecl {
     pub(super) fn from_syn(
         path: FugitivePath,
-        syn_decl: ValFugitiveSynDecl,
+        _syn_decl: ValFugitiveSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
         let syn_decl = path.syn_decl(db).expect("ok");

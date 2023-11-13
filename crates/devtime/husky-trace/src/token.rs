@@ -1,9 +1,9 @@
 use crate::{registry::associated_trace::IsAssociatedTraceRegistry, *};
-use husky_regional_token::{RegionalTokenIdxBase, RegionalTokenIdxRange};
+
 use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenIdx, TokenIdxRange};
-use husky_token_info::{TokenInfo, TokenInfoSheetRef, TokenInfoSource};
-use husky_trace_protocol::view::{SeparationAfter, TraceViewLineData, TraceViewTokenData};
+use husky_token_info::{TokenInfoSheetRef};
+use husky_trace_protocol::view::{TraceViewLineData, TraceViewTokenData};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraceViewLines {

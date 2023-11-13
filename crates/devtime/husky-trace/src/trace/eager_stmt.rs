@@ -177,10 +177,10 @@ impl EagerStmtTrace {
         for stmt in stmts {
             match stmt.data(sema_stmt_arena) {
                 SemaStmtData::Let {
-                    let_token,
-                    let_pattern_sema_obelisk,
-                    eq_token,
-                    initial_value_sema_expr_idx,
+                    let_token: _,
+                    let_pattern_sema_obelisk: _,
+                    eq_token: _,
+                    initial_value_sema_expr_idx: _,
                 } => {
                     let path_data = EagerStmtTracePathData::Let {};
                     let eager_stmt_trace = EagerStmtTrace::new(
@@ -196,8 +196,8 @@ impl EagerStmtTrace {
                     subtraces.push(eager_stmt_trace.into())
                 }
                 SemaStmtData::Return {
-                    return_token,
-                    result,
+                    return_token: _,
+                    result: _,
                 } => {
                     let path_data = EagerStmtTracePathData::Return {};
                     let eager_stmt_trace = EagerStmtTrace::new(
@@ -213,8 +213,8 @@ impl EagerStmtTrace {
                     subtraces.push(eager_stmt_trace.into())
                 }
                 SemaStmtData::Require {
-                    require_token,
-                    condition,
+                    require_token: _,
+                    condition: _,
                 } => {
                     let path_data = EagerStmtTracePathData::Require {};
                     let eager_stmt_trace = EagerStmtTrace::new(
@@ -230,8 +230,8 @@ impl EagerStmtTrace {
                     subtraces.push(eager_stmt_trace.into())
                 }
                 SemaStmtData::Assert {
-                    assert_token,
-                    condition,
+                    assert_token: _,
+                    condition: _,
                 } => {
                     let path_data = EagerStmtTracePathData::Assert {};
                     let eager_stmt_trace = EagerStmtTrace::new(
@@ -246,7 +246,7 @@ impl EagerStmtTrace {
                     );
                     subtraces.push(eager_stmt_trace.into())
                 }
-                SemaStmtData::Break { break_token } => {
+                SemaStmtData::Break { break_token: _ } => {
                     let path_data = EagerStmtTracePathData::Break {};
                     let eager_stmt_trace = EagerStmtTrace::new(
                         parent_trace,
@@ -261,8 +261,8 @@ impl EagerStmtTrace {
                     subtraces.push(eager_stmt_trace.into())
                 }
                 SemaStmtData::Eval {
-                    sema_expr_idx,
-                    eol_semicolon,
+                    sema_expr_idx: _,
+                    eol_semicolon: _,
                 } => {
                     let path_data = EagerStmtTracePathData::Eval {};
                     let eager_stmt_trace = EagerStmtTrace::new(
@@ -301,7 +301,7 @@ impl EagerStmtTrace {
                 ),
                 &SemaStmtData::ForIn {
                     for_token,
-                    condition,
+                    condition: _,
                     eol_colon,
                     block,
                 } => subtraces.push(
@@ -322,23 +322,23 @@ impl EagerStmtTrace {
                     .into(),
                 ),
                 SemaStmtData::Forext {
-                    forext_token,
-                    particulars,
-                    eol_colon,
-                    block,
+                    forext_token: _,
+                    particulars: _,
+                    eol_colon: _,
+                    block: _,
                 } => todo!(),
                 SemaStmtData::While {
-                    while_token,
-                    condition,
-                    eol_colon,
-                    block,
+                    while_token: _,
+                    condition: _,
+                    eol_colon: _,
+                    block: _,
                 } => todo!(),
                 SemaStmtData::DoWhile {
-                    do_token,
-                    while_token,
-                    condition,
-                    eol_colon,
-                    block,
+                    do_token: _,
+                    while_token: _,
+                    condition: _,
+                    eol_colon: _,
+                    block: _,
                 } => todo!(),
                 SemaStmtData::IfElse {
                     sema_if_branch,
@@ -406,10 +406,10 @@ impl EagerStmtTrace {
                     }
                 }
                 SemaStmtData::Match {
-                    match_token,
-                    match_target_sema_expr_idx,
-                    eol_with_token,
-                    sema_case_branches,
+                    match_token: _,
+                    match_target_sema_expr_idx: _,
+                    eol_with_token: _,
+                    sema_case_branches: _,
                 } => todo!(),
             }
         }
@@ -529,7 +529,7 @@ impl IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry {
                     .into(),
             ),
             TokenInfoSource::SynPrincipalEntityPathExpr(
-                syn_principal_entity_path_expr_idx,
+                _syn_principal_entity_path_expr_idx,
                 syn_principal_entity_path,
             ) => match syn_principal_entity_path {
                 PrincipalEntityPath::Module(_) => None,

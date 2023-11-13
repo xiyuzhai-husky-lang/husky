@@ -10,7 +10,7 @@ pub struct EnumTypeHirDecl {
 }
 
 impl EnumTypeHirDecl {
-    pub(super) fn from_syn(path: TypePath, syn_decl: EnumTypeSynDecl, db: &dyn HirDeclDb) -> Self {
+    pub(super) fn from_syn(path: TypePath, _syn_decl: EnumTypeSynDecl, db: &dyn HirDeclDb) -> Self {
         let TypeSynDecl::Enum(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()
         };

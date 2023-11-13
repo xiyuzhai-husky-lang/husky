@@ -38,7 +38,7 @@ impl DeclarativeTermSymbol {
     pub fn new_self_value(
         db: &dyn DeclarativeTermDb,
         registry: &mut TermSymbolRegistry,
-        self_ty_term: DeclarativeTerm,
+        _self_ty_term: DeclarativeTerm,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
         DeclarativeTermSymbol::new(

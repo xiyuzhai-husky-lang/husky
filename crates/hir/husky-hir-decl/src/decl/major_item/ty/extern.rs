@@ -12,7 +12,7 @@ pub struct ExternTypeHirDecl {
 impl ExternTypeHirDecl {
     pub(super) fn from_syn(
         path: TypePath,
-        syn_decl: ExternTypeSynDecl,
+        _syn_decl: ExternTypeSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
         let TypeSynDecl::Extern(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {

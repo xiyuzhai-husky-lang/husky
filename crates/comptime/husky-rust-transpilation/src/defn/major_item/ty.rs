@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_path::TypePath;
+
 use husky_hir_decl::{PropsFieldHirDecl, TupleFieldHirDecl};
 
 impl TranspileToRust for TypeHirDefn {

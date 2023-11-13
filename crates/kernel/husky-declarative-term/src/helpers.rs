@@ -38,7 +38,7 @@ impl DeclarativeTerm {
     /// see `self` as the type of another term, return the type expectation for that term
     pub fn ty_expectation(
         self,
-        db: &dyn DeclarativeTermDb,
+        _db: &dyn DeclarativeTermDb,
     ) -> DeclarativeTermResult<TermTypeExpectation> {
         Ok(match self {
             DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(path)) => {

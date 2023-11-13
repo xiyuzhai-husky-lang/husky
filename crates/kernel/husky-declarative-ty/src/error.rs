@@ -20,7 +20,7 @@ impl From<DeclarativeTermSymbolTypeErrorKind> for DeclarativeTypeError {
 }
 
 impl From<&DeclError> for DeclarativeTypeError {
-    fn from(value: &DeclError) -> Self {
+    fn from(_value: &DeclError) -> Self {
         todo!()
     }
 }

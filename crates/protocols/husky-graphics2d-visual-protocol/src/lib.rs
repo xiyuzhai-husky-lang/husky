@@ -1,6 +1,6 @@
 pub mod action;
 
-use self::action::*;
+
 use husky_visual_protocol::{IsVisual, IsVisualComponent, IsVisualProtocol};
 use serde::{Deserialize, Serialize};
 
@@ -23,7 +23,7 @@ pub enum Graphics2dVisual {}
 impl IsVisual for Graphics2dVisual {
     type Component = Graphics2dVisualComponent;
 
-    fn from_components(components: &[Graphics2dVisualComponent]) -> Self {
+    fn from_components(_components: &[Graphics2dVisualComponent]) -> Self {
         todo!()
     }
 }

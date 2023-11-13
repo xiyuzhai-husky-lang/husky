@@ -8,7 +8,7 @@ pub struct TypeAssociatedValSynNodeDecl {
 }
 
 impl TypeAssociatedValSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, _db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         // ad hoc
         Default::default()
     }
@@ -25,9 +25,9 @@ pub struct TypeAssociatedValSynDecl {
 
 impl TypeAssociatedValSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
-        path: TypeItemPath,
-        syn_node_decl: TypeAssociatedValSynNodeDecl,
+        _db: &dyn SynDeclDb,
+        _path: TypeItemPath,
+        _syn_node_decl: TypeAssociatedValSynNodeDecl,
     ) -> DeclResult<Self> {
         todo!()
     }

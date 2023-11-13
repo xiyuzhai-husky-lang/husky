@@ -5,7 +5,7 @@ pub use self::r#abstract::*;
 pub use self::set::*;
 
 use super::*;
-use thiserror::Error;
+
 
 /// variables are externalized symbols, derived from symbols, and defined in a bottom-up manner
 ///
@@ -25,7 +25,7 @@ impl DeclarativeTermRune {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn DeclarativeTermDb,
-        ctx: &mut DeclarativeTermShowContext,
+        _ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         // ad hoc
         f.write_fmt(format_args!("v{}", self.idx(db)))
@@ -35,8 +35,8 @@ impl DeclarativeTermRune {
 impl DeclarativeTermRewriteCopy for DeclarativeTermRune {
     fn substitute(
         self,
-        db: &dyn DeclarativeTermDb,
-        substituation: &DeclarativeTermSubstitution,
+        _db: &dyn DeclarativeTermDb,
+        _substituation: &DeclarativeTermSubstitution,
     ) -> Self {
         todo!()
     }

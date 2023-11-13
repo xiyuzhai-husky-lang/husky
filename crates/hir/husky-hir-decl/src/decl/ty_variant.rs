@@ -18,7 +18,7 @@ pub enum TypeVariantHirDecl {
 }
 
 impl TypeVariantHirDecl {
-    pub fn path(self, db: &dyn HirDeclDb) -> TypeVariantPath {
+    pub fn path(self, _db: &dyn HirDeclDb) -> TypeVariantPath {
         match self {
             TypeVariantHirDecl::Props(_) => todo!(),
             TypeVariantHirDecl::Unit(_) => todo!(),
@@ -26,7 +26,7 @@ impl TypeVariantHirDecl {
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    pub fn hir_expr_region(self, _db: &dyn HirDeclDb) -> HirExprRegion {
         match self {
             TypeVariantHirDecl::Props(_) => todo!(),
             TypeVariantHirDecl::Unit(_) => todo!(),
@@ -44,7 +44,7 @@ impl HasHirDecl for TypeVariantPath {
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn ty_variant_hir_decl(db: &dyn HirDeclDb, path: TypeVariantPath) -> Option<TypeVariantHirDecl> {
+fn ty_variant_hir_decl(_db: &dyn HirDeclDb, _path: TypeVariantPath) -> Option<TypeVariantHirDecl> {
     todo!()
     // Ok(match path.declarative_signature_template(db)? {
     //     TypeVariantDeclarativeSignatureTemplate::Props(_) => todo!(),

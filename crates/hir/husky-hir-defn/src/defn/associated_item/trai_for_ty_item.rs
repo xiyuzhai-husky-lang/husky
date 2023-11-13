@@ -39,7 +39,7 @@ impl TraitForTypeItemHirDefn {
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
+    pub fn hir_expr_region(self, _db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         todo!()
         // match self {
         //     TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => {

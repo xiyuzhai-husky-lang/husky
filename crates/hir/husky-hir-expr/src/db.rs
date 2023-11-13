@@ -1,4 +1,4 @@
-use crate::*;
+
 use husky_hir_eager_expr::db::HirEagerExprDb;
 use husky_hir_lazy_expr::db::HirLazyExprDb;
 

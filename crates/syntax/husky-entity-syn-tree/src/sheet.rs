@@ -1,5 +1,5 @@
 use crate::*;
-use husky_print_utils::p;
+
 use vec_like::VecPairMap;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -103,7 +103,7 @@ impl EntitySynTreeSheet {
 
     pub(crate) fn trai_for_ty_impl_block_syn_node(
         &self,
-        db: &dyn EntitySynTreeDb,
+        _db: &dyn EntitySynTreeDb,
         syn_node_path: TraitForTypeImplBlockSynNodePath,
     ) -> TraitForTypeImplBlockSynNode {
         self.impl_block_syn_node_table
@@ -119,7 +119,7 @@ impl EntitySynTreeSheet {
 
     pub(crate) fn ill_formed_impl_block_syn_node(
         &self,
-        db: &dyn EntitySynTreeDb,
+        _db: &dyn EntitySynTreeDb,
         syn_node_path: IllFormedImplBlockSynNodePath,
     ) -> IllFormedImplBlockSynNode {
         self.impl_block_syn_node_table

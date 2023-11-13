@@ -1,5 +1,5 @@
 use super::*;
-use salsa::DebugWithDb;
+
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct TypeMethodFnHirDefn {

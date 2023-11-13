@@ -32,9 +32,9 @@ pub struct UnitStructTypeSynDecl {
 impl UnitStructTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
-        path: TypePath,
-        syn_node_decl: UnitStructTypeSynNodeDecl,
+        _db: &dyn SynDeclDb,
+        _path: TypePath,
+        _syn_node_decl: UnitStructTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         todo!()
     }

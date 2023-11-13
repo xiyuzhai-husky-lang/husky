@@ -5,7 +5,7 @@
 //! So this visualization serves mainly for linguistics.
 pub mod action;
 
-use self::action::*;
+
 use husky_visual_protocol::{IsVisual, IsVisualComponent, IsVisualProtocol};
 use serde::{Deserialize, Serialize};
 
@@ -38,7 +38,7 @@ pub enum DanielJacksonVisual {
 impl IsVisual for DanielJacksonVisual {
     type Component = DanielJacksonVisualComponent;
 
-    fn from_components(components: &[DanielJacksonVisualComponent]) -> Self {
+    fn from_components(_components: &[DanielJacksonVisualComponent]) -> Self {
         todo!()
     }
 }

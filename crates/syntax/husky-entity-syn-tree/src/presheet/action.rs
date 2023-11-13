@@ -1,8 +1,8 @@
 use super::*;
 use crate::ParentUseExpr;
 use husky_entity_kind::TypeKind;
-use husky_token::{PathNameToken, TokenIdx};
-use smallvec::SmallVec;
+use husky_token::{PathNameToken};
+
 
 #[derive(Debug)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
@@ -60,7 +60,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                                 .ok_or(*ident_token),
                         ),
                         OnceUseRuleVariant::Parent {
-                            parent_name_token: PathNameToken::SelfMod(self_mod_token),
+                            parent_name_token: PathNameToken::SelfMod(_self_mod_token),
                             children: _,
                         } => {
                             todo!()
@@ -130,7 +130,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                                 root_module_path: ctx.crate_root(),
                             }),
                         ),
-                        OnceUseRuleVariant::UseAllTypeVariants { parent_ty_path } => todo!(),
+                        OnceUseRuleVariant::UseAllTypeVariants { parent_ty_path: _ } => todo!(),
                     },
                 };
                 actions.push(match symbol {
@@ -162,7 +162,7 @@ impl<'a> EntityTreePresheetMut<'a> {
         &mut self,
         db: &dyn EntitySynTreeDb,
         rule_idx: OnceUseRuleIdx,
-        name_token: PathNameToken,
+        _name_token: PathNameToken,
         original_symbol: EntitySymbol,
     ) {
         let rule = &mut self.once_use_rules[rule_idx];
@@ -263,7 +263,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                     Err(_) => todo!(),
                 }
             }
-            OnceUseRuleVariant::UseAllTypeVariants { parent_ty_path } => todo!(),
+            OnceUseRuleVariant::UseAllTypeVariants { parent_ty_path: _ } => todo!(),
         }
     }
 

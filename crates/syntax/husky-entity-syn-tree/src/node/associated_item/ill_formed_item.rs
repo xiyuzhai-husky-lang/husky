@@ -13,7 +13,7 @@ impl<Db> HasModulePath<Db> for IllFormedItemSynNodePath
 where
     Db: ?Sized + EntitySynTreeDb,
 {
-    fn module_path(self, db: &Db) -> ModulePath {
+    fn module_path(self, _db: &Db) -> ModulePath {
         todo!()
     }
 }

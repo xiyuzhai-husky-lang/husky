@@ -12,7 +12,7 @@ pub struct InductiveTypeSynNodeDecl {
 impl InductiveTypeSynNodeDecl {
     pub fn template_parameters<'a>(
         self,
-        db: &'a dyn SynDeclDb,
+        _db: &'a dyn SynDeclDb,
     ) -> &'a [TemplateParameterSyndicate] {
         todo!()
         // self.template_parameter_decl_list(db)

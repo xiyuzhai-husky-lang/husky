@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_entity_path::ItemPath;
+
 use husky_vfs::{error::VfsResult, *};
 use vec_like::VecSet;
 

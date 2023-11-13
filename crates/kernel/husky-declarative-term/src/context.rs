@@ -51,8 +51,8 @@ impl DeclarativeTermShowContext {
 
     pub(crate) fn fmt_with_variable(
         &mut self,
-        db: &dyn DeclarativeTermDb,
-        variable: DeclarativeTermRune,
+        _db: &dyn DeclarativeTermDb,
+        _variable: DeclarativeTermRune,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         // ad hoc

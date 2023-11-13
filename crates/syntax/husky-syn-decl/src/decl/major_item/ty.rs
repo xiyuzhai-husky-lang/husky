@@ -19,8 +19,8 @@ pub use self::union::*;
 pub use self::unit_struct::*;
 
 use super::*;
-use husky_entity_kind::{EntityKind, TypeKind};
-use parsec::parse_separated_list2;
+use husky_entity_kind::{TypeKind};
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]
@@ -125,7 +125,7 @@ impl<'a> DeclParser<'a, TypeSynNodePath> {
                 parser.finish(),
             )
             .into()
-        } else if let Some(semicolon) = parser.try_parse_err_as_none::<SemiColonRegionalToken>() {
+        } else if let Some(_semicolon) = parser.try_parse_err_as_none::<SemiColonRegionalToken>() {
             todo!()
             // Err(OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(ctx.save_state()).into())
         } else {

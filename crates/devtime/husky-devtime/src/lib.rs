@@ -7,7 +7,7 @@ pub use husky_trace_protocol::server::IsTracetime;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_task::{
     helpers::DevLinkTime,
-    visual::{VisualComponent, VisualProtocol},
+    visual::{VisualComponent},
     DevComptimeDb, IsTask,
 };
 use husky_trace::{db::TraceDb, trace::Trace};

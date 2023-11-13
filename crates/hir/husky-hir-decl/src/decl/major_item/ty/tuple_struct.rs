@@ -22,7 +22,7 @@ pub struct TupleFieldHirDecl {
 impl TupleStructTypeHirDecl {
     pub(super) fn from_syn(
         path: TypePath,
-        syn_decl: TupleStructTypeSynDecl,
+        _syn_decl: TupleStructTypeSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
         let TypeSynDecl::TupleStruct(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {

@@ -1,8 +1,8 @@
-use crate::{EntitySynTreeDb, EntityTreeBundleError, ItemSynNode, ItemSynNodePath, PreludeError};
-use husky_ast::AstIdx;
+use crate::{EntitySynTreeDb, EntityTreeBundleError, ItemSynNodePath, PreludeError};
+
 use husky_entity_path::{EntityPathError, TypePath};
-use husky_manifest::ManifestError;
-use husky_token::{IdentToken, TokenIdx};
+
+use husky_token::{IdentToken};
 use husky_vfs::{error::VfsError, ModulePath, ToolchainError};
 use thiserror::Error;
 
@@ -17,7 +17,7 @@ pub enum EntitySynTreeError {
 }
 
 impl From<&PreludeError> for EntitySynTreeError {
-    fn from(e: &PreludeError) -> Self {
+    fn from(_e: &PreludeError) -> Self {
         todo!()
     }
 }
@@ -35,7 +35,7 @@ impl From<EntityTreeBundleError> for EntitySynTreeError {
 }
 
 impl From<&EntityTreeBundleError> for EntitySynTreeError {
-    fn from(e: &EntityTreeBundleError) -> Self {
+    fn from(_e: &EntityTreeBundleError) -> Self {
         todo!()
     }
 }

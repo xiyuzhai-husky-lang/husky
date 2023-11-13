@@ -7,7 +7,7 @@ pub struct LoopGroupTracePath {}
 pub enum LoopGroupTraceBiologicalParent {}
 
 impl LoopGroupTracePath {
-    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
+    pub fn view_data(self, _db: &dyn TraceDb) -> TraceViewData {
         todo!()
     }
 }
@@ -20,7 +20,7 @@ pub struct LoopGroupTrace {
 }
 
 impl LoopGroupTrace {
-    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
+    pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
         todo!()
     }
 }

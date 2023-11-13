@@ -22,11 +22,11 @@ pub enum EagerCallTraceBiologicalParent {
 }
 
 impl EagerCallTrace {
-    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
+    pub fn view_data(self, _db: &dyn TraceDb) -> TraceViewData {
         todo!()
     }
 
-    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
+    pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
         todo!()
     }
 }

@@ -53,7 +53,7 @@ pub(crate) fn none_core_crate_universal_prelude(
     toolchain: Toolchain,
 ) -> PreludeResult<EntitySymbolTable> {
     let vfs_path_menu = db.vfs_path_menu(toolchain);
-    let item_path_menu = db.item_path_menu(toolchain);
+    let _item_path_menu = db.item_path_menu(toolchain);
     let coword_menu = db.coword_menu();
     let core_prelude_module = vfs_path_menu.core_prelude().inner();
     let mut table = EntitySymbolTable::default();

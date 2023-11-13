@@ -9,9 +9,9 @@ pub struct TraitForTypeAssociatedValHirDefn {
 
 impl TraitForTypeAssociatedValHirDefn {
     pub(super) fn new(
-        db: &dyn HirDefnDb,
-        path: TraitForTypeItemPath,
-        hir_decl: TraitForTypeAssociatedValHirDecl,
+        _db: &dyn HirDefnDb,
+        _path: TraitForTypeItemPath,
+        _hir_decl: TraitForTypeAssociatedValHirDecl,
     ) -> Self {
         todo!()
     }

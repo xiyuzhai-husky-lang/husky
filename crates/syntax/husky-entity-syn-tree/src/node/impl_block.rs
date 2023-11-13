@@ -7,16 +7,16 @@ pub use self::trai_for_ty_impl_block::*;
 pub use self::ty_impl_block::*;
 
 use crate::*;
-use husky_coword::IdentPairMap;
-use husky_entity_kind::TypeItemKind;
+
+
 use husky_print_utils::p;
 use husky_token::ImplToken;
 use husky_token::*;
-use maybe_result::*;
+
 use parsec::{HasStreamState, IsStreamParser};
-use smallvec::SmallVec;
+
 use thiserror::Error;
-use vec_like::VecPairMap;
+
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
@@ -30,7 +30,7 @@ pub enum ImplBlockSynNodePath {
 pub(crate) struct ImplBlockNodePathRegistry {}
 
 impl ImplBlockSynNodePath {
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<ImplBlockPath> {
+    pub fn path(self, _db: &dyn EntitySynTreeDb) -> Option<ImplBlockPath> {
         match self {
             ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => Some(syn_node_path.path().into()),
             ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
@@ -40,11 +40,11 @@ impl ImplBlockSynNodePath {
         }
     }
 
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> ImplBlockSynNode {
+    pub(crate) fn syn_node(self, _db: &dyn EntitySynTreeDb) -> ImplBlockSynNode {
         todo!()
     }
 
-    pub fn item_syn_node_paths(self, db: &dyn EntitySynTreeDb) -> &[AssociatedItemPath] {
+    pub fn item_syn_node_paths(self, _db: &dyn EntitySynTreeDb) -> &[AssociatedItemPath] {
         todo!()
     }
 }
@@ -69,7 +69,7 @@ where
 impl HasSynNodePath for ImplBlockPath {
     type SynNodePath = ImplBlockSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, _db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         todo!()
     }
 }
@@ -96,8 +96,8 @@ impl ImplBlockSynNode {
 
     pub fn for_each_item(
         self,
-        db: &dyn EntitySynTreeDb,
-        f: impl FnMut(),
+        _db: &dyn EntitySynTreeDb,
+        _f: impl FnMut(),
     ) -> &[AssociatedItemSynNodePath] {
         todo!()
     }
@@ -152,7 +152,7 @@ impl ImplBlockSynNode {
 
     pub(crate) fn parse_from_token_group_aux<'a, 'b>(
         db: &dyn EntitySynTreeDb,
-        crate_root_path: ModulePath,
+        _crate_root_path: ModulePath,
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
         ast_idx: AstIdx,
@@ -251,7 +251,7 @@ impl ImplBlockSynNode {
         // self.id(db).module_path
     }
 
-    pub fn items(self, db: &dyn EntitySynTreeDb) -> &[(Ident, AssociatedItemSynNode)] {
+    pub fn items(self, _db: &dyn EntitySynTreeDb) -> &[(Ident, AssociatedItemSynNode)] {
         todo!()
         // match self {
         //     ImplBlockNode::TypeImplBlock(impl_block) => ty_impl_block_items(db, impl_block),

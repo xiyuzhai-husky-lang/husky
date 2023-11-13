@@ -14,13 +14,12 @@ use self::eager_stmt::*;
 use self::lazy_call::*;
 use self::lazy_expr::*;
 use self::lazy_stmt::*;
-use self::loop_group::*;
+
 use self::submodule::*;
 use self::val_item::*;
 use crate::{
     registry::{
         trace_path::{TracePathDisambiguator, TracePathRegistry},
-        *,
     },
     *,
 };
@@ -31,7 +30,6 @@ use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_sema_expr::SemaExprIdx;
 use husky_trace_protocol::{
     id::{TraceId, TraceKind},
-    settings::TraceSettings,
     view::TraceViewData,
     IsTrace,
 };

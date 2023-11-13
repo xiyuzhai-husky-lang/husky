@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_kind::AssociatedItemKind;
+
 use vec_like::SmallVecPairMap;
 
 // basically a wrapper type
@@ -67,7 +67,7 @@ impl HasSynNodePath for TypeImplBlockPath {
     type SynNodePath = TypeImplBlockSynNodePath;
 
     #[inline(always)]
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, _db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         TypeImplBlockSynNodePath { path: self }
     }
 }

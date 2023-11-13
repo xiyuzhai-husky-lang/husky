@@ -63,7 +63,7 @@ impl From<TraitForTypeImplBlockSynNodePath> for ItemSynNodePath {
 impl HasSynNodePath for TraitForTypeImplBlockPath {
     type SynNodePath = TraitForTypeImplBlockSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, _db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         TraitForTypeImplBlockSynNodePath { path: self }
     }
 }

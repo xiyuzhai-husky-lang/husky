@@ -1,5 +1,5 @@
 use super::*;
-use husky_hir_ty::ritchie::HirRitchieParameter;
+
 use husky_syn_decl::TypeMethodFnSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]

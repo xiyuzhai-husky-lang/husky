@@ -10,7 +10,7 @@ pub struct IllFormedImplBlockSynNodePath {
 }
 
 impl IllFormedImplBlockSynNodePath {
-    pub fn item_syn_node_paths(self, db: &dyn EntitySynTreeDb) -> &[IllFormedItemSynNodePath] {
+    pub fn item_syn_node_paths(self, _db: &dyn EntitySynTreeDb) -> &[IllFormedItemSynNodePath] {
         // ad hoc
         &[]
     }
@@ -39,7 +39,7 @@ impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
 impl HasSynNodePath for IllFormedImplBlockPath {
     type SynNodePath = IllFormedImplBlockSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, _db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         IllFormedImplBlockSynNodePath { path: self }
     }
 }

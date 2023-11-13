@@ -22,7 +22,7 @@ pub enum TraitItemHirDecl {
 impl HasHirDecl for TraitItemPath {
     type HirDecl = TraitItemHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, _db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         todo!()
     }
 }

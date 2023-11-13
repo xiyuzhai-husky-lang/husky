@@ -1,6 +1,6 @@
 use super::*;
 use husky_decl_ast::DeclAst;
-use husky_token::{TokenGroupIdx, TokenIdxRange, TokenSheetData};
+use husky_token::{TokenIdxRange};
 
 ///
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
@@ -77,16 +77,16 @@ fn build_decl_tokra_region(
     let (token_group_idx, ast, saved_regional_stream_state) = match ast_sheet[ast_idx] {
         Ast::Attr {
             token_group_idx,
-            ident,
+            ident: _,
         } => (token_group_idx, DeclAst::Attr, None),
         Ast::Identifiable {
             token_group_idx,
-            ref visibility_expr,
-            item_kind,
-            ident_token,
-            is_generic,
+            visibility_expr: _,
+            item_kind: _,
+            ident_token: _,
+            is_generic: _,
             saved_stream_state,
-            block,
+            block: _,
         } => (
             token_group_idx,
             DeclAst::Identifiable {},
@@ -94,9 +94,9 @@ fn build_decl_tokra_region(
         ),
         Ast::TypeVariant {
             token_group_idx,
-            variant_path,
-            vertical_token,
-            ident_token,
+            variant_path: _,
+            vertical_token: _,
+            ident_token: _,
             saved_stream_state,
         } => (
             token_group_idx,
@@ -105,7 +105,7 @@ fn build_decl_tokra_region(
         ),
         Ast::ImplBlock {
             token_group_idx,
-            items,
+            items: _,
         } => (token_group_idx, DeclAst::ImplBlock, None),
         _ => unreachable!(),
     };
@@ -565,8 +565,8 @@ impl HasDeclTokraRegion for TraitItemSynNodePath {
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn trai_item_decl_tokra_region_with_source_map(
-    db: &dyn EntitySynTreeDb,
-    syn_node_path: TraitItemSynNodePath,
+    _db: &dyn EntitySynTreeDb,
+    _syn_node_path: TraitItemSynNodePath,
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     todo!()
     // build_decl_tokra_region(
@@ -626,8 +626,8 @@ impl HasDeclTokraRegion for IllFormedItemSynNodePath {
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn ill_formed_item_decl_tokra_region_with_source_map(
-    db: &dyn EntitySynTreeDb,
-    syn_node_path: IllFormedItemSynNodePath,
+    _db: &dyn EntitySynTreeDb,
+    _syn_node_path: IllFormedItemSynNodePath,
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     todo!()
     // build_decl_tokra_region(

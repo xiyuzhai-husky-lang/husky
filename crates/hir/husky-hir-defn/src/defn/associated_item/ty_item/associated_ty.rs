@@ -9,9 +9,9 @@ pub struct TypeAssociatedTypeHirDefn {
 
 impl TypeAssociatedTypeHirDefn {
     pub(super) fn new(
-        db: &dyn HirDefnDb,
-        path: TypeItemPath,
-        hir_decl: TypeAssociatedTypeHirDecl,
+        _db: &dyn HirDefnDb,
+        _path: TypeItemPath,
+        _hir_decl: TypeAssociatedTypeHirDecl,
     ) -> Self {
         todo!()
     }

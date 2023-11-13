@@ -1,5 +1,5 @@
 use crate::*;
-use husky_manifest::{HasPackageManifest, ManifestError};
+use husky_manifest::{ManifestError};
 use husky_vfs::{error::VfsError, *};
 use thiserror::Error;
 
@@ -18,13 +18,13 @@ pub enum PreludeError {
 pub type PreludeResult<T> = Result<T, PreludeError>;
 
 impl From<&PreludeError> for PreludeError {
-    fn from(value: &PreludeError) -> Self {
+    fn from(_value: &PreludeError) -> Self {
         todo!()
     }
 }
 
 impl From<&ManifestError> for PreludeError {
-    fn from(value: &ManifestError) -> Self {
+    fn from(_value: &ManifestError) -> Self {
         todo!()
     }
 }

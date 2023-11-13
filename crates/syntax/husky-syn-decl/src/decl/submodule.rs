@@ -7,7 +7,7 @@ pub struct SubmoduleSynNodeDecl {
 }
 
 impl SubmoduleSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, _db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         Default::default()
     }
 }
@@ -39,7 +39,7 @@ impl SubmoduleSynDecl {
     fn from_node_decl(
         db: &dyn SynDeclDb,
         path: SubmodulePath,
-        syn_node_decl: SubmoduleSynNodeDecl,
+        _syn_node_decl: SubmoduleSynNodeDecl,
     ) -> Self {
         Self::new(db, path)
     }

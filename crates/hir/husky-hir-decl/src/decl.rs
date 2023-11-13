@@ -14,7 +14,7 @@ pub use self::ty_variant::*;
 
 use crate::{db::*, *};
 use husky_hir_eager_expr::helpers::hir_eager_expr_region;
-use husky_hir_expr::source_map::HirExprSourceMap;
+
 use husky_syn_decl::HasSynDecl;
 
 pub trait HasHirDecl {
@@ -57,7 +57,7 @@ impl HirDecl {
             HirDecl::MajorItem(decl) => decl.template_parameters(db),
             HirDecl::ImplBlock(decl) => decl.template_parameters(db),
             HirDecl::AssociatedItem(decl) => decl.template_parameters(db),
-            HirDecl::TypeVariant(decl) => &[],
+            HirDecl::TypeVariant(_decl) => &[],
             HirDecl::Attr(_) => todo!(),
         }
     }

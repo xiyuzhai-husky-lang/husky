@@ -1,6 +1,6 @@
 use super::*;
 use husky_regional_token::{CommaRegionalToken, LcurlRegionalToken, RcurlRegionalToken};
-use parsec::{parse_separated_list2, PunctuatedSmallList, TryParseFromStream};
+use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct PropsStructTypeSynNodeDecl {

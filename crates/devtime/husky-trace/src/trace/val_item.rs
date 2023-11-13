@@ -1,11 +1,11 @@
 use husky_sema_expr::{
-    helpers::analysis::sema_expr_region_contains_gn, SemaExprData, SemaStmtData,
+    helpers::analysis::sema_expr_region_contains_gn, SemaExprData,
 };
-use husky_syn_decl::{FugitiveSynDecl, HasSynDecl};
+
 use husky_syn_defn::{FugitiveSynDefn, HasSynDefn};
 
 use crate::registry::{
-    associated_trace::VoidAssociatedTraceRegistry, trace_path::TracePathRegistry,
+    associated_trace::VoidAssociatedTraceRegistry,
 };
 
 use super::*;

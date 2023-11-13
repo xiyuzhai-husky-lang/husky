@@ -1,6 +1,6 @@
 use husky_defn_ast::{DefnAst, DefnAstArena, DefnAstArenaRef, DefnAstIdx, DefnAstIdxRange};
-use husky_token::{TokenIdxRange, TokenIdxRangeEnd, TokenIdxRangeStart, TokenSheetData};
-use idx_arena::ArenaRef;
+use husky_token::{TokenIdxRange, TokenSheetData};
+
 
 use super::*;
 
@@ -109,7 +109,7 @@ impl<'a> std::ops::Index<DefnAstIdx> for DefnTokraRegionData<'a> {
 
 pub(super) fn defn_token_region(
     syn_node_path: ItemSynNodePath,
-    db: &dyn EntitySynTreeDb,
+    _db: &dyn EntitySynTreeDb,
 ) -> Option<DefnTokraRegion> {
     match syn_node_path {
         ItemSynNodePath::Submodule(_) => None,
@@ -239,8 +239,8 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
     fn build_ast(&mut self, ast_idx: AstIdx) -> Option<DefnAst> {
         match self.ast_sheet[ast_idx] {
             Ast::Err {
-                token_group_idx,
-                ref error,
+                token_group_idx: _,
+                error: _,
             } => Some(DefnAst::Err),
             Ast::BasicStmtOrBranch {
                 token_group_idx,
@@ -333,7 +333,7 @@ fn build_defn_tokra_region(
     ast_idx: AstIdx,
     db: &dyn EntitySynTreeDb,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
-    let mut builder = SynDefnTokraRegionBuilder::new(module_path, db, ast_idx)?;
+    let builder = SynDefnTokraRegionBuilder::new(module_path, db, ast_idx)?;
     Some(builder.build())
 }
 
@@ -396,13 +396,13 @@ impl HasSynDefnTokraRegion for ItemSynNodePath {
 }
 
 impl HasSynDefnTokraRegion for SubmoduleSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
         todo!()
     }
 
     fn defn_tokra_region_source_map(
         self,
-        db: &dyn EntitySynTreeDb,
+        _db: &dyn EntitySynTreeDb,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         todo!()
     }
@@ -436,26 +436,26 @@ impl HasSynDefnTokraRegion for MajorItemSynNodePath {
 }
 
 impl HasSynDefnTokraRegion for TraitSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        db: &dyn EntitySynTreeDb,
+        _db: &dyn EntitySynTreeDb,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
 }
 
 impl HasSynDefnTokraRegion for TypeSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        db: &dyn EntitySynTreeDb,
+        _db: &dyn EntitySynTreeDb,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
@@ -495,13 +495,13 @@ fn fugitive_defn_tokra_region_with_source_map(
 }
 
 impl HasSynDefnTokraRegion for TypeVariantSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        db: &dyn EntitySynTreeDb,
+        _db: &dyn EntitySynTreeDb,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
@@ -541,39 +541,39 @@ impl HasSynDefnTokraRegion for ImplBlockSynNodePath {
 }
 
 impl HasSynDefnTokraRegion for TypeImplBlockSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        db: &dyn EntitySynTreeDb,
+        _db: &dyn EntitySynTreeDb,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
 }
 
 impl HasSynDefnTokraRegion for TraitForTypeImplBlockSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        db: &dyn EntitySynTreeDb,
+        _db: &dyn EntitySynTreeDb,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
 }
 
 impl HasSynDefnTokraRegion for IllFormedImplBlockSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        db: &dyn EntitySynTreeDb,
+        _db: &dyn EntitySynTreeDb,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
@@ -666,8 +666,8 @@ impl HasSynDefnTokraRegion for TraitItemSynNodePath {
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn trai_item_defn_tokra_region_with_source_map(
-    db: &dyn EntitySynTreeDb,
-    syn_node_path: TraitItemSynNodePath,
+    _db: &dyn EntitySynTreeDb,
+    _syn_node_path: TraitItemSynNodePath,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     todo!()
     // build_defn_tokra_region(
@@ -733,8 +733,8 @@ impl HasSynDefnTokraRegion for IllFormedItemSynNodePath {
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn ill_formed_item_defn_tokra_region_with_source_map(
-    db: &dyn EntitySynTreeDb,
-    syn_node_path: IllFormedItemSynNodePath,
+    _db: &dyn EntitySynTreeDb,
+    _syn_node_path: IllFormedItemSynNodePath,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     todo!()
     // build_defn_tokra_region(
@@ -753,13 +753,13 @@ fn ill_formed_item_defn_tokra_region(
 }
 
 impl HasSynDefnTokraRegion for AttrSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        db: &dyn EntitySynTreeDb,
+        _db: &dyn EntitySynTreeDb,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }

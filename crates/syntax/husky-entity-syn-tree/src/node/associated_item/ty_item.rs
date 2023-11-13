@@ -15,7 +15,7 @@ pub struct TypeItemSynNodePath {
 impl TypeItemSynNodePath {
     fn new(
         db: &dyn EntitySynTreeDb,
-        impl_block_syn_node_path: TypeImplBlockSynNodePath,
+        _impl_block_syn_node_path: TypeImplBlockSynNodePath,
         registry: &mut ItemSynNodePathRegistry,
         path: TypeItemPath,
     ) -> Self {
@@ -209,7 +209,7 @@ pub(crate) fn ty_item_syn_node_paths(
                     .associated_items(db)
                     .iter()
                     .copied()
-                    .map(|(ident, syn_node_path, node)| (ident, syn_node_path))
+                    .map(|(ident, syn_node_path, _node)| (ident, syn_node_path))
             })
         })
         .flatten()
@@ -278,7 +278,7 @@ pub(crate) fn ty_item_paths_map(
             paths.update_value_or_insert(
                 ident,
                 |(ty_item_kind0, result)| match result {
-                    Ok(ref mut same_name_paths) => match *ty_item_kind0 == ty_item_kind {
+                    Ok(ref mut _same_name_paths) => match *ty_item_kind0 == ty_item_kind {
                         true => todo!(),
                         false => todo!(),
                     },
