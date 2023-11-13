@@ -1,7 +1,6 @@
 use crate::*;
 use std::{
     ffi::c_void,
-    panic::{RefUnwindSafe, UnwindSafe},
 };
 
 pub trait __EvalContext {

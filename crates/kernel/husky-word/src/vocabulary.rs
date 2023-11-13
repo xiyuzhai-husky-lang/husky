@@ -14,7 +14,7 @@ pub struct Entry {
 }
 
 #[salsa::tracked(jar = WordJar, return_ref)]
-pub(crate) fn vocabulary(db: &dyn WordDb) -> Vocabulary {
+pub(crate) fn vocabulary(_db: &dyn WordDb) -> Vocabulary {
     todo!()
 }
 

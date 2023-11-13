@@ -23,7 +23,7 @@ pub use self::thick_fp::*;
 pub use self::thin_fp::*;
 // pub use self::virtual_enum::*;
 // pub use self::virtual_function::*;
-pub use self::virtual_thick_fp::*;
+
 pub use husky_regular_value::*;
 pub use std::ffi::c_void;
 

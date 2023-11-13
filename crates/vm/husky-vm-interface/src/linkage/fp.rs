@@ -3,7 +3,7 @@ mod index;
 mod method_elem;
 
 use super::*;
-use std::panic::catch_unwind;
+
 
 #[derive(Clone, Copy)]
 #[repr(C)]
@@ -29,8 +29,8 @@ impl __ResolvedLinkage {
 
     pub fn call_catch_unwind(
         self,
-        opt_ctx: Option<&dyn __EvalContext>,
-        mut arguments: Vec<RegularValue>,
+        _opt_ctx: Option<&dyn __EvalContext>,
+        _arguments: Vec<RegularValue>,
     ) -> VMResult<RegularValue> {
         todo!()
         // catch_unwind(move || self.call(opt_ctx, &mut arguments)).map_err(|e| {
@@ -54,7 +54,7 @@ impl __ResolvedLinkage {
 }
 
 impl std::fmt::Debug for __ResolvedLinkage {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
         // f.debug_struct("__ResolvedLinkage")
         //     .field("wrapper", &(self.wrapper as *const c_void))
@@ -63,7 +63,7 @@ impl std::fmt::Debug for __ResolvedLinkage {
     }
 }
 impl PartialEq for __ResolvedLinkage {
-    fn eq(&self, other: &Self) -> bool {
+    fn eq(&self, _other: &Self) -> bool {
         todo!()
         // self.wrapper as usize == other.wrapper as usize && self.opt_thick_fp == other.opt_thick_fp
     }

@@ -16,7 +16,7 @@ impl<T> std::ops::Try for AltOption<T> {
 
     type Residual = AltOptionR<T>;
 
-    fn from_output(output: Self::Output) -> Self {
+    fn from_output(_output: Self::Output) -> Self {
         AltNone
     }
 
@@ -35,7 +35,7 @@ impl<T> std::ops::FromResidual<AltOptionR<T>> for AltOption<T> {
 }
 
 impl<T> std::ops::FromResidual<Option<Infallible>> for AltOption<T> {
-    fn from_residual(residual: Option<Infallible>) -> Self {
+    fn from_residual(_residual: Option<Infallible>) -> Self {
         AltNone
     }
 }
