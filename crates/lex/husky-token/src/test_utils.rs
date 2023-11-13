@@ -1,5 +1,6 @@
+pub use husky_vfs::{VfsTestConfig, VfsTestDomainsConfig, VfsTestUnit, VfsTestUtils};
+
 use crate::*;
-use husky_vfs::{VfsTestConfig, VfsTestDomainsConfig, VfsTestUnit, VfsTestUtils};
 
 /// will have more robustness tests based on token level information than `VfsTestUtils`
 pub trait TokenTestUtils {
