@@ -1,4 +1,4 @@
-use egui::{Color32, RichText};
+use egui::{RichText};
 
 use super::*;
 

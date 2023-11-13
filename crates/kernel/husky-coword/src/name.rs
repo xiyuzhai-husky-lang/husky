@@ -40,7 +40,7 @@ impl Name {
 /// only use in this module
 #[salsa::tracked(jar = CowordJar)]
 pub(crate) fn name_to_ident(db: &dyn CowordDb, coword: Coword) -> Ident {
-    let mut name = coword.data(db);
+    let name = coword.data(db);
     if !name.contains("-") {
         return Ident::from_borrowed(db, name).unwrap();
     } else {

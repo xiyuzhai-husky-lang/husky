@@ -48,8 +48,8 @@ impl<ParentActionBuffer> IsUiComponent<egui::Ui, NotebookSettings, ParentActionB
     fn update(
         &mut self,
         ui: &mut egui::Ui,
-        settings: &mut NotebookSettings,
-        super_action_buffer: &mut ParentActionBuffer,
+        _settings: &mut NotebookSettings,
+        _super_action_buffer: &mut ParentActionBuffer,
     ) {
         ui.label("Ui Component Context");
     }

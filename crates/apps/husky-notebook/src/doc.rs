@@ -5,10 +5,10 @@ pub(crate) use self::tab::*;
 
 use self::arena::*;
 use super::*;
-use egui_dock::DockState;
+
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
-use husky_trace_doc::doc::{MockTraceDoc, TraceDoc};
-use ui::{IsUiComponent, UiComponent};
+use husky_trace_doc::doc::{MockTraceDoc};
+use ui::{UiComponent};
 
 pub struct Doc {
     title: String,

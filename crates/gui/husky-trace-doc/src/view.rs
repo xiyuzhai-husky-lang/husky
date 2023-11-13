@@ -1,9 +1,9 @@
 use crate::*;
 use egui::{
-    Button, Color32, FontFamily, InnerResponse, Label, Margin, RichText, Sense, Stroke, TextStyle,
+    Button, Color32, FontFamily, InnerResponse, Label, Margin, RichText, Sense, TextStyle,
     Vec2, Widget,
 };
-use husky_print_utils::p;
+
 use husky_trace_protocol::{
     cache::{TraceCache, TraceCacheEntry},
     id::{TraceId, TraceKind},
@@ -47,7 +47,7 @@ where
 
     #[cfg(feature = "egui")]
     fn render_traces(&mut self, trace_ids: &[TraceId], ui: &mut egui::Ui) -> InnerResponse<()> {
-        use egui::{InnerResponse, Margin, Vec2};
+        use egui::{Vec2};
         ui.allocate_at_least(Vec2::new(ui.available_width(), 0.), Sense::hover());
         ui.vertical(|ui| {
             for &trace_id in trace_ids {
@@ -191,7 +191,7 @@ where
         entry: &TraceCacheEntry,
         ui: &mut egui::Ui,
     ) {
-        use husky_trace_protocol::view::SeparationAfter;
+        
         let token_foreground_colors = self
             .settings
             .code_editor_settings()

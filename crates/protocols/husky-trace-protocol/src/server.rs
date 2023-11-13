@@ -1,6 +1,5 @@
 use std::{
-    collections::HashMap,
-    net::{SocketAddr, ToSocketAddrs},
+    net::{ToSocketAddrs},
 };
 
 use crate::{
@@ -9,8 +8,8 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
-use husky_visual_protocol::{IsVisualComponent, IsVisualProtocol};
-use husky_websocket_utils::easy_server::{easy_serve, IsEasyWebsocketServer};
+use husky_visual_protocol::{IsVisualComponent};
+use husky_websocket_utils::easy_server::{IsEasyWebsocketServer};
 
 pub struct TraceServer<Tracetime: IsTracetime> {
     cache: Option<TraceCache<Tracetime::VisualComponent>>,
@@ -81,7 +80,7 @@ impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
                 view_action,
                 cache_actions_len,
             } => {
-                let Some(ref mut cache) = self.cache else {
+                let Some(ref mut _cache) = self.cache else {
                     unreachable!()
                 };
                 assert_eq!(self.cache().actions_len(), cache_actions_len);
@@ -91,7 +90,7 @@ impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
                 })
             }
             TraceRequest::NotifyViewAction {
-                view_action,
+                view_action: _,
                 cache_action,
             } => {
                 self.cache_mut().take_action(cache_action);

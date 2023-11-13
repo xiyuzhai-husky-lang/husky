@@ -1,11 +1,10 @@
 use std::marker::PhantomData;
 
-use husky_visual_protocol::IsVisualComponent;
+
 use serde::{Deserialize, Serialize};
 use smallvec::SmallVec;
 
 use crate::{
-    cache::{action::TraceCacheToggleExpansion, TraceCache, TraceCacheAction},
     id::TraceId,
 };
 

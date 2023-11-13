@@ -1,20 +1,19 @@
 pub(crate) mod action;
 mod entry;
 
-use std::collections::HashMap;
+
 
 pub use self::action::TraceCacheAction;
 pub use self::entry::TraceCacheEntry;
 
-use self::entry::*;
+
 use crate::{
-    view::{TraceViewData, TraceViewTokenData},
+    view::{TraceViewData},
     *,
 };
-use husky_token_protocol::TokenClass;
-#[cfg(feature = "mock")]
-use husky_visual_protocol::mock::MockVisualProtocol;
-use husky_visual_protocol::{IsVisualComponent, IsVisualProtocol};
+
+
+use husky_visual_protocol::{IsVisualComponent};
 use vec_like::VecPairMap;
 
 /// synced across server and client

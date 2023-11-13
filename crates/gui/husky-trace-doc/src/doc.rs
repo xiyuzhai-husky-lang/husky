@@ -4,15 +4,12 @@ use crate::{view::TraceDocView, *};
 #[cfg(feature = "egui")]
 use egui::*;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
-use husky_print_utils::p;
+
 use husky_trace_protocol::{
-    cache::{TraceCache, TraceCacheEntry},
-    client::{error::TraceClientResult, TraceClient},
-    id::TraceId,
-    view::{action::TraceViewActionBuffer, TraceViewData},
+    client::{TraceClient},
+    view::{action::TraceViewActionBuffer},
 };
-#[cfg(feature = "mock")]
-use husky_visual_protocol::mock::MockVisualProtocol;
+
 use husky_visual_protocol::IsVisualComponent;
 use notify::Notify;
 use ui::IsUiComponent;
@@ -37,7 +34,7 @@ where
         &mut self,
         ui: &mut egui::Ui,
         settings: &mut Settings,
-        action_buffer: &mut UiActionBuffer,
+        _action_buffer: &mut UiActionBuffer,
     ) {
         self.trace_client.update();
         self.render(ui, settings);
