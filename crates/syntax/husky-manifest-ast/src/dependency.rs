@@ -1,5 +1,5 @@
 use crate::*;
-use husky_coword::{Coword, Name};
+use husky_coword::{Name};
 use vec_like::AsVecMapEntry;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -12,7 +12,7 @@ impl TransformFromTomlKeyedAst<ManifestAstTransformContext> for ManifestDependen
     type KeyedAst = TomlSectionEntry;
 
     fn transform_from<'a, 'b>(
-        mut transformer: TomlTransformer<'a, 'b, ManifestAstTransformContext, Self::KeyedAst>,
+        transformer: TomlTransformer<'a, 'b, ManifestAstTransformContext, Self::KeyedAst>,
     ) -> ManifestAstResult<Self> {
         Ok(ManifestDependencyAst {
             line_group_idx: transformer.line_group_idx(),

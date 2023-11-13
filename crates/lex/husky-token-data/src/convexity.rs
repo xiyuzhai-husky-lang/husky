@@ -1,4 +1,4 @@
-use crate::{Punctuation, TokenData, WordOpr};
+use crate::{TokenData, WordOpr};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Convexity {

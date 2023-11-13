@@ -3,7 +3,7 @@ use husky_scope_expr::{
     DerivedVisibilityExprError, OriginalVisibilityExprError, VisibilityExprError,
 };
 use husky_token::{
-    IdentToken, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamParser, TokenStreamState,
+    TokenGroupIdx, TokenIdx, TokenStreamState,
 };
 use original_error::OriginalError;
 use thiserror::Error;
@@ -117,7 +117,7 @@ pub enum OriginalAstError {
 }
 
 impl From<std::convert::Infallible> for AstError {
-    fn from(value: std::convert::Infallible) -> Self {
+    fn from(_value: std::convert::Infallible) -> Self {
         unreachable!()
     }
 }
@@ -142,7 +142,7 @@ pub enum DerivedAstError {
 }
 
 impl From<&AstError> for AstError {
-    fn from(value: &AstError) -> Self {
+    fn from(_value: &AstError) -> Self {
         todo!()
     }
 }

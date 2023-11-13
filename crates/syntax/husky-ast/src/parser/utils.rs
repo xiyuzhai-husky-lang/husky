@@ -1,22 +1,22 @@
 use super::*;
-use husky_entity_kind::{MajorItemKind, TypeKind};
-use husky_opr::Bracket;
+
+
 use husky_scope_expr::VisibilityExprResult;
 use husky_token::*;
 use parsec::StreamWrapper;
-use std::iter::Peekable;
+
 
 pub(super) trait AstTokenParseContext<'a>: TokenStreamParser<'a> {
     fn module_path(&self) -> ModulePath;
 
     fn take_item_kind_keyword(&mut self) -> AstResult<EntityKindKeywordGroup> {
-        let (idx, token) = self
+        let (_idx, token) = self
             .borrow_mut()
             .next_indexed()
             .ok_or(OriginalAstError::ExpectedEntityKeyword)?;
         Ok(match token {
             // self.take_item_kind_keyword()?,
-            TokenData::Keyword(kw) => todo!(),
+            TokenData::Keyword(_kw) => todo!(),
             // kw,
             _ => return Err(OriginalAstError::ExpectedEntityKeyword.into()),
         })

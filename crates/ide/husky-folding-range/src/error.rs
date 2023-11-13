@@ -12,7 +12,7 @@ pub enum FoldingRangeError {
 }
 
 impl From<&AstError> for FoldingRangeError {
-    fn from(value: &AstError) -> Self {
+    fn from(_value: &AstError) -> Self {
         todo!()
     }
 }

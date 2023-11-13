@@ -7,11 +7,11 @@ mod utils;
 use self::indent::Indent;
 use crate::*;
 use husky_entity_path::DisconnectedConnectionRegistry;
-use husky_print_utils::p;
+
 use husky_token::*;
 use husky_vfs::error::VfsResult;
-use parsec::{HasStreamState, IsStreamParser, TryParseOptionFromStream};
-use salsa::DebugWithDb;
+use parsec::{HasStreamState, IsStreamParser};
+
 use utils::*;
 
 pub(crate) struct AstParser<'a> {
@@ -112,7 +112,7 @@ impl<'a> AstParser<'a> {
     fn parse_ast_aux<C: NormalAstChildren>(
         &mut self,
         token_group_idx: TokenGroupIdx,
-        token_group: TokenGroup,
+        _token_group: TokenGroup,
         fst: TokenData,
         snd: Option<TokenData>,
     ) -> AstResult<Ast> {

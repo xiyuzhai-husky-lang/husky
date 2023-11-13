@@ -2,11 +2,10 @@
 use futures_util::{SinkExt, StreamExt};
 use husky_print_utils::p;
 use notify::Notify;
-use std::{borrow::Cow, sync::Arc};
+use std::{sync::Arc};
 use thiserror::Error;
 use tokio_tungstenite::tungstenite::{
     self,
-    protocol::{frame::coding::CloseCode, CloseFrame},
     Message,
 };
 
@@ -159,7 +158,7 @@ where
                 Err(WebsocketClientConnectionError::SendRequestWhileCreation)
             }
             CommunicationStatus::AwaitingRequest => {
-                self.request_tx.blocking_send(request).map_err(|e| todo!())
+                self.request_tx.blocking_send(request).map_err(|_e| todo!())
             }
             CommunicationStatus::DeserializingRequest => {
                 Err(WebsocketClientConnectionError::SendRequestWhileDeserializingRequest)
@@ -212,7 +211,7 @@ where
             CreationStatus::Ok { .. } | CreationStatus::Err(_) => return StatusChanged::False,
         };
         match await_result {
-            Ok((stream, response, request_rx, response_tx, notifier)) => self.launch(
+            Ok((stream, _response, request_rx, response_tx, notifier)) => self.launch(
                 stream,
                 request_rx,
                 response_tx,
@@ -288,12 +287,12 @@ where
     }
 
     async fn launch_aux(
-        mut stream: tokio_tungstenite::WebSocketStream<
+        _stream: tokio_tungstenite::WebSocketStream<
             tokio_tungstenite::MaybeTlsStream<tokio::net::TcpStream>,
         >,
-        mut request_rx: tokio::sync::mpsc::Receiver<Request>,
-        response_tx: tokio::sync::mpsc::Sender<Response>,
-        communication_status: Arc<AtomicCommunicationStatus>,
+        _request_rx: tokio::sync::mpsc::Receiver<Request>,
+        _response_tx: tokio::sync::mpsc::Sender<Response>,
+        _communication_status: Arc<AtomicCommunicationStatus>,
     ) {
 
         // When we are done we may want our client to close connection cleanly.

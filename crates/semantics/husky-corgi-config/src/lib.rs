@@ -46,7 +46,7 @@ impl HasCorgiConfig for PackagePath {
     fn corgi_config(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<&CorgiConfig> {
         package_corgi_config(db, self)
             .as_ref()
-            .map_err(|e| e.clone())
+            .map_err(|e| e)
     }
 
     fn registry_path(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<RegistryPath> {

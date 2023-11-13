@@ -2,11 +2,11 @@ mod error;
 
 pub use self::error::*;
 
-use husky_opr::Bracket;
+
 use husky_scope::Scope;
 use husky_token::*;
 use husky_vfs::{ModulePath, VfsDb};
-use parsec::{HasStreamState, IsStreamParser};
+use parsec::{IsStreamParser};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VisibilityExpr {

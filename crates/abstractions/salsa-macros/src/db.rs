@@ -85,7 +85,7 @@ fn as_salsa_database_impl(input: &syn::ItemStruct) -> syn::ItemImpl {
 fn has_jars_impl(args: &Args, input: &syn::ItemStruct, storage: &syn::Ident) -> syn::ItemImpl {
     let jar_paths: Vec<&syn::Path> = args.jar_paths.iter().collect();
     let db = &input.ident;
-    let arguments = jar_paths.iter().enumerate().map(|(index, jar_path)| {
+    let arguments = jar_paths.iter().enumerate().map(|(index, _jar_path)| {
         let index: syn::Index = index.into();
         quote! {
             jars.#index.initialize(routes);

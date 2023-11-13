@@ -20,7 +20,7 @@ fn diff_file_sync_bfs(src: impl Borrow<Path>, dst: impl Borrow<Path>, config: &F
     assert!(src.exists());
     if !dst.exists() {
         if src.is_dir() {
-            fs::create_dir(dst.clone()).unwrap();
+            fs::create_dir(dst).unwrap();
             if config.verbose() {
                 println!("create dir {:?}", dst)
             }
@@ -31,7 +31,7 @@ fn diff_file_sync_bfs(src: impl Borrow<Path>, dst: impl Borrow<Path>, config: &F
     }
     if src.is_file() {
         if dst.is_dir() {
-            fs::remove_dir_all(dst.clone()).unwrap()
+            fs::remove_dir_all(dst).unwrap()
         }
         diff_copy(&src, &dst, config.verbose());
     } else {
@@ -43,7 +43,7 @@ fn diff_file_sync_bfs(src: impl Borrow<Path>, dst: impl Borrow<Path>, config: &F
             })
             .filter(|(_, path)| config.filter_src(path))
             .collect();
-        let dst_entries: HashMap<String, PathBuf> = fs::read_dir(dst.clone())
+        let dst_entries: HashMap<String, PathBuf> = fs::read_dir(dst)
             .unwrap()
             .map(|entry| {
                 let path = entry.unwrap().path();

@@ -5,7 +5,7 @@ const SERVER_ADDRESS: &str = "ws://localhost:51718/ws";
 #[tokio::main]
 async fn main() {
     match tokio_tungstenite::connect_async(SERVER_ADDRESS).await {
-        Ok((stream, response)) => {
+        Ok((_stream, _response)) => {
             todo!()
         }
         Err(e) => {

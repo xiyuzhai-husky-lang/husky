@@ -14,7 +14,7 @@ pub use self::menu::*;
 pub use self::sections::*;
 
 use self::transformer::*;
-use husky_text_protocol::range::TextRange;
+
 use husky_toml_ast::*;
 use husky_vfs::{error::VfsResult, *};
 

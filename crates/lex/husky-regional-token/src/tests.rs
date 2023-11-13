@@ -1,5 +1,5 @@
-use crate::*;
-use salsa::{Database, DebugWithDb, Storage};
+
+use salsa::{Database, Storage};
 
 #[salsa::db(
     husky_coword::CowordJar,

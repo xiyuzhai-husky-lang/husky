@@ -43,8 +43,8 @@ fn cyclic_dependent_package_paths(
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn cyclic_dependent_package_paths_aux(
-    db: &dyn ManifestDb,
-    package_path: PackagePath,
+    _db: &dyn ManifestDb,
+    _package_path: PackagePath,
 ) -> ManifestResult<VecSet<PackagePath>> {
     todo!()
 }
@@ -60,8 +60,8 @@ fn full_dependent_package_paths(
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn full_dependent_package_paths_aux(
-    db: &dyn ManifestDb,
-    package_path: PackagePath,
+    _db: &dyn ManifestDb,
+    _package_path: PackagePath,
 ) -> ManifestResult<VecSet<PackagePath>> {
     todo!()
 }

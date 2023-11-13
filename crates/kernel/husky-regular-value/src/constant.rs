@@ -7,7 +7,7 @@ pub struct __RegularValueConstant([u64; REGULAR_VALUE_SIZE_OVER_I64]);
 
 impl __RegularValueConstant {
     // change to HirConstant instead
-    pub fn new(constant: HirLiteral, db: &dyn HirPreludeDb) -> Self {
+    pub fn new(constant: HirLiteral, _db: &dyn HirPreludeDb) -> Self {
         let value: RegularValue = match constant {
             HirLiteral::Unit(()) => RegularValue::Unit(()),
             HirLiteral::Bool(v) => RegularValue::Bool(v),

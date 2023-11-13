@@ -53,7 +53,6 @@ pub use self::value::*;
 #[cfg(feature = "constant")]
 use husky_term_prelude::*;
 use std::{
-    ffi::c_void,
     panic::{RefUnwindSafe, UnwindSafe},
     sync::Arc,
 };

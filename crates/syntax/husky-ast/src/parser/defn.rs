@@ -1,13 +1,12 @@
 use husky_entity_kind::{
-    AssociatedItemKind, FugitiveKind, MajorItemConnectionKind, MajorItemKind, TraitItemKind,
-    TypeItemKind, TypeKind,
+    MajorItemConnectionKind, MajorItemKind, TypeKind,
 };
 use husky_entity_path::*;
-use husky_opr::Bracket;
-use husky_print_utils::p;
-use husky_token::{EntityKindKeywordGroup, TokenStreamParser};
-use parsec::{IsStreamParser, TryParseOptionFromStream};
-use salsa::DebugWithDb;
+
+
+
+use parsec::{IsStreamParser};
+
 
 use super::*;
 
@@ -31,7 +30,7 @@ impl<'a> AstParser<'a> {
         visibility_expr: VisibilityExpr,
         state: Option<TokenStreamState>,
     ) -> AstResult<Ast> {
-        let mut aux_parser = BasicAuxAstParser::new(
+        let aux_parser = BasicAuxAstParser::new(
             self.db,
             self.module_path,
             self.token_sheet

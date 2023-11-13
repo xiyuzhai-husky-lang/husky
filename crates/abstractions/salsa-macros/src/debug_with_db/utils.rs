@@ -1,4 +1,4 @@
-use syn::{ItemStruct, Path};
+use syn::{Path};
 
 pub(super) fn generic_decls(generics: &syn::Generics, db_path: &Path) -> proc_macro2::TokenStream {
     if generics.params.is_empty() {
