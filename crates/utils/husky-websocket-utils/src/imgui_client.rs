@@ -2,12 +2,9 @@
 use futures_util::{SinkExt, StreamExt};
 use husky_print_utils::p;
 use notify::Notify;
-use std::{sync::Arc};
+use std::sync::Arc;
 use thiserror::Error;
-use tokio_tungstenite::tungstenite::{
-    self,
-    Message,
-};
+use tokio_tungstenite::tungstenite::{self, Message};
 
 const ORDERING: core::sync::atomic::Ordering = core::sync::atomic::Ordering::SeqCst;
 
@@ -19,8 +16,6 @@ where
     Notifier: Notify,
 {
     tokio_runtime: Arc<tokio::runtime::Runtime>,
-    server_address: String,
-    connect_join_handle: tokio::task::JoinHandle<()>,
     creation_status: CreationStatus<Request, Response, Notifier>,
     request_tx: tokio::sync::mpsc::Sender<Request>,
     response_rx: tokio::sync::mpsc::Receiver<Response>,
@@ -93,32 +88,27 @@ where
         let await_status = Arc::new(std::sync::Mutex::new(CreationAwaitStatus::Await));
         let (request_tx, request_rx) = tokio::sync::mpsc::channel(1);
         let (response_tx, response_rx) = tokio::sync::mpsc::channel(1);
-        let connect_join_handle = {
-            let server_address = server_address.clone();
-            let await_status = await_status.clone();
-            tokio_runtime.spawn(async move {
-                println!("server_address = {server_address}");
-                match tokio_tungstenite::connect_async(server_address).await {
-                    Ok((stream, response)) => {
-                        *await_status.lock().unwrap() = CreationAwaitStatus::Ok {
-                            stream,
-                            response,
-                            request_rx,
-                            response_tx,
-                            notifier,
-                        }
-                    }
-                    Err(e) => {
-                        p!(e);
-                        todo!()
+        let await_status = await_status.clone();
+        tokio_runtime.spawn(async move {
+            println!("server_address = {server_address}");
+            match tokio_tungstenite::connect_async(server_address).await {
+                Ok((stream, response)) => {
+                    *await_status.lock().unwrap() = CreationAwaitStatus::Ok {
+                        stream,
+                        response,
+                        request_rx,
+                        response_tx,
+                        notifier,
                     }
                 }
-            })
-        };
+                Err(e) => {
+                    p!(e);
+                    todo!()
+                }
+            }
+        });
         Self {
-            server_address,
             tokio_runtime,
-            connect_join_handle,
             creation_status: CreationStatus::Await(await_status),
             request_tx,
             response_rx,

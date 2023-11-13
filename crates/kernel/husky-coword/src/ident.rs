@@ -53,11 +53,6 @@ impl Ident {
     }
 }
 
-#[salsa::tracked(jar = CowordJar)]
-pub(crate) fn word_to_ident(db: &dyn CowordDb, word: Coword) -> Option<Ident> {
-    Ident::from_borrowed(db, word.data(db))
-}
-
 pub enum IdentCase {
     SingleCapital,
     AllCapital,
