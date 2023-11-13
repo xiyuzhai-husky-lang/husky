@@ -18,9 +18,7 @@ use self::lazy_stmt::*;
 use self::submodule::*;
 use self::val_item::*;
 use crate::{
-    registry::{
-        trace_path::{TracePathDisambiguator, TracePathRegistry},
-    },
+    registry::trace_path::{TracePathDisambiguator, TracePathRegistry},
     *,
 };
 use husky_entity_kind::FugitiveKind;
