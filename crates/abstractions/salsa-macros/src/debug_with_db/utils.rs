@@ -20,7 +20,7 @@ pub(super) fn generic_decls(generics: &syn::Generics, db_path: &Path) -> proc_ma
                         quote! { #param + ::salsa::DebugWithDb<_Db> }
                     }),
                     syn::GenericParam::Const(_) => Some(quote! { #param }),
-                    syn::GenericParam::Lifetime(_) | syn::GenericParam::Const(_) => None,
+                    syn::GenericParam::Lifetime(_) => None,
                 }),
             );
         if lifetime_generics_punctuated.is_empty() {
