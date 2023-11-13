@@ -4,10 +4,10 @@ mod line_map;
 mod tests;
 
 use self::db::*;
-use husky_text_protocol::{char_iter::*, line_map::*, position::*, range::*};
+use husky_text_protocol::{line_map::*, range::*};
 use husky_vfs::ModulePath;
 use line_map::module_text_line_map;
-use std::{iter::Enumerate, ops::Deref, str::Chars};
+
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub struct Text<'a> {
