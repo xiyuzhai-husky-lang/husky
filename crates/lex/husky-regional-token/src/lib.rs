@@ -25,9 +25,9 @@ use husky_opr::Bracket;
 use husky_token::TokenGroupStart;
 use husky_token::*;
 use husky_token_data::{db::TokenDataDb, *};
-use parsec::{HasStreamState, IsStreamParser, TryParseOptionFromStream};
+use parsec::{HasStreamState, IsStreamParser};
 use std::num::NonZeroU32;
-use thiserror::Error;
+
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct RegionalTokenGroupIdxBase(u32);
@@ -253,7 +253,7 @@ impl<'a> RegionalTokenStream<'a> {
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {
         if self.next_relative.index() < self.tokens.len() {
             match self.tokens[self.next_relative.index()] {
-                TokenData::Punctuation(punct) => todo!(),
+                TokenData::Punctuation(_punct) => todo!(),
                 //  punct.opt_bra(),
                 _ => None,
             }

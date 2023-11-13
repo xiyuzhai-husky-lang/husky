@@ -1,6 +1,6 @@
 use crate::*;
 use husky_opr::Bracket;
-use husky_vfs::snippet::Snippet;
+
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
@@ -122,7 +122,7 @@ impl<'a> TokenStream<'a> {
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {
         if self.next_relative.index() < self.tokens.len() {
             match self.tokens[self.next_relative.index()] {
-                TokenData::Punctuation(punct) => todo!(),
+                TokenData::Punctuation(_punct) => todo!(),
                 //  punct.opt_bra(),
                 _ => None,
             }

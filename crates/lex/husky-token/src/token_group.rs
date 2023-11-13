@@ -58,7 +58,7 @@ enum ControlFlow {
     Break,
     Continue,
 }
-use husky_print_utils::p;
+
 use ControlFlow::*;
 
 // todo: move this to a root module called group
@@ -112,7 +112,7 @@ pub(crate) fn produce_token_group_starts(
                                 | Keyword::End(_)
                                 | Keyword::Pub,
                             ) => Continue,
-                            TokenData::Keyword(kw) => Break,
+                            TokenData::Keyword(_kw) => Break,
                             _ => Continue,
                         },
                     }
