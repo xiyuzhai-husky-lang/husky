@@ -1,6 +1,5 @@
 use proc_macro2::Literal;
 use syn::punctuated::Punctuated;
-use syn::spanned::Spanned;
 use syn::{Field, FieldsUnnamed, Ident, ItemStruct, Path, Token};
 
 use crate::options::Options;

@@ -4,10 +4,9 @@
 #![feature(trait_upcasting)]
 #![feature(let_chains)]
 mod cache;
-mod db;
+pub mod db;
 pub mod error;
 mod file;
-mod jar;
 #[cfg(feature = "lsp_support")]
 mod lsp_support;
 mod path;
@@ -20,9 +19,7 @@ mod toolchain;
 mod watch;
 
 pub use self::cache::VfsCache;
-pub use self::db::VfsDb;
 pub use self::file::Notebook;
-pub use self::jar::VfsJar;
 #[cfg(feature = "lsp_support")]
 pub use self::lsp_support::*;
 pub use self::path::*;

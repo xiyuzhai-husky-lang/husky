@@ -6,13 +6,11 @@ mod unit;
 
 pub use self::adversarial_test::*;
 pub use self::domain::*;
-pub use self::expect_test::*;
 pub use self::unit::*;
 
+use self::expect_test::*;
 use crate::*;
 use husky_path_utils::*;
-use salsa::DebugWithDb;
-
 use std::path::PathBuf;
 
 pub trait VfsTestUtils: VfsDb {
@@ -113,7 +111,7 @@ pub trait VfsTestUtils: VfsDb {
         U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: std::fmt::Display,
     {
-        vfs_expect_test(
+        self::expect_test::vfs_expect_test(
             self,
             |db, u| format!("{}", &f(unsafe { std::mem::transmute(db) }, u)),
             config,

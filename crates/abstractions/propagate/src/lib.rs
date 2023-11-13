@@ -3,8 +3,9 @@ mod error;
 #[cfg(test)]
 mod tests;
 
-pub use engine::*;
 pub use error::*;
+
+use self::engine::*;
 
 pub trait Graph {
     type Value: Eq;
