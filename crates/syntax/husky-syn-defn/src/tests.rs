@@ -17,7 +17,7 @@ use salsa::Database;
 
 #[salsa::db(
     CowordJar,
-    VfsJar,
+    husky_vfs::VfsJar,
     EntityPathJar,
     TermPreludeJar,
     husky_token_data::db::TokenDataJar,
