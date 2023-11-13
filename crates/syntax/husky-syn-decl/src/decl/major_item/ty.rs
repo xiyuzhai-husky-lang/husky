@@ -19,8 +19,7 @@ pub use self::union::*;
 pub use self::unit_struct::*;
 
 use super::*;
-use husky_entity_kind::{TypeKind};
-
+use husky_entity_kind::TypeKind;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]
