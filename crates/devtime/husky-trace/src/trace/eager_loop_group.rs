@@ -1,25 +1,28 @@
 use super::*;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar)]
-pub struct LoopGroupTracePath {}
+pub struct EagerLoopGroupTracePath {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum LoopGroupTraceBiologicalParent {}
+pub enum EagerLoopGroupTraceBiologicalParent {
+    Stmt,
+    LoopGroup,
+}
 
-impl LoopGroupTracePath {
+impl EagerLoopGroupTracePath {
     pub fn view_data(self, _db: &dyn TraceDb) -> TraceViewData {
         todo!()
     }
 }
 
 #[salsa::tracked(db = TraceDb, jar = TraceJar)]
-pub struct LoopGroupTrace {
+pub struct EagerLoopGroupTrace {
     #[id]
-    pub path: LoopGroupTracePath,
-    pub biological_parent: LoopGroupTraceBiologicalParent,
+    pub path: EagerLoopGroupTracePath,
+    pub biological_parent: EagerLoopGroupTraceBiologicalParent,
 }
 
-impl LoopGroupTrace {
+impl EagerLoopGroupTrace {
     pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
         todo!()
     }

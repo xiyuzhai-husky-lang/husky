@@ -48,7 +48,7 @@ pub enum EagerStmtTracePathData {
 }
 
 impl EagerStmtTracePath {
-    pub fn new(
+    pub(crate) fn new(
         biological_parent_path: impl Into<EagerStmtTraceBiologicalParentPath>,
         path_data: EagerStmtTracePathData,
         registry: &mut TracePathRegistry<EagerStmtTracePathData>,
@@ -117,7 +117,7 @@ pub enum EagerStmtTraceData {
 }
 
 impl EagerStmtTrace {
-    pub fn new(
+    pub(crate) fn new(
         biological_parent: impl Into<EagerStmtTraceBiologicalParent>,
         biological_parent_path: impl Into<EagerStmtTraceBiologicalParentPath>,
         trace_path_data: EagerStmtTracePathData,

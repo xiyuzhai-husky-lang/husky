@@ -1,10 +1,10 @@
 pub mod eager_call;
 pub mod eager_expr;
+pub mod eager_loop_group;
 pub mod eager_stmt;
 pub mod lazy_call;
 pub mod lazy_expr;
 pub mod lazy_stmt;
-pub mod loop_group;
 pub mod submodule;
 pub mod val_item;
 
@@ -204,6 +204,7 @@ fn root_traces_works() {
     )
 }
 
+// utility function for finding all traces under a crate within certain depth
 #[cfg(test)]
 fn find_traces<R>(
     crate_path: CratePath,
@@ -233,9 +234,9 @@ fn find_traces_aux<R>(
     for &subtrace in trace.subtraces(db) {
         find_traces_aux(subtrace, max_depth - 1, f, traces, db)
     }
-    // for associated_trace in trace.associated_traces(db) {
-    //     find_traces_aux(associated_trace, max_depth - 1, f, traces, db)
-    // }
+    for associated_trace in trace.associated_traces(db) {
+        find_traces_aux(associated_trace, max_depth - 1, f, traces, db)
+    }
 }
 
 #[test]

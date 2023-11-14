@@ -6,7 +6,11 @@ pub struct EagerCallTracePath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum EagerCallTracePathData {}
+pub enum EagerCallTracePathData {
+    FunctionFn { path: FugitivePath },
+    AssociatedFunctionFn,
+    MethodFn,
+}
 
 #[salsa::tracked(db = TraceDb, jar = TraceJar)]
 pub struct EagerCallTrace {

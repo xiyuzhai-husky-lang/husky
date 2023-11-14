@@ -6,7 +6,7 @@ TomlTokenSheet {
                 end: 1,
             },
             range: [1:1, 1:2),
-            variant: Special(
+            data: Special(
                 LeftBox,
             ),
         },
@@ -16,7 +16,7 @@ TomlTokenSheet {
                 end: 8,
             },
             range: [1:2, 1:9),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 49,
@@ -30,7 +30,7 @@ TomlTokenSheet {
                 end: 9,
             },
             range: [1:9, 1:10),
-            variant: Special(
+            data: Special(
                 RightBox,
             ),
         },
@@ -40,7 +40,7 @@ TomlTokenSheet {
                 end: 14,
             },
             range: [2:1, 2:5),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 50,
@@ -54,7 +54,7 @@ TomlTokenSheet {
                 end: 16,
             },
             range: [2:6, 2:7),
-            variant: Special(
+            data: Special(
                 Equals,
             ),
         },
@@ -64,7 +64,7 @@ TomlTokenSheet {
                 end: 23,
             },
             range: [2:8, 2:14),
-            variant: StringLiteral {
+            data: StringLiteral {
                 val: "core",
                 multiline: false,
             },
@@ -75,7 +75,7 @@ TomlTokenSheet {
                 end: 31,
             },
             range: [3:1, 3:8),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 51,
@@ -89,7 +89,7 @@ TomlTokenSheet {
                 end: 33,
             },
             range: [3:9, 3:10),
-            variant: Special(
+            data: Special(
                 Equals,
             ),
         },
@@ -99,7 +99,7 @@ TomlTokenSheet {
                 end: 41,
             },
             range: [3:11, 3:18),
-            variant: StringLiteral {
+            data: StringLiteral {
                 val: "0.0.0",
                 multiline: false,
             },
@@ -110,7 +110,7 @@ TomlTokenSheet {
                 end: 49,
             },
             range: [4:1, 4:8),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 52,
@@ -124,7 +124,7 @@ TomlTokenSheet {
                 end: 51,
             },
             range: [4:9, 4:10),
-            variant: Special(
+            data: Special(
                 Equals,
             ),
         },
@@ -134,7 +134,7 @@ TomlTokenSheet {
                 end: 71,
             },
             range: [4:11, 4:30),
-            variant: StringLiteral {
+            data: StringLiteral {
                 val: "MIT OR Apache-2.0",
                 multiline: false,
             },
@@ -145,7 +145,7 @@ TomlTokenSheet {
                 end: 82,
             },
             range: [5:1, 5:11),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 53,
@@ -159,7 +159,7 @@ TomlTokenSheet {
                 end: 84,
             },
             range: [5:12, 5:13),
-            variant: Special(
+            data: Special(
                 Equals,
             ),
         },
@@ -169,7 +169,7 @@ TomlTokenSheet {
                 end: 135,
             },
             range: [5:14, 5:64),
-            variant: StringLiteral {
+            data: StringLiteral {
                 val: "https://github.com/xiyuzhai-husky-lang/husky.git",
                 multiline: false,
             },
@@ -180,7 +180,7 @@ TomlTokenSheet {
                 end: 147,
             },
             range: [6:1, 6:12),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 54,
@@ -194,7 +194,7 @@ TomlTokenSheet {
                 end: 149,
             },
             range: [6:13, 6:14),
-            variant: Special(
+            data: Special(
                 Equals,
             ),
         },
@@ -204,7 +204,7 @@ TomlTokenSheet {
                 end: 174,
             },
             range: [6:15, 6:39),
-            variant: StringLiteral {
+            data: StringLiteral {
                 val: "The Husky Core Library",
                 multiline: false,
             },
@@ -215,7 +215,7 @@ TomlTokenSheet {
                 end: 184,
             },
             range: [7:1, 7:10),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 55,
@@ -229,7 +229,7 @@ TomlTokenSheet {
                 end: 186,
             },
             range: [7:11, 7:12),
-            variant: Special(
+            data: Special(
                 Equals,
             ),
         },
@@ -239,7 +239,7 @@ TomlTokenSheet {
                 end: 192,
             },
             range: [7:13, 7:18),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 56,
@@ -253,7 +253,7 @@ TomlTokenSheet {
                 end: 204,
             },
             range: [8:1, 8:12),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 57,
@@ -267,7 +267,7 @@ TomlTokenSheet {
                 end: 206,
             },
             range: [8:13, 8:14),
-            variant: Special(
+            data: Special(
                 Equals,
             ),
         },
@@ -277,7 +277,7 @@ TomlTokenSheet {
                 end: 212,
             },
             range: [8:15, 8:20),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 56,
@@ -291,7 +291,7 @@ TomlTokenSheet {
                 end: 287,
             },
             range: [9:1, 9:75),
-            variant: Comment,
+            data: Comment,
         },
         TomlToken {
             span: DocumentSpan {
@@ -299,7 +299,7 @@ TomlTokenSheet {
                 end: 364,
             },
             range: [10:1, 10:77),
-            variant: Comment,
+            data: Comment,
         },
         TomlToken {
             span: DocumentSpan {
@@ -307,7 +307,7 @@ TomlTokenSheet {
                 end: 372,
             },
             range: [11:1, 11:8),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 58,
@@ -321,7 +321,7 @@ TomlTokenSheet {
                 end: 374,
             },
             range: [11:9, 11:10),
-            variant: Special(
+            data: Special(
                 Equals,
             ),
         },
@@ -331,7 +331,7 @@ TomlTokenSheet {
                 end: 381,
             },
             range: [11:11, 11:17),
-            variant: StringLiteral {
+            data: StringLiteral {
                 val: "2021",
                 multiline: false,
             },
@@ -342,7 +342,7 @@ TomlTokenSheet {
                 end: 384,
             },
             range: [13:1, 13:2),
-            variant: Special(
+            data: Special(
                 LeftBox,
             ),
         },
@@ -352,7 +352,7 @@ TomlTokenSheet {
                 end: 387,
             },
             range: [13:2, 13:5),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 59,
@@ -366,7 +366,7 @@ TomlTokenSheet {
                 end: 388,
             },
             range: [13:5, 13:6),
-            variant: Special(
+            data: Special(
                 RightBox,
             ),
         },
@@ -376,7 +376,7 @@ TomlTokenSheet {
                 end: 393,
             },
             range: [14:1, 14:5),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 60,
@@ -390,7 +390,7 @@ TomlTokenSheet {
                 end: 395,
             },
             range: [14:6, 14:7),
-            variant: Special(
+            data: Special(
                 Equals,
             ),
         },
@@ -400,7 +400,7 @@ TomlTokenSheet {
                 end: 401,
             },
             range: [14:8, 14:13),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 56,
@@ -414,7 +414,7 @@ TomlTokenSheet {
                 end: 407,
             },
             range: [15:1, 15:6),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 61,
@@ -428,7 +428,7 @@ TomlTokenSheet {
                 end: 409,
             },
             range: [15:7, 15:8),
-            variant: Special(
+            data: Special(
                 Equals,
             ),
         },
@@ -438,7 +438,7 @@ TomlTokenSheet {
                 end: 415,
             },
             range: [15:9, 15:14),
-            variant: Word(
+            data: Word(
                 Coword(
                     Id {
                         value: 56,

@@ -4,7 +4,7 @@ use husky_hir_eager_expr::{
 };
 use husky_hir_lazy_expr::{
     builder::hir_lazy_expr_region_with_source_map,
-    helpers::{hir_lazy_body_with_expr_region, hir_lazy_expr_region},
+    helpers::{hir_lazy_body_with_expr_region, hir_lazy_expr_region_from_syn},
 };
 use husky_sema_expr::helpers::analysis::sema_expr_region_contains_gn;
 use husky_syn_expr::SynExprRegion;
@@ -34,7 +34,7 @@ pub fn hir_body_with_expr_region(
 pub fn hir_expr_region(syn_expr_region: SynExprRegion, db: &dyn HirExprDb) -> HirExprRegion {
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
     match sema_expr_region_contains_gn(db, sema_expr_region) {
-        true => hir_lazy_expr_region(syn_expr_region, db).into(),
+        true => hir_lazy_expr_region_from_syn(syn_expr_region, db).into(),
         false => hir_eager_expr_region(syn_expr_region, db).into(),
     }
 }
