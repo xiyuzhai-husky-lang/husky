@@ -1,7 +1,7 @@
 use crate::*;
 use egui::{
-    Button, Color32, FontFamily, InnerResponse, Label, Margin, RichText, Sense, TextStyle,
-    Vec2, Widget,
+    Button, Color32, FontFamily, InnerResponse, Label, Margin, RichText, Sense, TextStyle, Vec2,
+    Widget,
 };
 
 use husky_trace_protocol::{
@@ -47,7 +47,6 @@ where
 
     #[cfg(feature = "egui")]
     fn render_traces(&mut self, trace_ids: &[TraceId], ui: &mut egui::Ui) -> InnerResponse<()> {
-        use egui::{Vec2};
         ui.allocate_at_least(Vec2::new(ui.available_width(), 0.), Sense::hover());
         ui.vertical(|ui| {
             for &trace_id in trace_ids {
@@ -136,6 +135,7 @@ where
                             .show(ui, |ui| self.render_traces(subtrace_ids, ui))
                     });
             }
+            TraceKind::EagerPatternExpr => todo!(),
             TraceKind::ValItem => {
                 egui::Frame::none()
                     .fill(Color32::BLACK)
@@ -143,7 +143,9 @@ where
                     .show(ui, |ui| self.render_traces(subtrace_ids, ui));
             }
             TraceKind::LazyCall => todo!(),
+            TraceKind::LazyCallInput => todo!(),
             TraceKind::LazyExpr => todo!(),
+            TraceKind::LazyPatternExpr => todo!(),
             TraceKind::LazyStmt => {
                 self.render_traces(subtrace_ids, ui);
             }
@@ -152,6 +154,7 @@ where
             TraceKind::EagerStmt => {
                 self.render_traces(subtrace_ids, ui);
             }
+            TraceKind::EagerCallInput => todo!(),
         }
     }
 
@@ -191,7 +194,6 @@ where
         entry: &TraceCacheEntry,
         ui: &mut egui::Ui,
     ) {
-        
         let token_foreground_colors = self
             .settings
             .code_editor_settings()

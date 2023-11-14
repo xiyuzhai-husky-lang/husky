@@ -69,7 +69,6 @@ impl<'a> SemaExprEngine<'a> {
                     Ok(return_ty),
                 )
             }
-            MethodFluffySignature::MethodFunction(signature) => todo!(),
             MethodFluffySignature::MethodGn => todo!(),
         }
     }

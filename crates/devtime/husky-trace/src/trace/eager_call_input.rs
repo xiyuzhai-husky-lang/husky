@@ -1,21 +1,21 @@
 use super::*;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar)]
-pub struct LazyCallTracePath {
+pub struct EagerCallInputTracePath {
     #[return_ref]
-    pub data: LazyCallTracePathData,
+    pub data: EagerCallInputTracePathData,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum LazyCallTracePathData {}
+pub enum EagerCallInputTracePathData {}
 
 #[salsa::tracked(db = TraceDb, jar = TraceJar)]
-pub struct LazyCallTrace {
+pub struct EagerCallInputTrace {
     #[id]
-    pub path: LazyCallTracePath,
+    pub path: EagerCallInputTracePath,
 }
 
-impl LazyCallTrace {
+impl EagerCallInputTrace {
     pub fn view_data(self, _db: &dyn TraceDb) -> TraceViewData {
         todo!()
     }
@@ -28,6 +28,3 @@ impl LazyCallTrace {
         todo!()
     }
 }
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum LazyCallSubtrace {}

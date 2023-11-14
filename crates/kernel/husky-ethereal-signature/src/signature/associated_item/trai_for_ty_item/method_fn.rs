@@ -1,7 +1,8 @@
 use super::*;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
 pub struct TraitForTypeMethodFnEtherealSignatureTemplate {
+    pub path: TraitForTypeItemPath,
     pub self_ty: EtherealTerm,
     #[return_ref]
     pub template_parameters: EtherealTermTemplateParameters,
@@ -14,7 +15,7 @@ pub struct TraitForTypeMethodFnEtherealSignatureTemplate {
 impl TraitForTypeMethodFnEtherealSignatureTemplate {
     pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        _path: TraitForTypeItemPath,
+        path: TraitForTypeItemPath,
         dec_sig_tmpl: TraitForTypeMethodFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         let self_ty = EtherealTerm::ty_from_declarative(db, dec_sig_tmpl.self_ty(db))?;
@@ -33,6 +34,7 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
         let return_ty = EtherealTerm::ty_from_declarative(db, dec_sig_tmpl.return_ty(db))?;
         Ok(TraitForTypeMethodFnEtherealSignatureTemplate::new(
             db,
+            path,
             self_ty,
             template_parameters,
             self_value_parameter,
@@ -87,6 +89,7 @@ fn trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_
         .try_into_instantiation()?;
     let template = template_partially_instantiated.template(db);
     Some(TraitForTypeMethodFnEtherealSignature {
+        path: template.path(db),
         self_value_parameter: template
             .self_value_parameter(db)
             .instantiate(db, &instantiation)
@@ -104,6 +107,7 @@ fn trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitForTypeMethodFnEtherealSignature {
+    path: TraitForTypeItemPath,
     self_value_parameter: EtherealRitchieParameter,
     parenate_parameters: SmallVec<[EtherealRitchieParameter; 4]>,
     return_ty: EtherealTerm,
@@ -116,5 +120,9 @@ impl TraitForTypeMethodFnEtherealSignature {
 
     pub fn return_ty(&self) -> EtherealTerm {
         self.return_ty
+    }
+
+    pub fn path(&self) -> TraitForTypeItemPath {
+        self.path
     }
 }

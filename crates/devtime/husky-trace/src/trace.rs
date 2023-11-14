@@ -1,20 +1,28 @@
 pub mod eager_call;
+pub mod eager_call_input;
 pub mod eager_expr;
 pub mod eager_loop_group;
+pub mod eager_pattern_expr;
 pub mod eager_stmt;
 pub mod lazy_call;
+pub mod lazy_call_input;
 pub mod lazy_expr;
+mod lazy_loop_group;
+pub mod lazy_pattern_expr;
 pub mod lazy_stmt;
 pub mod submodule;
 pub mod val_item;
 
 use self::eager_call::*;
+use self::eager_call_input::*;
 use self::eager_expr::*;
+use self::eager_pattern_expr::*;
 use self::eager_stmt::*;
 use self::lazy_call::*;
+use self::lazy_call_input::*;
 use self::lazy_expr::*;
+use self::lazy_pattern_expr::*;
 use self::lazy_stmt::*;
-
 use self::submodule::*;
 use self::val_item::*;
 use crate::{
@@ -41,11 +49,15 @@ use vec_like::VecPairMap;
 pub enum Trace {
     Submodule(SubmoduleTrace),
     ValItem(ValItemTrace),
+    LazyCallInput(LazyCallInputTrace),
     LazyCall(LazyCallTrace),
     LazyExpr(LazyExprTrace),
+    LazyPatternExpr(LazyPatternExprTrace),
     LazyStmt(LazyStmtTrace),
+    EagerCallInput(EagerCallInputTrace),
     EagerCall(EagerCallTrace),
     EagerExpr(EagerExprTrace),
+    EagerPatternExpr(EagerPatternExprTrace),
     EagerStmt(EagerStmtTrace),
 }
 
@@ -78,11 +90,15 @@ impl Trace {
         match self {
             Trace::Submodule(slf) => slf.view_data(db),
             Trace::ValItem(slf) => slf.view_data(db),
+            Trace::LazyCallInput(_) => todo!(),
             Trace::LazyCall(slf) => slf.view_data(db),
             Trace::LazyExpr(slf) => slf.view_data(db),
+            Trace::LazyPatternExpr(slf) => slf.view_data(db),
             Trace::LazyStmt(slf) => slf.view_data(db),
+            Trace::EagerCallInput(slf) => slf.view_data(db),
             Trace::EagerCall(slf) => slf.view_data(db),
             Trace::EagerExpr(slf) => slf.view_data(db),
+            Trace::EagerPatternExpr(slf) => slf.view_data(db),
             Trace::EagerStmt(slf) => slf.view_data(db),
         }
     }
@@ -91,11 +107,15 @@ impl Trace {
         match self {
             Trace::Submodule(slf) => slf.subtraces(db),
             Trace::ValItem(slf) => slf.subtraces(db),
+            Trace::LazyCallInput(slf) => slf.subtraces(db),
             Trace::LazyCall(slf) => slf.subtraces(db),
             Trace::LazyExpr(slf) => slf.subtraces(db),
+            Trace::LazyPatternExpr(slf) => slf.subtraces(db),
             Trace::LazyStmt(slf) => slf.subtraces(db),
             Trace::EagerCall(slf) => slf.subtraces(db),
+            Trace::EagerCallInput(_) => todo!(),
             Trace::EagerExpr(slf) => slf.subtraces(db),
+            Trace::EagerPatternExpr(slf) => slf.subtraces(db),
             Trace::EagerStmt(slf) => slf.subtraces(db),
         }
     }
@@ -103,13 +123,17 @@ impl Trace {
     #[cfg(test)]
     fn val_repr(self, db: &dyn TraceDb) -> Option<ValRepr> {
         match self {
-            Trace::Submodule(_) => None,
             Trace::ValItem(slf) => Some(slf.val_repr(db)),
-            Trace::LazyCall(slf) => Some(slf.val_repr(db)),
             Trace::LazyExpr(slf) => slf.val_repr(db),
+            Trace::LazyPatternExpr(slf) => slf.val_repr(db),
+            Trace::LazyCall(slf) => Some(slf.val_repr(db)),
+            Trace::LazyCallInput(slf) => Some(slf.val_repr(db)),
             Trace::LazyStmt(slf) => slf.val_repr(db),
-            Trace::EagerCall(_) => None,
+            Trace::Submodule(_) => None,
             Trace::EagerExpr(_) => None,
+            Trace::EagerPatternExpr(_) => None,
+            Trace::EagerCallInput(_) => None,
+            Trace::EagerCall(_) => None,
             Trace::EagerStmt(_) => None,
         }
     }
@@ -131,20 +155,32 @@ impl From<TraceId> for Trace {
                 Trace::Submodule(unsafe { std::mem::transmute(trace_id.value()) })
             }
             TraceKind::ValItem => Trace::ValItem(unsafe { std::mem::transmute(trace_id.value()) }),
+            TraceKind::LazyCallInput => {
+                Trace::LazyCallInput(unsafe { std::mem::transmute(trace_id.value()) })
+            }
             TraceKind::LazyCall => {
                 Trace::LazyCall(unsafe { std::mem::transmute(trace_id.value()) })
             }
             TraceKind::LazyExpr => {
                 Trace::LazyExpr(unsafe { std::mem::transmute(trace_id.value()) })
             }
+            TraceKind::LazyPatternExpr => {
+                Trace::LazyPatternExpr(unsafe { std::mem::transmute(trace_id.value()) })
+            }
             TraceKind::LazyStmt => {
                 Trace::LazyStmt(unsafe { std::mem::transmute(trace_id.value()) })
+            }
+            TraceKind::EagerCallInput => {
+                Trace::EagerCallInput(unsafe { std::mem::transmute(trace_id.value()) })
             }
             TraceKind::EagerCall => {
                 Trace::EagerCall(unsafe { std::mem::transmute(trace_id.value()) })
             }
             TraceKind::EagerExpr => {
                 Trace::EagerExpr(unsafe { std::mem::transmute(trace_id.value()) })
+            }
+            TraceKind::EagerPatternExpr => {
+                Trace::EagerPatternExpr(unsafe { std::mem::transmute(trace_id.value()) })
             }
             TraceKind::EagerStmt => {
                 Trace::EagerStmt(unsafe { std::mem::transmute(trace_id.value()) })
@@ -165,8 +201,14 @@ impl Into<TraceId> for Trace {
             Trace::LazyCall(trace) => {
                 TraceId::new(TraceKind::LazyCall, trace.as_id().as_nonzero_u32())
             }
+            Trace::LazyCallInput(trace) => {
+                TraceId::new(TraceKind::LazyCallInput, trace.as_id().as_nonzero_u32())
+            }
             Trace::LazyExpr(trace) => {
                 TraceId::new(TraceKind::LazyExpr, trace.as_id().as_nonzero_u32())
+            }
+            Trace::LazyPatternExpr(trace) => {
+                TraceId::new(TraceKind::LazyPatternExpr, trace.as_id().as_nonzero_u32())
             }
             Trace::LazyStmt(trace) => {
                 TraceId::new(TraceKind::LazyStmt, trace.as_id().as_nonzero_u32())
@@ -174,8 +216,14 @@ impl Into<TraceId> for Trace {
             Trace::EagerCall(trace) => {
                 TraceId::new(TraceKind::EagerCall, trace.as_id().as_nonzero_u32())
             }
+            Trace::EagerCallInput(trace) => {
+                TraceId::new(TraceKind::EagerCallInput, trace.as_id().as_nonzero_u32())
+            }
             Trace::EagerExpr(trace) => {
                 TraceId::new(TraceKind::EagerExpr, trace.as_id().as_nonzero_u32())
+            }
+            Trace::EagerPatternExpr(trace) => {
+                TraceId::new(TraceKind::EagerPatternExpr, trace.as_id().as_nonzero_u32())
             }
             Trace::EagerStmt(trace) => {
                 TraceId::new(TraceKind::EagerStmt, trace.as_id().as_nonzero_u32())

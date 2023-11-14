@@ -1,7 +1,6 @@
 use super::*;
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
-use husky_coword::IdentPairMap;
-use husky_hir_lazy_expr::{variable::HirLazyVariableIdx, HirLazyExprIdx};
+use husky_hir_lazy_expr::{HirLazyExprIdx, HirLazyExprRegion};
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
 use husky_val_repr::expansion::ValReprExpansion;
 
@@ -21,7 +20,7 @@ pub enum LazyExprTraceBiologicalParentPath {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LazyExprTracePathData {
-    Haha,
+    AdHoc,
 }
 
 impl LazyExprTracePath {
@@ -45,9 +44,12 @@ pub struct LazyExprTrace {
     #[id]
     pub path: LazyExprTracePath,
     pub biological_parent: LazyExprTraceBiologicalParent,
-    pub data: LazyExprTraceData,
+    pub sema_expr_idx: SemaExprIdx,
+    pub hir_lazy_expr_idx: Option<HirLazyExprIdx>,
     #[skip_fmt]
     pub sema_expr_region: SemaExprRegion,
+    #[skip_fmt]
+    pub hir_lazy_expr_region: HirLazyExprRegion,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -56,28 +58,18 @@ pub enum LazyExprTraceBiologicalParent {
     LazyStmt(LazyStmtTrace),
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum LazyExprTraceData {
-    Expr {
-        sema_expr_idx: SemaExprIdx,
-        hir_lazy_expr_idx: Option<HirLazyExprIdx>,
-    },
-    PatternExpr {
-        syn_pattern_expr_idx: SynPatternExprIdx,
-        hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
-    },
-}
-
 impl LazyExprTrace {
     pub(crate) fn new(
         biological_parent_path: impl Into<LazyExprTraceBiologicalParentPath>,
         biological_parent: impl Into<LazyExprTraceBiologicalParent>,
-        data: impl Into<LazyExprTraceData>,
+        sema_expr_idx: SemaExprIdx,
+        hir_lazy_expr_idx: Option<HirLazyExprIdx>,
         sema_expr_region: SemaExprRegion,
+        hir_lazy_expr_region: HirLazyExprRegion,
         lazy_expr_trace_path_registry: &mut TracePathRegistry<LazyExprTracePathData>,
         db: &dyn TraceDb,
     ) -> Self {
-        let path_data = LazyExprTracePathData::Haha;
+        let path_data = LazyExprTracePathData::AdHoc;
         let path = LazyExprTracePath::new(
             biological_parent_path.into(),
             path_data,
@@ -88,8 +80,10 @@ impl LazyExprTrace {
             db,
             path,
             biological_parent.into(),
-            data.into(),
+            sema_expr_idx,
+            hir_lazy_expr_idx,
             sema_expr_region,
+            hir_lazy_expr_region,
         )
     }
 
@@ -99,10 +93,7 @@ impl LazyExprTrace {
     }
 
     pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
-        match self.data(db) {
-            LazyExprTraceData::Expr { .. } => todo!(),
-            LazyExprTraceData::PatternExpr { .. } => false,
-        }
+        todo!()
     }
 
     pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
@@ -120,10 +111,7 @@ fn lazy_expr_trace_view_lines(db: &dyn TraceDb, trace: LazyExprTrace) -> TraceVi
     let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
     let sema_expr_range_region_data = sema_expr_range_region.data(db);
     let region_path = sema_expr_region.path(db);
-    let regional_token_idx_range = match trace.data(db) {
-        LazyExprTraceData::Expr { sema_expr_idx, .. } => sema_expr_range_region_data[sema_expr_idx],
-        LazyExprTraceData::PatternExpr { .. } => todo!(),
-    };
+    let regional_token_idx_range = sema_expr_range_region_data[trace.sema_expr_idx(db)];
     let token_idx_range =
         regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
     TraceViewLines::new(
@@ -137,15 +125,10 @@ fn lazy_expr_trace_view_lines(db: &dyn TraceDb, trace: LazyExprTrace) -> TraceVi
 #[salsa::tracked(jar = TraceJar)]
 fn lazy_expr_trace_val_repr(db: &dyn TraceDb, trace: LazyExprTrace) -> Option<ValRepr> {
     let val_repr_expansion = lazy_expr_trace_val_repr_expansion(db, trace);
-    match trace.data(db) {
-        LazyExprTraceData::Expr {
-            hir_lazy_expr_idx, ..
-        } => val_repr_expansion
-            .hir_lazy_expr_val_repr_map(db)
-            .get(hir_lazy_expr_idx?)
-            .copied(),
-        LazyExprTraceData::PatternExpr { .. } => todo!(),
-    }
+    val_repr_expansion
+        .hir_lazy_expr_val_repr_map(db)
+        .get(trace.hir_lazy_expr_idx(db)?)
+        .copied()
 }
 
 #[salsa::tracked(jar = TraceJar)]

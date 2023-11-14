@@ -1,6 +1,6 @@
 #![feature(trait_upcasting)]
 pub mod db;
-mod defn;
+pub mod defn;
 #[cfg(test)]
 mod tests;
 

@@ -1,7 +1,6 @@
 pub mod control_flow;
 
-use crate::{source_map::HirLazyExprSourceMap, *};
-
+use crate::*;
 use husky_sema_expr::SemaExprRegion;
 use husky_syn_expr::{SynExprIdx, SynExprRegion};
 
@@ -35,11 +34,4 @@ pub fn hir_lazy_expr_region_from_sema(
     db: &dyn HirLazyExprDb,
 ) -> HirLazyExprRegion {
     hir_lazy_expr_region_with_source_map(db, sema_expr_region).0
-}
-
-pub fn hir_lazy_expr_source_map_from_sema(
-    sema_expr_region: SemaExprRegion,
-    db: &dyn HirLazyExprDb,
-) -> HirLazyExprSourceMap {
-    hir_lazy_expr_region_with_source_map(db, sema_expr_region).1
 }

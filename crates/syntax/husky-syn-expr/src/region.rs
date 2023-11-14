@@ -146,6 +146,25 @@ impl SynExprRegionData {
         self.syn_pattern_to_current_syn_symbol_map[syn_pattern_symbol_idx].1
     }
 
+    pub fn syn_pattern_expr_current_syn_symbols_mapped<R>(
+        &self,
+        syn_pattern_expr_idx: SynPatternExprIdx,
+        f: impl Fn(CurrentSynSymbolIdx) -> R,
+    ) -> IdentPairMap<R> {
+        unsafe {
+            IdentPairMap::from_iter_assuming_no_repetitions_unchecked(
+                self.pattern_expr_region()
+                    .pattern_expr_symbols(syn_pattern_expr_idx)
+                    .iter()
+                    .map(|&(ident, syn_pattern_symbol_idx)| {
+                        let current_syn_symbol_idx =
+                            self.syn_pattern_to_current_syn_symbol(syn_pattern_symbol_idx);
+                        (ident, f(current_syn_symbol_idx))
+                    }),
+            )
+        }
+    }
+
     pub fn has_self_lifetime(&self) -> bool {
         self.has_self_lifetime
     }

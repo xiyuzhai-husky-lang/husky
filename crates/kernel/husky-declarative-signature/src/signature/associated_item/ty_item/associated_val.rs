@@ -1,11 +1,14 @@
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TypeAssociatedValDeclarativeSignatureTemplate {}
+pub struct TypeAssociatedValDeclarativeSignatureTemplate {
+    pub path: TypeItemPath,
+}
 
 impl TypeAssociatedValDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
+        path: TypeItemPath,
         decl: TypeAssociatedValSynDecl,
     ) -> DeclarativeSignatureResult<TypeAssociatedValDeclarativeSignatureTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
@@ -13,6 +16,6 @@ impl TypeAssociatedValDeclarativeSignatureTemplate {
         let _declarative_term_menu = db
             .declarative_term_menu(syn_expr_region.toolchain(db))
             .unwrap();
-        Ok(TypeAssociatedValDeclarativeSignatureTemplate::new(db))
+        Ok(TypeAssociatedValDeclarativeSignatureTemplate::new(db, path))
     }
 }

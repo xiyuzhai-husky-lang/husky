@@ -32,9 +32,9 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
         match defn {
             SynDefn::Submodule(_) => (),
             SynDefn::MajorItem(_) => (),
-            SynDefn::ImplBlock(_Defn) => (),
-            SynDefn::AssociatedItem(_Defn) => (),
-            SynDefn::TypeVariant(_Defn) => (),
+            SynDefn::ImplBlock(_) => (),
+            SynDefn::AssociatedItem(_) => (),
+            SynDefn::TypeVariant(_) => (),
         }
     }
 }
