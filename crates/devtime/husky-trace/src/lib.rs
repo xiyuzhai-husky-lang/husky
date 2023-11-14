@@ -12,11 +12,6 @@ use self::db::*;
 use self::tests::*;
 use self::token::*;
 use self::trace::*;
-
-
-
 use husky_syn_expr::*;
-
-use husky_val_repr::{db::ValReprDb};
+use husky_val_repr::db::ValReprDb;
 use husky_vfs::*;
-

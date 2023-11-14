@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{error::InsertEntryRepeatError, *};
 use smallvec::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -67,12 +67,12 @@ where
     }
 }
 
-impl<K, const N: usize, const n: usize> From<[K; n]> for OrderedSmallVecSet<K, N>
+impl<K, const N: usize, const M: usize> From<[K; M]> for OrderedSmallVecSet<K, N>
 where
     K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
-    fn from(value: [K; n]) -> Self {
+    fn from(value: [K; M]) -> Self {
         Self::from_iter(value.into_iter())
     }
 }

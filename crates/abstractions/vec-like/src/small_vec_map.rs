@@ -1,6 +1,8 @@
-use crate::*;
+use crate::{
+    error::{FromVecEntryRepeatError, InsertEntryRepeatError},
+    *,
+};
 use smallvec::{smallvec, Array, SmallVec};
-use thiserror::Error;
 
 #[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
 pub struct SmallVecMap<E, const N: usize>

@@ -1,5 +1,6 @@
 use husky_hir_lazy_expr::HirLazyExprIdx;
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
+use husky_val_repr::expansion::ValReprExpansion;
 
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 
@@ -129,6 +130,22 @@ fn lazy_expr_trace_view_lines(db: &dyn TraceDb, trace: LazyExprTrace) -> TraceVi
 }
 
 #[salsa::tracked(jar = TraceJar)]
-fn lazy_expr_trace_val_repr(_db: &dyn TraceDb, _trace: LazyExprTrace) -> Option<ValRepr> {
-    todo!()
+fn lazy_expr_trace_val_repr(db: &dyn TraceDb, trace: LazyExprTrace) -> Option<ValRepr> {
+    let val_repr_expansion = lazy_expr_trace_val_repr_expansion(db, trace);
+    match trace.data(db) {
+        LazyExprTraceData::Expr(_, hir_lazy_expr_idx) => val_repr_expansion
+            .hir_lazy_expr_val_repr_map(db)
+            .get(hir_lazy_expr_idx?)
+            .copied(),
+        LazyExprTraceData::PatternExpr(_) => todo!(),
+    }
+}
+
+#[salsa::tracked(jar = TraceJar)]
+fn lazy_expr_trace_val_repr_expansion(db: &dyn TraceDb, trace: LazyExprTrace) -> ValReprExpansion {
+    match trace.biological_parent(db) {
+        LazyExprTraceBiologicalParent::LazyStmt(trace) => {
+            lazy_stmt_trace_val_repr_expansion(db, trace)
+        }
+    }
 }
