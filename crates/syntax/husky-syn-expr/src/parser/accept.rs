@@ -2,7 +2,7 @@ use crate::SynRegularOrVariadicCallListItem;
 
 use super::*;
 use husky_print_utils::p;
-use parsec::{parse_consecutive_list, parse_consecutive_vec_map, IsStreamParser};
+use parsec::{parse_consecutive_vec_map, IsStreamParser};
 use smallvec::smallvec;
 
 impl<'a, C> SynExprParser<'a, C>
@@ -43,11 +43,9 @@ where
             DisambiguatedTokenData::SelfValue(regional_token_idx) => {
                 self.accept_atom(SynExprData::SelfValue(regional_token_idx))
             }
-            /// sorry is for comptime (say proof) terms
             DisambiguatedTokenData::Sorry { regional_token_idx } => {
                 self.accept_atom(SynExprData::Sorry { regional_token_idx })
             }
-            /// todo is for runtime terms
             DisambiguatedTokenData::Todo { regional_token_idx } => {
                 self.accept_atom(SynExprData::Todo { regional_token_idx })
             }
@@ -250,12 +248,7 @@ where
                     items,
                     rpar_regional_token_idx: ket_regional_token_idx,
                 }),
-                IncompleteCallListOpr::MethodCall {
-                    self_expr,
-                    dot_regional_token_idx,
-                    ident_token,
-                    generic_arguments,
-                } => todo!(),
+                IncompleteCallListOpr::MethodCall { .. } => todo!(),
             },
             // IncompleteExpr::RitchieCallKeyedArgumentList {
             //     function,

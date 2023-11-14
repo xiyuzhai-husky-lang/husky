@@ -31,19 +31,16 @@ impl SynPatternExprRegion {
             [pattern_expr_idx]
         {
             SynPatternExpr::Literal { .. } => Default::default(),
-            SynPatternExpr::Ident {
-                symbol_modifier_tokens: contract,
-                ident_token,
-            } => IdentPairMap::new_one_element_map((
+            SynPatternExpr::Ident { ident_token, .. } => IdentPairMap::new_one_element_map((
                 ident_token.ident(),
                 self.alloc_new_symbol(SynPatternSymbol::Atom(pattern_expr_idx)),
             )),
             SynPatternExpr::TypeVariantUnit { .. } => Default::default(),
-            SynPatternExpr::Tuple { name, fields } => todo!(),
-            SynPatternExpr::Props { name, fields } => todo!(),
+            SynPatternExpr::Tuple { .. } => todo!(),
+            SynPatternExpr::Props { .. } => todo!(),
             SynPatternExpr::OneOf { ref options } => {
                 debug_assert!(options.elements().len() > 1);
-                let mut symbols =
+                let symbols =
                     self.pattern_symbol_maps[options.elements()[0].syn_pattern_expr_idx()].clone();
                 for option in &options.elements()[1..] {
                     let option_symbols = &self.pattern_symbol_maps[option.syn_pattern_expr_idx()];
@@ -53,16 +50,8 @@ impl SynPatternExprRegion {
                 }
                 symbols
             }
-            SynPatternExpr::Binding {
-                ident_token,
-                asperand_token,
-                src,
-            } => todo!(),
-            SynPatternExpr::Range {
-                start,
-                dot_dot_token,
-                end,
-            } => todo!(),
+            SynPatternExpr::Binding { .. } => todo!(),
+            SynPatternExpr::Range { .. } => todo!(),
         };
         symbols
     }

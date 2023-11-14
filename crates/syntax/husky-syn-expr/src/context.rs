@@ -5,7 +5,7 @@ pub use self::root::*;
 pub use self::stmt::*;
 
 use crate::*;
-use husky_vfs::{ModulePath, Toolchain};
+use husky_vfs::ModulePath;
 
 pub struct SynExprContext<'a> {
     db: &'a dyn SynExprDb,
@@ -148,13 +148,6 @@ impl<'a> SynExprContext<'a> {
 
     pub(super) fn alloc_stmts(&mut self, syn_stmts: Vec<SynStmtData>) -> SynStmtIdxRange {
         self.syn_stmt_arena.alloc_batch(syn_stmts)
-    }
-
-    pub(crate) fn alloc_expr_batch(
-        &mut self,
-        exprs: impl IntoIterator<Item = SynExprData>,
-    ) -> SynExprIdxRange {
-        self.syn_expr_arena.alloc_batch(exprs)
     }
 
     pub(crate) fn alloc_pattern_expr(&mut self, expr: SynPatternExpr) -> SynPatternExprIdx {

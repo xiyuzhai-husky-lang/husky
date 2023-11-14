@@ -9,11 +9,9 @@ pub use self::ordered_map::*;
 pub use self::region::*;
 
 use crate::*;
-use husky_entity_syn_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
-use husky_print_utils::p;
+use husky_entity_syn_tree::ModuleSymbolContext;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, TryParseFromStream};
-use vec_like::SmallVecSet;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynExprDb)]
@@ -276,10 +274,7 @@ pub enum TemplateSymbolSynAttr {
 impl CurrentSynSymbolData {
     fn symbol_modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> SymbolModifier {
         match self {
-            CurrentSynSymbolData::TemplateParameter {
-                template_parameter_variant,
-                ..
-            } => SymbolModifier::Const,
+            CurrentSynSymbolData::TemplateParameter { .. } => SymbolModifier::Const,
             CurrentSynSymbolData::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             }
@@ -296,12 +291,12 @@ impl CurrentSynSymbolData {
                 symbol_modifier_keyword_group,
                 ..
             } => SymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSynSymbolData::LoopVariable { ident, expr_idx } => SymbolModifier::None,
+            CurrentSynSymbolData::LoopVariable { .. } => SymbolModifier::None,
             CurrentSynSymbolData::SelfType => SymbolModifier::Const,
             CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group,
             } => SymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSynSymbolData::FieldVariable { ident_token } => SymbolModifier::None,
+            CurrentSynSymbolData::FieldVariable { .. } => SymbolModifier::None,
         }
     }
 }
@@ -343,12 +338,11 @@ impl CurrentTemplateParameterSynSymbolVariant {
                     ident: ident_token.ident(),
                 }
             }
-            CurrentTemplateParameterSynSymbolVariant::Constant {
-                ident_token,
-                ty_expr_idx,
-            } => InheritedTemplateParameterSynSymbol::Constant {
-                ident: ident_token.ident(),
-            },
+            CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. } => {
+                InheritedTemplateParameterSynSymbol::Constant {
+                    ident: ident_token.ident(),
+                }
+            }
         }
     }
 }
@@ -391,9 +385,7 @@ impl CurrentSynSymbolData {
                 }
             }
             CurrentSynSymbolData::SelfType => todo!(),
-            CurrentSynSymbolData::SelfValue {
-                symbol_modifier_keyword_group,
-            } => todo!(),
+            CurrentSynSymbolData::SelfValue { .. } => todo!(),
             CurrentSynSymbolData::FieldVariable { ident_token } => {
                 CurrentSynSymbolKind::FieldVariable {
                     ident_token: *ident_token,

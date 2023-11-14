@@ -1,6 +1,4 @@
 use crate::*;
-use husky_print_utils::p;
-use husky_vfs::ModulePath;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
@@ -50,7 +48,7 @@ impl std::ops::Index<SynExprIdx> for SynExprRangeRegion {
 }
 
 struct SynExprRangeCalculator<'a> {
-    expr_region_data: &'a SynExprRegionData,
+    syn_expr_region_data: &'a SynExprRegionData,
     principal_entity_path_expr_ranges: Vec<RegionalTokenIdxRange>,
     pattern_expr_ranges: Vec<RegionalTokenIdxRange>,
     expr_ranges: Vec<RegionalTokenIdxRange>,
@@ -106,24 +104,26 @@ impl<'a> std::ops::Index<SynStmtIdx> for SynExprRangeCalculator<'a> {
 }
 
 impl<'a> SynExprRangeCalculator<'a> {
-    fn new(db: &'a dyn SynExprDb, expr_region: SynExprRegion) -> Self {
-        let expr_region_data = expr_region.data(db);
-        let region_path = expr_region_data.path();
+    fn new(db: &'a dyn SynExprDb, syn_expr_region: SynExprRegion) -> Self {
+        let syn_expr_region_data = syn_expr_region.data(db);
         SynExprRangeCalculator {
-            expr_region_data,
+            syn_expr_region_data,
             principal_entity_path_expr_ranges: Default::default(),
             pattern_expr_ranges: Default::default(),
             expr_ranges: Default::default(),
-            stmt_ranges: SynStmtMap::new(expr_region_data.stmt_arena()),
+            stmt_ranges: SynStmtMap::new(syn_expr_region_data.stmt_arena()),
         }
     }
 
     fn calc_all(mut self) -> SynExprRangeRegion {
         // order matters
-        self.principal_entity_path_expr_ranges
-            .reserve(self.expr_region_data.principal_item_path_expr_arena().len());
+        self.principal_entity_path_expr_ranges.reserve(
+            self.syn_expr_region_data
+                .principal_item_path_expr_arena()
+                .len(),
+        );
         for principal_entity_path_expr in self
-            .expr_region_data
+            .syn_expr_region_data
             .principal_item_path_expr_arena()
             .iter()
         {
@@ -131,19 +131,19 @@ impl<'a> SynExprRangeCalculator<'a> {
                 .push(self.calc_principal_entity_path_expr_range(principal_entity_path_expr))
         }
         self.pattern_expr_ranges
-            .reserve(self.expr_region_data.pattern_expr_arena().len());
-        for pattern_expr in self.expr_region_data.pattern_expr_arena().iter() {
+            .reserve(self.syn_expr_region_data.pattern_expr_arena().len());
+        for pattern_expr in self.syn_expr_region_data.pattern_expr_arena().iter() {
             self.pattern_expr_ranges
                 .push(self.calc_pattern_expr_range(pattern_expr))
         }
         self.expr_ranges
-            .reserve(self.expr_region_data.expr_arena().len());
-        for expr in self.expr_region_data.expr_arena().iter() {
+            .reserve(self.syn_expr_region_data.expr_arena().len());
+        for expr in self.syn_expr_region_data.expr_arena().iter() {
             let expr_range = self.calc_expr_range(expr);
             self.expr_ranges.push(expr_range)
         }
         assert_eq!(
-            self.expr_region_data.expr_arena().len(),
+            self.syn_expr_region_data.expr_arena().len(),
             self.expr_ranges.len()
         );
         SynExprRangeRegion {
@@ -160,14 +160,13 @@ impl<'a> SynExprRangeCalculator<'a> {
     ) -> RegionalTokenIdxRange {
         match expr {
             SynPrincipalEntityPathExpr::Root {
-                path_name_token,
-                principal_entity_path: item_path,
+                path_name_token, ..
             } => RegionalTokenIdxRange::new_single(path_name_token.regional_token_idx()),
             SynPrincipalEntityPathExpr::Subitem {
                 parent,
                 colon_colon_token,
                 ident_token,
-                path,
+                ..
             } => match ident_token {
                 Ok(ident_token) => self[parent].to(RegionalTokenIdxRangeEnd::new_after(
                     ident_token.regional_token_idx(),
@@ -206,8 +205,8 @@ impl<'a> SynExprRangeCalculator<'a> {
             SynPatternExpr::TypeVariantUnit { path_expr_idx, .. } => {
                 self.principal_entity_path_expr_ranges[path_expr_idx.index()]
             }
-            SynPatternExpr::Tuple { name, fields } => todo!(),
-            SynPatternExpr::Props { name, fields } => todo!(),
+            SynPatternExpr::Tuple { .. } => todo!(),
+            SynPatternExpr::Props { .. } => todo!(),
             SynPatternExpr::OneOf { options } => {
                 let fst = options.elements().first().unwrap().syn_pattern_expr_idx();
                 let lst = options.elements().last().unwrap().syn_pattern_expr_idx();
@@ -215,16 +214,8 @@ impl<'a> SynExprRangeCalculator<'a> {
                 let lst_range = self.pattern_expr_ranges[lst.index()];
                 fst_range.join(lst_range)
             }
-            SynPatternExpr::Binding {
-                ident_token,
-                asperand_token,
-                src,
-            } => todo!(),
-            SynPatternExpr::Range {
-                start,
-                dot_dot_token,
-                end,
-            } => todo!(),
+            SynPatternExpr::Binding { .. } => todo!(),
+            SynPatternExpr::Range { .. } => todo!(),
         }
     }
 
@@ -245,15 +236,11 @@ impl<'a> SynExprRangeCalculator<'a> {
                 RegionalTokenIdxRange::new_single(*regional_token_idx)
             }
             SynExprData::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
-            SynExprData::PrincipalEntityPath {
-                path_expr_idx,
-                opt_path,
-            } => self[*path_expr_idx],
+            SynExprData::PrincipalEntityPath { path_expr_idx, .. } => self[*path_expr_idx],
             SynExprData::AssociatedItem {
                 parent_expr_idx,
-                parent_path,
-                colon_colon_regional_token,
                 ident_token,
+                ..
             } => {
                 // todo: consider implicit(angular) arguments
                 self[parent_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
@@ -274,14 +261,14 @@ impl<'a> SynExprRangeCalculator<'a> {
                 RegionalTokenIdxRange::new(start, end)
             }
             SynExprData::Prefix {
-                opr,
                 opr_regional_token_idx,
                 opd,
+                ..
             } => RegionalTokenIdxRange::new(*opr_regional_token_idx, self[opd].end()),
             SynExprData::Suffix {
                 opd,
-                opr,
                 opr_regional_token_idx,
+                ..
             } => self[opd].to(RegionalTokenIdxRangeEnd::new_after(*opr_regional_token_idx)),
             SynExprData::FunctionApplicationOrCall {
                 function: first_expr,
@@ -305,10 +292,7 @@ impl<'a> SynExprRangeCalculator<'a> {
             } => self[owner].to(RegionalTokenIdxRangeEnd::new_after(
                 ident_token.regional_token_idx(),
             )),
-            SynExprData::TemplateInstantiation {
-                template,
-                generic_arguments,
-            } => todo!(),
+            SynExprData::TemplateInstantiation { .. } => todo!(),
             SynExprData::ExplicitApplication {
                 function_expr_idx: function,
                 argument_expr_idx: argument,
@@ -340,7 +324,6 @@ impl<'a> SynExprRangeCalculator<'a> {
             ),
             SynExprData::IndexOrCompositionWithList {
                 owner,
-                lbox_regional_token_idx,
                 rbox_regional_token_idx,
                 ..
             } => self[owner].to(RegionalTokenIdxRangeEnd::new_after(
@@ -413,11 +396,9 @@ impl<'a> SynExprRangeCalculator<'a> {
     }
 
     fn calc_stmt_range(&mut self, stmt_idx: SynStmtIdx) -> RegionalTokenIdxRange {
-        match self.expr_region_data[stmt_idx] {
+        match self.syn_expr_region_data[stmt_idx] {
             SynStmtData::Let {
                 let_token,
-                ref let_variables_pattern,
-                ref assign_token,
                 ref initial_value, /* todo: other types of let initialization */
                 ..
             } => {
@@ -455,8 +436,6 @@ impl<'a> SynExprRangeCalculator<'a> {
             SynStmtData::Eval { expr_idx, .. } => self[expr_idx],
             SynStmtData::ForBetween {
                 for_token,
-                ref particulars,
-                ref eol_colon,
                 ref block,
                 ..
             } => {
@@ -464,15 +443,10 @@ impl<'a> SynExprRangeCalculator<'a> {
                 let end = self.calc_block_range(*block).end();
                 RegionalTokenIdxRange::new(start, end)
             }
-            SynStmtData::ForIn {
-                for_token,
-                ref block,
-                ..
-            } => todo!(),
+            SynStmtData::ForIn { .. } => todo!(),
             SynStmtData::ForExt {
                 forext_token,
                 /* todo: particulars */
-                ref eol_colon,
                 ref block,
                 ..
             } => {
@@ -482,8 +456,6 @@ impl<'a> SynExprRangeCalculator<'a> {
             }
             SynStmtData::While {
                 while_token,
-                ref condition,
-                ref eol_colon,
                 ref block,
                 ..
             } => {
@@ -493,8 +465,6 @@ impl<'a> SynExprRangeCalculator<'a> {
             }
             SynStmtData::DoWhile {
                 do_token,
-                ref condition,
-                ref eol_colon,
                 ref block,
                 ..
             } => {

@@ -11,9 +11,7 @@ use super::*;
 use husky_coword::Ident;
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{ItemPath, TypeVariantPath};
-use husky_print_utils::p;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
-use ordered_float::NotNan;
 use parsec::{IsStreamParser, PunctuatedSmallList, TryParseOptionFromStream};
 
 #[derive(Debug, PartialEq, Eq)]
@@ -142,12 +140,7 @@ where
                         },
                         None => todo!(),
                     },
-                    IdentifiableEntityPathExpr::AssociatedItem {
-                        parent_expr_idx,
-                        parent_path,
-                        colon_colon_regional_token,
-                        ident_token,
-                    } => todo!(),
+                    IdentifiableEntityPathExpr::AssociatedItem { .. } => todo!(),
                 },
                 DisambiguatedTokenData::InheritedSynSymbol {
                     regional_token_idx,
@@ -166,15 +159,15 @@ where
                     symbol_modifier_tokens,
                     ident_token: IdentRegionalToken::new(ident, regional_token_idx),
                 }),
-                DisambiguatedTokenData::SelfType(RegionalTokenIdx) => todo!(),
-                DisambiguatedTokenData::SelfValue(RegionalTokenIdx) => todo!(),
+                DisambiguatedTokenData::SelfType(_) => todo!(),
+                DisambiguatedTokenData::SelfValue(_) => todo!(),
                 DisambiguatedTokenData::Bra(_, _) => todo!(),
                 _ => None,
             },
             ControlFlow::Break(_) => None,
         };
         let Some(expr) = expr else {
-            if let Some(symbol_modifier_token_group) = symbol_modifier_tokens {
+            if let Some(_) = symbol_modifier_tokens {
                 todo!()
             } else {
                 return Ok(None);
@@ -196,8 +189,7 @@ where
 {
     match parser.context().syn_principal_entity_path_expr_arena()[path_expr_idx] {
         SynPrincipalEntityPathExpr::Root {
-            path_name_token,
-            principal_entity_path,
+            path_name_token, ..
         } => match path_name_token {
             PathNameRegionalToken::Ident(ident_token) => Some(SynPatternExpr::Ident {
                 symbol_modifier_tokens,
@@ -207,12 +199,7 @@ where
             PathNameRegionalToken::SelfMod(_) => todo!(),
             PathNameRegionalToken::Super(_) => todo!(),
         },
-        SynPrincipalEntityPathExpr::Subitem {
-            parent,
-            colon_colon_token,
-            ref ident_token,
-            ref path,
-        } => todo!(),
+        SynPrincipalEntityPathExpr::Subitem { .. } => todo!(),
     }
 }
 

@@ -1,8 +1,6 @@
 use crate::*;
-use husky_entity_syn_tree::EntitySynTreeError;
 use husky_syn_opr::SynBracket;
 use original_error::OriginalError;
-use parsec::*;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq)]
@@ -267,13 +265,10 @@ impl OriginalSynExprError {
                 RegionalTokenIdxRange::new_single(*regional_token_idx)
             }
             OriginalSynExprError::ExpectedBlock(_) => todo!(),
-            OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
+            OriginalSynExprError::ExpectedTypeAfterLightArrow { .. } => todo!(),
             OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
             OriginalSynExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
-            OriginalSynExprError::EntityTree {
-                regional_token_idx,
-                error,
-            } => todo!(),
+            OriginalSynExprError::EntityTree { .. } => todo!(),
         }
     }
 }

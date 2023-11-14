@@ -13,25 +13,11 @@ use self::expr_stack::*;
 use self::incomplete_expr::*;
 use crate::symbol::*;
 use crate::*;
-use husky_entity_syn_tree::*;
-use husky_opr::{precedence::*, *};
+use husky_opr::precedence::*;
 use husky_token_data::db::{HasTokenDataDb, TokenDataDb};
-use husky_vfs::{ModulePath, Toolchain};
 use original_error::OriginalError;
-use parsec::{HasStreamState, IsStreamParser, StreamWrapper};
-use salsa::DebugWithDb;
+use parsec::{HasStreamState, IsStreamParser};
 use std::ops::ControlFlow;
-
-#[macro_use]
-macro_rules! report {
-    ($self: expr) => {{
-        p!(
-            $self.stack,
-            $self.parser.item_path.debug($self.db()) // $self.token_stream.text_range()
-        );
-    }};
-}
-use report;
 
 /// parse token group into exprs
 pub struct SynExprParser<'a, C>
