@@ -4,8 +4,11 @@ use crate::registry::{
     trace_path::{TracePathDisambiguator, TracePathRegistry},
 };
 use husky_entity_path::PrincipalEntityPath;
-use husky_hir_lazy_expr::HirLazyStmtIdx;
 use husky_hir_lazy_expr::{builder::hir_lazy_expr_region_with_source_map, HirLazyExprRegion};
+use husky_hir_lazy_expr::{
+    helpers::hir_lazy_expr_source_map_from_sema, source_map::HirLazyExprSourceMapData,
+    HirLazyStmtIdx,
+};
 
 use husky_regional_token::{
     ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, IfRegionalToken,
@@ -48,7 +51,7 @@ pub enum LazyStmtTracePathData {
 }
 
 impl LazyStmtTracePath {
-    pub fn new(
+    pub(crate) fn new(
         biological_parent_path: impl Into<LazyStmtTraceBiologicalParentPath>,
         path_data: LazyStmtTracePathData,
         registry: &mut TracePathRegistry<LazyStmtTracePathData>,
@@ -107,7 +110,7 @@ pub enum LazyStmtTraceBiologicalParent {
 }
 
 impl LazyStmtTrace {
-    pub fn new(
+    pub(crate) fn new(
         biological_parent: impl Into<LazyStmtTraceBiologicalParent>,
         biological_parent_path: impl Into<LazyStmtTraceBiologicalParentPath>,
         trace_path_data: LazyStmtTracePathData,
@@ -193,7 +196,7 @@ fn lazy_stmt_trace_view_lines(db: &dyn TraceDb, trace: LazyStmtTrace) -> TraceVi
     };
     let token_idx_range =
         regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
-    let registry = LazyStmtAssociatedTraceRegistry::new(trace, sema_expr_region);
+    let registry = LazyStmtAssociatedTraceRegistry::new(trace, sema_expr_region, db);
     TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
 }
 
@@ -235,19 +238,26 @@ fn lazy_stmt_trace_val_repr_expansion(db: &dyn TraceDb, trace: LazyStmtTrace) ->
     }
 }
 
-struct LazyStmtAssociatedTraceRegistry {
+struct LazyStmtAssociatedTraceRegistry<'a> {
     parent_trace: LazyStmtTrace,
     sema_expr_region: SemaExprRegion,
+    hir_lazy_expr_source_map_data: &'a HirLazyExprSourceMapData,
     lazy_expr_trace_path_registry: TracePathRegistry<LazyExprTracePathData>,
     sema_expr_traces_issued: VecPairMap<SemaExprIdx, LazyExprTrace>,
     syn_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, LazyExprTrace>,
 }
 
-impl LazyStmtAssociatedTraceRegistry {
-    fn new(parent_trace: LazyStmtTrace, sema_expr_region: SemaExprRegion) -> Self {
+impl<'a> LazyStmtAssociatedTraceRegistry<'a> {
+    fn new(
+        parent_trace: LazyStmtTrace,
+        sema_expr_region: SemaExprRegion,
+        db: &'a dyn TraceDb,
+    ) -> Self {
         LazyStmtAssociatedTraceRegistry {
             parent_trace,
             sema_expr_region,
+            hir_lazy_expr_source_map_data: hir_lazy_expr_source_map_from_sema(sema_expr_region, db)
+                .data(db),
             lazy_expr_trace_path_registry: Default::default(),
             sema_expr_traces_issued: Default::default(),
             syn_pattern_expr_traces_issued: Default::default(),
@@ -255,7 +265,7 @@ impl LazyStmtAssociatedTraceRegistry {
     }
 }
 
-impl IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry {
+impl<'a> IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry<'a> {
     fn get_or_issue_associated_trace(
         &mut self,
         source: TokenInfoSource,
@@ -266,10 +276,13 @@ impl IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry {
             TokenInfoSource::SemaExpr(sema_expr_idx) => Some(
                 self.sema_expr_traces_issued
                     .get_value_copied_or_insert_with(sema_expr_idx, || {
+                        let hir_lazy_expr_idx = self
+                            .hir_lazy_expr_source_map_data
+                            .sema_to_hir_lazy_expr_idx(sema_expr_idx);
                         LazyExprTrace::new(
                             self.parent_trace.path(db),
                             self.parent_trace,
-                            LazyExprTraceData::Expr(sema_expr_idx, todo!()),
+                            LazyExprTraceData::Expr(sema_expr_idx, hir_lazy_expr_idx),
                             self.sema_expr_region,
                             &mut self.lazy_expr_trace_path_registry,
                             db,

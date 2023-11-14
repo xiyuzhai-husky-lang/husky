@@ -96,8 +96,8 @@ impl EagerExprTrace {
         eager_expr_trace_have_subtraces(db, self)
     }
 
-    pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
-        todo!()
+    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
+        eager_expr_trace_subtraces(db, self)
     }
 }
 
@@ -294,16 +294,22 @@ fn eager_expr_trace_have_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> b
                     arguments: _,
                     empty_html_ket: _,
                 } => todo!(),
-                SemaExprData::Sorry { regional_token_idx: _ } => todo!(),
-                SemaExprData::Todo { regional_token_idx: _ } => todo!(),
-                SemaExprData::Unreachable { regional_token_idx: _ } => todo!(),
+                SemaExprData::Sorry {
+                    regional_token_idx: _,
+                } => todo!(),
+                SemaExprData::Todo {
+                    regional_token_idx: _,
+                } => todo!(),
+                SemaExprData::Unreachable {
+                    regional_token_idx: _,
+                } => todo!(),
             }
         }
         EagerExprTraceData::PatternExpr(_) => false,
     }
 }
 
-#[salsa::tracked(jar = TraceJar)]
+#[salsa::tracked(jar = TraceJar, return_ref)]
 fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Trace> {
     match trace.data(db) {
         EagerExprTraceData::Expr(_) => todo!(),

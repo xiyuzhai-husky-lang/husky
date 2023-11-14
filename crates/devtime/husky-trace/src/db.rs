@@ -1,5 +1,3 @@
-
-
 use husky_text::db::TextDb;
 use husky_token_info::TokenInfoDb;
 
@@ -51,8 +49,8 @@ pub struct TraceJar(
     crate::trace::eager_stmt::EagerStmtTrace,
     crate::trace::eager_stmt::eager_stmt_trace_subtraces,
     crate::trace::eager_stmt::eager_stmt_trace_view_lines,
-    crate::trace::loop_group::LoopGroupTracePath,
-    crate::trace::loop_group::LoopGroupTrace,
+    crate::trace::eager_loop_group::EagerLoopGroupTracePath,
+    crate::trace::eager_loop_group::EagerLoopGroupTrace,
     // helpers
     crate::trace::root_traces,
 );

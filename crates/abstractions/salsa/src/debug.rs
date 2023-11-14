@@ -124,6 +124,7 @@ impl DebugFormatLevel {
     }
 }
 
+#[allow(dead_code)]
 enum BoxRef<'me, T: ?Sized> {
     Box(Box<T>),
     Ref(&'me T),

@@ -7,7 +7,7 @@ Some(
                     end: 1,
                 },
                 range: [1:1, 1:2),
-                variant: Special(
+                data: Special(
                     LeftBox,
                 ),
             },
@@ -17,7 +17,7 @@ Some(
                     end: 8,
                 },
                 range: [1:2, 1:9),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 49,
@@ -31,7 +31,7 @@ Some(
                     end: 9,
                 },
                 range: [1:9, 1:10),
-                variant: Special(
+                data: Special(
                     RightBox,
                 ),
             },
@@ -41,7 +41,7 @@ Some(
                     end: 14,
                 },
                 range: [2:1, 2:5),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 50,
@@ -55,7 +55,7 @@ Some(
                     end: 16,
                 },
                 range: [2:6, 2:7),
-                variant: Special(
+                data: Special(
                     Equals,
                 ),
             },
@@ -65,7 +65,7 @@ Some(
                     end: 22,
                 },
                 range: [2:8, 2:13),
-                variant: StringLiteral {
+                data: StringLiteral {
                     val: "std",
                     multiline: false,
                 },
@@ -76,7 +76,7 @@ Some(
                     end: 30,
                 },
                 range: [3:1, 3:8),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 51,
@@ -90,7 +90,7 @@ Some(
                     end: 32,
                 },
                 range: [3:9, 3:10),
-                variant: Special(
+                data: Special(
                     Equals,
                 ),
             },
@@ -100,7 +100,7 @@ Some(
                     end: 40,
                 },
                 range: [3:11, 3:18),
-                variant: StringLiteral {
+                data: StringLiteral {
                     val: "0.0.0",
                     multiline: false,
                 },
@@ -111,7 +111,7 @@ Some(
                     end: 48,
                 },
                 range: [4:1, 4:8),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 52,
@@ -125,7 +125,7 @@ Some(
                     end: 50,
                 },
                 range: [4:9, 4:10),
-                variant: Special(
+                data: Special(
                     Equals,
                 ),
             },
@@ -135,7 +135,7 @@ Some(
                     end: 70,
                 },
                 range: [4:11, 4:30),
-                variant: StringLiteral {
+                data: StringLiteral {
                     val: "MIT OR Apache-2.0",
                     multiline: false,
                 },
@@ -146,7 +146,7 @@ Some(
                     end: 81,
                 },
                 range: [5:1, 5:11),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 53,
@@ -160,7 +160,7 @@ Some(
                     end: 83,
                 },
                 range: [5:12, 5:13),
-                variant: Special(
+                data: Special(
                     Equals,
                 ),
             },
@@ -170,7 +170,7 @@ Some(
                     end: 134,
                 },
                 range: [5:14, 5:64),
-                variant: StringLiteral {
+                data: StringLiteral {
                     val: "https://github.com/xiyuzhai-husky-lang/husky.git",
                     multiline: false,
                 },
@@ -181,7 +181,7 @@ Some(
                     end: 146,
                 },
                 range: [6:1, 6:12),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 54,
@@ -195,7 +195,7 @@ Some(
                     end: 148,
                 },
                 range: [6:13, 6:14),
-                variant: Special(
+                data: Special(
                     Equals,
                 ),
             },
@@ -205,7 +205,7 @@ Some(
                     end: 177,
                 },
                 range: [6:15, 6:43),
-                variant: StringLiteral {
+                data: StringLiteral {
                     val: "The Husky Standard Library",
                     multiline: false,
                 },
@@ -216,7 +216,7 @@ Some(
                     end: 187,
                 },
                 range: [7:1, 7:10),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 55,
@@ -230,7 +230,7 @@ Some(
                     end: 189,
                 },
                 range: [7:11, 7:12),
-                variant: Special(
+                data: Special(
                     Equals,
                 ),
             },
@@ -240,7 +240,7 @@ Some(
                     end: 195,
                 },
                 range: [7:13, 7:18),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 56,
@@ -254,7 +254,7 @@ Some(
                     end: 207,
                 },
                 range: [8:1, 8:12),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 57,
@@ -268,7 +268,7 @@ Some(
                     end: 209,
                 },
                 range: [8:13, 8:14),
-                variant: Special(
+                data: Special(
                     Equals,
                 ),
             },
@@ -278,7 +278,7 @@ Some(
                     end: 215,
                 },
                 range: [8:15, 8:20),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 56,
@@ -292,7 +292,7 @@ Some(
                     end: 290,
                 },
                 range: [9:1, 9:75),
-                variant: Comment,
+                data: Comment,
             },
             TomlToken {
                 span: DocumentSpan {
@@ -300,7 +300,7 @@ Some(
                     end: 367,
                 },
                 range: [10:1, 10:77),
-                variant: Comment,
+                data: Comment,
             },
             TomlToken {
                 span: DocumentSpan {
@@ -308,7 +308,7 @@ Some(
                     end: 375,
                 },
                 range: [11:1, 11:8),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 58,
@@ -322,7 +322,7 @@ Some(
                     end: 377,
                 },
                 range: [11:9, 11:10),
-                variant: Special(
+                data: Special(
                     Equals,
                 ),
             },
@@ -332,7 +332,7 @@ Some(
                     end: 384,
                 },
                 range: [11:11, 11:17),
-                variant: StringLiteral {
+                data: StringLiteral {
                     val: "2021",
                     multiline: false,
                 },
@@ -343,7 +343,7 @@ Some(
                     end: 387,
                 },
                 range: [13:1, 13:2),
-                variant: Special(
+                data: Special(
                     LeftBox,
                 ),
             },
@@ -353,7 +353,7 @@ Some(
                     end: 390,
                 },
                 range: [13:2, 13:5),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 59,
@@ -367,7 +367,7 @@ Some(
                     end: 391,
                 },
                 range: [13:5, 13:6),
-                variant: Special(
+                data: Special(
                     RightBox,
                 ),
             },
@@ -377,7 +377,7 @@ Some(
                     end: 396,
                 },
                 range: [14:1, 14:5),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 60,
@@ -391,7 +391,7 @@ Some(
                     end: 398,
                 },
                 range: [14:6, 14:7),
-                variant: Special(
+                data: Special(
                     Equals,
                 ),
             },
@@ -401,7 +401,7 @@ Some(
                     end: 404,
                 },
                 range: [14:8, 14:13),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 56,
@@ -415,7 +415,7 @@ Some(
                     end: 410,
                 },
                 range: [15:1, 15:6),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 61,
@@ -429,7 +429,7 @@ Some(
                     end: 412,
                 },
                 range: [15:7, 15:8),
-                variant: Special(
+                data: Special(
                     Equals,
                 ),
             },
@@ -439,7 +439,7 @@ Some(
                     end: 418,
                 },
                 range: [15:9, 15:14),
-                variant: Word(
+                data: Word(
                     Coword(
                         Id {
                             value: 56,
