@@ -260,6 +260,12 @@ Ok(
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            2,
+                                        ),
+                                    ],
                                 },
                             },
                         },
@@ -481,6 +487,12 @@ Ok(
                                                     ],
                                                     has_self_lifetime: false,
                                                     has_self_place: false,
+                                                    syn_pattern_to_current_syn_symbol_map: [
+                                                        (
+                                                            1,
+                                                            2,
+                                                        ),
+                                                    ],
                                                 },
                                             },
                                         ),
@@ -839,6 +851,12 @@ Ok(
                                         ],
                                         has_self_lifetime: false,
                                         has_self_place: false,
+                                        syn_pattern_to_current_syn_symbol_map: [
+                                            (
+                                                1,
+                                                1,
+                                            ),
+                                        ],
                                     },
                                 },
                             ),
@@ -1285,6 +1303,20 @@ Ok(
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            2,
+                                        ),
+                                        (
+                                            2,
+                                            3,
+                                        ),
+                                        (
+                                            3,
+                                            4,
+                                        ),
+                                    ],
                                 },
                             },
                         },
@@ -1656,6 +1688,20 @@ Ok(
                                                     ],
                                                     has_self_lifetime: false,
                                                     has_self_place: false,
+                                                    syn_pattern_to_current_syn_symbol_map: [
+                                                        (
+                                                            1,
+                                                            2,
+                                                        ),
+                                                        (
+                                                            2,
+                                                            3,
+                                                        ),
+                                                        (
+                                                            3,
+                                                            4,
+                                                        ),
+                                                    ],
                                                 },
                                             },
                                         ),
@@ -2218,6 +2264,12 @@ Ok(
                                         ],
                                         has_self_lifetime: false,
                                         has_self_place: false,
+                                        syn_pattern_to_current_syn_symbol_map: [
+                                            (
+                                                1,
+                                                1,
+                                            ),
+                                        ],
                                     },
                                 },
                             ),
@@ -2697,6 +2749,20 @@ Ok(
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            2,
+                                        ),
+                                        (
+                                            2,
+                                            3,
+                                        ),
+                                        (
+                                            3,
+                                            4,
+                                        ),
+                                    ],
                                 },
                             },
                         },
@@ -3097,6 +3163,20 @@ Ok(
                                                     ],
                                                     has_self_lifetime: false,
                                                     has_self_place: false,
+                                                    syn_pattern_to_current_syn_symbol_map: [
+                                                        (
+                                                            1,
+                                                            2,
+                                                        ),
+                                                        (
+                                                            2,
+                                                            3,
+                                                        ),
+                                                        (
+                                                            3,
+                                                            4,
+                                                        ),
+                                                    ],
                                                 },
                                             },
                                         ),
@@ -4408,6 +4488,20 @@ Ok(
                                         ],
                                         has_self_lifetime: false,
                                         has_self_place: false,
+                                        syn_pattern_to_current_syn_symbol_map: [
+                                            (
+                                                1,
+                                                1,
+                                            ),
+                                            (
+                                                2,
+                                                2,
+                                            ),
+                                            (
+                                                3,
+                                                3,
+                                            ),
+                                        ],
                                     },
                                 },
                             ),
@@ -4480,6 +4574,7 @@ Ok(
                                     syn_expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         },
@@ -4543,6 +4638,7 @@ Ok(
                                                     syn_expr_roots: [],
                                                     has_self_lifetime: false,
                                                     has_self_place: false,
+                                                    syn_pattern_to_current_syn_symbol_map: [],
                                                 },
                                             },
                                         ),
@@ -4954,6 +5050,12 @@ Ok(
                                         ],
                                         has_self_lifetime: false,
                                         has_self_place: false,
+                                        syn_pattern_to_current_syn_symbol_map: [
+                                            (
+                                                1,
+                                                1,
+                                            ),
+                                        ],
                                     },
                                 },
                             ),
@@ -5026,6 +5128,7 @@ Ok(
                                     syn_expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         },
@@ -5089,6 +5192,7 @@ Ok(
                                                     syn_expr_roots: [],
                                                     has_self_lifetime: false,
                                                     has_self_place: false,
+                                                    syn_pattern_to_current_syn_symbol_map: [],
                                                 },
                                             },
                                         ),
@@ -5358,6 +5462,12 @@ Ok(
                                         ],
                                         has_self_lifetime: false,
                                         has_self_place: false,
+                                        syn_pattern_to_current_syn_symbol_map: [
+                                            (
+                                                1,
+                                                1,
+                                            ),
+                                        ],
                                     },
                                 },
                             ),

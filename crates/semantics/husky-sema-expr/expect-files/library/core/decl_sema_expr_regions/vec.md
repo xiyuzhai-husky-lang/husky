@@ -104,6 +104,7 @@
                 syn_expr_roots: [],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
         },
         data: SemaExprRegionData {
@@ -367,6 +368,7 @@
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
         },
         data: SemaExprRegionData {
@@ -968,6 +970,7 @@
                             ],
                             has_self_lifetime: false,
                             has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
                         },
                     },
                 ),
@@ -1074,6 +1077,7 @@
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
         },
         data: SemaExprRegionData {
@@ -1449,6 +1453,7 @@
                             ],
                             has_self_lifetime: false,
                             has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
                         },
                     },
                 ),
@@ -1595,6 +1600,12 @@
                 ],
                 has_self_lifetime: true,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [
+                    (
+                        1,
+                        1,
+                    ),
+                ],
             },
         },
         data: SemaExprRegionData {
@@ -2002,6 +2013,7 @@
                             ],
                             has_self_lifetime: false,
                             has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
                         },
                     },
                 ),
@@ -2134,6 +2146,7 @@
                 ],
                 has_self_lifetime: false,
                 has_self_place: true,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
         },
         data: SemaExprRegionData {
@@ -2929,6 +2942,7 @@
                             ],
                             has_self_lifetime: false,
                             has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
                         },
                     },
                 ),
@@ -3061,6 +3075,7 @@
                 ],
                 has_self_lifetime: false,
                 has_self_place: true,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
         },
         data: SemaExprRegionData {
@@ -3856,6 +3871,7 @@
                             ],
                             has_self_lifetime: false,
                             has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
                         },
                     },
                 ),
@@ -3978,6 +3994,7 @@
                 ],
                 has_self_lifetime: true,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
         },
         data: SemaExprRegionData {
@@ -4572,6 +4589,7 @@
                             ],
                             has_self_lifetime: false,
                             has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
                         },
                     },
                 ),
@@ -4684,6 +4702,7 @@
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
         },
         data: SemaExprRegionData {
@@ -5357,6 +5376,7 @@
                             ],
                             has_self_lifetime: false,
                             has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
                         },
                     },
                 ),
@@ -5644,6 +5664,16 @@
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [
+                    (
+                        1,
+                        1,
+                    ),
+                    (
+                        2,
+                        2,
+                    ),
+                ],
             },
         },
         data: SemaExprRegionData {
@@ -6564,6 +6594,7 @@
                             ],
                             has_self_lifetime: false,
                             has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
                         },
                     },
                 ),
@@ -6796,6 +6827,12 @@
                 ],
                 has_self_lifetime: true,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [
+                    (
+                        1,
+                        1,
+                    ),
+                ],
             },
         },
         data: SemaExprRegionData {

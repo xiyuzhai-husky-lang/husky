@@ -325,6 +325,7 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [],
                             },
                         },
                     },
@@ -406,6 +407,7 @@
                                 syn_expr_roots: [],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [],
                             },
                         },
                     },
@@ -755,6 +757,16 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [
+                                    (
+                                        1,
+                                        1,
+                                    ),
+                                    (
+                                        2,
+                                        2,
+                                    ),
+                                ],
                             },
                         },
                     },
@@ -1008,6 +1020,16 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [
+                                                    (
+                                                        1,
+                                                        1,
+                                                    ),
+                                                    (
+                                                        2,
+                                                        2,
+                                                    ),
+                                                ],
                                             },
                                         },
                                     ),
@@ -1191,6 +1213,7 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         ),
@@ -1541,6 +1564,16 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [
+                                    (
+                                        1,
+                                        1,
+                                    ),
+                                    (
+                                        2,
+                                        2,
+                                    ),
+                                ],
                             },
                         },
                     },
@@ -1794,6 +1827,16 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [
+                                                    (
+                                                        1,
+                                                        1,
+                                                    ),
+                                                    (
+                                                        2,
+                                                        2,
+                                                    ),
+                                                ],
                                             },
                                         },
                                     ),
@@ -1948,6 +1991,7 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         ),
@@ -2298,6 +2342,16 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [
+                                    (
+                                        1,
+                                        1,
+                                    ),
+                                    (
+                                        2,
+                                        2,
+                                    ),
+                                ],
                             },
                         },
                     },
@@ -2551,6 +2605,16 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [
+                                                    (
+                                                        1,
+                                                        1,
+                                                    ),
+                                                    (
+                                                        2,
+                                                        2,
+                                                    ),
+                                                ],
                                             },
                                         },
                                     ),
@@ -2734,6 +2798,7 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         ),
@@ -3183,6 +3248,20 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [
+                                    (
+                                        1,
+                                        1,
+                                    ),
+                                    (
+                                        2,
+                                        2,
+                                    ),
+                                    (
+                                        3,
+                                        3,
+                                    ),
+                                ],
                             },
                         },
                     },
@@ -3511,6 +3590,20 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [
+                                                    (
+                                                        1,
+                                                        1,
+                                                    ),
+                                                    (
+                                                        2,
+                                                        2,
+                                                    ),
+                                                    (
+                                                        3,
+                                                        3,
+                                                    ),
+                                                ],
                                             },
                                         },
                                     ),
@@ -5432,6 +5525,32 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                        (
+                                            2,
+                                            2,
+                                        ),
+                                        (
+                                            3,
+                                            3,
+                                        ),
+                                        (
+                                            4,
+                                            4,
+                                        ),
+                                        (
+                                            5,
+                                            5,
+                                        ),
+                                        (
+                                            6,
+                                            6,
+                                        ),
+                                    ],
                                 },
                             },
                         ),
@@ -5782,6 +5901,16 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [
+                                    (
+                                        1,
+                                        1,
+                                    ),
+                                    (
+                                        2,
+                                        2,
+                                    ),
+                                ],
                             },
                         },
                     },
@@ -6035,6 +6164,16 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [
+                                                    (
+                                                        1,
+                                                        1,
+                                                    ),
+                                                    (
+                                                        2,
+                                                        2,
+                                                    ),
+                                                ],
                                             },
                                         },
                                     ),
@@ -6740,6 +6879,16 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                        (
+                                            2,
+                                            2,
+                                        ),
+                                    ],
                                 },
                             },
                         ),
@@ -7283,6 +7432,24 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [
+                                    (
+                                        1,
+                                        1,
+                                    ),
+                                    (
+                                        2,
+                                        2,
+                                    ),
+                                    (
+                                        3,
+                                        3,
+                                    ),
+                                    (
+                                        4,
+                                        4,
+                                    ),
+                                ],
                             },
                         },
                     },
@@ -7686,6 +7853,24 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [
+                                                    (
+                                                        1,
+                                                        1,
+                                                    ),
+                                                    (
+                                                        2,
+                                                        2,
+                                                    ),
+                                                    (
+                                                        3,
+                                                        3,
+                                                    ),
+                                                    (
+                                                        4,
+                                                        4,
+                                                    ),
+                                                ],
                                             },
                                         },
                                     ),
@@ -10677,6 +10862,44 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                        (
+                                            2,
+                                            2,
+                                        ),
+                                        (
+                                            3,
+                                            3,
+                                        ),
+                                        (
+                                            4,
+                                            4,
+                                        ),
+                                        (
+                                            5,
+                                            5,
+                                        ),
+                                        (
+                                            6,
+                                            6,
+                                        ),
+                                        (
+                                            7,
+                                            7,
+                                        ),
+                                        (
+                                            8,
+                                            8,
+                                        ),
+                                        (
+                                            9,
+                                            9,
+                                        ),
+                                    ],
                                 },
                             },
                         ),
@@ -10991,6 +11214,7 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [],
                             },
                         },
                     },
@@ -11258,6 +11482,12 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [
+                                    (
+                                        1,
+                                        1,
+                                    ),
+                                ],
                             },
                         },
                     },
@@ -11449,6 +11679,12 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [
+                                                    (
+                                                        1,
+                                                        1,
+                                                    ),
+                                                ],
                                             },
                                         },
                                     ),
@@ -12132,6 +12368,20 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                        (
+                                            2,
+                                            2,
+                                        ),
+                                        (
+                                            3,
+                                            3,
+                                        ),
+                                    ],
                                 },
                             },
                         ),
@@ -12407,6 +12657,12 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [
+                                    (
+                                        1,
+                                        1,
+                                    ),
+                                ],
                             },
                         },
                     },
@@ -12605,6 +12861,12 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [
+                                                    (
+                                                        1,
+                                                        1,
+                                                    ),
+                                                ],
                                             },
                                         },
                                     ),
@@ -19188,6 +19450,100 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                        (
+                                            2,
+                                            2,
+                                        ),
+                                        (
+                                            3,
+                                            4,
+                                        ),
+                                        (
+                                            4,
+                                            5,
+                                        ),
+                                        (
+                                            5,
+                                            6,
+                                        ),
+                                        (
+                                            6,
+                                            7,
+                                        ),
+                                        (
+                                            7,
+                                            9,
+                                        ),
+                                        (
+                                            8,
+                                            10,
+                                        ),
+                                        (
+                                            9,
+                                            11,
+                                        ),
+                                        (
+                                            10,
+                                            12,
+                                        ),
+                                        (
+                                            11,
+                                            13,
+                                        ),
+                                        (
+                                            12,
+                                            14,
+                                        ),
+                                        (
+                                            13,
+                                            15,
+                                        ),
+                                        (
+                                            14,
+                                            16,
+                                        ),
+                                        (
+                                            15,
+                                            17,
+                                        ),
+                                        (
+                                            16,
+                                            18,
+                                        ),
+                                        (
+                                            17,
+                                            19,
+                                        ),
+                                        (
+                                            18,
+                                            20,
+                                        ),
+                                        (
+                                            19,
+                                            21,
+                                        ),
+                                        (
+                                            20,
+                                            22,
+                                        ),
+                                        (
+                                            21,
+                                            23,
+                                        ),
+                                        (
+                                            22,
+                                            24,
+                                        ),
+                                        (
+                                            23,
+                                            25,
+                                        ),
+                                    ],
                                 },
                             },
                         ),
@@ -19358,6 +19714,7 @@
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
+                        syn_pattern_to_current_syn_symbol_map: [],
                     },
                 },
             },
@@ -19570,6 +19927,7 @@
                                             ],
                                             has_self_lifetime: false,
                                             has_self_place: false,
+                                            syn_pattern_to_current_syn_symbol_map: [],
                                         },
                                     },
                                 ),
@@ -19667,6 +20025,7 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [],
                             },
                         },
                     },
@@ -19798,6 +20157,7 @@
                                                             ],
                                                             has_self_lifetime: false,
                                                             has_self_place: false,
+                                                            syn_pattern_to_current_syn_symbol_map: [],
                                                         },
                                                     },
                                                 ),
@@ -19895,6 +20255,7 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [],
                                             },
                                         },
                                     ),
@@ -20051,6 +20412,7 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         ),
@@ -20176,6 +20538,7 @@
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
+                        syn_pattern_to_current_syn_symbol_map: [],
                     },
                 },
             },
@@ -20328,6 +20691,7 @@
                                             ],
                                             has_self_lifetime: false,
                                             has_self_place: false,
+                                            syn_pattern_to_current_syn_symbol_map: [],
                                         },
                                     },
                                 ),
@@ -20422,6 +20786,7 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [],
                             },
                         },
                     },
@@ -20521,6 +20886,7 @@
                                                             ],
                                                             has_self_lifetime: false,
                                                             has_self_place: false,
+                                                            syn_pattern_to_current_syn_symbol_map: [],
                                                         },
                                                     },
                                                 ),
@@ -20615,6 +20981,7 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [],
                                             },
                                         },
                                     ),
@@ -20775,6 +21142,7 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         ),
@@ -20930,6 +21298,7 @@
                                             ],
                                             has_self_lifetime: false,
                                             has_self_place: false,
+                                            syn_pattern_to_current_syn_symbol_map: [],
                                         },
                                     },
                                 ),
@@ -21024,6 +21393,7 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [],
                             },
                         },
                     },
@@ -21123,6 +21493,7 @@
                                                             ],
                                                             has_self_lifetime: false,
                                                             has_self_place: false,
+                                                            syn_pattern_to_current_syn_symbol_map: [],
                                                         },
                                                     },
                                                 ),
@@ -21217,6 +21588,7 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [],
                                             },
                                         },
                                     ),
@@ -22615,6 +22987,32 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                        (
+                                            2,
+                                            2,
+                                        ),
+                                        (
+                                            3,
+                                            3,
+                                        ),
+                                        (
+                                            4,
+                                            4,
+                                        ),
+                                        (
+                                            5,
+                                            5,
+                                        ),
+                                        (
+                                            6,
+                                            7,
+                                        ),
+                                    ],
                                 },
                             },
                         ),
@@ -22770,6 +23168,7 @@
                                             ],
                                             has_self_lifetime: false,
                                             has_self_place: false,
+                                            syn_pattern_to_current_syn_symbol_map: [],
                                         },
                                     },
                                 ),
@@ -22864,6 +23263,7 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [],
                             },
                         },
                     },
@@ -22963,6 +23363,7 @@
                                                             ],
                                                             has_self_lifetime: false,
                                                             has_self_place: false,
+                                                            syn_pattern_to_current_syn_symbol_map: [],
                                                         },
                                                     },
                                                 ),
@@ -23057,6 +23458,7 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [],
                                             },
                                         },
                                     ),
@@ -23249,6 +23651,7 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         ),
@@ -23404,6 +23807,7 @@
                                             ],
                                             has_self_lifetime: false,
                                             has_self_place: false,
+                                            syn_pattern_to_current_syn_symbol_map: [],
                                         },
                                     },
                                 ),
@@ -23498,6 +23902,7 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [],
                             },
                         },
                     },
@@ -23597,6 +24002,7 @@
                                                             ],
                                                             has_self_lifetime: false,
                                                             has_self_place: false,
+                                                            syn_pattern_to_current_syn_symbol_map: [],
                                                         },
                                                     },
                                                 ),
@@ -23691,6 +24097,7 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [],
                                             },
                                         },
                                     ),
@@ -24980,6 +25387,28 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                        (
+                                            2,
+                                            3,
+                                        ),
+                                        (
+                                            3,
+                                            4,
+                                        ),
+                                        (
+                                            4,
+                                            5,
+                                        ),
+                                        (
+                                            5,
+                                            6,
+                                        ),
+                                    ],
                                 },
                             },
                         ),
@@ -25192,6 +25621,7 @@
                                             ],
                                             has_self_lifetime: false,
                                             has_self_place: false,
+                                            syn_pattern_to_current_syn_symbol_map: [],
                                         },
                                     },
                                 ),
@@ -25444,6 +25874,16 @@
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
+                                syn_pattern_to_current_syn_symbol_map: [
+                                    (
+                                        1,
+                                        1,
+                                    ),
+                                    (
+                                        2,
+                                        2,
+                                    ),
+                                ],
                             },
                         },
                     },
@@ -25543,6 +25983,7 @@
                                                             ],
                                                             has_self_lifetime: false,
                                                             has_self_place: false,
+                                                            syn_pattern_to_current_syn_symbol_map: [],
                                                         },
                                                     },
                                                 ),
@@ -25795,6 +26236,16 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
+                                                syn_pattern_to_current_syn_symbol_map: [
+                                                    (
+                                                        1,
+                                                        1,
+                                                    ),
+                                                    (
+                                                        2,
+                                                        2,
+                                                    ),
+                                                ],
                                             },
                                         },
                                     ),
@@ -26333,6 +26784,20 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                        (
+                                            2,
+                                            2,
+                                        ),
+                                        (
+                                            3,
+                                            3,
+                                        ),
+                                    ],
                                 },
                             },
                         ),

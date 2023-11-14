@@ -52,7 +52,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
         if let Some(syn_pattern_root) = ctx.try_parse_option::<ParenateSynPatternExprRoot>()? {
             let symbols = ctx
                 .pattern_expr_region()
-                .pattern_expr_symbols(syn_pattern_root);
+                .pattern_expr_symbols(syn_pattern_root.syn_pattern_expr_idx());
             let access_start = ctx.save_state().next_regional_token_idx();
             let variables = symbols
                 .iter()
