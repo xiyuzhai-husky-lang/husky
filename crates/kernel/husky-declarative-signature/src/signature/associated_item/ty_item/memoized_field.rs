@@ -2,6 +2,7 @@ use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeMemoizedFieldDeclarativeSignatureTemplate {
+    pub path: TypeItemPath,
     pub impl_block: TypeImplBlockDeclarativeSignatureTemplate,
     pub return_ty: DeclarativeTerm,
 }
@@ -9,6 +10,7 @@ pub struct TypeMemoizedFieldDeclarativeSignatureTemplate {
 impl TypeMemoizedFieldDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
+        path: TypeItemPath,
         decl: TypeMemoizedFieldSynDecl,
     ) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignatureTemplate> {
         let impl_block_syn_declarative_signature_template = decl
@@ -25,6 +27,7 @@ impl TypeMemoizedFieldDeclarativeSignatureTemplate {
         };
         Ok(TypeMemoizedFieldDeclarativeSignatureTemplate::new(
             db,
+            path,
             impl_block_syn_declarative_signature_template,
             return_ty,
         ))

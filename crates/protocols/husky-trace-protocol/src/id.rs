@@ -2,7 +2,6 @@ use std::num::NonZeroU32;
 
 use crate::*;
 
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct TraceId {
     kind: TraceKind,
@@ -28,11 +27,15 @@ pub enum TraceKind {
     Submodule,
     ValItem,
     LazyCall,
+    LazyCallInput,
     LazyExpr,
+    LazyPatternExpr,
     LazyStmt,
     EagerCall,
     EagerExpr,
+    EagerPatternExpr,
     EagerStmt,
+    EagerCallInput,
 }
 
 // #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]

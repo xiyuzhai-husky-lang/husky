@@ -60,7 +60,7 @@ pub(crate) fn ty_item_ethereal_signature_template(
             TypeAssociatedFnEtherealSignatureTemplate::from_declarative(db, path, template)?.into()
         }
         TypeItemDeclarativeSignatureTemplate::MethodFn(template) => {
-            TypeMethodFnEtherealSignatureTemplate::from_declarative(db, template)?.into()
+            TypeMethodFnEtherealSignatureTemplate::from_declarative(db, path, template)?.into()
         }
         TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
         TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),

@@ -2,6 +2,7 @@ use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TypeMethodFnEtherealSignatureTemplate {
+    pub path: TypeItemPath,
     pub self_ty: EtherealTerm,
     #[return_ref]
     pub template_parameters: EtherealTermTemplateParameters,
@@ -14,6 +15,7 @@ pub struct TypeMethodFnEtherealSignatureTemplate {
 impl TypeMethodFnEtherealSignatureTemplate {
     pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
+        path: TypeItemPath,
         tmpl: TypeMethodFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         let self_ty = EtherealTerm::ty_from_declarative(db, tmpl.self_ty(db))?;
@@ -26,6 +28,7 @@ impl TypeMethodFnEtherealSignatureTemplate {
         let return_ty = EtherealTerm::ty_from_declarative(db, tmpl.return_ty(db))?;
         Ok(Self::new(
             db,
+            path,
             self_ty,
             template_parameters,
             self_value_parameter,

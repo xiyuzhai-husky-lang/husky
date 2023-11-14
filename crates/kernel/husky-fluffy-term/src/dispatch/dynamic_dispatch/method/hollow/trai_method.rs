@@ -8,7 +8,7 @@ impl HasFluffyTraitMethodDispatch for HollowTerm {
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
         indirections: FluffyTermDynamicDispatchIndirections,
-    ) -> FluffyTermMaybeResult<FluffyTermMethodDynamicDispatch> {
+    ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
         todo!()
     }
 }

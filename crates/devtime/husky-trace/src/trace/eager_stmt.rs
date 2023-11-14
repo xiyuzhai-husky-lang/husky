@@ -1,6 +1,7 @@
 use husky_entity_path::PrincipalEntityPath;
 use husky_hir_eager_expr::{
-    builder::hir_eager_expr_region_with_source_map, HirEagerExprRegion, HirEagerStmtIdx,
+    builder::hir_eager_expr_region_with_source_map, helpers::hir_eager_expr_source_map_from_sema,
+    HirEagerExprRegion, HirEagerExprSourceMapData, HirEagerStmtIdx,
 };
 use husky_regional_token::{
     ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, EolRegionalToken, IfRegionalToken,
@@ -468,7 +469,7 @@ fn eager_stmt_trace_view_lines(db: &dyn TraceDb, trace: EagerStmtTrace) -> Trace
     };
     let token_idx_range =
         regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
-    let registry = EagerStmtAssociatedTraceRegistry::new(trace, sema_expr_region);
+    let registry = EagerStmtAssociatedTraceRegistry::new(trace, sema_expr_region, db);
     TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
 }
 
@@ -486,27 +487,41 @@ fn eager_stmt_trace_subtraces(db: &dyn TraceDb, trace: EagerStmtTrace) -> Vec<Tr
     }
 }
 
-struct EagerStmtAssociatedTraceRegistry {
+struct EagerStmtAssociatedTraceRegistry<'a> {
     parent_trace: EagerStmtTrace,
     sema_expr_region: SemaExprRegion,
+    hir_eager_expr_region: HirEagerExprRegion,
+    syn_expr_region_data: &'a SynExprRegionData,
+    hir_eager_expr_source_map_data: &'a HirEagerExprSourceMapData,
     eager_expr_trace_path_registry: TracePathRegistry<EagerExprTracePathData>,
-    sema_expr_traces_issued: VecPairMap<SemaExprIdx, EagerExprTrace>,
-    syn_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, EagerExprTrace>,
+    eager_expr_traces_issued: VecPairMap<SemaExprIdx, EagerExprTrace>,
+    eager_pattern_expr_trace_path_registry: TracePathRegistry<EagerPatternExprTracePathData>,
+    eager_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, EagerPatternExprTrace>,
 }
 
-impl EagerStmtAssociatedTraceRegistry {
-    fn new(parent_trace: EagerStmtTrace, sema_expr_region: SemaExprRegion) -> Self {
+impl<'a> EagerStmtAssociatedTraceRegistry<'a> {
+    fn new(
+        parent_trace: EagerStmtTrace,
+        sema_expr_region: SemaExprRegion,
+        db: &'a dyn TraceDb,
+    ) -> Self {
+        let (hir_eager_expr_region, hir_eager_expr_source_map) =
+            hir_eager_expr_region_with_source_map(db, sema_expr_region);
         EagerStmtAssociatedTraceRegistry {
             parent_trace,
             sema_expr_region,
+            syn_expr_region_data: sema_expr_region.syn_expr_region(db).data(db),
+            hir_eager_expr_region,
+            hir_eager_expr_source_map_data: hir_eager_expr_source_map.data(db),
             eager_expr_trace_path_registry: Default::default(),
-            sema_expr_traces_issued: Default::default(),
-            syn_pattern_expr_traces_issued: Default::default(),
+            eager_expr_traces_issued: Default::default(),
+            eager_pattern_expr_trace_path_registry: Default::default(),
+            eager_pattern_expr_traces_issued: Default::default(),
         }
     }
 }
 
-impl IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry {
+impl<'a> IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry<'a> {
     fn get_or_issue_associated_trace(
         &mut self,
         source: TokenInfoSource,
@@ -515,13 +530,18 @@ impl IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry {
         match source {
             TokenInfoSource::UseExpr(_) => None,
             TokenInfoSource::SemaExpr(sema_expr_idx) => Some(
-                self.sema_expr_traces_issued
+                self.eager_expr_traces_issued
                     .get_value_copied_or_insert_with(sema_expr_idx, || {
+                        let hir_eager_expr_idx = self
+                            .hir_eager_expr_source_map_data
+                            .sema_to_hir_eager_expr_idx(sema_expr_idx);
                         EagerExprTrace::new(
                             self.parent_trace.path(db),
                             self.parent_trace,
                             sema_expr_idx,
+                            hir_eager_expr_idx,
                             self.sema_expr_region,
+                            self.hir_eager_expr_region,
                             &mut self.eager_expr_trace_path_registry,
                             db,
                         )
@@ -539,14 +559,24 @@ impl IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry {
                 PrincipalEntityPath::TypeVariant(_) => None,
             },
             TokenInfoSource::PatternExpr(syn_pattern_expr_idx) => Some(
-                self.syn_pattern_expr_traces_issued
+                self.eager_pattern_expr_traces_issued
                     .get_value_copied_or_insert_with(syn_pattern_expr_idx, || {
-                        EagerExprTrace::new(
+                        EagerPatternExprTrace::new(
                             self.parent_trace.path(db),
                             self.parent_trace,
                             syn_pattern_expr_idx,
+                            self.syn_expr_region_data
+                                .syn_pattern_expr_current_syn_symbols_mapped(
+                                    syn_pattern_expr_idx,
+                                    |current_syn_symbol_idx| {
+                                        self.hir_eager_expr_source_map_data
+                                            .current_syn_symbol_to_hir_eager_variable(
+                                                current_syn_symbol_idx,
+                                            )
+                                    },
+                                ),
                             self.sema_expr_region,
-                            &mut self.eager_expr_trace_path_registry,
+                            &mut self.eager_pattern_expr_trace_path_registry,
                             db,
                         )
                     })

@@ -6,15 +6,11 @@ pub use self::html::*;
 
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
-use husky_fluffy_term::StaticDispatch;
+use husky_fluffy_term::{MethodFluffySignature, StaticDispatch};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::HirConstSymbol;
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
-
-use husky_syn_expr::{
-    InheritedSynSymbolKind,
-};
-
+use husky_syn_expr::InheritedSynSymbolKind;
 use vec_like::VecMap;
 
 pub type HirEagerExprArena = Arena<HirEagerExprData>;
@@ -55,9 +51,10 @@ pub enum HirEagerExprData {
         owner_hir_expr_idx: HirEagerExprIdx,
         ident: Ident,
     },
-    MethodCall {
+    MethodFnCall {
         self_argument: HirEagerExprIdx,
         ident: Ident,
+        path: AssociatedItemPath,
         template_arguments: Option<HirEagerTemplateArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
@@ -232,17 +229,23 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::MethodFnCall {
                 self_argument_sema_expr_idx,
                 ident_token,
+                dispatch,
                 template_arguments,
-                
                 ritchie_parameter_argument_matches,
-                
                 ..
-            } => HirEagerExprData::MethodCall {
-                self_argument: self_argument_sema_expr_idx.to_hir_eager(builder),
-                ident: ident_token.ident(),
-                template_arguments: template_arguments.as_ref().map(|_| todo!()),
-                item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),
-            },
+            } => {
+                let MethodFluffySignature::MethodFn(signature) = dispatch.signature() else {
+                    unreachable!()
+                };
+                HirEagerExprData::MethodFnCall {
+                    self_argument: self_argument_sema_expr_idx.to_hir_eager(builder),
+                    ident: ident_token.ident(),
+                    path: signature.path(),
+                    template_arguments: template_arguments.as_ref().map(|_| todo!()),
+                    item_groups: builder
+                        .new_call_list_item_groups(ritchie_parameter_argument_matches),
+                }
+            }
             SemaExprData::MethodGnCall { .. } => {
                 todo!()
             }
@@ -317,9 +320,15 @@ impl ToHirEager for SemaExprIdx {
                     )
                 },
             },
-            SemaExprData::Sorry { regional_token_idx: _ } => todo!(),
-            SemaExprData::Todo { regional_token_idx: _ } => HirEagerExprData::Todo,
-            SemaExprData::Unreachable { regional_token_idx: _ } => todo!(),
+            SemaExprData::Sorry {
+                regional_token_idx: _,
+            } => todo!(),
+            SemaExprData::Todo {
+                regional_token_idx: _,
+            } => HirEagerExprData::Todo,
+            SemaExprData::Unreachable {
+                regional_token_idx: _,
+            } => todo!(),
             SemaExprData::VecFunctor {
                 lbox_regional_token_idx: _,
                 rbox_regional_token_idx: _,

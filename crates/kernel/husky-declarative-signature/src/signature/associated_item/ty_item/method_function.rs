@@ -2,6 +2,7 @@ use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
+    pub path: TypeItemPath,
     // todo: formal method, method that is not a function pointer
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
@@ -14,6 +15,7 @@ pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
 impl TypeMethodFunctionDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
+        path: TypeItemPath,
         decl: TypeMethodFnSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         // todo: overhaul
@@ -49,6 +51,7 @@ impl TypeMethodFunctionDeclarativeSignatureTemplate {
         };
         Ok(TypeMethodFunctionDeclarativeSignatureTemplate::new(
             db,
+            path,
             template_parameters,
             self_value_parameter,
             parenate_parameters,

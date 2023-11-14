@@ -1,9 +1,10 @@
 use crate::{
     db::{HirEagerExprDb, HirEagerExprJar},
-    HirEagerExprIdx, HirEagerPatternExprIdx, HirEagerStmtIdx, variable::HirEagerVariableIdx,
+    variable::HirEagerVariableIdx,
+    HirEagerExprIdx, HirEagerPatternExprIdx, HirEagerStmtIdx,
 };
 use husky_sema_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
-use husky_syn_expr::{SynPatternExprMap, SynPatternExprRoot, SynSymbolMap};
+use husky_syn_expr::{SynPatternExprMap, SynPatternExprRoot, SynSymbolMap, CurrentSynSymbolIdx};
 
 #[salsa::tracked(db = HirEagerExprDb, jar = HirEagerExprJar, constructor = new_inner)]
 pub struct HirEagerExprSourceMap {
@@ -62,6 +63,15 @@ impl HirEagerExprSourceMapData {
     ) -> Option<HirEagerStmtIdx> {
         self.sema_to_hir_eager_stmt_idx_map
             .get(sema_stmt_idx)
+            .copied()
+    }
+
+    pub fn current_syn_symbol_to_hir_eager_variable(
+        &self,
+        current_syn_symbol_idx: CurrentSynSymbolIdx,
+    ) -> Option<HirEagerVariableIdx> {
+        self.syn_symbol_to_hir_eager_variable_map
+            .get_current(current_syn_symbol_idx)
             .copied()
     }
 }

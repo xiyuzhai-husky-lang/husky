@@ -1,9 +1,8 @@
-use husky_syn_expr::SelfValueParameterSyndicate;
-
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeMethodFnDeclarativeSignatureTemplate {
+    pub path: TypeItemPath,
     pub impl_block: TypeImplBlockDeclarativeSignatureTemplate,
     /// the term for `Self`
     /// not necessarily equal to the type of `self` which might be wrapped in & or &mut etc.
@@ -22,6 +21,7 @@ pub struct TypeMethodFnDeclarativeSignatureTemplate {
 impl TypeMethodFnDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
+        path: TypeItemPath,
         decl: TypeMethodFnSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
@@ -57,6 +57,7 @@ impl TypeMethodFnDeclarativeSignatureTemplate {
         };
         Ok(TypeMethodFnDeclarativeSignatureTemplate::new(
             db,
+            path,
             impl_block,
             self_ty,
             template_parameters,

@@ -426,7 +426,7 @@ impl<K, V> VecPairMap<K, V> {
 impl<K, Entry> VecMap<Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    Entry: AsVecMapEntry<K = K> + std::fmt::Debug,
+    Entry: AsVecMapEntry<K = K>,
 {
     pub fn from_iter_assuming_no_repetitions<T: IntoIterator<Item = Entry>>(
         iter: T,

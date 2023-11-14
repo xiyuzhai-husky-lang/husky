@@ -2,6 +2,7 @@ use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeAssociatedFnDeclarativeSignatureTemplate {
+    pub path: TypeItemPath,
     /// the term for `Self`
     /// not necessarily equal to the type of `self`
     ///
@@ -17,6 +18,7 @@ pub struct TypeAssociatedFnDeclarativeSignatureTemplate {
 impl TypeAssociatedFnDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
+        path: TypeItemPath,
         decl: TypeAssociatedFnSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
@@ -46,6 +48,7 @@ impl TypeAssociatedFnDeclarativeSignatureTemplate {
         };
         Ok(TypeAssociatedFnDeclarativeSignatureTemplate::new(
             db,
+            path,
             self_ty,
             template_parameters,
             parenate_parameters,

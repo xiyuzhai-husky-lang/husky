@@ -104,7 +104,7 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
         | HirEagerExprData::Suffix { .. }
         | HirEagerExprData::FnCall { .. }
         | HirEagerExprData::Field { .. }
-        | HirEagerExprData::MethodCall { .. }
+        | HirEagerExprData::MethodFnCall { .. }
         | HirEagerExprData::Index { .. } => RustPrecedence::Suffix,
         HirEagerExprData::Block { .. } => RustPrecedence::None,
     }

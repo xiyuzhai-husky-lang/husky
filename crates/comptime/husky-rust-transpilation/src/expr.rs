@@ -7,14 +7,13 @@ pub(crate) use self::precedence::{RustPrecedence, RustPrecedenceRange};
 use self::precedence::hir_eager_expr_precedence;
 use crate::*;
 use husky_hir_eager_expr::{
-    HirEagerCallListItemGroup, HirEagerCondition,
-    HirEagerElifBranch, HirEagerElseBranch, HirEagerExprData, HirEagerExprIdx, HirEagerIfBranch,
-    HirEagerLetVariablesPattern, HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmt,
-    HirEagerStmtIdx, HirEagerStmtIdxRange,
+    HirEagerCallListItemGroup, HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch,
+    HirEagerExprData, HirEagerExprIdx, HirEagerIfBranch, HirEagerLetVariablesPattern,
+    HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmt, HirEagerStmtIdx,
+    HirEagerStmtIdxRange,
 };
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_opr::BinaryClosedOpr;
-
 
 impl TranspileToRust for (RustPrecedenceRange, HirEagerExprIdx) {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
@@ -105,9 +104,10 @@ fn transpile_hir_eager_expr_to_rust(
             builder.punctuation(RustPunctuation::Dot);
             ident.transpile_to_rust(builder)
         }
-        HirEagerExprData::MethodCall {
+        HirEagerExprData::MethodFnCall {
             self_argument,
             ident,
+            path,
             ref template_arguments,
             ref item_groups,
         } => {

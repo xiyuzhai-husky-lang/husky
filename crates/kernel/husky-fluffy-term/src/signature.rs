@@ -3,7 +3,7 @@ pub mod binary_opr;
 mod error;
 mod field;
 mod index;
-mod method;
+pub(crate) mod method;
 
 pub use self::associated_fn::*;
 pub use self::error::*;

@@ -79,19 +79,20 @@ pub(crate) fn ty_item_syn_declarative_signature_template(
     let decl = path.syn_decl(db)?;
     match decl {
         TypeItemSynDecl::AssociatedFn(decl) => {
-            TypeAssociatedFnDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            TypeAssociatedFnDeclarativeSignatureTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::MethodFn(decl) => {
-            TypeMethodFnDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            TypeMethodFnDeclarativeSignatureTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::AssociatedType(decl) => {
-            TypeAssociatedTypeDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            TypeAssociatedTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)
+                .map(Into::into)
         }
         TypeItemSynDecl::AssociatedVal(decl) => {
-            TypeAssociatedValDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            TypeAssociatedValDeclarativeSignatureTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::MemoizedField(decl) => {
-            TypeMemoizedFieldDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
+            TypeMemoizedFieldDeclarativeSignatureTemplate::from_decl(db, path, decl).map(Into::into)
         }
     }
 }
