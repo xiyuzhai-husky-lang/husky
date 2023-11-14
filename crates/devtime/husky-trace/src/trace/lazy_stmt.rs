@@ -222,7 +222,10 @@ fn lazy_stmt_trace_val_repr(db: &dyn TraceDb, trace: LazyStmtTrace) -> Option<Va
 }
 
 #[salsa::tracked(jar = TraceJar)]
-fn lazy_stmt_trace_val_repr_expansion(db: &dyn TraceDb, trace: LazyStmtTrace) -> ValReprExpansion {
+pub(crate) fn lazy_stmt_trace_val_repr_expansion(
+    db: &dyn TraceDb,
+    trace: LazyStmtTrace,
+) -> ValReprExpansion {
     match trace.biological_parent(db) {
         LazyStmtTraceBiologicalParent::ValItem(trace) => trace.val_repr(db).expansion(db).unwrap(),
         LazyStmtTraceBiologicalParent::LazyCall(_) => todo!(),

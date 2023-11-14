@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{error::InsertEntryRepeatError, *};
 use smallvec::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]

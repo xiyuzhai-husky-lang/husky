@@ -72,6 +72,7 @@ impl<'me, Db: ?Sized> std::fmt::Debug for DisplayWith<'me, Db> {
     }
 }
 
+#[allow(dead_code)]
 enum BoxRef<'me, T: ?Sized> {
     Box(Box<T>),
     Ref(&'me T),

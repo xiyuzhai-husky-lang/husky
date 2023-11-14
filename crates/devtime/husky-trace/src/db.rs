@@ -32,6 +32,7 @@ pub struct TraceJar(
     crate::trace::lazy_expr::LazyExprTrace,
     crate::trace::lazy_expr::lazy_expr_trace_view_lines,
     crate::trace::lazy_expr::lazy_expr_trace_val_repr,
+    crate::trace::lazy_expr::lazy_expr_trace_val_repr_expansion,
     crate::trace::lazy_stmt::LazyStmtTracePath,
     crate::trace::lazy_stmt::LazyStmtTrace,
     crate::trace::lazy_stmt::lazy_stmt_trace_view_lines,

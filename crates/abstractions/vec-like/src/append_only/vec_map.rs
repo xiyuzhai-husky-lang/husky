@@ -1,4 +1,7 @@
-use crate::*;
+use crate::{
+    error::{FromVecEntryRepeatError, InsertEntryRepeatError},
+    *,
+};
 
 #[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
 pub struct AppendOnlyVecMap<K, Entry>

@@ -1,5 +1,7 @@
-use crate::*;
-use thiserror::Error;
+use crate::{
+    error::{FromVecEntryRepeatError, InsertEntryRepeatError},
+    *,
+};
 
 pub trait AsVecMapEntry {
     type K;
@@ -134,20 +136,6 @@ where
 }
 
 pub type VecPairMap<K, V> = VecMap<(K, V)>;
-
-#[derive(Debug, Error)]
-#[error("insert entry repeat error {old}")]
-pub struct InsertEntryRepeatError<Entry> {
-    pub old: usize,
-    pub new: Entry,
-}
-
-#[derive(Debug, Error)]
-#[error("from vec entry repeat error {i} {j}")]
-pub struct FromVecEntryRepeatError {
-    pub i: usize,
-    pub j: usize,
-}
 
 impl<K, Entry> VecMap<Entry>
 where

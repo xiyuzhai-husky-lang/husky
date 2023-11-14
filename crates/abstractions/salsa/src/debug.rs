@@ -9,7 +9,9 @@ use std::{
     rc::Rc,
     sync::Arc,
 };
-use vec_like::{AsVecMapEntry, InsertEntryRepeatError, SmallVecMap, SmallVecSet, VecMap, VecSet};
+use vec_like::{
+    error::InsertEntryRepeatError, AsVecMapEntry, SmallVecMap, SmallVecSet, VecMap, VecSet,
+};
 
 pub trait DebugWithDb<Db: ?Sized> {
     fn debug<'me, 'db>(&'me self, db: &'me Db) -> DebugWith<'me, Db>
