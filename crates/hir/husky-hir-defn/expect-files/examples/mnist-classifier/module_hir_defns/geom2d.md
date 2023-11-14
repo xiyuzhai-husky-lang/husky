@@ -1210,9 +1210,20 @@
                                             ),
                                             ropd: 10,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 11,
                                             ident: `sqrt`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `sqrt`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1361,9 +1372,20 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 1,
                                             ident: `to`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `to`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1371,9 +1393,20 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 3,
                                             ident: `norm`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `norm`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1915,9 +1948,20 @@
                                             ),
                                             ropd: 10,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 11,
                                             ident: `sqrt`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `sqrt`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2470,9 +2514,20 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 3,
                                             ident: `norm`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `norm`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2490,9 +2545,20 @@
                                                 ),
                                             ),
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 5,
                                             ident: `min`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `min`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2559,9 +2625,20 @@
                                             owner_hir_expr_idx: 17,
                                             ident: `y`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 18,
                                             ident: `sgnx`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `sgnx`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2580,9 +2657,20 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 22,
                                             ident: `acos`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `acos`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2852,9 +2940,20 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 1,
                                             ident: `cross`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `cross`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2862,9 +2961,20 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 3,
                                             ident: `sgnx`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `sgnx`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3054,9 +3164,20 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 1,
                                             ident: `norm`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `norm`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3080,9 +3201,20 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 6,
                                             ident: `norm`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `norm`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3109,9 +3241,20 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 11,
                                             ident: `dot`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `dot`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3146,9 +3289,20 @@
                                                 ),
                                             ),
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 17,
                                             ident: `min`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `min`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3214,9 +3368,20 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 29,
                                             ident: `rotation_direction_to`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `rotation_direction_to`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3239,9 +3404,20 @@
                                         HirEagerExprData::Variable(
                                             6,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 34,
                                             ident: `acos`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `acos`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -4284,9 +4460,20 @@
                                             owner_hir_expr_idx: 4,
                                             ident: `xrange`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 3,
                                             ident: `relative_range`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `relative_range`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -4308,9 +4495,20 @@
                                             owner_hir_expr_idx: 9,
                                             ident: `yrange`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 8,
                                             ident: `relative_range`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `relative_range`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -4502,9 +4700,20 @@
                                             owner_hir_expr_idx: 4,
                                             ident: `x`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 3,
                                             ident: `relative_point`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `relative_point`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -4526,9 +4735,20 @@
                                             owner_hir_expr_idx: 9,
                                             ident: `x`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 8,
                                             ident: `relative_point`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `relative_point`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(

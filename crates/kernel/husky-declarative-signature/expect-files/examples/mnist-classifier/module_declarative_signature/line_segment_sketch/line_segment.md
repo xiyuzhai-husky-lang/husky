@@ -74,6 +74,15 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `displacement`,
+                                item_kind: MethodFn,
+                            },
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -117,6 +126,15 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `dist_to_point`,
+                                item_kind: MethodFn,
+                            },
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],

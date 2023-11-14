@@ -6350,6 +6350,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 18,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -7602,6 +7609,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 103,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {
@@ -7722,6 +7736,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 86,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -12220,6 +12241,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 18,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -17340,6 +17368,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 86,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -17521,6 +17556,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 20,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {
@@ -18080,6 +18122,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 21,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -18261,6 +18310,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 24,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -20847,6 +20903,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 88,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {
@@ -20967,6 +21030,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 21,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -22927,6 +22997,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 86,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -23155,6 +23232,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 86,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -23408,6 +23492,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 87,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {
@@ -23780,6 +23871,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 20,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {
@@ -24313,6 +24411,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 90,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {
@@ -24540,6 +24645,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 24,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -34276,6 +34388,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 106,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {
@@ -34599,6 +34718,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 106,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {
@@ -36361,6 +36487,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 107,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {
@@ -36684,6 +36817,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 107,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {

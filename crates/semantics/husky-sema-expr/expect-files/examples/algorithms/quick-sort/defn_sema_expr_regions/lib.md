@@ -684,6 +684,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 32,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
@@ -10312,6 +10319,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 33,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {
@@ -10734,6 +10748,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        Id {
+                                                            value: 33,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [
                                                     Regular(
                                                         FluffyTermRitchieRegularParameter {

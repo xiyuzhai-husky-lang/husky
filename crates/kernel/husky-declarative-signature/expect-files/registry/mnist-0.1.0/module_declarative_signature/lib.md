@@ -209,6 +209,15 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist`,
+                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `new_zeros`,
+                                item_kind: AssociatedFunctionFn,
+                            },
                             self_ty: DeclarativeTerm(`mnist::BinaryImage28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -411,6 +420,15 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist`,
+                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `new_zeros`,
+                                item_kind: AssociatedFunctionFn,
+                            },
                             self_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],

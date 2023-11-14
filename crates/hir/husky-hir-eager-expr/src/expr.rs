@@ -42,7 +42,8 @@ pub enum HirEagerExprData {
         opd_hir_expr_idx: HirEagerExprIdx,
         opr: HirSuffixOpr,
     },
-    FnCall {
+    MajorFunctionFnCall {
+        path: FugitivePath,
         function_hir_expr_idx: HirEagerExprIdx,
         template_arguments: Option<HirEagerTemplateArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
@@ -201,8 +202,9 @@ impl ToHirEager for SemaExprIdx {
                 lpar_regional_token_idx: _,
                 ritchie_parameter_argument_matches,
                 rpar_regional_token_idx: _,
-            } => HirEagerExprData::FnCall {
+            } => HirEagerExprData::MajorFunctionFnCall {
                 function_hir_expr_idx: function_sema_expr_idx.to_hir_eager(builder),
+                path: todo!(),
                 template_arguments: template_arguments.as_ref().map(|_| todo!()),
                 item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),
             },

@@ -85,7 +85,7 @@ fn transpile_hir_eager_expr_to_rust(
             geq(opd_hir_expr_idx).transpile_to_rust(builder);
             opr.transpile_to_rust(builder)
         }
-        HirEagerExprData::FnCall {
+        HirEagerExprData::MajorFunctionFnCall {
             function_hir_expr_idx,
             ref template_arguments,
             ref item_groups,
