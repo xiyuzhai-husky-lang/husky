@@ -1,6 +1,5 @@
 use crate::*;
-use husky_print_utils::p;
-use husky_vfs::{ModulePath, Toolchain};
+use husky_vfs::Toolchain;
 
 #[salsa::tracked(db = SynExprDb, jar = SynExprJar)]
 pub struct SynExprRegion {
@@ -25,7 +24,7 @@ pub struct SynExprRegionData {
 }
 
 impl SynExprRegionData {
-    pub fn new(
+    pub(crate) fn new(
         parent: Option<SynExprRegion>,
         path: RegionPath,
         expr_arena: SynExprArena,

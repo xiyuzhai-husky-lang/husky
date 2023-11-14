@@ -6,7 +6,6 @@ pub use self::list_item::*;
 
 use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
-use vec_like::SmallVecMap;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
@@ -261,5 +260,3 @@ impl SynTemplateArgumentList {
         self.rangle
     }
 }
-
-type CommaRegionalTokens = SmallVec<[RegionalTokenIdx; 2]>;

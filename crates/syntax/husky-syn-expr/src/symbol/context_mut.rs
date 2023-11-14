@@ -37,10 +37,6 @@ impl<'a> SynSymbolContextMut<'a> {
             .map(|e| Symbol::PrincipalEntity(e.path(db))))
     }
 
-    fn exprs(&self) -> &[SynExprData] {
-        todo!()
-    }
-
     pub(crate) fn into_expr_region(
         self,
         db: &dyn SynExprDb,

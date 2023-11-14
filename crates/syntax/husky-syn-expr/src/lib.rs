@@ -11,7 +11,7 @@ mod parser;
 mod pattern;
 mod range;
 mod region;
-mod snippet;
+pub mod snippet;
 mod stmt;
 pub mod symbol;
 mod syndicates;
@@ -33,17 +33,13 @@ pub use self::syndicates::*;
 
 use self::snippet::*;
 use husky_coword::*;
-use husky_entity_path::{
-    EntityPath, ItemPath, MajorEntityPath, MajorItemPath, PrincipalEntityPath,
-};
+use husky_entity_path::{EntityPath, MajorItemPath, PrincipalEntityPath};
 use husky_entity_syn_tree::{helpers::tokra_region::*, *};
 use husky_regional_token::*;
 use husky_syn_opr::*;
 use husky_term_prelude::*;
 use husky_token_data::*;
 use smallvec::SmallVec;
-#[cfg(test)]
-use tests::*;
 
 #[salsa::jar(db = SynExprDb)]
 pub struct SynExprJar(

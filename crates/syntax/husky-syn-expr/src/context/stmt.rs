@@ -1,7 +1,6 @@
 use super::*;
 use husky_defn_ast::{DefnAstArenaRef, DefnAstIdx, DefnAstIdxRange};
 use husky_entity_syn_tree::helpers::tokra_region::{DefnTokraRegionData, HasSynDefnTokraRegion};
-use husky_print_utils::p;
 
 pub struct SynStmtContext<'a> {
     expr_context: SynExprContext<'a>,
@@ -42,7 +41,6 @@ impl<'a> SynStmtContext<'a> {
             allow_self_type,
             allow_self_value,
         );
-        use salsa::DebugWithDb;
         Some(Self {
             expr_context,
             defn_tokra_region_data: syn_node_path.defn_tokra_region(db)?.data(db),

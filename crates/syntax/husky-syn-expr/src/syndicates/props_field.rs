@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct PropsFieldSyndicate {
-    decorators: Vec<FieldDecorator>,
+    decorators: Vec<PropsFieldAttr>,
     visibility: Option<FieldVisibilityExpr>,
     ident_token: IdentRegionalToken,
     colon: ColonRegionalToken,
@@ -104,9 +104,12 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct FieldDecorator {}
+pub struct PropsFieldAttr {
+    pound_token: PoundRegionalToken,
+    ident: Ident,
+}
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldDecorator {
+impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFieldAttr {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -115,14 +118,25 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldDe
         let Some(pound_token) = ctx.try_parse_option::<PoundRegionalToken>()? else {
             return Ok(None);
         };
-        todo!()
+        match ctx.next() {
+            Some(&token_data) => match token_data {
+                TokenData::Keyword(_) => todo!(),
+                TokenData::Ident(ident) => Ok(Some(PropsFieldAttr { pound_token, ident })),
+                TokenData::Label(_) => todo!(),
+                TokenData::Punctuation(_) => todo!(),
+                TokenData::WordOpr(_) => todo!(),
+                TokenData::Literal(_) => todo!(),
+                TokenData::Error(_) => todo!(),
+            },
+            None => todo!(),
+        }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum FieldVisibilityExpr {
-    Pub,
+    Pub { pub_token: PubRegionalToken },
 }
 
 impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldVisibilityExpr {
@@ -135,7 +149,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldVi
             return Ok(None);
         };
         let Some(lpar_token) = ctx.try_parse_option::<LparRegionalToken>()? else {
-            return Ok(Some(FieldVisibilityExpr::Pub));
+            return Ok(Some(FieldVisibilityExpr::Pub { pub_token }));
         };
         todo!()
     }

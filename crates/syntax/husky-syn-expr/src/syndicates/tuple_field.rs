@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct TupleFieldSyndicate {
-    decorators: Vec<FieldAttr>,
+    decorators: Vec<TupleFieldAttr>,
     visibility: Option<FieldVisibilityExpr>,
     ty: SynExprIdx,
 }
@@ -37,11 +37,12 @@ impl<'a> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldS
     }
 }
 
+// todo: merge this with PropsFieldAttr?
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct FieldAttr {}
+pub struct TupleFieldAttr {}
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldAttr {
+impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldAttr {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(

@@ -1,5 +1,3 @@
-use husky_print_utils::p;
-
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -204,9 +202,7 @@ impl SynSymbolRegion {
                     }
                 }
                 CurrentSynSymbolData::SelfType => todo!(),
-                CurrentSynSymbolData::SelfValue {
-                    symbol_modifier_keyword_group,
-                } => todo!(),
+                CurrentSynSymbolData::SelfValue { .. } => todo!(),
                 CurrentSynSymbolData::FieldVariable { ident_token } => {
                     InheritedSynSymbolKind::FieldVariable {
                         ident: ident_token.ident(),
