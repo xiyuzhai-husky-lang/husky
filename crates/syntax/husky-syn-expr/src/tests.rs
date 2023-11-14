@@ -120,6 +120,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 1,
@@ -203,6 +204,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 2,
@@ -279,6 +281,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 1,
@@ -355,6 +358,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 1,
@@ -428,6 +432,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 1,
@@ -524,6 +529,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 3,
@@ -619,6 +625,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 3,
@@ -729,6 +736,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 4,
@@ -849,6 +857,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 3,
@@ -1007,6 +1016,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 2,
@@ -1115,6 +1125,7 @@ fn parse_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 2,
@@ -1224,6 +1235,7 @@ fn parse_application_expr_works() {
                 ],
                 has_self_lifetime: false,
                 has_self_place: false,
+                syn_pattern_to_current_syn_symbol_map: [],
             },
             Some(
                 5,

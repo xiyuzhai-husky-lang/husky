@@ -3,6 +3,7 @@ use crate::registry::{
     associated_trace::IsAssociatedTraceRegistry,
     trace_path::{TracePathDisambiguator, TracePathRegistry},
 };
+use husky_coword::IdentPairMap;
 use husky_entity_path::PrincipalEntityPath;
 use husky_hir_lazy_expr::{builder::hir_lazy_expr_region_with_source_map, HirLazyExprRegion};
 use husky_hir_lazy_expr::{
@@ -244,6 +245,7 @@ pub(crate) fn lazy_stmt_trace_val_repr_expansion(
 struct LazyStmtAssociatedTraceRegistry<'a> {
     parent_trace: LazyStmtTrace,
     sema_expr_region: SemaExprRegion,
+    syn_expr_region_data: &'a SynExprRegionData,
     hir_lazy_expr_source_map_data: &'a HirLazyExprSourceMapData,
     lazy_expr_trace_path_registry: TracePathRegistry<LazyExprTracePathData>,
     sema_expr_traces_issued: VecPairMap<SemaExprIdx, LazyExprTrace>,
@@ -259,6 +261,7 @@ impl<'a> LazyStmtAssociatedTraceRegistry<'a> {
         LazyStmtAssociatedTraceRegistry {
             parent_trace,
             sema_expr_region,
+            syn_expr_region_data: sema_expr_region.syn_expr_region(db).data(db),
             hir_lazy_expr_source_map_data: hir_lazy_expr_source_map_from_sema(sema_expr_region, db)
                 .data(db),
             lazy_expr_trace_path_registry: Default::default(),
@@ -285,7 +288,10 @@ impl<'a> IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry<'a> {
                         LazyExprTrace::new(
                             self.parent_trace.path(db),
                             self.parent_trace,
-                            LazyExprTraceData::Expr(sema_expr_idx, hir_lazy_expr_idx),
+                            LazyExprTraceData::Expr {
+                                sema_expr_idx,
+                                hir_lazy_expr_idx,
+                            },
                             self.sema_expr_region,
                             &mut self.lazy_expr_trace_path_registry,
                             db,
@@ -303,20 +309,43 @@ impl<'a> IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry<'a> {
                 }
                 PrincipalEntityPath::TypeVariant(_) => None,
             },
-            TokenInfoSource::PatternExpr(syn_pattern_expr_idx) => Some(
-                self.syn_pattern_expr_traces_issued
-                    .get_value_copied_or_insert_with(syn_pattern_expr_idx, || {
-                        LazyExprTrace::new(
-                            self.parent_trace.path(db),
-                            self.parent_trace,
-                            LazyExprTraceData::PatternExpr(syn_pattern_expr_idx),
-                            self.sema_expr_region,
-                            &mut self.lazy_expr_trace_path_registry,
-                            db,
-                        )
-                    })
-                    .into(),
-            ),
+            TokenInfoSource::PatternExpr(syn_pattern_expr_idx) => {
+                Some(
+                    self.syn_pattern_expr_traces_issued
+                        .get_value_copied_or_insert_with(syn_pattern_expr_idx, || {
+                            LazyExprTrace::new(
+                                self.parent_trace.path(db),
+                                self.parent_trace,
+                                LazyExprTraceData::PatternExpr {
+                                    syn_pattern_expr_idx,
+                                    hir_lazy_variable_idxs: unsafe {
+                                        IdentPairMap::from_iter_assuming_no_repetitions_unchecked(
+                                            self.syn_expr_region_data
+                                                .pattern_expr_region()
+                                                .pattern_expr_symbols(syn_pattern_expr_idx)
+                                                .iter()
+                                                .map(|&(ident, syn_pattern_symbol_idx)| {
+                                                    let current_syn_symbol_idx = self
+                                                        .syn_expr_region_data
+                                                        .syn_pattern_to_current_syn_symbol(
+                                                            syn_pattern_symbol_idx,
+                                                        );
+                                                    (ident, self.hir_lazy_expr_source_map_data
+                                                    .current_syn_symbol_to_hir_lazy_variable(
+                                                        current_syn_symbol_idx,
+                                                    ))
+                                                }),
+                                        )
+                                    },
+                                },
+                                self.sema_expr_region,
+                                &mut self.lazy_expr_trace_path_registry,
+                                db,
+                            )
+                        })
+                        .into(),
+                )
+            }
             TokenInfoSource::TemplateParameter(_) => None,
             TokenInfoSource::AstIdentifiable => None,
         }

@@ -1,5 +1,6 @@
 use crate::*;
 use husky_vfs::Toolchain;
+use vec_like::VecPairMap;
 
 #[salsa::tracked(db = SynExprDb, jar = SynExprJar)]
 pub struct SynExprRegion {
@@ -21,6 +22,7 @@ pub struct SynExprRegionData {
     syn_expr_roots: Vec<SynExprRoot>,
     has_self_lifetime: bool,
     has_self_place: bool,
+    syn_pattern_to_current_syn_symbol_map: VecPairMap<SynPatternSymbolIdx, CurrentSynSymbolIdx>,
 }
 
 impl SynExprRegionData {
@@ -28,7 +30,7 @@ impl SynExprRegionData {
         parent: Option<SynExprRegion>,
         path: RegionPath,
         expr_arena: SynExprArena,
-        item_path_expr_arena: SynPrincipalEntityPathExprArena,
+        principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
         stmt_arena: SynStmtArena,
         pattern_expr_region: SynPatternExprRegion,
         symbol_region: SynSymbolRegion,
@@ -37,11 +39,36 @@ impl SynExprRegionData {
         has_self_lifetime: bool,
         has_self_place: bool,
     ) -> Self {
+        let syn_pattern_to_current_syn_symbol_map = VecPairMap::from_iter_assuming_no_repetitions(
+            symbol_region
+                .current_syn_symbol_arena()
+                .indexed_iter()
+                .filter_map(
+                    |(current_syn_symbol_idx, current_syn_symbol)| match *current_syn_symbol.data()
+                    {
+                        CurrentSynSymbolData::ParenateRegularParameter {
+                            pattern_symbol_idx,
+                            ..
+                        }
+                        | CurrentSynSymbolData::LetVariable {
+                            pattern_symbol_idx, ..
+                        }
+                        | CurrentSynSymbolData::BeVariable {
+                            pattern_symbol_idx, ..
+                        }
+                        | CurrentSynSymbolData::CaseVariable {
+                            pattern_symbol_idx, ..
+                        } => Some((pattern_symbol_idx, current_syn_symbol_idx)),
+                        _ => None,
+                    },
+                ),
+        )
+        .expect("no repetition");
         Self {
             parent,
             path,
             expr_arena,
-            principal_item_path_expr_arena: item_path_expr_arena,
+            principal_item_path_expr_arena,
             stmt_arena,
             pattern_expr_region,
             symbol_region,
@@ -49,6 +76,7 @@ impl SynExprRegionData {
             syn_expr_roots,
             has_self_lifetime,
             has_self_place,
+            syn_pattern_to_current_syn_symbol_map,
         }
     }
 
@@ -109,6 +137,13 @@ impl SynExprRegionData {
         // self.roots
         //     .iter()
         //     .find_map(|root| (root.kind() == ExprRootKind::SelfType).then_some(root.expr_idx()))
+    }
+
+    pub fn syn_pattern_to_current_syn_symbol(
+        &self,
+        syn_pattern_symbol_idx: SynPatternSymbolIdx,
+    ) -> CurrentSynSymbolIdx {
+        self.syn_pattern_to_current_syn_symbol_map[syn_pattern_symbol_idx].1
     }
 
     pub fn has_self_lifetime(&self) -> bool {

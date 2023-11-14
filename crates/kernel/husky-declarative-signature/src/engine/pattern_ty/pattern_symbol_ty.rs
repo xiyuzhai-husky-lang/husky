@@ -26,10 +26,11 @@ impl<'a> DeclarativeTermEngine<'a> {
         &mut self,
         syn_pattern_expr_root: impl Into<SynPatternExprRoot>,
     ) {
+        let syn_pattern_expr_root = syn_pattern_expr_root.into();
         for (_, pattern_symbol) in self
             .syn_expr_region_data
             .pattern_expr_region()
-            .pattern_expr_symbols(syn_pattern_expr_root)
+            .pattern_expr_symbols(syn_pattern_expr_root.syn_pattern_expr_idx())
         {
             self.infer_new_pattern_symbol_ty(*pattern_symbol)
         }

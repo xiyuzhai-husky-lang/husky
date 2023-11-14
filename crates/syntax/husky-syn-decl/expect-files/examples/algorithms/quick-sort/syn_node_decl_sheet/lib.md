@@ -326,6 +326,12 @@ SynNodeDeclSheet {
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            2,
+                                        ),
+                                    ],
                                 },
                             },
                         },
@@ -847,6 +853,20 @@ SynNodeDeclSheet {
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            2,
+                                        ),
+                                        (
+                                            2,
+                                            3,
+                                        ),
+                                        (
+                                            3,
+                                            4,
+                                        ),
+                                    ],
                                 },
                             },
                         },
@@ -1407,6 +1427,20 @@ SynNodeDeclSheet {
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            2,
+                                        ),
+                                        (
+                                            2,
+                                            3,
+                                        ),
+                                        (
+                                            3,
+                                            4,
+                                        ),
+                                    ],
                                 },
                             },
                         },
@@ -1525,6 +1559,7 @@ SynNodeDeclSheet {
                                     syn_expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         },
@@ -1643,6 +1678,7 @@ SynNodeDeclSheet {
                                     syn_expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         },

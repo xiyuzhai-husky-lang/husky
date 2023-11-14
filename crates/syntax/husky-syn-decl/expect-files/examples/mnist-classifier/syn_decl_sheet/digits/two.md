@@ -104,6 +104,7 @@ SynDeclSheet {
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         },
@@ -327,6 +328,12 @@ SynDeclSheet {
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                    ],
                                 },
                             },
                         },
@@ -550,6 +557,12 @@ SynDeclSheet {
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                    ],
                                 },
                             },
                         },
@@ -773,6 +786,12 @@ SynDeclSheet {
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [
+                                        (
+                                            1,
+                                            1,
+                                        ),
+                                    ],
                                 },
                             },
                         },
@@ -966,6 +985,7 @@ SynDeclSheet {
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
+                                    syn_pattern_to_current_syn_symbol_map: [],
                                 },
                             },
                         },
