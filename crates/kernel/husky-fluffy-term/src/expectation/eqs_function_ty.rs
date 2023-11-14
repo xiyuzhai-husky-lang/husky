@@ -86,7 +86,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 ExpectEqsFunctionTypeOutcome {
                     template_parameter_substitutions: smallvec![],
                     return_ty,
-                    variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
+                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
                         ritchie_kind,
                         parameter_contracted_tys: parameter_contracted_tys.to_vec(),
                     },
@@ -105,11 +105,11 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
 pub struct ExpectEqsFunctionTypeOutcome {
     pub(crate) template_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
     pub(crate) return_ty: FluffyTerm,
-    pub(crate) variant: ExpectEqsFunctionTypeOutcomeVariant,
+    pub(crate) variant: ExpectEqsFunctionTypeOutcomeData,
 }
 
 impl ExpectEqsFunctionTypeOutcome {
-    pub fn variant(&self) -> &ExpectEqsFunctionTypeOutcomeVariant {
+    pub fn variant(&self) -> &ExpectEqsFunctionTypeOutcomeData {
         &self.variant
     }
 
@@ -120,7 +120,7 @@ impl ExpectEqsFunctionTypeOutcome {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
-pub enum ExpectEqsFunctionTypeOutcomeVariant {
+pub enum ExpectEqsFunctionTypeOutcomeData {
     Ritchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: Vec<FluffyTermRitchieParameter>,
@@ -150,7 +150,7 @@ impl ExpectEqsFunctionType {
                 ExpectEqsFunctionTypeOutcome {
                     template_parameter_substitutions: smallvec![],
                     return_ty,
-                    variant: ExpectEqsFunctionTypeOutcomeVariant::Curry {
+                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                         variance,
                         parameter_symbol,
                         parameter_ty,
@@ -220,7 +220,7 @@ impl ExpectEqsFunctionType {
                     // todo: is this really correct?
                     template_parameter_substitutions: substitution_rules,
                     return_ty,
-                    variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
+                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
                         ritchie_kind,
                         parameter_contracted_tys: parameter_contracted_tys.to_vec(),
                     },

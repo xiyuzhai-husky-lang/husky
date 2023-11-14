@@ -510,6 +510,13 @@
                                         },
                                         signature: MethodFn(
                                             MethodFnFluffySignature {
+                                                path: TraitForTypeItem(
+                                                    TraitForTypeItemPath(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
+                                                ),
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,

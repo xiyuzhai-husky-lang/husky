@@ -1253,9 +1253,20 @@
                                                 2,
                                             ),
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 9,
                                             ident: `last_bits`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::raw_bits`,
+                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `last_bits`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1960,9 +1971,20 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 1,
                                             ident: `ilen`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `ilen`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2562,9 +2584,20 @@
                                                 50,
                                             ],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 51,
                                             ident: `ctz`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::raw_bits`,
+                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `ctz`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2989,9 +3022,20 @@
                                         HirEagerExprData::Variable(
                                             10,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 137,
                                             ident: `last`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `last`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3057,9 +3101,20 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 144,
                                             ident: `push`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `push`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3167,9 +3222,20 @@
                                         HirEagerExprData::Variable(
                                             10,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 170,
                                             ident: `last`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `last`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3323,9 +3389,20 @@
                                         HirEagerExprData::Variable(
                                             10,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 200,
                                             ident: `last`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `last`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3437,9 +3514,20 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 216,
                                             ident: `push`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `push`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3607,9 +3695,20 @@
                                         HirEagerExprData::Variable(
                                             10,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 258,
                                             ident: `pop`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `pop`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3641,9 +3740,20 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 260,
                                             ident: `push`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `push`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5069,9 +5179,20 @@
                                             owner_hir_expr_idx: 13,
                                             ident: `points`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 14,
                                             ident: `ilen`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `ilen`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -5104,9 +5225,20 @@
                                             owner_hir_expr_idx: 22,
                                             ident: `x`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 21,
                                             ident: `min`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `min`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5132,9 +5264,20 @@
                                             owner_hir_expr_idx: 28,
                                             ident: `x`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 27,
                                             ident: `max`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `max`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5160,9 +5303,20 @@
                                             owner_hir_expr_idx: 34,
                                             ident: `y`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 33,
                                             ident: `min`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `min`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5188,9 +5342,20 @@
                                             owner_hir_expr_idx: 40,
                                             ident: `y`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 39,
                                             ident: `max`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `max`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5644,9 +5809,20 @@
                                             owner_hir_expr_idx: 7,
                                             ident: `bounding_box`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 6,
                                             ident: `relative_bounding_box`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `relative_bounding_box`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5771,9 +5947,20 @@
                                             owner_hir_expr_idx: 3,
                                             ident: `points`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 4,
                                             ident: `ilen`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `ilen`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -5845,9 +6032,20 @@
                                             ),
                                             ropd: 20,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 21,
                                             ident: `abs`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `abs`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -5872,9 +6070,20 @@
                                             ),
                                             ropd: 26,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 27,
                                             ident: `abs`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `abs`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -5906,9 +6115,20 @@
                                             owner_hir_expr_idx: 33,
                                             ident: `points`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 34,
                                             ident: `ilen`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `ilen`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -5974,9 +6194,20 @@
                                             ),
                                             ropd: 47,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 48,
                                             ident: `abs`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `abs`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -6001,9 +6232,20 @@
                                             ),
                                             ropd: 53,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 54,
                                             ident: `abs`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `abs`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -6400,9 +6642,20 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `points`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
                                             ident: `ilen`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `ilen`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -6464,9 +6717,20 @@
                                         HirEagerExprData::Variable(
                                             6,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 16,
                                             ident: `to`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `to`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(

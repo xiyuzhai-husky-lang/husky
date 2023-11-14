@@ -194,9 +194,20 @@
                                             owner_hir_expr_idx: 2,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 3,
                                             ident: `ilen`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `ilen`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -413,9 +424,20 @@
                                         HirEagerExprData::Variable(
                                             5,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 47,
                                             ident: `cyclic_slice_leashed`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `cyclic_slice_leashed`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -438,9 +460,20 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 43,
                                             ident: `push`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `push`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -819,9 +852,21 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
                                             ident: `visualize`,
+                                            path: AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    impl_block: TraitForTypeImplBlockPath {
+                                                        module_path: `core::visual`,
+                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `visualize`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1060,15 +1105,37 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 3,
                                             ident: `displacement`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `displacement`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 4,
                                             ident: `norm`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `norm`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1191,9 +1258,20 @@
                                             owner_hir_expr_idx: 2,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 3,
                                             ident: `first`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `first`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1208,24 +1286,57 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 7,
                                             ident: `line_segment`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `line_segment`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 9,
                                             ident: `displacement`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `displacement`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 10,
                                             ident: `norm`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `norm`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1236,9 +1347,20 @@
                                             owner_hir_expr_idx: 12,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 13,
                                             ident: `start`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `start`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1249,9 +1371,20 @@
                                             owner_hir_expr_idx: 15,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 16,
                                             ident: `end`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `end`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1281,9 +1414,20 @@
                                         HirEagerExprData::Variable(
                                             7,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 23,
                                             ident: `dist_to_point`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `dist_to_point`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1672,9 +1816,20 @@
                                             owner_hir_expr_idx: 4,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 5,
                                             ident: `start`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `start`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1684,9 +1839,20 @@
                                                 6,
                                             ],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 7,
                                             ident: `displacement`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `displacement`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1697,9 +1863,20 @@
                                             owner_hir_expr_idx: 9,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 10,
                                             ident: `start`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `start`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1710,9 +1887,20 @@
                                             owner_hir_expr_idx: 12,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 13,
                                             ident: `end`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `end`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1732,9 +1920,20 @@
                                                 17,
                                             ],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 18,
                                             ident: `displacement`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `displacement`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1752,9 +1951,20 @@
                                                 true,
                                             ),
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 21,
                                             ident: `angle_to`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `angle_to`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2033,9 +2243,20 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
                                             ident: `first`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `first`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2082,9 +2303,20 @@
                                             owner_hir_expr_idx: 14,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 15,
                                             ident: `start`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `start`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2095,9 +2327,20 @@
                                             owner_hir_expr_idx: 17,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 18,
                                             ident: `end`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `end`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2134,9 +2377,20 @@
                                             owner_hir_expr_idx: 27,
                                             ident: `x`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 26,
                                             ident: `min`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `min`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2162,9 +2416,20 @@
                                             owner_hir_expr_idx: 33,
                                             ident: `x`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 32,
                                             ident: `max`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `max`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2190,9 +2455,20 @@
                                             owner_hir_expr_idx: 39,
                                             ident: `y`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 38,
                                             ident: `min`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `min`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2218,9 +2494,20 @@
                                             owner_hir_expr_idx: 45,
                                             ident: `y`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 44,
                                             ident: `max`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `max`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2659,9 +2946,20 @@
                                             owner_hir_expr_idx: 4,
                                             ident: `bounding_box`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 3,
                                             ident: `relative_bounding_box`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `relative_bounding_box`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2788,9 +3086,20 @@
                                             owner_hir_expr_idx: 2,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 3,
                                             ident: `first`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `first`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2802,9 +3111,21 @@
                                             owner_hir_expr_idx: 5,
                                             ident: `start`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 6,
                                             ident: `clone`,
+                                            path: AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    impl_block: TraitForTypeImplBlockPath {
+                                                        module_path: `core::clone`,
+                                                        trai_path: TraitPath(`core::clone::Clone`),
+                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `clone`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2815,9 +3136,20 @@
                                             owner_hir_expr_idx: 8,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 9,
                                             ident: `last`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `last`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2829,9 +3161,21 @@
                                             owner_hir_expr_idx: 11,
                                             ident: `end`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 12,
                                             ident: `clone`,
+                                            path: AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    impl_block: TraitForTypeImplBlockPath {
+                                                        module_path: `core::clone`,
+                                                        trai_path: TraitPath(`core::clone::Clone`),
+                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `clone`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2959,9 +3303,20 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
                                             ident: `first`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `first`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2973,9 +3328,21 @@
                                             owner_hir_expr_idx: 4,
                                             ident: `start`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 5,
                                             ident: `clone`,
+                                            path: AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    impl_block: TraitForTypeImplBlockPath {
+                                                        module_path: `core::clone`,
+                                                        trai_path: TraitPath(`core::clone::Clone`),
+                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `clone`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3091,9 +3458,20 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
                                             ident: `last`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `last`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3105,9 +3483,21 @@
                                             owner_hir_expr_idx: 4,
                                             ident: `end`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 5,
                                             ident: `clone`,
+                                            path: AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    impl_block: TraitForTypeImplBlockPath {
+                                                        module_path: `core::clone`,
+                                                        trai_path: TraitPath(`core::clone::Clone`),
+                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `clone`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3219,15 +3609,37 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 1,
                                             ident: `line_segment`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `line_segment`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
                                             ident: `displacement`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `displacement`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3343,9 +3755,20 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
                                             ident: `first`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `first`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3353,9 +3776,20 @@
                                             opd_hir_expr_idx: 3,
                                             opr: Unwrap,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 4,
                                             ident: `displacement`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `displacement`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3471,9 +3905,20 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `strokes`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
                                             ident: `last`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `last`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -3481,9 +3926,20 @@
                                             opd_hir_expr_idx: 3,
                                             opr: Unwrap,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 4,
                                             ident: `displacement`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `displacement`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },

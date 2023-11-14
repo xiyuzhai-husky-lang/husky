@@ -36,7 +36,7 @@ impl<'a> SemaExprEngine<'a> {
             );
         };
         match outcome.variant() {
-            ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
+            ExpectEqsFunctionTypeOutcomeData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
             } => {
@@ -59,7 +59,7 @@ impl<'a> SemaExprEngine<'a> {
                     Ok(outcome.return_ty()),
                 )
             }
-            ExpectEqsFunctionTypeOutcomeVariant::Curry {
+            ExpectEqsFunctionTypeOutcomeData::Curry {
                 variance,
                 parameter_symbol,
                 parameter_ty,

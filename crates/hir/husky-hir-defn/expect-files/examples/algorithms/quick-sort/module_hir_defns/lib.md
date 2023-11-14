@@ -102,9 +102,20 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 1,
                                             ident: `len`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `len`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -1083,9 +1094,20 @@
                                             opr: As,
                                             ropd: 51,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 46,
                                             ident: `swap`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `swap`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1129,9 +1151,20 @@
                                             opr: As,
                                             ropd: 59,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 54,
                                             ident: `swap`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `core::slice`,
+                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `swap`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(

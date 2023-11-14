@@ -6,7 +6,6 @@ pub(crate) use self::ethereal::*;
 pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
-use self::ethereal::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]

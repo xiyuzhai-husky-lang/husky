@@ -124,7 +124,7 @@ fn eager_expr_trace_have_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> b
         return false;
     };
     match trace.hir_eager_expr_region(db).hir_eager_expr_arena(db)[hir_eager_expr_idx] {
-        HirEagerExprData::FnCall { .. } => todo!(),
+        HirEagerExprData::MajorFunctionFnCall { .. } => todo!(),
         HirEagerExprData::MethodFnCall { .. } => todo!(),
         HirEagerExprData::Block { stmts } => todo!(),
         HirEagerExprData::AssociatedFn {
@@ -140,7 +140,7 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
         return vec![];
     };
     match trace.hir_eager_expr_region(db).hir_eager_expr_arena(db)[hir_eager_expr_idx] {
-        HirEagerExprData::FnCall { .. } => todo!(),
+        HirEagerExprData::MajorFunctionFnCall { .. } => todo!(),
         HirEagerExprData::MethodFnCall { path, .. } => todo!(),
         HirEagerExprData::Block { .. } => unreachable!(),
         HirEagerExprData::AssociatedFn {

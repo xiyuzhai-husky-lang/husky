@@ -171,9 +171,21 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `line_segments`,
                                         },
-                                        HirEagerExprData::MethodCall {
+                                        HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
                                             ident: `visualize`,
+                                            path: AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    impl_block: TraitForTypeImplBlockPath {
+                                                        module_path: `core::visual`,
+                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `visualize`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
