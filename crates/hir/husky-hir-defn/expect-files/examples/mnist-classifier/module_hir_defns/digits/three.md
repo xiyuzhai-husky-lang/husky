@@ -230,8 +230,12 @@
                                             opr: Minus,
                                             opd_hir_expr_idx: 10,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 7,
+                                        HirEagerExprData::TypeVariantConstructorCall {
+                                            path: TypeVariantPath {
+                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                ident: `Some`,
+                                            },
+                                            function_hir_eager_expr_idx: 7,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -483,8 +487,12 @@
                                             opr: Minus,
                                             opd_hir_expr_idx: 10,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 7,
+                                        HirEagerExprData::TypeVariantConstructorCall {
+                                            path: TypeVariantPath {
+                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                ident: `Some`,
+                                            },
+                                            function_hir_eager_expr_idx: 7,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -736,8 +744,12 @@
                                             opr: Minus,
                                             opd_hir_expr_idx: 10,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 7,
+                                        HirEagerExprData::TypeVariantConstructorCall {
+                                            path: TypeVariantPath {
+                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                ident: `Some`,
+                                            },
+                                            function_hir_eager_expr_idx: 7,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(

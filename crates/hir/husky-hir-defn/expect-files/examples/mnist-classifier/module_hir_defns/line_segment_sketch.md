@@ -598,8 +598,9 @@
                                             ),
                                             ropd: 48,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 41,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            function_hir_eager_expr_idx: 41,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1146,8 +1147,9 @@
                                             ),
                                             ropd: 48,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 41,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            function_hir_eager_expr_idx: 41,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1719,8 +1721,9 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 37,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 37,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1744,8 +1747,9 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 41,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 41,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1961,8 +1965,9 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 77,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 77,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1986,8 +1991,9 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 81,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 81,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3100,8 +3106,9 @@
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 38,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 38,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3125,8 +3132,9 @@
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 42,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 42,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3295,8 +3303,9 @@
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 72,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 72,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3320,8 +3329,9 @@
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 76,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 76,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -4341,8 +4351,9 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 11,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 11,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -4383,8 +4394,20 @@
                                         HirEagerExprData::Variable(
                                             5,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 17,
+                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `new`,
+                                                    item_kind: AssociatedFunctionFn,
+                                                },
+                                            ),
+                                            function_hir_eager_expr_idx: 17,
+                                            parent_template_arguments: None,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -4714,8 +4737,20 @@
                                         HirEagerExprData::Variable(
                                             5,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 51,
+                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `new`,
+                                                    item_kind: AssociatedFunctionFn,
+                                                },
+                                            ),
+                                            function_hir_eager_expr_idx: 51,
+                                            parent_template_arguments: None,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -4772,8 +4807,9 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 66,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 66,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -4817,8 +4853,20 @@
                                         HirEagerExprData::Variable(
                                             5,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 73,
+                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `new`,
+                                                    item_kind: AssociatedFunctionFn,
+                                                },
+                                            ),
+                                            function_hir_eager_expr_idx: 73,
+                                            parent_template_arguments: None,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5273,8 +5321,20 @@
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 123,
+                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `new`,
+                                                    item_kind: AssociatedFunctionFn,
+                                                },
+                                            ),
+                                            function_hir_eager_expr_idx: 123,
+                                            parent_template_arguments: None,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5688,8 +5748,20 @@
                                             ),
                                             ropd: 187,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 175,
+                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `new`,
+                                                    item_kind: AssociatedFunctionFn,
+                                                },
+                                            ),
+                                            function_hir_eager_expr_idx: 175,
+                                            parent_template_arguments: None,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -6865,8 +6937,9 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 4,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            function_hir_eager_expr_idx: 4,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -7320,8 +7393,9 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -7699,8 +7773,9 @@
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 47,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            function_hir_eager_expr_idx: 47,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -7724,8 +7799,9 @@
                                         HirEagerExprData::Variable(
                                             6,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 51,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            function_hir_eager_expr_idx: 51,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -7736,8 +7812,9 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 46,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                            function_hir_eager_expr_idx: 46,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -8180,8 +8257,9 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 3,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 3,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -8192,8 +8270,9 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(

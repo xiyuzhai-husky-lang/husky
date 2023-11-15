@@ -1,6 +1,8 @@
 use husky_coword::IdentPairMap;
 use husky_hir_eager_expr::variable::HirEagerVariableIdx;
-use husky_sema_expr::SemaExprRegion;
+use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
+
+use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 
 use super::*;
 
@@ -86,11 +88,36 @@ impl EagerPatternExprTrace {
         )
     }
 
-    pub fn view_data(self, _db: &dyn TraceDb) -> TraceViewData {
-        todo!()
+    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
+        let trace_view_lines = eager_pattern_expr_trace_view_lines(db, self);
+        TraceViewData::new(trace_view_lines.data().to_vec(), self.have_subtraces(db))
+    }
+
+    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
+        false
     }
 
     pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
-        todo!()
+        &[]
     }
+}
+
+#[salsa::tracked(jar = TraceJar, return_ref)]
+fn eager_pattern_expr_trace_view_lines(
+    db: &dyn TraceDb,
+    trace: EagerPatternExprTrace,
+) -> TraceViewLines {
+    let sema_expr_region = trace.sema_expr_region(db);
+    let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
+    let sema_expr_range_region_data = sema_expr_range_region.data(db);
+    let region_path = sema_expr_region.path(db);
+    let regional_token_idx_range = sema_expr_range_region_data[trace.syn_pattern_expr_idx(db)];
+    let token_idx_range =
+        regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
+    TraceViewLines::new(
+        region_path.module_path(db),
+        token_idx_range,
+        VoidAssociatedTraceRegistry,
+        db,
+    )
 }

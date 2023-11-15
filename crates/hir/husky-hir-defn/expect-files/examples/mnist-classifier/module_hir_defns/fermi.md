@@ -325,8 +325,9 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 14,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            function_hir_eager_expr_idx: 14,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(

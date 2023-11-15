@@ -17,6 +17,7 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
 husky-hir-expr = { path = "../../hir/husky-hir-expr" }
+husky-hir-decl = { path = "../../hir/husky-hir-decl" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 # ide
 husky-semantic-token = { path = "../../ide/husky-semantic-token" }
@@ -52,11 +53,7 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 [dev-dependencies]
 # hir
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
-husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
-husky-hir-decl = { path = "../../hir/husky-hir-decl" }
 husky-hir-opr = { path = "../../hir/husky-hir-opr" }
-husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
-husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }

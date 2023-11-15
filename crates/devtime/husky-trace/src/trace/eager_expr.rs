@@ -1,5 +1,6 @@
 use super::*;
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
+use husky_hir_decl::FugitiveHirDecl;
 use husky_hir_defn::HasHirDefn;
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion};
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion};
@@ -87,8 +88,8 @@ impl EagerExprTrace {
     }
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        let tokens = eager_expr_trace_view_lines(db, self);
-        TraceViewData::new(tokens.data().to_vec(), self.have_subtraces(db))
+        let trace_view_lines = eager_expr_trace_view_lines(db, self);
+        TraceViewData::new(trace_view_lines.data().to_vec(), self.have_subtraces(db))
     }
 
     pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
@@ -124,9 +125,10 @@ fn eager_expr_trace_have_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> b
         return false;
     };
     match trace.hir_eager_expr_region(db).hir_eager_expr_arena(db)[hir_eager_expr_idx] {
-        HirEagerExprData::MajorFunctionFnCall { .. } => todo!(),
-        HirEagerExprData::MethodFnCall { .. } => todo!(),
-        HirEagerExprData::Block { stmts } => todo!(),
+        HirEagerExprData::FunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
+        HirEagerExprData::AssociatedItemFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
+        HirEagerExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
+        HirEagerExprData::Block { stmts } => unreachable!(),
         HirEagerExprData::AssociatedFn {
             associated_item_path,
         } => associated_item_path.hir_defn(db).is_some(),
@@ -140,8 +142,85 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
         return vec![];
     };
     match trace.hir_eager_expr_region(db).hir_eager_expr_arena(db)[hir_eager_expr_idx] {
-        HirEagerExprData::MajorFunctionFnCall { .. } => todo!(),
-        HirEagerExprData::MethodFnCall { path, .. } => todo!(),
+        HirEagerExprData::FunctionFnCall {
+            path,
+            ref item_groups,
+            ..
+        } => {
+            let Some(hir_defn) = path.hir_defn(db) else {
+                return vec![];
+            };
+            let FugitiveHirDecl::FunctionFn(hir_decl) = hir_defn.hir_decl(db) else {
+                unreachable!()
+            };
+            let trace_path = trace.path(db);
+            let mut traces: Vec<Trace> = item_groups
+                .iter()
+                .enumerate()
+                .map(|(i, item_group)| {
+                    EagerCallInputTrace::new(trace_path, trace, i, item_group, db).into()
+                })
+                .collect();
+            traces.push(
+                EagerCallTrace::new(
+                    trace_path,
+                    trace,
+                    EagerCallTraceData::FunctionFn { path },
+                    db,
+                )
+                .into(),
+            );
+            traces
+        }
+        HirEagerExprData::AssociatedItemFunctionFnCall {
+            path,
+            ref item_groups,
+            ..
+        } => {
+            let Some(hir_defn) = path.hir_defn(db) else {
+                return vec![];
+            };
+            let trace_path = trace.path(db);
+            let mut traces: Vec<Trace> = item_groups
+                .iter()
+                .enumerate()
+                .map(|(i, item_group)| {
+                    EagerCallInputTrace::new(trace_path, trace, i, item_group, db).into()
+                })
+                .collect();
+            traces.push(
+                EagerCallTrace::new(
+                    trace_path,
+                    trace,
+                    EagerCallTraceData::AssociatedFunctionFn { path },
+                    db,
+                )
+                .into(),
+            );
+            traces
+        }
+        HirEagerExprData::MethodFnCall {
+            path,
+            ref item_groups,
+            ..
+        } => {
+            let Some(hir_defn) = path.hir_defn(db) else {
+                return vec![];
+            };
+            let trace_path = trace.path(db);
+            let mut traces: Vec<Trace> = item_groups
+                .iter()
+                .enumerate()
+                .map(|(i, item_group)| {
+                    EagerCallInputTrace::new(trace_path, trace, i, item_group, db).into()
+                })
+                .collect();
+            traces.push(
+                EagerCallTrace::new(trace_path, trace, EagerCallTraceData::MethodFn { path }, db)
+                    .into(),
+            );
+            traces
+        }
         HirEagerExprData::Block { .. } => unreachable!(),
         HirEagerExprData::AssociatedFn {
             associated_item_path,
