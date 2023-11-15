@@ -85,12 +85,50 @@ fn transpile_hir_eager_expr_to_rust(
             geq(opd_hir_expr_idx).transpile_to_rust(builder);
             opr.transpile_to_rust(builder)
         }
-        HirEagerExprData::MajorFunctionFnCall {
-            function_hir_expr_idx,
+        HirEagerExprData::TypeConstructorCall {
+            function_hir_eager_expr_idx,
+            path,
             ref template_arguments,
             ref item_groups,
         } => {
-            geq(function_hir_expr_idx).transpile_to_rust(builder);
+            geq(function_hir_eager_expr_idx).transpile_to_rust(builder);
+            if let Some(_template_arguments) = template_arguments {
+                todo!()
+            }
+            builder.bracketed_comma_list(RustBracket::Par, item_groups)
+        }
+        HirEagerExprData::TypeVariantConstructorCall {
+            function_hir_eager_expr_idx,
+            path,
+            ref template_arguments,
+            ref item_groups,
+        } => {
+            geq(function_hir_eager_expr_idx).transpile_to_rust(builder);
+            if let Some(_template_arguments) = template_arguments {
+                todo!()
+            }
+            builder.bracketed_comma_list(RustBracket::Par, item_groups)
+        }
+        HirEagerExprData::FunctionFnCall {
+            function_hir_eager_expr_idx,
+            path,
+            ref template_arguments,
+            ref item_groups,
+        } => {
+            geq(function_hir_eager_expr_idx).transpile_to_rust(builder);
+            if let Some(_template_arguments) = template_arguments {
+                todo!()
+            }
+            builder.bracketed_comma_list(RustBracket::Par, item_groups)
+        }
+        HirEagerExprData::AssociatedItemFunctionFnCall {
+            function_hir_eager_expr_idx,
+            path,
+            ref parent_template_arguments,
+            ref template_arguments,
+            ref item_groups,
+        } => {
+            geq(function_hir_eager_expr_idx).transpile_to_rust(builder);
             if let Some(_template_arguments) = template_arguments {
                 todo!()
             }

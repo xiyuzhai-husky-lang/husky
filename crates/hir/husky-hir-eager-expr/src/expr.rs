@@ -42,9 +42,28 @@ pub enum HirEagerExprData {
         opd_hir_expr_idx: HirEagerExprIdx,
         opr: HirSuffixOpr,
     },
-    MajorFunctionFnCall {
+    TypeConstructorCall {
+        path: TypePath,
+        function_hir_eager_expr_idx: HirEagerExprIdx,
+        template_arguments: Option<HirEagerTemplateArgumentList>,
+        item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
+    },
+    TypeVariantConstructorCall {
+        path: TypeVariantPath,
+        function_hir_eager_expr_idx: HirEagerExprIdx,
+        template_arguments: Option<HirEagerTemplateArgumentList>,
+        item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
+    },
+    FunctionFnCall {
         path: FugitivePath,
-        function_hir_expr_idx: HirEagerExprIdx,
+        function_hir_eager_expr_idx: HirEagerExprIdx,
+        template_arguments: Option<HirEagerTemplateArgumentList>,
+        item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
+    },
+    AssociatedItemFunctionFnCall {
+        path: AssociatedItemPath,
+        function_hir_eager_expr_idx: HirEagerExprIdx,
+        parent_template_arguments: Option<HirEagerTemplateArgumentList>,
         template_arguments: Option<HirEagerTemplateArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
@@ -202,12 +221,51 @@ impl ToHirEager for SemaExprIdx {
                 lpar_regional_token_idx: _,
                 ritchie_parameter_argument_matches,
                 rpar_regional_token_idx: _,
-            } => HirEagerExprData::MajorFunctionFnCall {
-                function_hir_expr_idx: function_sema_expr_idx.to_hir_eager(builder),
-                path: todo!(),
-                template_arguments: template_arguments.as_ref().map(|_| todo!()),
-                item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),
-            },
+            } => {
+                let function_hir_eager_expr_idx = function_sema_expr_idx.to_hir_eager(builder);
+                let template_arguments = template_arguments.as_ref().map(|_| todo!());
+                let item_groups =
+                    builder.new_call_list_item_groups(ritchie_parameter_argument_matches);
+                match builder.hir_eager_expr_arena()[function_hir_eager_expr_idx] {
+                    HirEagerExprData::PrincipalEntityPath(path) => match path {
+                        PrincipalEntityPath::Module(_) => unreachable!(),
+                        PrincipalEntityPath::MajorItem(path) => match path {
+                            MajorItemPath::Type(path) => HirEagerExprData::TypeConstructorCall {
+                                function_hir_eager_expr_idx,
+                                path,
+                                template_arguments,
+                                item_groups,
+                            },
+                            MajorItemPath::Trait(_) => unreachable!(),
+                            MajorItemPath::Fugitive(path) => HirEagerExprData::FunctionFnCall {
+                                function_hir_eager_expr_idx,
+                                path,
+                                template_arguments,
+                                item_groups,
+                            },
+                        },
+                        PrincipalEntityPath::TypeVariant(path) => {
+                            HirEagerExprData::TypeVariantConstructorCall {
+                                function_hir_eager_expr_idx,
+                                path,
+                                template_arguments,
+                                item_groups,
+                            }
+                        }
+                    },
+                    HirEagerExprData::AssociatedFn {
+                        associated_item_path,
+                    } => HirEagerExprData::AssociatedItemFunctionFnCall {
+                        function_hir_eager_expr_idx,
+                        path: associated_item_path,
+                        // ad hoc
+                        parent_template_arguments: None,
+                        template_arguments,
+                        item_groups,
+                    },
+                    _ => todo!(),
+                }
+            }
             SemaExprData::FunctionGnCall { .. } => unreachable!(),
             SemaExprData::Ritchie {
                 ritchie_kind_regional_token_idx: _,
@@ -220,9 +278,8 @@ impl ToHirEager for SemaExprIdx {
             } => todo!(),
             SemaExprData::Field {
                 owner_sema_expr_idx,
-                dot_regional_token_idx: _,
                 ident_token,
-                field_dispatch: _,
+                ..
             } => HirEagerExprData::Field {
                 owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
                 ident: ident_token.ident(),

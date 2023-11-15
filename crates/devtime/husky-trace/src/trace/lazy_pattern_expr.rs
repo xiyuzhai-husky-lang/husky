@@ -1,9 +1,10 @@
 use super::*;
+use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 use husky_coword::IdentPairMap;
 use husky_hir_lazy_expr::{
     variable::HirLazyVariableIdx, HirLazyExprRegion, HirLazyPatternExpr, HirLazyPatternExprIdx,
 };
-use husky_sema_expr::SemaExprRegion;
+use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
 use husky_val_repr::expansion::ValReprExpansion;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]
@@ -103,6 +104,26 @@ impl LazyPatternExprTrace {
     pub fn val_repr(self, db: &dyn TraceDb) -> Option<ValRepr> {
         lazy_pattern_expr_trace_val_repr(db, self)
     }
+}
+
+#[salsa::tracked(jar = TraceJar, return_ref)]
+fn lazy_pattern_expr_trace_view_lines(
+    db: &dyn TraceDb,
+    trace: LazyPatternExprTrace,
+) -> TraceViewLines {
+    let sema_expr_region = trace.sema_expr_region(db);
+    let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
+    let sema_expr_range_region_data = sema_expr_range_region.data(db);
+    let region_path = sema_expr_region.path(db);
+    let regional_token_idx_range = sema_expr_range_region_data[trace.syn_pattern_expr_idx(db)];
+    let token_idx_range =
+        regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
+    TraceViewLines::new(
+        region_path.module_path(db),
+        token_idx_range,
+        VoidAssociatedTraceRegistry,
+        db,
+    )
 }
 
 #[salsa::tracked(jar = TraceJar)]

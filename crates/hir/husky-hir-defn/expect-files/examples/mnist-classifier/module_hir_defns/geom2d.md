@@ -676,8 +676,9 @@
                                             opr: As,
                                             ropd: 10,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -832,8 +833,9 @@
                                             owner_hir_expr_idx: 4,
                                             ident: `y`,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1032,8 +1034,9 @@
                                             ),
                                             ropd: 10,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1570,8 +1573,9 @@
                                             owner_hir_expr_idx: 4,
                                             ident: `y`,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1770,8 +1774,9 @@
                                             ),
                                             ropd: 10,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3932,8 +3937,9 @@
                                         HirEagerExprData::Variable(
                                             5,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 25,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            function_hir_eager_expr_idx: 25,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -4516,8 +4522,9 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -4756,8 +4763,9 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                            function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(

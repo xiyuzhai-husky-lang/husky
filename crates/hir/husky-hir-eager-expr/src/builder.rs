@@ -195,6 +195,10 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn self_value_variable(&self) -> Option<HirEagerVariableIdx> {
         self.hir_eager_variable_region.self_value_variable()
     }
+
+    pub(crate) fn hir_eager_expr_arena(&self) -> &HirEagerExprArena {
+        &self.hir_eager_expr_arena
+    }
 }
 
 #[salsa::tracked(jar = HirEagerExprJar)]

@@ -165,8 +165,9 @@
                                             opr: As,
                                             ropd: 9,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 3,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 3,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -447,8 +448,9 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 4,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 4,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -492,8 +494,9 @@
                                             ),
                                             ropd: 13,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 9,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 9,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -537,8 +540,9 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 16,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 16,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(

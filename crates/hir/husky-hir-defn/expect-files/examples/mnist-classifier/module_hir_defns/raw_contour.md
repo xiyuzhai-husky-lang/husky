@@ -880,8 +880,9 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -905,8 +906,9 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 5,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 5,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1556,8 +1558,9 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -1581,8 +1584,9 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 5,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 5,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2113,8 +2117,9 @@
                                             ),
                                             ropd: 26,
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 13,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            function_hir_eager_expr_idx: 13,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2361,8 +2366,20 @@
                                                 },
                                             ),
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 2,
+                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist`,
+                                                        ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `new_zeros`,
+                                                    item_kind: AssociatedFunctionFn,
+                                                },
+                                            ),
+                                            function_hir_eager_expr_idx: 2,
+                                            parent_template_arguments: None,
                                             template_arguments: None,
                                             item_groups: [],
                                         },
@@ -2661,8 +2678,9 @@
                                         HirEagerExprData::Variable(
                                             12,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 63,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 63,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2803,8 +2821,9 @@
                                         HirEagerExprData::Variable(
                                             15,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 92,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 92,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -2834,8 +2853,9 @@
                                         HirEagerExprData::Variable(
                                             25,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 98,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 98,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3053,8 +3073,9 @@
                                         HirEagerExprData::Variable(
                                             10,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 140,
+                                        HirEagerExprData::FunctionFnCall {
+                                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
+                                            function_hir_eager_expr_idx: 140,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3089,8 +3110,20 @@
                                         HirEagerExprData::Variable(
                                             12,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 145,
+                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `from_i_shift28`,
+                                                    item_kind: AssociatedFunctionFn,
+                                                },
+                                            ),
+                                            function_hir_eager_expr_idx: 145,
+                                            parent_template_arguments: None,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3262,8 +3295,20 @@
                                         HirEagerExprData::Variable(
                                             12,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 173,
+                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `from_i_shift28`,
+                                                    item_kind: AssociatedFunctionFn,
+                                                },
+                                            ),
+                                            function_hir_eager_expr_idx: 173,
+                                            parent_template_arguments: None,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3429,8 +3474,20 @@
                                         HirEagerExprData::Variable(
                                             12,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 203,
+                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `from_i_shift28`,
+                                                    item_kind: AssociatedFunctionFn,
+                                                },
+                                            ),
+                                            function_hir_eager_expr_idx: 203,
+                                            parent_template_arguments: None,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3502,8 +3559,20 @@
                                         HirEagerExprData::Variable(
                                             12,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 217,
+                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `from_i_shift28`,
+                                                    item_kind: AssociatedFunctionFn,
+                                                },
+                                            ),
+                                            function_hir_eager_expr_idx: 217,
+                                            parent_template_arguments: None,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -3728,8 +3797,9 @@
                                         HirEagerExprData::Variable(
                                             10,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 261,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            function_hir_eager_expr_idx: 261,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5014,8 +5084,20 @@
                                                 ),
                                             ),
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 1,
+                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `new`,
+                                                    item_kind: AssociatedFunctionFn,
+                                                },
+                                            ),
+                                            function_hir_eager_expr_idx: 1,
+                                            parent_template_arguments: None,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5388,8 +5470,9 @@
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 45,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            function_hir_eager_expr_idx: 45,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5413,8 +5496,9 @@
                                         HirEagerExprData::Variable(
                                             6,
                                         ),
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 49,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            function_hir_eager_expr_idx: 49,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
@@ -5425,8 +5509,9 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::FnCall {
-                                            function_hir_expr_idx: 44,
+                                        HirEagerExprData::TypeConstructorCall {
+                                            path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                            function_hir_eager_expr_idx: 44,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
