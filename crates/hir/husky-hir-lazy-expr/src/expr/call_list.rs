@@ -6,7 +6,7 @@ use husky_sema_expr::SemaRitchieParameterArgumentMatch;
 pub enum HirLazyCallListItemGroup {
     Regular(HirLazyExprIdx),
     Variadic(Vec<HirLazyExprIdx>),
-    Keyed(Ident, HirLazyExprIdx),
+    Keyed(Ident, Option<HirLazyExprIdx>),
 }
 
 impl<'a> HirLazyExprBuilder<'a> {
@@ -25,7 +25,7 @@ impl<'a> HirLazyExprBuilder<'a> {
     ) -> HirLazyCallListItemGroup {
         match pam {
             SemaRitchieParameterArgumentMatch::Regular(_, item) => {
-                HirLazyCallListItemGroup::Regular(item.argument_expr_idx().to_hir_lazy(self))
+                HirLazyCallListItemGroup::Regular(item.argument_sema_expr_idx().to_hir_lazy(self))
             }
             SemaRitchieParameterArgumentMatch::Variadic(_, items) => {
                 HirLazyCallListItemGroup::Variadic(
@@ -38,7 +38,7 @@ impl<'a> HirLazyExprBuilder<'a> {
             SemaRitchieParameterArgumentMatch::Keyed(param, item) => {
                 HirLazyCallListItemGroup::Keyed(
                     param.key(),
-                    item.argument_expr_idx().to_hir_lazy(self),
+                    item.map(|item| item.argument_expr_idx().to_hir_lazy(self)),
                 )
             }
         }

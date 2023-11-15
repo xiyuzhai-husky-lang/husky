@@ -62,7 +62,7 @@ impl SemaRegularCallListItem {
         }
     }
 
-    pub fn argument_expr_idx(&self) -> SemaExprIdx {
+    pub fn argument_sema_expr_idx(&self) -> SemaExprIdx {
         self.argument_expr_idx
     }
 

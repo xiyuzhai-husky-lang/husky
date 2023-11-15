@@ -5,7 +5,10 @@ pub use self::call_list::*;
 pub use self::html::*;
 
 use crate::*;
-use husky_entity_path::PrincipalEntityPath;
+use husky_entity_path::{
+    AssociatedItemPath, FugitivePath, MajorItemPath, PrincipalEntityPath, TypePath, TypeVariantPath,
+};
+use husky_fluffy_term::MethodFluffySignature;
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::HirConstSymbol;
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
@@ -42,14 +45,35 @@ pub enum HirLazyExprData {
         opd_hir_expr_idx: HirLazyExprIdx,
         opr: HirSuffixOpr,
     },
-    FunctionFnCall {
-        function: HirLazyExprIdx,
+    TypeConstructorFnCall {
+        path: TypePath,
+        function_hir_lazy_expr_idx: HirLazyExprIdx,
+        template_arguments: Option<HirLazyTemplateArgumentList>,
+        item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
+    },
+    TypeVariantConstructorFnCall {
+        path: TypeVariantPath,
+        function_hir_lazy_expr_idx: HirLazyExprIdx,
+        template_arguments: Option<HirLazyTemplateArgumentList>,
+        item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
+    },
+    FunctionFnItemCall {
+        path: FugitivePath,
+        function_hir_lazy_expr_idx: HirLazyExprIdx,
+        template_arguments: Option<HirLazyTemplateArgumentList>,
+        item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
+    },
+    FunctionGnCall {
+        path: FugitivePath,
+        function_hir_lazy_expr_idx: HirLazyExprIdx,
         generic_arguments: Option<HirLazyTemplateArgumentList>,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
-    GnCall {
-        function: HirLazyExprIdx,
-        generic_arguments: Option<HirLazyTemplateArgumentList>,
+    AssociatedFunctionFnCall {
+        path: AssociatedItemPath,
+        function_hir_lazy_expr_idx: HirLazyExprIdx,
+        parent_template_arguments: Option<HirLazyTemplateArgumentList>,
+        template_arguments: Option<HirLazyTemplateArgumentList>,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
     Field {
@@ -59,6 +83,7 @@ pub enum HirLazyExprData {
     MethodFnCall {
         self_argument: HirLazyExprIdx,
         ident: Ident,
+        path: AssociatedItemPath,
         template_arguments: Option<HirLazyTemplateArgumentList>,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
@@ -82,7 +107,10 @@ pub enum HirLazyExprData {
         arguments: IdentMap<HirLazyHtmlArgumentExpr>,
     },
     Todo,
-    AssociatedFn,
+    AssociatedFn {
+        // ad hoc, needs more
+        path: AssociatedItemPath,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -173,11 +201,42 @@ impl ToHirLazy for SemaExprIdx {
                 ref template_arguments,
                 ref ritchie_parameter_argument_matches,
                 ..
-            } => HirLazyExprData::FunctionFnCall {
-                function: function_sema_expr_idx.to_hir_lazy(builder),
-                generic_arguments: template_arguments.as_ref().map(|_| todo!()),
-                item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),
-            },
+            } => {
+                let function_hir_lazy_expr_idx = function_sema_expr_idx.to_hir_lazy(builder);
+                let template_arguments = template_arguments.as_ref().map(|_| todo!());
+                let item_groups =
+                    builder.new_call_list_item_groups(ritchie_parameter_argument_matches);
+                match builder.hir_lazy_expr_arena()[function_hir_lazy_expr_idx] {
+                    HirLazyExprData::PrincipalEntityPath(path) => match path {
+                        PrincipalEntityPath::Module(_) => unreachable!(),
+                        PrincipalEntityPath::MajorItem(path) => match path {
+                            MajorItemPath::Type(path) => HirLazyExprData::TypeConstructorFnCall {
+                                function_hir_lazy_expr_idx,
+                                path,
+                                template_arguments,
+                                item_groups,
+                            },
+                            MajorItemPath::Trait(_) => unreachable!(),
+                            MajorItemPath::Fugitive(path) => HirLazyExprData::FunctionFnItemCall {
+                                function_hir_lazy_expr_idx,
+                                path,
+                                template_arguments,
+                                item_groups,
+                            },
+                        },
+                        PrincipalEntityPath::TypeVariant(path) => {
+                            HirLazyExprData::TypeVariantConstructorFnCall {
+                                function_hir_lazy_expr_idx,
+                                path,
+                                template_arguments,
+                                item_groups,
+                            }
+                        }
+                    },
+                    HirLazyExprData::AssociatedFn { .. } => todo!(),
+                    _ => todo!(),
+                }
+            }
             SemaExprData::FunctionGnCall { .. } => unreachable!(),
             SemaExprData::Ritchie {
                 ritchie_kind_regional_token_idx: _,
@@ -210,15 +269,23 @@ impl ToHirLazy for SemaExprIdx {
             SemaExprData::MethodFnCall {
                 self_argument_sema_expr_idx,
                 ident_token,
+                ref dispatch,
                 ref template_arguments,
                 ref ritchie_parameter_argument_matches,
                 ..
-            } => HirLazyExprData::MethodFnCall {
-                self_argument: self_argument_sema_expr_idx.to_hir_lazy(builder),
-                ident: ident_token.ident(),
-                template_arguments: template_arguments.as_ref().map(|_| todo!()),
-                item_groups: builder.new_call_list_item_groups(ritchie_parameter_argument_matches),
-            },
+            } => {
+                let MethodFluffySignature::MethodFn(signature) = dispatch.signature() else {
+                    unreachable!()
+                };
+                HirLazyExprData::MethodFnCall {
+                    self_argument: self_argument_sema_expr_idx.to_hir_lazy(builder),
+                    ident: ident_token.ident(),
+                    path: signature.path(),
+                    template_arguments: template_arguments.as_ref().map(|_| todo!()),
+                    item_groups: builder
+                        .new_call_list_item_groups(ritchie_parameter_argument_matches),
+                }
+            }
             SemaExprData::MethodGnCall { .. } => {
                 todo!()
             }

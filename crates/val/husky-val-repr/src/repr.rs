@@ -20,7 +20,7 @@ pub struct ValRepr {
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum ValArgumentRepr {
     Ordinary(ValRepr),
-    Keyed(Ident, ValRepr),
+    Keyed(Ident, Option<ValRepr>),
     Variadic(Vec<ValRepr>),
     Branch {
         condition: Option<ValRepr>,
@@ -101,7 +101,9 @@ impl ValArgumentRepr {
     fn val_argument(&self, db: &dyn ValReprDb) -> ValArgument {
         match *self {
             ValArgumentRepr::Ordinary(val_repr) => ValArgument::Ordinary(val_repr.val(db)),
-            ValArgumentRepr::Keyed(ident, val_repr) => ValArgument::Keyed(ident, val_repr.val(db)),
+            ValArgumentRepr::Keyed(ident, val_repr) => {
+                ValArgument::Keyed(ident, val_repr.map(|val_repr| val_repr.val(db)))
+            }
             ValArgumentRepr::Variadic(ref val_reprs) => {
                 ValArgument::Variadic(val_reprs.iter().map(|val_repr| val_repr.val(db)).collect())
             }

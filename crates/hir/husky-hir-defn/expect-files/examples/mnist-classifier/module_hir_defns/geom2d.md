@@ -676,7 +676,7 @@
                                             opr: As,
                                             ropd: 10,
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
@@ -833,7 +833,7 @@
                                             owner_hir_expr_idx: 4,
                                             ident: `y`,
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
@@ -1034,7 +1034,7 @@
                                             ),
                                             ropd: 10,
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
@@ -1573,7 +1573,7 @@
                                             owner_hir_expr_idx: 4,
                                             ident: `y`,
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
@@ -1774,7 +1774,7 @@
                                             ),
                                             ropd: 10,
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
@@ -3937,7 +3937,7 @@
                                         HirEagerExprData::Variable(
                                             5,
                                         ),
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             function_hir_eager_expr_idx: 25,
                                             template_arguments: None,
@@ -4522,7 +4522,7 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             function_hir_eager_expr_idx: 1,
                                             template_arguments: None,
@@ -4763,7 +4763,7 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             function_hir_eager_expr_idx: 1,
                                             template_arguments: None,

@@ -85,7 +85,7 @@ fn transpile_hir_eager_expr_to_rust(
             geq(opd_hir_expr_idx).transpile_to_rust(builder);
             opr.transpile_to_rust(builder)
         }
-        HirEagerExprData::TypeConstructorCall {
+        HirEagerExprData::TypeConstructorFnCall {
             function_hir_eager_expr_idx,
             path,
             ref template_arguments,
@@ -121,7 +121,7 @@ fn transpile_hir_eager_expr_to_rust(
             }
             builder.bracketed_comma_list(RustBracket::Par, item_groups)
         }
-        HirEagerExprData::AssociatedItemFunctionFnCall {
+        HirEagerExprData::AssociatedFunctionFnCall {
             function_hir_eager_expr_idx,
             path,
             ref parent_template_arguments,

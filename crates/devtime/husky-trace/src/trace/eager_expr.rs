@@ -2,8 +2,14 @@ use super::*;
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 use husky_hir_decl::FugitiveHirDecl;
 use husky_hir_defn::HasHirDefn;
-use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion};
-use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion};
+use husky_hir_eager_expr::{
+    HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion, HirEagerExprSourceMap,
+    HirEagerExprSourceMapData,
+};
+use husky_sema_expr::{
+    helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion,
+    SemaRitchieParameterArgumentMatch,
+};
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]
 pub struct EagerExprTracePath {
@@ -49,7 +55,10 @@ pub struct EagerExprTrace {
     pub hir_eager_expr_idx: Option<HirEagerExprIdx>,
     #[skip_fmt]
     pub sema_expr_region: SemaExprRegion,
+    #[skip_fmt]
     pub hir_eager_expr_region: HirEagerExprRegion,
+    #[skip_fmt]
+    pub hir_eager_expr_source_map: HirEagerExprSourceMap,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -66,6 +75,7 @@ impl EagerExprTrace {
         hir_eager_expr_idx: Option<HirEagerExprIdx>,
         sema_expr_region: SemaExprRegion,
         hir_eager_expr_region: HirEagerExprRegion,
+        hir_eager_expr_source_map: HirEagerExprSourceMap,
         lazy_expr_trace_path_registry: &mut TracePathRegistry<EagerExprTracePathData>,
         db: &dyn TraceDb,
     ) -> Self {
@@ -84,6 +94,7 @@ impl EagerExprTrace {
             hir_eager_expr_idx,
             sema_expr_region,
             hir_eager_expr_region,
+            hir_eager_expr_source_map,
         )
     }
 
@@ -126,7 +137,7 @@ fn eager_expr_trace_have_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> b
     };
     match trace.hir_eager_expr_region(db).hir_eager_expr_arena(db)[hir_eager_expr_idx] {
         HirEagerExprData::FunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
-        HirEagerExprData::AssociatedItemFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
+        HirEagerExprData::AssociatedFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
         HirEagerExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
         HirEagerExprData::Block { stmts } => unreachable!(),
         HirEagerExprData::AssociatedFn {
@@ -138,15 +149,27 @@ fn eager_expr_trace_have_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> b
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
 fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Trace> {
+    use husky_syn_defn::HasSynDefn;
+    let sema_expr_idx = trace.sema_expr_idx(db);
     let Some(hir_eager_expr_idx) = trace.hir_eager_expr_idx(db) else {
         return vec![];
     };
+    let caller_sema_expr_region = trace.sema_expr_region(db);
+    let caller_sema_expr_region_data = caller_sema_expr_region.data(db);
+    let hir_eager_expr_source_map_data = trace.hir_eager_expr_source_map(db).data(db);
     match trace.hir_eager_expr_region(db).hir_eager_expr_arena(db)[hir_eager_expr_idx] {
         HirEagerExprData::FunctionFnCall {
             path,
             ref item_groups,
             ..
         } => {
+            let SemaExprData::FunctionFnCall {
+                ref ritchie_parameter_argument_matches,
+                ..
+            } = sema_expr_idx.data(caller_sema_expr_region_data.sema_expr_arena())
+            else {
+                unreachable!()
+            };
             let Some(hir_defn) = path.hir_defn(db) else {
                 return vec![];
             };
@@ -154,14 +177,15 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
                 unreachable!()
             };
             let trace_path = trace.path(db);
-            let mut traces: Vec<Trace> = item_groups
-                .iter()
-                .enumerate()
-                .map(|(i, item_group)| {
-                    EagerCallInputTrace::new(trace_path, trace, i, item_group, db).into()
-                })
-                .collect();
-            traces.push(
+            let mut subtraces = fn_call_eager_expr_trace_input_traces(
+                trace_path,
+                trace,
+                ritchie_parameter_argument_matches,
+                caller_sema_expr_region,
+                hir_eager_expr_source_map_data,
+                db,
+            );
+            subtraces.push(
                 EagerCallTrace::new(
                     trace_path,
                     trace,
@@ -170,25 +194,35 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
                 )
                 .into(),
             );
-            traces
+            subtraces
         }
-        HirEagerExprData::AssociatedItemFunctionFnCall {
+        HirEagerExprData::AssociatedFunctionFnCall {
             path,
             ref item_groups,
             ..
         } => {
-            let Some(hir_defn) = path.hir_defn(db) else {
-                return vec![];
+            let SemaExprData::FunctionFnCall {
+                ref ritchie_parameter_argument_matches,
+                ..
+            } = sema_expr_idx.data(caller_sema_expr_region_data.sema_expr_arena())
+            else {
+                unreachable!()
             };
+            let syn_defn = path.syn_defn(db).unwrap();
+            let syn_decl = syn_defn.decl(db) else {
+                unreachable!()
+            };
+            hir_decl.parenate_parameters(db);
             let trace_path = trace.path(db);
-            let mut traces: Vec<Trace> = item_groups
-                .iter()
-                .enumerate()
-                .map(|(i, item_group)| {
-                    EagerCallInputTrace::new(trace_path, trace, i, item_group, db).into()
-                })
-                .collect();
-            traces.push(
+            let mut subtraces = fn_call_eager_expr_trace_input_traces(
+                trace_path,
+                trace,
+                ritchie_parameter_argument_matches,
+                caller_sema_expr_region,
+                hir_eager_expr_source_map_data,
+                db,
+            );
+            subtraces.push(
                 EagerCallTrace::new(
                     trace_path,
                     trace,
@@ -197,29 +231,37 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
                 )
                 .into(),
             );
-            traces
+            subtraces
         }
         HirEagerExprData::MethodFnCall {
             path,
             ref item_groups,
             ..
         } => {
+            let SemaExprData::MethodFnCall {
+                ref ritchie_parameter_argument_matches,
+                ..
+            } = sema_expr_idx.data(caller_sema_expr_region_data.sema_expr_arena())
+            else {
+                unreachable!()
+            };
             let Some(hir_defn) = path.hir_defn(db) else {
                 return vec![];
             };
             let trace_path = trace.path(db);
-            let mut traces: Vec<Trace> = item_groups
-                .iter()
-                .enumerate()
-                .map(|(i, item_group)| {
-                    EagerCallInputTrace::new(trace_path, trace, i, item_group, db).into()
-                })
-                .collect();
-            traces.push(
+            let mut subtraces = fn_call_eager_expr_trace_input_traces(
+                trace_path,
+                trace,
+                ritchie_parameter_argument_matches,
+                caller_sema_expr_region,
+                hir_eager_expr_source_map_data,
+                db,
+            );
+            subtraces.push(
                 EagerCallTrace::new(trace_path, trace, EagerCallTraceData::MethodFn { path }, db)
                     .into(),
             );
-            traces
+            subtraces
         }
         HirEagerExprData::Block { .. } => unreachable!(),
         HirEagerExprData::AssociatedFn {
@@ -227,4 +269,44 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
         } => todo!(),
         _ => vec![],
     }
+}
+
+fn fn_call_eager_expr_trace_input_traces(
+    trace_path: EagerExprTracePath,
+    trace: EagerExprTrace,
+    ritchie_parameter_argument_matches: &[SemaRitchieParameterArgumentMatch],
+    caller_sema_expr_region: SemaExprRegion,
+    caller_hir_eager_expr_source_map_data: &HirEagerExprSourceMapData,
+    db: &dyn TraceDb,
+) -> Vec<Trace> {
+    ritchie_parameter_argument_matches
+        .iter()
+        .map(|m| {
+            let data = match m {
+                SemaRitchieParameterArgumentMatch::Regular(_, list_item) => {
+                    let sema_expr_idx = list_item.argument_sema_expr_idx();
+                    EagerCallInputTraceData::Regular {
+                        argument_sema_expr_idx: sema_expr_idx,
+                        argument_hir_eager_expr_idx: caller_hir_eager_expr_source_map_data
+                            .sema_to_hir_eager_expr_idx(sema_expr_idx),
+                    }
+                }
+                SemaRitchieParameterArgumentMatch::Variadic(_, _) => {
+                    todo!()
+                }
+                SemaRitchieParameterArgumentMatch::Keyed(_, _) => {
+                    todo!()
+                }
+            };
+            EagerCallInputTrace::new(
+                trace_path,
+                trace,
+                data,
+                caller_sema_expr_region,
+                todo!(),
+                db,
+            )
+            .into()
+        })
+        .collect()
 }

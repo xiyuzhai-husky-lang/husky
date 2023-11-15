@@ -5,8 +5,8 @@ use husky_sema_expr::{
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprRegionData,
-    SynExprRootKind, SynPatternExprMap, SynSymbolMap,
+    CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprRegionData, SynExprRootKind,
+    SynPatternExprMap, SynSymbolMap,
 };
 use salsa::DebugWithDb;
 
@@ -183,6 +183,10 @@ impl<'a> HirLazyExprBuilder<'a> {
     //     let sema_expr_idx = self.sema_expr_region_data.sema_expr_roots(syn_expr_root);
     //     sema_expr_idx.to_hir_lazy(self)
     // }
+
+    pub(crate) fn hir_lazy_expr_arena(&self) -> &HirLazyExprArena {
+        &self.hir_lazy_expr_arena
+    }
 }
 
 #[salsa::tracked(jar = HirLazyExprJar)]

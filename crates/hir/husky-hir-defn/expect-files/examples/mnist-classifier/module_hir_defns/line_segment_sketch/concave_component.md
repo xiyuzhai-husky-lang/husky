@@ -450,7 +450,7 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             function_hir_eager_expr_idx: 44,
                                             template_arguments: None,
@@ -2543,7 +2543,7 @@
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             function_hir_eager_expr_idx: 50,
                                             template_arguments: None,
@@ -2569,7 +2569,7 @@
                                         HirEagerExprData::Variable(
                                             6,
                                         ),
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             function_hir_eager_expr_idx: 54,
                                             template_arguments: None,
@@ -2582,7 +2582,7 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             function_hir_eager_expr_idx: 49,
                                             template_arguments: None,
@@ -3185,7 +3185,7 @@
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                             function_hir_eager_expr_idx: 1,
                                             template_arguments: None,

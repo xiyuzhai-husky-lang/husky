@@ -1072,7 +1072,7 @@
                                                 },
                                             ),
                                         },
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -1507,7 +1507,7 @@
                                         HirEagerExprData::Variable(
                                             7,
                                         ),
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             function_hir_eager_expr_idx: 101,
                                             template_arguments: None,
@@ -2624,7 +2624,7 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                             function_hir_eager_expr_idx: 18,
                                             template_arguments: None,
@@ -3928,7 +3928,7 @@
                                         HirEagerExprData::Variable(
                                             8,
                                         ),
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                             function_hir_eager_expr_idx: 44,
                                             template_arguments: None,

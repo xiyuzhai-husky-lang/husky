@@ -7441,22 +7441,24 @@
                                                 },
                                                 has_default: true,
                                             },
-                                            SemaKeyedCallListItem {
-                                                key_regional_token_idx: RegionalTokenIdx(
-                                                    93,
-                                                ),
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 453,
-                                                        },
+                                            Some(
+                                                SemaKeyedCallListItem {
+                                                    key_regional_token_idx: RegionalTokenIdx(
+                                                        93,
                                                     ),
-                                                ),
-                                                argument_sema_expr_idx: SemaExprIdx(
-                                                    44,
-                                                ),
-                                                separator: None,
-                                            },
+                                                    key: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 453,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    argument_sema_expr_idx: SemaExprIdx(
+                                                        44,
+                                                    ),
+                                                    separator: None,
+                                                },
+                                            ),
                                         ),
                                     ],
                                     rpar_regional_token_idx: RegionalTokenIdx(

@@ -598,7 +598,7 @@
                                             ),
                                             ropd: 48,
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             function_hir_eager_expr_idx: 41,
                                             template_arguments: None,
@@ -1147,7 +1147,7 @@
                                             ),
                                             ropd: 48,
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             function_hir_eager_expr_idx: 41,
                                             template_arguments: None,
@@ -4394,7 +4394,7 @@
                                         HirEagerExprData::Variable(
                                             5,
                                         ),
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -4737,7 +4737,7 @@
                                         HirEagerExprData::Variable(
                                             5,
                                         ),
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -4853,7 +4853,7 @@
                                         HirEagerExprData::Variable(
                                             5,
                                         ),
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -5321,7 +5321,7 @@
                                             template_arguments: None,
                                             item_groups: [],
                                         },
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -5748,7 +5748,7 @@
                                             ),
                                             ropd: 187,
                                         },
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -6937,7 +6937,7 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             function_hir_eager_expr_idx: 4,
                                             template_arguments: None,
@@ -7773,7 +7773,7 @@
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             function_hir_eager_expr_idx: 47,
                                             template_arguments: None,
@@ -7799,7 +7799,7 @@
                                         HirEagerExprData::Variable(
                                             6,
                                         ),
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             function_hir_eager_expr_idx: 51,
                                             template_arguments: None,
@@ -7812,7 +7812,7 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             function_hir_eager_expr_idx: 46,
                                             template_arguments: None,
@@ -8270,7 +8270,7 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             function_hir_eager_expr_idx: 1,
                                             template_arguments: None,

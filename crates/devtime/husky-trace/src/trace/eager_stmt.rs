@@ -1,7 +1,7 @@
 use husky_entity_path::PrincipalEntityPath;
 use husky_hir_eager_expr::{
     builder::hir_eager_expr_region_with_source_map, helpers::hir_eager_expr_source_map_from_sema,
-    HirEagerExprRegion, HirEagerExprSourceMapData, HirEagerStmtIdx,
+    HirEagerExprRegion, HirEagerExprSourceMap, HirEagerExprSourceMapData, HirEagerStmtIdx,
 };
 use husky_regional_token::{
     ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, EolRegionalToken, IfRegionalToken,
@@ -492,6 +492,7 @@ struct EagerStmtAssociatedTraceRegistry<'a> {
     sema_expr_region: SemaExprRegion,
     hir_eager_expr_region: HirEagerExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
+    hir_eager_expr_source_map: HirEagerExprSourceMap,
     hir_eager_expr_source_map_data: &'a HirEagerExprSourceMapData,
     eager_expr_trace_path_registry: TracePathRegistry<EagerExprTracePathData>,
     eager_expr_traces_issued: VecPairMap<SemaExprIdx, EagerExprTrace>,
@@ -512,6 +513,7 @@ impl<'a> EagerStmtAssociatedTraceRegistry<'a> {
             sema_expr_region,
             syn_expr_region_data: sema_expr_region.syn_expr_region(db).data(db),
             hir_eager_expr_region,
+            hir_eager_expr_source_map,
             hir_eager_expr_source_map_data: hir_eager_expr_source_map.data(db),
             eager_expr_trace_path_registry: Default::default(),
             eager_expr_traces_issued: Default::default(),
@@ -542,6 +544,7 @@ impl<'a> IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry<'a> {
                             hir_eager_expr_idx,
                             self.sema_expr_region,
                             self.hir_eager_expr_region,
+                            self.hir_eager_expr_source_map,
                             &mut self.eager_expr_trace_path_registry,
                             db,
                         )
