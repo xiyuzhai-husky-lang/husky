@@ -2117,7 +2117,7 @@
                                             ),
                                             ropd: 26,
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             function_hir_eager_expr_idx: 13,
                                             template_arguments: None,
@@ -2366,7 +2366,7 @@
                                                 },
                                             ),
                                         },
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -3110,7 +3110,7 @@
                                         HirEagerExprData::Variable(
                                             12,
                                         ),
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -3295,7 +3295,7 @@
                                         HirEagerExprData::Variable(
                                             12,
                                         ),
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -3474,7 +3474,7 @@
                                         HirEagerExprData::Variable(
                                             12,
                                         ),
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -3559,7 +3559,7 @@
                                         HirEagerExprData::Variable(
                                             12,
                                         ),
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -3797,7 +3797,7 @@
                                         HirEagerExprData::Variable(
                                             10,
                                         ),
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             function_hir_eager_expr_idx: 261,
                                             template_arguments: None,
@@ -5084,7 +5084,7 @@
                                                 ),
                                             ),
                                         ),
-                                        HirEagerExprData::AssociatedItemFunctionFnCall {
+                                        HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
                                                     impl_block: TypeImplBlockPath {
@@ -5470,7 +5470,7 @@
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             function_hir_eager_expr_idx: 45,
                                             template_arguments: None,
@@ -5496,7 +5496,7 @@
                                         HirEagerExprData::Variable(
                                             6,
                                         ),
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             function_hir_eager_expr_idx: 49,
                                             template_arguments: None,
@@ -5509,7 +5509,7 @@
                                                 ),
                                             ],
                                         },
-                                        HirEagerExprData::TypeConstructorCall {
+                                        HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             function_hir_eager_expr_idx: 44,
                                             template_arguments: None,

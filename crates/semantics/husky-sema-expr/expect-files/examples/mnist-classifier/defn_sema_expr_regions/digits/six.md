@@ -6900,22 +6900,24 @@
                                                 },
                                                 has_default: true,
                                             },
-                                            SemaKeyedCallListItem {
-                                                key_regional_token_idx: RegionalTokenIdx(
-                                                    54,
-                                                ),
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 453,
-                                                        },
+                                            Some(
+                                                SemaKeyedCallListItem {
+                                                    key_regional_token_idx: RegionalTokenIdx(
+                                                        54,
                                                     ),
-                                                ),
-                                                argument_sema_expr_idx: SemaExprIdx(
-                                                    26,
-                                                ),
-                                                separator: None,
-                                            },
+                                                    key: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 453,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    argument_sema_expr_idx: SemaExprIdx(
+                                                        26,
+                                                    ),
+                                                    separator: None,
+                                                },
+                                            ),
                                         ),
                                     ],
                                     rpar_regional_token_idx: RegionalTokenIdx(
@@ -8349,22 +8351,24 @@
                                                 },
                                                 has_default: true,
                                             },
-                                            SemaKeyedCallListItem {
-                                                key_regional_token_idx: RegionalTokenIdx(
-                                                    124,
-                                                ),
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 453,
-                                                        },
+                                            Some(
+                                                SemaKeyedCallListItem {
+                                                    key_regional_token_idx: RegionalTokenIdx(
+                                                        124,
                                                     ),
-                                                ),
-                                                argument_sema_expr_idx: SemaExprIdx(
-                                                    59,
-                                                ),
-                                                separator: None,
-                                            },
+                                                    key: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 453,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    argument_sema_expr_idx: SemaExprIdx(
+                                                        59,
+                                                    ),
+                                                    separator: None,
+                                                },
+                                            ),
                                         ),
                                     ],
                                     rpar_regional_token_idx: RegionalTokenIdx(
@@ -9267,22 +9271,24 @@
                                                 },
                                                 has_default: true,
                                             },
-                                            SemaKeyedCallListItem {
-                                                key_regional_token_idx: RegionalTokenIdx(
-                                                    164,
-                                                ),
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 453,
-                                                        },
+                                            Some(
+                                                SemaKeyedCallListItem {
+                                                    key_regional_token_idx: RegionalTokenIdx(
+                                                        164,
                                                     ),
-                                                ),
-                                                argument_sema_expr_idx: SemaExprIdx(
-                                                    76,
-                                                ),
-                                                separator: None,
-                                            },
+                                                    key: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 453,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    argument_sema_expr_idx: SemaExprIdx(
+                                                        76,
+                                                    ),
+                                                    separator: None,
+                                                },
+                                            ),
                                         ),
                                     ],
                                     rpar_regional_token_idx: RegionalTokenIdx(
@@ -9798,22 +9804,24 @@
                                                 },
                                                 has_default: true,
                                             },
-                                            SemaKeyedCallListItem {
-                                                key_regional_token_idx: RegionalTokenIdx(
-                                                    190,
-                                                ),
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 453,
-                                                        },
+                                            Some(
+                                                SemaKeyedCallListItem {
+                                                    key_regional_token_idx: RegionalTokenIdx(
+                                                        190,
                                                     ),
-                                                ),
-                                                argument_sema_expr_idx: SemaExprIdx(
-                                                    88,
-                                                ),
-                                                separator: None,
-                                            },
+                                                    key: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 453,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    argument_sema_expr_idx: SemaExprIdx(
+                                                        88,
+                                                    ),
+                                                    separator: None,
+                                                },
+                                            ),
                                         ),
                                     ],
                                     rpar_regional_token_idx: RegionalTokenIdx(

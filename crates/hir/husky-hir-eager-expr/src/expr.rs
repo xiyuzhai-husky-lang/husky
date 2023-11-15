@@ -42,7 +42,7 @@ pub enum HirEagerExprData {
         opd_hir_expr_idx: HirEagerExprIdx,
         opr: HirSuffixOpr,
     },
-    TypeConstructorCall {
+    TypeConstructorFnCall {
         path: TypePath,
         function_hir_eager_expr_idx: HirEagerExprIdx,
         template_arguments: Option<HirEagerTemplateArgumentList>,
@@ -60,7 +60,7 @@ pub enum HirEagerExprData {
         template_arguments: Option<HirEagerTemplateArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
-    AssociatedItemFunctionFnCall {
+    AssociatedFunctionFnCall {
         path: AssociatedItemPath,
         function_hir_eager_expr_idx: HirEagerExprIdx,
         parent_template_arguments: Option<HirEagerTemplateArgumentList>,
@@ -230,7 +230,7 @@ impl ToHirEager for SemaExprIdx {
                     HirEagerExprData::PrincipalEntityPath(path) => match path {
                         PrincipalEntityPath::Module(_) => unreachable!(),
                         PrincipalEntityPath::MajorItem(path) => match path {
-                            MajorItemPath::Type(path) => HirEagerExprData::TypeConstructorCall {
+                            MajorItemPath::Type(path) => HirEagerExprData::TypeConstructorFnCall {
                                 function_hir_eager_expr_idx,
                                 path,
                                 template_arguments,
@@ -255,7 +255,7 @@ impl ToHirEager for SemaExprIdx {
                     },
                     HirEagerExprData::AssociatedFn {
                         associated_item_path,
-                    } => HirEagerExprData::AssociatedItemFunctionFnCall {
+                    } => HirEagerExprData::AssociatedFunctionFnCall {
                         function_hir_eager_expr_idx,
                         path: associated_item_path,
                         // ad hoc

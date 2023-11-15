@@ -93,12 +93,17 @@ impl LazyPatternExprTrace {
         )
     }
 
-    pub fn view_data(self, _db: &dyn TraceDb) -> TraceViewData {
-        todo!()
+    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
+        let trace_view_lines = lazy_pattern_expr_trace_view_lines(db, self);
+        TraceViewData::new(trace_view_lines.data().to_vec(), self.have_subtraces(db))
+    }
+
+    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
+        false
     }
 
     pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
-        todo!()
+        &[]
     }
 
     pub fn val_repr(self, db: &dyn TraceDb) -> Option<ValRepr> {

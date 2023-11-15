@@ -33,6 +33,8 @@ pub struct TraceJar(
     crate::trace::lazy_expr::LazyExprTracePath,
     crate::trace::lazy_expr::LazyExprTrace,
     crate::trace::lazy_expr::lazy_expr_trace_view_lines,
+    crate::trace::lazy_expr::lazy_expr_trace_have_subtraces,
+    crate::trace::lazy_expr::lazy_expr_trace_subtraces,
     crate::trace::lazy_expr::lazy_expr_trace_val_repr,
     crate::trace::lazy_expr::lazy_expr_trace_val_repr_expansion,
     crate::trace::lazy_pattern_expr::LazyPatternExprTracePath,

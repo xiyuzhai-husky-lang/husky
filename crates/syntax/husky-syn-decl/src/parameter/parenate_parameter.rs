@@ -1,5 +1,5 @@
 use super::*;
-use parsec::{parse_separated_small_list2};
+use parsec::parse_separated_small_list2;
 
 pub(crate) type ParenateParameterSyndicates = SmallVec<[ParenateParameterSyndicate; 2]>;
 

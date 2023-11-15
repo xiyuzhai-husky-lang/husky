@@ -4,7 +4,10 @@ use crate::registry::{
     trace_path::{TracePathDisambiguator, TracePathRegistry},
 };
 use husky_entity_path::PrincipalEntityPath;
-use husky_hir_lazy_expr::{builder::hir_lazy_expr_region_with_source_map, HirLazyExprRegion};
+use husky_hir_lazy_expr::{
+    builder::hir_lazy_expr_region_with_source_map, source_map::HirLazyExprSourceMap,
+    HirLazyExprRegion,
+};
 use husky_hir_lazy_expr::{source_map::HirLazyExprSourceMapData, HirLazyStmtIdx};
 
 use husky_regional_token::{
@@ -243,6 +246,7 @@ struct LazyStmtAssociatedTraceRegistry<'a> {
     sema_expr_region: SemaExprRegion,
     hir_lazy_expr_region: HirLazyExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
+    hir_lazy_expr_source_map: HirLazyExprSourceMap,
     hir_lazy_expr_source_map_data: &'a HirLazyExprSourceMapData,
     lazy_expr_trace_path_registry: TracePathRegistry<LazyExprTracePathData>,
     lazy_expr_traces_issued: VecPairMap<SemaExprIdx, LazyExprTrace>,
@@ -263,6 +267,7 @@ impl<'a> LazyStmtAssociatedTraceRegistry<'a> {
             sema_expr_region,
             hir_lazy_expr_region,
             syn_expr_region_data: sema_expr_region.syn_expr_region(db).data(db),
+            hir_lazy_expr_source_map,
             hir_lazy_expr_source_map_data: hir_lazy_expr_source_map.data(db),
             lazy_expr_trace_path_registry: Default::default(),
             lazy_expr_traces_issued: Default::default(),
@@ -293,6 +298,7 @@ impl<'a> IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry<'a> {
                             hir_lazy_expr_idx,
                             self.sema_expr_region,
                             self.hir_lazy_expr_region,
+                            self.hir_lazy_expr_source_map,
                             &mut self.lazy_expr_trace_path_registry,
                             db,
                         )

@@ -142,28 +142,31 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             HirLazyExprData::Suffix {
                 opd_hir_expr_idx, ..
             } => self.expr_has_control_flow(opd_hir_expr_idx)?,
-            HirLazyExprData::FunctionFnCall {
-                function,
-                generic_arguments: _,
-                ref item_groups,
-            } => {
-                self.expr_has_control_flow(function)?;
-                self.infer_new_item_groups(item_groups)?
+            HirLazyExprData::TypeConstructorFnCall {
+                ref item_groups, ..
             }
-            HirLazyExprData::GnCall {
-                function,
-                generic_arguments: _,
+            | HirLazyExprData::TypeVariantConstructorFnCall {
+                ref item_groups, ..
+            }
+            | HirLazyExprData::FunctionFnItemCall {
+                ref item_groups, ..
+            }
+            | HirLazyExprData::AssociatedFunctionFnCall {
+                ref item_groups, ..
+            } => self.infer_new_item_groups(item_groups)?,
+            HirLazyExprData::FunctionGnCall {
+                function_hir_lazy_expr_idx,
                 ref item_groups,
+                ..
             } => {
-                self.expr_has_control_flow(function)?;
+                self.expr_has_control_flow(function_hir_lazy_expr_idx)?;
                 self.infer_new_item_groups(item_groups)?
             }
             HirLazyExprData::Field { owner, ident: _ } => self.expr_has_control_flow(owner)?,
             HirLazyExprData::MethodFnCall {
                 self_argument,
-                ident: _,
-                template_arguments: _,
                 ref item_groups,
+                ..
             } => {
                 self.expr_has_control_flow(self_argument)?;
                 self.infer_new_item_groups(item_groups)?
@@ -197,7 +200,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 }
             }
             HirLazyExprData::Todo => (),
-            HirLazyExprData::AssociatedFn => (),
+            HirLazyExprData::AssociatedFn { .. } => (),
         }
         HasControlFlow::False
     }
@@ -217,7 +220,9 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                     }
                 }
                 HirLazyCallListItemGroup::Keyed(_, item_expr_idx) => {
-                    self.expr_has_control_flow(item_expr_idx)?
+                    if let Some(item_expr_idx) = item_expr_idx {
+                        self.expr_has_control_flow(item_expr_idx)?
+                    }
                 }
             }
         }

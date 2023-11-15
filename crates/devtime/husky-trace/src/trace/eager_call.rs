@@ -12,7 +12,6 @@ pub struct EagerCallTracePath {
 #[enum_class::from_variants]
 pub enum EagerCallTraceBiologicalParentPath {
     EagerExpr(EagerExprTracePath),
-    LazyExpr(LazyExprTracePath),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -28,6 +27,12 @@ pub struct EagerCallTrace {
     pub path: EagerCallTracePath,
     pub biological_parent: EagerCallTraceBiologicalParent,
     pub data: EagerCallTraceData,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[enum_class::from_variants]
+pub enum EagerCallTraceBiologicalParent {
+    EagerExpr(EagerExprTrace),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -47,13 +52,6 @@ impl EagerCallTraceData {
             EagerCallTraceData::MethodFn { path } => EagerCallTracePathData::MethodFn { path },
         }
     }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[enum_class::from_variants]
-pub enum EagerCallTraceBiologicalParent {
-    EagerExpr(EagerExprTrace),
-    LazyExpr(LazyExprTrace),
 }
 
 impl EagerCallTrace {
