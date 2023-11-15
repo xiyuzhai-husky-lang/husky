@@ -212,7 +212,7 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
             let syn_decl = syn_defn.decl(db) else {
                 unreachable!()
             };
-            hir_decl.parenate_parameters(db);
+            syn_decl.parenate_parameters(db);
             let trace_path = trace.path(db);
             let mut subtraces = fn_call_eager_expr_trace_input_traces(
                 trace_path,
