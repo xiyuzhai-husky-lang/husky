@@ -40,10 +40,7 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(
-        self,
-        db: &'a dyn SynDeclDb,
-    ) -> &'a [TemplateParameterSyndicate] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
                 syn_node_decl.template_parameters(db)
@@ -110,14 +107,22 @@ impl AssociatedItemSynDecl {
         }
     }
 
-    pub fn template_parameters<'a>(
-        self,
-        db: &'a dyn SynDeclDb,
-    ) -> &'a [TemplateParameterSyndicate] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
         match self {
             AssociatedItemSynDecl::TypeItem(decl) => decl.template_parameters(db),
             AssociatedItemSynDecl::TraitItem(decl) => decl.template_parameters(db),
             AssociatedItemSynDecl::TraitForTypeItem(_) => todo!(),
+        }
+    }
+
+    pub fn parenate_parameters<'a>(
+        self,
+        db: &'a dyn SynDeclDb,
+    ) -> Option<&'a [ParenateSynParameterData]> {
+        match self {
+            AssociatedItemSynDecl::TypeItem(syn_decl) => syn_decl.parenate_parameters(db),
+            AssociatedItemSynDecl::TraitItem(syn_decl) => syn_decl.parenate_parameters(db),
+            AssociatedItemSynDecl::TraitForTypeItem(syn_decl) => syn_decl.parenate_parameters(db),
         }
     }
 

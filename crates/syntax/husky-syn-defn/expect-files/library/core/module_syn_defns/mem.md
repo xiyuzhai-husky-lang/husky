@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -8,7 +8,7 @@ Ok(
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::mem::Ref`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -28,7 +28,7 @@ Ok(
                                         },
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -184,7 +184,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -192,7 +192,7 @@ Ok(
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::mem::RefMut`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -212,7 +212,7 @@ Ok(
                                         },
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Invariant(
                                             InvariantRegionalToken {
@@ -368,7 +368,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -376,7 +376,7 @@ Ok(
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -497,7 +497,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -505,7 +505,7 @@ Ok(
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::mem::At`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Place {
@@ -517,7 +517,7 @@ Ok(
                                         },
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Type {
@@ -649,7 +649,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
@@ -661,7 +661,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 1,
                             data: TemplateParameterSyndicateData::Type {

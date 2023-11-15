@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::Val(
                     ValSynDefn {

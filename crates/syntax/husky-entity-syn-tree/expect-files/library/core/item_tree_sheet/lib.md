@@ -2,7 +2,7 @@ EntitySynTreeSheet {
     module_path: `core`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -36,7 +36,7 @@ EntitySynTreeSheet {
                 ident: `array`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -70,7 +70,7 @@ EntitySynTreeSheet {
                 ident: `basic`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -104,7 +104,7 @@ EntitySynTreeSheet {
                 ident: `clone`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -138,7 +138,7 @@ EntitySynTreeSheet {
                 ident: `cmp`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -172,7 +172,7 @@ EntitySynTreeSheet {
                 ident: `default`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -206,7 +206,7 @@ EntitySynTreeSheet {
                 ident: `fmt`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -240,7 +240,7 @@ EntitySynTreeSheet {
                 ident: `logic`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -274,7 +274,7 @@ EntitySynTreeSheet {
                 ident: `marker`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -308,7 +308,7 @@ EntitySynTreeSheet {
                 ident: `mem`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -342,7 +342,7 @@ EntitySynTreeSheet {
                 ident: `num`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -376,7 +376,7 @@ EntitySynTreeSheet {
                 ident: `ops`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -410,7 +410,7 @@ EntitySynTreeSheet {
                 ident: `option`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -444,7 +444,7 @@ EntitySynTreeSheet {
                 ident: `prelude`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -478,7 +478,7 @@ EntitySynTreeSheet {
                 ident: `raw_bits`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -512,7 +512,7 @@ EntitySynTreeSheet {
                 ident: `result`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -546,7 +546,7 @@ EntitySynTreeSheet {
                 ident: `vec`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -580,7 +580,7 @@ EntitySynTreeSheet {
                 ident: `slice`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -614,7 +614,7 @@ EntitySynTreeSheet {
                 ident: `str`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {

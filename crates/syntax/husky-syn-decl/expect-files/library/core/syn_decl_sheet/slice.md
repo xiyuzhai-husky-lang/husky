@@ -13,7 +13,7 @@ SynDeclSheet {
                         ExternTypeSynDecl {
                             path: TypePath(`core::slice::Slice`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -146,7 +146,7 @@ SynDeclSheet {
                         ExternTypeSynDecl {
                             path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -286,7 +286,7 @@ SynDeclSheet {
                             disambiguator: 0,
                         },
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -790,7 +790,7 @@ SynDeclSheet {
                                 },
                             ),
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -804,7 +804,7 @@ SynDeclSheet {
                                     ),
                                     ty: 1,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 2,
                                     },
@@ -1238,7 +1238,7 @@ SynDeclSheet {
                             disambiguator: 0,
                         },
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1848,7 +1848,7 @@ SynDeclSheet {
                             disambiguator: 0,
                         },
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {

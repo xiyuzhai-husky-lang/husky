@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::visual::Visualize`),
@@ -68,7 +68,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -138,7 +138,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
@@ -262,7 +262,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
                     TraitForTypeMethodFnSynDefn {

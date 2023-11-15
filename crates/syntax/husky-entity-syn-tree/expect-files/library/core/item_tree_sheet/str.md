@@ -2,7 +2,7 @@ EntitySynTreeSheet {
     module_path: `core::str`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -44,7 +44,7 @@ EntitySynTreeSheet {
                 ident: `str`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(

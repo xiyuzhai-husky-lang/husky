@@ -1,13 +1,13 @@
 use super::*;
 use parsec::parse_separated_small2_list_expected;
 
-pub(crate) type TemplateParameterSyndicates = SmallVec<[TemplateParameterSyndicate; 2]>;
+pub(crate) type TemplateSynParametersData = SmallVec<[TemplateSynParameterData; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 pub struct SynTemplateParameterSyndicateList {
     langle: LaOrLtRegionalToken,
-    template_parameters: TemplateParameterSyndicates,
+    template_parameters: TemplateSynParametersData,
     commas: CommaRegionalTokens,
     decl_list_result: Result<(), SynNodeDeclError>,
     rangle: RaOrGtRegionalToken,
@@ -18,7 +18,7 @@ impl SynTemplateParameterSyndicateList {
         self.langle
     }
 
-    pub fn syn_template_parameter_obelisks(&self) -> &[TemplateParameterSyndicate] {
+    pub fn syn_template_parameter_obelisks(&self) -> &[TemplateSynParameterData] {
         &self.template_parameters
     }
 

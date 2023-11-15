@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
@@ -302,7 +302,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -311,7 +311,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -325,7 +325,7 @@ Ok(
                                     ),
                                     ty: 4,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 2,
                                     },
@@ -1881,7 +1881,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -1986,7 +1986,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
                     TypeMemoizedFieldSynDefn {
@@ -2900,7 +2900,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
                     TypeMemoizedFieldSynDefn {
@@ -3814,7 +3814,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
                     TypeMemoizedFieldSynDefn {

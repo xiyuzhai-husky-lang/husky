@@ -1,12 +1,9 @@
-use husky_sema_expr::{
-    helpers::analysis::sema_expr_region_contains_gn, SemaExprData,
-};
+use husky_hir_defn::HasHirDefn;
+use husky_sema_expr::{helpers::analysis::sema_expr_region_contains_gn, SemaExprData};
 
 use husky_syn_defn::{FugitiveSynDefn, HasSynDefn};
 
-use crate::registry::{
-    associated_trace::VoidAssociatedTraceRegistry,
-};
+use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 
 use super::*;
 
@@ -28,9 +25,13 @@ impl ValItemTrace {
         ValItemTrace::new(db, ValItemTracePath::new(db, val_item_path))
     }
 
-    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        let tokens = val_item_trace_view_lines(db, self);
-        TraceViewData::new(tokens.data().to_vec(), /* ad hoc */ true)
+    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
+        val_item_trace_view_lines(db, self)
+    }
+
+    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
+        // ad hoc, incorrect
+        self.path(db).val_item_path(db).hir_defn(db).is_some()
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {

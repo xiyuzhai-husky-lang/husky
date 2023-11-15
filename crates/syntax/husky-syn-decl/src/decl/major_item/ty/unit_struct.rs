@@ -26,7 +26,7 @@ pub struct UnitStructTypeSynDecl {
     pub path: TypePath,
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
-    pub template_parameters: TemplateParameterSyndicates,
+    pub template_parameters: TemplateSynParametersData,
 }
 
 impl UnitStructTypeSynDecl {

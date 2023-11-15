@@ -11,7 +11,6 @@ pub use self::method_fn::*;
 
 use super::*;
 
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
@@ -32,10 +31,7 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(
-        self,
-        _db: &'a dyn SynDeclDb,
-    ) -> &'a [TemplateParameterSyndicate] {
+    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -111,15 +107,24 @@ impl TraitItemSynDecl {
         }
     }
 
-    pub fn template_parameters<'a>(
-        self,
-        _db: &'a dyn SynDeclDb,
-    ) -> &'a [TemplateParameterSyndicate] {
+    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
         match self {
             TraitItemSynDecl::AssociatedFn(_) => todo!(),
             TraitItemSynDecl::MethodFn(_) => todo!(),
             TraitItemSynDecl::AssociatedType(_) => todo!(),
             TraitItemSynDecl::AssociatedVal(_) => todo!(),
+        }
+    }
+
+    pub fn parenate_parameters<'a>(
+        self,
+        db: &'a dyn SynDeclDb,
+    ) -> Option<&'a [ParenateSynParameterData]> {
+        match self {
+            TraitItemSynDecl::AssociatedFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
+            TraitItemSynDecl::MethodFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
+            TraitItemSynDecl::AssociatedType(_) => None,
+            TraitItemSynDecl::AssociatedVal(_) => None,
         }
     }
 

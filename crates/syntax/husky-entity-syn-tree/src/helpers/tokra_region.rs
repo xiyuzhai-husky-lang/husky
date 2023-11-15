@@ -8,8 +8,15 @@ pub use self::snippet::*;
 
 use crate::*;
 use husky_regional_token::*;
-use husky_token::{TokenIdx};
+use husky_token::TokenIdx;
 
+/// Tokra region is for representing tokens and asts in a relative way.
+/// Previously, the source code is lexed into tokens and then divided into crude asts.
+/// Then we divide the source code into minimal code analysis units, called regions.
+/// Token and ast data and the relative indexes against the starting token of the region,
+/// is collected as Tokra Region
+///
+///
 #[enum_class::from_variants]
 pub enum TokraRegionData<'a> {
     Snippet(SnippetTokraRegionData<'a>),
@@ -40,17 +47,5 @@ impl RegionPath {
             RegionPath::Decl(slf) => Some(slf.decl_regional_token_idx_base(db)),
             RegionPath::Defn(slf) => slf.defn_regional_token_idx_base(db),
         }
-    }
-}
-
-pub struct TokraBase {
-    // add this to get TokenIdx
-    token_idx_base: u32,
-    token_group_idx_base: u32,
-}
-
-impl TokraBase {
-    fn token_idx(self, _regional_token_idx: RegionalTokenIdx) -> TokenIdx {
-        todo!()
     }
 }

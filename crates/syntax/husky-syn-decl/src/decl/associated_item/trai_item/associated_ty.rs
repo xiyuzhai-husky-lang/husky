@@ -61,6 +61,6 @@ pub struct TraitAssociatedTypeSynDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterSyndicates,
+    pub template_parameters: TemplateSynParametersData,
     pub syn_expr_region: SynExprRegion,
 }

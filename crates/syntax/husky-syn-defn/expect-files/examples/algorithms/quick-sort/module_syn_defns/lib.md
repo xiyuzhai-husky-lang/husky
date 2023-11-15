@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -8,7 +8,7 @@ Ok(
                         decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -32,7 +32,7 @@ Ok(
                                 },
                             ],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -865,7 +865,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -873,7 +873,7 @@ Ok(
                         decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -897,7 +897,7 @@ Ok(
                                 },
                             ],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -911,7 +911,7 @@ Ok(
                                     ),
                                     ty: 4,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 2,
                                     },
@@ -925,7 +925,7 @@ Ok(
                                     ),
                                     ty: 5,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 3,
                                     },
@@ -2278,7 +2278,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -2286,7 +2286,7 @@ Ok(
                         decl: FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -2310,7 +2310,7 @@ Ok(
                                 },
                             ],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -2324,7 +2324,7 @@ Ok(
                                     ),
                                     ty: 4,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 2,
                                     },
@@ -2338,7 +2338,7 @@ Ok(
                                     ),
                                     ty: 5,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 3,
                                     },
@@ -4510,7 +4510,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -5064,7 +5064,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {

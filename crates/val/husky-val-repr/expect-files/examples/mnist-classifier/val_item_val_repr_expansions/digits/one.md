@@ -218,10 +218,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 17,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 17,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],
@@ -516,10 +518,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 28,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 28,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],
@@ -1427,10 +1431,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 66,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 66,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],
@@ -2206,10 +2212,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 97,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 97,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],
@@ -2582,10 +2590,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 111,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 111,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],
@@ -3675,10 +3685,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 147,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 147,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],
@@ -3944,10 +3956,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 154,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 154,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],
@@ -4505,10 +4519,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 175,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 175,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],
@@ -5348,10 +5364,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 204,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 204,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],

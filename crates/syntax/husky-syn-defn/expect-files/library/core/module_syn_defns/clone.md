@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::clone::Clone`),
@@ -68,7 +68,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
@@ -192,7 +192,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
                     TraitForTypeMethodFnSynDefn {

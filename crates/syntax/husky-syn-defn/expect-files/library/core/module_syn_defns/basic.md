@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -70,7 +70,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -140,7 +140,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -210,7 +210,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -280,7 +280,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -350,7 +350,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -420,7 +420,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {

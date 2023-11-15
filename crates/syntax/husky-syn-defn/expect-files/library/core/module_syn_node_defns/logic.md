@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -81,7 +81,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Structure(
                 StructureTypeSynNodeDefn {
@@ -107,7 +107,7 @@
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Type {
@@ -129,7 +129,7 @@
                                                 ),
                                             },
                                         },
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 2,
                                             data: TemplateParameterSyndicateData::Type {
@@ -349,7 +349,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Inductive(
                 InductiveTypeSynNodeDefn {
@@ -375,7 +375,7 @@
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Type {
@@ -397,7 +397,7 @@
                                                 ),
                                             },
                                         },
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 2,
                                             data: TemplateParameterSyndicateData::Type {

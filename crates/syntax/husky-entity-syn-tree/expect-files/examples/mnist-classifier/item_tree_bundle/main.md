@@ -4,7 +4,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -42,7 +42,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -80,7 +80,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -118,7 +118,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -156,7 +156,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -194,7 +194,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -232,7 +232,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -270,7 +270,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -2022,7 +2022,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::connected_component`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -2064,7 +2064,7 @@ EntitySynTreeCrateBundle {
                         ident: `ConnectedComponentDistribution`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -2106,7 +2106,7 @@ EntitySynTreeCrateBundle {
                         ident: `EffHoles`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -2158,7 +2158,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::connected_component`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -2200,7 +2200,7 @@ EntitySynTreeCrateBundle {
                         ident: `ConnectedComponent`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -2252,7 +2252,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::connected_component`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -4399,7 +4399,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::raw_contour`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -4441,7 +4441,7 @@ EntitySynTreeCrateBundle {
                         ident: `RawContour`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -4493,7 +4493,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -4545,7 +4545,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -4597,7 +4597,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -4649,7 +4649,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -4701,7 +4701,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -4753,7 +4753,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -4805,7 +4805,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -4851,7 +4851,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -4903,7 +4903,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::raw_contour`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -7616,7 +7616,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::geom2d`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -7658,7 +7658,7 @@ EntitySynTreeCrateBundle {
                         ident: `Point2d`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -7700,7 +7700,7 @@ EntitySynTreeCrateBundle {
                         ident: `RelativePoint2d`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -7742,7 +7742,7 @@ EntitySynTreeCrateBundle {
                         ident: `Vector2d`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -7784,7 +7784,7 @@ EntitySynTreeCrateBundle {
                         ident: `ClosedRange`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -7826,7 +7826,7 @@ EntitySynTreeCrateBundle {
                         ident: `BoundingBox`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -8112,7 +8112,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::line_segment_sketch`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -8150,7 +8150,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -8188,7 +8188,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -8226,7 +8226,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -8264,7 +8264,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -8306,7 +8306,7 @@ EntitySynTreeCrateBundle {
                         ident: `LineSegmentStroke`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -8348,7 +8348,7 @@ EntitySynTreeCrateBundle {
                         ident: `LineSegmentSketch`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -8400,7 +8400,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -8452,7 +8452,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -8504,7 +8504,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -8556,7 +8556,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -9497,7 +9497,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::line_segment_sketch::concave_component`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -9539,7 +9539,7 @@ EntitySynTreeCrateBundle {
                         ident: `ConcaveComponent`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -12773,7 +12773,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::line_segment_sketch::convex_component`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -13665,7 +13665,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::line_segment_sketch::convexity`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -14852,7 +14852,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::line_segment_sketch::line_segment`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -15182,7 +15182,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::fermi`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -15224,7 +15224,7 @@ EntitySynTreeCrateBundle {
                         ident: `FermiMatchResult`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -17158,7 +17158,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::digits`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -17196,7 +17196,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -17234,7 +17234,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -17272,7 +17272,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -17310,7 +17310,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -17348,7 +17348,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -17386,7 +17386,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -17424,7 +17424,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -17462,7 +17462,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -17500,7 +17500,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -20397,7 +20397,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::digits::zero`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -20449,7 +20449,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::zero`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -20501,7 +20501,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::zero`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -23599,7 +23599,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::digits::one`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -23651,7 +23651,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::one`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -23699,7 +23699,7 @@ EntitySynTreeCrateBundle {
                         ident: `is_one`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -23751,7 +23751,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::one`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -23803,7 +23803,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::one`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -26921,7 +26921,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::digits::six`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -26973,7 +26973,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::six`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -27025,7 +27025,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::six`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -27077,7 +27077,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -27129,7 +27129,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::six`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -30249,7 +30249,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::digits::three`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -30301,7 +30301,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::three`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -30353,7 +30353,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -30405,7 +30405,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::three`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -30457,7 +30457,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::three`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -33577,7 +33577,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::digits::four`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -33629,7 +33629,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -33681,7 +33681,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -33733,7 +33733,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -33785,7 +33785,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -33837,7 +33837,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -33889,7 +33889,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -37031,7 +37031,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::digits::five`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -40107,7 +40107,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::digits::seven`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -40159,7 +40159,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -40211,7 +40211,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -40263,7 +40263,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -40315,7 +40315,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -40367,7 +40367,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -43498,7 +43498,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::digits::eight`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -43550,7 +43550,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -43602,7 +43602,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -46700,7 +46700,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::digits::nine`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -46752,7 +46752,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::nine`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -46804,7 +46804,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::nine`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -46856,7 +46856,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -46908,7 +46908,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::nine`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -50028,7 +50028,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::digits::two`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -50080,7 +50080,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::two`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -50132,7 +50132,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::two`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -50184,7 +50184,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::two`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -50236,7 +50236,7 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits::two`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -53356,7 +53356,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist_classifier::major`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -53404,7 +53404,7 @@ EntitySynTreeCrateBundle {
                         ident: `connected_components`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -53452,7 +53452,7 @@ EntitySynTreeCrateBundle {
                         ident: `major_connected_component`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -53500,7 +53500,7 @@ EntitySynTreeCrateBundle {
                         ident: `ignored_connected_components_row_span_sum_sum`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -53548,7 +53548,7 @@ EntitySynTreeCrateBundle {
                         ident: `major_raw_contours`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -53596,7 +53596,7 @@ EntitySynTreeCrateBundle {
                         ident: `major_raw_contour`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -53644,7 +53644,7 @@ EntitySynTreeCrateBundle {
                         ident: `major_line_segment_sketch`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(

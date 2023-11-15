@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -81,7 +81,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -163,7 +163,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -245,7 +245,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -327,7 +327,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -409,7 +409,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -491,7 +491,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {

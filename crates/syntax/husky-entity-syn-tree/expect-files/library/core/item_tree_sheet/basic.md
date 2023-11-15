@@ -2,7 +2,7 @@ EntitySynTreeSheet {
     module_path: `core::basic`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -44,7 +44,7 @@ EntitySynTreeSheet {
                 ident: `bool`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -86,7 +86,7 @@ EntitySynTreeSheet {
                 ident: `never`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -128,7 +128,7 @@ EntitySynTreeSheet {
                 ident: `unit`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -170,7 +170,7 @@ EntitySynTreeSheet {
                 ident: `Trait`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -212,7 +212,7 @@ EntitySynTreeSheet {
                 ident: `Module`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -254,7 +254,7 @@ EntitySynTreeSheet {
                 ident: `Lifetime`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(

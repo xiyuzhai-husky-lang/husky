@@ -2,7 +2,7 @@ EntitySynTreePresheet {
     module_path: `core::cmp`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Trait(
@@ -44,7 +44,7 @@ EntitySynTreePresheet {
                 ident: `PartialEq`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Trait(
@@ -86,7 +86,7 @@ EntitySynTreePresheet {
                 ident: `Eq`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Trait(
@@ -128,7 +128,7 @@ EntitySynTreePresheet {
                 ident: `PartialOrd`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Trait(

@@ -2,7 +2,7 @@ EntitySynTreeSheet {
     module_path: `mnist_classifier::digits::one`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -54,7 +54,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::digits::one`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -102,7 +102,7 @@ EntitySynTreeSheet {
                 ident: `is_one`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -154,7 +154,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::digits::one`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -206,7 +206,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::digits::one`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(

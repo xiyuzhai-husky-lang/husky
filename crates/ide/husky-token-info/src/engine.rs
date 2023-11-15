@@ -5,7 +5,6 @@ use husky_sema_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 
-
 use husky_entity_syn_tree::{
     helpers::{
         paths::module_item_syn_node_paths,
@@ -13,9 +12,7 @@ use husky_entity_syn_tree::{
     },
     ParentUseExpr,
 };
-use husky_sema_expr::{
-    SemaExprData, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr,
-};
+use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr};
 use husky_syn_expr::*;
 
 pub(crate) struct TokenInfoEngine<'a> {
@@ -128,12 +125,12 @@ impl<'a> TokenInfoEngine<'a> {
             _ => unreachable!(),
         }
         match syn_node_defn {
-            SynNodeDefn::MajorItem(defn) => self.visit_module_item_node(defn),
-            SynNodeDefn::AssociatedItem(defn) => self.visit_associated_item(defn),
-            SynNodeDefn::TypeVariant(_) => todo!(),
-            SynNodeDefn::ImplBlock(_) => (),
-            SynNodeDefn::Submodule(_) => (),
-            SynNodeDefn::Attr(_) => (),
+            ItemSynNodeDefn::MajorItem(defn) => self.visit_module_item_node(defn),
+            ItemSynNodeDefn::AssociatedItem(defn) => self.visit_associated_item(defn),
+            ItemSynNodeDefn::TypeVariant(_) => todo!(),
+            ItemSynNodeDefn::ImplBlock(_) => (),
+            ItemSynNodeDefn::Submodule(_) => (),
+            ItemSynNodeDefn::Attr(_) => (),
         }
     }
 
@@ -492,7 +489,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             }
             SemaExprData::FunctionGnCall { .. } => todo!(),
             SemaExprData::Ritchie { .. } => (),
-            SemaExprData::Sorry { regional_token_idx: _ } => todo!(),
+            SemaExprData::Sorry {
+                regional_token_idx: _,
+            } => todo!(),
             SemaExprData::Todo { regional_token_idx } => {
                 self.add(*regional_token_idx, sema_expr_idx, TokenInfoData::Todo)
             }

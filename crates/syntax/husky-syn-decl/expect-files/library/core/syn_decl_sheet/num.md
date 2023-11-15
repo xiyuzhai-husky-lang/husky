@@ -1411,7 +1411,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -1936,7 +1936,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -2675,7 +2675,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -3200,7 +3200,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -3939,7 +3939,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -4270,7 +4270,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -4795,7 +4795,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -5728,7 +5728,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -6661,7 +6661,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -7594,7 +7594,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -8527,7 +8527,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -9460,7 +9460,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -10393,7 +10393,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -11326,7 +11326,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -12259,7 +12259,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -13192,7 +13192,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -14159,7 +14159,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -14490,7 +14490,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -15927,7 +15927,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -17088,7 +17088,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },

@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::Val(
                 ValSynNodeDefn {
@@ -401,7 +401,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::Val(
                 ValSynNodeDefn {
@@ -1384,7 +1384,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::Val(
                 ValSynNodeDefn {
@@ -2086,7 +2086,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::Val(
                 ValSynNodeDefn {
@@ -2473,7 +2473,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::Val(
                 ValSynNodeDefn {
@@ -2859,7 +2859,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::Val(
                 ValSynNodeDefn {
@@ -3220,7 +3220,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::Val(
                 ValSynNodeDefn {

@@ -8,8 +8,8 @@ use husky_regional_token::{
     RegionalTokenIdxRange, StmtForRegionalToken,
 };
 use husky_sema_expr::{
-    helpers::range::sema_expr_range_region, SemaExprRegion, SemaStmtData, SemaStmtIdx,
-    SemaStmtIdxRange,
+    helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion, SemaStmtData,
+    SemaStmtIdx, SemaStmtIdxRange,
 };
 use husky_token_info::TokenInfoSource;
 
@@ -146,21 +146,42 @@ impl EagerStmtTrace {
         )
     }
 
-    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        let tokens = eager_stmt_trace_view_lines(db, self);
-        let have_subtraces = match self.data(db) {
+    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
+        eager_stmt_trace_view_lines(db, self)
+    }
+
+    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
+        match self.data(db) {
             EagerStmtTraceData::BasicStmt => false,
             EagerStmtTraceData::IfBranch { .. } => true,
             EagerStmtTraceData::ElifBranch { .. } => true,
             EagerStmtTraceData::ElseBranch { .. } => true,
             EagerStmtTraceData::ForBetween { .. } => true,
             EagerStmtTraceData::ForIn { .. } => true,
-        };
-        TraceViewData::new(tokens.data().to_vec(), have_subtraces)
+        }
     }
 
     pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
         eager_stmt_trace_subtraces(db, self)
+    }
+
+    pub(crate) fn from_syn_body_with_syn_expr_region(
+        parent_trace_path: impl Into<EagerStmtTraceBiologicalParentPath>,
+        parent_trace: impl Into<EagerStmtTraceBiologicalParent>,
+        body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
+        db: &dyn TraceDb,
+    ) -> Vec<Trace> {
+        let Some((body, syn_expr_region)) = body_with_syn_expr_region else {
+            return vec![];
+        };
+        let sema_expr_region = db.sema_expr_region(syn_expr_region);
+        let sema_expr_region_data = sema_expr_region.data(db);
+        let body = sema_expr_region_data.syn_root_to_sema_expr_idx(body);
+        let SemaExprData::Block { stmts } = *body.data(sema_expr_region_data.sema_expr_arena())
+        else {
+            unreachable!()
+        };
+        Self::from_stmts(parent_trace_path, parent_trace, stmts, sema_expr_region, db)
     }
 
     pub(crate) fn from_stmts(

@@ -1056,10 +1056,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 394,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 394,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],

@@ -66,7 +66,7 @@ pub enum HirLazyExprData {
     FunctionGnCall {
         path: FugitivePath,
         function_hir_lazy_expr_idx: HirLazyExprIdx,
-        generic_arguments: Option<HirLazyTemplateArgumentList>,
+        template_arguments: Option<HirLazyTemplateArgumentList>,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
     AssociatedFunctionFnCall {

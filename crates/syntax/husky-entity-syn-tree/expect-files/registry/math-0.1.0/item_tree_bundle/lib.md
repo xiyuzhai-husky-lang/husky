@@ -4,7 +4,7 @@ EntitySynTreeCrateBundle {
             module_path: `math`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -42,7 +42,7 @@ EntitySynTreeCrateBundle {
                             `math`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -80,7 +80,7 @@ EntitySynTreeCrateBundle {
                             `math`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -118,7 +118,7 @@ EntitySynTreeCrateBundle {
                             `math`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -156,7 +156,7 @@ EntitySynTreeCrateBundle {
                             `math`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {

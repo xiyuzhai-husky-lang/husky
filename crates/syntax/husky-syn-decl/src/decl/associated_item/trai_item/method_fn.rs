@@ -85,10 +85,10 @@ pub struct TraitMethodFnSynDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterSyndicates,
+    pub template_parameters: TemplateSynParametersData,
     pub self_value_parameter: Option<SelfValueParameterSyndicate>,
     #[return_ref]
-    pub parenate_parameters: ParenateParameterSyndicates,
+    pub parenate_parameters: ParenateSynParametersData,
     pub return_ty: Option<ReturnTypeBeforeColonSyndicate>,
     pub syn_expr_region: SynExprRegion,
 }

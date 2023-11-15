@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Enum(
                 EnumTypeSynNodeDefn {
@@ -25,7 +25,7 @@
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Type {
@@ -142,7 +142,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -153,7 +153,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Enum(
                 EnumTypeSynNodeDefn {
@@ -179,7 +179,7 @@
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Type {
@@ -192,7 +192,7 @@
                                                 traits: None,
                                             },
                                         },
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 2,
                                             data: TemplateParameterSyndicateData::Constant {
@@ -389,7 +389,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -400,7 +400,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Enum(
                 EnumTypeSynNodeDefn {
@@ -426,7 +426,7 @@
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Type {
@@ -439,7 +439,7 @@
                                                 traits: None,
                                             },
                                         },
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 2,
                                             data: TemplateParameterSyndicateData::Constant {
@@ -636,7 +636,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -647,7 +647,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::Gn(
                 GnSynNodeDefn {
@@ -1050,7 +1050,7 @@
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Type {
@@ -1063,7 +1063,7 @@
                                                 traits: None,
                                             },
                                         },
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 2,
                                             data: TemplateParameterSyndicateData::Constant {
@@ -1115,7 +1115,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Variadic {
+                                    ParenateSynParameterData::Variadic {
                                         dot_dot_dot_token: DotDotDotRegionalToken(
                                             RegionalTokenIdx(
                                                 15,
@@ -1148,7 +1148,7 @@
                                         ),
                                         ty: 2,
                                     },
-                                    ParenateParameterSyndicate::Keyed {
+                                    ParenateSynParameterData::Keyed {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -1226,7 +1226,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -1253,7 +1253,7 @@
                                 ),
                             ),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -1266,7 +1266,7 @@
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Constant {
@@ -1680,7 +1680,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::AssociatedType(
                 TraitForTypeAssociatedTypeSynNodeDefn {
@@ -2189,7 +2189,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -2216,7 +2216,7 @@
                                 ),
                             ),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -2229,7 +2229,7 @@
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Constant {
@@ -2664,7 +2664,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::AssociatedType(
                 TraitForTypeAssociatedTypeSynNodeDefn {

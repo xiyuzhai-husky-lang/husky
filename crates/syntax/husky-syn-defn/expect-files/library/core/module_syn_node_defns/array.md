@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -25,7 +25,7 @@
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Constant {
@@ -48,7 +48,7 @@
                                                 ty_expr: 1,
                                             },
                                         },
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: Some(
                                                 VarianceRegionalToken::Covariant(
                                                     CovariantRegionalToken {

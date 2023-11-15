@@ -188,7 +188,7 @@ impl EntitySymbolEntry {
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct MajorEntityNodeTable {
-    entries: Vec<EntityNodeEntry>,
+    entries: Vec<ItemNodeEntry>,
 }
 
 impl MajorEntityNodeTable {
@@ -211,7 +211,7 @@ impl MajorEntityNodeTable {
         item_path: ItemPath,
         block: DefnBlock,
     ) {
-        if let Some(entry) = EntityNodeEntry::new(
+        if let Some(entry) = ItemNodeEntry::new(
             db,
             registry,
             visibility,
@@ -237,7 +237,7 @@ impl MajorEntityNodeTable {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct EntityNodeEntry {
+pub struct ItemNodeEntry {
     node: ItemSynNode,
     /// cached for performance, always equal to node.syn_node_path(db)
     syn_node_path: ItemSynNodePath,
@@ -248,7 +248,7 @@ pub struct EntityNodeEntry {
 }
 
 impl EntitySymbolEntry {
-    fn from_node(db: &dyn EntitySynTreeDb, node_entry: &EntityNodeEntry) -> Option<Self> {
+    fn from_node(db: &dyn EntitySynTreeDb, node_entry: &ItemNodeEntry) -> Option<Self> {
         Some(EntitySymbolEntry {
             ident: node_entry.ident,
             visibility: node_entry.visibility,
@@ -257,7 +257,7 @@ impl EntitySymbolEntry {
     }
 }
 
-impl EntityNodeEntry {
+impl ItemNodeEntry {
     fn new(
         db: &dyn EntitySynTreeDb,
         registry: &mut ItemSynNodePathRegistry,

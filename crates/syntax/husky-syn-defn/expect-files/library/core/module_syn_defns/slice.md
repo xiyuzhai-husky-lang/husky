@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -8,7 +8,7 @@ Ok(
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::slice::Slice`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -129,7 +129,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -137,7 +137,7 @@ Ok(
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -258,7 +258,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -267,7 +267,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 1,
                             data: TemplateParameterSyndicateData::Type {
@@ -427,7 +427,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -714,7 +714,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -763,7 +763,7 @@ Ok(
                                 },
                             ),
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -777,7 +777,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 2,
                                     },
@@ -1187,7 +1187,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
@@ -1199,7 +1199,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 1,
                             data: TemplateParameterSyndicateData::Type {
@@ -1437,7 +1437,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::AssociatedType(
                     TraitForTypeAssociatedTypeSynDefn {
@@ -1786,7 +1786,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -1795,7 +1795,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 1,
                             data: TemplateParameterSyndicateData::Type {
@@ -1955,7 +1955,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -2242,7 +2242,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -2529,7 +2529,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -2816,7 +2816,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -3103,7 +3103,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {

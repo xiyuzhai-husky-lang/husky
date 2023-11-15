@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Inductive(
                 InductiveTypeSynNodeDefn {
@@ -81,7 +81,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Structure(
                 StructureTypeSynNodeDefn {
@@ -163,7 +163,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Structure(
                 StructureTypeSynNodeDefn {
@@ -245,7 +245,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {

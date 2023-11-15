@@ -4,7 +4,7 @@ use parsec::{HasStreamState, TryParseOptionFromStream};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum ParenateParameterSyndicate {
+pub enum ParenateSynParameterData {
     Ordinary {
         syn_pattern_root: ParenateSynPatternExprRoot,
         variables: CurrentSynSymbolIdxRange,
@@ -43,7 +43,7 @@ pub enum SynVariadicParameterVariant {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSyndicate {
+impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynParameterData {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -105,7 +105,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
                         OriginalSynExprError::ExpectedExplicitParameterDefaultValue,
                     ))
                 };
-                Ok(Some(ParenateParameterSyndicate::Keyed {
+                Ok(Some(ParenateSynParameterData::Keyed {
                     syn_pattern_root,
                     symbol_modifier_keyword_group,
                     ident_token,
@@ -116,7 +116,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
                     default,
                 }))
             } else {
-                Ok(Some(ParenateParameterSyndicate::Ordinary {
+                Ok(Some(ParenateSynParameterData::Ordinary {
                     syn_pattern_root: syn_pattern_root,
                     variables,
                     colon,
@@ -151,7 +151,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParamet
                 variable,
                 Some(SyndicateTypeConstraint::VariadicParenateParameter { ty }),
             );
-            Ok(Some(ParenateParameterSyndicate::Variadic {
+            Ok(Some(ParenateSynParameterData::Variadic {
                 dot_dot_dot_token,
                 variadic_variant,
                 symbol_modifier_keyword_group,

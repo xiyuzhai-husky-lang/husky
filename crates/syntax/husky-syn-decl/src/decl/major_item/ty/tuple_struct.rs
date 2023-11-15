@@ -51,7 +51,7 @@ pub struct TupleStructTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterSyndicates,
+    pub template_parameters: TemplateSynParametersData,
     #[return_ref]
     pub fields: SmallVec<[TupleFieldSyndicate; 4]>,
     pub syn_expr_region: SynExprRegion,

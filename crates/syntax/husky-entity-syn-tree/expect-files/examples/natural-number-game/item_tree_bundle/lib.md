@@ -4,7 +4,7 @@ EntitySynTreeCrateBundle {
             module_path: `natural_number_game`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -56,7 +56,7 @@ EntitySynTreeCrateBundle {
                             `natural_number_game`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -102,7 +102,7 @@ EntitySynTreeCrateBundle {
                             `natural_number_game`,
                         ),
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(

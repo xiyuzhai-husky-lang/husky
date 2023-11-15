@@ -1,5 +1,3 @@
-
-
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
@@ -78,10 +76,10 @@ pub struct TraitForTypeMethodFnSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterSyndicates,
+    pub template_parameters: TemplateSynParametersData,
     pub self_value_parameter: Option<SelfValueParameterSyndicate>,
     #[return_ref]
-    pub parenate_parameters: ParenateParameterSyndicates,
+    pub parenate_parameters: ParenateSynParametersData,
     pub return_ty: Option<ReturnTypeBeforeColonSyndicate>,
     pub syn_expr_region: SynExprRegion,
 }
@@ -101,7 +99,7 @@ impl TraitForTypeMethodFnSynDecl {
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
         let self_value_parameter = *parenate_parameter_decl_list.self_value_parameter();
-        let parenate_parameters: ParenateParameterSyndicates = parenate_parameter_decl_list
+        let parenate_parameters: ParenateSynParametersData = parenate_parameter_decl_list
             .parenate_parameters()
             .iter()
             .map(Clone::clone)

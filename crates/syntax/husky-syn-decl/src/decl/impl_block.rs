@@ -27,10 +27,7 @@ impl ImplBlockSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(
-        self,
-        _db: &'a dyn SynDeclDb,
-    ) -> &'a [TemplateParameterSyndicate] {
+    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
         todo!()
     }
 
@@ -85,10 +82,7 @@ impl ImplBlockSynDecl {
         }
     }
 
-    pub fn template_parameters<'a>(
-        self,
-        _db: &'a dyn SynDeclDb,
-    ) -> &'a [TemplateParameterSyndicate] {
+    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
         todo!()
     }
 

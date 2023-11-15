@@ -16162,12 +16162,938 @@
                     ),
                 ),
                 data: Regular {
-                    sema_expr_idx: SemaExprIdx(
+                    argument_sema_expr_idx: SemaExprIdx(
                         2,
                     ),
-                    hir_eager_expr_idx: Some(
+                    argument_hir_eager_expr_idx: Some(
                         2,
                     ),
+                },
+                caller_sema_expr_region: SemaExprRegion {
+                    path: RegionPath::Defn(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    ),
+                    syn_expr_region: SynExprRegion {
+                        data: SynExprRegionData {
+                            parent: Some(
+                                SynExprRegion {
+                                    data: SynExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                SynExprData::List {
+                                                    lbox_regional_token_idx: RegionalTokenIdx(
+                                                        5,
+                                                    ),
+                                                    items: [],
+                                                    rbox_regional_token_idx: RegionalTokenIdx(
+                                                        6,
+                                                    ),
+                                                },
+                                                SynExprData::PrincipalEntityPath {
+                                                    path_expr_idx: 1,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExprData::ExplicitApplication {
+                                                    function_expr_idx: 1,
+                                                    argument_expr_idx: 2,
+                                                },
+                                            ],
+                                        },
+                                        principal_item_path_expr_arena: Arena {
+                                            data: [
+                                                SynPrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `ConnectedComponent`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                7,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: SynPatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SynSymbolRegion {
+                                            inherited_syn_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_syn_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
+                                            SynExprRoot {
+                                                kind: SynExprRootKind::ReturnType,
+                                                syn_expr_idx: 3,
+                                            },
+                                        ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
+                                        syn_pattern_to_current_syn_symbol_map: [],
+                                    },
+                                },
+                            ),
+                            path: RegionPath::Defn(
+                                ItemSynNodePath::MajorItem(
+                                    MajorItemSynNodePath::Fugitive(
+                                        FugitiveSynNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 1,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 2,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist::input`, `Val`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    SynExprData::FunctionApplicationOrCall {
+                                        function: 1,
+                                        template_arguments: None,
+                                        lpar_regional_token_idx: RegionalTokenIdx(
+                                            2,
+                                        ),
+                                        items: [
+                                            SynCommaListItem {
+                                                syn_expr_idx: 2,
+                                                comma_regional_token_idx: None,
+                                            },
+                                        ],
+                                        rpar_regional_token_idx: RegionalTokenIdx(
+                                            4,
+                                        ),
+                                    },
+                                    SynExprData::Block {
+                                        stmts: ArenaIdxRange(
+                                            1..2,
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_item_path_expr_arena: Arena {
+                                data: [
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `find_connected_components`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Fugitive(
+                                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                            ),
+                                        ),
+                                    },
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `input`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Fugitive(
+                                                FugitivePath(`mnist::input`, `Val`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [
+                                    SynStmtData::Eval {
+                                        expr_idx: 3,
+                                        eol_semicolon: Ok(
+                                            None,
+                                        ),
+                                    },
+                                ],
+                            },
+                            pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SynSymbolRegion {
+                                inherited_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: False,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            syn_pattern_expr_roots: [],
+                            syn_expr_roots: [
+                                SynExprRoot {
+                                    kind: SynExprRootKind::EvalExpr,
+                                    syn_expr_idx: 3,
+                                },
+                                SynExprRoot {
+                                    kind: SynExprRootKind::BlockExpr,
+                                    syn_expr_idx: 4,
+                                },
+                            ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
+                        },
+                    },
+                    data: SemaExprRegionData {
+                        path: Defn(
+                            MajorItem(
+                                Fugitive(
+                                    FugitiveSynNodePath(
+                                        Id {
+                                            value: 71,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        sema_expr_arena: SemaExprArena(
+                            Arena {
+                                data: [
+                                    SemaExprEntry {
+                                        data_result: Ok(
+                                            PrincipalEntityPath {
+                                                path_expr_idx: 1,
+                                                path: MajorItem(
+                                                    Fugitive(
+                                                        FugitivePath(
+                                                            Id {
+                                                                value: 9,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                ty_path_disambiguation: InstanceConstructor,
+                                            },
+                                        ),
+                                        ty_result: Ok(
+                                            FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Ritchie(
+                                                        EtherealTermRitchie(
+                                                            Id {
+                                                                value: 10,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                    SemaExprEntry {
+                                        data_result: Ok(
+                                            PrincipalEntityPath {
+                                                path_expr_idx: 2,
+                                                path: MajorItem(
+                                                    Fugitive(
+                                                        FugitivePath(
+                                                            Id {
+                                                                value: 79,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                ty_path_disambiguation: InstanceConstructor,
+                                            },
+                                        ),
+                                        ty_result: Ok(
+                                            FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 92,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                    SemaExprEntry {
+                                        data_result: Ok(
+                                            FunctionFnCall {
+                                                function_sema_expr_idx: SemaExprIdx(
+                                                    1,
+                                                ),
+                                                template_arguments: None,
+                                                lpar_regional_token_idx: RegionalTokenIdx(
+                                                    2,
+                                                ),
+                                                ritchie_parameter_argument_matches: [
+                                                    Regular(
+                                                        FluffyTermRitchieRegularParameter {
+                                                            contract: None,
+                                                            ty: FluffyTerm {
+                                                                place: None,
+                                                                base: Ethereal(
+                                                                    EntityPath(
+                                                                        TypeOntology(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 67,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                        SemaRegularCallListItem {
+                                                            argument_expr_idx: SemaExprIdx(
+                                                                2,
+                                                            ),
+                                                            separator: None,
+                                                        },
+                                                    ),
+                                                ],
+                                                rpar_regional_token_idx: RegionalTokenIdx(
+                                                    4,
+                                                ),
+                                            },
+                                        ),
+                                        ty_result: Ok(
+                                            FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                    SemaExprEntry {
+                                        data_result: Ok(
+                                            Block {
+                                                stmts: SemaStmtIdxRange(
+                                                    ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ty_result: Ok(
+                                            FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        ),
+                        sema_stmt_arena: SemaStmtArena(
+                            Arena {
+                                data: [
+                                    SemaStmtEntry {
+                                        data_result: Ok(
+                                            Eval {
+                                                sema_expr_idx: SemaExprIdx(
+                                                    3,
+                                                ),
+                                                eol_semicolon: Ok(
+                                                    None,
+                                                ),
+                                            },
+                                        ),
+                                        ty_result: Ok(
+                                            FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        ),
+                        sema_expr_roots: [
+                            (
+                                4,
+                                (
+                                    SemaExprIdx(
+                                        4,
+                                    ),
+                                    BlockExpr,
+                                ),
+                            ),
+                        ],
+                        pattern_expr_ty_infos: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_ty_infos: ArenaMap {
+                            data: [],
+                        },
+                        sema_expr_terms: [],
+                        symbol_tys: SymbolMap {
+                            inherited_syn_symbol_map: ArenaMap {
+                                data: [],
+                            },
+                            current_syn_symbol_map: ArenaMap {
+                                data: [],
+                            },
+                        },
+                        symbol_terms: SymbolMap {
+                            inherited_syn_symbol_map: ArenaMap {
+                                data: [],
+                            },
+                            current_syn_symbol_map: ArenaMap {
+                                data: [],
+                            },
+                        },
+                        fluffy_term_region: FluffyTermRegion {
+                            terms: FluffyTerms {
+                                solid_terms: SolidTerms {
+                                    entries: VecSet {
+                                        data: [],
+                                    },
+                                },
+                                hollow_terms: HollowTerms {
+                                    entries: [],
+                                    first_unresolved_term_idx: 0,
+                                },
+                            },
+                            expectations: Expectations {
+                                arena: Arena {
+                                    data: [
+                                        FluffyTermExpectationEntry {
+                                            expectation: EqsFunctionType(
+                                                ExpectEqsFunctionType {
+                                                    final_destination: TypeOntology,
+                                                },
+                                            ),
+                                            meta: ExpectationState {
+                                                idx: 1,
+                                                src: ExpectationSource {
+                                                    expr_idx: 1,
+                                                    kind: Expr,
+                                                },
+                                                expectee: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Ritchie(
+                                                            EtherealTermRitchie(
+                                                                Id {
+                                                                    value: 10,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                resolve_progress: Resolved(
+                                                    Ok(
+                                                        EqsFunctionCallType(
+                                                            ExpectEqsFunctionTypeOutcome {
+                                                                template_parameter_substitutions: [],
+                                                                return_ty: FluffyTerm {
+                                                                    place: None,
+                                                                    base: Ethereal(
+                                                                        Application(
+                                                                            EtherealTermApplication(
+                                                                                Id {
+                                                                                    value: 37,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                variant: Ritchie {
+                                                                    ritchie_kind: FnType,
+                                                                    parameter_contracted_tys: [
+                                                                        Regular(
+                                                                            FluffyTermRitchieRegularParameter {
+                                                                                contract: None,
+                                                                                ty: FluffyTerm {
+                                                                                    place: None,
+                                                                                    base: Ethereal(
+                                                                                        EntityPath(
+                                                                                            TypeOntology(
+                                                                                                TypePath(
+                                                                                                    Id {
+                                                                                                        value: 67,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ],
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        FluffyTermExpectationEntry {
+                                            expectation: ImplicitlyConvertible(
+                                                ExpectCoersion {
+                                                    contract: None,
+                                                    ty_expected: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 67,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            meta: ExpectationState {
+                                                idx: 2,
+                                                src: ExpectationSource {
+                                                    expr_idx: 2,
+                                                    kind: Expr,
+                                                },
+                                                expectee: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Application(
+                                                            EtherealTermApplication(
+                                                                Id {
+                                                                    value: 92,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                resolve_progress: Resolved(
+                                                    Ok(
+                                                        ImplicitlyConvertible(
+                                                            Deref(
+                                                                Leash,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        FluffyTermExpectationEntry {
+                                            expectation: ImplicitlyConvertible(
+                                                ExpectCoersion {
+                                                    contract: Move,
+                                                    ty_expected: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Application(
+                                                                EtherealTermApplication(
+                                                                    Id {
+                                                                        value: 37,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            meta: ExpectationState {
+                                                idx: 3,
+                                                src: ExpectationSource {
+                                                    expr_idx: 3,
+                                                    kind: Expr,
+                                                },
+                                                expectee: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Application(
+                                                            EtherealTermApplication(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                resolve_progress: Resolved(
+                                                    Ok(
+                                                        ImplicitlyConvertible(
+                                                            Trivial(
+                                                                Todo,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        FluffyTermExpectationEntry {
+                                            expectation: ImplicitlyConvertible(
+                                                ExpectCoersion {
+                                                    contract: Move,
+                                                    ty_expected: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Application(
+                                                                EtherealTermApplication(
+                                                                    Id {
+                                                                        value: 37,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            meta: ExpectationState {
+                                                idx: 4,
+                                                src: ExpectationSource {
+                                                    expr_idx: 4,
+                                                    kind: Expr,
+                                                },
+                                                expectee: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Application(
+                                                            EtherealTermApplication(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                resolve_progress: Resolved(
+                                                    Ok(
+                                                        ImplicitlyConvertible(
+                                                            Trivial(
+                                                                Todo,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ],
+                                },
+                                first_unresolved_expectation: 0,
+                            },
+                        },
+                        return_ty: Some(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 37,
+                                    },
+                                ),
+                            ),
+                        ),
+                        self_ty: None,
+                    },
+                },
+                callee_syn_expr_region: SynExprRegion {
+                    data: SynExprRegionData {
+                        parent: None,
+                        path: RegionPath::Decl(
+                            ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Fugitive(
+                                    FugitiveSynNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [
+                                SynExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    opt_path: Some(
+                                        PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                                SynExprData::List {
+                                    lbox_regional_token_idx: RegionalTokenIdx(
+                                        10,
+                                    ),
+                                    items: [],
+                                    rbox_regional_token_idx: RegionalTokenIdx(
+                                        11,
+                                    ),
+                                },
+                                SynExprData::PrincipalEntityPath {
+                                    path_expr_idx: 2,
+                                    opt_path: Some(
+                                        PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                                SynExprData::ExplicitApplication {
+                                    function_expr_idx: 2,
+                                    argument_expr_idx: 3,
+                                },
+                            ],
+                        },
+                        principal_item_path_expr_arena: Arena {
+                            data: [
+                                SynPrincipalEntityPathExpr::Root {
+                                    path_name_token: PathNameRegionalToken::Ident(
+                                        IdentRegionalToken {
+                                            ident: `BinaryImage28`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                7,
+                                            ),
+                                        },
+                                    ),
+                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        ),
+                                    ),
+                                },
+                                SynPrincipalEntityPathExpr::Root {
+                                    path_name_token: PathNameRegionalToken::Ident(
+                                        IdentRegionalToken {
+                                            ident: `ConnectedComponent`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                12,
+                                            ),
+                                        },
+                                    ),
+                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_region: SynPatternExprRegion {
+                            pattern_expr_arena: Arena {
+                                data: [
+                                    SynPatternExpr::Ident {
+                                        symbol_modifier_tokens: None,
+                                        ident_token: IdentRegionalToken {
+                                            ident: `img`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
+                                            ),
+                                        },
+                                    },
+                                ],
+                            },
+                            pattern_expr_contracts: ArenaMap {
+                                data: [
+                                    None,
+                                ],
+                            },
+                            pattern_symbol_arena: Arena {
+                                data: [
+                                    SynPatternSymbol::Atom(
+                                        1,
+                                    ),
+                                ],
+                            },
+                            pattern_symbol_maps: [
+                                [
+                                    (
+                                        `img`,
+                                        1,
+                                    ),
+                                ],
+                            ],
+                            pattern_symbol_modifiers: ArenaMap {
+                                data: [
+                                    None,
+                                ],
+                            },
+                        },
+                        symbol_region: SynSymbolRegion {
+                            inherited_syn_symbol_arena: Arena {
+                                data: [],
+                            },
+                            current_syn_symbol_arena: Arena {
+                                data: [
+                                    CurrentSynSymbol {
+                                        modifier: None,
+                                        access_start: RegionalTokenIdx(
+                                            6,
+                                        ),
+                                        access_end: None,
+                                        data: CurrentSynSymbolData::ParenateRegularParameter {
+                                            ident: `img`,
+                                            pattern_symbol_idx: 1,
+                                        },
+                                    },
+                                ],
+                            },
+                            allow_self_type: False,
+                            allow_self_value: False,
+                            pattern_ty_constraints: [
+                                (
+                                    OrdinaryParenateParameter {
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
+                                        ty_expr_idx: 1,
+                                    },
+                                    ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                ),
+                            ],
+                        },
+                        syn_pattern_expr_roots: [
+                            SynPatternExprRoot {
+                                kind: SynPatternExprRootKind::Parenate,
+                                syn_pattern_expr_idx: 1,
+                            },
+                        ],
+                        syn_expr_roots: [
+                            SynExprRoot {
+                                kind: SynExprRootKind::ExplicitParameterType,
+                                syn_expr_idx: 1,
+                            },
+                            SynExprRoot {
+                                kind: SynExprRootKind::ReturnType,
+                                syn_expr_idx: 4,
+                            },
+                        ],
+                        has_self_lifetime: false,
+                        has_self_place: false,
+                        syn_pattern_to_current_syn_symbol_map: [
+                            (
+                                1,
+                                1,
+                            ),
+                        ],
+                    },
                 },
             },
         ),
@@ -16184,13 +17110,11 @@
                             },
                         ),
                     ),
-                    data: FunctionFn {
-                        path: FugitivePath(
-                            Id {
-                                value: 9,
-                            },
+                    callee_path: ItemPath::MajorItem(
+                        MajorItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                         ),
-                    },
+                    ),
                 },
                 biological_parent: EagerExpr(
                     EagerExprTrace(
@@ -16199,13 +17123,11 @@
                         },
                     ),
                 ),
-                data: FunctionFn {
-                    path: FugitivePath(
-                        Id {
-                            value: 9,
-                        },
+                callee_path: ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                     ),
-                },
+                ),
             },
         ),
         (),
@@ -16272,12 +17194,938 @@
                     ),
                 ),
                 data: Regular {
-                    sema_expr_idx: SemaExprIdx(
+                    argument_sema_expr_idx: SemaExprIdx(
                         2,
                     ),
-                    hir_eager_expr_idx: Some(
+                    argument_hir_eager_expr_idx: Some(
                         2,
                     ),
+                },
+                caller_sema_expr_region: SemaExprRegion {
+                    path: RegionPath::Defn(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    ),
+                    syn_expr_region: SynExprRegion {
+                        data: SynExprRegionData {
+                            parent: Some(
+                                SynExprRegion {
+                                    data: SynExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                SynExprData::List {
+                                                    lbox_regional_token_idx: RegionalTokenIdx(
+                                                        5,
+                                                    ),
+                                                    items: [],
+                                                    rbox_regional_token_idx: RegionalTokenIdx(
+                                                        6,
+                                                    ),
+                                                },
+                                                SynExprData::PrincipalEntityPath {
+                                                    path_expr_idx: 1,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                SynExprData::ExplicitApplication {
+                                                    function_expr_idx: 1,
+                                                    argument_expr_idx: 2,
+                                                },
+                                            ],
+                                        },
+                                        principal_item_path_expr_arena: Arena {
+                                            data: [
+                                                SynPrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameRegionalToken::Ident(
+                                                        IdentRegionalToken {
+                                                            ident: `ConnectedComponent`,
+                                                            regional_token_idx: RegionalTokenIdx(
+                                                                7,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: SynPatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SynSymbolRegion {
+                                            inherited_syn_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_syn_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        syn_pattern_expr_roots: [],
+                                        syn_expr_roots: [
+                                            SynExprRoot {
+                                                kind: SynExprRootKind::ReturnType,
+                                                syn_expr_idx: 3,
+                                            },
+                                        ],
+                                        has_self_lifetime: false,
+                                        has_self_place: false,
+                                        syn_pattern_to_current_syn_symbol_map: [],
+                                    },
+                                },
+                            ),
+                            path: RegionPath::Defn(
+                                ItemSynNodePath::MajorItem(
+                                    MajorItemSynNodePath::Fugitive(
+                                        FugitiveSynNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 1,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    SynExprData::PrincipalEntityPath {
+                                        path_expr_idx: 2,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Fugitive(
+                                                    FugitivePath(`mnist::input`, `Val`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    SynExprData::FunctionApplicationOrCall {
+                                        function: 1,
+                                        template_arguments: None,
+                                        lpar_regional_token_idx: RegionalTokenIdx(
+                                            2,
+                                        ),
+                                        items: [
+                                            SynCommaListItem {
+                                                syn_expr_idx: 2,
+                                                comma_regional_token_idx: None,
+                                            },
+                                        ],
+                                        rpar_regional_token_idx: RegionalTokenIdx(
+                                            4,
+                                        ),
+                                    },
+                                    SynExprData::Block {
+                                        stmts: ArenaIdxRange(
+                                            1..2,
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_item_path_expr_arena: Arena {
+                                data: [
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `find_connected_components`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Fugitive(
+                                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                            ),
+                                        ),
+                                    },
+                                    SynPrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameRegionalToken::Ident(
+                                            IdentRegionalToken {
+                                                ident: `input`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Fugitive(
+                                                FugitivePath(`mnist::input`, `Val`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [
+                                    SynStmtData::Eval {
+                                        expr_idx: 3,
+                                        eol_semicolon: Ok(
+                                            None,
+                                        ),
+                                    },
+                                ],
+                            },
+                            pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SynSymbolRegion {
+                                inherited_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_syn_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: False,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            syn_pattern_expr_roots: [],
+                            syn_expr_roots: [
+                                SynExprRoot {
+                                    kind: SynExprRootKind::EvalExpr,
+                                    syn_expr_idx: 3,
+                                },
+                                SynExprRoot {
+                                    kind: SynExprRootKind::BlockExpr,
+                                    syn_expr_idx: 4,
+                                },
+                            ],
+                            has_self_lifetime: false,
+                            has_self_place: false,
+                            syn_pattern_to_current_syn_symbol_map: [],
+                        },
+                    },
+                    data: SemaExprRegionData {
+                        path: Defn(
+                            MajorItem(
+                                Fugitive(
+                                    FugitiveSynNodePath(
+                                        Id {
+                                            value: 71,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        sema_expr_arena: SemaExprArena(
+                            Arena {
+                                data: [
+                                    SemaExprEntry {
+                                        data_result: Ok(
+                                            PrincipalEntityPath {
+                                                path_expr_idx: 1,
+                                                path: MajorItem(
+                                                    Fugitive(
+                                                        FugitivePath(
+                                                            Id {
+                                                                value: 9,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                ty_path_disambiguation: InstanceConstructor,
+                                            },
+                                        ),
+                                        ty_result: Ok(
+                                            FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Ritchie(
+                                                        EtherealTermRitchie(
+                                                            Id {
+                                                                value: 10,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                    SemaExprEntry {
+                                        data_result: Ok(
+                                            PrincipalEntityPath {
+                                                path_expr_idx: 2,
+                                                path: MajorItem(
+                                                    Fugitive(
+                                                        FugitivePath(
+                                                            Id {
+                                                                value: 79,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                ty_path_disambiguation: InstanceConstructor,
+                                            },
+                                        ),
+                                        ty_result: Ok(
+                                            FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 92,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                    SemaExprEntry {
+                                        data_result: Ok(
+                                            FunctionFnCall {
+                                                function_sema_expr_idx: SemaExprIdx(
+                                                    1,
+                                                ),
+                                                template_arguments: None,
+                                                lpar_regional_token_idx: RegionalTokenIdx(
+                                                    2,
+                                                ),
+                                                ritchie_parameter_argument_matches: [
+                                                    Regular(
+                                                        FluffyTermRitchieRegularParameter {
+                                                            contract: None,
+                                                            ty: FluffyTerm {
+                                                                place: None,
+                                                                base: Ethereal(
+                                                                    EntityPath(
+                                                                        TypeOntology(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 67,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        },
+                                                        SemaRegularCallListItem {
+                                                            argument_expr_idx: SemaExprIdx(
+                                                                2,
+                                                            ),
+                                                            separator: None,
+                                                        },
+                                                    ),
+                                                ],
+                                                rpar_regional_token_idx: RegionalTokenIdx(
+                                                    4,
+                                                ),
+                                            },
+                                        ),
+                                        ty_result: Ok(
+                                            FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                    SemaExprEntry {
+                                        data_result: Ok(
+                                            Block {
+                                                stmts: SemaStmtIdxRange(
+                                                    ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ty_result: Ok(
+                                            FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        ),
+                        sema_stmt_arena: SemaStmtArena(
+                            Arena {
+                                data: [
+                                    SemaStmtEntry {
+                                        data_result: Ok(
+                                            Eval {
+                                                sema_expr_idx: SemaExprIdx(
+                                                    3,
+                                                ),
+                                                eol_semicolon: Ok(
+                                                    None,
+                                                ),
+                                            },
+                                        ),
+                                        ty_result: Ok(
+                                            FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        ),
+                        sema_expr_roots: [
+                            (
+                                4,
+                                (
+                                    SemaExprIdx(
+                                        4,
+                                    ),
+                                    BlockExpr,
+                                ),
+                            ),
+                        ],
+                        pattern_expr_ty_infos: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_ty_infos: ArenaMap {
+                            data: [],
+                        },
+                        sema_expr_terms: [],
+                        symbol_tys: SymbolMap {
+                            inherited_syn_symbol_map: ArenaMap {
+                                data: [],
+                            },
+                            current_syn_symbol_map: ArenaMap {
+                                data: [],
+                            },
+                        },
+                        symbol_terms: SymbolMap {
+                            inherited_syn_symbol_map: ArenaMap {
+                                data: [],
+                            },
+                            current_syn_symbol_map: ArenaMap {
+                                data: [],
+                            },
+                        },
+                        fluffy_term_region: FluffyTermRegion {
+                            terms: FluffyTerms {
+                                solid_terms: SolidTerms {
+                                    entries: VecSet {
+                                        data: [],
+                                    },
+                                },
+                                hollow_terms: HollowTerms {
+                                    entries: [],
+                                    first_unresolved_term_idx: 0,
+                                },
+                            },
+                            expectations: Expectations {
+                                arena: Arena {
+                                    data: [
+                                        FluffyTermExpectationEntry {
+                                            expectation: EqsFunctionType(
+                                                ExpectEqsFunctionType {
+                                                    final_destination: TypeOntology,
+                                                },
+                                            ),
+                                            meta: ExpectationState {
+                                                idx: 1,
+                                                src: ExpectationSource {
+                                                    expr_idx: 1,
+                                                    kind: Expr,
+                                                },
+                                                expectee: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Ritchie(
+                                                            EtherealTermRitchie(
+                                                                Id {
+                                                                    value: 10,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                resolve_progress: Resolved(
+                                                    Ok(
+                                                        EqsFunctionCallType(
+                                                            ExpectEqsFunctionTypeOutcome {
+                                                                template_parameter_substitutions: [],
+                                                                return_ty: FluffyTerm {
+                                                                    place: None,
+                                                                    base: Ethereal(
+                                                                        Application(
+                                                                            EtherealTermApplication(
+                                                                                Id {
+                                                                                    value: 37,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                variant: Ritchie {
+                                                                    ritchie_kind: FnType,
+                                                                    parameter_contracted_tys: [
+                                                                        Regular(
+                                                                            FluffyTermRitchieRegularParameter {
+                                                                                contract: None,
+                                                                                ty: FluffyTerm {
+                                                                                    place: None,
+                                                                                    base: Ethereal(
+                                                                                        EntityPath(
+                                                                                            TypeOntology(
+                                                                                                TypePath(
+                                                                                                    Id {
+                                                                                                        value: 67,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ],
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        FluffyTermExpectationEntry {
+                                            expectation: ImplicitlyConvertible(
+                                                ExpectCoersion {
+                                                    contract: None,
+                                                    ty_expected: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 67,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            meta: ExpectationState {
+                                                idx: 2,
+                                                src: ExpectationSource {
+                                                    expr_idx: 2,
+                                                    kind: Expr,
+                                                },
+                                                expectee: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Application(
+                                                            EtherealTermApplication(
+                                                                Id {
+                                                                    value: 92,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                resolve_progress: Resolved(
+                                                    Ok(
+                                                        ImplicitlyConvertible(
+                                                            Deref(
+                                                                Leash,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        FluffyTermExpectationEntry {
+                                            expectation: ImplicitlyConvertible(
+                                                ExpectCoersion {
+                                                    contract: Move,
+                                                    ty_expected: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Application(
+                                                                EtherealTermApplication(
+                                                                    Id {
+                                                                        value: 37,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            meta: ExpectationState {
+                                                idx: 3,
+                                                src: ExpectationSource {
+                                                    expr_idx: 3,
+                                                    kind: Expr,
+                                                },
+                                                expectee: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Application(
+                                                            EtherealTermApplication(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                resolve_progress: Resolved(
+                                                    Ok(
+                                                        ImplicitlyConvertible(
+                                                            Trivial(
+                                                                Todo,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        FluffyTermExpectationEntry {
+                                            expectation: ImplicitlyConvertible(
+                                                ExpectCoersion {
+                                                    contract: Move,
+                                                    ty_expected: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Application(
+                                                                EtherealTermApplication(
+                                                                    Id {
+                                                                        value: 37,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            meta: ExpectationState {
+                                                idx: 4,
+                                                src: ExpectationSource {
+                                                    expr_idx: 4,
+                                                    kind: Expr,
+                                                },
+                                                expectee: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Application(
+                                                            EtherealTermApplication(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                resolve_progress: Resolved(
+                                                    Ok(
+                                                        ImplicitlyConvertible(
+                                                            Trivial(
+                                                                Todo,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ],
+                                },
+                                first_unresolved_expectation: 0,
+                            },
+                        },
+                        return_ty: Some(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 37,
+                                    },
+                                ),
+                            ),
+                        ),
+                        self_ty: None,
+                    },
+                },
+                callee_syn_expr_region: SynExprRegion {
+                    data: SynExprRegionData {
+                        parent: None,
+                        path: RegionPath::Decl(
+                            ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Fugitive(
+                                    FugitiveSynNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [
+                                SynExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    opt_path: Some(
+                                        PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                                SynExprData::List {
+                                    lbox_regional_token_idx: RegionalTokenIdx(
+                                        10,
+                                    ),
+                                    items: [],
+                                    rbox_regional_token_idx: RegionalTokenIdx(
+                                        11,
+                                    ),
+                                },
+                                SynExprData::PrincipalEntityPath {
+                                    path_expr_idx: 2,
+                                    opt_path: Some(
+                                        PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                                SynExprData::ExplicitApplication {
+                                    function_expr_idx: 2,
+                                    argument_expr_idx: 3,
+                                },
+                            ],
+                        },
+                        principal_item_path_expr_arena: Arena {
+                            data: [
+                                SynPrincipalEntityPathExpr::Root {
+                                    path_name_token: PathNameRegionalToken::Ident(
+                                        IdentRegionalToken {
+                                            ident: `BinaryImage28`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                7,
+                                            ),
+                                        },
+                                    ),
+                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        ),
+                                    ),
+                                },
+                                SynPrincipalEntityPathExpr::Root {
+                                    path_name_token: PathNameRegionalToken::Ident(
+                                        IdentRegionalToken {
+                                            ident: `ConnectedComponent`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                12,
+                                            ),
+                                        },
+                                    ),
+                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_region: SynPatternExprRegion {
+                            pattern_expr_arena: Arena {
+                                data: [
+                                    SynPatternExpr::Ident {
+                                        symbol_modifier_tokens: None,
+                                        ident_token: IdentRegionalToken {
+                                            ident: `img`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                5,
+                                            ),
+                                        },
+                                    },
+                                ],
+                            },
+                            pattern_expr_contracts: ArenaMap {
+                                data: [
+                                    None,
+                                ],
+                            },
+                            pattern_symbol_arena: Arena {
+                                data: [
+                                    SynPatternSymbol::Atom(
+                                        1,
+                                    ),
+                                ],
+                            },
+                            pattern_symbol_maps: [
+                                [
+                                    (
+                                        `img`,
+                                        1,
+                                    ),
+                                ],
+                            ],
+                            pattern_symbol_modifiers: ArenaMap {
+                                data: [
+                                    None,
+                                ],
+                            },
+                        },
+                        symbol_region: SynSymbolRegion {
+                            inherited_syn_symbol_arena: Arena {
+                                data: [],
+                            },
+                            current_syn_symbol_arena: Arena {
+                                data: [
+                                    CurrentSynSymbol {
+                                        modifier: None,
+                                        access_start: RegionalTokenIdx(
+                                            6,
+                                        ),
+                                        access_end: None,
+                                        data: CurrentSynSymbolData::ParenateRegularParameter {
+                                            ident: `img`,
+                                            pattern_symbol_idx: 1,
+                                        },
+                                    },
+                                ],
+                            },
+                            allow_self_type: False,
+                            allow_self_value: False,
+                            pattern_ty_constraints: [
+                                (
+                                    OrdinaryParenateParameter {
+                                        syn_pattern_root: ParenateSynPatternExprRoot {
+                                            syn_pattern_expr_idx: 1,
+                                        },
+                                        ty_expr_idx: 1,
+                                    },
+                                    ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                ),
+                            ],
+                        },
+                        syn_pattern_expr_roots: [
+                            SynPatternExprRoot {
+                                kind: SynPatternExprRootKind::Parenate,
+                                syn_pattern_expr_idx: 1,
+                            },
+                        ],
+                        syn_expr_roots: [
+                            SynExprRoot {
+                                kind: SynExprRootKind::ExplicitParameterType,
+                                syn_expr_idx: 1,
+                            },
+                            SynExprRoot {
+                                kind: SynExprRootKind::ReturnType,
+                                syn_expr_idx: 4,
+                            },
+                        ],
+                        has_self_lifetime: false,
+                        has_self_place: false,
+                        syn_pattern_to_current_syn_symbol_map: [
+                            (
+                                1,
+                                1,
+                            ),
+                        ],
+                    },
                 },
             },
         ),
@@ -16294,13 +18142,11 @@
                             },
                         ),
                     ),
-                    data: FunctionFn {
-                        path: FugitivePath(
-                            Id {
-                                value: 9,
-                            },
+                    callee_path: ItemPath::MajorItem(
+                        MajorItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                         ),
-                    },
+                    ),
                 },
                 biological_parent: EagerExpr(
                     EagerExprTrace(
@@ -16309,13 +18155,11 @@
                         },
                     ),
                 ),
-                data: FunctionFn {
-                    path: FugitivePath(
-                        Id {
-                            value: 9,
-                        },
+                callee_path: ItemPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                     ),
-                },
+                ),
             },
         ),
         (),
@@ -16937,15 +18781,19 @@
                             },
                         ),
                     ),
-                    data: MethodFn {
-                        path: TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 32,
+                    callee_path: ItemPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::vec`,
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    disambiguator: 0,
                                 },
-                            ),
+                                ident: `ilen`,
+                                item_kind: MethodFn,
+                            },
                         ),
-                    },
+                    ),
                 },
                 biological_parent: EagerExpr(
                     EagerExprTrace(
@@ -16954,15 +18802,19 @@
                         },
                     ),
                 ),
-                data: MethodFn {
-                    path: TypeItem(
-                        TypeItemPath(
-                            Id {
-                                value: 32,
+                callee_path: ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::vec`,
+                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                disambiguator: 0,
                             },
-                        ),
+                            ident: `ilen`,
+                            item_kind: MethodFn,
+                        },
                     ),
-                },
+                ),
             },
         ),
         (),
@@ -17446,15 +19298,19 @@
                             },
                         ),
                     ),
-                    data: MethodFn {
-                        path: TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 32,
+                    callee_path: ItemPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::vec`,
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    disambiguator: 0,
                                 },
-                            ),
+                                ident: `ilen`,
+                                item_kind: MethodFn,
+                            },
                         ),
-                    },
+                    ),
                 },
                 biological_parent: EagerExpr(
                     EagerExprTrace(
@@ -17463,15 +19319,19 @@
                         },
                     ),
                 ),
-                data: MethodFn {
-                    path: TypeItem(
-                        TypeItemPath(
-                            Id {
-                                value: 32,
+                callee_path: ItemPath::AssociatedItem(
+                    AssociatedItemPath::TypeItem(
+                        TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::vec`,
+                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                disambiguator: 0,
                             },
-                        ),
+                            ident: `ilen`,
+                            item_kind: MethodFn,
+                        },
                     ),
-                },
+                ),
             },
         ),
         (),

@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Enum(
                     EnumTypeSynDefn {
@@ -8,7 +8,7 @@ Ok(
                         decl: EnumTypeSynDecl {
                             path: TypePath(`malamute::Class`, `Enum`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -113,7 +113,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Enum(
                     EnumTypeSynDefn {
@@ -121,7 +121,7 @@ Ok(
                         decl: EnumTypeSynDecl {
                             path: TypePath(`malamute::OneVsAll`, `Enum`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -134,7 +134,7 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Constant {
@@ -313,7 +313,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Enum(
                     EnumTypeSynDefn {
@@ -321,7 +321,7 @@ Ok(
                         decl: EnumTypeSynDecl {
                             path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -334,7 +334,7 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Constant {
@@ -513,7 +513,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionGn(
                     GnSynDefn {
@@ -521,7 +521,7 @@ Ok(
                         decl: FunctionGnSynDecl {
                             path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -534,7 +534,7 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Constant {
@@ -559,7 +559,7 @@ Ok(
                                 },
                             ],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Variadic {
+                                ParenateSynParameterData::Variadic {
                                     dot_dot_dot_token: DotDotDotRegionalToken(
                                         RegionalTokenIdx(
                                             15,
@@ -592,7 +592,7 @@ Ok(
                                     ),
                                     ty: 2,
                                 },
-                                ParenateParameterSyndicate::Keyed {
+                                ParenateSynParameterData::Keyed {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -1008,7 +1008,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
@@ -1020,7 +1020,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 1,
                             data: TemplateParameterSyndicateData::Type {
@@ -1033,7 +1033,7 @@ Ok(
                                 traits: None,
                             },
                         },
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 2,
                             data: TemplateParameterSyndicateData::Constant {
@@ -1415,7 +1415,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::AssociatedType(
                     TraitForTypeAssociatedTypeSynDefn {
@@ -1905,7 +1905,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
@@ -1917,7 +1917,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 1,
                             data: TemplateParameterSyndicateData::Type {
@@ -1930,7 +1930,7 @@ Ok(
                                 traits: None,
                             },
                         },
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 2,
                             data: TemplateParameterSyndicateData::Constant {
@@ -2333,7 +2333,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::AssociatedType(
                     TraitForTypeAssociatedTypeSynDefn {

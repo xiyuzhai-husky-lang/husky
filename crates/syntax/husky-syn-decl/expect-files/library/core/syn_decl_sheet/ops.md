@@ -12,7 +12,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::Add`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -127,7 +127,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::AddAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -242,7 +242,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::BitAnd`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -357,7 +357,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::BitAndAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -472,7 +472,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::BitOr`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -587,7 +587,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::BitOrAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -702,7 +702,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::BitXor`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -817,7 +817,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::BitXorAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -932,7 +932,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::Div`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1047,7 +1047,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::DivAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1234,7 +1234,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::Mul`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1349,7 +1349,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::MulAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1608,7 +1608,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::Sub`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1723,7 +1723,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`core::ops::Unveil`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1839,7 +1839,7 @@ SynDeclSheet {
                         EnumTypeSynDecl {
                             path: TypePath(`core::ops::ControlFlow`, `Enum`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -1852,7 +1852,7 @@ SynDeclSheet {
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Type {

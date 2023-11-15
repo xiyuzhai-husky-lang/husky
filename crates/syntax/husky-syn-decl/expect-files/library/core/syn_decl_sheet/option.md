@@ -13,7 +13,7 @@ SynDeclSheet {
                         EnumTypeSynDecl {
                             path: TypePath(`core::option::Option`, `Enum`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {

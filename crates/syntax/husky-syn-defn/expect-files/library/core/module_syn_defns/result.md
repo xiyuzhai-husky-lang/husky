@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Enum(
                     EnumTypeSynDefn {
@@ -8,7 +8,7 @@ Ok(
                         decl: EnumTypeSynDecl {
                             path: TypePath(`core::result::Result`, `Enum`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -21,7 +21,7 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Type {
@@ -153,7 +153,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
@@ -165,7 +165,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 1,
                             data: TemplateParameterSyndicateData::Type {
@@ -178,7 +178,7 @@ Ok(
                                 traits: None,
                             },
                         },
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 2,
                             data: TemplateParameterSyndicateData::Type {
@@ -191,7 +191,7 @@ Ok(
                                 traits: None,
                             },
                         },
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 3,
                             data: TemplateParameterSyndicateData::Type {
@@ -204,7 +204,7 @@ Ok(
                                 traits: None,
                             },
                         },
-                        TemplateParameterSyndicate {
+                        TemplateSynParameterData {
                             annotated_variance_token: None,
                             symbol: 4,
                             data: TemplateParameterSyndicateData::Type {
@@ -615,7 +615,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::AssociatedType(
                     TraitForTypeAssociatedTypeSynDefn {
@@ -1170,7 +1170,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
                     TraitForTypeMethodFnSynDefn {
@@ -1202,7 +1202,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },

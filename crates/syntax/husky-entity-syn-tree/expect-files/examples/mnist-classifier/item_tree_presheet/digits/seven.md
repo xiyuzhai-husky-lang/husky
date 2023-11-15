@@ -2,7 +2,7 @@ EntitySynTreePresheet {
     module_path: `mnist_classifier::digits::seven`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -54,7 +54,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits::seven`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -106,7 +106,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits::seven`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -158,7 +158,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits::seven`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -210,7 +210,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits::seven`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -262,7 +262,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits::seven`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(

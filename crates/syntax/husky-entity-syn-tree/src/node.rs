@@ -229,19 +229,6 @@ impl ItemSynNode {
     }
 }
 
-impl ItemSynNodePath {
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> ItemSynNode {
-        match self {
-            ItemSynNodePath::Submodule(path) => path.syn_node(db).into(),
-            ItemSynNodePath::MajorItem(path) => path.syn_node(db).into(),
-            ItemSynNodePath::AssociatedItem(path) => path.syn_node(db).into(),
-            ItemSynNodePath::TypeVariant(path) => path.syn_node(db).into(),
-            ItemSynNodePath::ImplBlock(path) => path.syn_node(db).into(),
-            ItemSynNodePath::Attr(_) => todo!(),
-        }
-    }
-}
-
 pub trait HasAssociatedItemPaths: Copy {
     type AssociatedItemPath;
 

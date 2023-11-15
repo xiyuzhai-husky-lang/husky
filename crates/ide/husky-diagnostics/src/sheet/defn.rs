@@ -27,14 +27,14 @@ pub(crate) fn defn_diagnostic_sheet(
 }
 
 impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
-    fn visit_defn(&mut self, defn: SynDefn) {
+    fn visit_defn(&mut self, defn: ItemSynDefn) {
         // todo
         match defn {
-            SynDefn::Submodule(_) => (),
-            SynDefn::MajorItem(_) => (),
-            SynDefn::ImplBlock(_) => (),
-            SynDefn::AssociatedItem(_) => (),
-            SynDefn::TypeVariant(_) => (),
+            ItemSynDefn::Submodule(_) => (),
+            ItemSynDefn::MajorItem(_) => (),
+            ItemSynDefn::ImplBlock(_) => (),
+            ItemSynDefn::AssociatedItem(_) => (),
+            ItemSynDefn::TypeVariant(_) => (),
         }
     }
 }

@@ -16,7 +16,7 @@ use husky_regional_token::{
 };
 use husky_sema_expr::{
     helpers::range::sema_expr_range_region, SemaExprRegion, SemaStmtData, SemaStmtIdx,
-    SemaStmtIdxRange,
+    SemaStmtIdxRange, SemaExprData,
 };
 use husky_token_info::TokenInfoSource;
 use husky_val_repr::expansion::ValReprExpansion;
@@ -138,9 +138,8 @@ impl LazyStmtTrace {
         )
     }
 
-    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        let tokens = lazy_stmt_trace_view_lines(db, self);
-        TraceViewData::new(tokens.data().to_vec(), self.have_subtraces(db))
+    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
+        lazy_stmt_trace_view_lines(db, self)
     }
 
     pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
@@ -349,6 +348,25 @@ impl<'a> IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry<'a> {
 }
 
 impl LazyStmtTrace {
+    pub(crate) fn from_syn_body_with_syn_expr_region(
+        parent_trace_path: impl Into<LazyStmtTraceBiologicalParentPath>,
+        parent_trace: impl Into<LazyStmtTraceBiologicalParent>,
+        body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
+        db: &dyn TraceDb,
+    ) -> Vec<Trace> {
+        let Some((body, syn_expr_region)) = body_with_syn_expr_region else {
+            return vec![];
+        };
+        let sema_expr_region = db.sema_expr_region(syn_expr_region);
+        let sema_expr_region_data = sema_expr_region.data(db);
+        let body = sema_expr_region_data.syn_root_to_sema_expr_idx(body);
+        let SemaExprData::Block { stmts } = *body.data(sema_expr_region_data.sema_expr_arena())
+        else {
+            unreachable!()
+        };
+        Self::from_stmts(parent_trace_path, parent_trace, stmts, sema_expr_region, db)
+    }
+
     pub(crate) fn from_stmts(
         parent_trace_path: impl Into<LazyStmtTraceBiologicalParentPath>,
         parent_trace: impl Into<LazyStmtTraceBiologicalParent>,

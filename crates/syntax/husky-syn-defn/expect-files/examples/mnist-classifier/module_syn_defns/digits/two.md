@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::Val(
                     ValSynDefn {
@@ -461,7 +461,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -470,7 +470,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -1168,7 +1168,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -1177,7 +1177,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -1875,7 +1875,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -1884,7 +1884,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -2582,7 +2582,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::Val(
                     ValSynDefn {

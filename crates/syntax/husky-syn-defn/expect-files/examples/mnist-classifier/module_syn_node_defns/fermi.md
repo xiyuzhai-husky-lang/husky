@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::PropsStruct(
                 PropsStructTypeSynNodeDefn {
@@ -360,7 +360,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::FunctionFn(
                 FnSynNodeDefn {
@@ -390,7 +390,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -404,7 +404,7 @@
                                         ),
                                         ty: 4,
                                     },
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
@@ -1994,7 +1994,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -2117,7 +2117,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MemoizedField(
                 TypeMemoizedFieldSynNodeDefn {
@@ -3059,7 +3059,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MemoizedField(
                 TypeMemoizedFieldSynNodeDefn {
@@ -4001,7 +4001,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MemoizedField(
                 TypeMemoizedFieldSynNodeDefn {

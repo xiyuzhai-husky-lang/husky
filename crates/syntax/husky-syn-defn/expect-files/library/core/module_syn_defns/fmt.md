@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::fmt::Debug`),

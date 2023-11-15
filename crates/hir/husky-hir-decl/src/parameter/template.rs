@@ -1,7 +1,7 @@
 use crate::*;
 use husky_hir_ty::trai::HirTrait;
 
-use husky_syn_expr::{TemplateParameterSyndicate, TemplateParameterSyndicateData};
+use husky_syn_expr::{TemplateParameterSyndicateData, TemplateSynParameterData};
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -22,7 +22,7 @@ pub enum HirTemplateParameterData {
 
 impl HirTemplateParameter {
     pub fn from_syn(
-        syndicate: &TemplateParameterSyndicate,
+        syndicate: &TemplateSynParameterData,
         builder: &HirDeclBuilder,
     ) -> Option<Self> {
         let EtherealTerm::Symbol(symbol) = builder.current_syn_symbol_term(syndicate.symbol())
@@ -84,7 +84,7 @@ impl HirTemplateParameter {
 pub struct HirTemplateParameters(SmallVec<[HirTemplateParameter; 2]>);
 
 impl HirTemplateParameters {
-    pub fn from_syn(syndicates: &[TemplateParameterSyndicate], builder: &HirDeclBuilder) -> Self {
+    pub fn from_syn(syndicates: &[TemplateSynParameterData], builder: &HirDeclBuilder) -> Self {
         HirTemplateParameters(
             syndicates
                 .iter()

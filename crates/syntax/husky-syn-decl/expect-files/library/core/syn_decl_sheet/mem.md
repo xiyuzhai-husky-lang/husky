@@ -13,7 +13,7 @@ SynDeclSheet {
                         ExternTypeSynDecl {
                             path: TypePath(`core::mem::Ref`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -33,7 +33,7 @@ SynDeclSheet {
                                         },
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -201,7 +201,7 @@ SynDeclSheet {
                         ExternTypeSynDecl {
                             path: TypePath(`core::mem::RefMut`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -221,7 +221,7 @@ SynDeclSheet {
                                         },
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Invariant(
                                             InvariantRegionalToken {
@@ -389,7 +389,7 @@ SynDeclSheet {
                         ExternTypeSynDecl {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {
@@ -522,7 +522,7 @@ SynDeclSheet {
                         ExternTypeSynDecl {
                             path: TypePath(`core::mem::At`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Place {
@@ -534,7 +534,7 @@ SynDeclSheet {
                                         },
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Type {
@@ -691,7 +691,7 @@ SynDeclSheet {
                             disambiguator: 0,
                         },
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {

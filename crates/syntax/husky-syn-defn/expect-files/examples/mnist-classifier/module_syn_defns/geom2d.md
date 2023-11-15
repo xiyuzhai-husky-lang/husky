@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
@@ -255,7 +255,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
@@ -510,7 +510,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
@@ -765,7 +765,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
@@ -1020,7 +1020,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
@@ -1291,7 +1291,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
@@ -1546,7 +1546,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -1651,7 +1651,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::AssociatedFn(
                     TypeAssociatedFnSynDefn {
@@ -1676,7 +1676,7 @@ Ok(
                             },
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -1690,7 +1690,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 2,
                                     },
@@ -2731,7 +2731,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -3320,7 +3320,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -3346,7 +3346,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -4174,7 +4174,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -4806,7 +4806,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -4832,7 +4832,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -5572,7 +5572,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -5677,7 +5677,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -6266,7 +6266,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -6292,7 +6292,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -7120,7 +7120,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -7752,7 +7752,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -7778,7 +7778,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -8566,7 +8566,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -8592,7 +8592,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -9380,7 +9380,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -9406,7 +9406,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -10647,7 +10647,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -10673,7 +10673,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -11413,7 +11413,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -11439,7 +11439,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -11453,7 +11453,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 2,
                                     },
@@ -13292,7 +13292,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -13397,7 +13397,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -13423,7 +13423,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -14675,7 +14675,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -14701,7 +14701,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -15577,7 +15577,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -15682,7 +15682,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -15708,7 +15708,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -16570,7 +16570,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -16596,7 +16596,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -17458,7 +17458,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -17992,7 +17992,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -18526,7 +18526,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -19060,7 +19060,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -19594,7 +19594,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::ImplBlock(
+        ItemSynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -19699,7 +19699,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -20233,7 +20233,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -20767,7 +20767,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -21301,7 +21301,7 @@ Ok(
                 ),
             ),
         ),
-        SynDefn::AssociatedItem(
+        ItemSynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {

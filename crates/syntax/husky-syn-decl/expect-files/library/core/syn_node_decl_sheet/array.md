@@ -31,7 +31,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterSyndicate {
+                                            TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 data: TemplateParameterSyndicateData::Constant {
@@ -54,7 +54,7 @@ SynNodeDeclSheet {
                                                     ty_expr: 1,
                                                 },
                                             },
-                                            TemplateParameterSyndicate {
+                                            TemplateSynParameterData {
                                                 annotated_variance_token: Some(
                                                     VarianceRegionalToken::Covariant(
                                                         CovariantRegionalToken {

@@ -2,7 +2,7 @@ EntitySynTreeSheet {
     module_path: `mnist_classifier::line_segment_sketch::line_segment`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(

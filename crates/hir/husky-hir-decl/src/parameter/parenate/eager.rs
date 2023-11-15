@@ -12,11 +12,11 @@ pub enum HirEagerParenateParameter {
 
 impl HirEagerParenateParameter {
     pub(crate) fn from_syn(
-        syndicate: &ParenateParameterSyndicate,
+        syndicate: &ParenateSynParameterData,
         builder: &HirDeclBuilder,
     ) -> Option<Self> {
         Some(match syndicate {
-            &ParenateParameterSyndicate::Ordinary {
+            &ParenateSynParameterData::Ordinary {
                 syn_pattern_root,
                 ty,
                 ..
@@ -24,7 +24,7 @@ impl HirEagerParenateParameter {
                 pattern_expr_idx: builder.hir_eager_pattern_expr_idx(syn_pattern_root),
                 ty: builder.hir_ty(ty),
             },
-            ParenateParameterSyndicate::Variadic {
+            ParenateSynParameterData::Variadic {
                 dot_dot_dot_token: _,
                 variadic_variant: _,
                 symbol_modifier_keyword_group: _,
@@ -33,7 +33,7 @@ impl HirEagerParenateParameter {
                 colon: _,
                 ty: _,
             } => HirEagerParenateParameter::Variadic,
-            ParenateParameterSyndicate::Keyed {
+            ParenateSynParameterData::Keyed {
                 syn_pattern_root: _,
                 symbol_modifier_keyword_group: _,
                 ident_token: _,
@@ -60,7 +60,7 @@ impl std::ops::Deref for HirEagerParenateParameters {
 
 impl HirEagerParenateParameters {
     pub(crate) fn from_syn(
-        syndicates: &[ParenateParameterSyndicate],
+        syndicates: &[ParenateSynParameterData],
         builder: &HirDeclBuilder,
     ) -> Self {
         Self(

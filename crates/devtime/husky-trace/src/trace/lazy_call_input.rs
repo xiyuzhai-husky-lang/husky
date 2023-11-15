@@ -63,7 +63,11 @@ impl LazyCallInputTrace {
         )
     }
 
-    pub fn view_data(self, _db: &dyn TraceDb) -> TraceViewData {
+    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
+        todo!()
+    }
+
+    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
         todo!()
     }
 
