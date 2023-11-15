@@ -12,7 +12,7 @@ SynDeclSheet {
                     TraitSynDecl {
                         path: TraitPath(`std::ops::Add`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {

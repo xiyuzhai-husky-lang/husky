@@ -2,7 +2,7 @@ EntitySynTreeSheet {
     module_path: `std`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -40,7 +40,7 @@ EntitySynTreeSheet {
                     `std`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -78,7 +78,7 @@ EntitySynTreeSheet {
                     `std`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {

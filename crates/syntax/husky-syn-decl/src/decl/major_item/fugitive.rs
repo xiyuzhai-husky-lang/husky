@@ -9,7 +9,7 @@ pub use self::ti::*;
 pub use self::val::*;
 
 use super::*;
-use husky_entity_kind::{FugitiveKind};
+use husky_entity_kind::FugitiveKind;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]
@@ -104,10 +104,7 @@ impl FugitiveSynDecl {
         })
     }
 
-    pub fn template_parameters<'a>(
-        self,
-        db: &'a dyn SynDeclDb,
-    ) -> &'a [TemplateParameterSyndicate] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
         match self {
             FugitiveSynDecl::FunctionFn(decl) => decl.template_parameters(db),
             FugitiveSynDecl::Val(_decl) => &[],

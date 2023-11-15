@@ -68,7 +68,7 @@ pub struct TypeImplBlockSynDecl {
     #[id]
     pub path: TypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterSyndicates,
+    pub template_parameters: TemplateSynParametersData,
     pub self_ty_expr: SelfTypeSyndicate,
     pub syn_expr_region: SynExprRegion,
 }

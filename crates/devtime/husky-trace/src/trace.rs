@@ -87,19 +87,40 @@ impl Trace {
     }
 
     pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
+        TraceViewData::new(self.view_lines(db).data().to_vec(), self.have_subtraces(db))
+    }
+
+    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
         match self {
-            Trace::Submodule(slf) => slf.view_data(db),
-            Trace::ValItem(slf) => slf.view_data(db),
-            Trace::LazyCallInput(_) => todo!(),
-            Trace::LazyCall(slf) => slf.view_data(db),
-            Trace::LazyExpr(slf) => slf.view_data(db),
-            Trace::LazyPatternExpr(slf) => slf.view_data(db),
-            Trace::LazyStmt(slf) => slf.view_data(db),
-            Trace::EagerCallInput(slf) => slf.view_data(db),
-            Trace::EagerCall(slf) => slf.view_data(db),
-            Trace::EagerExpr(slf) => slf.view_data(db),
-            Trace::EagerPatternExpr(slf) => slf.view_data(db),
-            Trace::EagerStmt(slf) => slf.view_data(db),
+            Trace::Submodule(slf) => slf.view_lines(db),
+            Trace::ValItem(slf) => slf.view_lines(db),
+            Trace::LazyCallInput(slf) => slf.view_lines(db),
+            Trace::LazyCall(slf) => slf.view_lines(db),
+            Trace::LazyExpr(slf) => slf.view_lines(db),
+            Trace::LazyPatternExpr(slf) => slf.view_lines(db),
+            Trace::LazyStmt(slf) => slf.view_lines(db),
+            Trace::EagerCallInput(slf) => slf.view_lines(db),
+            Trace::EagerCall(slf) => slf.view_lines(db),
+            Trace::EagerExpr(slf) => slf.view_lines(db),
+            Trace::EagerPatternExpr(slf) => slf.view_lines(db),
+            Trace::EagerStmt(slf) => slf.view_lines(db),
+        }
+    }
+
+    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
+        match self {
+            Trace::Submodule(slf) => slf.have_subtraces(db),
+            Trace::ValItem(slf) => slf.have_subtraces(db),
+            Trace::LazyCallInput(slf) => slf.have_subtraces(db),
+            Trace::LazyCall(slf) => slf.have_subtraces(db),
+            Trace::LazyExpr(slf) => slf.have_subtraces(db),
+            Trace::LazyPatternExpr(slf) => slf.have_subtraces(db),
+            Trace::LazyStmt(slf) => slf.have_subtraces(db),
+            Trace::EagerCallInput(slf) => slf.have_subtraces(db),
+            Trace::EagerCall(slf) => slf.have_subtraces(db),
+            Trace::EagerExpr(slf) => slf.have_subtraces(db),
+            Trace::EagerPatternExpr(slf) => slf.have_subtraces(db),
+            Trace::EagerStmt(slf) => slf.have_subtraces(db),
         }
     }
 

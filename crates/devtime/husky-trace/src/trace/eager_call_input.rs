@@ -1,6 +1,8 @@
+use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
+
 use super::*;
 use husky_hir_eager_expr::{HirEagerCallListItemGroup, HirEagerExprIdx};
-use husky_sema_expr::SemaExprRegion;
+use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new)]
 pub struct EagerCallInputTracePath {
@@ -27,7 +29,7 @@ pub struct EagerCallInputTrace {
     pub biological_parent: EagerCallInputTraceBiologicalParent,
     pub data: EagerCallInputTraceData,
     pub caller_sema_expr_region: SemaExprRegion,
-    pub callee_sema_expr_region: SemaExprRegion,
+    pub callee_syn_expr_region: SynExprRegion,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -53,7 +55,7 @@ impl EagerCallInputTrace {
         biological_parent: impl Into<EagerCallInputTraceBiologicalParent>,
         data: EagerCallInputTraceData,
         caller_sema_expr_region: SemaExprRegion,
-        callee_sema_expr_region: SemaExprRegion,
+        callee_syn_expr_region: SynExprRegion,
         db: &dyn TraceDb,
     ) -> Self {
         Self::new_inner(
@@ -66,26 +68,53 @@ impl EagerCallInputTrace {
             biological_parent.into(),
             data,
             caller_sema_expr_region,
-            callee_sema_expr_region,
+            callee_syn_expr_region,
         )
     }
 
-    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        match self.data(db) {
-            EagerCallInputTraceData::Regular {
-                argument_sema_expr_idx: sema_expr_idx,
-                argument_hir_eager_expr_idx: hir_eager_expr_idx,
-            } => todo!(),
-            EagerCallInputTraceData::Variadic => todo!(),
-            EagerCallInputTraceData::Keyed => todo!(),
-        }
+    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
+        eager_call_input_trace_view_lines(db, self)
+    }
+
+    pub fn have_subtraces(self, _db: &dyn TraceDb) -> bool {
+        false
     }
 
     pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
-        todo!()
+        &[]
     }
 
     pub fn val_repr(self, _db: &dyn TraceDb) -> ValRepr {
         todo!()
+    }
+}
+
+#[salsa::tracked(jar = TraceJar, return_ref)]
+fn eager_call_input_trace_view_lines(
+    db: &dyn TraceDb,
+    trace: EagerCallInputTrace,
+) -> TraceViewLines {
+    let caller_sema_expr_region = trace.caller_sema_expr_region(db);
+    let caller_sema_expr_range_region = sema_expr_range_region(db, caller_sema_expr_region);
+    let caller_sema_expr_range_region_data = caller_sema_expr_range_region.data(db);
+    let caller_region_path = caller_sema_expr_region.path(db);
+    match trace.data(db) {
+        EagerCallInputTraceData::Regular {
+            argument_sema_expr_idx,
+            argument_hir_eager_expr_idx,
+        } => {
+            let argument_regional_token_idx_range =
+                caller_sema_expr_range_region_data[argument_sema_expr_idx];
+            let argument_token_idx_range = argument_regional_token_idx_range
+                .token_idx_range(caller_region_path.regional_token_idx_base(db).unwrap());
+            TraceViewLines::new(
+                caller_region_path.module_path(db),
+                argument_token_idx_range,
+                VoidAssociatedTraceRegistry,
+                db,
+            )
+        }
+        EagerCallInputTraceData::Variadic => todo!(),
+        EagerCallInputTraceData::Keyed => todo!(),
     }
 }

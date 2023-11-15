@@ -69,9 +69,9 @@ pub struct FunctionGnSynDecl {
     #[id]
     pub path: FugitivePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterSyndicates,
+    pub template_parameters: TemplateSynParametersData,
     #[return_ref]
-    pub parenate_parameters: ParenateParameterSyndicates,
+    pub parenate_parameters: ParenateSynParametersData,
     pub return_ty: Option<ReturnTypeBeforeColonSyndicate>,
     pub syn_expr_region: SynExprRegion,
 }
@@ -90,7 +90,7 @@ impl FunctionGnSynDecl {
             .unwrap_or_default();
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
-        let parenate_parameters: ParenateParameterSyndicates = parenate_parameter_decl_list
+        let parenate_parameters: ParenateSynParametersData = parenate_parameter_decl_list
             .parenate_parameters()
             .iter()
             .map(Clone::clone)

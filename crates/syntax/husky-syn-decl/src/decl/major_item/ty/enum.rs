@@ -10,7 +10,7 @@ pub struct EnumTypeSynNodeDecl {
 }
 
 impl EnumTypeSynNodeDecl {
-    pub fn template_parameters(self, _db: &dyn SynDeclDb) -> &[TemplateParameterSyndicate] {
+    pub fn template_parameters(self, _db: &dyn SynDeclDb) -> &[TemplateSynParameterData] {
         todo!()
         // self.template_parameter_decl_list(db)
         //     .as_ref()
@@ -47,7 +47,7 @@ pub struct EnumTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterSyndicates,
+    pub template_parameters: TemplateSynParametersData,
     pub syn_expr_region: SynExprRegion,
 }
 

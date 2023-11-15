@@ -13,7 +13,7 @@ SynDeclSheet {
                         EnumTypeSynDecl {
                             path: TypePath(`core::result::Result`, `Enum`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -26,7 +26,7 @@ SynDeclSheet {
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Type {
@@ -183,7 +183,7 @@ SynDeclSheet {
                             disambiguator: 0,
                         },
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -196,7 +196,7 @@ SynDeclSheet {
                                     traits: None,
                                 },
                             },
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 2,
                                 data: TemplateParameterSyndicateData::Type {
@@ -209,7 +209,7 @@ SynDeclSheet {
                                     traits: None,
                                 },
                             },
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 3,
                                 data: TemplateParameterSyndicateData::Type {
@@ -222,7 +222,7 @@ SynDeclSheet {
                                     traits: None,
                                 },
                             },
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 4,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1228,7 +1228,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },

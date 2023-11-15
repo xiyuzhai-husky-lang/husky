@@ -648,7 +648,7 @@ SynDeclSheet {
                             path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -1047,7 +1047,7 @@ SynDeclSheet {
                             path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -1061,7 +1061,7 @@ SynDeclSheet {
                                     ),
                                     ty: 1,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 2,
                                     },
@@ -1355,7 +1355,7 @@ SynDeclSheet {
                             path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -3965,7 +3965,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -4296,7 +4296,7 @@ SynDeclSheet {
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },

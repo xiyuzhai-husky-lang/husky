@@ -2,7 +2,7 @@ EntitySynTreePresheet {
     module_path: `mnist_classifier::connected_component`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -44,7 +44,7 @@ EntitySynTreePresheet {
                 ident: `ConnectedComponentDistribution`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -86,7 +86,7 @@ EntitySynTreePresheet {
                 ident: `EffHoles`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -138,7 +138,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::connected_component`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -180,7 +180,7 @@ EntitySynTreePresheet {
                 ident: `ConnectedComponent`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -232,7 +232,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::connected_component`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(

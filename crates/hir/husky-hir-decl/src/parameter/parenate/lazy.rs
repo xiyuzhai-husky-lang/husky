@@ -20,11 +20,11 @@ impl HirLazyParenateParameter {
     }
 
     pub(crate) fn from_syn(
-        syndicate: &ParenateParameterSyndicate,
+        syndicate: &ParenateSynParameterData,
         _builder: &HirDeclBuilder,
     ) -> Option<Self> {
         Some(match syndicate {
-            ParenateParameterSyndicate::Ordinary {
+            ParenateSynParameterData::Ordinary {
                 syn_pattern_root: _,
                 variables: _,
                 colon: _,
@@ -32,7 +32,7 @@ impl HirLazyParenateParameter {
             } => HirLazyParenateParameter::Ordinary {
                 pattern_expr_idx: todo!(),
             },
-            ParenateParameterSyndicate::Variadic {
+            ParenateSynParameterData::Variadic {
                 dot_dot_dot_token: _,
                 variadic_variant: _,
                 symbol_modifier_keyword_group: _,
@@ -41,7 +41,7 @@ impl HirLazyParenateParameter {
                 colon: _,
                 ty: _,
             } => HirLazyParenateParameter::Variadic,
-            ParenateParameterSyndicate::Keyed {
+            ParenateSynParameterData::Keyed {
                 syn_pattern_root: _,
                 symbol_modifier_keyword_group: _,
                 ident_token: _,
@@ -68,7 +68,7 @@ impl std::ops::Deref for HirLazyParenateParameters {
 
 impl HirLazyParenateParameters {
     pub(crate) fn from_syn(
-        syndicates: &[ParenateParameterSyndicate],
+        syndicates: &[ParenateSynParameterData],
         builder: &HirDeclBuilder,
     ) -> Self {
         Self(

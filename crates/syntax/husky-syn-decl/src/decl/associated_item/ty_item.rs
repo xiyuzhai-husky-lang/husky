@@ -14,7 +14,6 @@ use super::*;
 
 use husky_entity_kind::TypeItemKind;
 
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
@@ -43,10 +42,7 @@ impl TypeItemSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(
-        self,
-        _db: &'a dyn SynDeclDb,
-    ) -> &'a [TemplateParameterSyndicate] {
+    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
         match self {
             TypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TypeItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -136,10 +132,7 @@ impl TypeItemSynDecl {
         }
     }
 
-    pub fn template_parameters<'a>(
-        self,
-        _db: &'a dyn SynDeclDb,
-    ) -> &'a [TemplateParameterSyndicate] {
+    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
         match self {
             TypeItemSynDecl::AssociatedFn(_) => todo!(),
             TypeItemSynDecl::MethodFn(_) => todo!(),
@@ -147,6 +140,19 @@ impl TypeItemSynDecl {
             TypeItemSynDecl::AssociatedType(_) => todo!(),
             TypeItemSynDecl::AssociatedVal(_) => todo!(),
             TypeItemSynDecl::MemoizedField(_) => todo!(),
+        }
+    }
+
+    pub fn parenate_parameters<'a>(
+        self,
+        db: &'a dyn SynDeclDb,
+    ) -> Option<&'a [ParenateSynParameterData]> {
+        match self {
+            TypeItemSynDecl::AssociatedFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
+            TypeItemSynDecl::MethodFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
+            TypeItemSynDecl::AssociatedType(_) => None,
+            TypeItemSynDecl::AssociatedVal(_) => None,
+            TypeItemSynDecl::MemoizedField(_) => None,
         }
     }
 

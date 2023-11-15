@@ -1,6 +1,6 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -8,7 +8,7 @@ Ok(
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::array::Array`, `Extern`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Constant {
@@ -31,7 +31,7 @@ Ok(
                                         ty_expr: 1,
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: Some(
                                         VarianceRegionalToken::Covariant(
                                             CovariantRegionalToken {

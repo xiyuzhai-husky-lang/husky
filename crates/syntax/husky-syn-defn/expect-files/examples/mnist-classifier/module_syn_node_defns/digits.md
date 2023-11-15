@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::Submodule(
+    ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
                 syn_node_path: SubmoduleSynNodePath {
@@ -13,7 +13,7 @@
             },
         },
     ),
-    SynNodeDefn::Submodule(
+    ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
                 syn_node_path: SubmoduleSynNodePath {
@@ -27,7 +27,7 @@
             },
         },
     ),
-    SynNodeDefn::Submodule(
+    ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
                 syn_node_path: SubmoduleSynNodePath {
@@ -41,7 +41,7 @@
             },
         },
     ),
-    SynNodeDefn::Submodule(
+    ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
                 syn_node_path: SubmoduleSynNodePath {
@@ -55,7 +55,7 @@
             },
         },
     ),
-    SynNodeDefn::Submodule(
+    ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
                 syn_node_path: SubmoduleSynNodePath {
@@ -69,7 +69,7 @@
             },
         },
     ),
-    SynNodeDefn::Submodule(
+    ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
                 syn_node_path: SubmoduleSynNodePath {
@@ -83,7 +83,7 @@
             },
         },
     ),
-    SynNodeDefn::Submodule(
+    ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
                 syn_node_path: SubmoduleSynNodePath {
@@ -97,7 +97,7 @@
             },
         },
     ),
-    SynNodeDefn::Submodule(
+    ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
                 syn_node_path: SubmoduleSynNodePath {
@@ -111,7 +111,7 @@
             },
         },
     ),
-    SynNodeDefn::Submodule(
+    ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
                 syn_node_path: SubmoduleSynNodePath {
@@ -125,7 +125,7 @@
             },
         },
     ),
-    SynNodeDefn::Submodule(
+    ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
                 syn_node_path: SubmoduleSynNodePath {

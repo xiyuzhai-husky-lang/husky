@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Trait(
             TraitSynNodeDefn {
                 syn_node_path: TraitSynNodePath {

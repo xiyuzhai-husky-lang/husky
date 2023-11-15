@@ -1,5 +1,3 @@
-
-
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
@@ -63,7 +61,7 @@ pub struct TraitForTypeAssociatedTypeSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterSyndicates,
+    pub template_parameters: TemplateSynParametersData,
     pub ty_term_expr_idx: SynExprIdx,
     pub syn_expr_region: SynExprRegion,
 }

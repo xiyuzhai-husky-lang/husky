@@ -2,7 +2,7 @@ EntitySynTreePresheet {
     module_path: `mnist_classifier::digits`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -40,7 +40,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -78,7 +78,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -116,7 +116,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -154,7 +154,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -192,7 +192,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -230,7 +230,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -268,7 +268,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -306,7 +306,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -344,7 +344,7 @@ EntitySynTreePresheet {
                     `mnist_classifier::digits`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {

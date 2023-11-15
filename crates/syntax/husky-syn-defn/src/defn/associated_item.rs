@@ -101,7 +101,7 @@ impl AssociatedItemSynDefn {
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             AssociatedItemSynDefn::TypeItem(defn) => defn.body_with_syn_expr_region(db),
-            AssociatedItemSynDefn::TraitItem(_) => todo!(),
+            AssociatedItemSynDefn::TraitItem(defn) => defn.body_with_syn_expr_region(db),
             AssociatedItemSynDefn::TraitForTypeItem(defn) => defn.body_with_syn_expr_region(db),
         }
     }

@@ -1,13 +1,13 @@
 Ok(
     [
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::Add`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Add`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -111,14 +111,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::AddAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::AddAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -222,14 +222,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::BitAnd`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitAnd`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -333,14 +333,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::BitAndAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitAndAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -444,14 +444,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::BitOr`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitOr`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -555,14 +555,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::BitOrAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitOrAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -666,14 +666,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::BitXor`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitXor`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -777,14 +777,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::BitXorAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::BitXorAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -888,14 +888,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::Div`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Div`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -999,14 +999,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::DivAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::DivAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1110,7 +1110,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::IntIndex`),
@@ -1178,14 +1178,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::Mul`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Mul`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1289,14 +1289,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::MulAssign`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::MulAssign`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1400,7 +1400,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::Neg`),
@@ -1468,7 +1468,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::Not`),
@@ -1536,14 +1536,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::Sub`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Sub`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1647,14 +1647,14 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::ops::Unveil`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::ops::Unveil`),
                         template_parameters: [
-                            TemplateParameterSyndicate {
+                            TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
                                 data: TemplateParameterSyndicateData::Type {
@@ -1758,7 +1758,7 @@ Ok(
                 },
             ),
         ),
-        SynDefn::MajorItem(
+        ItemSynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Enum(
                     EnumTypeSynDefn {
@@ -1766,7 +1766,7 @@ Ok(
                         decl: EnumTypeSynDecl {
                             path: TypePath(`core::ops::ControlFlow`, `Enum`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -1779,7 +1779,7 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Type {

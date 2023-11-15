@@ -88,9 +88,8 @@ impl EagerPatternExprTrace {
         )
     }
 
-    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        let trace_view_lines = eager_pattern_expr_trace_view_lines(db, self);
-        TraceViewData::new(trace_view_lines.data().to_vec(), self.have_subtraces(db))
+    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
+        eager_pattern_expr_trace_view_lines(db, self)
     }
 
     pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {

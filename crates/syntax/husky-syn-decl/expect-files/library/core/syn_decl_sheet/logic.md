@@ -87,7 +87,7 @@ SynDeclSheet {
                         StructureTypeSynDecl {
                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -109,7 +109,7 @@ SynDeclSheet {
                                         ),
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Type {
@@ -323,7 +323,7 @@ SynDeclSheet {
                         InductiveTypeSynDecl {
                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -345,7 +345,7 @@ SynDeclSheet {
                                         ),
                                     },
                                 },
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
                                     data: TemplateParameterSyndicateData::Type {

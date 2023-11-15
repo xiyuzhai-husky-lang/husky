@@ -13,7 +13,7 @@ SynDeclSheet {
                         FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -37,7 +37,7 @@ SynDeclSheet {
                                 },
                             ],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -290,7 +290,7 @@ SynDeclSheet {
                         FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -314,7 +314,7 @@ SynDeclSheet {
                                 },
                             ],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -328,7 +328,7 @@ SynDeclSheet {
                                     ),
                                     ty: 4,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 2,
                                     },
@@ -342,7 +342,7 @@ SynDeclSheet {
                                     ),
                                     ty: 5,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 3,
                                     },
@@ -753,7 +753,7 @@ SynDeclSheet {
                         FunctionFnFugitiveSynDecl {
                             path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                             template_parameters: [
-                                TemplateParameterSyndicate {
+                                TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     data: TemplateParameterSyndicateData::Type {
@@ -777,7 +777,7 @@ SynDeclSheet {
                                 },
                             ],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
@@ -791,7 +791,7 @@ SynDeclSheet {
                                     ),
                                     ty: 4,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 2,
                                     },
@@ -805,7 +805,7 @@ SynDeclSheet {
                                     ),
                                     ty: 5,
                                 },
-                                ParenateParameterSyndicate::Ordinary {
+                                ParenateSynParameterData::Ordinary {
                                     syn_pattern_root: ParenateSynPatternExprRoot {
                                         syn_pattern_expr_idx: 3,
                                     },

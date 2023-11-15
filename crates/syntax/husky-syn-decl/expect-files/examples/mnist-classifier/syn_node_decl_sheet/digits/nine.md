@@ -535,7 +535,7 @@ SynNodeDeclSheet {
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        ParenateParameterSyndicate::Ordinary {
+                                        ParenateSynParameterData::Ordinary {
                                             syn_pattern_root: ParenateSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
@@ -813,7 +813,7 @@ SynNodeDeclSheet {
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        ParenateParameterSyndicate::Ordinary {
+                                        ParenateSynParameterData::Ordinary {
                                             syn_pattern_root: ParenateSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },

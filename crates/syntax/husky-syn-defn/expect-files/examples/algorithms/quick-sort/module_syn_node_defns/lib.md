@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::FunctionFn(
                 FnSynNodeDefn {
@@ -25,7 +25,7 @@
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Type {
@@ -70,7 +70,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -925,7 +925,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::FunctionFn(
                 FnSynNodeDefn {
@@ -951,7 +951,7 @@
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Type {
@@ -996,7 +996,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -1010,7 +1010,7 @@
                                         ),
                                         ty: 4,
                                     },
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
@@ -1024,7 +1024,7 @@
                                         ),
                                         ty: 5,
                                     },
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
@@ -2410,7 +2410,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::FunctionFn(
                 FnSynNodeDefn {
@@ -2436,7 +2436,7 @@
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Type {
@@ -2481,7 +2481,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -2495,7 +2495,7 @@
                                         ),
                                         ty: 4,
                                     },
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
@@ -2509,7 +2509,7 @@
                                         ),
                                         ty: 5,
                                     },
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
@@ -4720,7 +4720,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::FunctionFn(
                 FnSynNodeDefn {
@@ -5317,7 +5317,7 @@
             ),
         ),
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::FunctionFn(
                 FnSynNodeDefn {

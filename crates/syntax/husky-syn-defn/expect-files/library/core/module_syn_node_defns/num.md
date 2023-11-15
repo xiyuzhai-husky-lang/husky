@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -81,7 +81,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -92,7 +92,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -174,7 +174,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -185,7 +185,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -267,7 +267,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -278,7 +278,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -360,7 +360,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -371,7 +371,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -453,7 +453,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -464,7 +464,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -546,7 +546,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -557,7 +557,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -639,7 +639,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -650,7 +650,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -732,7 +732,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -743,7 +743,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -825,7 +825,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -836,7 +836,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -918,7 +918,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -929,7 +929,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -1011,7 +1011,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -1022,7 +1022,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -1104,7 +1104,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -1115,7 +1115,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -1197,7 +1197,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -1208,7 +1208,7 @@
             ),
         },
     ),
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::Extern(
                 ExternTypeSynNodeDefn {
@@ -1290,7 +1290,7 @@
             ),
         ),
     ),
-    SynNodeDefn::Attr(
+    ItemSynNodeDefn::Attr(
         AttrSynNodeDefn {
             syn_node_decl: Derive(
                 DeriveAttrSynNodeDecl(
@@ -1301,7 +1301,7 @@
             ),
         },
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -1424,7 +1424,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -1697,7 +1697,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -1743,7 +1743,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -2073,7 +2073,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -2270,7 +2270,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -2322,7 +2322,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -2716,7 +2716,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -2839,7 +2839,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -3112,7 +3112,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -3158,7 +3158,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -3488,7 +3488,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -3685,7 +3685,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -3737,7 +3737,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -4131,7 +4131,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -4254,7 +4254,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -4527,7 +4527,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -4573,7 +4573,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -4903,7 +4903,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -4949,7 +4949,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -5279,7 +5279,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -5476,7 +5476,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -5528,7 +5528,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -5922,7 +5922,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -6045,7 +6045,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -6318,7 +6318,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -6515,7 +6515,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -6567,7 +6567,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -6961,7 +6961,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -7084,7 +7084,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -7357,7 +7357,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -7554,7 +7554,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -7606,7 +7606,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -8000,7 +8000,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -8123,7 +8123,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -8396,7 +8396,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -8593,7 +8593,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -8645,7 +8645,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -9039,7 +9039,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -9162,7 +9162,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -9435,7 +9435,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -9632,7 +9632,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -9684,7 +9684,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -10078,7 +10078,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -10201,7 +10201,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -10474,7 +10474,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -10671,7 +10671,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -10723,7 +10723,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -11117,7 +11117,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -11240,7 +11240,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -11513,7 +11513,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -11710,7 +11710,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -11762,7 +11762,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -12156,7 +12156,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -12279,7 +12279,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -12552,7 +12552,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -12749,7 +12749,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -12801,7 +12801,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -13195,7 +13195,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -13318,7 +13318,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -13591,7 +13591,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -13788,7 +13788,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -13840,7 +13840,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -14234,7 +14234,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -14357,7 +14357,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -14630,7 +14630,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -14827,7 +14827,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -14879,7 +14879,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -15273,7 +15273,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -15396,7 +15396,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -15669,7 +15669,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -15942,7 +15942,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -15988,7 +15988,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -16318,7 +16318,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -16364,7 +16364,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -16694,7 +16694,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -16967,7 +16967,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -17240,7 +17240,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -17513,7 +17513,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -17786,7 +17786,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -17983,7 +17983,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -18035,7 +18035,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
@@ -18429,7 +18429,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
                 syn_node_path: TypeImplBlockSynNodePath {
@@ -18552,7 +18552,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -18825,7 +18825,7 @@
             ),
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
@@ -19098,7 +19098,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -19295,7 +19295,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
@@ -19347,7 +19347,7 @@
                                 self_value_parameter: None,
                                 comma_after_self_parameter: None,
                                 parenate_parameters: [
-                                    ParenateParameterSyndicate::Ordinary {
+                                    ParenateSynParameterData::Ordinary {
                                         syn_pattern_root: ParenateSynPatternExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },

@@ -1,5 +1,5 @@
 [
-    SynNodeDefn::MajorItem(
+    ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::PropsStruct(
                 PropsStructTypeSynNodeDefn {
@@ -356,7 +356,7 @@
             ),
         ),
     ),
-    SynNodeDefn::ImplBlock(
+    ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
                 syn_node_path: TraitForTypeImplBlockSynNodePath {
@@ -524,7 +524,7 @@
             },
         ),
     ),
-    SynNodeDefn::AssociatedItem(
+    ItemSynNodeDefn::AssociatedItem(
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {

@@ -98,9 +98,8 @@ impl EagerExprTrace {
         )
     }
 
-    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        let trace_view_lines = eager_expr_trace_view_lines(db, self);
-        TraceViewData::new(trace_view_lines.data().to_vec(), self.have_subtraces(db))
+    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
+        eager_expr_trace_view_lines(db, self)
     }
 
     pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
@@ -170,12 +169,9 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
             else {
                 unreachable!()
             };
-            let Some(hir_defn) = path.hir_defn(db) else {
-                return vec![];
-            };
-            let FugitiveHirDecl::FunctionFn(hir_decl) = hir_defn.hir_decl(db) else {
-                unreachable!()
-            };
+            let syn_defn = path.syn_defn(db).unwrap();
+            let syn_decl = syn_defn.decl(db);
+            let callee_syn_expr_region = syn_decl.syn_expr_region(db);
             let trace_path = trace.path(db);
             let mut subtraces = fn_call_eager_expr_trace_input_traces(
                 trace_path,
@@ -183,17 +179,10 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
                 ritchie_parameter_argument_matches,
                 caller_sema_expr_region,
                 hir_eager_expr_source_map_data,
+                callee_syn_expr_region,
                 db,
             );
-            subtraces.push(
-                EagerCallTrace::new(
-                    trace_path,
-                    trace,
-                    EagerCallTraceData::FunctionFn { path },
-                    db,
-                )
-                .into(),
-            );
+            subtraces.push(EagerCallTrace::new(trace_path, trace, path.into(), db).into());
             subtraces
         }
         HirEagerExprData::AssociatedFunctionFnCall {
@@ -208,11 +197,10 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
             else {
                 unreachable!()
             };
-            let syn_defn = path.syn_defn(db).unwrap();
-            let syn_decl = syn_defn.decl(db) else {
-                unreachable!()
-            };
-            syn_decl.parenate_parameters(db);
+            let syn_defn = path.syn_defn(db).expect("no syn error at trace stage");
+            let syn_decl = syn_defn.decl(db);
+            // todo: syn_decl.parenate_parameters(db);
+            let callee_syn_expr_region = syn_decl.syn_expr_region(db);
             let trace_path = trace.path(db);
             let mut subtraces = fn_call_eager_expr_trace_input_traces(
                 trace_path,
@@ -220,17 +208,10 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
                 ritchie_parameter_argument_matches,
                 caller_sema_expr_region,
                 hir_eager_expr_source_map_data,
+                callee_syn_expr_region,
                 db,
             );
-            subtraces.push(
-                EagerCallTrace::new(
-                    trace_path,
-                    trace,
-                    EagerCallTraceData::AssociatedFunctionFn { path },
-                    db,
-                )
-                .into(),
-            );
+            subtraces.push(EagerCallTrace::new(trace_path, trace, path.into(), db).into());
             subtraces
         }
         HirEagerExprData::MethodFnCall {
@@ -245,9 +226,9 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
             else {
                 unreachable!()
             };
-            let Some(hir_defn) = path.hir_defn(db) else {
-                return vec![];
-            };
+            let syn_defn = path.syn_defn(db).expect("no syn error at trace stage");
+            let syn_decl = syn_defn.decl(db);
+            let callee_syn_expr_region = syn_decl.syn_expr_region(db);
             let trace_path = trace.path(db);
             let mut subtraces = fn_call_eager_expr_trace_input_traces(
                 trace_path,
@@ -255,12 +236,10 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
                 ritchie_parameter_argument_matches,
                 caller_sema_expr_region,
                 hir_eager_expr_source_map_data,
+                callee_syn_expr_region,
                 db,
             );
-            subtraces.push(
-                EagerCallTrace::new(trace_path, trace, EagerCallTraceData::MethodFn { path }, db)
-                    .into(),
-            );
+            subtraces.push(EagerCallTrace::new(trace_path, trace, path.into(), db).into());
             subtraces
         }
         HirEagerExprData::Block { .. } => unreachable!(),
@@ -277,6 +256,7 @@ fn fn_call_eager_expr_trace_input_traces(
     ritchie_parameter_argument_matches: &[SemaRitchieParameterArgumentMatch],
     caller_sema_expr_region: SemaExprRegion,
     caller_hir_eager_expr_source_map_data: &HirEagerExprSourceMapData,
+    callee_syn_expr_region: SynExprRegion,
     db: &dyn TraceDb,
 ) -> Vec<Trace> {
     ritchie_parameter_argument_matches
@@ -303,7 +283,7 @@ fn fn_call_eager_expr_trace_input_traces(
                 trace,
                 data,
                 caller_sema_expr_region,
-                todo!(),
+                callee_syn_expr_region,
                 db,
             )
             .into()

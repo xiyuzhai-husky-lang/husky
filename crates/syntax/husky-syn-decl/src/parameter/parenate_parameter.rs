@@ -1,7 +1,7 @@
 use super::*;
 use parsec::parse_separated_small_list2;
 
-pub(crate) type ParenateParameterSyndicates = SmallVec<[ParenateParameterSyndicate; 2]>;
+pub(crate) type ParenateSynParametersData = SmallVec<[ParenateSynParameterData; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
@@ -10,7 +10,7 @@ pub struct ParenateParameterSyndicateList<const ALLOW_SELF_PARAMETER: bool> {
     lpar: LparRegionalToken,
     self_value_parameter: Option<SelfValueParameterSyndicate>,
     comma_after_self_parameter: Option<CommaRegionalToken>,
-    parenate_parameters: ParenateParameterSyndicates,
+    parenate_parameters: ParenateSynParametersData,
     commas: CommaRegionalTokens,
     rpar: RparRegionalToken,
 }

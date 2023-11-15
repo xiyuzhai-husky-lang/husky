@@ -8,7 +8,6 @@ pub use self::ty_impl_block::*;
 
 use crate::*;
 
-
 use husky_print_utils::p;
 use husky_token::ImplToken;
 use husky_token::*;
@@ -16,7 +15,6 @@ use husky_token::*;
 use parsec::{HasStreamState, IsStreamParser};
 
 use thiserror::Error;
-
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
@@ -249,17 +247,6 @@ impl ImplBlockSynNode {
     pub fn module_path(&self, _db: &dyn EntitySynTreeDb) -> ModulePath {
         todo!()
         // self.id(db).module_path
-    }
-
-    pub fn items(self, _db: &dyn EntitySynTreeDb) -> &[(Ident, AssociatedItemSynNode)] {
-        todo!()
-        // match self {
-        //     ImplBlockNode::TypeImplBlock(impl_block) => ty_impl_block_items(db, impl_block),
-        //     ImplBlockNode::TraitForTypeImplBlock(impl_block) => {
-        //         trai_for_ty_impl_block_items(db, impl_block)
-        //     }
-        //     ImplBlockNode::IllFormedImplBlock(_) => &[],
-        // }
     }
 }
 

@@ -93,11 +93,25 @@ pub enum TraitItemSynDefn {
     MethodFn(TraitMethodFnSynDefn),
     AssociatedType(TraitAssociatedTypeSynDefn),
     AssociatedVal(TraitAssociatedValSynDefn),
+    // MemoizedField,
 }
 
 impl TraitItemSynDefn {
     pub fn decl(self, _db: &dyn SynDefnDb) -> TraitItemSynDecl {
         todo!()
+    }
+
+    pub fn body_with_syn_expr_region(
+        self,
+        db: &dyn SynDefnDb,
+    ) -> Option<(SynExprIdx, SynExprRegion)> {
+        match self {
+            TraitItemSynDefn::AssociatedFn(defn) => defn.body_with_syn_expr_region(db).into(),
+            TraitItemSynDefn::MethodFn(defn) => defn.body_with_syn_expr_region(db).into(),
+            TraitItemSynDefn::AssociatedType(defn) => defn.body_with_syn_expr_region(db).into(),
+            TraitItemSynDefn::AssociatedVal(defn) => defn.body_with_syn_expr_region(db).into(),
+            // TraitItemSynDefn::MemoizedField(defn) => defn.body_with_syn_expr_region(db).into(),
+        }
     }
 
     pub fn path(self, _db: &dyn SynDefnDb) -> AssociatedItemPath {

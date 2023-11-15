@@ -4,7 +4,7 @@ EntitySynTreeCrateBundle {
             module_path: `core`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -38,7 +38,7 @@ EntitySynTreeCrateBundle {
                         ident: `array`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -72,7 +72,7 @@ EntitySynTreeCrateBundle {
                         ident: `basic`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -106,7 +106,7 @@ EntitySynTreeCrateBundle {
                         ident: `clone`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -140,7 +140,7 @@ EntitySynTreeCrateBundle {
                         ident: `cmp`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -174,7 +174,7 @@ EntitySynTreeCrateBundle {
                         ident: `default`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -208,7 +208,7 @@ EntitySynTreeCrateBundle {
                         ident: `fmt`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -242,7 +242,7 @@ EntitySynTreeCrateBundle {
                         ident: `logic`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -276,7 +276,7 @@ EntitySynTreeCrateBundle {
                         ident: `marker`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -310,7 +310,7 @@ EntitySynTreeCrateBundle {
                         ident: `mem`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -344,7 +344,7 @@ EntitySynTreeCrateBundle {
                         ident: `num`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -378,7 +378,7 @@ EntitySynTreeCrateBundle {
                         ident: `ops`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -412,7 +412,7 @@ EntitySynTreeCrateBundle {
                         ident: `option`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -446,7 +446,7 @@ EntitySynTreeCrateBundle {
                         ident: `prelude`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -480,7 +480,7 @@ EntitySynTreeCrateBundle {
                         ident: `raw_bits`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -514,7 +514,7 @@ EntitySynTreeCrateBundle {
                         ident: `result`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -548,7 +548,7 @@ EntitySynTreeCrateBundle {
                         ident: `vec`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -582,7 +582,7 @@ EntitySynTreeCrateBundle {
                         ident: `slice`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -616,7 +616,7 @@ EntitySynTreeCrateBundle {
                         ident: `str`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
@@ -2353,7 +2353,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::array`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -4873,7 +4873,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::basic`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -4915,7 +4915,7 @@ EntitySynTreeCrateBundle {
                         ident: `bool`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -4957,7 +4957,7 @@ EntitySynTreeCrateBundle {
                         ident: `never`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -4999,7 +4999,7 @@ EntitySynTreeCrateBundle {
                         ident: `unit`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -5041,7 +5041,7 @@ EntitySynTreeCrateBundle {
                         ident: `Trait`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -5083,7 +5083,7 @@ EntitySynTreeCrateBundle {
                         ident: `Module`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -5125,7 +5125,7 @@ EntitySynTreeCrateBundle {
                         ident: `Lifetime`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -7699,7 +7699,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::clone`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -10286,7 +10286,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::cmp`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -10328,7 +10328,7 @@ EntitySynTreeCrateBundle {
                         ident: `PartialEq`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -10370,7 +10370,7 @@ EntitySynTreeCrateBundle {
                         ident: `Eq`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -10412,7 +10412,7 @@ EntitySynTreeCrateBundle {
                         ident: `PartialOrd`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -15427,7 +15427,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::fmt`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -17947,7 +17947,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::logic`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -17989,7 +17989,7 @@ EntitySynTreeCrateBundle {
                         ident: `Prop`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -18031,7 +18031,7 @@ EntitySynTreeCrateBundle {
                         ident: `LogicAnd`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -20575,7 +20575,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::marker`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -20617,7 +20617,7 @@ EntitySynTreeCrateBundle {
                         ident: `Copy`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -23146,7 +23146,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::mem`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -23188,7 +23188,7 @@ EntitySynTreeCrateBundle {
                         ident: `Ref`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -23230,7 +23230,7 @@ EntitySynTreeCrateBundle {
                         ident: `RefMut`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -23272,7 +23272,7 @@ EntitySynTreeCrateBundle {
                         ident: `Leash`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -25862,7 +25862,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::num`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -25904,7 +25904,7 @@ EntitySynTreeCrateBundle {
                         ident: `i8`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -25946,7 +25946,7 @@ EntitySynTreeCrateBundle {
                         ident: `i16`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -25988,7 +25988,7 @@ EntitySynTreeCrateBundle {
                         ident: `i32`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -26030,7 +26030,7 @@ EntitySynTreeCrateBundle {
                         ident: `i64`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -26072,7 +26072,7 @@ EntitySynTreeCrateBundle {
                         ident: `i128`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -26114,7 +26114,7 @@ EntitySynTreeCrateBundle {
                         ident: `isize`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -26156,7 +26156,7 @@ EntitySynTreeCrateBundle {
                         ident: `u8`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -26198,7 +26198,7 @@ EntitySynTreeCrateBundle {
                         ident: `u16`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -26240,7 +26240,7 @@ EntitySynTreeCrateBundle {
                         ident: `u32`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -26282,7 +26282,7 @@ EntitySynTreeCrateBundle {
                         ident: `u64`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -26324,7 +26324,7 @@ EntitySynTreeCrateBundle {
                         ident: `u128`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -26366,7 +26366,7 @@ EntitySynTreeCrateBundle {
                         ident: `usize`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -26408,7 +26408,7 @@ EntitySynTreeCrateBundle {
                         ident: `f32`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -30337,7 +30337,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::ops`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30385,7 +30385,7 @@ EntitySynTreeCrateBundle {
                         ident: `Add`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30433,7 +30433,7 @@ EntitySynTreeCrateBundle {
                         ident: `AddAssign`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30481,7 +30481,7 @@ EntitySynTreeCrateBundle {
                         ident: `BitAnd`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30529,7 +30529,7 @@ EntitySynTreeCrateBundle {
                         ident: `BitAndAssign`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30577,7 +30577,7 @@ EntitySynTreeCrateBundle {
                         ident: `BitOr`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30625,7 +30625,7 @@ EntitySynTreeCrateBundle {
                         ident: `BitOrAssign`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30673,7 +30673,7 @@ EntitySynTreeCrateBundle {
                         ident: `BitXor`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30721,7 +30721,7 @@ EntitySynTreeCrateBundle {
                         ident: `BitXorAssign`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30769,7 +30769,7 @@ EntitySynTreeCrateBundle {
                         ident: `Div`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30817,7 +30817,7 @@ EntitySynTreeCrateBundle {
                         ident: `DivAssign`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30865,7 +30865,7 @@ EntitySynTreeCrateBundle {
                         ident: `IntIndex`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30913,7 +30913,7 @@ EntitySynTreeCrateBundle {
                         ident: `Mul`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -30961,7 +30961,7 @@ EntitySynTreeCrateBundle {
                         ident: `MulAssign`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -31009,7 +31009,7 @@ EntitySynTreeCrateBundle {
                         ident: `Neg`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -31057,7 +31057,7 @@ EntitySynTreeCrateBundle {
                         ident: `Not`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -31105,7 +31105,7 @@ EntitySynTreeCrateBundle {
                         ident: `Sub`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -31153,7 +31153,7 @@ EntitySynTreeCrateBundle {
                         ident: `Unveil`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -33832,7 +33832,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::option`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -38035,7 +38035,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::raw_bits`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -40590,7 +40590,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::result`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -43259,7 +43259,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::vec`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -45814,7 +45814,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::slice`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -45856,7 +45856,7 @@ EntitySynTreeCrateBundle {
                         ident: `Slice`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -48504,7 +48504,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::str`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -48546,7 +48546,7 @@ EntitySynTreeCrateBundle {
                         ident: `str`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -51075,7 +51075,7 @@ EntitySynTreeCrateBundle {
             module_path: `core::visual`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
@@ -51123,7 +51123,7 @@ EntitySynTreeCrateBundle {
                         ident: `Visualize`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(

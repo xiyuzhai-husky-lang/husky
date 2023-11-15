@@ -84,10 +84,7 @@ pub enum SynDecl {
 }
 
 impl SynDecl {
-    pub fn template_parameters<'a>(
-        self,
-        db: &'a dyn SynDeclDb,
-    ) -> &'a [TemplateParameterSyndicate] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
         match self {
             SynDecl::Submodule(_) => todo!(),
             SynDecl::MajorItem(decl) => decl.template_parameters(db),

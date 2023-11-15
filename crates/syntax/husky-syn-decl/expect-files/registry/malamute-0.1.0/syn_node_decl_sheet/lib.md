@@ -31,7 +31,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterSyndicate {
+                                            TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 data: TemplateParameterSyndicateData::Type {
@@ -178,7 +178,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterSyndicate {
+                                            TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 data: TemplateParameterSyndicateData::Type {
@@ -191,7 +191,7 @@ SynNodeDeclSheet {
                                                     traits: None,
                                                 },
                                             },
-                                            TemplateParameterSyndicate {
+                                            TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 2,
                                                 data: TemplateParameterSyndicateData::Constant {
@@ -418,7 +418,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterSyndicate {
+                                            TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 data: TemplateParameterSyndicateData::Type {
@@ -431,7 +431,7 @@ SynNodeDeclSheet {
                                                     traits: None,
                                                 },
                                             },
-                                            TemplateParameterSyndicate {
+                                            TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 2,
                                                 data: TemplateParameterSyndicateData::Constant {
@@ -1035,7 +1035,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterSyndicate {
+                                            TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 data: TemplateParameterSyndicateData::Type {
@@ -1048,7 +1048,7 @@ SynNodeDeclSheet {
                                                     traits: None,
                                                 },
                                             },
-                                            TemplateParameterSyndicate {
+                                            TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 2,
                                                 data: TemplateParameterSyndicateData::Constant {
@@ -1100,7 +1100,7 @@ SynNodeDeclSheet {
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        ParenateParameterSyndicate::Variadic {
+                                        ParenateSynParameterData::Variadic {
                                             dot_dot_dot_token: DotDotDotRegionalToken(
                                                 RegionalTokenIdx(
                                                     15,
@@ -1133,7 +1133,7 @@ SynNodeDeclSheet {
                                             ),
                                             ty: 2,
                                         },
-                                        ParenateParameterSyndicate::Keyed {
+                                        ParenateSynParameterData::Keyed {
                                             syn_pattern_root: ParenateSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
@@ -1252,7 +1252,7 @@ SynNodeDeclSheet {
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Type {
@@ -1265,7 +1265,7 @@ SynNodeDeclSheet {
                                                 traits: None,
                                             },
                                         },
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 2,
                                             data: TemplateParameterSyndicateData::Constant {
@@ -2234,7 +2234,7 @@ SynNodeDeclSheet {
                                         ),
                                     ),
                                     template_parameters: [
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
                                             data: TemplateParameterSyndicateData::Type {
@@ -2247,7 +2247,7 @@ SynNodeDeclSheet {
                                                 traits: None,
                                             },
                                         },
-                                        TemplateParameterSyndicate {
+                                        TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 2,
                                             data: TemplateParameterSyndicateData::Constant {

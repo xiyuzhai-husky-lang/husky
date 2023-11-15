@@ -614,10 +614,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 253,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 253,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],
@@ -1352,10 +1354,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 283,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 283,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],
@@ -1731,10 +1735,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 297,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 297,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],
@@ -1990,10 +1996,12 @@
                                         },
                                     ),
                                 ),
-                                ValRepr(
-                                    Id {
-                                        value: 310,
-                                    },
+                                Some(
+                                    ValRepr(
+                                        Id {
+                                            value: 310,
+                                        },
+                                    ),
                                 ),
                             ),
                         ],

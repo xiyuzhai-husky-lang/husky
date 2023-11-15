@@ -1,7 +1,5 @@
 use super::*;
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
-use husky_hir_decl::FugitiveHirDecl;
-use husky_hir_defn::HasHirDefn;
 use husky_hir_lazy_expr::{
     source_map::{HirLazyExprSourceMap, HirLazyExprSourceMapData},
     HirLazyExprData, HirLazyExprIdx, HirLazyExprRegion,
@@ -99,9 +97,8 @@ impl LazyExprTrace {
         )
     }
 
-    pub fn view_data(self, db: &dyn TraceDb) -> TraceViewData {
-        let tokens = lazy_expr_trace_view_lines(db, self);
-        TraceViewData::new(tokens.data().to_vec(), self.have_subtraces(db))
+    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
+        lazy_expr_trace_view_lines(db, self)
     }
 
     pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
@@ -168,10 +165,23 @@ fn lazy_expr_trace_subtraces(db: &dyn TraceDb, trace: LazyExprTrace) -> Vec<Trac
             else {
                 unreachable!()
             };
-            let Some(hir_defn) = path.hir_defn(db) else {
-                return vec![];
-            };
-            let FugitiveHirDecl::FunctionFn(hir_decl) = hir_defn.hir_decl(db) else {
+            let trace_path = trace.path(db);
+            let mut subtraces: Vec<Trace> = fn_call_lazy_expr_trace_input_traces(
+                trace_path,
+                trace,
+                ritchie_parameter_argument_matches,
+                hir_lazy_expr_source_map_data,
+                db,
+            );
+            subtraces.push(LazyCallTrace::new(trace_path, trace, path.into(), db).into());
+            subtraces
+        }
+        HirLazyExprData::AssociatedFunctionFnCall { path, .. } => {
+            let SemaExprData::FunctionFnCall {
+                ref ritchie_parameter_argument_matches,
+                ..
+            } = sema_expr_idx.data(sema_expr_region_data.sema_expr_arena())
+            else {
                 unreachable!()
             };
             let trace_path = trace.path(db);
@@ -182,69 +192,48 @@ fn lazy_expr_trace_subtraces(db: &dyn TraceDb, trace: LazyExprTrace) -> Vec<Trac
                 hir_lazy_expr_source_map_data,
                 db,
             );
-            subtraces.push(
-                LazyCallTrace::new(
-                    trace_path,
-                    trace,
-                    LazyCallTraceData::FunctionFn { path },
-                    db,
-                )
-                .into(),
-            );
+            subtraces.push(LazyCallTrace::new(trace_path, trace, path.into(), db).into());
             subtraces
         }
-        HirLazyExprData::AssociatedFunctionFnCall {
-            path,
-            ref item_groups,
-            ..
-        } => {
-            let Some(hir_defn) = path.hir_defn(db) else {
-                return vec![];
+        HirLazyExprData::MethodFnCall { path, .. } => {
+            let SemaExprData::FunctionFnCall {
+                ref ritchie_parameter_argument_matches,
+                ..
+            } = sema_expr_idx.data(sema_expr_region_data.sema_expr_arena())
+            else {
+                unreachable!()
             };
             let trace_path = trace.path(db);
-            let mut traces: Vec<Trace> = item_groups
-                .iter()
-                .enumerate()
-                .map(|(i, item_group)| {
-                    LazyCallInputTrace::new(trace_path, trace, todo!(), db).into()
-                })
-                .collect();
-            traces.push(
-                LazyCallTrace::new(
-                    trace_path,
-                    trace,
-                    LazyCallTraceData::AssociatedFunctionFn { path },
-                    db,
-                )
-                .into(),
+            let mut subtraces: Vec<Trace> = fn_call_lazy_expr_trace_input_traces(
+                trace_path,
+                trace,
+                ritchie_parameter_argument_matches,
+                hir_lazy_expr_source_map_data,
+                db,
             );
-            traces
-        }
-        HirLazyExprData::MethodFnCall {
-            path,
-            ref item_groups,
-            ..
-        } => {
-            let Some(hir_defn) = path.hir_defn(db) else {
-                return vec![];
-            };
-            let trace_path = trace.path(db);
-            let mut traces: Vec<Trace> = item_groups
-                .iter()
-                .enumerate()
-                .map(|(i, item_group)| {
-                    LazyCallInputTrace::new(trace_path, trace, todo!(), db).into()
-                })
-                .collect();
-            traces.push(
-                LazyCallTrace::new(trace_path, trace, LazyCallTraceData::MethodFn { path }, db)
-                    .into(),
-            );
-            traces
+            subtraces.push(LazyCallTrace::new(trace_path, trace, path.into(), db).into());
+            subtraces
         }
         HirLazyExprData::Block { .. } => unreachable!(),
-        HirLazyExprData::AssociatedFn { path } => todo!(),
-        HirLazyExprData::FunctionGnCall { .. } => todo!(),
+        HirLazyExprData::FunctionGnCall { path, .. } => {
+            let SemaExprData::FunctionGnCall {
+                ref ritchie_parameter_argument_matches,
+                ..
+            } = sema_expr_idx.data(sema_expr_region_data.sema_expr_arena())
+            else {
+                unreachable!()
+            };
+            let trace_path = trace.path(db);
+            let mut subtraces: Vec<Trace> = fn_call_lazy_expr_trace_input_traces(
+                trace_path,
+                trace,
+                ritchie_parameter_argument_matches,
+                hir_lazy_expr_source_map_data,
+                db,
+            );
+            subtraces.push(LazyCallTrace::new(trace_path, trace, path.into(), db).into());
+            subtraces
+        }
         _ => vec![],
     }
 }

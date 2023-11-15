@@ -69,7 +69,7 @@ pub struct PropsStructTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: TemplateParameterSyndicates,
+    pub template_parameters: TemplateSynParametersData,
     #[return_ref]
     pub fields: SmallVec<[PropsFieldSyndicate; 4]>,
     pub syn_expr_region: SynExprRegion,

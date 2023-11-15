@@ -4,7 +4,7 @@ EntitySynTreeCrateBundle {
             module_path: `mnist`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -52,7 +52,7 @@ EntitySynTreeCrateBundle {
                         ident: `MnistLabel`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -94,7 +94,7 @@ EntitySynTreeCrateBundle {
                         ident: `BinaryImage28`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -136,7 +136,7 @@ EntitySynTreeCrateBundle {
                         ident: `BinaryGrid28`,
                         visibility: Scope::Pub,
                     },
-                    EntityNodeEntry {
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(

@@ -1,7 +1,5 @@
 use super::*;
 
-
-
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeImplBlockSynNodeDecl {
     #[id]
@@ -114,7 +112,7 @@ pub struct TraitForTypeImplBlockSynDecl {
     #[id]
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: TemplateParameterSyndicates,
+    pub template_parameters: TemplateSynParametersData,
     pub trai_expr: TraitSyndicate,
     pub self_ty_decl: SelfTypeDecl,
     pub syn_expr_region: SynExprRegion,

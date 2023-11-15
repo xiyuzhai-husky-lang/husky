@@ -2,7 +2,7 @@ EntitySynTreeSheet {
     module_path: `mnist_classifier::line_segment_sketch`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -40,7 +40,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -78,7 +78,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -116,7 +116,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
@@ -154,7 +154,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -196,7 +196,7 @@ EntitySynTreeSheet {
                 ident: `LineSegmentStroke`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -238,7 +238,7 @@ EntitySynTreeSheet {
                 ident: `LineSegmentSketch`,
                 visibility: Scope::Pub,
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -290,7 +290,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -342,7 +342,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -394,7 +394,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
@@ -446,7 +446,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
             },
-            EntityNodeEntry {
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
