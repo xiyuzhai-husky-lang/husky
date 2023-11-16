@@ -4,30 +4,30 @@ use crate::{view::TraceDocView, *};
 #[cfg(feature = "egui")]
 use egui::*;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
-
+use husky_task::IsTask;
 use husky_trace_protocol::{
-    client::{TraceClient},
-    view::{action::TraceViewActionBuffer},
+    client::TraceClient,
+    protocol::{mock::MockTraceProtocol, IsTraceProtocol},
+    view::action::TraceViewActionBuffer,
 };
-
 use husky_visual_protocol::IsVisualComponent;
 use notify::Notify;
 use ui::IsUiComponent;
 
-pub struct TraceDoc<VisualComponent, RepaintSignal>
+pub struct TraceDoc<TraceProtocol, RepaintSignal>
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
     RepaintSignal: Notify,
 {
-    trace_client: TraceClient<VisualComponent, RepaintSignal>,
-    action_buffer: TraceViewActionBuffer<VisualComponent>,
+    trace_client: TraceClient<TraceProtocol, RepaintSignal>,
+    action_buffer: TraceViewActionBuffer<TraceProtocol>,
 }
 
 #[cfg(feature = "egui")]
-impl<VisualComponent, Settings, UiActionBuffer> IsUiComponent<egui::Ui, Settings, UiActionBuffer>
-    for TraceDoc<VisualComponent, EguiRepaintSignal>
+impl<TraceProtocol, Settings, UiActionBuffer> IsUiComponent<egui::Ui, Settings, UiActionBuffer>
+    for TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
     Settings: HasTraceViewDocSettings,
 {
     fn update(
@@ -48,9 +48,9 @@ where
 }
 
 #[cfg(feature = "egui")]
-impl<VisualComponent> TraceDoc<VisualComponent, EguiRepaintSignal>
+impl<TraceProtocol> TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
 {
     fn render<Settings>(&mut self, ui: &mut Ui, settings: &mut Settings)
     where
@@ -71,10 +71,10 @@ where
 }
 
 #[cfg(feature = "mock")]
-pub type MockTraceDoc = TraceDoc<(), EguiRepaintSignal>;
+pub type MockTraceDoc = TraceDoc<MockTraceProtocol, EguiRepaintSignal>;
 
 #[cfg(feature = "mock")]
-impl TraceDoc<(), EguiRepaintSignal> {
+impl TraceDoc<MockTraceProtocol, EguiRepaintSignal> {
     pub fn new_mock(
         tokio_runtime: Arc<tokio::runtime::Runtime>,
         repaint_signal: EguiRepaintSignal,

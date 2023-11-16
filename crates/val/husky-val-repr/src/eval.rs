@@ -1,9 +1,9 @@
 use crate::*;
-use husky_task::{IsTask, Value};
+use husky_task::{helpers::TaskValue, IsTask};
 use husky_val::ValOpn;
 
 impl ValRepr {
-    pub fn eval<Task: IsTask>(self, db: &dyn ValReprDb) -> (ValControlFlow, Value<Task>) {
+    pub fn eval<Task: IsTask>(self, db: &dyn ValReprDb) -> (ValControlFlow, TaskValue<Task>) {
         match self.opn(db) {
             ValOpn::Return => todo!(),
             ValOpn::Require => todo!(),

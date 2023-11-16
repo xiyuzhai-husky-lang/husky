@@ -5,7 +5,10 @@ use husky_dev_comptime::DevComptimeTarget;
 pub use husky_trace_protocol::server::IsTracetime;
 
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
-use husky_task::{helpers::DevLinkTime, visual::VisualComponent, DevComptimeDb, IsTask};
+use husky_task::{
+    helpers::{TaskDevComptimeDb, TaskDevLinkTime, TaskTraceProtocol},
+    IsTask,
+};
 use husky_trace::{db::TraceDb, trace::Trace};
 use husky_vfs::error::VfsResult;
 use std::path::Path;
@@ -14,7 +17,7 @@ use self::state::*;
 
 pub struct Devtime<Task: IsTask>
 where
-    DevComptimeDb<Task>: TraceDb,
+    TaskDevComptimeDb<Task>: TraceDb,
 {
     runtime: DevRuntime<Task>,
     state: DevtimeState,
@@ -22,7 +25,7 @@ where
 
 impl<Task: IsTask> Devtime<Task>
 where
-    DevComptimeDb<Task>: TraceDb,
+    TaskDevComptimeDb<Task>: TraceDb,
 {
     pub fn new(
         task: Task,
@@ -35,7 +38,7 @@ where
         })
     }
 
-    pub fn db(&self) -> &DevComptimeDb<Task> {
+    pub fn db(&self) -> &TaskDevComptimeDb<Task> {
         self.runtime.db()
     }
 
@@ -47,8 +50,8 @@ where
 impl<Task: IsTask> Default for Devtime<Task>
 where
     Task: Default,
-    DevLinkTime<Task>: Default,
-    DevComptimeDb<Task>: TraceDb,
+    TaskDevLinkTime<Task>: Default,
+    TaskDevComptimeDb<Task>: TraceDb,
 {
     fn default() -> Self {
         Self {
@@ -60,11 +63,11 @@ where
 
 impl<Task: IsTask> IsTracetime for Devtime<Task>
 where
-    DevComptimeDb<Task>: TraceDb,
+    TaskDevComptimeDb<Task>: TraceDb,
 {
     type Trace = Trace;
 
-    type VisualComponent = VisualComponent<Task>;
+    type TraceProtocol = TaskTraceProtocol<Task>;
 
     type SerdeImpl = serde_impl::json::SerdeJson;
 

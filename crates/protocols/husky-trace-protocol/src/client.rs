@@ -1,36 +1,31 @@
 pub mod error;
+#[cfg(feature = "mock")]
 pub mod mock;
-
-use std::sync::Arc;
-
 
 use crate::{
     cache::action::TraceCacheToggleExpansion, message::*, view::action::TraceViewAction, *,
 };
-
-use husky_visual_protocol::{IsVisualComponent};
 use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
 };
 use notify::Notify;
+use std::sync::Arc;
 
-
-
-pub struct TraceClient<VisualComponent: IsVisualComponent, Notifier>
+pub struct TraceClient<TraceProtocol: IsTraceProtocol, Notifier>
 where
     Notifier: Notify,
 {
-    opt_cache: Option<TraceCache<VisualComponent>>,
+    opt_cache: Option<TraceCache<TraceProtocol>>,
     connection: ImmediateWebsocketClientConnection<
-        TraceRequest<VisualComponent>,
-        TraceResponse<VisualComponent>,
+        TraceRequest<TraceProtocol>,
+        TraceResponse<TraceProtocol>,
         Notifier,
     >,
 }
 
-impl<VisualComponent: IsVisualComponent, Notifier> TraceClient<VisualComponent, Notifier>
+impl<TraceProtocol: IsTraceProtocol, Notifier> TraceClient<TraceProtocol, Notifier>
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
     Notifier: Notify,
 {
     pub fn new(
@@ -55,7 +50,7 @@ where
         self.process_response(response);
     }
 
-    fn process_response(&mut self, response: TraceResponse<VisualComponent>) {
+    fn process_response(&mut self, response: TraceResponse<TraceProtocol>) {
         match response {
             TraceResponse::Init { cache } => {
                 debug_assert!(self.opt_cache.is_none());
@@ -72,7 +67,7 @@ where
 
     fn try_send_request(
         &mut self,
-        request: TraceRequest<VisualComponent>,
+        request: TraceRequest<TraceProtocol>,
     ) -> Result<(), WebsocketClientConnectionError> {
         self.connection.try_send_request(request)
     }
@@ -85,23 +80,23 @@ where
         self.connection.error()
     }
 
-    pub fn opt_cache(&self) -> Option<&TraceCache<VisualComponent>> {
+    pub fn opt_cache(&self) -> Option<&TraceCache<TraceProtocol>> {
         self.opt_cache.as_ref()
     }
 
     #[track_caller]
-    fn cache(&self) -> &TraceCache<VisualComponent> {
+    fn cache(&self) -> &TraceCache<TraceProtocol> {
         self.opt_cache.as_ref().unwrap()
     }
 
     #[track_caller]
-    fn cache_mut(&mut self) -> &mut TraceCache<VisualComponent> {
+    fn cache_mut(&mut self) -> &mut TraceCache<TraceProtocol> {
         self.opt_cache.as_mut().unwrap()
     }
 
     pub fn take_view_action(
         &mut self,
-        view_action: TraceViewAction<VisualComponent>,
+        view_action: TraceViewAction<TraceProtocol>,
     ) -> Result<(), WebsocketClientConnectionError> {
         let Some(cache_action) = self.try_resolve_view_action(&view_action) else {
             let cache_actions_len = self.cache().actions_len();
@@ -132,8 +127,8 @@ where
 
     fn try_resolve_view_action(
         &self,
-        view_action: &TraceViewAction<VisualComponent>,
-    ) -> Option<TraceCacheAction<VisualComponent>> {
+        view_action: &TraceViewAction<TraceProtocol>,
+    ) -> Option<TraceCacheAction<TraceProtocol>> {
         match view_action {
             &TraceViewAction::ToggleExpansion { trace_id } => {
                 let trace_cache_entry = &self.cache()[trace_id];

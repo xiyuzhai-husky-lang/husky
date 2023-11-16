@@ -12,6 +12,8 @@ egui = { workspace = true, optional = true }
 # abstractions
 ui = { path = "../../abstractions/ui" }
 notify = { path = "../../abstractions/notify" }
+# kernel
+husky-task = { path = "../../kernel/husky-task" }
 # gui
 husky-gui = { path = "../../gui/husky-gui" }
 # protocols

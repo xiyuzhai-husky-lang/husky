@@ -8,10 +8,20 @@ pub mod trivial;
 /// require `Serialize` and `Deserialize` for the convenience of deriving `Serialize` and `Deserialize` for generic types
 ///
 /// for example TraceCache
-pub trait IsVisualProtocol: Send + 'static {
+pub trait IsVisualProtocol:
+    std::fmt::Debug
+    + Default
+    + PartialEq
+    + Eq
+    + Clone
+    + Serialize
+    + for<'a> Deserialize<'a>
+    + Send
+    + 'static
+{
     type VisualComponent: IsVisualComponent;
 
-    type Visual: IsVisual;
+    type Visual: IsVisual<Component = Self::VisualComponent>;
 }
 
 pub trait IsVisualComponent:

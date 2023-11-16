@@ -1,9 +1,9 @@
 use husky_boot_linktime::BootLinkTime;
 use husky_regular_value::RegularValue;
 use husky_standard_dev_comptime_db::StandardDevComptimeDb;
-use husky_task::{IsDevAscension, IsTask};
+use husky_task::{ascension::IsDevAscension, IsTask};
+use husky_trace_protocol::protocol::trivial::TrivialTraceProtocol;
 use husky_trivial_linkage::TrivialLinkage;
-use husky_visual_protocol::trivial::TrivialVisualProtocol;
 
 #[derive(Default)]
 pub struct BootTask;
@@ -23,9 +23,9 @@ impl IsDevAscension for BootDevAscension {
 
     type RuntimeStorage = ();
 
-    type RuntimeTaskSpecificConfig = ();
+    type RuntimeSpecificConfig = ();
 
-    type VisualProtocol = TrivialVisualProtocol;
+    type TraceProtocol = TrivialTraceProtocol;
 
     type ComptimeDb = StandardDevComptimeDb;
 }

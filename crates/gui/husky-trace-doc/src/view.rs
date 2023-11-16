@@ -3,35 +3,34 @@ use egui::{
     Button, Color32, FontFamily, InnerResponse, Label, Margin, RichText, Sense, TextStyle, Vec2,
     Widget,
 };
-
 use husky_trace_protocol::{
     cache::{TraceCache, TraceCacheEntry},
     id::{TraceId, TraceKind},
+    protocol::IsTraceProtocol,
     view::{action::TraceViewActionBuffer, TraceViewLineData, TraceViewTokenData},
 };
-use husky_visual_protocol::IsVisualComponent;
 
-pub(crate) struct TraceDocView<'a, VisualComponent, Settings>
+pub(crate) struct TraceDocView<'a, TraceProtocol, Settings>
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
     Settings: HasTraceViewDocSettings,
 {
-    trace_cache: &'a TraceCache<VisualComponent>,
-    action_buffer: &'a mut TraceViewActionBuffer<VisualComponent>,
+    trace_cache: &'a TraceCache<TraceProtocol>,
+    action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
     // cached values
     glyph_width: f32,
     // trace_listing: Vec<TraceId>,
 }
 
-impl<'a, VisualComponent, Settings> TraceDocView<'a, VisualComponent, Settings>
+impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
     Settings: HasTraceViewDocSettings,
 {
     pub(crate) fn new(
-        trace_cache: &'a TraceCache<VisualComponent>,
-        action_buffer: &'a mut TraceViewActionBuffer<VisualComponent>,
+        trace_cache: &'a TraceCache<TraceProtocol>,
+        action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
         ui: &mut egui::Ui,
         settings: &'a mut Settings,
     ) -> Self {
@@ -57,7 +56,7 @@ where
 
     fn render_trace_view_tree(&mut self, trace_id: TraceId, ui: &mut egui::Ui)
     where
-        VisualComponent: IsVisualComponent,
+        TraceProtocol: IsTraceProtocol,
     {
         let entry = &self.trace_cache[trace_id];
         self.render_trace_view(trace_id, entry, ui);
@@ -73,7 +72,7 @@ where
 
     fn render_trace_view(&mut self, trace_id: TraceId, entry: &TraceCacheEntry, ui: &mut egui::Ui)
     where
-        VisualComponent: IsVisualComponent,
+        TraceProtocol: IsTraceProtocol,
     {
         let response = egui::Frame::none()
             .inner_margin(Margin {
@@ -160,11 +159,11 @@ where
 
     fn render_associated_trace(&mut self, associated_trace_id: TraceId, ui: &mut egui::Ui) {
         egui::Frame::none()
-            .inner_margin(1.0)
-            .fill(Color32::DARK_GREEN)
+            .inner_margin(3.0)
+            .fill(Color32::from_rgb(84, 84, 84))
             .show(ui, |ui| {
                 egui::Frame::none()
-                    .fill(Color32::from_rgb(14, 14, 14))
+                    .fill(Color32::from_rgb(44, 44, 44))
                     .show(ui, |ui| {
                         ui.spacing_mut().item_spacing.y = 0.;
                         ui.allocate_space(Vec2::new(ui.available_width(), 0.));
@@ -228,9 +227,9 @@ where
     }
 }
 
-impl<'a, VisualComponent, Settings> egui::Widget for TraceDocView<'a, VisualComponent, Settings>
+impl<'a, TraceProtocol, Settings> egui::Widget for TraceDocView<'a, TraceProtocol, Settings>
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
     Settings: HasTraceViewDocSettings,
 {
     fn ui(mut self, ui: &mut egui::Ui) -> egui::Response {

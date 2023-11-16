@@ -31,6 +31,7 @@ husky-websocket-utils = { path = "../../utils/husky-websocket-utils", features =
 
 [features]
 mock = ["husky-visual-protocol/mock"]
+trivial = ["husky-visual-protocol/trivial"]
 egui = []
 message = []
 client = [

@@ -14,3 +14,4 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
+husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
