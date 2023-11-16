@@ -322,7 +322,7 @@ fn trace_view_data_works() {
     let mut db = DB::default();
     db.ast_expect_test_debug(
         |db, crate_path| find_traces(crate_path, 5, db, |trace| trace.view_data(db)),
-        &AstTestConfig::new("trace_val_repr"),
+        &AstTestConfig::new("trace_view_data"),
     )
 }
 
