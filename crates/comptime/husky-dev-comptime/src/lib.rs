@@ -1,13 +1,15 @@
 use std::path::Path;
 
 use husky_coword::Name;
-use husky_task::{helpers::DevLinkTime, linkage::IsLinktime, DevComptimeDb, IsTask};
-use husky_vfs::{CrateKind, CratePath, PackagePath, VfsDb, error::VfsResult};
+use husky_task::{
+    helpers::TaskDevComptimeDb, helpers::TaskDevLinkTime, linkage::IsLinktime, IsTask,
+};
+use husky_vfs::{error::VfsResult, CrateKind, CratePath, PackagePath, VfsDb};
 
 pub struct DevComptime<Task: IsTask> {
-    db: DevComptimeDb<Task>,
+    db: TaskDevComptimeDb<Task>,
     target: DevComptimeTarget,
-    linktime: DevLinkTime<Task>,
+    linktime: TaskDevLinkTime<Task>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -19,7 +21,7 @@ pub enum DevComptimeTarget {
 
 impl<Task: IsTask> DevComptime<Task> {
     pub fn new(target_crate_path: &Path) -> VfsResult<Self> {
-        let db: DevComptimeDb<Task> = Default::default();
+        let db: TaskDevComptimeDb<Task> = Default::default();
         let toolchain = match db.current_toolchain() {
             Ok(toolchain) => toolchain,
             Err(_) => todo!(),
@@ -47,14 +49,14 @@ impl<Task: IsTask> DevComptime<Task> {
 }
 
 impl<Task: IsTask> DevComptime<Task> {
-    pub fn db(&self) -> &DevComptimeDb<Task> {
+    pub fn db(&self) -> &TaskDevComptimeDb<Task> {
         &self.db
     }
 }
 
 impl<Task: IsTask> Default for DevComptime<Task>
 where
-    DevLinkTime<Task>: Default,
+    TaskDevLinkTime<Task>: Default,
 {
     fn default() -> Self {
         Self {

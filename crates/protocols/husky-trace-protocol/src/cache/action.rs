@@ -2,33 +2,33 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[enum_class::from_variants]
-pub enum TraceCacheAction<VisualComponent> {
+pub enum TraceCacheAction<TraceProtocol> {
     NewTrace(TraceCacheNewTrace),
     ToggleExpansion(TraceCacheToggleExpansion),
     SetSubtraces(TraceCacheSetSubtraces),
-    Phantom(TraceCacheActionVisualComponent<VisualComponent>),
+    Phantom(TraceCacheActionTraceProtocol<TraceProtocol>),
     ToggleAssociatedTrace {
         trace_id: TraceId,
         associated_trace_id: TraceId,
     },
 }
 
-pub trait IsTraceCacheAction<VisualComponent>: Into<TraceCacheAction<VisualComponent>>
+pub trait IsTraceCacheAction<TraceProtocol>: Into<TraceCacheAction<TraceProtocol>>
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
 {
     type Outcome;
 
-    fn act(&self, cache: &mut TraceCache<VisualComponent>) -> Self::Outcome;
+    fn act(&self, cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome;
 }
 
-impl<VisualComponent> IsTraceCacheAction<VisualComponent> for TraceCacheAction<VisualComponent>
+impl<TraceProtocol> IsTraceCacheAction<TraceProtocol> for TraceCacheAction<TraceProtocol>
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCache<VisualComponent>) -> Self::Outcome {
+    fn act(&self, cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome {
         match self {
             TraceCacheAction::NewTrace(action) => action.act(cache),
             TraceCacheAction::ToggleExpansion(action) => action.act(cache),
@@ -46,11 +46,11 @@ where
     }
 }
 
-impl<VisualComponent> TraceCache<VisualComponent>
+impl<TraceProtocol> TraceCache<TraceProtocol>
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
 {
-    pub(crate) fn take_action<A: IsTraceCacheAction<VisualComponent>>(
+    pub(crate) fn take_action<A: IsTraceCacheAction<TraceProtocol>>(
         &mut self,
         cache_action: A,
     ) -> A::Outcome {
@@ -61,7 +61,7 @@ where
 
     pub(crate) fn take_actions(
         &mut self,
-        actions: impl IntoIterator<Item = TraceCacheAction<VisualComponent>>,
+        actions: impl IntoIterator<Item = TraceCacheAction<TraceProtocol>>,
     ) {
         for action in actions {
             self.take_action(action)
@@ -84,13 +84,13 @@ impl TraceCacheNewTrace {
     }
 }
 
-impl<VisualComponent> IsTraceCacheAction<VisualComponent> for TraceCacheNewTrace
+impl<TraceProtocol> IsTraceCacheAction<TraceProtocol> for TraceCacheNewTrace
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCache<VisualComponent>) -> Self::Outcome {
+    fn act(&self, cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome {
         cache
             .entries
             .insert_new((self.trace_id, TraceCacheEntry::new(self.view_data.clone())))
@@ -99,18 +99,18 @@ where
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCacheActionVisualComponent<VisualComponent> {
-    v: VisualComponent,
+pub struct TraceCacheActionTraceProtocol<TraceProtocol> {
+    v: TraceProtocol,
 }
 
-impl<VisualComponent> IsTraceCacheAction<VisualComponent>
-    for TraceCacheActionVisualComponent<VisualComponent>
+impl<TraceProtocol> IsTraceCacheAction<TraceProtocol>
+    for TraceCacheActionTraceProtocol<TraceProtocol>
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, _cache: &mut TraceCache<VisualComponent>) -> Self::Outcome {
+    fn act(&self, _cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome {
         todo!()
     }
 }
@@ -126,13 +126,13 @@ impl TraceCacheToggleExpansion {
     }
 }
 
-impl<VisualComponent> IsTraceCacheAction<VisualComponent> for TraceCacheToggleExpansion
+impl<TraceProtocol> IsTraceCacheAction<TraceProtocol> for TraceCacheToggleExpansion
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCache<VisualComponent>) -> Self::Outcome {
+    fn act(&self, cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome {
         cache[self.trace_id].toggle_expansion()
     }
 }
@@ -152,13 +152,13 @@ impl TraceCacheSetSubtraces {
     }
 }
 
-impl<VisualComponent> IsTraceCacheAction<VisualComponent> for TraceCacheSetSubtraces
+impl<TraceProtocol> IsTraceCacheAction<TraceProtocol> for TraceCacheSetSubtraces
 where
-    VisualComponent: IsVisualComponent,
+    TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCache<VisualComponent>) -> Self::Outcome {
+    fn act(&self, cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome {
         cache[self.trace_id].set_subtraces(self.subtrace_ids.clone())
     }
 }

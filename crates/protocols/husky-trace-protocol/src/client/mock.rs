@@ -1,11 +1,11 @@
-use notify::Notify;
-
 use super::*;
+use crate::protocol::mock::MockTraceProtocol;
+use notify::Notify;
 
 const MOCK_SERVER: &str = "ws://localhost:51718/ws";
 
 #[cfg(feature = "mock")]
-impl<Notifier> TraceClient<(), Notifier>
+impl<Notifier> TraceClient<MockTraceProtocol, Notifier>
 where
     Notifier: Notify,
 {

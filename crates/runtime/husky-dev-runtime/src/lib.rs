@@ -10,8 +10,9 @@ pub use self::config::*;
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 
 use husky_task::{
-    helpers::{DevLinkTime, DevRuntimeStorage},
-    DevComptimeDb, IsTask,
+    helpers::TaskDevComptimeDb,
+    helpers::{DevRuntimeStorage, TaskDevLinkTime},
+    IsTask,
 };
 use husky_vfs::error::VfsResult;
 
@@ -38,7 +39,7 @@ impl<Task: IsTask> DevRuntime<Task> {
         })
     }
 
-    pub fn db(&self) -> &DevComptimeDb<Task> {
+    pub fn db(&self) -> &TaskDevComptimeDb<Task> {
         self.comptime.db()
     }
 
@@ -50,7 +51,7 @@ impl<Task: IsTask> DevRuntime<Task> {
 impl<Task: IsTask> Default for DevRuntime<Task>
 where
     Task: Default,
-    DevLinkTime<Task>: Default,
+    TaskDevLinkTime<Task>: Default,
 {
     fn default() -> Self {
         Self {

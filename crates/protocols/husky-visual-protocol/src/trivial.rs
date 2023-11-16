@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Default, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct TrivialVisualProtocol;
 
 impl IsVisualProtocol for TrivialVisualProtocol {

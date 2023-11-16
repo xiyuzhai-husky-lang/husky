@@ -19,3 +19,6 @@ husky-boot-linktime = { path = "../../linktime/husky-boot-linktime" }
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol", features = [
     "trivial"
 ] }
+husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
+    "trivial"
+] }

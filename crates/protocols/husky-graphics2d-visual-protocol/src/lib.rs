@@ -1,10 +1,9 @@
 pub mod action;
 
-
 use husky_visual_protocol::{IsVisual, IsVisualComponent, IsVisualProtocol};
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Default, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Graphics2dVisualProtocol;
 
 impl IsVisualProtocol for Graphics2dVisualProtocol {

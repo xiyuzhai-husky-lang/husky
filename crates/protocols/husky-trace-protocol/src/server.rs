@@ -6,11 +6,10 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
-use husky_visual_protocol::IsVisualComponent;
 use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
 
 pub struct TraceServer<Tracetime: IsTracetime> {
-    cache: Option<TraceCache<Tracetime::VisualComponent>>,
+    cache: Option<TraceCache<Tracetime::TraceProtocol>>,
     tracetime: Tracetime,
 }
 
@@ -48,26 +47,26 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     }
 
     #[track_caller]
-    fn cache(&self) -> &TraceCache<Tracetime::VisualComponent> {
+    fn cache(&self) -> &TraceCache<Tracetime::TraceProtocol> {
         self.cache.as_ref().unwrap()
     }
 
     #[track_caller]
-    fn cache_mut(&mut self) -> &mut TraceCache<Tracetime::VisualComponent> {
+    fn cache_mut(&mut self) -> &mut TraceCache<Tracetime::TraceProtocol> {
         self.cache.as_mut().unwrap()
     }
 }
 
 impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
-    type Response = TraceResponse<Tracetime::VisualComponent>;
+    type Response = TraceResponse<Tracetime::TraceProtocol>;
 
-    type Request = TraceRequest<Tracetime::VisualComponent>;
+    type Request = TraceRequest<Tracetime::TraceProtocol>;
 
     type SerdeImpl = Tracetime::SerdeImpl;
 
     fn handle(&mut self, request: Self::Request) -> Option<Self::Response> {
         match request {
-            TraceRequest::Init => {
+            TraceRequest::Init { .. } => {
                 self.init();
                 let Some(cache) = self.cache.clone() else {
                     unreachable!()
@@ -99,7 +98,7 @@ impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
 }
 
 impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
-    fn take_view_action(&mut self, view_action: TraceViewAction<Tracetime::VisualComponent>) {
+    fn take_view_action(&mut self, view_action: TraceViewAction<Tracetime::TraceProtocol>) {
         match view_action {
             TraceViewAction::ToggleExpansion { trace_id } => {
                 assert!(!self.cache()[trace_id].expanded());
@@ -149,7 +148,7 @@ pub trait IsTracetime: Send + 'static + Sized {
     type Trace: IsTrace;
     //  Send + Eq + std::hash::Hash + Copy;
 
-    type VisualComponent: IsVisualComponent;
+    type TraceProtocol: IsTraceProtocol;
 
     type SerdeImpl: serde_impl::IsSerdeImpl;
 

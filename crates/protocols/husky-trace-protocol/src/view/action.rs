@@ -1,20 +1,17 @@
 use std::marker::PhantomData;
 
-
 use serde::{Deserialize, Serialize};
 use smallvec::SmallVec;
 
-use crate::{
-    id::TraceId,
-};
+use crate::id::TraceId;
 
 #[derive(Debug, Serialize, Deserialize)]
-pub enum TraceViewAction<VisualComponent> {
+pub enum TraceViewAction<TraceProtocol> {
     ToggleExpansion {
         trace_id: TraceId,
     },
     Marker {
-        _marker: PhantomData<VisualComponent>,
+        _marker: PhantomData<TraceProtocol>,
     },
     ToggleAssociatedTrace {
         trace_id: TraceId,
@@ -22,17 +19,24 @@ pub enum TraceViewAction<VisualComponent> {
     },
 }
 
-#[derive(Default)]
-pub struct TraceViewActionBuffer<VisualComponent> {
-    actions: SmallVec<[TraceViewAction<VisualComponent>; 2]>,
+pub struct TraceViewActionBuffer<TraceProtocol> {
+    actions: SmallVec<[TraceViewAction<TraceProtocol>; 2]>,
 }
 
-impl<VisualComponent> TraceViewActionBuffer<VisualComponent> {
-    pub fn push(&mut self, action: TraceViewAction<VisualComponent>) {
+impl<TraceProtocol> Default for TraceViewActionBuffer<TraceProtocol> {
+    fn default() -> Self {
+        Self {
+            actions: Default::default(),
+        }
+    }
+}
+
+impl<TraceProtocol> TraceViewActionBuffer<TraceProtocol> {
+    pub fn push(&mut self, action: TraceViewAction<TraceProtocol>) {
         self.actions.push(action)
     }
 
-    pub fn take_actions(&mut self) -> SmallVec<[TraceViewAction<VisualComponent>; 2]> {
+    pub fn take_actions(&mut self) -> SmallVec<[TraceViewAction<TraceProtocol>; 2]> {
         std::mem::take(&mut self.actions)
     }
 }

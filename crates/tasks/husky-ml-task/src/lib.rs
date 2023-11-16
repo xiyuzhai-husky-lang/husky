@@ -4,9 +4,11 @@ use self::runtime_storage::*;
 use husky_linkage_path::db::LinkagePathDb;
 use husky_mono_linktime::MonoLinkTime;
 use husky_regular_value::RegularValue;
-use husky_task::{linkage::IsLinkage, IsDevAscension, IsTask};
+use husky_task::{ascension::IsDevAscension, linkage::IsLinkage, IsTask};
+use husky_trace_protocol::protocol::IsTraceProtocol;
 use husky_val::ValDb;
 use husky_visual_protocol::IsVisualProtocol;
+use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
 pub struct MlTask<ComptimeDb, VisualProtocol>
@@ -55,11 +57,21 @@ where
 
     type RuntimeStorage = MlDevRuntimeStorage;
 
-    type RuntimeTaskSpecificConfig = ();
+    type RuntimeSpecificConfig = ();
 
-    type VisualProtocol = VisualProtocol;
+    type TraceProtocol = MlTraceProtocol<VisualProtocol>;
 
     type ComptimeDb = ComptimeDb;
+}
+
+#[derive(Debug, Default, Serialize, Deserialize, PartialEq, Eq, Clone)]
+pub struct MlTraceProtocol<VisualProtocol>(VisualProtocol);
+
+impl<VisualProtocol> IsTraceProtocol for MlTraceProtocol<VisualProtocol>
+where
+    VisualProtocol: IsVisualProtocol,
+{
+    type VisualProtocol = VisualProtocol;
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]

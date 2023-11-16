@@ -1,7 +1,7 @@
 use crate::*;
 use husky_linkage_path::db::LinkagePathDb;
+use husky_trace_protocol::protocol::IsTraceProtocol;
 use husky_vfs::VfsDb;
-use husky_visual_protocol::IsVisualProtocol;
 
 pub trait IsDevAscension {
     type Base: 'static;
@@ -9,12 +9,6 @@ pub trait IsDevAscension {
     type Linktime: IsLinktime<Self::ComptimeDb>;
     type Value;
     type RuntimeStorage: Default + Send;
-    type RuntimeTaskSpecificConfig: Default + Send;
-    type VisualProtocol: IsVisualProtocol;
+    type RuntimeSpecificConfig: Default + Send;
+    type TraceProtocol: IsTraceProtocol;
 }
-
-pub type DevAscension<Task: IsTask> = Task::DevAscension;
-
-pub type DevComptimeDb<Task: IsTask> = <DevAscension<Task> as IsDevAscension>::ComptimeDb;
-
-pub type Value<Task: IsTask> = <DevAscension<Task> as IsDevAscension>::Value;

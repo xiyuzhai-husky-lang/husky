@@ -71,9 +71,6 @@ run-notebook:
 mnist-developer:
 	cargo run --bin husky-mnist-classifier-developer
 
-mnist-developer-mock-client:
-	cargo run --bin husky-mnist-classifier-developer-mock-client
-
 save:
 	git add -A
 	git commit -m "save"

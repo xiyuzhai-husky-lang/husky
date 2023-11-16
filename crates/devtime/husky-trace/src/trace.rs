@@ -36,8 +36,8 @@ use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_sema_expr::SemaExprIdx;
 use husky_trace_protocol::{
     id::{TraceId, TraceKind},
+    protocol::IsTrace,
     view::TraceViewData,
-    IsTrace,
 };
 use husky_val_repr::repr::ValRepr;
 use salsa::AsId;
