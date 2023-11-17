@@ -1,5 +1,5 @@
 use husky_regular_value::RegularValue;
-use husky_task::linkage::IsLinkage;
+use husky_task::link::IsLinkage;
 
 #[derive(Debug, Clone, Copy)]
 pub struct TrivialLinkage {}

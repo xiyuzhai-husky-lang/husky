@@ -5,7 +5,7 @@ use husky_linkage_path::db::LinkagePathDb;
 use husky_mono_linktime::MonoLinkTime;
 use husky_regular_value::RegularValue;
 use husky_rust_transpilation::db::RustTranspilationDb;
-use husky_task::{ascension::IsDevAscension, linkage::IsLinkage, IsTask};
+use husky_task::{ascension::IsDevAscension, link::IsLinkage, IsTask};
 use husky_trace_protocol::protocol::IsTraceProtocol;
 use husky_val::ValDb;
 use husky_visual_protocol::IsVisualProtocol;

@@ -3,10 +3,8 @@ mod internal;
 use self::internal::BootLinkTimeInternal;
 use husky_linkage_path::{db::LinkagePathDb, LinkagePath};
 
-use husky_task::{
-    linkage::{IsLinkage, IsLinktime},
-};
-use husky_vfs::CratePath;
+use husky_task::link::{IsLinkage, IsLinktime};
+use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use std::{collections::HashMap, marker::PhantomData};
 
 // this will transpile everything compilable to Rust
@@ -57,9 +55,9 @@ where
         }
     }
 
-    fn new_linktime(target_crate: CratePath, db: &Db) -> Self {
+    fn new_linktime(target_path: LinktimeTargetPath, db: &Db) -> Self {
         Self {
-            internal: std::sync::RwLock::new(BootLinkTimeInternal::new(target_crate, db)),
+            internal: std::sync::RwLock::new(BootLinkTimeInternal::new(target_path, db)),
         }
     }
 }

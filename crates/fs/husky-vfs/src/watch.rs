@@ -31,7 +31,7 @@ pub struct VfsWatcher(pub(crate) Arc<Mutex<Debouncer<RecommendedWatcher>>>);
 impl VfsWatcher {
     fn new(debounce_tx: Sender<DebounceEventResult>) -> Self {
         VfsWatcher(Arc::new(Mutex::new(
-            new_debouncer(DEBOUNCE_TIMEOUT, None, debounce_tx).unwrap(),
+            new_debouncer(DEBOUNCE_TIMEOUT, debounce_tx).unwrap(),
         )))
     }
 }

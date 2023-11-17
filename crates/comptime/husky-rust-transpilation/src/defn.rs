@@ -17,7 +17,7 @@ use husky_hir_ty::ritchie::HirRitchieParameter;
 use husky_print_utils::p;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
-pub fn module_defn_rust_transpilation(
+pub(crate) fn module_defn_rust_transpilation(
     db: &dyn RustTranspilationDb,
     module_path: ModulePath,
 ) -> String {
@@ -34,6 +34,16 @@ pub fn module_defn_rust_transpilation(
         }
     }
     builder.finish()
+}
+
+#[test]
+fn module_defn_rust_transpilation_works() {
+    DB::default().ast_expect_test_display(
+        |db, module_path| crate::defn::module_defn_rust_transpilation(db, module_path).to_string(),
+        &AstTestConfig::new("module_defn_rust_transpilation")
+            .with_vfs_test_domains_config(VfsTestDomainsConfig::ExcludeLibrary)
+            .with_expect_file_extension("rs"),
+    );
 }
 
 impl TranspileToRust for HirDefn {

@@ -1,10 +1,10 @@
 #![feature(associated_type_bounds)]
 pub mod ascension;
 pub mod helpers;
-pub mod linkage;
+pub mod link;
 
 use self::ascension::*;
-use self::linkage::*;
+use self::link::*;
 use husky_linkage_path::LinkagePath;
 use husky_vfs::CratePath;
 

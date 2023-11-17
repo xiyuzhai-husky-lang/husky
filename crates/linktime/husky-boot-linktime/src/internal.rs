@@ -1,8 +1,6 @@
 mod libgen;
 mod mapgen;
 
-
-
 use crate::*;
 use husky_linkage_path::deps::LinkageDeps;
 use husky_vfs::CratePath;
@@ -38,7 +36,7 @@ where
     ComptimeDb: LinkagePathDb,
     Linkage: IsLinkage,
 {
-    pub(crate) fn new(_target_crate: CratePath, _db: &ComptimeDb) -> Self {
+    pub(crate) fn new(target_path: LinktimeTargetPath, _db: &ComptimeDb) -> Self {
         todo!()
         // let library_storage = generate_library(target_crate, db);
         // let map = generate_map(target_crate, &library_storage, db);

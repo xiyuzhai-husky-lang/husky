@@ -7,6 +7,8 @@ edition = "2021"
 [dependencies]
 dashmap.workspace = true
 smallvec.workspace = true
+# abstractions
+salsa = { path = "../../abstractions/salsa" }
 # fs
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 # kernel

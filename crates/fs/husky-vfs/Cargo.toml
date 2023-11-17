@@ -9,7 +9,7 @@ resolver = "2"
 pathdiff = "0.2.1"
 url = "2.3.1"
 thiserror.workspace = true
-notify-debouncer-mini = "0.2.0"
+notify-debouncer-mini = "0.4.1"
 expect-test = "1.4.0"
 crossbeam-channel = "0.5.6"
 dashmap = "5.4.0"
@@ -26,6 +26,7 @@ lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
 vec-like = { path = "../../abstractions/vec-like" }
 salsa = { path = "../../abstractions/salsa" }
 with-db = { path = "../../abstractions/with-db" }
+enum-class = { path = "../../abstractions/enum-class" }
 # fs
 husky-fs-specs = { path = "../../fs/husky-fs-specs" }
 # lex

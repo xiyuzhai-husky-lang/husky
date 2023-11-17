@@ -9,7 +9,7 @@ pub mod error;
 mod file;
 #[cfg(feature = "lsp_support")]
 mod lsp_support;
-mod path;
+pub mod path;
 pub mod snippet;
 #[cfg(feature = "test-utils")]
 pub mod test_utils;
