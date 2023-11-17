@@ -47,7 +47,7 @@ pub(crate) struct RustTranspilationLibraryDep {
 
 impl RustTranspilationLibraryDep {
     pub(crate) fn transpile_to_fs(&self, db: &dyn RustTranspilationDb) {
-        todo!()
+        // ad hoc
     }
 }
 
@@ -59,7 +59,7 @@ pub(crate) struct RustTranspilationRegistryDep {
 
 impl RustTranspilationRegistryDep {
     pub(crate) fn transpile_to_fs(&self, db: &dyn RustTranspilationDb) {
-        todo!()
+        // ad hoc
     }
 }
 
@@ -71,7 +71,7 @@ pub(crate) struct RustTranspilationLocalDep {
 
 impl RustTranspilationLocalDep {
     pub(crate) fn transpile_to_fs(&self, db: &dyn RustTranspilationDb) {
-        todo!()
+        // ad hoc
     }
 }
 
