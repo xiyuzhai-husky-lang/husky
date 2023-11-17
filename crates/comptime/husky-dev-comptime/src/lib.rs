@@ -1,10 +1,10 @@
-use std::path::Path;
-
 use husky_coword::Name;
-use husky_task::{
-    helpers::TaskDevComptimeDb, helpers::TaskDevLinkTime, linkage::IsLinktime, IsTask,
+use husky_task::{helpers::TaskDevComptimeDb, helpers::TaskDevLinkTime, link::IsLinktime, IsTask};
+use husky_vfs::{
+    error::VfsResult, linktime_target_path::LinktimeTargetPath, CrateKind, CratePath, PackagePath,
+    VfsDb,
 };
-use husky_vfs::{error::VfsResult, CrateKind, CratePath, PackagePath, VfsDb};
+use std::path::Path;
 
 pub struct DevComptime<Task: IsTask> {
     db: TaskDevComptimeDb<Task>,
@@ -37,7 +37,11 @@ impl<Task: IsTask> DevComptime<Task> {
         };
         let target_crate_path = CratePath::new(target_package_path, CrateKind::Main, &db)?;
         Ok(Self {
-            linktime: IsLinktime::new_linktime(target_crate_path, &db),
+            linktime: IsLinktime::new_linktime(
+                /* ad hoc */
+                LinktimeTargetPath::Package(target_crate_path.package_path(&db)),
+                &db,
+            ),
             target: DevComptimeTarget::SingleCrate(target_crate_path),
             db,
         })

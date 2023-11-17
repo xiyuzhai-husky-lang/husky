@@ -1,8 +1,10 @@
 mod crate_path;
 mod diff_path;
+pub mod linktime_target_path;
 mod menu;
 mod module_path;
 mod package_path;
+pub mod workspace_path;
 
 pub use self::crate_path::*;
 pub use self::diff_path::*;

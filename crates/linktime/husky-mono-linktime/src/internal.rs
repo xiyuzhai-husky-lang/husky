@@ -6,14 +6,14 @@ use self::mapgen::generate_map;
 use crate::*;
 use husky_linkage_path::deps::LinkageDeps;
 use husky_rust_transpilation::db::RustTranspilationDb;
-use husky_vfs::CratePath;
+use husky_vfs::{linktime_target_path::LinktimeTargetPath, PackagePath};
 
 pub struct MonoLinkTimeInternal<ComptimeDb, Linkage>
 where
     ComptimeDb: LinkagePathDb + RustTranspilationDb,
     Linkage: IsLinkage,
 {
-    target_crate: CratePath,
+    target_path: LinktimeTargetPath,
     linkage_storage: MonoLinkageStorage,
     map: HashMap<LinkagePath, (LinkageDeps, Linkage)>,
     _marker: PhantomData<ComptimeDb>,
@@ -24,12 +24,12 @@ where
     ComptimeDb: LinkagePathDb + RustTranspilationDb,
     Linkage: IsLinkage,
 {
-    pub(crate) fn new(target_crate: CratePath, db: &ComptimeDb) -> Self {
-        let library_storage = MonoLinkageStorage::generate(target_crate, db);
-        let map = generate_map(target_crate, &library_storage, db);
+    pub(crate) fn new(target_path: LinktimeTargetPath, db: &ComptimeDb) -> Self {
+        let linkage_storage = MonoLinkageStorage::generate(target_path, db);
+        let map = generate_map(target_path, &linkage_storage, db);
         Self {
-            target_crate,
-            linkage_storage: library_storage,
+            target_path,
+            linkage_storage,
             map,
             _marker: PhantomData,
         }
@@ -51,7 +51,7 @@ where
     }
 
     fn reload(&mut self, db: &ComptimeDb) {
-        self.linkage_storage = MonoLinkageStorage::generate(self.target_crate, db);
-        self.map = generate_map(self.target_crate, &self.linkage_storage, db)
+        self.linkage_storage = MonoLinkageStorage::generate(self.target_path, db);
+        self.map = generate_map(self.target_path, &self.linkage_storage, db)
     }
 }

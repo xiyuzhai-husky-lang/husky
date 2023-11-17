@@ -12,4 +12,8 @@ impl<Db> RustTranspilationDb for Db where
 }
 
 #[salsa::jar(db = RustTranspilationDb)]
-pub struct RustTranspilationJar(crate::defn::module_defn_rust_transpilation);
+pub struct RustTranspilationJar(
+    crate::defn::module_defn_rust_transpilation,
+    crate::dep::package_rust_transpilation_deps,
+    crate::dep::workspace_rust_transpilation_deps,
+);

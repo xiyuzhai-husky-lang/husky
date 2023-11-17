@@ -8,6 +8,7 @@ edition = "2021"
 smallvec.workspace = true
 # abstractions
 small-cell-stack = { path = "../../abstractions/small-cell-stack" }
+enum-class = { path = "../../abstractions/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel

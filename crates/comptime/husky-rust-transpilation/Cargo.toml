@@ -8,6 +8,7 @@ edition = "2021"
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 enum-class = { path = "../../abstractions/enum-class" }
+is = { path = "../../abstractions/is" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # hir

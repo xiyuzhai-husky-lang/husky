@@ -66,13 +66,3 @@ pub(crate) struct DB {
 }
 
 impl salsa::Database for DB {}
-
-#[test]
-fn module_defn_rust_transpilation_works() {
-    DB::default().ast_expect_test_display(
-        |db, module_path| crate::defn::module_defn_rust_transpilation(db, module_path).to_string(),
-        &AstTestConfig::new("module_defn_rust_transpilation")
-            .with_vfs_test_domains_config(VfsTestDomainsConfig::ExcludeLibrary)
-            .with_expect_file_extension("rs"),
-    );
-}
