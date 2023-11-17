@@ -11,12 +11,11 @@ pub use self::error::*;
 pub use self::has_manifest::*;
 pub use self::sections::*;
 
-
 use husky_corgi_config::HasCorgiConfig;
 use husky_manifest_ast::{HasPackageManifestAstSheet, PackageManifestAstSheet};
 
 use husky_vfs::*;
-use salsa::{DbWithJar};
+use salsa::DbWithJar;
 
 #[salsa::jar(db = ManifestDb)]
 pub struct ManifestJar(
@@ -74,10 +73,10 @@ impl PackageManifest {
                 .flatten()
                 .map(|dependencies_section_ast| {
                     dependencies_section_ast
-                        .dependencies()
+                        .deps()
                         .iter()
                         .map(|dependency_ast| {
-                            PackageDependency::from_ast(
+                            ManifestDependency::from_ast(
                                 db,
                                 toolchain,
                                 registry_path,
@@ -97,10 +96,10 @@ impl PackageManifest {
                 .flatten()
                 .map(|dev_dependencies_section_ast| {
                     dev_dependencies_section_ast
-                        .dependencies()
+                        .deps()
                         .iter()
                         .map(|dependency_ast| {
-                            PackageDependency::from_ast(
+                            ManifestDependency::from_ast(
                                 db,
                                 toolchain,
                                 registry_path,

@@ -6,12 +6,12 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct ManifestDependenciesSectionAst {
     section_idx: TomlSectionIdx,
-    dependencies: VecMap<ManifestDependencyAst>,
+    deps: VecMap<ManifestDependencyAst>,
 }
 
 impl ManifestDependenciesSectionAst {
-    pub fn dependencies(&self) -> &[ManifestDependencyAst] {
-        self.dependencies.as_ref()
+    pub fn deps(&self) -> &[ManifestDependencyAst] {
+        self.deps.as_ref()
     }
 }
 
@@ -23,7 +23,7 @@ impl TransformFromTomlAst<ManifestAstTransformContext> for ManifestDependenciesS
     ) -> ManifestAstResult<Self> {
         Ok(Self {
             section_idx: transformer.section_idx(),
-            dependencies: transformer.transform_all_entries_into_vec_map(),
+            deps: transformer.transform_all_entries_into_vec_map(),
         })
     }
 }

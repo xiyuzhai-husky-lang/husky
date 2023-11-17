@@ -1,4 +1,4 @@
-use crate::{dep::rust_transpilation_deps, *};
+use crate::{dependency::rust_transpilation_dependencies, *};
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use is::Is;
 
@@ -9,7 +9,7 @@ pub trait TranspileToFsFull: Is<LinktimeTargetPath> {
 
 impl TranspileToFsFull for LinktimeTargetPath {
     fn transpile_to_fs_full(self, db: &dyn RustTranspilationDb) {
-        for dep in rust_transpilation_deps(self, db) {
+        for dep in rust_transpilation_dependencies(self, db) {
             dep.transpile_to_fs(db)
         }
     }

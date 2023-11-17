@@ -19,7 +19,7 @@ fn package_ident_works() {
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
 #[salsa::debug_with_db(db = VfsDb, jar = VfsJar)]
 pub enum PackagePathSource {
-    Toolchain,
+    Library,
     Registry {
         registry_path: RegistryPath,
         version: semver::Version,
@@ -68,7 +68,7 @@ impl PackagePath {
     }
 
     pub fn new_toolchain_package(db: &dyn VfsDb, toolchain: Toolchain, name: Name) -> Self {
-        PackagePath::new_inner(db, toolchain, name, PackagePathSource::Toolchain)
+        PackagePath::new_inner(db, toolchain, name, PackagePathSource::Library)
     }
 
     pub fn new_registry_package(
@@ -135,7 +135,7 @@ impl ManifestPath {
 #[salsa::tracked(jar = VfsJar)]
 pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<DiffPath> {
     match package.data(db) {
-        PackagePathSource::Toolchain => DiffPath::try_new(
+        PackagePathSource::Library => DiffPath::try_new(
             db,
             &package
                 .toolchain(db)

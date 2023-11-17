@@ -2,7 +2,7 @@
 mod builder;
 pub mod db;
 mod defn;
-mod dep;
+mod dependency;
 mod expr;
 #[cfg(test)]
 mod tests;

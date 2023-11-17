@@ -3,7 +3,7 @@ use crate::*;
 pub trait HasPackageManifest: Copy {
     fn package_manifest(self, db: &dyn ManifestDb) -> ManifestResultRef<PackageManifest>;
 
-    fn package_dependencies(self, db: &dyn ManifestDb) -> ManifestResultRef<&[PackageDependency]>;
+    fn package_deps(self, db: &dyn ManifestDb) -> ManifestResultRef<&[ManifestDependency]>;
 }
 
 impl HasPackageManifest for PackagePath {
@@ -11,7 +11,7 @@ impl HasPackageManifest for PackagePath {
         package_manifest(db, self)
     }
 
-    fn package_dependencies(self, db: &dyn ManifestDb) -> ManifestResultRef<&[PackageDependency]> {
+    fn package_deps(self, db: &dyn ManifestDb) -> ManifestResultRef<&[ManifestDependency]> {
         // is this necessary for keeping things as lazy as possible?
         package_dependencies(db, self)
     }

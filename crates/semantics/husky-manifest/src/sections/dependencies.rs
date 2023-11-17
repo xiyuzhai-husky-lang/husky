@@ -4,13 +4,13 @@ use vec_like::VecSet;
 #[salsa::tracked(db = ManifestDb, jar = ManifestJar)]
 pub struct PackageDependenciesSection {
     #[return_ref]
-    pub data: Vec<PackageDependency>,
+    pub data: Vec<ManifestDependency>,
 }
 
 pub(crate) fn package_dependencies(
     db: &dyn ManifestDb,
     package_path: PackagePath,
-) -> ManifestResultRef<&[PackageDependency]> {
+) -> ManifestResultRef<&[ManifestDependency]> {
     // todo!(): check for cycles!
     package_dependencies_unchecked(db, package_path)
 }
@@ -18,7 +18,7 @@ pub(crate) fn package_dependencies(
 fn package_dependencies_unchecked(
     db: &dyn ManifestDb,
     package_path: PackagePath,
-) -> ManifestResultRef<&[PackageDependency]> {
+) -> ManifestResultRef<&[ManifestDependency]> {
     package_dependencies_unchecked_aux(db, package_path)
         .as_ref()
         .map(|s| s.data(db) as &[_])
