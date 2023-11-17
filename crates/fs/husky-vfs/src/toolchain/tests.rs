@@ -10,8 +10,8 @@ fn toolchain_debug_works() {
         Toolchain {
             [salsa id]: 0,
             data: ToolchainData::Local {
-                library_path: DiffPath {
-                    data: DiffPathBuf(
+                library_path: VirtualPath {
+                    _data: RelPathBuf(
                         "../../../library",
                     ),
                 },

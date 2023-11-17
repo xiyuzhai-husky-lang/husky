@@ -37,7 +37,7 @@ pub struct TomlAstSheet {
     table: TomlTable,
 }
 
-fn toml_ast_sheet(db: &dyn TomlAstDb, path: DiffPath) -> VfsResult<Option<&TomlAstSheet>> {
+fn toml_ast_sheet(db: &dyn TomlAstDb, path: VirtualPath) -> VfsResult<Option<&TomlAstSheet>> {
     match toml_ast_sheet_aux(db, path) {
         Ok(Some(ast_sheet)) => Ok(Some(ast_sheet)),
         Ok(None) => Ok(None),
@@ -46,7 +46,7 @@ fn toml_ast_sheet(db: &dyn TomlAstDb, path: DiffPath) -> VfsResult<Option<&TomlA
 }
 
 #[salsa::tracked(jar = TomlAstJar, return_ref)]
-fn toml_ast_sheet_aux(db: &dyn TomlAstDb, path: DiffPath) -> VfsResult<Option<TomlAstSheet>> {
+fn toml_ast_sheet_aux(db: &dyn TomlAstDb, path: VirtualPath) -> VfsResult<Option<TomlAstSheet>> {
     Ok(db
         .toml_token_sheet(path)
         .as_ref()?

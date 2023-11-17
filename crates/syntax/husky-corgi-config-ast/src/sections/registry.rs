@@ -2,11 +2,11 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CorgiConfigRegistrySectionAst {
-    path: Option<CorgiConfigAstResult<DiffPath>>,
+    path: Option<CorgiConfigAstResult<VirtualPath>>,
 }
 
 impl CorgiConfigRegistrySectionAst {
-    pub fn path(&self) -> Option<CorgiConfigAstResultRef<DiffPath>> {
+    pub fn path(&self) -> Option<CorgiConfigAstResultRef<VirtualPath>> {
         self.path.as_ref().map(|s| s.as_ref().copied())
     }
 }

@@ -11,7 +11,7 @@ use std::{
 /// This will only happen when processing windows paths.
 ///
 /// When processing non-windows path, this is essentially the same as `Url::from_file_path`.
-pub(crate) fn url_from_diff_path(path: &Path) -> Result<lsp_types::Url, ()> {
+pub(crate) fn url_from_path(path: &Path) -> Result<lsp_types::Url, ()> {
     let url = lsp_types::Url::from_file_path(path)?;
     match path.components().next() {
         Some(path::Component::Prefix(prefix))

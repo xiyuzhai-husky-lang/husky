@@ -15,7 +15,13 @@ pub use self::name::*;
 pub use self::style::*;
 
 #[salsa::jar(db = CowordDb)]
-pub struct CowordJar(Coword, ident_menu, name_to_ident, is_coword_valid_name);
+pub struct CowordJar(
+    Coword,
+    ident_menu,
+    name_to_ident,
+    is_coword_valid_name,
+    ident_to_name,
+);
 
 /// the underlying type for all word like types used in representing source code
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]

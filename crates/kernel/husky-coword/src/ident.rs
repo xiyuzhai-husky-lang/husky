@@ -3,10 +3,11 @@ use salsa::DebugWithDb;
 use vec_like::{VecMap, VecPairMap};
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
+#[salsa::wrap_id(jar = CowordJar)]
 pub struct Ident(Coword);
 
 impl Ident {
-    pub fn word(self) -> Coword {
+    pub fn coword(self) -> Coword {
         self.0
     }
 
@@ -128,5 +129,16 @@ impl<Db: CowordDb + ?Sized> DebugWithDb<Db> for Ident {
         } else {
             f.write_fmt(format_args!("`{}`", self.data(db)))
         }
+    }
+}
+
+/// only use in this module
+#[salsa::tracked(jar = CowordJar)]
+pub(crate) fn ident_to_name(db: &dyn CowordDb, ident: Ident) -> Name {
+    let ident_data = ident.data(db);
+    if !ident_data.contains("_") {
+        return unsafe { Name::from_coword_unchecked(ident.0) };
+    } else {
+        Name::from_owned(db, ident_data.replace("_", "-")).unwrap()
     }
 }

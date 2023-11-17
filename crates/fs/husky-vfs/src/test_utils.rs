@@ -21,7 +21,7 @@ pub trait VfsTestUtils: VfsDb {
         Ok(Toolchain::new(
             db,
             ToolchainData::Local {
-                library_path: DiffPath::try_new(db, &library_path).unwrap(),
+                library_path: VirtualPath::try_new(db, &library_path).unwrap(),
             },
         ))
     }

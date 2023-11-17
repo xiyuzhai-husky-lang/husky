@@ -1,4 +1,5 @@
-mod ancestry;
+pub mod ancestry;
+pub mod relative_path;
 
 use super::*;
 pub use ancestry::*;
@@ -15,8 +16,8 @@ pub struct ModulePath {
 impl ModulePath {
     pub fn new(db: &dyn VfsDb, data: ModulePathData) -> VfsResult<Self> {
         let slf = Self::new_inner(db, data);
-        let diff_path = module_diff_path(db, slf)?;
-        db.file_from_diff_path(diff_path)?
+        let diff_path = module_virtual_path(db, slf)?;
+        db.file_from_virtual_path(diff_path)?
             .text(db)?
             .ok_or(VfsError::FileNotExists(diff_path))?;
         Ok(slf)
@@ -42,24 +43,8 @@ where
 /// wrapper type that guarantees that the inner field is a submodule
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = VfsDb)]
+#[salsa::wrap_id(jar = VfsJar)]
 pub struct SubmodulePath(ModulePath);
-
-impl salsa::AsId for SubmodulePath {
-    fn as_id(self) -> salsa::Id {
-        self.inner().as_id()
-    }
-
-    fn from_id(id: salsa::Id) -> Self {
-        Self(ModulePath::from_id(id))
-    }
-}
-
-impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for SubmodulePath
-where
-    DB: ?Sized + salsa::DbWithJar<VfsJar>,
-{
-    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
-}
 
 impl SubmodulePath {
     /// returns the natural casting
@@ -128,8 +113,9 @@ impl ModulePath {
     }
 
     #[inline(always)]
-    pub fn diff_path<Db: ?Sized + VfsDb>(self, db: &Db) -> VfsResult<DiffPath> {
-        module_diff_path(<Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db), self)
+    pub fn virtual_path<Db: ?Sized + VfsDb>(self, db: &Db) -> VirtualPath {
+        module_virtual_path(<Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db), self)
+            .expect("guaranteed")
     }
 
     pub fn ident(self, db: &dyn VfsDb) -> Ident {
@@ -141,8 +127,8 @@ impl ModulePath {
 
     pub fn raw_text<Db: ?Sized + VfsDb>(self, db: &Db) -> &str {
         let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
-        let diff_path = module_diff_path(db, self).unwrap();
-        db.file_from_diff_path(diff_path)
+        let diff_path = module_virtual_path(db, self).unwrap();
+        db.file_from_virtual_path(diff_path)
             .unwrap()
             .text(db)
             .unwrap()

@@ -9,7 +9,7 @@ pub struct VfsCache {
     live_packages: RwLock<VecSet<PackagePath>>,
     corgi_install_path: FsSpecsResult<PathBuf>,
     huskyup_install_path: FsSpecsResult<PathBuf>,
-    base_path: VfsResult<PathBuf>,
+    current_dir: PathBuf,
     watcher: Option<VfsWatcher>,
 }
 
@@ -30,8 +30,8 @@ impl Default for VfsCache {
             live_packages: Default::default(),
             corgi_install_path,
             huskyup_install_path,
-            base_path: match std::env::current_dir() {
-                Ok(dir) => std::path::absolute(dir).map_err(|_e| todo!()),
+            current_dir: match std::env::current_dir() {
+                Ok(dir) => std::path::absolute(dir).expect("valid path"),
                 Err(_e) => todo!(),
             },
             watcher: None,
@@ -67,8 +67,8 @@ impl VfsCache {
         self.watcher = Some(watcher)
     }
 
-    pub fn base_path(&self) -> Result<&PathBuf, &VfsError> {
-        self.base_path.as_ref()
+    pub fn current_dir(&self) -> &Path {
+        &self.current_dir
     }
 
     pub(crate) fn add_live_package(&self, package_path: PackagePath) {

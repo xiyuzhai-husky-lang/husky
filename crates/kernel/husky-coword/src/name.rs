@@ -12,6 +12,10 @@ impl Name {
         name_to_ident(db, self.0)
     }
 
+    pub(crate) unsafe fn from_coword_unchecked(coword: Coword) -> Self {
+        Self(coword)
+    }
+
     pub fn from_coword(db: &dyn CowordDb, coword: Coword) -> Option<Self> {
         is_coword_valid_name(db, coword).then_some(Name(coword))
     }

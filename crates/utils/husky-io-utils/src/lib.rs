@@ -1,7 +1,7 @@
 pub mod config;
+pub mod error;
 pub mod file_sync;
 pub mod relative_path_pattern;
-
 pub use config::*;
 
 use husky_print_utils::p;
@@ -12,13 +12,17 @@ use std::{
     path::{Path, PathBuf},
 };
 
-// first read and compare, and then write if different
+// first read and compare, and then write if necessary
 pub fn diff_write(path: &Path, content: &str, verbose: bool) {
-    let different = match fs::read_to_string(path) {
+    let necessary = match fs::read_to_string(path) {
         Ok(content_on_disk) => content != content_on_disk,
         Err(_) => true,
     };
-    if different {
+    if necessary {
+        match std::fs::create_dir_all(path.parent().unwrap()) {
+            Ok(_) => (),
+            Err(_) => todo!(),
+        };
         if verbose {
             use husky_print_utils::*;
             println!(

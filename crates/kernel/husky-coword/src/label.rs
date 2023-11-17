@@ -37,7 +37,7 @@ impl LabelKind {
 
 impl Label {
     pub fn word(self) -> Coword {
-        self.ident.word()
+        self.ident.coword()
     }
 
     pub fn from_owned(db: &dyn CowordDb, data: String) -> Option<Self> {

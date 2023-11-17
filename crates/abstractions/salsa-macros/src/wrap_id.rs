@@ -1,7 +1,5 @@
 use crate::options::Options;
-
-use syn::{Item};
-
+use syn::Item;
 
 type Args = Options<WrapId>;
 

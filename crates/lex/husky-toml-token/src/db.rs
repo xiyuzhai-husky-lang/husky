@@ -5,7 +5,7 @@ use salsa::DbWithJar;
 pub trait TomlTokenDb: DbWithJar<TomlTokenJar> + VfsDb {
     fn toml_tokenize(&self, input: &str) -> Vec<TomlToken>;
 
-    fn toml_token_sheet(&self, path: DiffPath) -> VfsResult<Option<&TomlTokenSheet>>;
+    fn toml_token_sheet(&self, path: VirtualPath) -> VfsResult<Option<&TomlTokenSheet>>;
 }
 
 impl<T> TomlTokenDb for T
@@ -16,7 +16,7 @@ where
         TomlTokenIter::new(self, input).collect()
     }
 
-    fn toml_token_sheet(&self, path: DiffPath) -> VfsResult<Option<&TomlTokenSheet>> {
+    fn toml_token_sheet(&self, path: VirtualPath) -> VfsResult<Option<&TomlTokenSheet>> {
         match toml_token_sheet(self, path) {
             Ok(Some(sheet)) => Ok(Some(sheet)),
             Ok(None) => Ok(None),
@@ -28,7 +28,7 @@ where
 #[salsa::tracked(jar = TomlTokenJar, return_ref)]
 pub(crate) fn toml_token_sheet(
     db: &dyn TomlTokenDb,
-    path: DiffPath,
+    path: VirtualPath,
 ) -> VfsResult<Option<TomlTokenSheet>> {
     Ok(path
         .text(db)?

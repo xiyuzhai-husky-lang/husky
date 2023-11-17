@@ -18,6 +18,8 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
 # comptime
 husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 husky-standard-dev-comptime-db = { path = "../../comptime/husky-standard-dev-comptime-db" }

@@ -98,3 +98,26 @@ fn module_item_paths_works() {
         &AstTestConfig::new("module_item_paths"),
     )
 }
+
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+pub fn crate_module_paths(db: &dyn EntitySynTreeDb, crate_path: CratePath) -> Vec<ModulePath> {
+    let root_module_path = crate_path.root_module_path(db);
+    let mut module_paths = vec![];
+    collect_module_paths(root_module_path, &mut module_paths, db);
+    module_paths
+}
+
+pub fn collect_module_paths(
+    module_path: ModulePath,
+    module_paths: &mut Vec<ModulePath>,
+    db: &dyn EntitySynTreeDb,
+) -> Vec<ModulePath> {
+    module_paths.push(module_path);
+    module_item_paths(db, module_path)
+        .iter()
+        .filter_map(|&item_path| match item_path {
+            ItemPath::Submodule(submodule_path) => Some(submodule_path.inner()),
+            _ => None,
+        })
+        .collect()
+}

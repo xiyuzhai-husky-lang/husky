@@ -40,9 +40,8 @@ impl VfsPathMenu {
             PackagePath::new_toolchain_package(db, toolchain, coword_menu.core_name());
         let std_package = PackagePath::new_toolchain_package(db, toolchain, coword_menu.std_name());
         let core_library =
-            CratePath::new(core_package, CrateKind::Library, db).expect("should be valid");
-        let std_library =
-            CratePath::new(std_package, CrateKind::Library, db).expect("should be valid");
+            CratePath::new(core_package, CrateKind::Lib, db).expect("should be valid");
+        let std_library = CratePath::new(std_package, CrateKind::Lib, db).expect("should be valid");
         let core_root = core_library.root_module_path(db);
         let std_root = std_library.root_module_path(db);
         // todo: refactor with it_ident_borrowed_uncheck or Ident::from_borrowed_unchecked

@@ -1,25 +1,26 @@
 use super::*;
 use std::path::{Path, PathBuf};
 
+/// `VirtualPath` is the path relative to the current dir of the current program,
+/// it's guaranteed that equivalent paths are interned to the same id
 #[salsa::interned(db = VfsDb, jar = VfsJar)]
-pub struct DiffPath {
+pub struct VirtualPath {
     #[return_ref]
-    pub data: DiffPathBuf,
+    _data: RelPathBuf,
 }
 
-impl DiffPath {
+impl VirtualPath {
     #[inline(always)]
-    pub fn path<'a, Db: ?Sized + VfsDb>(self, db: &'a Db) -> &'a Path {
-        self.data(<Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db))
+    pub fn data<'a, Db: ?Sized + VfsDb>(self, db: &'a Db) -> &'a Path {
+        self._data(<Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db))
     }
 
     pub fn abs_path(self, db: &dyn VfsDb) -> VfsResult<PathBuf> {
-        std::path::absolute(db.vfs_cache().base_path()?.join(&self.data(db).0))
-            .map_err(|_e| todo!())
+        std::path::absolute(db.vfs_cache().current_dir().join(&self.data(db))).map_err(|_e| todo!())
     }
 
     pub fn file(self, db: &dyn VfsDb) -> VfsResult<File> {
-        db.file_from_diff_path(self)
+        db.file_from_virtual_path(self)
     }
 
     pub fn text<'a, Db: ?Sized + VfsDb>(self, db: &'a Db) -> VfsResult<Option<&'a str>> {
@@ -35,26 +36,26 @@ impl DiffPath {
     }
 }
 
-impl DiffPath {
+impl VirtualPath {
     // todo: room for optimization when path is owned
     pub fn try_new(db: &dyn VfsDb, path: impl AsRef<Path>) -> VfsResult<Self> {
-        Ok(Self::new(db, DiffPathBuf::try_new(db, path.as_ref())?))
+        Ok(Self::new(db, RelPathBuf::try_new(db, path.as_ref())?))
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct DiffPathBuf(PathBuf);
+pub struct RelPathBuf(PathBuf);
 
 #[test]
 fn test_absolute_path_debug() {
     let _db = DB::default();
-    // let abs_path = DiffPath::new(path);
+    // let abs_path = VirtualPath::new(path);
 }
 
-impl DiffPathBuf {
+impl RelPathBuf {
     pub fn try_new(db: &dyn VfsDb, path: &Path) -> VfsResult<Self> {
         let diff = |path: &Path| -> VfsResult<_> {
-            pathdiff::diff_paths(path, db.vfs_cache().base_path()?).ok_or(VfsError::FailToDiff)
+            pathdiff::diff_paths(path, db.vfs_cache().current_dir()).ok_or(VfsError::FailToDiff)
         };
         let diff_path = if path.is_absolute() {
             diff(path)
@@ -66,7 +67,7 @@ impl DiffPathBuf {
                 })?,
             )
         }?;
-        Ok(DiffPathBuf(diff_path))
+        Ok(RelPathBuf(diff_path))
     }
 
     pub fn path(&self) -> &Path {
@@ -74,7 +75,7 @@ impl DiffPathBuf {
     }
 }
 
-impl std::ops::Deref for DiffPathBuf {
+impl std::ops::Deref for RelPathBuf {
     type Target = Path;
 
     fn deref(&self) -> &Self::Target {

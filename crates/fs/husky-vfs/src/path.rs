@@ -1,51 +1,57 @@
-mod crate_path;
-mod diff_path;
+pub mod crate_path;
 pub mod linktime_target_path;
-mod menu;
-mod module_path;
-mod package_path;
+pub mod menu;
+pub mod module_path;
+pub mod package_path;
+pub mod virtual_path;
 pub mod workspace_path;
 
 pub use self::crate_path::*;
-pub use self::diff_path::*;
 pub use self::menu::*;
 pub use self::module_path::*;
 pub use self::package_path::*;
+pub use self::virtual_path::*;
 use husky_minimal_toml_utils::read_package_name_from_manifest;
 
 use crate::*;
 
-pub(crate) fn package_manifest_path(db: &dyn VfsDb, package: PackagePath) -> VfsResult<DiffPath> {
-    DiffPath::try_new(
+pub(crate) fn package_manifest_path(
+    db: &dyn VfsDb,
+    package: PackagePath,
+) -> VfsResult<VirtualPath> {
+    VirtualPath::try_new(
         db,
         &package_dir(db, package)
             .as_ref()?
-            .path(db)
+            .data(db)
             .join("Corgi.toml"),
     )
 }
 
 #[salsa::tracked(jar = VfsJar)]
-pub(crate) fn module_diff_path(db: &dyn VfsDb, module_path: ModulePath) -> VfsResult<DiffPath> {
+pub(crate) fn module_virtual_path(
+    db: &dyn VfsDb,
+    module_path: ModulePath,
+) -> VfsResult<VirtualPath> {
     match module_path.data(db) {
-        ModulePathData::Root(crate_path) => DiffPath::try_new(
+        ModulePathData::Root(crate_path) => VirtualPath::try_new(
             db,
             &package_dir(db, crate_path.package_path(db))
                 .as_ref()?
-                .path(db)
+                .data(db)
                 .join(crate_path.relative_path(db).as_ref()),
         )
         .map_err(|e| e.into()),
         ModulePathData::Child { parent, ident } => {
-            let parent_module_path = module_diff_path(db, parent)?;
+            let parent_module_path = module_virtual_path(db, parent)?;
             let dir = match parent.data(db) {
-                ModulePathData::Root(_) => parent_module_path.path(db).parent().unwrap().to_owned(),
+                ModulePathData::Root(_) => parent_module_path.data(db).parent().unwrap().to_owned(),
                 ModulePathData::Child {
                     parent: _,
                     ident: _,
-                } => parent_module_path.path(db).with_extension(""),
+                } => parent_module_path.data(db).with_extension(""),
             };
-            DiffPath::try_new(db, &dir.join(db.dt_ident(ident)).with_extension("hsy"))
+            VirtualPath::try_new(db, &dir.join(db.dt_ident(ident)).with_extension("hsy"))
         }
     }
 }
@@ -80,7 +86,7 @@ pub(crate) fn resolve_module_path(
                     package_name,
                     parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
                 )?,
-                CrateKind::Library,
+                CrateKind::Lib,
                 db,
             )?
             .root_module_path(db),
@@ -140,10 +146,10 @@ pub(crate) fn resolve_module_path(
 fn resolve_module_path_works() {
     DB::default().vfs_plain_test(
         |db, module_path| {
-            let abs_path = module_diff_path(db, module_path).unwrap();
+            let abs_path = module_virtual_path(db, module_path).unwrap();
             let toolchain = module_path.toolchain(db);
             let item_path_resolved = db
-                .resolve_module_path(toolchain, abs_path.path(db))
+                .resolve_module_path(toolchain, abs_path.data(db))
                 .unwrap();
             assert_eq!(module_path, item_path_resolved)
         },

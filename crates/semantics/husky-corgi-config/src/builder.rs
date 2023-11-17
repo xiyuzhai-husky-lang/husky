@@ -15,12 +15,14 @@ impl<'a> CorgiConfigBuilder<'a> {
         }
     }
 
-    pub(crate) fn read(&mut self, path: DiffPath) -> CorgiConfigResult<()> {
+    pub(crate) fn read(&mut self, path: VirtualPath) -> CorgiConfigResult<()> {
         let Some(corgi_config_ast_sheet) = self.db.corgi_config_ast_sheet(path)? else {
             return Ok(());
         };
         if let Some(registry_section) = corgi_config_ast_sheet.registry_section() {
-            if self.registry_path.is_none() && let Some(path) = registry_section?.path() {
+            if self.registry_path.is_none()
+                && let Some(path) = registry_section?.path()
+            {
                 self.registry_path = Some(RegistryPath::new(path?))
             }
         }

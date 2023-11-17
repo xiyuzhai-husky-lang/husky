@@ -37,7 +37,7 @@ impl Toolchain {
 #[salsa::debug_with_db(db = VfsDb)]
 pub enum ToolchainData {
     Published(PublishedToolchain),
-    Local { library_path: DiffPath },
+    Local { library_path: VirtualPath },
 }
 
 #[salsa::interned(db = VfsDb, jar = VfsJar)]
@@ -73,7 +73,7 @@ pub(crate) fn current_toolchain(db: &dyn VfsDb) -> VfsResult<Toolchain> {
     Ok(Toolchain::new(
         db,
         ToolchainData::Local {
-            library_path: DiffPath::try_new(db, library_path()?)?,
+            library_path: VirtualPath::try_new(db, library_path()?)?,
         },
     ))
 }
