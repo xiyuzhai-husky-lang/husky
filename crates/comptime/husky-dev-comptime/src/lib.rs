@@ -39,7 +39,7 @@ impl<Task: IsTask> DevComptime<Task> {
         Ok(Self {
             linktime: IsLinktime::new_linktime(
                 /* ad hoc */
-                LinktimeTargetPath::Package(target_crate_path.package_path(&db)),
+                LinktimeTargetPath::new_package(target_crate_path.package_path(&db), &db),
                 &db,
             ),
             target: DevComptimeTarget::SingleCrate(target_crate_path),

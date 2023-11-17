@@ -23,7 +23,7 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + CowordDb + Send + VfsDbInner {
 
 // don't leak this outside the crate
 pub trait VfsDbInner {
-    fn file_from_diff_path(&self, path: DiffPath) -> VfsResult<File>;
+    fn file_from_virtual_path(&self, path: VirtualPath) -> VfsResult<File>;
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn vfs_db_mut(&mut self) -> &mut dyn VfsDb;
@@ -49,20 +49,20 @@ impl<Db> VfsDbInner for Db
 where
     Db: salsa::DbWithJar<VfsJar> + CowordDb + Send + 'static,
 {
-    fn file_from_diff_path(&self, abs_path: DiffPath) -> VfsResult<File> {
+    fn file_from_virtual_path(&self, abs_path: VirtualPath) -> VfsResult<File> {
         Ok(
             match self
                 .vfs_jar()
                 .cache()
                 .files()
-                .entry(abs_path.path(self).to_owned())
+                .entry(abs_path.data(self).to_owned())
             {
                 // If the file already exists in our cache then just return it.
                 Entry::Occupied(entry) => *entry.get(),
                 // If we haven't read this file yet set up the watch, read the
                 // contents, store it in the cache, and return it.
                 Entry::Vacant(entry) => {
-                    let path = abs_path.path(self);
+                    let path = abs_path.data(self);
                     //  &path.path(self);
                     if let Some(watcher) = self.watcher() {
                         let watcher = &mut watcher.0.lock().unwrap();
@@ -105,19 +105,19 @@ where
     }
 
     fn set_content(&mut self, path: &Path, content: FileContent) -> VfsResult<()> {
-        let abs_path = DiffPath::try_new(self, path)?;
+        let abs_path = VirtualPath::try_new(self, path)?;
         let file = match self
             .vfs_jar()
             .cache()
             .files()
-            .entry(abs_path.path(self).to_owned())
+            .entry(abs_path.data(self).to_owned())
         {
             // If the file already exists in our cache then just return it.
             Entry::Occupied(entry) => *entry.get(),
             // If we haven't read this file yet set up the watch, read the
             // contents, store it in the cache, and return it.
             Entry::Vacant(entry) => {
-                let path = abs_path.path(self);
+                let path = abs_path.data(self);
                 //  &path.path(self);
                 if let Some(watcher) = self.watcher() {
                     let watcher = &mut watcher.0.lock().unwrap();
@@ -182,9 +182,9 @@ where
 
     fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>> {
         let mut crates: Vec<CratePath> = vec![];
-        let package_dir = package_path.dir(self).as_ref()?.path(self);
+        let package_dir = package_path.dir(self).as_ref()?.data(self);
         if package_dir.join("src/lib.hsy").exists() {
-            crates.push(CratePath::new(package_path, CrateKind::Library, self)?);
+            crates.push(CratePath::new(package_path, CrateKind::Lib, self)?);
         }
         if package_dir.join("src/main.hsy").exists() {
             crates.push(CratePath::new(package_path, CrateKind::Main, self)?);
@@ -198,6 +198,8 @@ where
         Ok(crates)
     }
 
+    /// todo: should return not only ModulePath but also files with extension "hsy" but not included in any tree
+    /// so the type should be ProbableModulePath maybe
     fn collect_probable_modules(&self, package: PackagePath) -> Vec<ModulePath> {
         fn collect_probable_modules(
             db: &dyn VfsDb,
@@ -257,7 +259,7 @@ where
         if package_dir.join("src/lib.hsy").exists() {
             if let Ok(root_module) = ModulePath::new_root(
                 self,
-                CratePath::new(package, CrateKind::Library, self).expect("should be valid"),
+                CratePath::new(package, CrateKind::Lib, self).expect("should be valid"),
             ) {
                 modules.push(root_module);
                 collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)
@@ -320,12 +322,17 @@ fn read_file_content(path: &Path) -> FileContent {
 pub struct VfsJar(
     VfsCache,
     crate::path::workspace_path::WorkspacePath,
-    PackagePath,
+    crate::linktime_target_path::LinktimeTargetPath,
+    crate::linktime_target_path::linktime_target_rust_dir,
+    crate::path::package_path::PackagePath,
+    crate::path::crate_path::package_crate_paths,
+    crate::path::module_path::relative_path::module_relative_path,
+    crate::path::module_path::relative_path::module_relative_stem,
     CratePath,
     ModulePath,
     module_ancestry,
     vfs_path_menu,
-    DiffPath,
+    VirtualPath,
     File,
     NotebookSection,
     NotebookSectionId,
@@ -334,7 +341,7 @@ pub struct VfsJar(
     NotebookAst,
     package_dir,
     package_manifest_path,
-    module_diff_path,
+    module_virtual_path,
     package_manifest_file,
     module_file,
     Toolchain,

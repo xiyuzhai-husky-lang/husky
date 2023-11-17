@@ -2,8 +2,8 @@
 mod builder;
 pub mod db;
 mod defn;
-mod dependency;
 mod expr;
+mod package;
 #[cfg(test)]
 mod tests;
 pub mod transpile;

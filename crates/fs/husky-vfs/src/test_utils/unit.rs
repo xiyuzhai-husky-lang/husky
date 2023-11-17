@@ -65,10 +65,11 @@ impl VfsTestUnit for CratePath {
             "{}/{}.{}",
             config.test_name,
             match self.crate_kind(db) {
-                CrateKind::Library => format!("lib"),
+                CrateKind::Lib => format!("lib"),
                 CrateKind::Main => format!("main"),
-                CrateKind::Binary(_) => todo!(),
-                CrateKind::StandaloneTest(_) => todo!(),
+                CrateKind::Bin(_) => todo!(),
+                CrateKind::IntegratedTest(_) => todo!(),
+                CrateKind::Example => todo!(),
             },
             config.expect_file_extension()
         ))
@@ -119,10 +120,11 @@ impl VfsTestUnit for ModulePath {
             ModulePathData::Root(crate_path) => aux_path.join(format!(
                 "{}.{}",
                 match crate_path.crate_kind(db) {
-                    CrateKind::Library => "lib",
+                    CrateKind::Lib => "lib",
                     CrateKind::Main => "main",
-                    CrateKind::Binary(_) => todo!(),
-                    CrateKind::StandaloneTest(_) => todo!(),
+                    CrateKind::Bin(_) => todo!(),
+                    CrateKind::IntegratedTest(_) => todo!(),
+                    CrateKind::Example => todo!(),
                 },
                 config.expect_file_extension()
             )),
@@ -167,10 +169,11 @@ impl VfsTestUnit for ModulePath {
             ModulePathData::Root(crate_path) => aux_path.join(format!(
                 "{}.{adversarial_kind}.{ADVERSARIAL_EXTENSION}",
                 match crate_path.crate_kind(db) {
-                    CrateKind::Library => "lib",
+                    CrateKind::Lib => "lib",
                     CrateKind::Main => "main",
-                    CrateKind::Binary(_) => todo!(),
-                    CrateKind::StandaloneTest(_) => todo!(),
+                    CrateKind::Bin(_) => todo!(),
+                    CrateKind::IntegratedTest(_) => todo!(),
+                    CrateKind::Example => todo!(),
                 }
             )),
             ModulePathData::Child { .. } => aux_path

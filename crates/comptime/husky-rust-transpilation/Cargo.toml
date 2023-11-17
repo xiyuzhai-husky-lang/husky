@@ -33,6 +33,7 @@ husky-manifest = { path = "../../semantics/husky-manifest" }
 # syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 # utils
+husky-io-utils = { path = "../../utils/husky-io-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]

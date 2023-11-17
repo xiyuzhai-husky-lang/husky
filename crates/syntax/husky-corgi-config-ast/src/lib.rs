@@ -16,7 +16,7 @@ use self::menu::*;
 use self::tests::*;
 use self::transformer::*;
 use husky_toml_ast::*;
-use husky_vfs::{error::VfsResult, DiffPath};
+use husky_vfs::{error::VfsResult, VirtualPath};
 
 #[salsa::jar(db = CorgiConfigAstDb)]
 pub struct CorgiConfigAstJar(corgi_config_ast_sheet, corgi_config_ast_menu);
@@ -37,7 +37,7 @@ impl CorgiConfigAstSheet {
 #[salsa::tracked(jar = CorgiConfigAstJar, return_ref)]
 pub(crate) fn corgi_config_ast_sheet(
     db: &dyn CorgiConfigAstDb,
-    path: DiffPath,
+    path: VirtualPath,
 ) -> VfsResult<Option<CorgiConfigAstSheet>> {
     let mut errors = vec![];
     let Some(transformer) =

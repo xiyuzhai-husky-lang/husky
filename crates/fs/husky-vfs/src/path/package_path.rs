@@ -25,7 +25,7 @@ pub enum PackagePathSource {
         version: semver::Version,
     },
     Local {
-        path: DiffPath,
+        path: VirtualPath,
     },
     Git {
         url: Url,
@@ -61,7 +61,7 @@ impl PackagePath {
                 toolchain,
                 name,
                 PackagePathSource::Local {
-                    path: DiffPath::try_new(db, path)?,
+                    path: VirtualPath::try_new(db, path)?,
                 },
             )),
         }
@@ -93,49 +93,32 @@ impl PackagePath {
         self.name(db).ident(db)
     }
 
-    pub fn dir(self, db: &dyn VfsDb) -> VfsResult<DiffPath> {
+    pub fn dir(self, db: &dyn VfsDb) -> VfsResult<VirtualPath> {
         package_dir(db, self)
     }
 
     pub fn manifest_path(self, db: &dyn VfsDb) -> VfsResult<ManifestPath> {
         package_manifest_path(db, self)
     }
-
-    pub fn lib_crate(self, db: &dyn VfsDb) -> VfsResult<CratePath> {
-        CratePath::new(self, CrateKind::Library, db)
-    }
-
-    pub fn lib_module(self, db: &dyn VfsDb) -> VfsResult<ModulePath> {
-        Ok(self.lib_crate(db)?.root_module_path(db))
-    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct RegistryPath(DiffPath);
+pub struct RegistryPath(VirtualPath);
 
 impl RegistryPath {
-    pub fn new(path: DiffPath) -> Self {
+    pub fn new(path: VirtualPath) -> Self {
         Self(path)
     }
 
-    pub fn path(self) -> DiffPath {
-        self.0
-    }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct ManifestPath(DiffPath);
-
-impl ManifestPath {
-    pub fn path(self) -> DiffPath {
+    pub fn path(self) -> VirtualPath {
         self.0
     }
 }
 
 #[salsa::tracked(jar = VfsJar)]
-pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<DiffPath> {
+pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<VirtualPath> {
     match package.data(db) {
-        PackagePathSource::Library => DiffPath::try_new(
+        PackagePathSource::Library => VirtualPath::try_new(
             db,
             &package
                 .toolchain(db)
@@ -146,9 +129,9 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Dif
             registry_path,
             version,
             ..
-        } => DiffPath::try_new(
+        } => VirtualPath::try_new(
             db,
-            registry_path.path().path(db).join(format!(
+            registry_path.path().data(db).join(format!(
                 "{}-{}.{}.{}",
                 package.name(db).data(db),
                 version.major,
@@ -161,13 +144,22 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Dif
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct ManifestPath(VirtualPath);
+
+impl ManifestPath {
+    pub fn path(self) -> VirtualPath {
+        self.0
+    }
+}
+
 #[salsa::tracked(jar = VfsJar)]
 pub(crate) fn package_manifest_path(
     db: &dyn VfsDb,
     package: PackagePath,
 ) -> VfsResult<ManifestPath> {
-    Ok(ManifestPath(DiffPath::try_new(
+    Ok(ManifestPath(VirtualPath::try_new(
         db,
-        package.dir(db)?.path(db).join("Corgi.toml"),
+        package.dir(db)?.data(db).join("Corgi.toml"),
     )?))
 }

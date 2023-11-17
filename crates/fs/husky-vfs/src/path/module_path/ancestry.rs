@@ -48,8 +48,8 @@ fn module_ancestry_works() {
                 package_path: PackagePath {
                     toolchain: Toolchain {
                         data: ToolchainData::Local {
-                            library_path: DiffPath {
-                                data: DiffPathBuf(
+                            library_path: VirtualPath {
+                                _data: RelPathBuf(
                                     "../../../library",
                                 ),
                             },
@@ -58,7 +58,7 @@ fn module_ancestry_works() {
                     name: `core`,
                     data: PackagePathSource::Library,
                 },
-                crate_kind: Library,
+                crate_kind: Lib,
             },
             module_paths: [
                 `core`,
@@ -72,8 +72,8 @@ fn module_ancestry_works() {
                 package_path: PackagePath {
                     toolchain: Toolchain {
                         data: ToolchainData::Local {
-                            library_path: DiffPath {
-                                data: DiffPathBuf(
+                            library_path: VirtualPath {
+                                _data: RelPathBuf(
                                     "../../../library",
                                 ),
                             },
@@ -82,7 +82,7 @@ fn module_ancestry_works() {
                     name: `core`,
                     data: PackagePathSource::Library,
                 },
-                crate_kind: Library,
+                crate_kind: Lib,
             },
             module_paths: [
                 `core`,

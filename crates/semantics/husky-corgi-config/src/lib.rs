@@ -11,7 +11,7 @@ pub use self::sections::*;
 
 use self::builder::*;
 use husky_corgi_config_ast::*;
-use husky_vfs::{*, error::VfsResult};
+use husky_vfs::{error::VfsResult, *};
 
 #[salsa::jar(db = CorgiConfigDb)]
 pub struct CorgiConfigJar(
@@ -44,9 +44,7 @@ pub trait HasCorgiConfig: Copy {
 
 impl HasCorgiConfig for PackagePath {
     fn corgi_config(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<&CorgiConfig> {
-        package_corgi_config(db, self)
-            .as_ref()
-            .map_err(|e| e)
+        package_corgi_config(db, self).as_ref().map_err(|e| e)
     }
 
     fn registry_path(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<RegistryPath> {
@@ -70,10 +68,10 @@ fn package_corgi_config(
 fn package_corgi_config_paths(
     db: &dyn CorgiConfigDb,
     package_path: PackagePath,
-) -> VfsResult<&[DiffPath]> {
+) -> VfsResult<&[VirtualPath]> {
     package_corgi_config_paths_aux(db, package_path)
         .as_ref()
-        .map(|v| v as &[DiffPath])
+        .map(|v| v as &[VirtualPath])
         .map_err(|e| e.clone())
 }
 
@@ -81,25 +79,25 @@ fn package_corgi_config_paths(
 fn package_corgi_config_paths_aux(
     db: &dyn CorgiConfigDb,
     package_path: PackagePath,
-) -> VfsResult<Vec<DiffPath>> {
+) -> VfsResult<Vec<VirtualPath>> {
     let dir = package_path.dir(db)?;
     collect_corgi_config_paths_starting_from_dir(db, dir)
 }
 
 fn collect_corgi_config_paths_starting_from_dir(
     db: &dyn CorgiConfigDb,
-    dir: DiffPath,
-) -> VfsResult<Vec<DiffPath>> {
+    dir: VirtualPath,
+) -> VfsResult<Vec<VirtualPath>> {
     let mut paths = dir
         .abs_path(db)?
         .ancestors()
-        .map(|path| DiffPath::try_new(db, path.join(".corgi/config.toml")))
+        .map(|path| VirtualPath::try_new(db, path.join(".corgi/config.toml")))
         .collect::<VfsResult<Vec<_>>>()?;
     paths.push(root_corgi_config_path(db)?);
     Ok(paths)
 }
 
 #[salsa::tracked(jar = CorgiConfigJar)]
-fn root_corgi_config_path(db: &dyn CorgiConfigDb) -> VfsResult<DiffPath> {
-    DiffPath::try_new(db, husky_fs_specs::root_corgi_config_path()?)
+fn root_corgi_config_path(db: &dyn CorgiConfigDb) -> VfsResult<VirtualPath> {
+    VirtualPath::try_new(db, husky_fs_specs::root_corgi_config_path()?)
 }

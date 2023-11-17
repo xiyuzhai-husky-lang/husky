@@ -139,6 +139,7 @@ pub struct EntitySynTreeJar(
     crate::helpers::TraitOrderedSet,
     crate::helpers::non_core_crate_prelude_trait_items_table,
     crate::helpers::module_specific_trait_items_table,
+    crate::helpers::paths::crate_module_paths,
     crate::helpers::trai_side_derive_any_trai_for_ty_impl_block_paths_map,
     crate::helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
     crate::helpers::tokra_region::SnippetTokraRegion,

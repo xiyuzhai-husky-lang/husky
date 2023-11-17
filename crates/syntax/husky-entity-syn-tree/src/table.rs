@@ -88,11 +88,14 @@ impl EntitySymbolEntry {
         package_dependency: &ManifestDependency,
     ) -> VfsResult<Self> {
         let package_path = package_dependency.package_path();
+        let Some(lib_root_module_path) = package_path.lib_root_module_path(db) else {
+            todo!()
+        };
         Ok(Self {
             ident: package_path.ident(db),
             visibility: Scope::Pub,
             symbol: EntitySymbol::PackageDependency {
-                item_path: package_path.lib_module(db)?.into(),
+                item_path: lib_root_module_path.into(),
             },
         })
     }

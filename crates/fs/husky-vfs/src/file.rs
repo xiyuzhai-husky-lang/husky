@@ -1,7 +1,6 @@
 mod document;
 mod notebook;
 
-
 pub use notebook::*;
 
 use crate::*;
@@ -16,13 +15,13 @@ pub enum FileContent {
     OnDisk(String),
     LiveDoc(String),
     LiveNotebook(Notebook),
-    Directory(Vec<DiffPath>),
+    Directory(Vec<VirtualPath>),
     Err(VfsError),
 }
 
 impl File {
     pub fn text(self, db: &dyn VfsDb) -> VfsResult<Option<&str>> {
-        self.content(db).text(self.path(db).path(db))
+        self.content(db).text(self.path(db).data(db))
     }
 }
 
@@ -41,7 +40,7 @@ impl FileContent {
 impl File {
     pub(crate) fn new(
         db: &<crate::VfsJar as salsa::jar::Jar<'_>>::DynDb,
-        path: DiffPath,
+        path: VirtualPath,
         content: FileContent,
         durability: Durability,
     ) -> Self {
@@ -53,7 +52,10 @@ impl File {
         id
     }
 
-    pub(crate) fn path<'db>(self, __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb) -> DiffPath {
+    pub(crate) fn path<'db>(
+        self,
+        __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb,
+    ) -> VirtualPath {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(__db);
         let __ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(__jar);
         __ingredients.0.fetch(__runtime, self).clone()
@@ -82,7 +84,7 @@ impl File {
 impl salsa::storage::IngredientsFor for File {
     type Jar = VfsJar;
     type Ingredients = (
-        InputFieldIngredient<File, DiffPath>,
+        InputFieldIngredient<File, VirtualPath>,
         InputFieldIngredient<File, FileContent>,
         InputIngredient<File>,
     );
@@ -169,19 +171,18 @@ impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for File {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
         let mut debug_struct = &mut f.debug_struct("HuskyFile");
-        debug_struct =
-            debug_struct.field(
-                "path",
-                &::salsa::debug::helper::SalsaDebug::<
-                    DiffPath,
-                    <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-                >::salsa_debug(
-                    #[allow(clippy::needless_borrow)]
-                    &self.path(_db),
-                    _db,
-                    _level.next(),
-                ),
-            );
+        debug_struct = debug_struct.field(
+            "path",
+            &::salsa::debug::helper::SalsaDebug::<
+                VirtualPath,
+                <VfsJar as salsa::jar::Jar<'_>>::DynDb,
+            >::salsa_debug(
+                #[allow(clippy::needless_borrow)]
+                &self.path(_db),
+                _db,
+                _level.next(),
+            ),
+        );
         if _level.is_root() {
             debug_struct = debug_struct.field(
                 "content",
@@ -208,11 +209,11 @@ where
 
 #[salsa::tracked(jar = VfsJar)]
 pub(crate) fn package_manifest_file(db: &dyn VfsDb, package_path: PackagePath) -> VfsResult<File> {
-    db.file_from_diff_path(package_manifest_path(db, package_path)?)
+    db.file_from_virtual_path(package_manifest_path(db, package_path)?)
 }
 
 #[salsa::tracked(jar = VfsJar )]
 pub(crate) fn module_file(db: &dyn VfsDb, module_path: ModulePath) -> VfsResult<File> {
-    let abs_path = module_diff_path(db, module_path)?;
-    db.file_from_diff_path(abs_path)
+    let abs_path = module_virtual_path(db, module_path)?;
+    db.file_from_virtual_path(abs_path)
 }

@@ -1,6 +1,6 @@
 use super::*;
 
-impl<Context> TransformFromTomlAst<Context> for DiffPath
+impl<Context> TransformFromTomlAst<Context> for VirtualPath
 where
     Context: TomlDeserializeContext,
 {
@@ -12,7 +12,7 @@ where
     ) -> Result<Self, <Context as TomlDeserializeContext>::Error> {
         match transformer.visitor.expr() {
             TomlExpr::String(s) => {
-                match DiffPath::try_new(
+                match VirtualPath::try_new(
                     <Context::Db<'a> as salsa::DbWithJar<VfsJar>>::as_jar_db(transformer.db),
                     transformer.path.join(s as &str),
                 ) {

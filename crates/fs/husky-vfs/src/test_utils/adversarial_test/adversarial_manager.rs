@@ -47,7 +47,6 @@ impl VfsAdversarialManager {
                 Ok(_) => (),
                 Err(adversarial) => {
                     self.adversarials.push(adversarial);
-                    std::fs::create_dir_all(&self.path.parent().unwrap());
                     husky_io_utils::diff_write(
                         &self.path,
                         &serde_json::to_string_pretty(&self.adversarials)

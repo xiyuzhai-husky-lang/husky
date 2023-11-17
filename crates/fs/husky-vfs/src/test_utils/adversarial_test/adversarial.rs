@@ -43,7 +43,7 @@ impl VfsAdversarial {
         let original_text = original_text.to_owned();
         let edited_text = self.edit(&original_text);
         let file = db
-            .file_from_diff_path(module_path.diff_path(db).unwrap())
+            .file_from_virtual_path(module_path.virtual_path(db))
             .unwrap();
         // edit text using adversarial
         file.set_content(db.vfs_db_mut())

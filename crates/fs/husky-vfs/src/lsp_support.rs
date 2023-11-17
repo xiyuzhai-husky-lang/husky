@@ -29,12 +29,12 @@ fn update_live_packages(db: &dyn VfsDb, path: &Path) {
 }
 
 fn update_content<T: VfsDb>(db: &mut T, path: &Path, f: impl FnOnce(&mut String)) -> VfsResult<()> {
-    let abs_path = DiffPath::try_new(db, path)?;
+    let abs_path = VirtualPath::try_new(db, path)?;
     let file = match db
         .vfs_jar()
         .cache()
         .files()
-        .entry(abs_path.path(db).to_owned())
+        .entry(abs_path.data(db).to_owned())
     {
         Entry::Occupied(entry) => *entry.get(),
         Entry::Vacant(_entry) => return Ok(()),

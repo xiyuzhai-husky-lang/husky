@@ -30,9 +30,7 @@ impl AdHocPackage {
             FileContent::LiveDoc(lib_content.to_string()),
         )
         .unwrap();
-        let crate_path = package_path
-            .lib_crate(db)
-            .expect_with_db(db, "should be okay");
+        let crate_path = package_path.lib_crate_path(db).expect("should be okay");
         let non_root_module_paths = HashMap::default();
         for _ in non_root_modules {
             todo!()

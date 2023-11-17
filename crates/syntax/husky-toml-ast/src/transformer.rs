@@ -66,7 +66,7 @@ impl<'a, 'b, Context: TomlDeserializeContext, Ast: TomlAst> TomlTransformer<'a, 
 impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, TomlTable> {
     pub fn new_root(
         db: &'a Context::Db<'a>,
-        path: DiffPath,
+        path: VirtualPath,
         menu: &'a Context::Menu,
         errors: &'b mut Vec<Context::Error>,
     ) -> VfsResult<Option<Self>> {
@@ -77,7 +77,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
             db,
             visitor: toml_ast_sheet.root_visitor(),
             menu,
-            path: path.path(db).parent().unwrap(), /* ad hoc */
+            path: path.data(db).parent().unwrap(), /* ad hoc */
             errors,
         }))
     }
@@ -88,7 +88,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
 
     pub fn new_root_expected(
         db: &'a Context::Db<'a>,
-        path: DiffPath,
+        path: VirtualPath,
         menu: &'a Context::Menu,
         errors: &'b mut Vec<Context::Error>,
     ) -> VfsResult<Self> {
@@ -99,7 +99,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
             db,
             visitor: toml_ast_sheet.root_visitor(),
             menu,
-            path: path.path(db),
+            path: path.data(db),
             errors,
         })
     }
