@@ -38,6 +38,8 @@ use husky_toml_token::TomlTokenJar;
     ManifestAstJar,
     CorgiConfigJar,
     CorgiConfigAstJar,
+    // linkage
+    husky_linkage_path::db::LinkagePathJar,
     ManifestJar,
     SynExprJar,
     SynDefnJar,

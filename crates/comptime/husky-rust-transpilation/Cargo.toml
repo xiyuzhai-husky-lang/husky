@@ -25,6 +25,8 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-expr = { path = "../../kernel/husky-expr" }
 # lex
+# linkage
+husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
 # syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 # utils
