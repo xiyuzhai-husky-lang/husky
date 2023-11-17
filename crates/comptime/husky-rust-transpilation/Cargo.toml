@@ -28,6 +28,8 @@ husky-expr = { path = "../../kernel/husky-expr" }
 # lex
 # linkage
 husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
+# semantics
+husky-manifest = { path = "../../semantics/husky-manifest" }
 # syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 # utils
