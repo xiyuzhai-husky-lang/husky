@@ -5,11 +5,10 @@
 //! So this visualization serves mainly for linguistics.
 pub mod action;
 
-
 use husky_visual_protocol::{IsVisual, IsVisualComponent, IsVisualProtocol};
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct DanielJacksonVisualProtocol;
 
 impl IsVisualProtocol for DanielJacksonVisualProtocol {
