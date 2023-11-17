@@ -4,6 +4,7 @@ use self::runtime_storage::*;
 use husky_linkage_path::db::LinkagePathDb;
 use husky_mono_linktime::MonoLinkTime;
 use husky_regular_value::RegularValue;
+use husky_rust_transpilation::db::RustTranspilationDb;
 use husky_task::{ascension::IsDevAscension, linkage::IsLinkage, IsTask};
 use husky_trace_protocol::protocol::IsTraceProtocol;
 use husky_val::ValDb;
@@ -33,7 +34,8 @@ where
 
 impl<ComptimeDb, VisualProtocol> IsTask for MlTask<ComptimeDb, VisualProtocol>
 where
-    ComptimeDb: Default + husky_vfs::VfsDb + ValDb + LinkagePathDb + Send + 'static,
+    ComptimeDb:
+        Default + husky_vfs::VfsDb + ValDb + RustTranspilationDb + LinkagePathDb + Send + 'static,
     VisualProtocol: IsVisualProtocol + Send,
 {
     type DevAscension = MlDevAscension<ComptimeDb, VisualProtocol>;
@@ -46,7 +48,7 @@ where
 
 impl<ComptimeDb, VisualProtocol> IsDevAscension for MlDevAscension<ComptimeDb, VisualProtocol>
 where
-    ComptimeDb: Default + husky_vfs::VfsDb + ValDb + LinkagePathDb + Send,
+    ComptimeDb: Default + husky_vfs::VfsDb + ValDb + RustTranspilationDb + LinkagePathDb + Send,
     VisualProtocol: IsVisualProtocol,
 {
     type Base = DevInput;

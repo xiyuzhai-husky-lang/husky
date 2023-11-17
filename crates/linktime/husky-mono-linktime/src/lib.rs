@@ -1,11 +1,13 @@
 mod internal;
+#[cfg(test)]
+mod tests;
 
 use self::internal::MonoLinkTimeInternal;
+#[cfg(test)]
+use self::tests::*;
 use husky_linkage_path::{db::LinkagePathDb, LinkagePath};
-
-use husky_task::{
-    linkage::{IsLinkage, IsLinktime},
-};
+use husky_rust_transpilation::db::RustTranspilationDb;
+use husky_task::linkage::{IsLinkage, IsLinktime};
 use husky_vfs::CratePath;
 use std::{collections::HashMap, marker::PhantomData};
 
@@ -13,7 +15,7 @@ use std::{collections::HashMap, marker::PhantomData};
 // then use rustc to obtain a single dylib
 pub struct MonoLinkTime<Db, Linkage>
 where
-    Db: LinkagePathDb,
+    Db: RustTranspilationDb,
     Linkage: IsLinkage,
 {
     internal: std::sync::RwLock<MonoLinkTimeInternal<Db, Linkage>>,
@@ -21,7 +23,7 @@ where
 
 impl<Db, Linkage> IsLinktime<Db> for MonoLinkTime<Db, Linkage>
 where
-    Db: LinkagePathDb + Send,
+    Db: RustTranspilationDb,
     Linkage: IsLinkage,
 {
     type Linkage = Linkage;
