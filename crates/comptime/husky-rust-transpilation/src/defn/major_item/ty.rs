@@ -47,7 +47,7 @@ impl TranspileToRust for PropsStructTypeHirDefn {
 impl TranspileToRust<HirEagerExprRegion> for PropsFieldHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.ident().transpile_to_rust(builder);
-        builder.punctuation(RustPunctuation::Colon);
+        builder.opr(RustOpr::Colon);
         self.ty().transpile_to_rust(builder)
     }
 }

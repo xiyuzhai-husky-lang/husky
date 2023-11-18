@@ -49,7 +49,7 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::Binary { lopd, opr, ropd } => match opr {
             HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {
                 (RustPrecedenceRange::Geq(RustPrecedence::Suffix), lopd).transpile_to_rust(builder);
-                builder.punctuation(RustPunctuation::Dot);
+                builder.opr(RustOpr::Dot);
                 builder.rem_eulid();
                 builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
                     any_precedence(ropd).transpile_to_rust(builder)
@@ -57,7 +57,7 @@ fn transpile_hir_eager_expr_to_rust(
             }
             HirBinaryOpr::Closed(BinaryClosedOpr::Power) => {
                 (RustPrecedenceRange::Geq(RustPrecedence::Suffix), lopd).transpile_to_rust(builder);
-                builder.punctuation(RustPunctuation::Dot);
+                builder.opr(RustOpr::Dot);
                 builder.pow();
                 builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
                     any_precedence(ropd).transpile_to_rust(builder)
@@ -139,7 +139,7 @@ fn transpile_hir_eager_expr_to_rust(
             ident,
         } => {
             geq(owner_hir_expr_idx).transpile_to_rust(builder);
-            builder.punctuation(RustPunctuation::Dot);
+            builder.opr(RustOpr::Dot);
             ident.transpile_to_rust(builder)
         }
         HirEagerExprData::MethodFnCall {
@@ -150,7 +150,7 @@ fn transpile_hir_eager_expr_to_rust(
             ref item_groups,
         } => {
             geq(self_argument).transpile_to_rust(builder);
-            builder.punctuation(RustPunctuation::Dot);
+            builder.opr(RustOpr::Dot);
             ident.transpile_to_rust(builder);
             if let Some(_template_arguments) = template_arguments {
                 todo!()

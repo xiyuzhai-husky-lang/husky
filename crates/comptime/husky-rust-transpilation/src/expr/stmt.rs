@@ -11,7 +11,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             } => builder.on_new_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Let);
                 pattern.transpile_to_rust(builder);
-                builder.punctuation(RustPunctuation::Eq);
+                builder.opr(RustOpr::Assign);
                 any_precedence(initial_value).transpile_to_rust(builder)
             }),
             HirEagerStmt::Return { result } => builder.on_new_semicolon_line(|builder| {
@@ -69,9 +69,9 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                     }
                                 }
                             }
-                            builder.punctuation(match range.final_boundary.kind {
-                                LoopBoundaryKind::UpperOpen => RustPunctuation::DotDot,
-                                LoopBoundaryKind::UpperClosed => RustPunctuation::DotDotEq,
+                            builder.opr(match range.final_boundary.kind {
+                                LoopBoundaryKind::UpperOpen => RustOpr::DotDot,
+                                LoopBoundaryKind::UpperClosed => RustOpr::DotDotEq,
                                 LoopBoundaryKind::LowerOpen => unreachable!(),
                                 LoopBoundaryKind::LowerClosed => unreachable!(),
                             });
@@ -86,13 +86,35 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 }
                 block.transpile_to_rust(builder)
             }),
-            HirEagerStmt::Forext {
-                particulars: _,
-                block,
-            } => builder.on_new_line(|builder| {
-                builder.comment("Forext incomplete");
-                builder.keyword(RustKeyword::Loop);
-                block.transpile_to_rust(builder)
+            HirEagerStmt::Forext { particulars, block } => builder.on_new_line(|builder| {
+                builder.keyword(RustKeyword::While);
+                particulars.forext_loop_var_ident.transpile_to_rust(builder);
+                match particulars.boundary_kind {
+                    LoopBoundaryKind::UpperOpen => builder.opr(RustOpr::Less),
+                    LoopBoundaryKind::UpperClosed => builder.opr(RustOpr::Leq),
+                    LoopBoundaryKind::LowerOpen => builder.opr(RustOpr::Greater),
+                    LoopBoundaryKind::LowerClosed => builder.opr(RustOpr::Geq),
+                }
+                (
+                    RustPrecedenceRange::Greater(RustPrecedence::OrdComparison),
+                    particulars.bound_expr_hir_eager_expr_idx,
+                )
+                    .transpile_to_rust(builder);
+                builder.curly_block(|builder| {
+                    builder.on_new_line(|builder| block.transpile_to_rust(builder));
+                    builder.on_new_line(|builder| {
+                        particulars.forext_loop_var_ident.transpile_to_rust(builder);
+                        builder.opr(RustOpr::AddAssign);
+                        match particulars.boundary_kind {
+                            LoopBoundaryKind::UpperOpen | LoopBoundaryKind::UpperClosed => {
+                                1i32.transpile_to_rust(builder)
+                            }
+                            LoopBoundaryKind::LowerOpen | LoopBoundaryKind::LowerClosed => {
+                                (-1i32).transpile_to_rust(builder)
+                            }
+                        }
+                    })
+                })
             }),
             HirEagerStmt::ForIn {
                 condition: _,
@@ -142,7 +164,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerLetVariablesPattern {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.pattern_expr_idx().transpile_to_rust(builder);
         if let Some(ty) = self.ty() {
-            builder.punctuation(RustPunctuation::Colon);
+            builder.opr(RustOpr::Colon);
             ty.transpile_to_rust(builder)
         }
     }

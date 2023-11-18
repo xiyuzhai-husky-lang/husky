@@ -982,7 +982,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            106,
+                            110,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -1179,6 +1179,23 @@
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                30,
+                                            ),
+                                        ),
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                1,
+                                            ),
+                                        ),
+                                        HirEagerExprData::Binary {
+                                            lopd: 32,
+                                            opr: Closed(
+                                                Sub,
+                                            ),
+                                            ropd: 33,
+                                        },
                                         HirEagerExprData::Variable(
                                             7,
                                         ),
@@ -1191,16 +1208,16 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 33,
+                                            lopd: 36,
                                             opr: Closed(
                                                 Add,
                                             ),
-                                            ropd: 34,
+                                            ropd: 37,
                                         },
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 32,
+                                            owner_hir_expr_idx: 35,
                                             items: [
-                                                35,
+                                                38,
                                             ],
                                         },
                                         HirEagerExprData::Variable(
@@ -1225,16 +1242,16 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 40,
+                                            lopd: 43,
                                             opr: Closed(
                                                 Add,
                                             ),
-                                            ropd: 41,
+                                            ropd: 44,
                                         },
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 39,
+                                            owner_hir_expr_idx: 42,
                                             items: [
-                                                42,
+                                                45,
                                             ],
                                         },
                                         HirEagerExprData::Variable(
@@ -1244,37 +1261,37 @@
                                             9,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 44,
+                                            owner_hir_expr_idx: 47,
                                             items: [
-                                                45,
+                                                48,
                                             ],
                                         },
                                         HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
-                                            function_hir_eager_expr_idx: 38,
+                                            function_hir_eager_expr_idx: 41,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
-                                                    43,
+                                                    46,
                                                 ),
                                                 Regular(
-                                                    46,
+                                                    49,
                                                 ),
                                             ],
                                         },
                                         HirEagerExprData::Binary {
-                                            lopd: 37,
+                                            lopd: 40,
                                             opr: Closed(
                                                 BitOr,
                                             ),
-                                            ropd: 47,
+                                            ropd: 50,
                                         },
                                         HirEagerExprData::Variable(
                                             11,
                                         ),
                                         HirEagerExprData::Prefix {
                                             opr: Not,
-                                            opd_hir_expr_idx: 49,
+                                            opd_hir_expr_idx: 52,
                                         },
                                         HirEagerExprData::Variable(
                                             10,
@@ -1283,11 +1300,11 @@
                                             11,
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 51,
+                                            lopd: 54,
                                             opr: Comparison(
                                                 Neq,
                                             ),
-                                            ropd: 52,
+                                            ropd: 55,
                                         },
                                         HirEagerExprData::Variable(
                                             8,
@@ -1298,9 +1315,9 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 54,
+                                            lopd: 57,
                                             opr: Assign,
-                                            ropd: 55,
+                                            ropd: 58,
                                         },
                                         HirEagerExprData::Variable(
                                             7,
@@ -1314,26 +1331,29 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 58,
+                                            lopd: 61,
                                             opr: Closed(
                                                 Add,
                                             ),
-                                            ropd: 59,
+                                            ropd: 62,
                                         },
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 57,
+                                            owner_hir_expr_idx: 60,
                                             items: [
-                                                60,
+                                                63,
                                             ],
                                         },
                                         HirEagerExprData::Variable(
                                             11,
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 61,
+                                            lopd: 64,
                                             opr: Assign,
-                                            ropd: 62,
+                                            ropd: 65,
                                         },
+                                        HirEagerExprData::Variable(
+                                            4,
+                                        ),
                                         HirEagerExprData::Variable(
                                             7,
                                         ),
@@ -1341,9 +1361,9 @@
                                             9,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 64,
+                                            owner_hir_expr_idx: 68,
                                             items: [
-                                                65,
+                                                69,
                                             ],
                                         },
                                         HirEagerExprData::Variable(
@@ -1363,9 +1383,9 @@
                                             9,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 69,
+                                            owner_hir_expr_idx: 73,
                                             items: [
-                                                70,
+                                                74,
                                             ],
                                         },
                                         HirEagerExprData::Variable(
@@ -1380,37 +1400,37 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 73,
+                                            lopd: 77,
                                             opr: Closed(
                                                 Add,
                                             ),
-                                            ropd: 74,
+                                            ropd: 78,
                                         },
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 72,
+                                            owner_hir_expr_idx: 76,
                                             items: [
-                                                75,
+                                                79,
                                             ],
                                         },
                                         HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
-                                            function_hir_eager_expr_idx: 68,
+                                            function_hir_eager_expr_idx: 72,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
-                                                    71,
+                                                    75,
                                                 ),
                                                 Regular(
-                                                    76,
+                                                    80,
                                                 ),
                                             ],
                                         },
                                         HirEagerExprData::Binary {
-                                            lopd: 67,
+                                            lopd: 71,
                                             opr: Closed(
                                                 BitOr,
                                             ),
-                                            ropd: 77,
+                                            ropd: 81,
                                         },
                                         HirEagerExprData::Variable(
                                             12,
@@ -1419,11 +1439,11 @@
                                             13,
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 79,
+                                            lopd: 83,
                                             opr: Comparison(
                                                 Neq,
                                             ),
-                                            ropd: 80,
+                                            ropd: 84,
                                         },
                                         HirEagerExprData::Variable(
                                             8,
@@ -1434,9 +1454,9 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 82,
+                                            lopd: 86,
                                             opr: Assign,
-                                            ropd: 83,
+                                            ropd: 87,
                                         },
                                         HirEagerExprData::Variable(
                                             7,
@@ -1445,18 +1465,18 @@
                                             9,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 85,
+                                            owner_hir_expr_idx: 89,
                                             items: [
-                                                86,
+                                                90,
                                             ],
                                         },
                                         HirEagerExprData::Variable(
                                             13,
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 87,
+                                            lopd: 91,
                                             opr: Assign,
-                                            ropd: 88,
+                                            ropd: 92,
                                         },
                                         HirEagerExprData::Variable(
                                             4,
@@ -1473,9 +1493,9 @@
                                             14,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 92,
+                                            owner_hir_expr_idx: 96,
                                             items: [
-                                                93,
+                                                97,
                                             ],
                                         },
                                         HirEagerExprData::Variable(
@@ -1485,21 +1505,21 @@
                                             14,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 95,
+                                            owner_hir_expr_idx: 99,
                                             items: [
-                                                96,
+                                                100,
                                             ],
                                         },
                                         HirEagerExprData::Prefix {
                                             opr: BitNot,
-                                            opd_hir_expr_idx: 97,
+                                            opd_hir_expr_idx: 101,
                                         },
                                         HirEagerExprData::Binary {
-                                            lopd: 94,
+                                            lopd: 98,
                                             opr: AssignClosed(
                                                 BitAnd,
                                             ),
-                                            ropd: 98,
+                                            ropd: 102,
                                         },
                                         HirEagerExprData::Variable(
                                             2,
@@ -1516,16 +1536,16 @@
                                         ),
                                         HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            function_hir_eager_expr_idx: 101,
+                                            function_hir_eager_expr_idx: 105,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
-                                                    102,
+                                                    106,
                                                 ),
                                             ],
                                         },
                                         HirEagerExprData::MethodFnCall {
-                                            self_argument: 100,
+                                            self_argument: 104,
                                             ident: `push`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
@@ -1541,7 +1561,7 @@
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
-                                                    103,
+                                                    107,
                                                 ),
                                             ],
                                         },
@@ -1559,11 +1579,11 @@
                                     data: [
                                         Break,
                                         Eval {
-                                            expr_idx: 56,
+                                            expr_idx: 59,
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 63,
+                                            expr_idx: 66,
                                             discarded: false,
                                         },
                                         Let {
@@ -1571,19 +1591,19 @@
                                                 pattern_expr_idx: 8,
                                                 ty: None,
                                             },
-                                            initial_value: 36,
+                                            initial_value: 39,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 9,
                                                 ty: None,
                                             },
-                                            initial_value: 48,
+                                            initial_value: 51,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: HirEagerCondition(
-                                                    50,
+                                                    53,
                                                 ),
                                                 stmts: ArenaIdxRange(
                                                     1..2,
@@ -1595,7 +1615,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: HirEagerCondition(
-                                                    53,
+                                                    56,
                                                 ),
                                                 stmts: ArenaIdxRange(
                                                     2..4,
@@ -1605,11 +1625,11 @@
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr_idx: 84,
+                                            expr_idx: 88,
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 89,
+                                            expr_idx: 93,
                                             discarded: false,
                                         },
                                         Let {
@@ -1617,19 +1637,19 @@
                                                 pattern_expr_idx: 10,
                                                 ty: None,
                                             },
-                                            initial_value: 66,
+                                            initial_value: 70,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 11,
                                                 ty: None,
                                             },
-                                            initial_value: 78,
+                                            initial_value: 82,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: HirEagerCondition(
-                                                    81,
+                                                    85,
                                                 ),
                                                 stmts: ArenaIdxRange(
                                                     8..10,
@@ -1650,19 +1670,39 @@
                                             initial_value: 31,
                                         },
                                         Forext {
-                                            particulars: HirEagerForExtParticulars,
+                                            particulars: HirEagerForExtParticulars {
+                                                forext_loop_var_ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 260,
+                                                        },
+                                                    ),
+                                                ),
+                                                bound_expr_hir_eager_expr_idx: 34,
+                                                boundary_kind: UpperOpen,
+                                            },
                                             block: ArenaIdxRange(
                                                 4..8,
                                             ),
                                         },
                                         Forext {
-                                            particulars: HirEagerForExtParticulars,
+                                            particulars: HirEagerForExtParticulars {
+                                                forext_loop_var_ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 260,
+                                                        },
+                                                    ),
+                                                ),
+                                                bound_expr_hir_eager_expr_idx: 67,
+                                                boundary_kind: LowerClosed,
+                                            },
                                             block: ArenaIdxRange(
                                                 10..13,
                                             ),
                                         },
                                         Eval {
-                                            expr_idx: 99,
+                                            expr_idx: 103,
                                             discarded: false,
                                         },
                                         Let {
@@ -1717,13 +1757,13 @@
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            90,
+                                                            94,
                                                         ),
                                                         kind: LowerClosed,
                                                     },
                                                     final_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            91,
+                                                            95,
                                                         ),
                                                         kind: UpperOpen,
                                                     },
@@ -1737,7 +1777,7 @@
                                             ),
                                         },
                                         Eval {
-                                            expr_idx: 104,
+                                            expr_idx: 108,
                                             discarded: false,
                                         },
                                         While {
@@ -1800,7 +1840,7 @@
                                             ),
                                         },
                                         Return {
-                                            result: 105,
+                                            result: 109,
                                         },
                                     ],
                                 },
@@ -3851,7 +3891,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            50,
+                            52,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -3875,20 +3915,25 @@
                                                 1,
                                             ),
                                         ),
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                29,
+                                            ),
+                                        ),
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
                                         HirEagerExprData::Field {
-                                            owner_hir_expr_idx: 2,
+                                            owner_hir_expr_idx: 3,
                                             ident: `mask`,
                                         },
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 3,
+                                            owner_hir_expr_idx: 4,
                                             items: [
-                                                4,
+                                                5,
                                             ],
                                         },
                                         HirEagerExprData::Variable(
@@ -3900,31 +3945,36 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 6,
+                                            lopd: 7,
                                             opr: Closed(
                                                 Add,
                                             ),
-                                            ropd: 7,
+                                            ropd: 8,
                                         },
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                29,
+                                            ),
+                                        ),
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
                                         HirEagerExprData::Field {
-                                            owner_hir_expr_idx: 9,
+                                            owner_hir_expr_idx: 11,
                                             ident: `mask`,
                                         },
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 10,
+                                            owner_hir_expr_idx: 12,
                                             items: [
-                                                11,
+                                                13,
                                             ],
                                         },
                                         HirEagerExprData::Prefix {
                                             opr: Not,
-                                            opd_hir_expr_idx: 12,
+                                            opd_hir_expr_idx: 14,
                                         },
                                         HirEagerExprData::Variable(
                                             3,
@@ -3933,11 +3983,11 @@
                                             2,
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 14,
+                                            lopd: 16,
                                             opr: Closed(
                                                 Sub,
                                             ),
-                                            ropd: 15,
+                                            ropd: 17,
                                         },
                                         HirEagerExprData::Variable(
                                             4,
@@ -3948,11 +3998,11 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 17,
+                                            lopd: 19,
                                             opr: Closed(
                                                 Div,
                                             ),
-                                            ropd: 18,
+                                            ropd: 20,
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::I32(
@@ -3969,11 +4019,11 @@
                                             5,
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 22,
+                                            lopd: 24,
                                             opr: Closed(
                                                 Add,
                                             ),
-                                            ropd: 23,
+                                            ropd: 25,
                                         },
                                         HirEagerExprData::Variable(
                                             6,
@@ -3982,20 +4032,20 @@
                                             1,
                                         ),
                                         HirEagerExprData::Field {
-                                            owner_hir_expr_idx: 26,
+                                            owner_hir_expr_idx: 28,
                                             ident: `mask`,
                                         },
                                         HirEagerExprData::Variable(
                                             7,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 27,
+                                            owner_hir_expr_idx: 29,
                                             items: [
-                                                28,
+                                                30,
                                             ],
                                         },
                                         HirEagerExprData::MethodFnCall {
-                                            self_argument: 29,
+                                            self_argument: 31,
                                             ident: `co`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
@@ -4012,11 +4062,11 @@
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Binary {
-                                            lopd: 25,
+                                            lopd: 27,
                                             opr: AssignClosed(
                                                 Add,
                                             ),
-                                            ropd: 30,
+                                            ropd: 32,
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::I32(
@@ -4033,11 +4083,11 @@
                                             5,
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 34,
+                                            lopd: 36,
                                             opr: Closed(
                                                 Sub,
                                             ),
-                                            ropd: 35,
+                                            ropd: 37,
                                         },
                                         HirEagerExprData::Variable(
                                             8,
@@ -4046,20 +4096,20 @@
                                             1,
                                         ),
                                         HirEagerExprData::Field {
-                                            owner_hir_expr_idx: 38,
+                                            owner_hir_expr_idx: 40,
                                             ident: `mask`,
                                         },
                                         HirEagerExprData::Variable(
                                             9,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 39,
+                                            owner_hir_expr_idx: 41,
                                             items: [
-                                                40,
+                                                42,
                                             ],
                                         },
                                         HirEagerExprData::MethodFnCall {
-                                            self_argument: 41,
+                                            self_argument: 43,
                                             ident: `co`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
@@ -4076,11 +4126,11 @@
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Binary {
-                                            lopd: 37,
+                                            lopd: 39,
                                             opr: AssignClosed(
                                                 Add,
                                             ),
-                                            ropd: 42,
+                                            ropd: 44,
                                         },
                                         HirEagerExprData::PrincipalEntityPath(
                                             PrincipalEntityPath::MajorItem(
@@ -4103,20 +4153,20 @@
                                         ),
                                         HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                            function_hir_eager_expr_idx: 44,
+                                            function_hir_eager_expr_idx: 46,
                                             template_arguments: None,
                                             item_groups: [
-                                                Regular(
-                                                    45,
-                                                ),
-                                                Regular(
-                                                    46,
-                                                ),
                                                 Regular(
                                                     47,
                                                 ),
                                                 Regular(
                                                     48,
+                                                ),
+                                                Regular(
+                                                    49,
+                                                ),
+                                                Regular(
+                                                    50,
                                                 ),
                                             ],
                                         },
@@ -4133,7 +4183,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: HirEagerCondition(
-                                                    5,
+                                                    6,
                                                 ),
                                                 stmts: ArenaIdxRange(
                                                     1..2,
@@ -4146,7 +4196,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: HirEagerCondition(
-                                                    13,
+                                                    15,
                                                 ),
                                                 stmts: ArenaIdxRange(
                                                     3..4,
@@ -4156,11 +4206,11 @@
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr_idx: 31,
+                                            expr_idx: 33,
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr_idx: 43,
+                                            expr_idx: 45,
                                             discarded: false,
                                         },
                                         Let {
@@ -4171,7 +4221,17 @@
                                             initial_value: 1,
                                         },
                                         Forext {
-                                            particulars: HirEagerForExtParticulars,
+                                            particulars: HirEagerForExtParticulars {
+                                                forext_loop_var_ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 243,
+                                                        },
+                                                    ),
+                                                ),
+                                                bound_expr_hir_eager_expr_idx: 2,
+                                                boundary_kind: UpperOpen,
+                                            },
                                             block: ArenaIdxRange(
                                                 2..3,
                                             ),
@@ -4181,10 +4241,20 @@
                                                 pattern_expr_idx: 2,
                                                 ty: None,
                                             },
-                                            initial_value: 8,
+                                            initial_value: 9,
                                         },
                                         Forext {
-                                            particulars: HirEagerForExtParticulars,
+                                            particulars: HirEagerForExtParticulars {
+                                                forext_loop_var_ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 244,
+                                                        },
+                                                    ),
+                                                ),
+                                                bound_expr_hir_eager_expr_idx: 10,
+                                                boundary_kind: UpperOpen,
+                                            },
                                             block: ArenaIdxRange(
                                                 4..5,
                                             ),
@@ -4194,21 +4264,21 @@
                                                 pattern_expr_idx: 3,
                                                 ty: None,
                                             },
-                                            initial_value: 16,
+                                            initial_value: 18,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 4,
                                                 ty: None,
                                             },
-                                            initial_value: 19,
+                                            initial_value: 21,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 5,
                                                 ty: None,
                                             },
-                                            initial_value: 20,
+                                            initial_value: 22,
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
@@ -4222,13 +4292,13 @@
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            21,
+                                                            23,
                                                         ),
                                                         kind: LowerClosed,
                                                     },
                                                     final_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            24,
+                                                            26,
                                                         ),
                                                         kind: UpperOpen,
                                                     },
@@ -4246,7 +4316,7 @@
                                                 pattern_expr_idx: 6,
                                                 ty: None,
                                             },
-                                            initial_value: 32,
+                                            initial_value: 34,
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
@@ -4260,13 +4330,13 @@
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            33,
+                                                            35,
                                                         ),
                                                         kind: UpperOpen,
                                                     },
                                                     final_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            36,
+                                                            38,
                                                         ),
                                                         kind: LowerClosed,
                                                     },
@@ -4280,7 +4350,7 @@
                                             ),
                                         },
                                         Return {
-                                            result: 49,
+                                            result: 51,
                                         },
                                     ],
                                 },
@@ -4862,7 +4932,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            24,
+                            25,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -4906,20 +4976,25 @@
                                                 1,
                                             ),
                                         ),
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                29,
+                                            ),
+                                        ),
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
                                         HirEagerExprData::Field {
-                                            owner_hir_expr_idx: 6,
+                                            owner_hir_expr_idx: 7,
                                             ident: `mask`,
                                         },
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 7,
+                                            owner_hir_expr_idx: 8,
                                             items: [
-                                                8,
+                                                9,
                                             ],
                                         },
                                         HirEagerExprData::Variable(
@@ -4932,11 +5007,11 @@
                                             2,
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 11,
+                                            lopd: 12,
                                             opr: Closed(
                                                 Add,
                                             ),
-                                            ropd: 12,
+                                            ropd: 13,
                                         },
                                         HirEagerExprData::Variable(
                                             3,
@@ -4945,20 +5020,20 @@
                                             1,
                                         ),
                                         HirEagerExprData::Field {
-                                            owner_hir_expr_idx: 15,
+                                            owner_hir_expr_idx: 16,
                                             ident: `mask`,
                                         },
                                         HirEagerExprData::Variable(
                                             5,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 16,
+                                            owner_hir_expr_idx: 17,
                                             items: [
-                                                17,
+                                                18,
                                             ],
                                         },
                                         HirEagerExprData::MethodFnCall {
-                                            self_argument: 18,
+                                            self_argument: 19,
                                             ident: `span`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
@@ -4975,11 +5050,11 @@
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Binary {
-                                            lopd: 14,
+                                            lopd: 15,
                                             opr: AssignClosed(
                                                 Add,
                                             ),
-                                            ropd: 19,
+                                            ropd: 20,
                                         },
                                         HirEagerExprData::Variable(
                                             3,
@@ -4992,9 +5067,9 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 21,
+                                            lopd: 22,
                                             opr: As,
-                                            ropd: 22,
+                                            ropd: 23,
                                         },
                                         HirEagerExprData::Block {
                                             stmts: ArenaIdxRange(
@@ -5009,7 +5084,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: HirEagerCondition(
-                                                    9,
+                                                    10,
                                                 ),
                                                 stmts: ArenaIdxRange(
                                                     1..2,
@@ -5019,7 +5094,7 @@
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr_idx: 20,
+                                            expr_idx: 21,
                                             discarded: false,
                                         },
                                         Let {
@@ -5042,7 +5117,17 @@
                                             initial_value: 5,
                                         },
                                         Forext {
-                                            particulars: HirEagerForExtParticulars,
+                                            particulars: HirEagerForExtParticulars {
+                                                forext_loop_var_ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 260,
+                                                        },
+                                                    ),
+                                                ),
+                                                bound_expr_hir_eager_expr_idx: 6,
+                                                boundary_kind: UpperOpen,
+                                            },
                                             block: ArenaIdxRange(
                                                 2..3,
                                             ),
@@ -5059,13 +5144,13 @@
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            10,
+                                                            11,
                                                         ),
                                                         kind: LowerClosed,
                                                     },
                                                     final_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            13,
+                                                            14,
                                                         ),
                                                         kind: UpperOpen,
                                                     },
@@ -5079,7 +5164,7 @@
                                             ),
                                         },
                                         Return {
-                                            result: 23,
+                                            result: 24,
                                         },
                                     ],
                                 },
@@ -5271,7 +5356,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            24,
+                            25,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
@@ -5315,20 +5400,25 @@
                                                 1,
                                             ),
                                         ),
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                29,
+                                            ),
+                                        ),
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
                                         HirEagerExprData::Field {
-                                            owner_hir_expr_idx: 6,
+                                            owner_hir_expr_idx: 7,
                                             ident: `mask`,
                                         },
                                         HirEagerExprData::Variable(
                                             4,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 7,
+                                            owner_hir_expr_idx: 8,
                                             items: [
-                                                8,
+                                                9,
                                             ],
                                         },
                                         HirEagerExprData::Variable(
@@ -5341,11 +5431,11 @@
                                             2,
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 11,
+                                            lopd: 12,
                                             opr: Closed(
                                                 Add,
                                             ),
-                                            ropd: 12,
+                                            ropd: 13,
                                         },
                                         HirEagerExprData::Variable(
                                             3,
@@ -5354,20 +5444,20 @@
                                             1,
                                         ),
                                         HirEagerExprData::Field {
-                                            owner_hir_expr_idx: 15,
+                                            owner_hir_expr_idx: 16,
                                             ident: `mask`,
                                         },
                                         HirEagerExprData::Variable(
                                             5,
                                         ),
                                         HirEagerExprData::Index {
-                                            owner_hir_expr_idx: 16,
+                                            owner_hir_expr_idx: 17,
                                             items: [
-                                                17,
+                                                18,
                                             ],
                                         },
                                         HirEagerExprData::MethodFnCall {
-                                            self_argument: 18,
+                                            self_argument: 19,
                                             ident: `right_mass`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
@@ -5384,11 +5474,11 @@
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Binary {
-                                            lopd: 14,
+                                            lopd: 15,
                                             opr: AssignClosed(
                                                 Add,
                                             ),
-                                            ropd: 19,
+                                            ropd: 20,
                                         },
                                         HirEagerExprData::Variable(
                                             3,
@@ -5401,9 +5491,9 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 21,
+                                            lopd: 22,
                                             opr: As,
-                                            ropd: 22,
+                                            ropd: 23,
                                         },
                                         HirEagerExprData::Block {
                                             stmts: ArenaIdxRange(
@@ -5418,7 +5508,7 @@
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: HirEagerCondition(
-                                                    9,
+                                                    10,
                                                 ),
                                                 stmts: ArenaIdxRange(
                                                     1..2,
@@ -5428,7 +5518,7 @@
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr_idx: 20,
+                                            expr_idx: 21,
                                             discarded: false,
                                         },
                                         Let {
@@ -5451,7 +5541,17 @@
                                             initial_value: 5,
                                         },
                                         Forext {
-                                            particulars: HirEagerForExtParticulars,
+                                            particulars: HirEagerForExtParticulars {
+                                                forext_loop_var_ident: Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 260,
+                                                        },
+                                                    ),
+                                                ),
+                                                bound_expr_hir_eager_expr_idx: 6,
+                                                boundary_kind: UpperOpen,
+                                            },
                                             block: ArenaIdxRange(
                                                 2..3,
                                             ),
@@ -5468,13 +5568,13 @@
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            10,
+                                                            11,
                                                         ),
                                                         kind: LowerClosed,
                                                     },
                                                     final_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
-                                                            13,
+                                                            14,
                                                         ),
                                                         kind: UpperOpen,
                                                     },
@@ -5488,7 +5588,7 @@
                                             ),
                                         },
                                         Return {
-                                            result: 23,
+                                            result: 24,
                                         },
                                     ],
                                 },

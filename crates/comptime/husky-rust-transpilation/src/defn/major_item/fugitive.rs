@@ -38,7 +38,7 @@ impl TranspileToRust for FunctionFnFugitiveHirDecl {
             self.parenate_parameters(db).transpile_to_rust(builder);
             let return_ty = &self.return_ty(db);
             if !return_ty.is_equal_to_unit_obviously(db) {
-                builder.punctuation(RustPunctuation::LightArrow);
+                builder.opr(RustOpr::LightArrow);
                 return_ty.transpile_to_rust(builder)
             }
         })

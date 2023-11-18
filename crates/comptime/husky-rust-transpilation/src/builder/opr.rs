@@ -1,4 +1,79 @@
 use super::*;
+
+pub enum RustOpr {
+    Bra(RustBracket),
+    Ket(RustBracket),
+    Assign,
+    Colon,
+    Dot,
+    ColonColon,
+    LightArrow,
+    DotDot,
+    DotDotEq,
+    AddAssign,
+    Less,
+    Leq,
+    Greater,
+    Geq,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum RustBracket {
+    Par,       // Parentheses ()
+    Box,       // Box brackets []
+    TurboFish, // Turbofish ::<>
+    Angle,     // Angle <>
+    Curl,      // Curly brackets {}
+    Vertical,  // Vertical bars ||
+}
+
+impl RustBracket {
+    pub(crate) fn bra_code(self) -> &'static str {
+        match self {
+            RustBracket::Par => "(",
+            RustBracket::Box => "[",
+            RustBracket::TurboFish => "::<",
+            RustBracket::Angle => "<",
+            RustBracket::Curl => "{",
+            RustBracket::Vertical => "|",
+        }
+    }
+
+    pub(crate) fn ket_code(self) -> &'static str {
+        match self {
+            RustBracket::Par => ")",
+            RustBracket::Box => "]",
+            RustBracket::TurboFish => ">",
+            RustBracket::Angle => ">",
+            RustBracket::Curl => "}",
+            RustBracket::Vertical => "|",
+        }
+    }
+}
+
+impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
+    pub(crate) fn opr(&mut self, opr: RustOpr) {
+        let s = match opr {
+            RustOpr::Bra(bracket) => bracket.bra_code(),
+            RustOpr::Ket(bracket) => bracket.ket_code(),
+            RustOpr::Assign => " = ",
+            RustOpr::Colon => ": ",
+            RustOpr::Dot => ".",
+            RustOpr::ColonColon => "::",
+            RustOpr::LightArrow => " -> ",
+            RustOpr::DotDot => "..",
+            RustOpr::DotDotEq => "..=",
+            RustOpr::AddAssign => " += ",
+            RustOpr::Less => " < ",
+            RustOpr::Leq => "<=",
+            RustOpr::Greater => ">",
+            RustOpr::Geq => ">=",
+        };
+        self.write_str(s)
+    }
+}
+
+use super::*;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr, BinaryShiftOpr, BinaryShortcuitLogicOpr};
 
 impl<E> TranspileToRust<E> for HirBinaryOpr {
