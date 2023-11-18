@@ -15,4 +15,6 @@ impl<Db> RustTranspilationDb for Db where
 pub struct RustTranspilationJar(
     crate::defn::module_defn_rust_transpilation,
     crate::package::rust_transpilation_packages,
+    crate::linkages::package_linkage_transpilation,
+    crate::manifest::package_rust_manifest,
 );

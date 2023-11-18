@@ -1,5 +1,6 @@
 use crate::{
     defn::module_defn_rust_transpilation,
+    manifest::package_rust_manifest,
     package::{
         rust_transpilation_packages, RustTranspilationLibraryPackage,
         RustTranspilationLocalPackage, RustTranspilationPackage, RustTranspilationRegistryPackage,
@@ -64,7 +65,11 @@ fn transpile_package_to_fs(
     let package_dir = rust_dir.join(package_path.name(db).data(db));
     let src_dir = package_dir.join("src");
     let cargo_toml_path = package_dir.join("Cargo.toml");
-    husky_io_utils::diff_write(&cargo_toml_path, "whatever cargo", true);
+    husky_io_utils::diff_write(
+        &cargo_toml_path,
+        package_rust_manifest(db, package_path),
+        true,
+    );
     for &crate_path in package_path.crate_paths(db) {
         for &module_path in crate_module_paths(db, crate_path) {
             husky_io_utils::diff_write(
