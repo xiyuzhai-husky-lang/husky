@@ -5,7 +5,6 @@ use husky_sema_expr::{
     SemaForextParticulars,
 };
 
-
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = HirEagerExprDb)]
 pub struct HirEagerForBetweenParticulars {
@@ -62,12 +61,20 @@ impl ToHirEager for SemaForBetweenLoopBoundary {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct HirEagerForExtParticulars {}
+pub struct HirEagerForExtParticulars {
+    pub forext_loop_var_ident: Ident,
+    pub bound_expr_hir_eager_expr_idx: HirEagerExprIdx,
+    pub boundary_kind: LoopBoundaryKind,
+}
 
 impl ToHirEager for SemaForextParticulars {
     type Output = HirEagerForExtParticulars;
 
-    fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
-        HirEagerForExtParticulars {}
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        HirEagerForExtParticulars {
+            forext_loop_var_ident: self.forext_loop_var_ident,
+            bound_expr_hir_eager_expr_idx: self.bound_expr_sema_expr_idx.to_hir_eager(builder),
+            boundary_kind: self.boundary_kind,
+        }
     }
 }

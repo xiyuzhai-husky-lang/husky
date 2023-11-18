@@ -3,11 +3,10 @@ mod literal;
 mod macro_name;
 mod opr;
 mod path;
-mod punctuation;
 
 pub(crate) use self::keyword::*;
 pub(crate) use self::macro_name::*;
-pub(crate) use self::punctuation::*;
+pub(crate) use self::opr::*;
 
 use crate::*;
 use husky_coword::{Ident, Label};
@@ -108,7 +107,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
 
     fn write_display_copyable(&mut self, t: impl std::fmt::Display + Copy) {
         use std::fmt::Write;
-        write!(self.result, "{}", t);
+        write!(self.result, "{}", t).unwrap();
     }
 
     pub(crate) fn eager_head(
@@ -402,7 +401,7 @@ impl<E> TranspileToRust<E> for PrincipalEntityPath {
                     Some(PreludeTypePath::Option | PreludeTypePath::Result) => (),
                     _ => {
                         path.parent_ty_path(db).ident(db).transpile_to_rust(builder);
-                        builder.punctuation(RustPunctuation::ColonColon);
+                        builder.opr(RustOpr::ColonColon);
                     }
                 }
                 path.ident(db).transpile_to_rust(builder)

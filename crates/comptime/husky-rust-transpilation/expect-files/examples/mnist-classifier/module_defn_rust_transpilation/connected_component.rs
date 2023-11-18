@@ -34,24 +34,30 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
             while !flag {
                 flag = true;
                 let mut i = j;
-                // Forext incompleteloop {
-                    let old_row = mask[i + 1];
-                    let new_row = old_row | horizontal_extend(img[i + 1], mask[i]);
-                    if !new_row {
-                        break;
+                while i < 30 - 1 {
+                    {
+                        let old_row = mask[i + 1];
+                        let new_row = old_row | horizontal_extend(img[i + 1], mask[i]);
+                        if !new_row {
+                            break;
+                        }
+                        if old_row != new_row {
+                            flag = false;
+                            mask[i + 1] = new_row
+                        }
                     }
-                    if old_row != new_row {
-                        flag = false;
-                        mask[i + 1] = new_row
-                    }
+                    i += 1
                 }
-                // Forext incompleteloop {
-                    let old_row = mask[i];
-                    let new_row = old_row | horizontal_extend(img[i], mask[i + 1]);
-                    if old_row != new_row {
-                        flag = false;
-                        mask[i] = new_row
+                while i>=j {
+                    {
+                        let old_row = mask[i];
+                        let new_row = old_row | horizontal_extend(img[i], mask[i + 1]);
+                        if old_row != new_row {
+                            flag = false;
+                            mask[i] = new_row
+                        }
                     }
+                    i += -1
                 }
             }
             for k in j..30 {
