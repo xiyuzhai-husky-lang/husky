@@ -23,10 +23,11 @@ impl TranspileToRust for EnumTypeHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
-        builder.keyword(RustKeyword::Struct);
-        hir_decl.path(db).ident(db).transpile_to_rust(builder);
-        hir_decl.template_parameters(db).transpile_to_rust(builder);
-        // builder.bracketed_comma_list(RustBracket::Curl, hir_decl.variants(db))
+        builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
+            builder.keyword(RustKeyword::Struct);
+            hir_decl.path(db).ident(db).transpile_to_rust(builder);
+            hir_decl.template_parameters(db).transpile_to_rust(builder);
+        })
     }
 }
 
@@ -34,15 +35,17 @@ impl TranspileToRust for PropsStructTypeHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
-        builder.keyword(RustKeyword::Struct);
-        hir_decl.path(db).ident(db).transpile_to_rust(builder);
-        hir_decl.template_parameters(db).transpile_to_rust(builder);
-        builder.bracketed_comma_list(RustBracket::Curl, hir_decl.fields(db))
+        builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
+            builder.keyword(RustKeyword::Struct);
+            hir_decl.path(db).ident(db).transpile_to_rust(builder);
+            hir_decl.template_parameters(db).transpile_to_rust(builder);
+            builder.bracketed_comma_list(RustBracket::Curl, hir_decl.fields(db))
+        })
     }
 }
 
-impl TranspileToRust for PropsFieldHirDecl {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for PropsFieldHirDecl {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.ident().transpile_to_rust(builder);
         builder.punctuation(RustPunctuation::Colon);
         self.ty().transpile_to_rust(builder)
@@ -53,15 +56,17 @@ impl TranspileToRust for TupleStructTypeHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
-        builder.keyword(RustKeyword::Struct);
-        hir_decl.path(db).ident(db).transpile_to_rust(builder);
-        hir_decl.template_parameters(db).transpile_to_rust(builder);
-        builder.bracketed_comma_list(RustBracket::Curl, hir_decl.fields(db))
+        builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
+            builder.keyword(RustKeyword::Struct);
+            hir_decl.path(db).ident(db).transpile_to_rust(builder);
+            hir_decl.template_parameters(db).transpile_to_rust(builder);
+            builder.bracketed_comma_list(RustBracket::Curl, hir_decl.fields(db))
+        })
     }
 }
 
-impl TranspileToRust for TupleFieldHirDecl {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for TupleFieldHirDecl {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.ty().transpile_to_rust(builder)
     }
 }

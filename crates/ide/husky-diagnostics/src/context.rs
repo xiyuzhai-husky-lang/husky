@@ -2,7 +2,7 @@ use crate::*;
 use husky_ast::{AstIdx, AstSheet, AstTokenIdxRangeSheet, HasAstSheet};
 use husky_entity_syn_tree::{
     helpers::tokra_region::{HasDeclTokraRegion, HasSynDefnTokraRegion},
-    RegionPath,
+    SynNodeRegionPath,
 };
 use husky_fluffy_term::FluffyTermRegion;
 use husky_regional_token::{
@@ -97,9 +97,9 @@ impl<'a> RegionDiagnosticsContext<'a> {
         let sema_expr_region_data = db.sema_expr_region(syn_expr_region).data(db);
         let expr_range_region = db.expr_range_region(syn_expr_region);
         let regional_token_idx_base = match syn_expr_region_data.path() {
-            RegionPath::Snippet(_) => todo!(),
-            RegionPath::Decl(path) => path.decl_regional_token_idx_base(db),
-            RegionPath::Defn(path) => path.defn_regional_token_idx_base(db).expect("todo"),
+            SynNodeRegionPath::Snippet(_) => todo!(),
+            SynNodeRegionPath::Decl(path) => path.decl_regional_token_idx_base(db),
+            SynNodeRegionPath::Defn(path) => path.defn_regional_token_idx_base(db).expect("todo"),
         };
         Self {
             db,

@@ -100,6 +100,7 @@ fn hir_ty_from_ethereal_term_application(
                 application_expansion.arguments(db).iter().copied(),
             )
             .filter_map(|(param, arg)| {
+                todo!("incorrect; redo this");
                 let symbol = param.symbol();
                 match symbol.index(db).inner() {
                     EtherealTermSymbolIndexInner::ExplicitLifetime {

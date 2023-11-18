@@ -1,8 +1,8 @@
 use super::*;
 use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
 
-impl TranspileToRust for (IsLastStmt, HirEagerStmtIdx) {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let &(IsLastStmt(is_last_stmt), slf) = self;
         match *slf.data(builder.hir_eager_stmt_arena()) {
             HirEagerStmt::Let {
@@ -86,18 +86,27 @@ impl TranspileToRust for (IsLastStmt, HirEagerStmtIdx) {
                 }
                 block.transpile_to_rust(builder)
             }),
-            HirEagerStmt::Forext { particulars: _, block } => builder.on_new_line(|builder| {
+            HirEagerStmt::Forext {
+                particulars: _,
+                block,
+            } => builder.on_new_line(|builder| {
                 builder.comment("Forext incomplete");
                 builder.keyword(RustKeyword::Loop);
                 block.transpile_to_rust(builder)
             }),
-            HirEagerStmt::ForIn { condition: _, block: _ } => todo!(),
+            HirEagerStmt::ForIn {
+                condition: _,
+                block: _,
+            } => todo!(),
             HirEagerStmt::While { condition, stmts } => builder.on_new_line(|builder| {
                 builder.keyword(RustKeyword::While);
                 condition.transpile_to_rust(builder);
                 stmts.transpile_to_rust(builder)
             }),
-            HirEagerStmt::DoWhile { condition: _, block: _ } => {
+            HirEagerStmt::DoWhile {
+                condition: _,
+                block: _,
+            } => {
                 builder.comment("DoWhile incomplete");
                 builder.on_new_line(|builder| {
                     builder.keyword(RustKeyword::While);
@@ -123,14 +132,14 @@ impl TranspileToRust for (IsLastStmt, HirEagerStmtIdx) {
     }
 }
 
-impl TranspileToRust for HirEagerCondition {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for HirEagerCondition {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         any_precedence(self.hir_eager_expr_idx()).transpile_to_rust(builder)
     }
 }
 
-impl TranspileToRust for HirEagerLetVariablesPattern {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for HirEagerLetVariablesPattern {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.pattern_expr_idx().transpile_to_rust(builder);
         if let Some(ty) = self.ty() {
             builder.punctuation(RustPunctuation::Colon);
@@ -139,16 +148,16 @@ impl TranspileToRust for HirEagerLetVariablesPattern {
     }
 }
 
-impl TranspileToRust for HirEagerIfBranch {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for HirEagerIfBranch {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::If);
         self.condition.transpile_to_rust(builder);
         self.stmts.transpile_to_rust(builder)
     }
 }
 
-impl TranspileToRust for HirEagerElifBranch {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for HirEagerElifBranch {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Else);
         builder.keyword(RustKeyword::If);
         self.condition.transpile_to_rust(builder);
@@ -156,15 +165,15 @@ impl TranspileToRust for HirEagerElifBranch {
     }
 }
 
-impl TranspileToRust for HirEagerElseBranch {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for HirEagerElseBranch {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Else);
         self.stmts.transpile_to_rust(builder)
     }
 }
 
-impl TranspileToRust for HirEagerStmtIdxRange {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for HirEagerStmtIdxRange {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let end = self.end();
         builder.curly_block(|builder| {
             for stmt in self {

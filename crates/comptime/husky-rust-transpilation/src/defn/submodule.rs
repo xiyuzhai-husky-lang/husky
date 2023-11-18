@@ -1,9 +1,8 @@
 use super::*;
 use crate::builder::keyword::RustKeyword;
 
-
-impl TranspileToRust for SubmoduleHirDefn {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl<E> TranspileToRust<E> for SubmoduleHirDefn {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         builder.on_new_semicolon_line(|builder| {
             builder.keyword(RustKeyword::Pub);
             builder.keyword(RustKeyword::Mod);

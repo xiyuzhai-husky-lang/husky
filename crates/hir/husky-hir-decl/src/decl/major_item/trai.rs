@@ -5,6 +5,7 @@ pub struct TraitHirDecl {
     pub path: TraitPath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 impl HasHirDecl for TraitPath {
@@ -23,5 +24,6 @@ fn trai_hir_decl(db: &dyn HirDeclDb, path: TraitPath) -> TraitHirDecl {
         db,
         path,
         HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder),
+        builder.finish().eager(),
     )
 }

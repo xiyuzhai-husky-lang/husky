@@ -41,7 +41,7 @@ impl<'a> SynSymbolContextMut<'a> {
         self,
         db: &dyn SynExprDb,
         parent: Option<SynExprRegion>,
-        path: RegionPath,
+        path: SynNodeRegionPath,
         expr_arena: SynExprArena,
         principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
         pattern_expr_region: SynPatternExprRegion,

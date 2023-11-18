@@ -9,7 +9,7 @@ use husky_vfs::ModulePath;
 
 pub struct SynExprContext<'a> {
     db: &'a dyn SynExprDb,
-    path: RegionPath,
+    path: SynNodeRegionPath,
     module_path: ModulePath,
     crate_root_path: ModulePath,
     parent_syn_expr_region: Option<SynExprRegion>,
@@ -36,7 +36,7 @@ impl<'a, 'b> IsSynExprContext<'a> for &'b mut SynExprContext<'a> {}
 impl<'a> SynExprContext<'a> {
     pub fn new(
         db: &'a dyn SynExprDb,
-        path: RegionPath,
+        path: SynNodeRegionPath,
         module_symbol_context: ModuleSymbolContext<'a>,
         parent_expr_region: Option<SynExprRegion>,
         allow_self_type: AllowSelfType,
@@ -175,7 +175,7 @@ impl<'a> SynExprContext<'a> {
         self.has_self_place = true;
     }
 
-    pub fn path(&self) -> RegionPath {
+    pub fn path(&self) -> SynNodeRegionPath {
         self.path
     }
 

@@ -35,7 +35,7 @@ impl<'a> SynStmtContext<'a> {
         let module_path = syn_node_path.module_path(db);
         let expr_context = SynExprContext::new(
             db,
-            RegionPath::Defn(syn_node_path.into()),
+            SynNodeRegionPath::Defn(syn_node_path.into()),
             db.module_symbol_context(module_path).unwrap(),
             Some(decl_expr_region),
             allow_self_type,

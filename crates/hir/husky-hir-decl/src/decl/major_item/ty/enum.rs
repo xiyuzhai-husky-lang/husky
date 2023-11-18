@@ -6,14 +6,11 @@ pub struct EnumTypeHirDecl {
     pub path: TypePath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 impl EnumTypeHirDecl {
-    pub(super) fn from_syn(path: TypePath, _syn_decl: EnumTypeSynDecl, db: &dyn HirDeclDb) -> Self {
-        let TypeSynDecl::Enum(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
-            unreachable!()
-        };
+    pub(super) fn from_syn(path: TypePath, syn_decl: EnumTypeSynDecl, db: &dyn HirDeclDb) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);

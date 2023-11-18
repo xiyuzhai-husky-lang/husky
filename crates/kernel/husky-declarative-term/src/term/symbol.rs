@@ -7,7 +7,7 @@ pub use self::index::*;
 pub use self::set::*;
 
 use super::*;
-use husky_entity_syn_tree::RegionPath;
+use husky_entity_syn_tree::SynNodeRegionPath;
 use thiserror::Error;
 use vec_like::VecSet;
 
@@ -164,7 +164,7 @@ pub enum DeclarativeTermSymbolTypeErrorKind {
     #[error("sketch declarative_term error")]
     SketchDeclarativeTermError,
     #[error("cannot infer type expression term")]
-    CannotInferTypeExprTerm(RegionPath),
+    CannotInferTypeExprTerm(SynNodeRegionPath),
 }
 
 pub type DeclarativeTermSymbolTypeResult<T> = Result<T, DeclarativeTermSymbolTypeErrorKind>;

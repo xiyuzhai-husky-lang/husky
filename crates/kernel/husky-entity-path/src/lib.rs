@@ -5,6 +5,7 @@ mod db;
 mod error;
 mod menu;
 mod path;
+pub mod region;
 #[cfg(test)]
 mod tests;
 mod utils;

@@ -9,7 +9,7 @@ pub(crate) use engine::*;
 
 use crate::*;
 
-use husky_entity_syn_tree::RegionPath;
+use husky_entity_syn_tree::SynNodeRegionPath;
 use husky_syn_expr::{
     AllowSelfType, CurrentSynSymbolIdx, InheritedSynSymbolIdx, ParentSynSymbolIdx, SynExprIdx,
     SynExprMap, SynExprRegion, SynPatternExprIdx, SynPatternExprMap, SynPatternSymbolMap,
@@ -23,7 +23,7 @@ use husky_syn_expr::{
 /// should contains term information enough for generating declarations
 #[derive(Debug, PartialEq, Eq)]
 pub struct DeclarativeTermRegion {
-    path: RegionPath,
+    path: SynNodeRegionPath,
     term_symbol_region: SymbolDeclarativeTermRegion,
     expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
@@ -32,7 +32,7 @@ pub struct DeclarativeTermRegion {
 
 impl DeclarativeTermRegion {
     pub(crate) fn new(
-        path: RegionPath,
+        path: SynNodeRegionPath,
         term_symbol_region: SymbolDeclarativeTermRegion,
         expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
         pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
@@ -63,7 +63,7 @@ impl DeclarativeTermRegion {
         self.expr_terms[expr].as_ref().copied()
     }
 
-    pub fn path(&self) -> RegionPath {
+    pub fn path(&self) -> SynNodeRegionPath {
         self.path
     }
 }

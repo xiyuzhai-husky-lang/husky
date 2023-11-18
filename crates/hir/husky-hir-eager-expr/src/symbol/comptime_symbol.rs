@@ -10,11 +10,13 @@ use husky_syn_expr::{
 };
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = HirEagerExprDb)]
 pub struct HirEagerComptimeSymbolRegionData {
     arena: HirEagerComptimeSymbolArena,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = HirEagerExprDb)]
 pub struct HirEagerComptimeSymbolEntry {
     name: HirEagerComptimeSymbolName,
     data: HirEagerComptimeSymbolData,

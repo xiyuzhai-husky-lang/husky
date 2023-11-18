@@ -29,7 +29,14 @@
                                 },
                             ],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::option::Option`, `Enum`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -43,17 +50,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 115,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `T`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,

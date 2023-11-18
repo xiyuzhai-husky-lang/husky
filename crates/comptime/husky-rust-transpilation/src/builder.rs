@@ -21,30 +21,29 @@ use husky_hir_eager_expr::{
     HirEagerStmtArena,
 };
 use husky_hir_expr::HirExprRegion;
-use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyStmtArena};
+use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyExprRegion, HirLazyStmtArena};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{HirComptimeSymbol, HirConstant, HirTemplateArgument, HirType, HirTypeSymbol};
+use husky_print_utils::p;
 use husky_term_prelude::TermLiteral;
 
 const INDENT_UNIT: u32 = 4;
 
-pub(crate) struct RustTranspilationBuilder<'a> {
+pub(crate) struct RustTranspilationBuilderBase<'a> {
     db: &'a dyn RustTranspilationDb,
     result: String,
     current_indent: u32,
     is_list_start: Option<bool>,
-    hir_expr_region: Option<HirExprRegion>,
     spaced: bool,
 }
 
-impl<'a> RustTranspilationBuilder<'a> {
+impl<'a> RustTranspilationBuilderBase<'a> {
     pub(crate) fn new(db: &'a dyn RustTranspilationDb, result: Option<&'static str>) -> Self {
         Self {
             db,
             result: Default::default(),
             current_indent: 0,
             is_list_start: None,
-            hir_expr_region: None,
             spaced: true,
         }
     }
@@ -59,17 +58,6 @@ impl<'a> RustTranspilationBuilder<'a> {
 
     pub(crate) fn db(&self) -> &'a dyn RustTranspilationDb {
         self.db
-    }
-
-    pub(crate) fn on_new_semicolon_line(&mut self, f: impl FnOnce(&mut Self)) {
-        self.make_fresh_line();
-        f(self);
-        self.write_str(";")
-    }
-
-    pub(crate) fn on_new_line(&mut self, f: impl FnOnce(&mut Self)) {
-        self.make_fresh_line();
-        f(self);
     }
 
     fn make_fresh_line(&mut self) {
@@ -123,22 +111,56 @@ impl<'a> RustTranspilationBuilder<'a> {
         write!(self.result, "{}", t);
     }
 
-    pub(crate) fn bracketed_comma_list<A: TranspileToRust>(
+    pub(crate) fn eager_head(
         &mut self,
-        bracket: RustBracket,
-        items: impl IntoIterator<Item = A>,
+        hir_eager_expr_region: HirEagerExprRegion,
+        head: impl FnOnce(&mut RustTranspilationBuilder<HirEagerExprRegion>),
     ) {
-        self.write_str(bracket.bra_code());
-        let mut start = true;
-        for item in items {
-            if start {
-                start = false
-            } else {
-                self.write_str(", ")
-            }
-            item.transpile_to_rust(self)
-        }
-        self.write_str(bracket.ket_code());
+        head(&mut RustTranspilationBuilder {
+            base: self,
+            extension: hir_eager_expr_region,
+        })
+    }
+
+    pub(crate) fn eager_body(
+        &mut self,
+        hir_eager_expr_region: HirEagerExprRegion,
+        body: HirEagerExprIdx,
+    ) {
+        any_precedence(body).transpile_to_rust(&mut RustTranspilationBuilder {
+            base: self,
+            extension: hir_eager_expr_region,
+        })
+    }
+
+    pub(crate) fn rem_eulid(&mut self) {
+        self.write_str("rem_eulicd")
+    }
+
+    pub(crate) fn pow(&mut self) {
+        self.write_str("pow")
+    }
+
+    pub(crate) fn zero(&mut self) {
+        self.write_str("0")
+    }
+}
+
+pub(crate) struct RustTranspilationBuilder<'a, 'b, E = ()> {
+    base: &'b mut RustTranspilationBuilderBase<'a>,
+    extension: E,
+}
+
+impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
+    pub(crate) fn on_new_semicolon_line(&mut self, f: impl FnOnce(&mut Self)) {
+        self.make_fresh_line();
+        f(self);
+        self.write_str(";")
+    }
+
+    pub(crate) fn on_new_line(&mut self, f: impl FnOnce(&mut Self)) {
+        self.make_fresh_line();
+        f(self);
     }
 
     pub(crate) fn heterogeneous_bracketed_comma_list(
@@ -151,27 +173,6 @@ impl<'a> RustTranspilationBuilder<'a> {
         items(self);
         self.write_str(bracket.ket_code());
         self.is_list_start = is_list_start
-    }
-
-    pub(crate) fn heterogeneous_comma_list_items<A: TranspileToRust>(
-        &mut self,
-        items: impl IntoIterator<Item = A>,
-    ) {
-        for item in items {
-            self.heterogeneous_comma_list_item(item)
-        }
-    }
-
-    pub(crate) fn heterogeneous_comma_list_item<A: TranspileToRust>(&mut self, item: A) {
-        let Some(ref mut is_list_start) = self.is_list_start else {
-            unreachable!()
-        };
-        if *is_list_start {
-            *is_list_start = false
-        } else {
-            self.write_str(", ")
-        }
-        item.transpile_to_rust(self)
     }
 
     pub(crate) fn curly_block(&mut self, f: impl FnOnce(&mut Self)) {
@@ -189,90 +190,90 @@ impl<'a> RustTranspilationBuilder<'a> {
         self.write_str("}");
     }
 
-    pub(crate) fn eager_head(
+    pub(crate) fn heterogeneous_comma_list_items<A: TranspileToRust<E>>(
         &mut self,
-        hir_eager_expr_region: HirEagerExprRegion,
-        head: impl FnOnce(&mut Self),
+        items: impl IntoIterator<Item = A>,
     ) {
-        debug_assert!(self.hir_expr_region.is_none());
-        self.hir_expr_region = Some(hir_eager_expr_region.into());
-        head(self);
-        self.hir_expr_region = None
+        for item in items {
+            self.heterogeneous_comma_list_item(item)
+        }
     }
 
-    pub(crate) fn eager_body(
-        &mut self,
-        hir_eager_expr_region: HirEagerExprRegion,
-        body: HirEagerExprIdx,
-    ) {
-        debug_assert!(self.hir_expr_region.is_none());
-        self.hir_expr_region = Some(hir_eager_expr_region.into());
-        any_precedence(body).transpile_to_rust(self);
-        self.hir_expr_region = None
-    }
-
-    // todo: there is room for optimization
-    pub(crate) fn hir_eager_expr_arena(&self) -> &'a HirEagerExprArena {
-        let Some(HirExprRegion::Eager(hir_eager_expr_region)) = self.hir_expr_region else {
+    pub(crate) fn heterogeneous_comma_list_item<A: TranspileToRust<E>>(&mut self, item: A) {
+        let Some(ref mut is_list_start) = self.is_list_start else {
             unreachable!()
         };
-        hir_eager_expr_region.hir_eager_expr_arena(self.db)
+        if *is_list_start {
+            *is_list_start = false
+        } else {
+            self.write_str(", ")
+        }
+        item.transpile_to_rust(self)
+    }
+
+    pub(crate) fn bracketed_comma_list<A: TranspileToRust<E>>(
+        &mut self,
+        bracket: RustBracket,
+        items: impl IntoIterator<Item = A>,
+    ) {
+        self.write_str(bracket.bra_code());
+        let mut start = true;
+        for item in items {
+            if start {
+                start = false
+            } else {
+                self.write_str(", ")
+            }
+            item.transpile_to_rust(self)
+        }
+        self.write_str(bracket.ket_code());
+    }
+}
+
+impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
+    pub(crate) fn new(base: &'b mut RustTranspilationBuilderBase<'a>) -> Self {
+        Self {
+            base,
+            extension: (),
+        }
+    }
+}
+
+impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
+    // todo: there is room for optimization
+    pub(crate) fn hir_eager_expr_arena(&self) -> &'a HirEagerExprArena {
+        self.extension.hir_eager_expr_arena(self.db)
     }
 
     // todo: there is room for optimization
     pub(crate) fn hir_eager_pattern_expr_arena(&self) -> &'a HirEagerPatternExprArena {
-        let Some(HirExprRegion::Eager(hir_eager_expr_region)) = self.hir_expr_region else {
-            unreachable!()
-        };
-        hir_eager_expr_region.hir_eager_pattern_expr_arena(self.db)
+        self.extension.hir_eager_pattern_expr_arena(self.db)
     }
 
     // todo: there is room for optimization
     pub(crate) fn hir_eager_stmt_arena(&self) -> &'a HirEagerStmtArena {
-        let Some(HirExprRegion::Eager(hir_eager_expr_region)) = self.hir_expr_region else {
-            unreachable!()
-        };
-        hir_eager_expr_region.hir_eager_stmt_arena(self.db)
-    }
-
-    // todo: there is room for optimization
-    pub(crate) fn hir_lazy_expr_arena(&self) -> &'a HirLazyExprArena {
-        let Some(HirExprRegion::Lazy(hir_lazy_expr_region)) = self.hir_expr_region else {
-            unreachable!()
-        };
-        hir_lazy_expr_region.hir_lazy_expr_arena(self.db)
-    }
-
-    // todo: there is room for optimization
-    pub(crate) fn hir_lazy_stmt_arena(&self) -> &'a HirLazyStmtArena {
-        let Some(HirExprRegion::Lazy(hir_lazy_expr_region)) = self.hir_expr_region else {
-            unreachable!()
-        };
-        hir_lazy_expr_region.hir_lazy_stmt_arena(self.db)
-    }
-
-    pub(crate) fn rem_eulid(&mut self) {
-        self.write_str("rem_eulicd")
-    }
-
-    pub(crate) fn pow(&mut self) {
-        self.write_str("pow")
-    }
-
-    pub(crate) fn zero(&mut self) {
-        self.write_str("0")
+        self.extension.hir_eager_stmt_arena(self.db)
     }
 
     fn hir_comptime_symbol(&mut self, symbol: impl Into<HirComptimeSymbol>) {
         let hir_comptime_symbol = symbol.into();
-        let Some(HirExprRegion::Eager(hir_eager_expr_region)) = self.hir_expr_region else {
-            todo!()
-        };
-        match hir_eager_expr_region
+        let Some(symbol_name) = self
+            .extension
             .hir_eager_comptime_symbol_region_data(self.db)
             .symbol_name(hir_comptime_symbol)
-            .expect("todo")
-        {
+        else {
+            let db = self.db;
+            use salsa::DebugWithDb;
+            p!(
+                self.extension.path(db).debug(db),
+                hir_comptime_symbol.debug(db),
+                self.extension
+                    .hir_eager_comptime_symbol_region_data(db)
+                    .debug(db)
+            );
+            todo!()
+        };
+        match symbol_name {
             HirEagerComptimeSymbolName::SelfType => self.word("Self"),
             HirEagerComptimeSymbolName::Ident(ident) => ident.transpile_to_rust(self),
             HirEagerComptimeSymbolName::Label(label) => label.transpile_to_rust(self),
@@ -280,24 +281,50 @@ impl<'a> RustTranspilationBuilder<'a> {
     }
 }
 
-pub(crate) trait TranspileToRust {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder);
-}
+impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirLazyExprRegion> {
+    // todo: there is room for optimization
+    pub(crate) fn hir_lazy_expr_arena(&self) -> &'a HirLazyExprArena {
+        self.extension.hir_lazy_expr_arena(self.db)
+    }
 
-impl<T> TranspileToRust for &T
-where
-    T: TranspileToRust,
-{
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        <T as TranspileToRust>::transpile_to_rust(self, builder)
+    // todo: there is room for optimization
+    pub(crate) fn hir_lazy_stmt_arena(&self) -> &'a HirLazyStmtArena {
+        self.extension.hir_lazy_stmt_arena(self.db)
     }
 }
 
-impl<T> TranspileToRust for Option<T>
+impl<'a, 'b, E> std::ops::Deref for RustTranspilationBuilder<'a, 'b, E> {
+    type Target = RustTranspilationBuilderBase<'a>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.base
+    }
+}
+
+impl<'a, 'b, E> std::ops::DerefMut for RustTranspilationBuilder<'a, 'b, E> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.base
+    }
+}
+
+pub(crate) trait TranspileToRust<E = ()> {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>);
+}
+
+impl<T, E> TranspileToRust<E> for &T
 where
-    T: TranspileToRust,
+    T: TranspileToRust<E>,
 {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+        <T as TranspileToRust<E>>::transpile_to_rust(self, builder)
+    }
+}
+
+impl<T, E> TranspileToRust<E> for Option<T>
+where
+    T: TranspileToRust<E>,
+{
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
             Some(t) => t.transpile_to_rust(builder),
             None => (),
@@ -305,21 +332,23 @@ where
     }
 }
 
-impl TranspileToRust for Ident {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        builder.word(self.data(builder.db()))
+impl<E> TranspileToRust<E> for Ident {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+        let db = builder.db();
+        builder.word(self.data(db))
     }
 }
 
-impl TranspileToRust for Label {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl<E> TranspileToRust<E> for Label {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+        let db = builder.db();
         builder.write_str("'");
-        builder.write_str(self.ident().data(builder.db))
+        builder.write_str(self.ident().data(db))
     }
 }
 
-impl TranspileToRust for HirComptimeSymbol {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl<E> TranspileToRust<E> for HirComptimeSymbol {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
             HirComptimeSymbol::Type(symbol) => match symbol {
                 HirTypeSymbol::Type {
@@ -343,8 +372,8 @@ impl TranspileToRust for HirComptimeSymbol {
     }
 }
 
-impl TranspileToRust for HirType {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for HirType {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db;
         match *self {
             HirType::PathLeading(path_leading_hir_ty) => {
@@ -362,8 +391,8 @@ impl TranspileToRust for HirType {
     }
 }
 
-impl TranspileToRust for PrincipalEntityPath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl<E> TranspileToRust<E> for PrincipalEntityPath {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
         match self {
             PrincipalEntityPath::Module(path) => path.ident(db).transpile_to_rust(builder),
@@ -382,15 +411,15 @@ impl TranspileToRust for PrincipalEntityPath {
     }
 }
 
-impl TranspileToRust for TypePath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl<E> TranspileToRust<E> for TypePath {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         self.ident(db).transpile_to_rust(builder)
     }
 }
 
-impl TranspileToRust for HirTemplateArgument {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for HirTemplateArgument {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
             HirTemplateArgument::Vacant => todo!(),
             HirTemplateArgument::Type(hir_ty) => hir_ty.transpile_to_rust(builder),
@@ -401,8 +430,8 @@ impl TranspileToRust for HirTemplateArgument {
     }
 }
 
-impl TranspileToRust for HirConstant {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for HirConstant {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
             HirConstant::Unit(_) => todo!(),
             HirConstant::Bool(_) => todo!(),
@@ -430,8 +459,8 @@ impl TranspileToRust for HirConstant {
     }
 }
 
-impl TranspileToRust for TermLiteral {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl<E> TranspileToRust<E> for TermLiteral {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         match self {
             TermLiteral::Unit => builder.write_str("()"),
@@ -466,24 +495,20 @@ impl TranspileToRust for TermLiteral {
     }
 }
 
-impl<'a> RustTranspilationBuilder<'a> {
+impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn self_ty(&mut self) {
-        self.write_str("Self")
+        self.word("Self")
     }
 
     pub(crate) fn self_value(&mut self) {
-        self.write_str("self")
+        self.word("self")
     }
 }
-impl TranspileToRust for HirEagerRuntimeSymbolIdx {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        use std::fmt::Write;
-        let Some(HirExprRegion::Eager(hir_eager_expr_region)) = builder.hir_expr_region else {
-            unreachable!()
-        };
+impl TranspileToRust<HirEagerExprRegion> for HirEagerRuntimeSymbolIdx {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db;
         let hir_eager_runtime_symbol_region_data =
-            hir_eager_expr_region.hir_eager_runtime_symbol_region_data(db);
+            builder.extension.hir_eager_runtime_symbol_region_data(db);
         if builder.result.ends_with(|c: char| c.is_alphabetic()) {
             builder.write_str(" ")
         }

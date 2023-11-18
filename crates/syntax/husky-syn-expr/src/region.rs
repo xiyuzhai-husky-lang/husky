@@ -12,7 +12,7 @@ pub struct SynExprRegion {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct SynExprRegionData {
     parent: Option<SynExprRegion>,
-    path: RegionPath,
+    path: SynNodeRegionPath,
     expr_arena: SynExprArena,
     principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
     stmt_arena: SynStmtArena,
@@ -28,7 +28,7 @@ pub struct SynExprRegionData {
 impl SynExprRegionData {
     pub(crate) fn new(
         parent: Option<SynExprRegion>,
-        path: RegionPath,
+        path: SynNodeRegionPath,
         expr_arena: SynExprArena,
         principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
         stmt_arena: SynStmtArena,
@@ -84,11 +84,11 @@ impl SynExprRegionData {
         self.parent
     }
 
-    pub fn path(&self) -> RegionPath {
+    pub fn path(&self) -> SynNodeRegionPath {
         self.path
     }
 
-    pub fn path_ref(&self) -> &RegionPath {
+    pub fn path_ref(&self) -> &SynNodeRegionPath {
         &self.path
     }
 
@@ -215,8 +215,8 @@ impl SynExprRegion {
     pub fn toolchain(self, db: &dyn SynExprDb) -> Toolchain {
         // ad hoc
         match self.data(db).path {
-            RegionPath::Snippet(module_path) => module_path.toolchain(db),
-            RegionPath::Decl(syn_node_path) | RegionPath::Defn(syn_node_path) => {
+            SynNodeRegionPath::Snippet(module_path) => module_path.toolchain(db),
+            SynNodeRegionPath::Decl(syn_node_path) | SynNodeRegionPath::Defn(syn_node_path) => {
                 syn_node_path.toolchain(db)
             }
         }

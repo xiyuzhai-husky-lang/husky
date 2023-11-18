@@ -46,7 +46,7 @@ impl RustBracket {
     }
 }
 
-impl<'a> RustTranspilationBuilder<'a> {
+impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn punctuation(&mut self, punctuation: RustPunctuation) {
         let s = match punctuation {
             RustPunctuation::Bra(bracket) => bracket.bra_code(),

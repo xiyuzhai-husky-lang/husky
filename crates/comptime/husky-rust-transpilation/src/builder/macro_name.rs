@@ -24,7 +24,7 @@ impl RustMacroName {
     }
 }
 
-impl<'a> RustTranspilationBuilder<'a> {
+impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn macro_name(&mut self, macro_name: RustMacroName) {
         if self.result.ends_with(|c: char| c.is_alphabetic()) {
             self.write_str(" ")

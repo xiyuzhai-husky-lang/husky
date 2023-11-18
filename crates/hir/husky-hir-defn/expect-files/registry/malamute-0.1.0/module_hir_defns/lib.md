@@ -29,7 +29,14 @@
                                 },
                             ],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`malamute::Class`, `Enum`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -43,17 +50,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 545,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `Label`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -106,7 +107,14 @@
                                 },
                             ],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -120,17 +128,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 545,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `Label`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -183,7 +185,14 @@
                                 },
                             ],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -197,17 +206,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 545,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `Label`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -350,6 +353,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `malamute`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::Class`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `Output`,
+                                            item_kind: AssociatedType,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -363,17 +384,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 545,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `Label`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -474,6 +489,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `malamute`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `Output`,
+                                            item_kind: AssociatedType,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -487,17 +520,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 545,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `Label`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,

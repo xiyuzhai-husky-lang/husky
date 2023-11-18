@@ -9,7 +9,7 @@ pub struct PropsStructTypeHirDecl {
     pub template_parameters: HirTemplateParameters,
     #[return_ref]
     pub fields: SmallVec<[PropsFieldHirDecl; 4]>,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

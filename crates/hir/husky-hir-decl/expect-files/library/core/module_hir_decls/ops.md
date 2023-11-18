@@ -26,6 +26,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::Add`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -56,6 +99,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::AddAssign`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -86,6 +172,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::BitAnd`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -116,6 +245,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::BitAndAssign`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -146,6 +318,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::BitOr`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -176,6 +391,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::BitOrAssign`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -206,6 +464,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::BitXor`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -236,6 +537,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::BitXorAssign`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -266,6 +610,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::Div`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -296,6 +683,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::DivAssign`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -306,6 +736,35 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::IntIndex`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -336,6 +795,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::Mul`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -366,6 +868,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::MulAssign`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -376,6 +921,35 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::Neg`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -386,6 +960,35 @@
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::Not`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -416,6 +1019,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::Sub`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `Rhs`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),
@@ -446,6 +1092,49 @@
                         },
                     ],
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::ops::Unveil`),
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `T`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),

@@ -1,6 +1,5 @@
 use crate::*;
 
-
 use husky_decl_ast::DeclAst;
 
 use husky_entity_syn_tree::{
@@ -8,8 +7,6 @@ use husky_entity_syn_tree::{
     *,
 };
 use husky_print_utils::p;
-
-
 
 pub(crate) struct DeclParser<'a, P>
 where
@@ -50,7 +47,7 @@ where
     ) -> SynDeclExprParser<'a> {
         SynExprContext::new(
             self.db,
-            RegionPath::Decl(self.syn_node_path.into()),
+            SynNodeRegionPath::Decl(self.syn_node_path.into()),
             self.module_symbol_context,
             parent_expr_region,
             allow_self_type,

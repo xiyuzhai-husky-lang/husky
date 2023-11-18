@@ -19,7 +19,6 @@ use husky_entity_path::TypePath;
 
 use husky_syn_decl::TypeSynDecl;
 
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum TypeHirDecl {
@@ -59,13 +58,13 @@ impl TypeHirDecl {
 
     pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
         match self {
-            TypeHirDecl::Enum(decl) => decl.hir_expr_region(db).into(),
-            TypeHirDecl::UnitStruct(decl) => decl.hir_expr_region(db).into(),
+            TypeHirDecl::Enum(decl) => decl.hir_eager_expr_region(db).into(),
+            TypeHirDecl::UnitStruct(decl) => decl.hir_eager_expr_region(db).into(),
             TypeHirDecl::TupleStruct(decl) => decl.hir_eager_expr_region(db).into(),
-            TypeHirDecl::PropsStruct(decl) => decl.hir_expr_region(db).into(),
-            TypeHirDecl::Record(decl) => decl.hir_expr_region(db).into(),
-            TypeHirDecl::Extern(decl) => decl.hir_expr_region(db).into(),
-            TypeHirDecl::Union(decl) => decl.hir_expr_region(db).into(),
+            TypeHirDecl::PropsStruct(decl) => decl.hir_eager_expr_region(db).into(),
+            TypeHirDecl::Record(decl) => decl.hir_eager_expr_region(db).into(),
+            TypeHirDecl::Extern(decl) => decl.hir_eager_expr_region(db).into(),
+            TypeHirDecl::Union(decl) => decl.hir_eager_expr_region(db).into(),
         }
     }
 }
