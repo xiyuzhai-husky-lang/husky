@@ -1,5 +1,6 @@
 use crate::*;
-use husky_ethereal_term::EtherealTerm;
+use husky_ethereal_term::{EtherealTerm, EtherealTermSymbolIndexInner};
+use husky_term_prelude::TermEntityPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -21,25 +22,47 @@ pub enum HirTemplateArgument {
     Place(HirPlaceSymbol),
 }
 
+impl From<HirComptimeSymbol> for HirTemplateArgument {
+    fn from(symbol: HirComptimeSymbol) -> Self {
+        match symbol {
+            HirComptimeSymbol::Type(symbol) => HirTemplateArgument::Type(symbol.into()),
+            HirComptimeSymbol::Const(symbol) => HirTemplateArgument::Constant(symbol.into()),
+            HirComptimeSymbol::Lifetime(symbol) => HirTemplateArgument::Lifetime(symbol),
+            HirComptimeSymbol::Place(symbol) => HirTemplateArgument::Place(symbol),
+        }
+    }
+}
+
 pub type HirTemplateArguments = smallvec::SmallVec<[HirTemplateArgument; 2]>;
 
+// .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db))),
 impl HirTemplateArgument {
-    pub(crate) fn from_ethereal(argument: EtherealTerm, db: &dyn HirTypeDb) -> Self {
-        match argument {
-            EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(_) => todo!(),
+    pub(crate) fn from_ethereal(argument: EtherealTerm, db: &dyn HirTypeDb) -> Option<Self> {
+        Some(match argument {
+            EtherealTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
+            EtherealTerm::Symbol(symbol) => HirComptimeSymbol::from_ethereal(symbol, db)?.into(),
             EtherealTerm::Variable(_) => todo!(),
-            EtherealTerm::EntityPath(_) => todo!(),
+            EtherealTerm::EntityPath(path) => match path {
+                TermEntityPath::Fugitive(path) => todo!(),
+                TermEntityPath::Trait(_) => todo!(),
+                TermEntityPath::TypeOntology(ty_path) => HirTemplateArgument::Type(
+                    HirTypePathLeading::new(db, ty_path, Default::default()).into(),
+                ),
+                TermEntityPath::TypeInstance(_) => todo!(),
+                TermEntityPath::TypeVariant(_) => todo!(),
+            },
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),
             EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => todo!(),
+            EtherealTerm::Ritchie(_) => HirType::Ritchie().into(),
             EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(_) => todo!(),
+            EtherealTerm::Application(application) => {
+                hir_ty_from_ethereal_term_application(db, application).into()
+            }
             EtherealTerm::Subitem(_) => todo!(),
             EtherealTerm::AsTraitSubitem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
-        }
+        })
     }
 }
 

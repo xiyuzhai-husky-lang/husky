@@ -1,7 +1,7 @@
 [
     SemaExprRegion {
         [salsa id]: 146,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -30,7 +30,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -94,7 +94,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -118,7 +118,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -284,7 +284,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -380,7 +380,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -631,7 +631,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -2269,7 +2269,7 @@
     },
     SemaExprRegion {
         [salsa id]: 148,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -2298,7 +2298,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -2362,7 +2362,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -2386,7 +2386,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -2457,7 +2457,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -2481,7 +2481,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -2622,7 +2622,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -3463,7 +3463,7 @@
     },
     SemaExprRegion {
         [salsa id]: 150,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -3492,7 +3492,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -3556,7 +3556,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -3580,7 +3580,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -3701,7 +3701,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -3763,7 +3763,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -3968,7 +3968,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -5354,7 +5354,7 @@
     },
     SemaExprRegion {
         [salsa id]: 152,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -5383,7 +5383,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -5447,7 +5447,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -5471,7 +5471,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -5542,7 +5542,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -5566,7 +5566,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -5750,7 +5750,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -7044,7 +7044,7 @@
     },
     SemaExprRegion {
         [salsa id]: 154,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -7073,7 +7073,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -7137,7 +7137,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -7161,7 +7161,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -7282,7 +7282,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -7344,7 +7344,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -7461,7 +7461,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -8160,7 +8160,7 @@
     },
     SemaExprRegion {
         [salsa id]: 157,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -8189,7 +8189,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -8253,7 +8253,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -8277,7 +8277,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -8348,7 +8348,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -8372,7 +8372,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -8513,7 +8513,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -9354,7 +9354,7 @@
     },
     SemaExprRegion {
         [salsa id]: 159,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -9383,7 +9383,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -9447,7 +9447,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -9471,7 +9471,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -9592,7 +9592,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -9654,7 +9654,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -9859,7 +9859,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -11245,7 +11245,7 @@
     },
     SemaExprRegion {
         [salsa id]: 161,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -11274,7 +11274,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -11338,7 +11338,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -11362,7 +11362,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -11433,7 +11433,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -11457,7 +11457,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -11641,7 +11641,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -12935,7 +12935,7 @@
     },
     SemaExprRegion {
         [salsa id]: 163,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -12964,7 +12964,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -13028,7 +13028,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -13052,7 +13052,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -13173,7 +13173,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -13235,7 +13235,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -13400,7 +13400,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -14593,7 +14593,7 @@
     },
     SemaExprRegion {
         [salsa id]: 165,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -14622,7 +14622,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -14686,7 +14686,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -14710,7 +14710,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -14831,7 +14831,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -14893,7 +14893,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -15058,7 +15058,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -16251,7 +16251,7 @@
     },
     SemaExprRegion {
         [salsa id]: 167,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -16280,7 +16280,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -16344,7 +16344,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -16368,7 +16368,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -16489,7 +16489,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -16551,7 +16551,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -17129,7 +17129,7 @@
                         ],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -20338,7 +20338,7 @@
     },
     SemaExprRegion {
         [salsa id]: 169,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -20367,7 +20367,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -20431,7 +20431,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -20455,7 +20455,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -20576,7 +20576,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -20638,7 +20638,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -20755,7 +20755,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -21454,7 +21454,7 @@
     },
     SemaExprRegion {
         [salsa id]: 171,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -21483,7 +21483,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -21547,7 +21547,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -21571,7 +21571,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -21737,7 +21737,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -21833,7 +21833,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -22747,7 +22747,7 @@
                         ],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -27672,7 +27672,7 @@
     },
     SemaExprRegion {
         [salsa id]: 174,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -27701,7 +27701,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -27765,7 +27765,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -27789,7 +27789,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -27910,7 +27910,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -27972,7 +27972,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -28507,7 +28507,7 @@
                         ],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -31671,7 +31671,7 @@
     },
     SemaExprRegion {
         [salsa id]: 176,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -31700,7 +31700,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -31764,7 +31764,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -31788,7 +31788,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -31909,7 +31909,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -31971,7 +31971,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -32192,7 +32192,7 @@
                         ],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -33534,7 +33534,7 @@
     },
     SemaExprRegion {
         [salsa id]: 179,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -33563,7 +33563,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -33627,7 +33627,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -33651,7 +33651,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -33772,7 +33772,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -33834,7 +33834,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -34073,7 +34073,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -35633,7 +35633,7 @@
     },
     SemaExprRegion {
         [salsa id]: 181,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -35662,7 +35662,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -35726,7 +35726,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -35750,7 +35750,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -35871,7 +35871,7 @@
                                     ],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -35933,7 +35933,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -36172,7 +36172,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [
                             InheritedSynSymbol {
@@ -37732,7 +37732,7 @@
     },
     SemaExprRegion {
         [salsa id]: 183,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -37761,7 +37761,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -37825,7 +37825,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -37849,7 +37849,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -37920,7 +37920,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -37944,7 +37944,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -38030,7 +38030,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -38533,7 +38533,7 @@
     },
     SemaExprRegion {
         [salsa id]: 185,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -38562,7 +38562,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -38626,7 +38626,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -38650,7 +38650,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -38721,7 +38721,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -38745,7 +38745,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -38831,7 +38831,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -39334,7 +39334,7 @@
     },
     SemaExprRegion {
         [salsa id]: 187,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -39363,7 +39363,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -39427,7 +39427,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -39451,7 +39451,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -39522,7 +39522,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -39546,7 +39546,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -39632,7 +39632,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -40135,7 +40135,7 @@
     },
     SemaExprRegion {
         [salsa id]: 189,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -40164,7 +40164,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -40228,7 +40228,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -40252,7 +40252,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -40323,7 +40323,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -40347,7 +40347,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -40433,7 +40433,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -40936,7 +40936,7 @@
     },
     SemaExprRegion {
         [salsa id]: 192,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -40965,7 +40965,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -41029,7 +41029,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -41053,7 +41053,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -41124,7 +41124,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -41148,7 +41148,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -41234,7 +41234,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -41737,7 +41737,7 @@
     },
     SemaExprRegion {
         [salsa id]: 194,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -41766,7 +41766,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -41830,7 +41830,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -41854,7 +41854,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -41925,7 +41925,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -41949,7 +41949,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -42035,7 +42035,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -42538,7 +42538,7 @@
     },
     SemaExprRegion {
         [salsa id]: 196,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -42567,7 +42567,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -42631,7 +42631,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -42655,7 +42655,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -42726,7 +42726,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -42750,7 +42750,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -42836,7 +42836,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -43339,7 +43339,7 @@
     },
     SemaExprRegion {
         [salsa id]: 198,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
@@ -43368,7 +43368,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TypeImplBlock(
                                                     TypeImplBlockSynNodePath {
@@ -43432,7 +43432,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -43456,7 +43456,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TypeItem(
                                         TypeItemSynNodePath {
@@ -43527,7 +43527,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -43551,7 +43551,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
                             TypeItemSynNodePath {
@@ -43637,7 +43637,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },

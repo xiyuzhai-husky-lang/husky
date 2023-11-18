@@ -1,7 +1,7 @@
 [
     SemaExprRegion {
         [salsa id]: 268,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
@@ -19,7 +19,7 @@
                     SynExprRegion {
                         data: SynExprRegionData {
                             parent: None,
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
@@ -95,7 +95,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -119,7 +119,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
@@ -235,7 +235,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -738,7 +738,7 @@
     },
     SemaExprRegion {
         [salsa id]: 270,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
@@ -756,7 +756,7 @@
                     SynExprRegion {
                         data: SynExprRegionData {
                             parent: None,
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
@@ -826,7 +826,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -850,7 +850,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
@@ -1437,7 +1437,7 @@
                         ],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -3939,7 +3939,7 @@
     },
     SemaExprRegion {
         [salsa id]: 272,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
@@ -3957,7 +3957,7 @@
                     SynExprRegion {
                         data: SynExprRegionData {
                             parent: None,
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
@@ -4020,7 +4020,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -4044,7 +4044,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
@@ -4426,7 +4426,7 @@
                         ],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -6080,7 +6080,7 @@
     },
     SemaExprRegion {
         [salsa id]: 274,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
@@ -6098,7 +6098,7 @@
                     SynExprRegion {
                         data: SynExprRegionData {
                             parent: None,
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
@@ -6181,7 +6181,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -6205,7 +6205,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
@@ -6292,7 +6292,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -6674,7 +6674,7 @@
     },
     SemaExprRegion {
         [salsa id]: 276,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
@@ -6692,7 +6692,7 @@
                     SynExprRegion {
                         data: SynExprRegionData {
                             parent: None,
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
@@ -6762,7 +6762,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -6786,7 +6786,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
@@ -6898,7 +6898,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -7541,7 +7541,7 @@
     },
     SemaExprRegion {
         [salsa id]: 278,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
@@ -7559,7 +7559,7 @@
                     SynExprRegion {
                         data: SynExprRegionData {
                             parent: None,
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
@@ -7629,7 +7629,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -7653,7 +7653,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
@@ -7740,7 +7740,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },
@@ -8134,7 +8134,7 @@
     },
     SemaExprRegion {
         [salsa id]: 280,
-        path: RegionPath::Defn(
+        path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
@@ -8152,7 +8152,7 @@
                     SynExprRegion {
                         data: SynExprRegionData {
                             parent: None,
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
@@ -8235,7 +8235,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -8259,7 +8259,7 @@
                         },
                     },
                 ),
-                path: RegionPath::Defn(
+                path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
@@ -8346,7 +8346,7 @@
                         data: [],
                     },
                 },
-                symbol_region: SynSymbolRegion {
+                symbol_region: SynSymbolRegionData {
                     inherited_syn_symbol_arena: Arena {
                         data: [],
                     },

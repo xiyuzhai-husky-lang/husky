@@ -60,12 +60,8 @@
                                         ty_path: TypePath(`core::array::Array`, `Extern`),
                                         template_arguments: [
                                             Constant(
-                                                Symbol(
-                                                    HirConstSymbol(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
+                                                USize(
+                                                    30,
                                                 ),
                                             ),
                                             Type(
@@ -133,12 +129,8 @@
                                         ty_path: TypePath(`core::array::Array`, `Extern`),
                                         template_arguments: [
                                             Constant(
-                                                Symbol(
-                                                    HirConstSymbol(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
+                                                USize(
+                                                    31,
                                                 ),
                                             ),
                                             Type(
