@@ -10,17 +10,20 @@ pub(crate) use self::macro_name::*;
 pub(crate) use self::punctuation::*;
 
 use crate::*;
-use husky_coword::Ident;
+use husky_coword::{Ident, Label};
 use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
 use husky_hir_eager_expr::{
-    variable::{HirEagerVariableIdx, VariableName},
+    symbol::{
+        comptime_symbol::HirEagerComptimeSymbolName,
+        runtime_symbol::{HirEagerRuntimeSymbolIdx, HirEagerRuntimeSymbolName},
+    },
     HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion, HirEagerPatternExprArena,
     HirEagerStmtArena,
 };
 use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyStmtArena};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
-use husky_hir_ty::{HirConstant, HirTemplateArgument, HirTemplateSymbol, HirType, HirTypeSymbol};
+use husky_hir_ty::{HirComptimeSymbol, HirConstant, HirTemplateArgument, HirType, HirTypeSymbol};
 use husky_term_prelude::TermLiteral;
 
 const INDENT_UNIT: u32 = 4;
@@ -106,6 +109,13 @@ impl<'a> RustTranspilationBuilder<'a> {
 
     fn write_str(&mut self, s: &str) {
         self.result += s
+    }
+
+    fn word(&mut self, word: &str) {
+        if self.result.ends_with(|c: char| c.is_alphanumeric()) {
+            self.write_str(" ")
+        }
+        self.write_str(word)
     }
 
     fn write_display_copyable(&mut self, t: impl std::fmt::Display + Copy) {
@@ -252,6 +262,22 @@ impl<'a> RustTranspilationBuilder<'a> {
     pub(crate) fn zero(&mut self) {
         self.write_str("0")
     }
+
+    fn hir_comptime_symbol(&mut self, symbol: impl Into<HirComptimeSymbol>) {
+        let hir_comptime_symbol = symbol.into();
+        let Some(HirExprRegion::Eager(hir_eager_expr_region)) = self.hir_expr_region else {
+            todo!()
+        };
+        match hir_eager_expr_region
+            .hir_eager_comptime_symbol_region_data(self.db)
+            .symbol_name(hir_comptime_symbol)
+            .expect("todo")
+        {
+            HirEagerComptimeSymbolName::SelfType => self.word("Self"),
+            HirEagerComptimeSymbolName::Ident(ident) => ident.transpile_to_rust(self),
+            HirEagerComptimeSymbolName::Label(label) => label.transpile_to_rust(self),
+        }
+    }
 }
 
 pub(crate) trait TranspileToRust {
@@ -281,17 +307,21 @@ where
 
 impl TranspileToRust for Ident {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        if builder.result.ends_with(|c: char| c.is_alphabetic()) {
-            builder.write_str(" ")
-        }
-        builder.write_str(self.data(builder.db()))
+        builder.word(self.data(builder.db()))
     }
 }
 
-impl TranspileToRust for HirTemplateSymbol {
+impl TranspileToRust for Label {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        builder.write_str("'");
+        builder.write_str(self.ident().data(builder.db))
+    }
+}
+
+impl TranspileToRust for HirComptimeSymbol {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         match self {
-            HirTemplateSymbol::Type(symbol) => match symbol {
+            HirComptimeSymbol::Type(symbol) => match symbol {
                 HirTypeSymbol::Type {
                     attrs: _,
                     variance: _,
@@ -306,9 +336,9 @@ impl TranspileToRust for HirTemplateSymbol {
                 HirTypeSymbol::SelfLifetime => todo!(),
                 HirTypeSymbol::SelfPlace => todo!(),
             },
-            HirTemplateSymbol::Const(_) => todo!(),
-            HirTemplateSymbol::Lifetime(_) => todo!(),
-            HirTemplateSymbol::Place(_) => todo!(),
+            HirComptimeSymbol::Const(_) => todo!(),
+            HirComptimeSymbol::Lifetime(_) => todo!(),
+            HirComptimeSymbol::Place(_) => todo!(),
         }
     }
 }
@@ -316,7 +346,7 @@ impl TranspileToRust for HirTemplateSymbol {
 impl TranspileToRust for HirType {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db;
-        match self {
+        match *self {
             HirType::PathLeading(path_leading_hir_ty) => {
                 path_leading_hir_ty.ty_path(db).transpile_to_rust(builder);
                 let template_arguments = path_leading_hir_ty.template_arguments(db);
@@ -324,7 +354,7 @@ impl TranspileToRust for HirType {
                     builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
                 }
             }
-            HirType::Symbol(_) => builder.write_str(" HirTypeSymbolTodo "),
+            HirType::Symbol(symbol) => builder.hir_comptime_symbol(symbol),
             HirType::TypeAssociatedType(_) => todo!(),
             HirType::TraitAssociatedType(_) => todo!(),
             HirType::Ritchie() => builder.write_str(" HirTypeRitchieTodo "),
@@ -373,7 +403,7 @@ impl TranspileToRust for HirTemplateArgument {
 
 impl TranspileToRust for HirConstant {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        match self {
+        match *self {
             HirConstant::Unit(_) => todo!(),
             HirConstant::Bool(_) => todo!(),
             HirConstant::Char(_) => todo!(),
@@ -395,7 +425,7 @@ impl TranspileToRust for HirConstant {
             HirConstant::R64(_) => todo!(),
             HirConstant::R128(_) => todo!(),
             HirConstant::RSize(_) => todo!(),
-            HirConstant::Symbol(_) => builder.write_str("HirConstantSymbolTodo"),
+            HirConstant::Symbol(symbol) => builder.hir_comptime_symbol(symbol),
         }
     }
 }
@@ -445,20 +475,21 @@ impl<'a> RustTranspilationBuilder<'a> {
         self.write_str("self")
     }
 }
-impl TranspileToRust for HirEagerVariableIdx {
+impl TranspileToRust for HirEagerRuntimeSymbolIdx {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         use std::fmt::Write;
         let Some(HirExprRegion::Eager(hir_eager_expr_region)) = builder.hir_expr_region else {
             unreachable!()
         };
         let db = builder.db;
-        let hir_eager_variable_region = hir_eager_expr_region.hir_eager_variable_region(db);
+        let hir_eager_runtime_symbol_region_data =
+            hir_eager_expr_region.hir_eager_runtime_symbol_region_data(db);
         if builder.result.ends_with(|c: char| c.is_alphabetic()) {
             builder.write_str(" ")
         }
-        match hir_eager_variable_region[*self].name() {
-            VariableName::SelfValue => builder.write_str("self"),
-            VariableName::Ident(ident) => builder.write_str(ident.data(db)),
+        match hir_eager_runtime_symbol_region_data[*self].name() {
+            HirEagerRuntimeSymbolName::SelfValue => builder.word("self"),
+            HirEagerRuntimeSymbolName::Ident(ident) => ident.transpile_to_rust(builder),
         }
     }
 }

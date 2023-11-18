@@ -134,11 +134,11 @@ impl<Db: CowordDb + ?Sized> DebugWithDb<Db> for Ident {
 
 /// only use in this module
 #[salsa::tracked(jar = CowordJar)]
-pub(crate) fn ident_to_name(db: &dyn CowordDb, ident: Ident) -> Name {
+pub(crate) fn ident_to_name(db: &dyn CowordDb, ident: Ident) -> Kebab {
     let ident_data = ident.data(db);
     if !ident_data.contains("_") {
-        return unsafe { Name::from_coword_unchecked(ident.0) };
+        return unsafe { Kebab::from_coword_unchecked(ident.0) };
     } else {
-        Name::from_owned(db, ident_data.replace("_", "-")).unwrap()
+        Kebab::from_owned(db, ident_data.replace("_", "-")).unwrap()
     }
 }

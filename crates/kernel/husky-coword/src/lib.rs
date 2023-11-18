@@ -1,25 +1,25 @@
 mod db;
 mod ident;
+mod kebab;
 mod label;
 mod menu;
-mod name;
 mod style;
 #[cfg(test)]
 mod tests;
 
 pub use self::db::*;
 pub use self::ident::*;
+pub use self::kebab::*;
 pub use self::label::*;
 pub use self::menu::*;
-pub use self::name::*;
 pub use self::style::*;
 
 #[salsa::jar(db = CowordDb)]
 pub struct CowordJar(
     Coword,
     ident_menu,
-    name_to_ident,
-    is_coword_valid_name,
+    kebab_to_ident,
+    is_coword_valid_kebab,
     ident_to_name,
 );
 

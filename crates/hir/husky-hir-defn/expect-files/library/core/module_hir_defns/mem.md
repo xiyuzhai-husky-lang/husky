@@ -64,7 +64,58 @@
                             hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            hir_eager_variable_region: HirEagerVariableRegion {
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Label(
+                                                Label {
+                                                    ident: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 53,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    kind: AllNonGreek,
+                                                },
+                                            ),
+                                            data: Current,
+                                            hir_comptime_symbol: Lifetime(
+                                                HirLifetimeSymbol {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: Some(
+                                                        Covariant,
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Current,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: Some(
+                                                        Covariant,
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -141,7 +192,58 @@
                             hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            hir_eager_variable_region: HirEagerVariableRegion {
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Label(
+                                                Label {
+                                                    ident: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 53,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    kind: AllNonGreek,
+                                                },
+                                            ),
+                                            data: Current,
+                                            hir_comptime_symbol: Lifetime(
+                                                HirLifetimeSymbol {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: Some(
+                                                        Covariant,
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Current,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: Some(
+                                                        Invariant,
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -195,7 +297,34 @@
                             hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            hir_eager_variable_region: HirEagerVariableRegion {
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Current,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: Some(
+                                                        Covariant,
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -268,7 +397,54 @@
                             hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            hir_eager_variable_region: HirEagerVariableRegion {
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Label(
+                                                Label {
+                                                    ident: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 57,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    kind: AllGreek,
+                                                },
+                                            ),
+                                            data: Current,
+                                            hir_comptime_symbol: Place(
+                                                HirPlaceSymbol {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Current,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                 arena: Arena {
                                     data: [],
                                 },

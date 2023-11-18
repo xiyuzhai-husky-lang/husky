@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_expr::{
     CurrentSynSymbol, CurrentSynSymbolData, InheritedSynSymbol, InheritedSynSymbolKind,
-    SynSymbolMap, SynSymbolRegion,
+    SynSymbolMap, SynSymbolRegionData,
 };
 use idx_arena::ArenaIdx;
 
@@ -106,9 +106,10 @@ impl HirLazyVariableData {
             CurrentSynSymbolData::FieldVariable { ident_token: _ } => {
                 Some(HirLazyVariableData::FieldVariable)
             }
-            CurrentSynSymbolData::LoopVariable { ident: _, expr_idx: _ } => {
-                Some(HirLazyVariableData::LoopVariable)
-            }
+            CurrentSynSymbolData::LoopVariable {
+                ident: _,
+                expr_idx: _,
+            } => Some(HirLazyVariableData::LoopVariable),
         }
     }
 }
@@ -124,33 +125,34 @@ pub struct HirLazyVariableRegion {
 
 impl HirLazyVariableRegion {
     pub(crate) fn from_syn(
-        syn_symbol_region: &SynSymbolRegion,
+        syn_symbol_region: &SynSymbolRegionData,
     ) -> (Self, SynSymbolMap<HirLazyVariableIdx>) {
         let mut arena = HirLazyVariableArena::default();
-        let mut syn_symbol_to_hir_eager_variable_map =
+        let mut syn_symbol_to_hir_eager_runtime_symbol_map =
             SynSymbolMap::<HirLazyVariableIdx>::new(syn_symbol_region);
         for (inherited_syn_symbol_idx, inherited_syn_symbol) in
             syn_symbol_region.indexed_inherited_syn_symbols()
         {
-            if let Some(hir_eager_variable) =
+            if let Some(hir_eager_runtime_symbol) =
                 HirLazyVariable::from_inherited_syn(inherited_syn_symbol)
             {
-                let hir_eager_variable_idx = arena.alloc_one(hir_eager_variable);
-                syn_symbol_to_hir_eager_variable_map
-                    .push_inherited(inherited_syn_symbol_idx, hir_eager_variable_idx)
+                let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
+                syn_symbol_to_hir_eager_runtime_symbol_map
+                    .push_inherited(inherited_syn_symbol_idx, hir_eager_runtime_symbol_idx)
             }
         }
         for (current_syn_symbol_idx, current_syn_symbol) in
             syn_symbol_region.indexed_current_syn_symbols()
         {
-            if let Some(hir_eager_variable) = HirLazyVariable::from_current_syn(current_syn_symbol)
+            if let Some(hir_eager_runtime_symbol) =
+                HirLazyVariable::from_current_syn(current_syn_symbol)
             {
-                let hir_eager_variable_idx = arena.alloc_one(hir_eager_variable);
-                syn_symbol_to_hir_eager_variable_map
-                    .push_current(current_syn_symbol_idx, hir_eager_variable_idx)
+                let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
+                syn_symbol_to_hir_eager_runtime_symbol_map
+                    .push_current(current_syn_symbol_idx, hir_eager_runtime_symbol_idx)
             }
         }
-        (Self { arena }, syn_symbol_to_hir_eager_variable_map)
+        (Self { arena }, syn_symbol_to_hir_eager_runtime_symbol_map)
     }
 
     pub fn arena(&self) -> &HirLazyVariableArena {

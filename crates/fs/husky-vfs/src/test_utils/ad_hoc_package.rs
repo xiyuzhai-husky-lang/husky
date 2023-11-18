@@ -21,7 +21,7 @@ impl AdHocPackage {
         let package_path = PackagePath::new_local_or_toolchain_package(
             db,
             db.dev_toolchain().unwrap(),
-            Name::from_ref(db, "ad-hoc-314").unwrap(),
+            Kebab::from_ref(db, "ad-hoc-314").unwrap(),
             &package_fs_path,
         )
         .unwrap();

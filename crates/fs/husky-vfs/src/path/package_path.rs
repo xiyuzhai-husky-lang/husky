@@ -35,7 +35,7 @@ pub enum PackagePathSource {
 #[salsa::interned(jar = VfsJar, db = VfsDb, constructor = new_inner)]
 pub struct PackagePath {
     pub toolchain: Toolchain,
-    pub name: Name,
+    pub name: Kebab,
     #[return_ref]
     pub data: PackagePathSource,
 }
@@ -45,7 +45,7 @@ impl PackagePath {
     pub fn new_local_or_toolchain_package(
         db: &dyn VfsDb,
         toolchain: Toolchain,
-        name: Name,
+        name: Kebab,
         path: &Path,
     ) -> VfsResult<Self> {
         match name.data(db) {
@@ -67,14 +67,14 @@ impl PackagePath {
         }
     }
 
-    pub fn new_toolchain_package(db: &dyn VfsDb, toolchain: Toolchain, name: Name) -> Self {
+    pub fn new_toolchain_package(db: &dyn VfsDb, toolchain: Toolchain, name: Kebab) -> Self {
         PackagePath::new_inner(db, toolchain, name, PackagePathSource::Library)
     }
 
     pub fn new_registry_package(
         db: &dyn VfsDb,
         toolchain: Toolchain,
-        name: Name,
+        name: Kebab,
         registry_path: RegistryPath,
         version: semver::Version,
     ) -> Self {

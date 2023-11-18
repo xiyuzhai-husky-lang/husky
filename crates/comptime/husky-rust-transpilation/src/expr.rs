@@ -43,8 +43,8 @@ fn transpile_hir_eager_expr_to_rust(
             principal_entity_path.transpile_to_rust(builder)
         }
         HirEagerExprData::ConstSymbol(_) => todo!(),
-        HirEagerExprData::Variable(hir_eager_variable_idx) => {
-            hir_eager_variable_idx.transpile_to_rust(builder)
+        HirEagerExprData::Variable(hir_eager_runtime_symbol_idx) => {
+            hir_eager_runtime_symbol_idx.transpile_to_rust(builder)
         }
         HirEagerExprData::Binary { lopd, opr, ropd } => match opr {
             HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {

@@ -1,11 +1,11 @@
 use crate::*;
-use husky_coword::Name;
+use husky_coword::Kebab;
 use vec_like::AsVecMapEntry;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ManifestDependencyAst {
     line_group_idx: TomlLineGroupIdx,
-    name: Name,
+    name: Kebab,
 }
 
 impl TransformFromTomlKeyedAst<ManifestAstTransformContext> for ManifestDependencyAst {
@@ -16,7 +16,7 @@ impl TransformFromTomlKeyedAst<ManifestAstTransformContext> for ManifestDependen
     ) -> ManifestAstResult<Self> {
         Ok(ManifestDependencyAst {
             line_group_idx: transformer.line_group_idx(),
-            name: Name::from_coword(transformer.db(), transformer.key())
+            name: Kebab::from_coword(transformer.db(), transformer.key())
                 .ok_or(OriginalManifestAstError::InvalidName)?,
         })
     }
@@ -27,13 +27,13 @@ impl ManifestDependencyAst {
         self.line_group_idx
     }
 
-    pub fn name(&self) -> Name {
+    pub fn name(&self) -> Kebab {
         self.name
     }
 }
 
 impl AsVecMapEntry for ManifestDependencyAst {
-    type K = Name;
+    type K = Kebab;
 
     fn key(&self) -> Self::K
     where

@@ -1,5 +1,5 @@
 use husky_coword::IdentPairMap;
-use husky_hir_eager_expr::variable::HirEagerVariableIdx;
+use husky_hir_eager_expr::symbol::runtime_symbol::HirEagerRuntimeSymbolIdx;
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
 
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
@@ -48,7 +48,7 @@ pub struct EagerPatternExprTrace {
     pub biological_parent: EagerPatternExprTraceBiologicalParent,
     pub syn_pattern_expr_idx: SynPatternExprIdx,
     #[return_ref]
-    pub hir_eager_variable_idxs: IdentPairMap<Option<HirEagerVariableIdx>>,
+    pub hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeSymbolIdx>>,
     #[skip_fmt]
     pub sema_expr_region: SemaExprRegion,
 }
@@ -64,7 +64,7 @@ impl EagerPatternExprTrace {
         biological_parent_path: impl Into<EagerPatternExprTraceBiologicalParentPath>,
         biological_parent: impl Into<EagerPatternExprTraceBiologicalParent>,
         syn_pattern_expr_idx: SynPatternExprIdx,
-        hir_eager_variable_idxs: IdentPairMap<Option<HirEagerVariableIdx>>,
+        hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeSymbolIdx>>,
         sema_expr_region: SemaExprRegion,
         eager_pattern_expr_trace_path_registry: &mut TracePathRegistry<
             EagerPatternExprTracePathData,
@@ -83,7 +83,7 @@ impl EagerPatternExprTrace {
             path,
             biological_parent.into(),
             syn_pattern_expr_idx,
-            hir_eager_variable_idxs,
+            hir_eager_runtime_symbol_idxs,
             sema_expr_region,
         )
     }

@@ -9,7 +9,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -22,7 +22,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 44,
+                                        value: 59,
                                     },
                                 ),
                             ),
@@ -93,10 +93,15 @@
                                     },
                                 ],
                             },
-                            hir_eager_variable_region: HirEagerVariableRegion {
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerVariable {
+                                        HirEagerRuntimeSymbolEntry {
                                             name: Ident(
                                                 Ident(
                                                     Coword(
@@ -162,10 +167,15 @@
                                 hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
-                                hir_eager_variable_region: HirEagerVariableRegion {
+                                hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                    arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerVariable {
+                                            HirEagerRuntimeSymbolEntry {
                                                 name: Ident(
                                                     Ident(
                                                         Coword(
@@ -198,7 +208,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -211,7 +221,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 46,
+                                        value: 61,
                                     },
                                 ),
                             ),
@@ -231,7 +241,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -244,7 +254,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 47,
+                                        value: 62,
                                     },
                                 ),
                             ),
@@ -264,7 +274,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -277,7 +287,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 48,
+                                        value: 63,
                                     },
                                 ),
                             ),
@@ -348,10 +358,15 @@
                                     },
                                 ],
                             },
-                            hir_eager_variable_region: HirEagerVariableRegion {
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerVariable {
+                                        HirEagerRuntimeSymbolEntry {
                                             name: Ident(
                                                 Ident(
                                                     Coword(
@@ -464,10 +479,15 @@
                                         },
                                     ],
                                 },
-                                hir_eager_variable_region: HirEagerVariableRegion {
+                                hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                    arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerVariable {
+                                            HirEagerRuntimeSymbolEntry {
                                                 name: Ident(
                                                     Ident(
                                                         Coword(
@@ -479,7 +499,7 @@
                                                 ),
                                                 data: ParenateParameter,
                                             },
-                                            HirEagerVariable {
+                                            HirEagerRuntimeSymbolEntry {
                                                 name: Ident(
                                                     Ident(
                                                         Coword(
@@ -563,10 +583,15 @@
                                     },
                                 ],
                             },
-                            hir_eager_variable_region: HirEagerVariableRegion {
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerVariable {
+                                        HirEagerRuntimeSymbolEntry {
                                             name: Ident(
                                                 Ident(
                                                     Coword(
@@ -739,10 +764,15 @@
                                         },
                                     ],
                                 },
-                                hir_eager_variable_region: HirEagerVariableRegion {
+                                hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                    arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerVariable {
+                                            HirEagerRuntimeSymbolEntry {
                                                 name: Ident(
                                                     Ident(
                                                         Coword(
@@ -754,7 +784,7 @@
                                                 ),
                                                 data: ParenateParameter,
                                             },
-                                            HirEagerVariable {
+                                            HirEagerRuntimeSymbolEntry {
                                                 name: Ident(
                                                     Ident(
                                                         Coword(

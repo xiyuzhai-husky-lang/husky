@@ -13,7 +13,7 @@ use husky_entity_syn_tree::RegionPath;
 use husky_syn_expr::{
     AllowSelfType, CurrentSynSymbolIdx, InheritedSynSymbolIdx, ParentSynSymbolIdx, SynExprIdx,
     SynExprMap, SynExprRegion, SynPatternExprIdx, SynPatternExprMap, SynPatternSymbolMap,
-    SynSymbolRegion,
+    SynSymbolRegionData,
 };
 
 /// preparation for generating signature

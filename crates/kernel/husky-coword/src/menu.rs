@@ -2,9 +2,9 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CowordMenu {
-    std_name: Name,
+    std_name: Kebab,
     std_ident: Ident,
-    core_name: Name,
+    core_name: Kebab,
     core_ident: Ident,
     unit_ident: Ident,
     never_ident: Ident,
@@ -41,9 +41,9 @@ pub struct CowordMenu {
 impl CowordMenu {
     pub(crate) fn new(db: &dyn CowordDb) -> Self {
         Self {
-            core_name: Name::from_ref(db, "core").unwrap(),
+            core_name: Kebab::from_ref(db, "core").unwrap(),
             core_ident: Ident::from_borrowed(db, "core").unwrap(),
-            std_name: Name::from_ref(db, "std").unwrap(),
+            std_name: Kebab::from_ref(db, "std").unwrap(),
             std_ident: Ident::from_borrowed(db, "std").unwrap(),
             unit_ident: db.it_ident_borrowed("unit").unwrap(),
             never_ident: db.it_ident_borrowed("never").unwrap(),
@@ -78,7 +78,7 @@ impl CowordMenu {
         }
     }
 
-    pub fn core_name(&self) -> Name {
+    pub fn core_name(&self) -> Kebab {
         self.core_name
     }
 
@@ -86,7 +86,7 @@ impl CowordMenu {
         self.core_ident
     }
 
-    pub fn std_name(&self) -> Name {
+    pub fn std_name(&self) -> Kebab {
         self.std_name
     }
 

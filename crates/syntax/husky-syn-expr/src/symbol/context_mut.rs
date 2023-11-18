@@ -4,19 +4,19 @@ use super::*;
 
 pub struct SynSymbolContextMut<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
-    symbol_region: SynSymbolRegion,
+    symbol_region: SynSymbolRegionData,
 }
 
 impl<'a> SynSymbolContextMut<'a> {
     pub fn new(
         module_symbol_context: ModuleSymbolContext<'a>,
-        parent_symbol_region: Option<&SynSymbolRegion>,
+        parent_symbol_region: Option<&SynSymbolRegionData>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> Self {
         Self {
             module_symbol_context,
-            symbol_region: SynSymbolRegion::new(
+            symbol_region: SynSymbolRegionData::new(
                 parent_symbol_region,
                 allow_self_type,
                 allow_self_value,
@@ -85,7 +85,7 @@ impl<'a> SynSymbolContextMut<'a> {
         self.symbol_region.define_symbols(variables, ty_constraint)
     }
 
-    pub(crate) fn symbol_region(&self) -> &SynSymbolRegion {
+    pub(crate) fn symbol_region(&self) -> &SynSymbolRegionData {
         &self.symbol_region
     }
 }

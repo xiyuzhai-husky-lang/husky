@@ -181,7 +181,7 @@ impl SymbolDeclarativeTermRegion {
         &mut self,
         db: &dyn DeclarativeSignatureDb,
         region_path: RegionPath,
-        symbol_region: &SynSymbolRegion,
+        symbol_region: &SynSymbolRegionData,
     ) {
         if symbol_region.allow_self_ty().to_bool() && self.self_ty.is_none() {
             self.self_ty = match region_path {

@@ -9,7 +9,7 @@ pub struct SymbolMap<V> {
 }
 
 impl<V> SymbolMap<V> {
-    pub fn new(parent: Option<&Self>, region: &SynSymbolRegion) -> Self
+    pub fn new(parent: Option<&Self>, region: &SynSymbolRegionData) -> Self
     where
         V: Clone,
     {
@@ -46,6 +46,20 @@ impl<V> SymbolMap<V> {
 
     pub fn current_syn_symbol_map(&self) -> &CurrentSynSymbolMap<V> {
         &self.current_syn_symbol_map
+    }
+
+    pub fn current_syn_symbols(&self) -> &CurrentSynSymbolMap<V> {
+        &self.current_syn_symbol_map
+    }
+
+    pub fn inherited_syn_symbol_key_values(
+        &self,
+    ) -> impl Iterator<Item = (InheritedSynSymbolIdx, &V)> {
+        self.inherited_syn_symbol_map.key_value_iter()
+    }
+
+    pub fn current_syn_symbol_key_values(&self) -> impl Iterator<Item = (CurrentSynSymbolIdx, &V)> {
+        self.current_syn_symbol_map.key_value_iter()
     }
 }
 

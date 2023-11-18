@@ -10,7 +10,7 @@ pub struct TypeAssociatedFnHirDecl {
     #[return_ref]
     pub parenate_parameters: HirEagerParenateParameters,
     pub return_ty: HirType,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 impl TypeAssociatedFnHirDecl {

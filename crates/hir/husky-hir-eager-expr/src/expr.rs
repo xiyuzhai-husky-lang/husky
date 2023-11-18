@@ -4,7 +4,7 @@ mod html;
 pub use self::call_list::*;
 pub use self::html::*;
 
-use crate::*;
+use crate::{symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{MethodFluffySignature, StaticDispatch};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
@@ -24,7 +24,7 @@ pub enum HirEagerExprData {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),
     ConstSymbol(HirConstSymbol),
-    Variable(HirEagerVariableIdx),
+    Variable(HirEagerRuntimeSymbolIdx),
     Binary {
         lopd: HirEagerExprIdx,
         opr: HirBinaryOpr,
@@ -150,7 +150,7 @@ impl ToHirEager for SemaExprIdx {
                 InheritedSynSymbolKind::ParenateParameter { .. }
                 | InheritedSynSymbolKind::FieldVariable { .. } => HirEagerExprData::Variable(
                     builder
-                        .inherited_syn_symbol_to_hir_eager_variable(inherited_syn_symbol_idx)
+                        .inherited_syn_symbol_to_hir_eager_runtime_symbol(inherited_syn_symbol_idx)
                         .unwrap(),
                 ),
             },
@@ -161,7 +161,7 @@ impl ToHirEager for SemaExprIdx {
                 current_syn_symbol_kind: _,
             } => HirEagerExprData::Variable(
                 builder
-                    .current_syn_symbol_to_hir_eager_variable(current_syn_symbol_idx)
+                    .current_syn_symbol_to_hir_eager_runtime_symbol(current_syn_symbol_idx)
                     .unwrap(),
             ),
             SemaExprData::FrameVarDecl {

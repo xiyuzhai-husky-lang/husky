@@ -61,6 +61,10 @@ impl Label {
     pub fn is_valid_lifetime_label(self) -> bool {
         self.kind == LabelKind::AllNonGreek
     }
+
+    pub fn ident(&self) -> Ident {
+        self.ident
+    }
 }
 
 impl<Db: CowordDb + ?Sized> salsa::DebugWithDb<Db> for Label {

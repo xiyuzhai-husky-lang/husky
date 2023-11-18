@@ -32,7 +32,7 @@ impl AllowSelfType {
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub struct SynSymbolRegion {
+pub struct SynSymbolRegionData {
     inherited_syn_symbol_arena: InheritedSynSymbolArena,
     current_syn_symbol_arena: CurrentSynSymbolArena,
     allow_self_type: AllowSelfType,
@@ -61,9 +61,9 @@ pub enum SyndicateTypeConstraint {
     LoopVariable,
 }
 
-impl SynSymbolRegion {
+impl SynSymbolRegionData {
     pub(crate) fn new(
-        parent_symbol_region: Option<&SynSymbolRegion>,
+        parent_symbol_region: Option<&SynSymbolRegionData>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> Self {
@@ -254,7 +254,7 @@ impl SynSymbolRegion {
     }
 }
 
-impl std::ops::Index<InheritedSynSymbolIdx> for SynSymbolRegion {
+impl std::ops::Index<InheritedSynSymbolIdx> for SynSymbolRegionData {
     type Output = InheritedSynSymbol;
 
     fn index(&self, index: InheritedSynSymbolIdx) -> &Self::Output {
@@ -262,7 +262,7 @@ impl std::ops::Index<InheritedSynSymbolIdx> for SynSymbolRegion {
     }
 }
 
-impl std::ops::Index<CurrentSynSymbolIdx> for SynSymbolRegion {
+impl std::ops::Index<CurrentSynSymbolIdx> for SynSymbolRegionData {
     type Output = CurrentSynSymbol;
 
     fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
@@ -287,7 +287,7 @@ impl From<InheritedSynSymbolIdx> for LocalSymbolIdx {
 impl LocalSymbolIdx {
     fn from_current_syn_symbol_idx(
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-        symbol_region: &SynSymbolRegion,
+        symbol_region: &SynSymbolRegionData,
     ) -> Self {
         Self(symbol_region.inherited_syn_symbol_arena.len() + current_syn_symbol_idx.index())
     }

@@ -11,6 +11,7 @@ pub struct TraitForTypeMethodFnHirDecl {
     #[return_ref]
     pub parenate_parameters: HirEagerParenateParameters,
     pub return_ty: HirType,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 impl TraitForTypeMethodFnHirDecl {
@@ -37,6 +38,7 @@ impl TraitForTypeMethodFnHirDecl {
             self_value_parameter,
             parenate_parameters,
             return_ty,
+            builder.finish().eager(),
         )
     }
 }
