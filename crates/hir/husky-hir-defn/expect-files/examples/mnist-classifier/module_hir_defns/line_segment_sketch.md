@@ -84,7 +84,14 @@
                                 ),
                             },
                         ],
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -103,40 +110,22 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 262,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `points`,
                                             ),
-                                            data: FieldVariable,
+                                            data: HirEagerRuntimeSymbolData::FieldVariable,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 150,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `start`,
                                             ),
-                                            data: FieldVariable,
+                                            data: HirEagerRuntimeSymbolData::FieldVariable,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 151,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `end`,
                                             ),
-                                            data: FieldVariable,
+                                            data: HirEagerRuntimeSymbolData::FieldVariable,
                                         },
                                     ],
                                 },
@@ -198,7 +187,14 @@
                                 ),
                             },
                         ],
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -217,28 +213,16 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 338,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `contour`,
                                             ),
-                                            data: FieldVariable,
+                                            data: HirEagerRuntimeSymbolData::FieldVariable,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 374,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `strokes`,
                                             ),
-                                            data: FieldVariable,
+                                            data: HirEagerRuntimeSymbolData::FieldVariable,
                                         },
                                     ],
                                 },
@@ -291,6 +275,13 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -330,28 +321,16 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 381,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `u`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 378,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `r`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -363,6 +342,13 @@
                         (
                             51,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -727,76 +713,40 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 381,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `u`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 378,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `r`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 23,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `L`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 382,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dr`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 383,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dx`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 384,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dy`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                         ],
                                     },
@@ -850,6 +800,13 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -889,28 +846,16 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 381,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `u`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 378,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `r`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -922,6 +867,13 @@
                         (
                             51,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -1286,76 +1238,40 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 381,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `u`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 378,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `r`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 23,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `L`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 382,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dr`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 383,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dx`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 384,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dy`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                         ],
                                     },
@@ -1419,6 +1335,13 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -1468,40 +1391,22 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 251,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `ct`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 150,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `start`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 378,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `r`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -1513,6 +1418,13 @@
                         (
                             115,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -2544,160 +2456,82 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 251,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `ct`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 150,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `start`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 378,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `r`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 151,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `end`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 387,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 304,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `N`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 388,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `max_end`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 389,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `right_bound`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 390,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `left_bound`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 391,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `r_max`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 392,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp_norm`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 393,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp_right`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 394,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp_left`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                         ],
                                     },
@@ -2771,6 +2605,13 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -2830,52 +2671,28 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 251,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `ct`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 396,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `start0`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 151,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `end`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 378,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `r`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -2887,6 +2704,13 @@
                         (
                             124,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -4034,172 +3858,88 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 251,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `ct`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 396,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `start0`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 151,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `end`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 378,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `r`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 150,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `start`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 397,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp0`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 398,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `min_start`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 389,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `right_bound`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 390,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `left_bound`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 391,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `r_max`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 387,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 392,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp_norm`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 393,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp_right`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 394,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp_left`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                         ],
                                     },
@@ -4263,6 +4003,13 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -4302,28 +4049,16 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 251,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `ct`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 378,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `r`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -4335,6 +4070,13 @@
                         (
                             192,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::NewList {
@@ -6335,256 +6077,130 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 251,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `ct`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 378,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `r`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 399,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `line_segments`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 150,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `start`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 151,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `end`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 388,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `max_end`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 400,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `ls_extend_end`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 401,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `extend_start_flag`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 402,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp_extend_end`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 403,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp_previous`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 304,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `N`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 404,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `ls`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 405,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `ls_last`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 406,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp_last`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 387,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 407,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp1`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 405,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `ls_last`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 304,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `N`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 408,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `first_line_segment_points_end`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 409,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `last_line_segment`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 409,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `last_line_segment`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                         ],
                                     },
@@ -6659,6 +6275,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -6677,8 +6311,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -6692,6 +6326,24 @@
                         (
                             6,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::AssociatedItem(
+                                        AssociatedItemPath::TraitForTypeItem(
+                                            TraitForTypeItemPath {
+                                                impl_block: TraitForTypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                                ident: `visualize`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -6760,8 +6412,8 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: SelfValue,
-                                                data: SelfValue,
+                                                name: HirEagerRuntimeSymbolName::SelfValue,
+                                                data: HirEagerRuntimeSymbolData::SelfValue,
                                             },
                                         ],
                                     },
@@ -6865,6 +6517,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `new`,
+                                            item_kind: AssociatedFunctionFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -6914,44 +6581,26 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 251,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `ct`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 373,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `from`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 307,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `to`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -6965,6 +6614,21 @@
                         (
                             13,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::AssociatedItem(
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ident: `new`,
+                                                item_kind: AssociatedFunctionFn,
+                                            },
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -7078,40 +6742,22 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 251,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `ct`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 373,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `from`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 307,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `to`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                         ],
                                     },
@@ -7161,6 +6807,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `displacement`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -7179,8 +6840,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -7194,6 +6855,21 @@
                         (
                             6,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::AssociatedItem(
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ident: `displacement`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -7258,8 +6934,8 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: SelfValue,
-                                                data: SelfValue,
+                                                name: HirEagerRuntimeSymbolName::SelfValue,
+                                                data: HirEagerRuntimeSymbolData::SelfValue,
                                             },
                                         ],
                                     },
@@ -7336,6 +7012,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -7354,8 +7048,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -7369,6 +7063,24 @@
                         (
                             4,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::AssociatedItem(
+                                        AssociatedItemPath::TraitForTypeItem(
+                                            TraitForTypeItemPath {
+                                                impl_block: TraitForTypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                                ident: `visualize`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -7423,8 +7135,8 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: SelfValue,
-                                                data: SelfValue,
+                                                name: HirEagerRuntimeSymbolName::SelfValue,
+                                                data: HirEagerRuntimeSymbolData::SelfValue,
                                             },
                                         ],
                                     },
@@ -7501,6 +7213,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `concave_components`,
+                                            item_kind: MemoizedField,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -7519,8 +7246,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -7534,6 +7261,21 @@
                         (
                             4,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::AssociatedItem(
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ident: `concave_components`,
+                                                item_kind: MemoizedField,
+                                            },
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::PrincipalEntityPath(
@@ -7583,8 +7325,8 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: SelfValue,
-                                                data: SelfValue,
+                                                name: HirEagerRuntimeSymbolName::SelfValue,
+                                                data: HirEagerRuntimeSymbolData::SelfValue,
                                             },
                                         ],
                                     },
@@ -7629,6 +7371,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `bounding_box`,
+                                            item_kind: MemoizedField,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -7647,8 +7404,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -7662,6 +7419,21 @@
                         (
                             56,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::AssociatedItem(
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ident: `bounding_box`,
+                                                item_kind: MemoizedField,
+                                            },
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -8170,92 +7942,50 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: SelfValue,
-                                                data: SelfValue,
+                                                name: HirEagerRuntimeSymbolName::SelfValue,
+                                                data: HirEagerRuntimeSymbolData::SelfValue,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 293,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `start_point`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 294,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `xmin`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 295,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `xmax`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 296,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `ymin`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 297,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `ymax`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 260,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `i`,
                                                 ),
-                                                data: LoopVariable,
+                                                data: HirEagerRuntimeSymbolData::LoopVariable,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 298,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `point`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                         ],
                                     },
@@ -8327,6 +8057,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `new`,
+                                            item_kind: AssociatedFunctionFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -8366,32 +8111,20 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 251,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `ct`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 378,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `r`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -8405,6 +8138,21 @@
                         (
                             8,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::AssociatedItem(
+                                        AssociatedItemPath::TypeItem(
+                                            TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ident: `new`,
+                                                item_kind: AssociatedFunctionFn,
+                                            },
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::PrincipalEntityPath(
@@ -8483,28 +8231,16 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 251,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `ct`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 378,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `r`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                         ],
                                     },

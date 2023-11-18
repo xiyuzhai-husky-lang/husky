@@ -2,8 +2,8 @@ use husky_term_prelude::SymbolModifier;
 
 use super::*;
 
-impl TranspileToRust for HirEagerPatternExprIdx {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for HirEagerPatternExprIdx {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self.data(builder.hir_eager_pattern_expr_arena()) {
             HirEagerPatternExpr::Literal(_) => todo!(),
             HirEagerPatternExpr::Ident {

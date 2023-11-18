@@ -49,6 +49,13 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Fugitive(
+                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                ),
+                            ),
+                        ),
                         hir_eager_expr_arena: Arena {
                             data: [],
                         },
@@ -88,28 +95,16 @@
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeSymbolEntry {
-                                        name: Ident(
-                                            Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 375,
-                                                    },
-                                                ),
-                                            ),
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `concave_components`,
                                         ),
-                                        data: ParenateParameter,
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
                                     },
                                     HirEagerRuntimeSymbolEntry {
-                                        name: Ident(
-                                            Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 437,
-                                                    },
-                                                ),
-                                            ),
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `templates`,
                                         ),
-                                        data: ParenateParameter,
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
                                     },
                                 ],
                             },

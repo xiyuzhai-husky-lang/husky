@@ -9,7 +9,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::i8`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -46,7 +53,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::i16`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -83,7 +97,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::i32`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -120,7 +141,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::i64`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -157,7 +185,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::i128`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -194,7 +229,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::isize`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -231,7 +273,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::u8`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -268,7 +317,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::u16`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -305,7 +361,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::u32`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -342,7 +405,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::u64`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -379,7 +449,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::u128`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -416,7 +493,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::usize`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -453,7 +537,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::f32`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -490,7 +581,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::num::f64`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -576,6 +674,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -594,8 +707,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -658,6 +771,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `max`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -687,20 +815,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -788,6 +910,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i8`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -817,20 +957,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -904,6 +1038,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -922,8 +1071,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -986,6 +1135,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `max`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -1015,20 +1179,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -1116,6 +1274,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i16`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -1145,20 +1321,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -1232,6 +1402,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -1250,8 +1435,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -1314,6 +1499,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `max`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -1343,20 +1543,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -1419,6 +1613,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `min`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -1448,20 +1657,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -1549,6 +1752,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -1578,20 +1799,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -1665,6 +1880,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -1683,8 +1913,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -1772,6 +2002,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -1801,20 +2049,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -1888,6 +2130,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -1906,8 +2163,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -1995,6 +2252,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i128`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -2024,20 +2299,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -2111,6 +2380,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -2129,8 +2413,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -2218,6 +2502,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::isize`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -2247,20 +2549,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -2334,6 +2630,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -2352,8 +2663,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -2441,6 +2752,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u8`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -2470,20 +2799,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -2557,6 +2880,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -2575,8 +2913,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -2664,6 +3002,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u16`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -2693,20 +3049,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -2780,6 +3130,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -2798,8 +3163,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -2887,6 +3252,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -2916,20 +3299,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -3003,6 +3380,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -3021,8 +3413,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -3110,6 +3502,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -3139,20 +3549,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -3226,6 +3630,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -3244,8 +3663,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -3333,6 +3752,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u128`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -3362,20 +3799,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -3449,6 +3880,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -3467,8 +3913,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -3556,6 +4002,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::usize`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -3585,20 +4049,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -3672,6 +4130,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -3690,8 +4163,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -3743,6 +4216,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `sqrt`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -3761,8 +4249,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -3825,6 +4313,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `max`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -3854,20 +4357,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -3930,6 +4427,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `min`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -3959,20 +4471,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -4024,6 +4530,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `sgnx`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -4042,8 +4563,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -4095,6 +4616,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `cos`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -4113,8 +4649,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -4166,6 +4702,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `sin`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -4184,8 +4735,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -4237,6 +4788,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `acos`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -4255,8 +4821,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -4344,6 +4910,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::f32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -4373,20 +4957,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -4460,6 +5038,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `abs`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -4478,8 +5071,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -4531,6 +5124,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `acos`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -4549,8 +5157,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -4638,6 +5246,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::f64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -4667,20 +5293,14 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 63,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `other`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },

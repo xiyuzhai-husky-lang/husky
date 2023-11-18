@@ -6,7 +6,7 @@ use crate::*;
 #[salsa::tracked(db = SemaExprDb, jar = SemaExprJar, constructor = new_inner)]
 pub struct SemaExprRegion {
     #[id]
-    pub path: RegionPath,
+    pub path: SynNodeRegionPath,
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
     pub data: SemaExprRegionData,
@@ -14,7 +14,7 @@ pub struct SemaExprRegion {
 
 impl SemaExprRegion {
     pub(crate) fn new(
-        path: RegionPath,
+        path: SynNodeRegionPath,
         syn_expr_region: SynExprRegion,
         sema_expr_arena: SemaExprArena,
         sema_stmt_arena: SemaStmtArena,
@@ -53,7 +53,7 @@ impl SemaExprRegion {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprRegionData {
-    path: RegionPath,
+    path: SynNodeRegionPath,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
     sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
@@ -110,7 +110,7 @@ impl SemaExprRegionData {
         &self.symbol_terms
     }
 
-    pub fn path(&self) -> RegionPath {
+    pub fn path(&self) -> SynNodeRegionPath {
         self.path
     }
 

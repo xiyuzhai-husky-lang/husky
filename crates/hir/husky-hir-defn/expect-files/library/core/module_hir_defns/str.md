@@ -9,7 +9,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::str::str`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -46,7 +53,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::str::StringLiteral`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },

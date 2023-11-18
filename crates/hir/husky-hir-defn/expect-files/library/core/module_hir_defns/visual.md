@@ -8,6 +8,35 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Trait(
+                                    TraitPath(`core::visual::Visualize`),
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -22,7 +51,14 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::visual::Html`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -105,6 +141,22 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::visual`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -123,8 +175,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },

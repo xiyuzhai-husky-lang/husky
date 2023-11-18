@@ -22,7 +22,7 @@ pub enum RustKeyword {
     Mut,
 }
 
-impl<'a> RustTranspilationBuilder<'a> {
+impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn keyword(&mut self, keyword: RustKeyword) {
         let s = match keyword {
             RustKeyword::Fn => "fn ",

@@ -7,7 +7,7 @@
                     hir_expr_region: Eager(
                         HirEagerExprRegion(
                             Id {
-                                value: 2,
+                                value: 192,
                             },
                         ),
                     ),
@@ -23,7 +23,7 @@
                     hir_expr_region: Eager(
                         HirEagerExprRegion(
                             Id {
-                                value: 2,
+                                value: 193,
                             },
                         ),
                     ),
@@ -70,6 +70,13 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Fugitive(
+                                    FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
+                                ),
+                            ),
+                        ),
                         hir_eager_expr_arena: Arena {
                             data: [],
                         },
@@ -99,16 +106,10 @@
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeSymbolEntry {
-                                        name: Ident(
-                                            Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 286,
-                                                    },
-                                                ),
-                                            ),
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `cc`,
                                         ),
-                                        data: ParenateParameter,
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
                                     },
                                 ],
                             },

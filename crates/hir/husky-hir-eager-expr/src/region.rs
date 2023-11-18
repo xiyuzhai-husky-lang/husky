@@ -1,3 +1,5 @@
+use husky_entity_path::region::RegionPath;
+
 use crate::{
     symbol::{
         comptime_symbol::HirEagerComptimeSymbolRegionData,
@@ -9,6 +11,7 @@ use crate::{
 /// this is interned on purpose
 #[salsa::interned(db = HirEagerExprDb, jar = HirEagerExprJar)]
 pub struct HirEagerExprRegion {
+    pub path: RegionPath,
     #[return_ref]
     pub hir_eager_expr_arena: HirEagerExprArena,
     #[return_ref]

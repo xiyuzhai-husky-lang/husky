@@ -56,7 +56,14 @@
                                 },
                             ],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::array::Array`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -70,36 +77,36 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `L`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: Const(
-                                                HirConstSymbol(
-                                                    Id {
-                                                        value: 1,
+                                            hir_comptime_symbol: HirComptimeSymbol::Const(
+                                                HirConstSymbol {
+                                                    ty: HirType::PathLeading(
+                                                        HirTypePathLeading {
+                                                            ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
+                                                    index: PathLeading {
+                                                        attrs: HirSymbolAttrs,
+                                                        disambiguator: 0,
+                                                        ty_path: TypePath(
+                                                            Id {
+                                                                value: 27,
+                                                            },
+                                                        ),
                                                     },
-                                                ),
+                                                },
                                             ),
                                         },
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `E`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: Some(

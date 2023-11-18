@@ -31,7 +31,14 @@
                                 },
                             ],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::slice::Slice`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -45,17 +52,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `E`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: Some(
@@ -112,7 +113,14 @@
                                 },
                             ],
                         ),
-                        hir_expr_region: HirEagerExprRegion {
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -126,17 +134,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `E`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: Some(
@@ -250,6 +252,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::slice`,
+                                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `len`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -263,17 +280,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `E`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -288,8 +299,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -362,6 +373,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::slice`,
+                                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `swap`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -396,17 +422,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `E`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -421,32 +441,20 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `a`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 158,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `b`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -540,6 +548,24 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TraitForTypeItem(
+                                        TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `core::slice`,
+                                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `Output`,
+                                            item_kind: AssociatedType,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -553,17 +579,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `E`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -675,6 +695,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::slice`,
+                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `ilen`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -688,17 +723,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `E`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -713,8 +742,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -766,6 +795,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::slice`,
+                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `start`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -779,17 +823,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `E`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -804,8 +842,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -857,6 +895,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::slice`,
+                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `end`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -870,17 +923,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `E`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -895,8 +942,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -958,6 +1005,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::slice`,
+                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `first`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -971,17 +1033,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `E`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -996,8 +1052,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },
@@ -1059,6 +1115,21 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::AssociatedItem(
+                                    AssociatedItemPath::TypeItem(
+                                        TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::slice`,
+                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                            ident: `last`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -1072,17 +1143,11 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerComptimeSymbolName::Ident(
+                                                `E`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: Type(
+                                            hir_comptime_symbol: HirComptimeSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -1097,8 +1162,8 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: SelfValue,
-                                            data: SelfValue,
+                                            name: HirEagerRuntimeSymbolName::SelfValue,
+                                            data: HirEagerRuntimeSymbolData::SelfValue,
                                         },
                                     ],
                                 },

@@ -36,16 +36,19 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionData<'a> {
     }
 }
 
-pub fn token_region_data(_path: RegionPath, _db: &dyn EntitySynTreeDb) -> Option<TokraRegionData> {
+pub fn token_region_data(
+    _path: SynNodeRegionPath,
+    _db: &dyn EntitySynTreeDb,
+) -> Option<TokraRegionData> {
     todo!()
 }
 
-impl RegionPath {
+impl SynNodeRegionPath {
     pub fn regional_token_idx_base(self, db: &dyn EntitySynTreeDb) -> Option<RegionalTokenIdxBase> {
         match self {
-            RegionPath::Snippet(_slf) => todo!(),
-            RegionPath::Decl(slf) => Some(slf.decl_regional_token_idx_base(db)),
-            RegionPath::Defn(slf) => slf.defn_regional_token_idx_base(db),
+            SynNodeRegionPath::Snippet(_slf) => todo!(),
+            SynNodeRegionPath::Decl(slf) => Some(slf.decl_regional_token_idx_base(db)),
+            SynNodeRegionPath::Defn(slf) => slf.defn_regional_token_idx_base(db),
         }
     }
 }

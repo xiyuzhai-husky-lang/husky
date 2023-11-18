@@ -1,6 +1,6 @@
 use husky_hir_ty::HirType;
 use husky_sema_expr::LetPatternSemaSyndicate;
-use husky_syn_expr::{BePatternSynSyndicate};
+use husky_syn_expr::BePatternSynSyndicate;
 
 use crate::*;
 

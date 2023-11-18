@@ -8,15 +8,15 @@ use self::precedence::hir_eager_expr_precedence;
 use crate::*;
 use husky_hir_eager_expr::{
     HirEagerCallListItemGroup, HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch,
-    HirEagerExprData, HirEagerExprIdx, HirEagerIfBranch, HirEagerLetVariablesPattern,
-    HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmt, HirEagerStmtIdx,
-    HirEagerStmtIdxRange,
+    HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch,
+    HirEagerLetVariablesPattern, HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmt,
+    HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_opr::BinaryClosedOpr;
 
-impl TranspileToRust for (RustPrecedenceRange, HirEagerExprIdx) {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for (RustPrecedenceRange, HirEagerExprIdx) {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let (precedence_range, slf) = self;
         let data = slf.data(builder.hir_eager_expr_arena());
         let precedence = hir_eager_expr_precedence(data);
@@ -33,7 +33,7 @@ impl TranspileToRust for (RustPrecedenceRange, HirEagerExprIdx) {
 fn transpile_hir_eager_expr_to_rust(
     data: &HirEagerExprData,
     precedence: RustPrecedence,
-    builder: &mut RustTranspilationBuilder,
+    builder: &mut RustTranspilationBuilder<HirEagerExprRegion>,
 ) {
     let geq = |opd| (RustPrecedenceRange::Geq(precedence), opd);
     let greater = |opd| (RustPrecedenceRange::Greater(precedence), opd);
@@ -190,8 +190,8 @@ fn transpile_hir_eager_expr_to_rust(
     }
 }
 
-impl TranspileToRust for HirEagerCallListItemGroup {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+impl TranspileToRust<HirEagerExprRegion> for HirEagerCallListItemGroup {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
             &HirEagerCallListItemGroup::Regular(hir_eager_expr_idx) => {
                 any_precedence(hir_eager_expr_idx).transpile_to_rust(builder)

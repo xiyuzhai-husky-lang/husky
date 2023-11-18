@@ -6,12 +6,14 @@ use husky_syn_expr::{
 use idx_arena::ArenaIdx;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = HirEagerExprDb)]
 pub struct HirEagerRuntimeSymbolRegionData {
     arena: HirEagerRuntimeSymbolArena,
     self_value_variable: Option<HirEagerRuntimeSymbolIdx>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = HirEagerExprDb)]
 pub struct HirEagerRuntimeSymbolEntry {
     name: HirEagerRuntimeSymbolName,
     data: HirEagerRuntimeSymbolData,
@@ -28,6 +30,7 @@ pub enum HirEagerRuntimeSymbolName {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = HirEagerExprDb)]
 pub enum HirEagerRuntimeSymbolData {
     SelfValue,
     ParenateParameter,

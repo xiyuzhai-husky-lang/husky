@@ -9,7 +9,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 2,
+                                    value: 275,
                                 },
                             ),
                         ),
@@ -22,7 +22,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 82,
+                                        value: 276,
                                     },
                                 ),
                             ),
@@ -42,7 +42,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 2,
+                                    value: 277,
                                 },
                             ),
                         ),
@@ -55,7 +55,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 83,
+                                        value: 278,
                                     },
                                 ),
                             ),
@@ -106,6 +106,13 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -135,16 +142,10 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 286,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `cc`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -156,6 +157,13 @@
                         (
                             13,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -298,28 +306,16 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 286,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `cc`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 387,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                         ],
                                     },
@@ -373,6 +369,13 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -402,16 +405,10 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 286,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `cc`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -423,6 +420,13 @@
                         (
                             13,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -565,28 +569,16 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 286,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `cc`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 387,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                         ],
                                     },
@@ -640,6 +632,13 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+                                    ),
+                                ),
+                            ),
                             hir_eager_expr_arena: Arena {
                                 data: [],
                             },
@@ -669,16 +668,10 @@
                                 arena: Arena {
                                     data: [
                                         HirEagerRuntimeSymbolEntry {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 286,
-                                                        },
-                                                    ),
-                                                ),
+                                            name: HirEagerRuntimeSymbolName::Ident(
+                                                `cc`,
                                             ),
-                                            data: ParenateParameter,
+                                            data: HirEagerRuntimeSymbolData::ParenateParameter,
                                         },
                                     ],
                                 },
@@ -690,6 +683,13 @@
                         (
                             13,
                             HirEagerExprRegion {
+                                path: RegionPath::Defn(
+                                    ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+                                        ),
+                                    ),
+                                ),
                                 hir_eager_expr_arena: Arena {
                                     data: [
                                         HirEagerExprData::Variable(
@@ -832,28 +832,16 @@
                                     arena: Arena {
                                         data: [
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 286,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `cc`,
                                                 ),
-                                                data: ParenateParameter,
+                                                data: HirEagerRuntimeSymbolData::ParenateParameter,
                                             },
                                             HirEagerRuntimeSymbolEntry {
-                                                name: Ident(
-                                                    Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 387,
-                                                            },
-                                                        ),
-                                                    ),
+                                                name: HirEagerRuntimeSymbolName::Ident(
+                                                    `dp`,
                                                 ),
-                                                data: LetVariable,
+                                                data: HirEagerRuntimeSymbolData::LetVariable,
                                             },
                                         ],
                                     },

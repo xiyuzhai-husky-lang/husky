@@ -6,7 +6,7 @@ pub struct ExternTypeHirDecl {
     pub path: TypePath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 impl ExternTypeHirDecl {
