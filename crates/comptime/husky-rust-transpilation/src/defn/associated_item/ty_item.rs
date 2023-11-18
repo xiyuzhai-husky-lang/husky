@@ -21,11 +21,13 @@ impl TranspileToRust for TypeAssociatedFnHirDefn {
         else {
             return;
         };
-        builder.keyword(RustKeyword::Fn);
-        self.path(db).ident(db).transpile_to_rust(builder);
         let hir_decl = self.hir_decl(db);
-        hir_decl.template_parameters(db).transpile_to_rust(builder);
-        hir_decl.parenate_parameters(db).transpile_to_rust(builder);
+        builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
+            builder.keyword(RustKeyword::Fn);
+            self.path(db).ident(db).transpile_to_rust(builder);
+            hir_decl.template_parameters(db).transpile_to_rust(builder);
+            hir_decl.parenate_parameters(db).transpile_to_rust(builder);
+        });
         builder.eager_body(hir_eager_expr_region, body)
     }
 }
@@ -33,12 +35,13 @@ impl TranspileToRust for TypeAssociatedFnHirDefn {
 impl TranspileToRust for TypeMethodFnHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
-        let Some((body, hir_eager_expr_region)) = self.eager_body_with_hir_eager_expr_region(db)
+        self.hir_decl(db).transpile_to_rust(builder);
+        let Some((body, body_hir_eager_expr_region)) =
+            self.eager_body_with_hir_eager_expr_region(db)
         else {
             return;
         };
-        self.hir_decl(db).transpile_to_rust(builder);
-        builder.eager_body(hir_eager_expr_region, body)
+        builder.eager_body(body_hir_eager_expr_region, body)
     }
 }
 

@@ -32,7 +32,12 @@
                             hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            hir_eager_variable_region: HirEagerVariableRegion {
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -99,6 +104,35 @@
                                 template_arguments: [],
                             },
                         ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerRuntimeSymbolEntry {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                    ],
+                                },
+                                self_value_variable: Some(
+                                    1,
+                                ),
+                            },
+                        },
                     },
                     eager_body_with_hir_eager_expr_region: None,
                 },

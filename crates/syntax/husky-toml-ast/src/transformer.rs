@@ -2,7 +2,7 @@ mod expr;
 mod transform;
 
 use crate::*;
-use husky_coword::Name;
+use husky_coword::Kebab;
 use husky_vfs::error::VfsError;
 use std::path::Path;
 use vec_like::{AsVecMapEntry, VecMap};
@@ -187,7 +187,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
     pub fn transform_all_entries_into_vec_map<Target>(mut self) -> VecMap<Target>
     where
         Target: TransformFromTomlKeyedAst<Context, KeyedAst = TomlSectionEntry>
-            + AsVecMapEntry<K = Name>
+            + AsVecMapEntry<K = Kebab>
             + std::fmt::Debug,
     {
         let mut targets: VecMap<Target> = Default::default();

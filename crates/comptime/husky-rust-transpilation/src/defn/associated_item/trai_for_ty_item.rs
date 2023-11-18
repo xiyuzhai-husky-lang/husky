@@ -1,5 +1,5 @@
 use super::*;
-use crate::{builder::keyword::RustKeyword};
+use crate::builder::keyword::RustKeyword;
 
 impl TranspileToRust for TraitForTypeItemHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
@@ -30,10 +30,12 @@ impl TranspileToRust for TraitForTypeMethodFnHirDefn {
         builder.keyword(RustKeyword::Fn);
         self.path(db).ident(db).transpile_to_rust(builder);
         let hir_decl = self.hir_decl(db);
-        hir_decl.template_parameters(db).transpile_to_rust(builder);
-        builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
-            builder.heterogeneous_comma_list_item(hir_decl.self_value_parameter(db));
-            builder.heterogeneous_comma_list_items(hir_decl.parenate_parameters(db).iter())
+        builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
+            hir_decl.template_parameters(db).transpile_to_rust(builder);
+            builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
+                builder.heterogeneous_comma_list_item(hir_decl.self_value_parameter(db));
+                builder.heterogeneous_comma_list_items(hir_decl.parenate_parameters(db).iter())
+            });
         });
         builder.eager_body(hir_eager_expr_region, body)
     }
@@ -42,13 +44,14 @@ impl TranspileToRust for TraitForTypeMethodFnHirDefn {
 impl TranspileToRust for TraitForTypeAssociatedTypeHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
-        builder.on_new_semicolon_line(|builder| {
-            builder.keyword(RustKeyword::Type);
-            self.path(db).ident(db).transpile_to_rust(builder);
-            builder.punctuation(RustPunctuation::Eq);
-            self.hir_decl(db)
-                .associated_ty(db)
-                .transpile_to_rust(builder)
+        let hir_decl = self.hir_decl(db);
+        builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
+            builder.on_new_semicolon_line(|builder| {
+                builder.keyword(RustKeyword::Type);
+                self.path(db).ident(db).transpile_to_rust(builder);
+                builder.punctuation(RustPunctuation::Eq);
+                hir_decl.associated_ty(db).transpile_to_rust(builder)
+            })
         })
     }
 }

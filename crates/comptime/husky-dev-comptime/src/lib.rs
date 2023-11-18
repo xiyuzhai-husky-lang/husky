@@ -1,4 +1,4 @@
-use husky_coword::Name;
+use husky_coword::Kebab;
 use husky_task::{helpers::TaskDevComptimeDb, helpers::TaskDevLinkTime, link::IsLinktime, IsTask};
 use husky_vfs::{
     error::VfsResult, linktime_target_path::LinktimeTargetPath, CrateKind, CratePath, PackagePath,
@@ -29,7 +29,7 @@ impl<Task: IsTask> DevComptime<Task> {
         let target_package_path = match PackagePath::new_local_or_toolchain_package(
             &db,
             toolchain,
-            Name::from_ref(&db, "mnist-classifier").unwrap(),
+            Kebab::from_ref(&db, "mnist-classifier").unwrap(),
             target_crate_path,
         ) {
             Ok(package_path) => package_path,

@@ -58,7 +58,51 @@
                             hir_eager_pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            hir_eager_variable_region: HirEagerVariableRegion {
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 115,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Current,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Current,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 1,
+                                                },
+                                            ),
+                                        },
+                                    ],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -205,6 +249,105 @@
                                 disambiguator: 3,
                             },
                         ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 136,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Inherited,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 137,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Inherited,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 1,
+                                                },
+                                            ),
+                                        },
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 138,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Inherited,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 2,
+                                                },
+                                            ),
+                                        },
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 139,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Inherited,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 3,
+                                                },
+                                            ),
+                                        },
+                                    ],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                                self_value_variable: None,
+                            },
+                        },
                     },
                 },
             ),
@@ -282,6 +425,135 @@
                                 ],
                             },
                         ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [
+                                    Ident {
+                                        symbol_modifier: None,
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 17,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 136,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Inherited,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 137,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Inherited,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 1,
+                                                },
+                                            ),
+                                        },
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 138,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Inherited,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 2,
+                                                },
+                                            ),
+                                        },
+                                        HirEagerComptimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 139,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: Inherited,
+                                            hir_comptime_symbol: Type(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 3,
+                                                },
+                                            ),
+                                        },
+                                    ],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [
+                                        HirEagerRuntimeSymbolEntry {
+                                            name: SelfValue,
+                                            data: SelfValue,
+                                        },
+                                        HirEagerRuntimeSymbolEntry {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 17,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: ParenateParameter,
+                                        },
+                                    ],
+                                },
+                                self_value_variable: Some(
+                                    1,
+                                ),
+                            },
+                        },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
@@ -308,14 +580,96 @@
                                 hir_eager_pattern_expr_arena: Arena {
                                     data: [],
                                 },
-                                hir_eager_variable_region: HirEagerVariableRegion {
+                                hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerVariable {
+                                            HirEagerComptimeSymbolEntry {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 136,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: Inherited,
+                                                hir_comptime_symbol: Type(
+                                                    Type {
+                                                        attrs: HirSymbolAttrs,
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                            HirEagerComptimeSymbolEntry {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 137,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: Inherited,
+                                                hir_comptime_symbol: Type(
+                                                    Type {
+                                                        attrs: HirSymbolAttrs,
+                                                        variance: None,
+                                                        disambiguator: 1,
+                                                    },
+                                                ),
+                                            },
+                                            HirEagerComptimeSymbolEntry {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 138,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: Inherited,
+                                                hir_comptime_symbol: Type(
+                                                    Type {
+                                                        attrs: HirSymbolAttrs,
+                                                        variance: None,
+                                                        disambiguator: 2,
+                                                    },
+                                                ),
+                                            },
+                                            HirEagerComptimeSymbolEntry {
+                                                name: Ident(
+                                                    Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 139,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                data: Inherited,
+                                                hir_comptime_symbol: Type(
+                                                    Type {
+                                                        attrs: HirSymbolAttrs,
+                                                        variance: None,
+                                                        disambiguator: 3,
+                                                    },
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                },
+                                hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                                    arena: Arena {
+                                        data: [
+                                            HirEagerRuntimeSymbolEntry {
                                                 name: SelfValue,
                                                 data: SelfValue,
                                             },
-                                            HirEagerVariable {
+                                            HirEagerRuntimeSymbolEntry {
                                                 name: Ident(
                                                     Ident(
                                                         Coword(

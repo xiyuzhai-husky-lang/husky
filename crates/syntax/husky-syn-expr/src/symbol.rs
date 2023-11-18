@@ -479,7 +479,7 @@ impl<V> SynSymbolMap<V> {
 }
 
 impl<V> SynSymbolMap<V> {
-    pub fn new(syn_symbol_region: &SynSymbolRegion) -> Self {
+    pub fn new(syn_symbol_region: &SynSymbolRegionData) -> Self {
         Self {
             inherited_syn_symbol_map: InheritedSynSymbolMap::new(
                 syn_symbol_region.inherited_syn_symbol_arena(),

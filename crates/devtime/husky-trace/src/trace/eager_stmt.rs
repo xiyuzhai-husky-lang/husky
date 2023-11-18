@@ -594,7 +594,7 @@ impl<'a> IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry<'a> {
                                     syn_pattern_expr_idx,
                                     |current_syn_symbol_idx| {
                                         self.hir_eager_expr_source_map_data
-                                            .current_syn_symbol_to_hir_eager_variable(
+                                            .current_syn_symbol_to_hir_eager_runtime_symbol(
                                                 current_syn_symbol_idx,
                                             )
                                     },

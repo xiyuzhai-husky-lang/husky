@@ -69,10 +69,15 @@
                                 },
                             ],
                         },
-                        hir_eager_variable_region: HirEagerVariableRegion {
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerVariable {
+                                    HirEagerRuntimeSymbolEntry {
                                         name: Ident(
                                             Ident(
                                                 Coword(

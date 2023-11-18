@@ -7,7 +7,7 @@ use smallvec::SmallVec;
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = HirDeclDb)]
 pub struct HirTemplateParameter {
-    symbol: HirTemplateSymbol,
+    symbol: HirComptimeSymbol,
     data: HirTemplateParameterData,
 }
 
@@ -30,7 +30,7 @@ impl HirTemplateParameter {
             todo!()
         };
         let db = builder.db();
-        let symbol = HirTemplateSymbol::from_ethereal(symbol, db)?;
+        let symbol = HirComptimeSymbol::from_ethereal(symbol, db)?;
         let data = match syndicate.data() {
             TemplateParameterSyndicateData::Type {
                 ident_token,

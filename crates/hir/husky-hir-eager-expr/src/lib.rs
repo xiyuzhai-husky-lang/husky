@@ -8,7 +8,7 @@ mod pattern_expr;
 mod region;
 mod source_map;
 mod stmt;
-pub mod variable;
+pub mod symbol;
 
 pub use self::expr::*;
 pub use self::pattern::*;
@@ -19,7 +19,6 @@ pub use self::stmt::*;
 
 use self::builder::*;
 use self::db::*;
-use self::variable::*;
 use husky_coword::*;
 use husky_entity_path::*;
 use husky_term_prelude::*;

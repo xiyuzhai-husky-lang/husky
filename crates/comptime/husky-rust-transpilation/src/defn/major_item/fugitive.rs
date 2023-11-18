@@ -64,10 +64,19 @@ impl TranspileToRust for ValFugitiveHirDefn {
 
 impl TranspileToRust for ValFugitiveHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        builder.keyword(RustKeyword::Fn);
-        let db = builder.db();
-        self.path(db).ident(db).transpile_to_rust(builder);
-        builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |_| ())
-        // ad hoc
+        match self.hir_expr_region(builder.db()) {
+            HirExprRegion::Eager(hir_eager_expr_region) => {
+                builder.eager_head(hir_eager_expr_region, |builder| {
+                    builder.keyword(RustKeyword::Fn);
+                    let db = builder.db();
+                    self.path(db).ident(db).transpile_to_rust(builder);
+                    builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |_| ())
+                })
+            }
+            HirExprRegion::Lazy(_) => {
+                // ad hoc
+                // todo!()
+            }
+        }
     }
 }

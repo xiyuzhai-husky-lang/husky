@@ -7,6 +7,7 @@ pub struct TraitForTypeAssociatedTypeHirDecl {
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     pub associated_ty: HirType,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 impl TraitForTypeAssociatedTypeHirDecl {
@@ -19,6 +20,12 @@ impl TraitForTypeAssociatedTypeHirDecl {
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
         let associated_ty = builder.hir_ty(syn_decl.ty_term_expr_idx(db));
-        Self::new(db, path, template_parameters, associated_ty)
+        Self::new(
+            db,
+            path,
+            template_parameters,
+            associated_ty,
+            builder.finish().eager(),
+        )
     }
 }

@@ -1,15 +1,15 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash, PartialOrd, Ord, Clone, Copy)]
-pub struct Name(Coword);
+pub struct Kebab(Coword);
 
-impl Name {
+impl Kebab {
     pub fn coword(self) -> Coword {
         self.0
     }
 
     pub fn ident(self, db: &dyn CowordDb) -> Ident {
-        name_to_ident(db, self.0)
+        kebab_to_ident(db, self.0)
     }
 
     pub(crate) unsafe fn from_coword_unchecked(coword: Coword) -> Self {
@@ -17,11 +17,11 @@ impl Name {
     }
 
     pub fn from_coword(db: &dyn CowordDb, coword: Coword) -> Option<Self> {
-        is_coword_valid_name(db, coword).then_some(Name(coword))
+        is_coword_valid_kebab(db, coword).then_some(Kebab(coword))
     }
 
     pub fn from_owned(db: &dyn CowordDb, data: String) -> Option<Self> {
-        if is_str_valid_name(&data) {
+        if is_str_valid_kebab(&data) {
             Some(Self(db.it_coword_owned(data)))
         } else {
             None
@@ -29,7 +29,7 @@ impl Name {
     }
 
     pub fn from_ref(db: &dyn CowordDb, data: &str) -> Option<Self> {
-        if is_str_valid_name(data) {
+        if is_str_valid_kebab(data) {
             Some(Self(db.it_coword_borrowed(data)))
         } else {
             None
@@ -43,46 +43,46 @@ impl Name {
 
 /// only use in this module
 #[salsa::tracked(jar = CowordJar)]
-pub(crate) fn name_to_ident(db: &dyn CowordDb, coword: Coword) -> Ident {
-    let name = coword.data(db);
-    if !name.contains("-") {
-        return Ident::from_borrowed(db, name).unwrap();
+pub(crate) fn kebab_to_ident(db: &dyn CowordDb, coword: Coword) -> Ident {
+    let kebab = coword.data(db);
+    if !kebab.contains("-") {
+        return Ident::from_borrowed(db, kebab).unwrap();
     } else {
-        Ident::from_owned(db, name.replace("-", "_")).unwrap()
+        Ident::from_owned(db, kebab.replace("-", "_")).unwrap()
     }
 }
 
 #[salsa::tracked(jar = CowordJar)]
-pub fn is_coword_valid_name(db: &dyn CowordDb, coword: Coword) -> bool {
-    is_str_valid_name(coword.data(db))
+pub fn is_coword_valid_kebab(db: &dyn CowordDb, coword: Coword) -> bool {
+    is_str_valid_kebab(coword.data(db))
 }
 
-pub fn is_str_valid_name(coword: &str) -> bool {
+pub fn is_str_valid_kebab(coword: &str) -> bool {
     let mut chars = coword.chars();
     if let Some(start) = chars.next() {
-        if !is_char_valid_name_first_char(start) {
+        if !is_char_valid_kebab_first_char(start) {
             return false;
         }
     }
     for c in chars {
-        if !is_char_valid_name_nonfirst_char(c) {
+        if !is_char_valid_kebab_nonfirst_char(c) {
             return false;
         }
     }
     true
 }
 
-pub fn is_char_valid_name_first_char(c: char) -> bool {
+pub fn is_char_valid_kebab_first_char(c: char) -> bool {
     // ad hoc
     c.is_alphabetic() || c == '-'
 }
 
-pub fn is_char_valid_name_nonfirst_char(c: char) -> bool {
+pub fn is_char_valid_kebab_nonfirst_char(c: char) -> bool {
     // ad hoc
     c.is_alphanumeric() || c == '-'
 }
 
-impl<Db: CowordDb + ?Sized> salsa::DebugWithDb<Db> for Name {
+impl<Db: CowordDb + ?Sized> salsa::DebugWithDb<Db> for Kebab {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

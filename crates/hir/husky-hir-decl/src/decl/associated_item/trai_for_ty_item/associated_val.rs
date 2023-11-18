@@ -7,7 +7,7 @@ pub struct TraitForTypeAssociatedValHirDecl {
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     pub ty_term: EtherealTerm,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 impl TraitForTypeAssociatedValHirDecl {

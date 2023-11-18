@@ -15,7 +15,7 @@ use husky_ethereal_term::{
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum HirTemplateSymbol {
+pub enum HirComptimeSymbol {
     Type(HirTypeSymbol),
     Const(HirConstSymbol),
     Lifetime(HirLifetimeSymbol),
@@ -31,7 +31,7 @@ impl HirSymbolAttrs {
     }
 }
 
-impl HirTemplateSymbol {
+impl HirComptimeSymbol {
     pub fn from_ethereal(symbol: EtherealTermSymbol, db: &dyn HirTypeDb) -> Option<Self> {
         hir_template_symbol_from_ethereal(db, symbol)
     }
@@ -41,7 +41,7 @@ impl HirTemplateSymbol {
 fn hir_template_symbol_from_ethereal(
     db: &dyn HirTypeDb,
     symbol: EtherealTermSymbol,
-) -> Option<HirTemplateSymbol> {
+) -> Option<HirComptimeSymbol> {
     match symbol.index(db).inner() {
         EtherealTermSymbolIndexInner::ExplicitLifetime {
             attrs,
@@ -113,10 +113,8 @@ fn hir_template_symbol_from_ethereal(
         EtherealTermSymbolIndexInner::EphemPathLeading {
             disambiguator,
             ty_path,
-        } => todo!(),
-        EtherealTermSymbolIndexInner::EphemOther { disambiguator } => {
-            todo!()
-        }
+        } => None,
+        EtherealTermSymbolIndexInner::EphemOther { disambiguator } => None,
         EtherealTermSymbolIndexInner::SelfType => Some(HirTypeSymbol::SelfType.into()),
         EtherealTermSymbolIndexInner::SelfValue => todo!(),
         EtherealTermSymbolIndexInner::SelfLifetime => Some(HirTypeSymbol::SelfLifetime.into()),

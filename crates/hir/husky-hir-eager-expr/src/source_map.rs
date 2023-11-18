@@ -1,10 +1,10 @@
 use crate::{
     db::{HirEagerExprDb, HirEagerExprJar},
-    variable::HirEagerVariableIdx,
+    symbol::runtime_symbol::HirEagerRuntimeSymbolIdx,
     HirEagerExprIdx, HirEagerPatternExprIdx, HirEagerStmtIdx,
 };
 use husky_sema_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
-use husky_syn_expr::{SynPatternExprMap, SynPatternExprRoot, SynSymbolMap, CurrentSynSymbolIdx};
+use husky_syn_expr::{CurrentSynSymbolIdx, SynPatternExprMap, SynPatternExprRoot, SynSymbolMap};
 
 #[salsa::tracked(db = HirEagerExprDb, jar = HirEagerExprJar, constructor = new_inner)]
 pub struct HirEagerExprSourceMap {
@@ -17,7 +17,7 @@ pub struct HirEagerExprSourceMapData {
     syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,
     sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
-    syn_symbol_to_hir_eager_variable_map: SynSymbolMap<HirEagerVariableIdx>,
+    syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRuntimeSymbolIdx>,
 }
 
 impl HirEagerExprSourceMap {
@@ -26,7 +26,7 @@ impl HirEagerExprSourceMap {
         syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,
         sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
         sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
-        syn_symbol_to_hir_eager_variable_map: SynSymbolMap<HirEagerVariableIdx>,
+        syn_symbol_to_hir_eager_runtime_symbol_map: SynSymbolMap<HirEagerRuntimeSymbolIdx>,
     ) -> Self {
         Self::new_inner(
             db,
@@ -34,7 +34,7 @@ impl HirEagerExprSourceMap {
                 syn_to_hir_eager_pattern_expr_idx_map,
                 sema_to_hir_eager_expr_idx_map,
                 sema_to_hir_eager_stmt_idx_map,
-                syn_symbol_to_hir_eager_variable_map,
+                syn_symbol_to_hir_eager_runtime_symbol_map,
             },
         )
     }
@@ -66,11 +66,11 @@ impl HirEagerExprSourceMapData {
             .copied()
     }
 
-    pub fn current_syn_symbol_to_hir_eager_variable(
+    pub fn current_syn_symbol_to_hir_eager_runtime_symbol(
         &self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-    ) -> Option<HirEagerVariableIdx> {
-        self.syn_symbol_to_hir_eager_variable_map
+    ) -> Option<HirEagerRuntimeSymbolIdx> {
+        self.syn_symbol_to_hir_eager_runtime_symbol_map
             .get_current(current_syn_symbol_idx)
             .copied()
     }
