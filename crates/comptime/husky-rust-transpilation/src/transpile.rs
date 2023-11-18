@@ -1,5 +1,6 @@
 use crate::{
     defn::module_defn_rust_transpilation,
+    linkages::package_linkages_transpilation,
     manifest::package_rust_manifest,
     package::{
         rust_transpilation_packages, RustTranspilationLibraryPackage,
@@ -68,6 +69,11 @@ fn transpile_package_to_fs(
     husky_io_utils::diff_write(
         &cargo_toml_path,
         package_rust_manifest(db, package_path),
+        true,
+    );
+    husky_io_utils::diff_write(
+        &src_dir.join("__linkages.rs"),
+        package_linkages_transpilation(db, package_path),
         true,
     );
     for &crate_path in package_path.crate_paths(db) {

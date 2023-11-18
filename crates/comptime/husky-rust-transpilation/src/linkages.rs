@@ -1,7 +1,7 @@
 use crate::*;
 
-#[salsa::tracked(jar = RustTranspilationJar)]
-pub(crate) fn package_linkage_transpilation(
+#[salsa::tracked(jar = RustTranspilationJar, return_ref)]
+pub(crate) fn package_linkages_transpilation(
     db: &dyn RustTranspilationDb,
     package_path: PackagePath,
 ) -> String {

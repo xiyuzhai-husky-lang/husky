@@ -1,4 +1,4 @@
-use cargo_manifest::{Edition, Manifest, MaybeInherited, Package};
+use cargo_manifest::{Edition, Manifest, MaybeInherited, Package, Workspace};
 
 use crate::*;
 
@@ -43,7 +43,14 @@ pub(crate) fn package_rust_manifest(
             resolver: None,
         }),
         cargo_features: None,
-        workspace: None,
+        workspace: Some(Workspace {
+            members: vec![],
+            default_members: None,
+            exclude: None,
+            resolver: None,
+            dependencies: None,
+            package: None,
+        }),
         // ad hoc
         dependencies: None,
         // ad hoc
