@@ -61,7 +61,7 @@ SynDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
                                                 TypeSynNodePath {
@@ -124,7 +124,7 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },

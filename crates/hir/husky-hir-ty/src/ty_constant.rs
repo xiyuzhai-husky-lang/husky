@@ -1,3 +1,5 @@
+use husky_term_prelude::TermLiteral;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -27,6 +29,38 @@ pub enum HirConstant {
     // todo: should we add more types here?
     // Rust only allows for these things
     Symbol(HirConstSymbol),
+}
+
+impl HirConstant {
+    pub fn from_term(term_lit: TermLiteral, db: &dyn HirTypeDb) -> Self {
+        match term_lit {
+            TermLiteral::Unit => todo!(),
+            TermLiteral::Bool(_) => todo!(),
+            TermLiteral::I8(_) => todo!(),
+            TermLiteral::I16(_) => todo!(),
+            TermLiteral::I32(_) => todo!(),
+            TermLiteral::I64(_) => todo!(),
+            TermLiteral::I128(_) => todo!(),
+            TermLiteral::ISize(_) => todo!(),
+            TermLiteral::U8(_) => todo!(),
+            TermLiteral::U16(_) => todo!(),
+            TermLiteral::U32(_) => todo!(),
+            TermLiteral::U64(_) => todo!(),
+            TermLiteral::U128(_) => todo!(),
+            TermLiteral::USize(val) => HirConstant::USize(val.value(db) as usize), // ad hoc
+            TermLiteral::R8(_) => todo!(),
+            TermLiteral::R16(_) => todo!(),
+            TermLiteral::R32(_) => todo!(),
+            TermLiteral::R64(_) => todo!(),
+            TermLiteral::R128(_) => todo!(),
+            TermLiteral::RSize(_) => todo!(),
+            TermLiteral::Nat(_) => todo!(),
+            TermLiteral::F32(_) => todo!(),
+            TermLiteral::F64(_) => todo!(),
+            TermLiteral::String(_) => todo!(),
+            TermLiteral::StaticLifetime => todo!(),
+        }
+    }
 }
 
 impl From<HirConstSymbol> for HirConstant {

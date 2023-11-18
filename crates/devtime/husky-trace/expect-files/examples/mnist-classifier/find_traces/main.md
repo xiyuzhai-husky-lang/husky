@@ -6246,7 +6246,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `downarc`,
                         Some(
@@ -6353,7 +6353,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `uparc`,
                         Some(
@@ -6460,7 +6460,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `back`,
                         Some(
@@ -6598,7 +6598,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 4,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `some`,
                         Some(
@@ -6789,7 +6789,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 5,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `some`,
                         Some(
@@ -6855,7 +6855,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 6,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `de`,
                         Some(
@@ -7108,7 +7108,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 7,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `downarc_enpoint`,
                         Some(
@@ -7236,7 +7236,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 8,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `uparc_startpoint`,
                         Some(
@@ -7364,7 +7364,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 9,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `distance`,
                         Some(
@@ -8188,7 +8188,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `some`,
                         Some(
@@ -8295,7 +8295,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `some`,
                         Some(
@@ -8361,7 +8361,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `eff_holes`,
                         Some(
@@ -8530,7 +8530,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 4,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -8596,7 +8596,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 5,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `down_match`,
                         Some(
@@ -8734,7 +8734,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 6,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `some`,
                         Some(
@@ -8800,7 +8800,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 7,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `down_match_dp_y`,
                         Some(
@@ -8959,7 +8959,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 8,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `higher_excess`,
                         Some(
@@ -9696,7 +9696,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 9,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -10104,7 +10104,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -10180,7 +10180,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -10319,7 +10319,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `simple_match_norm`,
                         Some(
@@ -10865,7 +10865,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 9,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `some`,
                         Some(
@@ -10931,7 +10931,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 10,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `others`,
                         Some(
@@ -11246,7 +11246,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -11322,7 +11322,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -11398,7 +11398,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -11474,7 +11474,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 4,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -11540,7 +11540,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 5,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `upper_excess`,
                         Some(
@@ -11856,7 +11856,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 6,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -12212,7 +12212,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -12288,7 +12288,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -12354,7 +12354,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `eff_holes`,
                         Some(
@@ -12523,7 +12523,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 4,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -12589,7 +12589,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 5,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `down_match`,
                         Some(
@@ -12727,7 +12727,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 6,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `some`,
                         Some(
@@ -12793,7 +12793,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 7,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `down_match_dp_y`,
                         Some(
@@ -12952,7 +12952,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 8,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `higher_excess`,
                         Some(
@@ -13689,7 +13689,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 9,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -13931,7 +13931,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -14007,7 +14007,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -14083,7 +14083,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -14159,7 +14159,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 4,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -14235,7 +14235,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 5,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -14311,7 +14311,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 6,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -14377,7 +14377,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 7,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `cc_num`,
                         Some(
@@ -14484,7 +14484,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 8,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `eff_holes`,
                         Some(
@@ -14653,7 +14653,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 9,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -14719,7 +14719,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 10,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `left_cc`,
                         Some(
@@ -14826,7 +14826,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 11,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `right_cc`,
                         Some(
@@ -14933,7 +14933,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 12,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `down_cc`,
                         Some(
@@ -15103,7 +15103,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 13,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `lower_excess`,
                         Some(
@@ -16170,7 +16170,7 @@
                     ),
                 },
                 caller_sema_expr_region: SemaExprRegion {
-                    path: RegionPath::Defn(
+                    path: SynNodeRegionPath::Defn(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
@@ -16188,7 +16188,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
@@ -16264,7 +16264,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -16288,7 +16288,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Defn(
+                            path: SynNodeRegionPath::Defn(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
@@ -16404,7 +16404,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -16908,7 +16908,7 @@
                 callee_syn_expr_region: SynExprRegion {
                     data: SynExprRegionData {
                         parent: None,
-                        path: RegionPath::Decl(
+                        path: SynNodeRegionPath::Decl(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
@@ -17034,7 +17034,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegion {
+                        symbol_region: SynSymbolRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
@@ -17202,7 +17202,7 @@
                     ),
                 },
                 caller_sema_expr_region: SemaExprRegion {
-                    path: RegionPath::Defn(
+                    path: SynNodeRegionPath::Defn(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
@@ -17220,7 +17220,7 @@
                                 SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
-                                        path: RegionPath::Decl(
+                                        path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
@@ -17296,7 +17296,7 @@
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -17320,7 +17320,7 @@
                                     },
                                 },
                             ),
-                            path: RegionPath::Defn(
+                            path: SynNodeRegionPath::Defn(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
@@ -17436,7 +17436,7 @@
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -17940,7 +17940,7 @@
                 callee_syn_expr_region: SynExprRegion {
                     data: SynExprRegionData {
                         parent: None,
-                        path: RegionPath::Decl(
+                        path: SynNodeRegionPath::Decl(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
@@ -18066,7 +18066,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegion {
+                        symbol_region: SynSymbolRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
@@ -18228,7 +18228,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `i0`,
                         Some(
@@ -18294,7 +18294,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `max_row_span_sum`,
                         Some(
@@ -18410,7 +18410,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `row_span_sum`,
                         Some(
@@ -18988,7 +18988,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `sum`,
                         Some(
@@ -25903,7 +25903,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -25979,7 +25979,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -26118,7 +26118,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `simple_match_norm`,
                         Some(
@@ -26664,7 +26664,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 9,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `some`,
                         Some(
@@ -26730,7 +26730,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 10,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `others`,
                         Some(
@@ -26953,7 +26953,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -27029,7 +27029,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -27105,7 +27105,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -27181,7 +27181,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 4,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -27247,7 +27247,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 5,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `upper_excess`,
                         Some(
@@ -27563,7 +27563,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 6,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -27849,7 +27849,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `downarc`,
                         Some(
@@ -27956,7 +27956,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `uparc`,
                         Some(
@@ -28063,7 +28063,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `back`,
                         Some(
@@ -28201,7 +28201,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 4,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `some`,
                         Some(
@@ -28392,7 +28392,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 5,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `some`,
                         Some(
@@ -28458,7 +28458,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 6,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `de`,
                         Some(
@@ -28711,7 +28711,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 7,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `downarc_enpoint`,
                         Some(
@@ -28839,7 +28839,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 8,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `uparc_startpoint`,
                         Some(
@@ -28967,7 +28967,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 9,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `distance`,
                         Some(
@@ -29440,7 +29440,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -29516,7 +29516,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -29582,7 +29582,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `eff_holes`,
                         Some(
@@ -29751,7 +29751,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 4,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -29817,7 +29817,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 5,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `down_match`,
                         Some(
@@ -29955,7 +29955,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 6,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `some`,
                         Some(
@@ -30021,7 +30021,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 7,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `down_match_dp_y`,
                         Some(
@@ -30180,7 +30180,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 8,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `higher_excess`,
                         Some(
@@ -30917,7 +30917,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 9,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -31141,7 +31141,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 1,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -31217,7 +31217,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 2,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -31293,7 +31293,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 3,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -31369,7 +31369,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 4,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -31445,7 +31445,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 5,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -31521,7 +31521,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 6,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -31587,7 +31587,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 7,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `cc_num`,
                         Some(
@@ -31694,7 +31694,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 8,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `eff_holes`,
                         Some(
@@ -31863,7 +31863,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 9,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `none`,
                         Some(
@@ -31929,7 +31929,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 10,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `left_cc`,
                         Some(
@@ -32036,7 +32036,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 11,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `right_cc`,
                         Some(
@@ -32143,7 +32143,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 12,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `down_cc`,
                         Some(
@@ -32313,7 +32313,7 @@
                     ),
                 ),
                 syn_pattern_expr_idx: 13,
-                hir_eager_variable_idxs: [
+                hir_eager_runtime_symbol_idxs: [
                     (
                         `lower_excess`,
                         Some(

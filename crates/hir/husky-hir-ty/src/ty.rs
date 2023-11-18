@@ -84,7 +84,7 @@ fn hir_ty_from_ethereal_term_ritchie(
 }
 
 #[salsa::tracked(jar = HirTypeJar)]
-fn hir_ty_from_ethereal_term_application(
+pub(crate) fn hir_ty_from_ethereal_term_application(
     db: &dyn HirTypeDb,
     term_application: EtherealTermApplication,
 ) -> HirType {
@@ -100,64 +100,14 @@ fn hir_ty_from_ethereal_term_application(
                 application_expansion.arguments(db).iter().copied(),
             )
             .filter_map(|(param, arg)| {
-                todo!("incorrect; redo this");
-                let symbol = param.symbol();
-                match symbol.index(db).inner() {
-                    EtherealTermSymbolIndexInner::ExplicitLifetime {
-                        attrs,
-                        variance,
-                        disambiguator,
-                    } => todo!(),
-                    EtherealTermSymbolIndexInner::ExplicitPlace {
-                        attrs,
-                        variance,
-                        disambiguator,
-                    } => Some(
-                        HirPlaceSymbol {
-                            attrs: HirSymbolAttrs::from_ethereal(attrs)?,
-                            variance,
-                            disambiguator,
-                        }
-                        .into(),
-                    ),
-                    EtherealTermSymbolIndexInner::Type { attrs, .. } => (!attrs.phantom())
-                        .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db))),
-                    EtherealTermSymbolIndexInner::Prop { .. } => None,
-                    EtherealTermSymbolIndexInner::ConstPathLeading {
-                        ty_path,
-                        attrs,
-                        disambiguator,
-                    } => {
-                        let ty = HirType::from_ethereal(symbol.ty(db), db);
-                        Some(HirTemplateArgument::Constant(
-                            HirConstSymbol::new(
-                                db,
-                                ty,
-                                HirConstSymbolIndex::PathLeading {
-                                    attrs: HirSymbolAttrs::from_ethereal(attrs)?,
-                                    ty_path,
-                                    disambiguator,
-                                },
-                            )
-                            .into(),
-                        ))
-                    }
-                    EtherealTermSymbolIndexInner::ConstOther {
-                        attrs,
-                        disambiguator,
-                    } => {
-                        let ty = HirType::from_ethereal(symbol.ty(db), db);
-                        Some(HirTemplateArgument::Constant(
-                            HirConstSymbol::new(
-                                db,
-                                ty,
-                                HirConstSymbolIndex::Other {
-                                    attrs: HirSymbolAttrs::from_ethereal(attrs)?,
-                                    disambiguator,
-                                },
-                            )
-                            .into(),
-                        ))
+                match param.symbol().index(db).inner() {
+                    EtherealTermSymbolIndexInner::ExplicitLifetime { attrs, .. }
+                    | EtherealTermSymbolIndexInner::ExplicitPlace { attrs, .. }
+                    | EtherealTermSymbolIndexInner::Type { attrs, .. }
+                    | EtherealTermSymbolIndexInner::ConstOther { attrs, .. } => !attrs.phantom(),
+                    EtherealTermSymbolIndexInner::Prop { .. } => false,
+                    EtherealTermSymbolIndexInner::ConstPathLeading { attrs, .. } => {
+                        !attrs.phantom()
                     }
                     EtherealTermSymbolIndexInner::EphemPathLeading { .. }
                     | EtherealTermSymbolIndexInner::EphemOther { .. }
@@ -166,7 +116,9 @@ fn hir_ty_from_ethereal_term_application(
                     | EtherealTermSymbolIndexInner::SelfLifetime
                     | EtherealTermSymbolIndexInner::SelfPlace => unreachable!(),
                 }
+                .then_some(arg)
             })
+            .map(|arg| HirTemplateArgument::from_ethereal(arg, db).unwrap())
             .collect();
             HirTypePathLeading::new(db, ty_path, template_arguments).into()
         }

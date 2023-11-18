@@ -85,7 +85,7 @@ Ok(
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
                                                 TypeSynNodePath {
@@ -223,7 +223,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -464,7 +464,7 @@ Ok(
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
                                                 TypeSynNodePath {
@@ -554,7 +554,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -658,7 +658,7 @@ Ok(
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
@@ -785,7 +785,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -856,7 +856,7 @@ Ok(
                                             SynExprRegion {
                                                 data: SynExprRegionData {
                                                     parent: None,
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
@@ -983,7 +983,7 @@ Ok(
                                                             ],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -1045,7 +1045,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
@@ -1246,7 +1246,7 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
@@ -1356,7 +1356,7 @@ Ok(
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
                                                 TypeSynNodePath {
@@ -1419,7 +1419,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1537,7 +1537,7 @@ Ok(
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
@@ -1695,7 +1695,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1800,7 +1800,7 @@ Ok(
                                             SynExprRegion {
                                                 data: SynExprRegionData {
                                                     parent: None,
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
@@ -1958,7 +1958,7 @@ Ok(
                                                             ],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -2054,7 +2054,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
@@ -2755,7 +2755,7 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
@@ -2908,7 +2908,7 @@ Ok(
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
@@ -3034,7 +3034,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -3105,7 +3105,7 @@ Ok(
                                             SynExprRegion {
                                                 data: SynExprRegionData {
                                                     parent: None,
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
@@ -3231,7 +3231,7 @@ Ok(
                                                             ],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -3293,7 +3293,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
@@ -5694,7 +5694,7 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
@@ -6176,7 +6176,7 @@ Ok(
                     syn_expr_region: SynExprRegion {
                         data: SynExprRegionData {
                             parent: None,
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePath {
@@ -6268,7 +6268,7 @@ Ok(
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -6341,7 +6341,7 @@ Ok(
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: RegionPath::Decl(
+                                                path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath {
@@ -6433,7 +6433,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegion {
+                                                symbol_region: SynSymbolRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -6461,7 +6461,7 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath {
@@ -6535,7 +6535,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -6571,7 +6571,7 @@ Ok(
                                                         SynExprRegion {
                                                             data: SynExprRegionData {
                                                                 parent: None,
-                                                                path: RegionPath::Decl(
+                                                                path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePath {
@@ -6663,7 +6663,7 @@ Ok(
                                                                         data: [],
                                                                     },
                                                                 },
-                                                                symbol_region: SynSymbolRegion {
+                                                                symbol_region: SynSymbolRegionData {
                                                                     inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
@@ -6691,7 +6691,7 @@ Ok(
                                                             },
                                                         },
                                                     ),
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePath {
@@ -6765,7 +6765,7 @@ Ok(
                                                             data: [],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -6789,7 +6789,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
@@ -6886,7 +6886,7 @@ Ok(
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -6934,7 +6934,7 @@ Ok(
                     syn_expr_region: SynExprRegion {
                         data: SynExprRegionData {
                             parent: None,
-                            path: RegionPath::Decl(
+                            path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
                                         TypeImplBlockSynNodePath {
@@ -6998,7 +6998,7 @@ Ok(
                                     data: [],
                                 },
                             },
-                            symbol_region: SynSymbolRegion {
+                            symbol_region: SynSymbolRegionData {
                                 inherited_syn_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -7059,7 +7059,7 @@ Ok(
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: RegionPath::Decl(
+                                                path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath {
@@ -7123,7 +7123,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegion {
+                                                symbol_region: SynSymbolRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -7147,7 +7147,7 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
@@ -7231,7 +7231,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -7267,7 +7267,7 @@ Ok(
                                                         SynExprRegion {
                                                             data: SynExprRegionData {
                                                                 parent: None,
-                                                                path: RegionPath::Decl(
+                                                                path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                                             TypeImplBlockSynNodePath {
@@ -7331,7 +7331,7 @@ Ok(
                                                                         data: [],
                                                                     },
                                                                 },
-                                                                symbol_region: SynSymbolRegion {
+                                                                symbol_region: SynSymbolRegionData {
                                                                     inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
@@ -7355,7 +7355,7 @@ Ok(
                                                             },
                                                         },
                                                     ),
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
@@ -7439,7 +7439,7 @@ Ok(
                                                             data: [],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -7463,7 +7463,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
@@ -7567,7 +7567,7 @@ Ok(
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -7635,7 +7635,7 @@ Ok(
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: RegionPath::Decl(
+                                                path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath {
@@ -7699,7 +7699,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegion {
+                                                symbol_region: SynSymbolRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -7723,7 +7723,7 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
@@ -7794,7 +7794,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -7830,7 +7830,7 @@ Ok(
                                                         SynExprRegion {
                                                             data: SynExprRegionData {
                                                                 parent: None,
-                                                                path: RegionPath::Decl(
+                                                                path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                                             TypeImplBlockSynNodePath {
@@ -7894,7 +7894,7 @@ Ok(
                                                                         data: [],
                                                                     },
                                                                 },
-                                                                symbol_region: SynSymbolRegion {
+                                                                symbol_region: SynSymbolRegionData {
                                                                     inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
@@ -7918,7 +7918,7 @@ Ok(
                                                             },
                                                         },
                                                     ),
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
@@ -7989,7 +7989,7 @@ Ok(
                                                             data: [],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -8013,7 +8013,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
@@ -8623,7 +8623,7 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -8780,7 +8780,7 @@ Ok(
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: RegionPath::Decl(
+                                                path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath {
@@ -8844,7 +8844,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegion {
+                                                symbol_region: SynSymbolRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -8868,7 +8868,7 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
@@ -8939,7 +8939,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -8975,7 +8975,7 @@ Ok(
                                                         SynExprRegion {
                                                             data: SynExprRegionData {
                                                                 parent: None,
-                                                                path: RegionPath::Decl(
+                                                                path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                                             TypeImplBlockSynNodePath {
@@ -9039,7 +9039,7 @@ Ok(
                                                                         data: [],
                                                                     },
                                                                 },
-                                                                symbol_region: SynSymbolRegion {
+                                                                symbol_region: SynSymbolRegionData {
                                                                     inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
@@ -9063,7 +9063,7 @@ Ok(
                                                             },
                                                         },
                                                     ),
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
@@ -9134,7 +9134,7 @@ Ok(
                                                             data: [],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -9158,7 +9158,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
@@ -9719,7 +9719,7 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -9905,7 +9905,7 @@ Ok(
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: RegionPath::Decl(
+                                                path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath {
@@ -9969,7 +9969,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegion {
+                                                symbol_region: SynSymbolRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -9993,7 +9993,7 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
@@ -10064,7 +10064,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -10100,7 +10100,7 @@ Ok(
                                                         SynExprRegion {
                                                             data: SynExprRegionData {
                                                                 parent: None,
-                                                                path: RegionPath::Decl(
+                                                                path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                                             TypeImplBlockSynNodePath {
@@ -10164,7 +10164,7 @@ Ok(
                                                                         data: [],
                                                                     },
                                                                 },
-                                                                symbol_region: SynSymbolRegion {
+                                                                symbol_region: SynSymbolRegionData {
                                                                     inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
@@ -10188,7 +10188,7 @@ Ok(
                                                             },
                                                         },
                                                     ),
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
@@ -10259,7 +10259,7 @@ Ok(
                                                             data: [],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -10283,7 +10283,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
@@ -10708,7 +10708,7 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -10851,7 +10851,7 @@ Ok(
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: RegionPath::Decl(
+                                                path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath {
@@ -10915,7 +10915,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegion {
+                                                symbol_region: SynSymbolRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -10939,7 +10939,7 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
@@ -11010,7 +11010,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -11046,7 +11046,7 @@ Ok(
                                                         SynExprRegion {
                                                             data: SynExprRegionData {
                                                                 parent: None,
-                                                                path: RegionPath::Decl(
+                                                                path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                                             TypeImplBlockSynNodePath {
@@ -11110,7 +11110,7 @@ Ok(
                                                                         data: [],
                                                                     },
                                                                 },
-                                                                symbol_region: SynSymbolRegion {
+                                                                symbol_region: SynSymbolRegionData {
                                                                     inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
@@ -11134,7 +11134,7 @@ Ok(
                                                             },
                                                         },
                                                     ),
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
@@ -11205,7 +11205,7 @@ Ok(
                                                             data: [],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -11229,7 +11229,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
@@ -11588,7 +11588,7 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -11716,7 +11716,7 @@ Ok(
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: RegionPath::Decl(
+                                                path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath {
@@ -11780,7 +11780,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegion {
+                                                symbol_region: SynSymbolRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -11804,7 +11804,7 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
@@ -11875,7 +11875,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -11911,7 +11911,7 @@ Ok(
                                                         SynExprRegion {
                                                             data: SynExprRegionData {
                                                                 parent: None,
-                                                                path: RegionPath::Decl(
+                                                                path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                                             TypeImplBlockSynNodePath {
@@ -11975,7 +11975,7 @@ Ok(
                                                                         data: [],
                                                                     },
                                                                 },
-                                                                symbol_region: SynSymbolRegion {
+                                                                symbol_region: SynSymbolRegionData {
                                                                     inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
@@ -11999,7 +11999,7 @@ Ok(
                                                             },
                                                         },
                                                     ),
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
@@ -12070,7 +12070,7 @@ Ok(
                                                             data: [],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -12094,7 +12094,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
@@ -13403,7 +13403,7 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -13703,7 +13703,7 @@ Ok(
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: RegionPath::Decl(
+                                                path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath {
@@ -13767,7 +13767,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegion {
+                                                symbol_region: SynSymbolRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -13791,7 +13791,7 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
@@ -13862,7 +13862,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -13898,7 +13898,7 @@ Ok(
                                                         SynExprRegion {
                                                             data: SynExprRegionData {
                                                                 parent: None,
-                                                                path: RegionPath::Decl(
+                                                                path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                                             TypeImplBlockSynNodePath {
@@ -13962,7 +13962,7 @@ Ok(
                                                                         data: [],
                                                                     },
                                                                 },
-                                                                symbol_region: SynSymbolRegion {
+                                                                symbol_region: SynSymbolRegionData {
                                                                     inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
@@ -13986,7 +13986,7 @@ Ok(
                                                             },
                                                         },
                                                     ),
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
@@ -14057,7 +14057,7 @@ Ok(
                                                             data: [],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -14081,7 +14081,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
@@ -14201,7 +14201,7 @@ Ok(
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -14269,7 +14269,7 @@ Ok(
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: RegionPath::Decl(
+                                                path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath {
@@ -14333,7 +14333,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegion {
+                                                symbol_region: SynSymbolRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -14357,7 +14357,7 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
@@ -14428,7 +14428,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -14464,7 +14464,7 @@ Ok(
                                                         SynExprRegion {
                                                             data: SynExprRegionData {
                                                                 parent: None,
-                                                                path: RegionPath::Decl(
+                                                                path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                                             TypeImplBlockSynNodePath {
@@ -14528,7 +14528,7 @@ Ok(
                                                                         data: [],
                                                                     },
                                                                 },
-                                                                symbol_region: SynSymbolRegion {
+                                                                symbol_region: SynSymbolRegionData {
                                                                     inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
@@ -14552,7 +14552,7 @@ Ok(
                                                             },
                                                         },
                                                     ),
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
@@ -14623,7 +14623,7 @@ Ok(
                                                             data: [],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -14647,7 +14647,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
@@ -14767,7 +14767,7 @@ Ok(
                                                 data: [],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [],
                                             },
@@ -14852,7 +14852,7 @@ Ok(
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: RegionPath::Decl(
+                                                path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath {
@@ -14916,7 +14916,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegion {
+                                                symbol_region: SynSymbolRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -14940,7 +14940,7 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
@@ -15061,7 +15061,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -15135,7 +15135,7 @@ Ok(
                                                         SynExprRegion {
                                                             data: SynExprRegionData {
                                                                 parent: None,
-                                                                path: RegionPath::Decl(
+                                                                path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                                             TypeImplBlockSynNodePath {
@@ -15199,7 +15199,7 @@ Ok(
                                                                         data: [],
                                                                     },
                                                                 },
-                                                                symbol_region: SynSymbolRegion {
+                                                                symbol_region: SynSymbolRegionData {
                                                                     inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
@@ -15223,7 +15223,7 @@ Ok(
                                                             },
                                                         },
                                                     ),
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
@@ -15344,7 +15344,7 @@ Ok(
                                                             ],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -15406,7 +15406,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
@@ -16027,7 +16027,7 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
@@ -16215,7 +16215,7 @@ Ok(
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: RegionPath::Decl(
+                                                path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath {
@@ -16279,7 +16279,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegion {
+                                                symbol_region: SynSymbolRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -16303,7 +16303,7 @@ Ok(
                                             },
                                         },
                                     ),
-                                    path: RegionPath::Decl(
+                                    path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
@@ -16424,7 +16424,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegion {
+                                    symbol_region: SynSymbolRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -16498,7 +16498,7 @@ Ok(
                                                         SynExprRegion {
                                                             data: SynExprRegionData {
                                                                 parent: None,
-                                                                path: RegionPath::Decl(
+                                                                path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                                             TypeImplBlockSynNodePath {
@@ -16562,7 +16562,7 @@ Ok(
                                                                         data: [],
                                                                     },
                                                                 },
-                                                                symbol_region: SynSymbolRegion {
+                                                                symbol_region: SynSymbolRegionData {
                                                                     inherited_syn_symbol_arena: Arena {
                                                                         data: [],
                                                                     },
@@ -16586,7 +16586,7 @@ Ok(
                                                             },
                                                         },
                                                     ),
-                                                    path: RegionPath::Decl(
+                                                    path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
@@ -16707,7 +16707,7 @@ Ok(
                                                             ],
                                                         },
                                                     },
-                                                    symbol_region: SynSymbolRegion {
+                                                    symbol_region: SynSymbolRegionData {
                                                         inherited_syn_symbol_arena: Arena {
                                                             data: [],
                                                         },
@@ -16769,7 +16769,7 @@ Ok(
                                                 },
                                             },
                                         ),
-                                        path: RegionPath::Defn(
+                                        path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
@@ -17390,7 +17390,7 @@ Ok(
                                                 ],
                                             },
                                         },
-                                        symbol_region: SynSymbolRegion {
+                                        symbol_region: SynSymbolRegionData {
                                             inherited_syn_symbol_arena: Arena {
                                                 data: [
                                                     InheritedSynSymbol {
