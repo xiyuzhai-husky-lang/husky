@@ -15,13 +15,25 @@ use husky_hir_decl::parameter::{
 use husky_hir_defn::*;
 use husky_hir_ty::ritchie::HirRitchieParameter;
 use husky_print_utils::p;
+use husky_vfs::ModulePathData;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
 pub(crate) fn module_defn_rust_transpilation(
     db: &dyn RustTranspilationDb,
     module_path: ModulePath,
 ) -> String {
-    let mut builder = RustTranspilationBuilder::new(db);
+    let mut builder = RustTranspilationBuilder::new(
+        db,
+        match module_path.data(db) {
+            ModulePathData::Root(_) => Some(
+                r#"\
+#[cfg(feature = "__linkages")]
+mod __linkages;
+"#,
+            ),
+            ModulePathData::Child { .. } => None,
+        },
+    );
     for item_path in module_item_paths(db, module_path) {
         if let Some(hir_defn) = item_path.hir_defn(db) {
             match hir_defn {

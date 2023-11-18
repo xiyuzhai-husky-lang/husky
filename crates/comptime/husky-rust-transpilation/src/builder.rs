@@ -9,7 +9,7 @@ pub(crate) use self::keyword::*;
 pub(crate) use self::macro_name::*;
 pub(crate) use self::punctuation::*;
 
-use crate::{*};
+use crate::*;
 use husky_coword::Ident;
 use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
 use husky_hir_eager_expr::{
@@ -35,7 +35,7 @@ pub(crate) struct RustTranspilationBuilder<'a> {
 }
 
 impl<'a> RustTranspilationBuilder<'a> {
-    pub(crate) fn new(db: &'a dyn RustTranspilationDb) -> Self {
+    pub(crate) fn new(db: &'a dyn RustTranspilationDb, result: Option<&'static str>) -> Self {
         Self {
             db,
             result: Default::default(),
