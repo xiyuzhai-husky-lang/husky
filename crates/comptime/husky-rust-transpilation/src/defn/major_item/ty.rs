@@ -39,7 +39,7 @@ impl TranspileToRust for PropsStructTypeHirDefn {
             builder.keyword(RustKeyword::Struct);
             hir_decl.path(db).ident(db).transpile_to_rust(builder);
             hir_decl.template_parameters(db).transpile_to_rust(builder);
-            builder.bracketed_comma_list(RustBracket::Curl, hir_decl.fields(db))
+            builder.bracketed_multiline_comma_list(RustBracket::Curl, hir_decl.fields(db))
         })
     }
 }

@@ -1,5 +1,8 @@
 
-struct ConcaveComponent{line_segment_sketch: Leash<LineSegmentSketch>, strokes: Leash<CyclicSlice<LineSegmentStroke>>}
+struct ConcaveComponent{
+    line_segment_sketch: Leash<LineSegmentSketch>,
+    strokes: Leash<CyclicSlice<LineSegmentStroke>>,
+}
 
 pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) -> Vec<ConcaveComponent> {
     let mut concave_components: Vec<ConcaveComponent> = vec![];

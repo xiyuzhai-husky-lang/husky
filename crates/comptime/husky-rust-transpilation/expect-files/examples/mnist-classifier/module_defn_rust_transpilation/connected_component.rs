@@ -1,7 +1,14 @@
 
-struct ConnectedComponentDistribution{row_start: i32, row_end: i32, upper_mass: i32, lower_mass: i32}
+struct ConnectedComponentDistribution{
+    row_start: i32,
+    row_end: i32,
+    upper_mass: i32,
+    lower_mass: i32,
+}
 
-struct EffHoles{matches: Vec<Option<Leash<RawContour>>>}
+struct EffHoles{
+    matches: Vec<Option<Leash<RawContour>>>,
+}
 
 pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
     let len = ct.contour_len;
@@ -9,7 +16,9 @@ pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
     len + 0
 }
 
-struct ConnectedComponent{mask: BinaryImage28}
+struct ConnectedComponent{
+    mask: BinaryImage28,
+}
 
 pub fn horizontal_extend(a: r32, x: r32) -> r32 {
     let mut y = a | (x | x << 1 | x >> 1);
@@ -28,7 +37,7 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
         while unsearched[j] {
             let a = unsearched[j];
             let shift = a.ctz();
-            let mut mask = new_zeros();
+            let mut mask = BinaryImage28::new_zeros();
             mask[j] = horizontal_extend(a, 1 << shift);
             let mut flag = false;
             while !flag {
@@ -46,9 +55,9 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
                             mask[i + 1] = new_row
                         }
                     }
-                    i += 1
+                    i += += 1
                 }
-                while i>=j {
+                while i >= j {
                     {
                         let old_row = mask[i];
                         let new_row = old_row | horizontal_extend(img[i], mask[i + 1]);
@@ -57,7 +66,7 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
                             mask[i] = new_row
                         }
                     }
-                    i += -1
+                    i += -= 1
                 }
             }
             for k in j..30 {
