@@ -4,28 +4,28 @@ struct BinaryImage28{Array<30, r32>}
 
 struct BinaryGrid28{Array<31, r32>}
 
-impl {
+impl Visualizefor BinaryImage28 {
     
 }
 
-impl {
+impl BinaryImage28 {
     
 }
 
-impl {
+impl IntIndexfor BinaryImage28 {
     
     type Output = r32;
 }
 
-impl {
+impl Visualizefor BinaryGrid28 {
     
 }
 
-impl {
+impl BinaryGrid28 {
     
 }
 
-impl {
+impl IntIndexfor BinaryGrid28 {
     
     type Output = r32;
 }

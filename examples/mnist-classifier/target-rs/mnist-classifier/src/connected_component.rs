@@ -77,13 +77,13 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
     return result;
 }
 
-impl {
+impl Visualizefor ConnectedComponent {
     fn visualize(self) {
         self.mask.visualize()
     }
 }
 
-impl {
+impl ConnectedComponent {
     fn raw_contours(self) {
         find_raw_contours(self)
     }

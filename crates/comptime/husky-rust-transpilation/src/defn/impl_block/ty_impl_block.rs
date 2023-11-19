@@ -20,6 +20,11 @@ impl TranspileToRust for TypeImplBlockHirDefn {
 
 impl TranspileToRust for TypeImplBlockHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
-        builder.keyword(RustKeyword::Impl)
+        let db = builder.db();
+        builder.eager_head(self.hir_eager_expr_region(db), |builder| {
+            builder.keyword(RustKeyword::Impl);
+            self.template_parameters(db).transpile_to_rust(builder);
+            self.self_ty(db).transpile_to_rust(builder);
+        })
     }
 }

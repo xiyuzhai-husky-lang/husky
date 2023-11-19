@@ -27,6 +27,39 @@
                         template_arguments: [],
                     },
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::ImplBlock(
+                            ImplBlockPath::TypeImplBlock(
+                                TypeImplBlockPath {
+                                    module_path: `core::raw_bits`,
+                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),

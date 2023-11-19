@@ -3,7 +3,7 @@ struct LineSegment{
     end: Point2d,
 }
 
-impl {
+impl LineSegment {
     fn displacement(self) {
         self.start.to(self.end)
     }

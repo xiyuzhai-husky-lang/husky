@@ -23,7 +23,9 @@ use husky_hir_eager_expr::{
 use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyExprRegion, HirLazyStmtArena};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
-use husky_hir_ty::{HirComptimeSymbol, HirConstant, HirTemplateArgument, HirType, HirTypeSymbol};
+use husky_hir_ty::{
+    trai::HirTrait, HirComptimeSymbol, HirConstant, HirTemplateArgument, HirType, HirTypeSymbol,
+};
 use husky_print_utils::p;
 use husky_term_prelude::TermLiteral;
 
@@ -412,30 +414,14 @@ impl TranspileToRust<HirEagerExprRegion> for HirType {
     }
 }
 
-impl<E> TranspileToRust<E> for PrincipalEntityPath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+impl TranspileToRust<HirEagerExprRegion> for HirTrait {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db;
-        match self {
-            PrincipalEntityPath::Module(path) => path.ident(db).transpile_to_rust(builder),
-            PrincipalEntityPath::MajorItem(path) => path.ident(db).transpile_to_rust(builder),
-            PrincipalEntityPath::TypeVariant(path) => {
-                match path.parent_ty_path(db).prelude_ty_path(db) {
-                    Some(PreludeTypePath::Option | PreludeTypePath::Result) => (),
-                    _ => {
-                        path.parent_ty_path(db).ident(db).transpile_to_rust(builder);
-                        builder.opr(RustOpr::ColonColon);
-                    }
-                }
-                path.ident(db).transpile_to_rust(builder)
-            }
+        self.trai_path(db).transpile_to_rust(builder);
+        let template_arguments = self.template_arguments(db);
+        if !template_arguments.is_empty() {
+            builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
         }
-    }
-}
-
-impl<E> TranspileToRust<E> for TypePath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
-        let db = builder.db();
-        self.ident(db).transpile_to_rust(builder)
     }
 }
 

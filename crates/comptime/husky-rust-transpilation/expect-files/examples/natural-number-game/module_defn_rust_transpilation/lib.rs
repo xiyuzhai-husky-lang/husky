@@ -1,2 +1,2 @@
-impl {
+impl Nat {
 }

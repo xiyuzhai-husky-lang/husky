@@ -4,12 +4,12 @@ struct OneVsAll<Label>
 
 struct OneVsAllResult<Label>
 
-impl {
+impl <Label>Unveil<OneVsAll<Label>>for Class<Label> {
     
     type Output = unit;
 }
 
-impl {
+impl <Label>Unveil<OneVsAllResult<Label>>for OneVsAll<Label> {
     
     type Output = unit;
 }

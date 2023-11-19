@@ -633,6 +633,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -757,7 +790,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 3,
+                                                value: 4,
                                             },
                                         ),
                                     ),
@@ -852,6 +885,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i8`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -896,7 +985,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 3,
+                                                value: 4,
                                             },
                                         ),
                                     ),
@@ -997,6 +1086,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -1121,7 +1243,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -1216,6 +1338,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i16`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -1260,7 +1438,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -1361,6 +1539,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -1485,7 +1696,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -1599,7 +1810,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -1694,6 +1905,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i32`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -1738,7 +2005,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -1839,6 +2106,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -1944,6 +2244,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 7,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i64`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i64`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -1988,7 +2344,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 6,
+                                                value: 7,
                                             },
                                         ),
                                     ),
@@ -2089,6 +2445,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -2194,6 +2583,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 8,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::i128`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i128`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -2238,7 +2683,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -2339,6 +2784,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -2444,6 +2922,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 9,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::isize`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::isize`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -2488,7 +3022,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 8,
+                                                value: 9,
                                             },
                                         ),
                                     ),
@@ -2589,6 +3123,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -2694,6 +3261,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 10,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u8`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u8`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -2738,7 +3361,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 9,
+                                                value: 10,
                                             },
                                         ),
                                     ),
@@ -2839,6 +3462,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -2944,6 +3600,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u16`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u16`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -2988,7 +3700,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 10,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -3089,6 +3801,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -3194,6 +3939,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 12,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u32`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -3238,7 +4039,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 11,
+                                                value: 12,
                                             },
                                         ),
                                     ),
@@ -3339,6 +4140,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -3444,6 +4278,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 13,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u64`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u64`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -3488,7 +4378,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -3589,6 +4479,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -3694,6 +4617,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::u128`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u128`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -3738,7 +4717,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 14,
                                             },
                                         ),
                                     ),
@@ -3839,6 +4818,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -3944,6 +4956,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::usize`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::usize`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -4089,6 +5157,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -4299,7 +5400,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 14,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -4413,7 +5514,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 14,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -4852,6 +5953,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -4896,7 +6053,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 14,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -4997,6 +6154,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -5188,6 +6378,62 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Add`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                            template_arguments: [],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::f64`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -5232,7 +6478,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 15,
+                                                value: 16,
                                             },
                                         ),
                                     ),

@@ -172,13 +172,13 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
     line_segments
 }
 
-impl {
+impl Visualizefor LineSegmentStroke {
     fn visualize(self) {
         
     }
 }
 
-impl {
+impl LineSegmentStroke {
     fn new(ct: Leash<RawContour>, from: i32, to: i32) {
         assert!(from <= to);
         LineSegmentStroke(ct.points.cyclic_slice_leashed(from, to + 1))
@@ -189,13 +189,13 @@ impl {
     }
 }
 
-impl {
+impl Visualizefor LineSegmentSketch {
     fn visualize(self) {
         self.strokes.visualize()
     }
 }
 
-impl {
+impl LineSegmentSketch {
     fn concave_components(self) {
         find_concave_components(self)
     }
