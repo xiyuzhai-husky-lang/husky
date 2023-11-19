@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = HirDeclDb)]
 pub enum HirEagerParenateParameter {
     Ordinary {
         pattern_expr_idx: HirEagerPatternExprIdx,
@@ -48,6 +49,7 @@ impl HirEagerParenateParameter {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = HirDeclDb)]
 pub struct HirEagerParenateParameters(SmallVec<[HirEagerParenateParameter; 4]>);
 
 impl std::ops::Deref for HirEagerParenateParameters {

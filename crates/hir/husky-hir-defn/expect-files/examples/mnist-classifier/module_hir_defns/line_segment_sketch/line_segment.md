@@ -340,14 +340,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 52,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],

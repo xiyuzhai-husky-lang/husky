@@ -29,14 +29,23 @@
                     ),
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                        template_arguments: [
+                                            HirTemplateArgument::Type(
+                                                HirType::Symbol(
+                                                    Type {
+                                                        attrs: HirSymbolAttrs,
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             },
                         ],
@@ -144,34 +153,41 @@
                     ),
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                        template_arguments: [
+                                            HirTemplateArgument::Type(
+                                                HirType::Symbol(
+                                                    Type {
+                                                        attrs: HirSymbolAttrs,
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 2,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 3,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
                         ],
@@ -311,34 +327,41 @@
                     ),
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                        template_arguments: [
+                                            HirTemplateArgument::Type(
+                                                HirType::Symbol(
+                                                    Type {
+                                                        attrs: HirSymbolAttrs,
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 2,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 3,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
                         ],

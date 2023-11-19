@@ -56,8 +56,8 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`core::slice::Slice`, `Extern`),
                         template_arguments: [
-                            Type(
-                                Symbol(
+                            HirTemplateArgument::Type(
+                                HirType::Symbol(
                                     Type {
                                         attrs: HirSymbolAttrs,
                                         variance: None,
@@ -182,8 +182,8 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         template_arguments: [
-                            Type(
-                                Symbol(
+                            HirTemplateArgument::Type(
+                                HirType::Symbol(
                                     Type {
                                         attrs: HirSymbolAttrs,
                                         variance: None,
@@ -293,8 +293,8 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         template_arguments: [
-                            Type(
-                                Symbol(
+                            HirTemplateArgument::Type(
+                                HirType::Symbol(
                                     Type {
                                         attrs: HirSymbolAttrs,
                                         variance: None,

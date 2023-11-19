@@ -25,7 +25,7 @@ impl TranspileToRust for TraitForTypeImplBlockHirDecl {
             builder.keyword(RustKeyword::Impl);
             self.template_parameters(db).transpile_to_rust(builder);
             self.trai(db).transpile_to_rust(builder);
-            builder.keyword(RustKeyword::For);
+            builder.keyword(RustKeyword::ConnectionFor);
             self.self_ty(db).transpile_to_rust(builder)
         })
     }

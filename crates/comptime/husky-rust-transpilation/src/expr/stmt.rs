@@ -49,7 +49,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 ref particulars,
                 block,
             } => builder.on_fresh_line(|builder| {
-                builder.keyword(RustKeyword::For);
+                builder.keyword(RustKeyword::StmtFor);
                 particulars.frame_var_ident.transpile_to_rust(builder);
                 builder.keyword(RustKeyword::In);
                 let range = &particulars.range;

@@ -45,8 +45,8 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`core::vec::Vec`, `Extern`),
                         template_arguments: [
-                            Type(
-                                Symbol(
+                            HirTemplateArgument::Type(
+                                HirType::Symbol(
                                     Type {
                                         attrs: HirSymbolAttrs,
                                         variance: None,

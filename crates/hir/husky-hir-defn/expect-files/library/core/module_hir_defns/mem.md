@@ -476,8 +476,8 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::mem::Leash`, `Extern`),
                             template_arguments: [
-                                Type(
-                                    Symbol(
+                                HirTemplateArgument::Type(
+                                    HirType::Symbol(
                                         Type {
                                             attrs: HirSymbolAttrs,
                                             variance: None,

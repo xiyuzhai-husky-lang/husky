@@ -172,7 +172,7 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
     line_segments
 }
 
-impl Visualizefor LineSegmentStroke {
+impl Visualize for LineSegmentStroke {
     fn visualize(self) {
         
     }
@@ -189,7 +189,7 @@ impl LineSegmentStroke {
     }
 }
 
-impl Visualizefor LineSegmentSketch {
+impl Visualize for LineSegmentSketch {
     fn visualize(self) {
         self.strokes.visualize()
     }

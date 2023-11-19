@@ -31,24 +31,22 @@
                     ),
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 2,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
                         ],
@@ -136,24 +134,22 @@
                     ),
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 2,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
                         ],
@@ -241,24 +237,22 @@
                     ),
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 2,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
                         ],
@@ -346,34 +340,31 @@
                     ),
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 2,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 3,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
                         ],
@@ -477,24 +468,22 @@
                     ),
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 69,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 2,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 69,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
                         ],
@@ -582,44 +571,40 @@
                     ),
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 2,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 3,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 4,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 69,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             },
                         ],
@@ -750,14 +735,22 @@
                     ),
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 68,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                        template_arguments: [
+                                            HirTemplateArgument::Type(
+                                                HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             },
                         ],
@@ -829,14 +822,22 @@
                     ),
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            Ordinary {
+                            HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
-                                ty: PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 67,
-                                        },
-                                    ),
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            HirTemplateArgument::Type(
+                                                HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             },
                         ],
@@ -845,13 +846,12 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::vec::Vec`, `Extern`),
                             template_arguments: [
-                                Type(
-                                    PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 30,
-                                            },
-                                        ),
+                                HirTemplateArgument::Type(
+                                    HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 ),
                             ],

@@ -204,13 +204,31 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Unveil`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                                        template_arguments: [
+                                            HirTemplateArgument::Type(
+                                                HirType::Symbol(
+                                                    Type {
+                                                        attrs: HirSymbolAttrs,
+                                                        variance: None,
+                                                        disambiguator: 1,
+                                                    },
+                                                ),
+                                            ),
+                                            HirTemplateArgument::Type(
+                                                HirType::Symbol(
+                                                    Type {
+                                                        attrs: HirSymbolAttrs,
+                                                        variance: None,
+                                                        disambiguator: 3,
+                                                    },
+                                                ),
+                                            ),
+                                        ],
+                                    },
                                 ),
                             ),
                         ],
@@ -219,8 +237,8 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::result::Result`, `Enum`),
                             template_arguments: [
-                                Type(
-                                    Symbol(
+                                HirTemplateArgument::Type(
+                                    HirType::Symbol(
                                         Type {
                                             attrs: HirSymbolAttrs,
                                             variance: None,
@@ -228,8 +246,8 @@
                                         },
                                     ),
                                 ),
-                                Type(
-                                    Symbol(
+                                HirTemplateArgument::Type(
+                                    HirType::Symbol(
                                         Type {
                                             attrs: HirSymbolAttrs,
                                             variance: None,
@@ -505,14 +523,32 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::result::Result`, `Enum`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::Symbol(
+                                                        Type {
+                                                            attrs: HirSymbolAttrs,
+                                                            variance: None,
+                                                            disambiguator: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                                HirTemplateArgument::Type(
+                                                    HirType::Symbol(
+                                                        Type {
+                                                            attrs: HirSymbolAttrs,
+                                                            variance: None,
+                                                            disambiguator: 3,
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                        },
                                     ),
                                 },
                             ],
@@ -521,8 +557,8 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::result::Result`, `Enum`),
                                 template_arguments: [
-                                    Type(
-                                        Symbol(
+                                    HirTemplateArgument::Type(
+                                        HirType::Symbol(
                                             Type {
                                                 attrs: HirSymbolAttrs,
                                                 variance: None,
@@ -530,8 +566,8 @@
                                             },
                                         ),
                                     ),
-                                    Type(
-                                        Symbol(
+                                    HirTemplateArgument::Type(
+                                        HirType::Symbol(
                                             Type {
                                                 attrs: HirSymbolAttrs,
                                                 variance: None,

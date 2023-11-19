@@ -83,7 +83,7 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
     return result;
 }
 
-impl Visualizefor RawContour {
+impl Visualize for RawContour {
     fn visualize(self) {
         
     }

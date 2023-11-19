@@ -117,8 +117,8 @@
                         HirTypePathLeading {
                             ty_path: TypePath(`core::vec::Vec`, `Extern`),
                             template_arguments: [
-                                Type(
-                                    Symbol(
+                                HirTemplateArgument::Type(
+                                    HirType::Symbol(
                                         Type {
                                             attrs: HirSymbolAttrs,
                                             variance: None,
@@ -309,9 +309,9 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: Symbol(
+                                    ty: HirType::Symbol(
                                         Type {
                                             attrs: HirSymbolAttrs,
                                             variance: None,
@@ -442,13 +442,27 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::option::Option`, `Enum`),
                                 template_arguments: [
-                                    Type(
-                                        PathLeading(
-                                            HirTypePathLeading(
-                                                Id {
-                                                    value: 24,
-                                                },
-                                            ),
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::mem::At`, `Extern`),
+                                                template_arguments: [
+                                                    HirTemplateArgument::Type(
+                                                        HirType::Symbol(
+                                                            SelfPlace,
+                                                        ),
+                                                    ),
+                                                    HirTemplateArgument::Type(
+                                                        HirType::Symbol(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
                                         ),
                                     ),
                                 ],
@@ -552,13 +566,27 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::option::Option`, `Enum`),
                                 template_arguments: [
-                                    Type(
-                                        PathLeading(
-                                            HirTypePathLeading(
-                                                Id {
-                                                    value: 24,
-                                                },
-                                            ),
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::mem::At`, `Extern`),
+                                                template_arguments: [
+                                                    HirTemplateArgument::Type(
+                                                        HirType::Symbol(
+                                                            SelfPlace,
+                                                        ),
+                                                    ),
+                                                    HirTemplateArgument::Type(
+                                                        HirType::Symbol(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
                                         ),
                                     ),
                                 ],
@@ -662,8 +690,8 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::option::Option`, `Enum`),
                                 template_arguments: [
-                                    Type(
-                                        Symbol(
+                                    HirTemplateArgument::Type(
+                                        HirType::Symbol(
                                             Type {
                                                 attrs: HirSymbolAttrs,
                                                 variance: None,
@@ -772,13 +800,22 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::vec::Vec`, `Extern`),
                                 template_arguments: [
-                                    Type(
-                                        PathLeading(
-                                            HirTypePathLeading(
-                                                Id {
-                                                    value: 3,
-                                                },
-                                            ),
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                template_arguments: [
+                                                    HirTemplateArgument::Type(
+                                                        HirType::Symbol(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
                                         ),
                                     ),
                                 ],
@@ -877,24 +914,22 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 2,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -903,13 +938,22 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                 template_arguments: [
-                                    Type(
-                                        PathLeading(
-                                            HirTypePathLeading(
-                                                Id {
-                                                    value: 21,
-                                                },
-                                            ),
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                template_arguments: [
+                                                    HirTemplateArgument::Type(
+                                                        HirType::Symbol(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
                                         ),
                                     ),
                                 ],
@@ -1041,9 +1085,9 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: Ritchie,
+                                    ty: HirType::Ritchie,
                                 },
                             ],
                         ),
@@ -1051,8 +1095,8 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::option::Option`, `Enum`),
                                 template_arguments: [
-                                    Type(
-                                        Symbol(
+                                    HirTemplateArgument::Type(
+                                        HirType::Symbol(
                                             Type {
                                                 attrs: HirSymbolAttrs,
                                                 variance: None,
