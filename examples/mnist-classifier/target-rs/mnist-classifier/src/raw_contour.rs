@@ -1,4 +1,3 @@
-
 struct RawContour{
     cc: Leash<ConnectedComponent>,
     points: Vec<Point2d>,
@@ -82,4 +81,56 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
         }
     }
     return result;
+}
+
+impl {
+    fn visualize(self) {
+        
+    }
+}
+
+impl {
+    fn line_segment_sketch(self) {
+        LineSegmentSketch::new(self, 1.4)
+    }
+
+    fn bounding_box(self) {
+        let start_point = self.points[0];
+        let mut xmin = start_point.x;
+        let mut xmax = start_point.x;
+        let mut ymin = start_point.y;
+        let mut ymax = start_point.y;
+        for i in 0..self.points.ilen() {
+            let point = self.points[i];
+            xmin = xmin.min(point.x);
+            xmax = xmax.max(point.x);
+            ymin = ymin.min(point.y);
+            ymax = ymax.max(point.y)
+        }
+        return BoundingBox(ClosedRange(xmin, xmax), ClosedRange(ymin, ymax));
+    }
+
+    fn relative_bounding_box(self) {
+        self.cc.raw_contours[0].bounding_box.relative_bounding_box(self.bounding_box)
+    }
+
+    fn contour_len(self) {
+        let mut contour_len = 0;
+        for i in (0 + 1)..self.points.ilen() {
+            let a = self.points[i - 1];
+            let b = self.points[i];
+            contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
+        }
+        let a = self.points[self.points.ilen() - 1];
+        let b = self.points[0];
+        contour_len += (a.x - b.x).abs() + (a.y - b.y).abs();
+        return contour_len;
+    }
+
+    fn displacement(self, start: i32, end: i32) {
+        let N = self.points.ilen();
+        let ct_start = self.points[start.rem_eulicd(N)];
+        let ct_end = self.points[end.rem_eulicd(N)];
+        ct_start.to(ct_end)
+    }
 }

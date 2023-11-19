@@ -89,6 +89,20 @@ pub fn module_item_paths(db: &dyn EntitySynTreeDb, module_path: ModulePath) -> V
     }
     paths
 }
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+pub fn module_submodule_paths(
+    db: &dyn EntitySynTreeDb,
+    module_path: ModulePath,
+) -> Vec<SubmodulePath> {
+    module_item_paths(db, module_path)
+        .iter()
+        .copied()
+        .filter_map(|item_path| match item_path {
+            ItemPath::Submodule(submodule_path) => Some(submodule_path),
+            _ => None,
+        })
+        .collect()
+}
 
 #[test]
 fn module_item_paths_works() {

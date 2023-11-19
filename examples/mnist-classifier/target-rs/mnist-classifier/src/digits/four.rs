@@ -1,4 +1,3 @@
-
 fn left_components() {
     fermi_match(major_concave_components, vec![left_coordinate_max, left_coordinate_max])
 }

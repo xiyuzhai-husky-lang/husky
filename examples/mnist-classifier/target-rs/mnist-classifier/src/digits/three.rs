@@ -1,4 +1,3 @@
-
 fn three_fermi_match() {
     fermi_match(major_concave_components, vec![downarc, uparc, back])
 }

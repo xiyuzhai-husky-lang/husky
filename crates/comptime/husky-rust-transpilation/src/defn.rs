@@ -6,7 +6,7 @@ mod submodule;
 mod ty_variant;
 
 use crate::*;
-use husky_entity_syn_tree::helpers::paths::module_item_paths;
+use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_submodule_paths};
 use husky_hir_decl::parameter::{
     parenate::eager::{HirEagerParenateParameter, HirEagerParenateParameters},
     self_value::eager::HirEagerSelfValueParameter,
@@ -36,11 +36,26 @@ mod __linkages;
         },
     );
     let mut builder: RustTranspilationBuilder = RustTranspilationBuilder::new(&mut builder_base);
+    let submodule_paths = module_submodule_paths(db, module_path);
+    // decl submodules
+    for submodule_path in submodule_paths {
+        submodule_path.hir_defn(db).transpile_to_rust(&mut builder)
+    }
+    builder.fresh_paragraph();
+    // pub use all in submodules
+    for &submodule_path in submodule_paths {
+        builder.use_all_in_submodule(submodule_path)
+    }
+    // use super::*
     for item_path in module_item_paths(db, module_path) {
         if let Some(hir_defn) = item_path.hir_defn(db) {
             match hir_defn {
-                HirDefn::Submodule(_) | HirDefn::MajorItem(_) => {
-                    builder.make_defn_fresh_lines();
+                HirDefn::MajorItem(hir_defn) => {
+                    builder.fresh_paragraph();
+                    hir_defn.transpile_to_rust(&mut builder)
+                }
+                HirDefn::ImplBlock(hir_defn) => {
+                    builder.fresh_paragraph();
                     hir_defn.transpile_to_rust(&mut builder)
                 }
                 _ => (),

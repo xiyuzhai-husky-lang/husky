@@ -53,7 +53,7 @@ impl TranspileToRust for TypeMethodFnHirDecl {
             builder.keyword(RustKeyword::Fn);
             self.path(db).ident(db).transpile_to_rust(builder);
             self.template_parameters(db).transpile_to_rust(builder);
-            builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
+            builder.bracketed_list_with(RustBracket::Par, |builder| {
                 builder.heterogeneous_comma_list_item(self.self_value_parameter(db));
                 builder.heterogeneous_comma_list_items(self.parenate_parameters(db).iter())
             })
@@ -83,8 +83,7 @@ impl TranspileToRust for TypeMemoizedFieldHirDefn {
         builder.keyword(RustKeyword::Fn);
         self.path(db).ident(db).transpile_to_rust(builder);
         let _hir_decl = self.hir_decl(db);
-        builder
-            .heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| builder.self_value());
+        builder.bracketed_list_with(RustBracket::Par, |builder| builder.self_value());
         builder.eager_body(hir_eager_expr_region, body)
     }
 }

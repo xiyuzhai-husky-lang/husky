@@ -1,4 +1,3 @@
-
 fn simple_seven_match() {
     fermi_match(major_concave_components, vec![simple_leftdown_pattern])
 }

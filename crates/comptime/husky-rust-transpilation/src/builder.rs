@@ -1,3 +1,4 @@
+mod ad_hoc;
 pub(crate) mod keyword;
 mod literal;
 mod macro_name;
@@ -59,15 +60,17 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         self.db
     }
 
-    fn make_fresh_line(&mut self) {
-        if !self.fresh_line() {
+    fn fresh_line(&mut self) {
+        if !self.is_line_fresh() {
             self.result += "\n";
         }
         self.write_indent();
     }
 
-    pub(crate) fn make_defn_fresh_lines(&mut self) {
-        if !self.fresh_line() {
+    pub(crate) fn fresh_paragraph(&mut self) {
+        if self.result.len() == 0 {
+            ()
+        } else if !self.is_line_fresh() {
             if !self.result.ends_with("{") {
                 self.result += "\n"
             }
@@ -90,7 +93,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         }
     }
 
-    pub(crate) fn fresh_line(&self) -> bool {
+    pub(crate) fn is_line_fresh(&self) -> bool {
         self.result.is_empty() || self.result.ends_with("\n")
     }
 
@@ -151,25 +154,27 @@ pub(crate) struct RustTranspilationBuilder<'a, 'b, E = ()> {
 }
 
 impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
-    pub(crate) fn on_new_semicolon_line(&mut self, f: impl FnOnce(&mut Self)) {
-        self.make_fresh_line();
+    pub(crate) fn on_fresh_semicolon_line(&mut self, f: impl FnOnce(&mut Self)) {
+        self.fresh_line();
         f(self);
         self.write_str(";")
     }
 
-    pub(crate) fn on_new_line(&mut self, f: impl FnOnce(&mut Self)) {
-        self.make_fresh_line();
+    pub(crate) fn on_fresh_line(&mut self, f: impl FnOnce(&mut Self)) {
+        self.fresh_line();
         f(self);
     }
 
-    pub(crate) fn heterogeneous_bracketed_comma_list(
-        &mut self,
-        bracket: RustBracket,
-        items: impl FnOnce(&mut Self),
-    ) {
+    pub(crate) fn bracketed(&mut self, bracket: RustBracket, f: impl FnOnce(&mut Self)) {
+        self.write_str(bracket.bra_code());
+        f(self);
+        self.write_str(bracket.ket_code());
+    }
+
+    pub(crate) fn bracketed_list_with(&mut self, bracket: RustBracket, f: impl FnOnce(&mut Self)) {
         let is_list_start = std::mem::replace(&mut self.is_list_start, Some(true));
         self.write_str(bracket.bra_code());
-        items(self);
+        f(self);
         self.write_str(bracket.ket_code());
         self.is_list_start = is_list_start
     }
@@ -236,12 +241,12 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.write_str(bracket.bra_code());
         self.current_indent += INDENT_UNIT;
         for item in items {
-            self.make_fresh_line();
+            self.fresh_line();
             item.transpile_to_rust(self);
             self.write_str(",")
         }
         self.current_indent -= INDENT_UNIT;
-        self.make_fresh_line();
+        self.fresh_line();
         self.write_str(bracket.ket_code());
     }
 }

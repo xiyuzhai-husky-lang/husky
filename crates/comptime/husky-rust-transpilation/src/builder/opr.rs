@@ -15,6 +15,7 @@ pub enum RustOpr {
     Leq,
     Greater,
     Geq,
+    Add,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -71,6 +72,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustOpr::Leq => " <= ",
             RustOpr::Greater => "> ",
             RustOpr::Geq => " >= ",
+            RustOpr::Add => " + ",
         };
         self.write_str(s)
     }

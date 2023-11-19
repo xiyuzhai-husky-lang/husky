@@ -10,7 +10,7 @@ impl TranspileToRust for TraitForTypeImplBlockHirDefn {
         builder.curly_block(|builder| {
             for &(_, trai_for_ty_item_path) in hir_decl.path(db).associated_item_paths(db) {
                 if let Some(hir_defn) = trai_for_ty_item_path.hir_defn(db) {
-                    builder.make_defn_fresh_lines();
+                    builder.fresh_paragraph();
                     hir_defn.transpile_to_rust(builder);
                 }
             }
