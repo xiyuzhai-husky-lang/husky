@@ -1,5 +1,6 @@
 use super::*;
 use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
+use husky_hir_opr::suffix::HirSuffixOpr;
 
 impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
@@ -107,10 +108,10 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                         builder.opr(RustOpr::AddAssign);
                         match particulars.boundary_kind {
                             LoopBoundaryKind::UpperOpen | LoopBoundaryKind::UpperClosed => {
-                                1i32.transpile_to_rust(builder)
+                                HirSuffixOpr::Incr.transpile_to_rust(builder)
                             }
                             LoopBoundaryKind::LowerOpen | LoopBoundaryKind::LowerClosed => {
-                                (-1i32).transpile_to_rust(builder)
+                                HirSuffixOpr::Decr.transpile_to_rust(builder)
                             }
                         }
                     })

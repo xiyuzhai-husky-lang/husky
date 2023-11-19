@@ -1,5 +1,8 @@
 
-struct FermiMatchResult{matches: Vec<Option<Leash<ConcaveComponent>>>, others: Vec<Leash<ConcaveComponent>>}
+struct FermiMatchResult{
+    matches: Vec<Option<Leash<ConcaveComponent>>>,
+    others: Vec<Leash<ConcaveComponent>>,
+}
 
 pub fn fermi_match(concave_components: Leash<Vec<ConcaveComponent>>, templates: Vec< HirTypeRitchieTodo >) -> FermiMatchResult {
     let mut others = concave_components.collect_leashes();

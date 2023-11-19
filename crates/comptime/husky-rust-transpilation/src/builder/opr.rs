@@ -19,12 +19,13 @@ pub enum RustOpr {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub(crate) enum RustBracket {
-    Par,       // Parentheses ()
-    Box,       // Box brackets []
-    TurboFish, // Turbofish ::<>
-    Angle,     // Angle <>
-    Curl,      // Curly brackets {}
-    Vertical,  // Vertical bars ||
+    Par,        // Parentheses ()
+    Box,        // Box brackets []
+    TurboFish,  // Turbofish ::<>
+    Angle,      // Angle <>
+    Curl,       // Curly brackets {}
+    CurlSpaced, // Curly brackets {  }
+    Vertical,   // Vertical bars ||
 }
 
 impl RustBracket {
@@ -35,6 +36,7 @@ impl RustBracket {
             RustBracket::TurboFish => "::<",
             RustBracket::Angle => "<",
             RustBracket::Curl => "{",
+            RustBracket::CurlSpaced => "{ ",
             RustBracket::Vertical => "|",
         }
     }
@@ -46,6 +48,7 @@ impl RustBracket {
             RustBracket::TurboFish => ">",
             RustBracket::Angle => ">",
             RustBracket::Curl => "}",
+            RustBracket::CurlSpaced => "} ",
             RustBracket::Vertical => "|",
         }
     }
@@ -65,9 +68,9 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustOpr::DotDotEq => "..=",
             RustOpr::AddAssign => " += ",
             RustOpr::Less => " < ",
-            RustOpr::Leq => "<=",
-            RustOpr::Greater => ">",
-            RustOpr::Geq => ">=",
+            RustOpr::Leq => " <= ",
+            RustOpr::Greater => "> ",
+            RustOpr::Geq => " >= ",
         };
         self.write_str(s)
     }

@@ -1,5 +1,8 @@
 
-struct RawContour{cc: Leash<ConnectedComponent>, points: Vec<Point2d>}
+struct RawContour{
+    cc: Leash<ConnectedComponent>,
+    points: Vec<Point2d>,
+}
 
 struct Direction
 
@@ -32,7 +35,10 @@ pub fn get_outward_direction(row_above: r32, row_below: r32, j: i32, inward_dire
     match 
 }
 
-struct StreakCache{prev1: i32, prev2: i32}
+struct StreakCache{
+    prev1: i32,
+    prev2: i32,
+}
 
 pub fn get_concave_middle_point(points: Vec<Point2d>) -> Point2d {
     let N = points.ilen();
@@ -43,7 +49,7 @@ pub fn get_concave_middle_point(points: Vec<Point2d>) -> Point2d {
 
 pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
     let mut result: Vec<RawContour> = vec![];
-    let mut boundary_unsearched = new_zeros();
+    let mut boundary_unsearched = BinaryGrid28::new_zeros();
     for i in 1..=29 {
         let r_ur = cc.mask[i - 1];
         let r_dr = cc.mask[i];

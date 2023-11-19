@@ -62,8 +62,8 @@ impl<'a> RustTranspilationBuilderBase<'a> {
     fn make_fresh_line(&mut self) {
         if !self.fresh_line() {
             self.result += "\n";
-            self.write_indent();
         }
+        self.write_indent();
     }
 
     pub(crate) fn make_defn_fresh_lines(&mut self) {
@@ -225,6 +225,23 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             }
             item.transpile_to_rust(self)
         }
+        self.write_str(bracket.ket_code());
+    }
+
+    pub(crate) fn bracketed_multiline_comma_list<A: TranspileToRust<E>>(
+        &mut self,
+        bracket: RustBracket,
+        items: impl IntoIterator<Item = A>,
+    ) {
+        self.write_str(bracket.bra_code());
+        self.current_indent += INDENT_UNIT;
+        for item in items {
+            self.make_fresh_line();
+            item.transpile_to_rust(self);
+            self.write_str(",")
+        }
+        self.current_indent -= INDENT_UNIT;
+        self.make_fresh_line();
         self.write_str(bracket.ket_code());
     }
 }
