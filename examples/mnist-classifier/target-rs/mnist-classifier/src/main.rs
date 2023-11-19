@@ -14,7 +14,7 @@ use self::fermi::*;
 use self::digits::*;
 use self::major::*;
 
-pub fn main() {
+pub fn main() -> Class<MnistLabel> {
     is_one?;
     is_six?;
     is_zero?;

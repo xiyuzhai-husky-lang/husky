@@ -181,12 +181,12 @@ impl Visualize for LineSegmentStroke {
 }
 
 impl LineSegmentStroke {
-    fn new(ct: Leash<RawContour>, from: i32, to: i32) {
+    fn new(ct: Leash<RawContour>, from: i32, to: i32) -> LineSegmentStroke {
         assert!(from <= to);
         LineSegmentStroke(ct.points.cyclic_slice_leashed(from, to + 1))
     }
 
-    fn displacement(self) {
+    fn displacement(self) -> Vector2d {
         self.start.to(self.end)
     }
 }
@@ -218,7 +218,7 @@ impl LineSegmentSketch {
         return BoundingBox(ClosedRange(xmin, xmax), ClosedRange(ymin, ymax));
     }
 
-    fn new(ct: Leash<RawContour>, r: f32) {
+    fn new(ct: Leash<RawContour>, r: f32) -> LineSegmentSketch {
         LineSegmentSketch(ct, find_line_segments(ct, r))
     }
 }

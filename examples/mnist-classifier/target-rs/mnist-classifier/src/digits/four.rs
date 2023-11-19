@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn left_components() {
+pub fn left_components() -> FermiMatchResult {
     fermi_match(major_concave_components, vec![left_coordinate_max, left_coordinate_max])
 }
 
@@ -8,15 +8,15 @@ pub fn left_coordinate_max(cc: Leash<ConcaveComponent>) -> Option<f32> {
     cc.relative_bounding_box.xmax()
 }
 
-pub fn components_max_downwards() {
+pub fn components_max_downwards() -> FermiMatchResult {
     fermi_match(major_concave_components, vec![displacement_downwards])
 }
 
-pub fn components_max_heights() {
+pub fn components_max_heights() -> FermiMatchResult {
     fermi_match(major_concave_components, vec![cc_box_heights])
 }
 
-pub fn is_four() {
+pub fn is_four() -> OneVsAll<MnistLabel> {
     require!(matches!);
     require!(matches!);
     let eff_holes = major_connected_component.eff_holes;

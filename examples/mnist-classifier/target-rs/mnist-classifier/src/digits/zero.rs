@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn open_one_match() {
+pub fn open_one_match() -> FermiMatchResult {
     fermi_match(major_concave_components, vec![almost_closed])
 }
 

@@ -1,10 +1,10 @@
 use super::*;
 
-pub fn upper_mouth_match() {
+pub fn upper_mouth_match() -> FermiMatchResult {
     fermi_match(major_concave_components, vec![big_mouth])
 }
 
-pub fn is_eight() {
+pub fn is_eight() -> OneVsAll<MnistLabel> {
     require!(matches!);
     require!(matches!);
     require!(matches!);

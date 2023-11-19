@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn two_match() {
+pub fn two_match() -> FermiMatchResult {
     fermi_match(major_concave_components, vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
 
@@ -22,7 +22,7 @@ pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     dp.x
 }
 
-pub fn is_two() {
+pub fn is_two() -> OneVsAll<MnistLabel> {
     require!(matches!);
     require!(matches!);
     require!(matches!);

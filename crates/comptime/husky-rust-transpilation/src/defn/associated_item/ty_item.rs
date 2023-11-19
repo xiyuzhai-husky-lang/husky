@@ -27,6 +27,7 @@ impl TranspileToRust for TypeAssociatedFnHirDefn {
             self.path(db).ident(db).transpile_to_rust(builder);
             hir_decl.template_parameters(db).transpile_to_rust(builder);
             hir_decl.parenate_parameters(db).transpile_to_rust(builder);
+            builder.return_ty(hir_decl.return_ty(db))
         });
         builder.eager_body(hir_eager_expr_region, body)
     }
@@ -56,7 +57,8 @@ impl TranspileToRust for TypeMethodFnHirDecl {
             builder.bracketed_list_with(RustBracket::Par, |builder| {
                 builder.heterogeneous_comma_list_item(self.self_value_parameter(db));
                 builder.heterogeneous_comma_list_items(self.parenate_parameters(db).iter())
-            })
+            });
+            builder.return_ty(self.return_ty(db))
         })
     }
 }

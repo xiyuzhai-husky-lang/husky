@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn simple_seven_match() {
+pub fn simple_seven_match() -> FermiMatchResult {
     fermi_match(major_concave_components, vec![simple_leftdown_pattern])
 }
 
@@ -10,7 +10,7 @@ pub fn simple_leftdown_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     -dp.y
 }
 
-pub fn special_seven_match() {
+pub fn special_seven_match() -> FermiMatchResult {
     fermi_match(major_concave_components, vec![leftupcc_pattern, leftdowncc_pattern])
 }
 
@@ -30,7 +30,7 @@ pub fn leftdowncc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     ang
 }
 
-pub fn is_seven() {
+pub fn is_seven() -> OneVsAll<MnistLabel> {
     require!(matches!);
     require!(matches!);
     require!(major_connected_component.max_hole_ilen == 0);
