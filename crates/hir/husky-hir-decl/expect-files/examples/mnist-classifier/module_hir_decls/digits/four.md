@@ -4,13 +4,41 @@
             FugitiveHirDecl::Val(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 196,
-                            },
-                        ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            template_arguments: [],
+                        },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Fugitive(
+                                    FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             ),
         ),
@@ -116,13 +144,41 @@
             FugitiveHirDecl::Val(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 198,
-                            },
-                        ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            template_arguments: [],
+                        },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Fugitive(
+                                    FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             ),
         ),
@@ -132,13 +188,41 @@
             FugitiveHirDecl::Val(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 199,
-                            },
-                        ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            template_arguments: [],
+                        },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Fugitive(
+                                    FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             ),
         ),
@@ -148,13 +232,50 @@
             FugitiveHirDecl::Val(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
-                    hir_expr_region: Eager(
-                        HirEagerExprRegion(
-                            Id {
-                                value: 200,
-                            },
-                        ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                            template_arguments: [
+                                HirTemplateArgument::Type(
+                                    HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                            template_arguments: [],
+                                        },
+                                    ),
+                                ),
+                            ],
+                        },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Fugitive(
+                                    FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             ),
         ),

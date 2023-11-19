@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn one_fermi_match() {
+pub fn one_fermi_match() -> FermiMatchResult {
     fermi_match(major_concave_components, vec![downmost, upmost, hat])
 }
 

@@ -88,27 +88,27 @@ impl ConcaveComponent {
         self.line_segment_sketch.bounding_box.relative_bounding_box(self.bounding_box)
     }
 
-    fn line_segment(self) {
+    fn line_segment(self) -> LineSegment {
         LineSegment(self.strokes.first().unwrap().start.clone(), self.strokes.last().unwrap().end.clone())
     }
 
-    fn start(self) {
+    fn start(self) -> Point2d {
         self.strokes.first().unwrap().start.clone()
     }
 
-    fn end(self) {
+    fn end(self) -> Point2d {
         self.strokes.last().unwrap().end.clone()
     }
 
-    fn displacement(self) {
+    fn displacement(self) -> Vector2d {
         self.line_segment().displacement()
     }
 
-    fn start_tangent(self) {
+    fn start_tangent(self) -> Vector2d {
         self.strokes.first().unwrap().displacement()
     }
 
-    fn end_tangent(self) {
+    fn end_tangent(self) -> Vector2d {
         self.strokes.last().unwrap().displacement()
     }
 }

@@ -307,6 +307,16 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
             HirEagerComptimeSymbolName::Label(label) => label.transpile_to_rust(self),
         }
     }
+
+    /// if `return_ty` is obviously a unit, this will do nothing,
+    /// otherwise it will transcribe a `->` and the type
+    pub(crate) fn return_ty(&mut self, return_ty: HirType) {
+        let db = self.db;
+        if !return_ty.is_equal_to_unit_obviously(db) {
+            self.opr(RustOpr::LightArrow);
+            return_ty.transpile_to_rust(self)
+        }
+    }
 }
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirLazyExprRegion> {

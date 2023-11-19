@@ -1,20 +1,21 @@
 use super::*;
-use husky_hir_expr::helpers::hir_expr_region;
-use husky_syn_decl::{HasSynDecl, ValFugitiveSynDecl};
+use husky_syn_decl::ValFugitiveSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct ValFugitiveHirDecl {
     pub path: FugitivePath,
-    pub hir_expr_region: HirExprRegion,
+    pub return_ty: HirType,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 impl ValFugitiveHirDecl {
     pub(super) fn from_syn(
         path: FugitivePath,
-        _syn_decl: ValFugitiveSynDecl,
+        syn_decl: ValFugitiveSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let syn_decl = path.syn_decl(db).expect("ok");
-        Self::new(db, path, hir_expr_region(syn_decl.syn_expr_region(db), db))
+        let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
+        let return_ty = builder.return_ty_before_eq(syn_decl.return_ty(db));
+        Self::new(db, path, return_ty, builder.finish().eager())
     }
 }

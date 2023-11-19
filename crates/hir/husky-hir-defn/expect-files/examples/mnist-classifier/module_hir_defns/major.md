@@ -6,13 +6,50 @@
                     path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                        hir_expr_region: Eager(
-                            HirEagerExprRegion(
-                                Id {
-                                    value: 444,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                template_arguments: [
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
                         ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                    ),
+                                ),
+                            ),
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                                self_value_variable: None,
+                            },
+                        },
                     },
                     body_with_hir_expr_region: Some(
                         (
@@ -39,13 +76,50 @@
                     path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                        hir_expr_region: Eager(
-                            HirEagerExprRegion(
-                                Id {
-                                    value: 446,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
                         ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    ),
+                                ),
+                            ),
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                                self_value_variable: None,
+                            },
+                        },
                     },
                     body_with_hir_expr_region: Some(
                         (
@@ -72,13 +146,41 @@
                     path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                        hir_expr_region: Eager(
-                            HirEagerExprRegion(
-                                Id {
-                                    value: 448,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                template_arguments: [],
+                            },
                         ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                    ),
+                                ),
+                            ),
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                                self_value_variable: None,
+                            },
+                        },
                     },
                     body_with_hir_expr_region: Some(
                         (
@@ -105,13 +207,59 @@
                     path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                        hir_expr_region: Eager(
-                            HirEagerExprRegion(
-                                Id {
-                                    value: 450,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                template_arguments: [
+                                                    HirTemplateArgument::Type(
+                                                        HirType::PathLeading(
+                                                            HirTypePathLeading {
+                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                template_arguments: [],
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
                         ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                    ),
+                                ),
+                            ),
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                                self_value_variable: None,
+                            },
+                        },
                     },
                     body_with_hir_expr_region: Some(
                         (
@@ -138,13 +286,50 @@
                     path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                        hir_expr_region: Eager(
-                            HirEagerExprRegion(
-                                Id {
-                                    value: 452,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
                         ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                    ),
+                                ),
+                            ),
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                                self_value_variable: None,
+                            },
+                        },
                     },
                     body_with_hir_expr_region: Some(
                         (
@@ -171,13 +356,50 @@
                     path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                        hir_expr_region: Eager(
-                            HirEagerExprRegion(
-                                Id {
-                                    value: 454,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
                         ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                    ),
+                                ),
+                            ),
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                                self_value_variable: None,
+                            },
+                        },
                     },
                     body_with_hir_expr_region: Some(
                         (
@@ -204,13 +426,59 @@
                     path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                        hir_expr_region: Eager(
-                            HirEagerExprRegion(
-                                Id {
-                                    value: 456,
-                                },
-                            ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                template_arguments: [
+                                                    HirTemplateArgument::Type(
+                                                        HirType::PathLeading(
+                                                            HirTypePathLeading {
+                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                template_arguments: [],
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
                         ),
+                        hir_eager_expr_region: HirEagerExprRegion {
+                            path: RegionPath::Decl(
+                                ItemPath::MajorItem(
+                                    MajorItemPath::Fugitive(
+                                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                    ),
+                                ),
+                            ),
+                            hir_eager_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                            },
+                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                                arena: Arena {
+                                    data: [],
+                                },
+                                self_value_variable: None,
+                            },
+                        },
                     },
                     body_with_hir_expr_region: Some(
                         (
