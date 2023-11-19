@@ -57,6 +57,53 @@
                         ],
                     },
                 ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    path: RegionPath::Decl(
+                        ItemPath::ImplBlock(
+                            ImplBlockPath::TypeImplBlock(
+                                TypeImplBlockPath {
+                                    module_path: `core::vec`,
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    ),
+                    hir_eager_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_stmt_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeSymbolEntry {
+                                    name: HirEagerComptimeSymbolName::Ident(
+                                        `E`,
+                                    ),
+                                    data: Current,
+                                    hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
             },
         ),
     ),

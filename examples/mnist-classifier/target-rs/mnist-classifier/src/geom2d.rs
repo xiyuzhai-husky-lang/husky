@@ -28,7 +28,7 @@ struct RelativeBoundingBox{
     yrange: ClosedRange,
 }
 
-impl {
+impl Point2d {
     fn from_i_shift28(i: i32, shift: i32) {
         Point2d(29 - shift as f32, 29 - i as f32)
     }
@@ -50,7 +50,7 @@ impl {
     }
 }
 
-impl {
+impl Vector2d {
     fn point(self) {
         Point2d(self.x, self.y)
     }
@@ -107,7 +107,7 @@ impl {
     }
 }
 
-impl {
+impl ClosedRange {
     fn relative_range(self, other: ClosedRange) {
         assert!(self.max > self.min);
         let span = self.max - self.min;
@@ -122,7 +122,7 @@ impl {
     }
 }
 
-impl {
+impl BoundingBox {
     fn relative_bounding_box(self, other: BoundingBox) {
         RelativeBoundingBox(self.xrange.relative_range(other.xrange), self.yrange.relative_range(other.yrange))
     }
@@ -148,7 +148,7 @@ impl {
     }
 }
 
-impl {
+impl RelativeBoundingBox {
     fn xmin(self) {
         self.xrange.min
     }

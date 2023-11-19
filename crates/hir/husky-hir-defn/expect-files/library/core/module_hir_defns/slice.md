@@ -211,6 +211,53 @@
                             ],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::slice`,
+                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `E`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirComptimeSymbol::Type(
+                                            Type {
+                                                attrs: HirSymbolAttrs,
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -504,6 +551,76 @@
                             },
                         ],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        template_arguments: [],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                            template_arguments: [
+                                Type(
+                                    Symbol(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                ),
+                            ],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::slice`,
+                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `E`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirComptimeSymbol::Type(
+                                            Type {
+                                                attrs: HirSymbolAttrs,
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -654,6 +771,53 @@
                             ],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `core::slice`,
+                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `E`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirComptimeSymbol::Type(
+                                            Type {
+                                                attrs: HirSymbolAttrs,
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -996,7 +1160,7 @@
                                         PathLeading(
                                             HirTypePathLeading(
                                                 Id {
-                                                    value: 21,
+                                                    value: 3,
                                                 },
                                             ),
                                         ),
@@ -1106,7 +1270,7 @@
                                         PathLeading(
                                             HirTypePathLeading(
                                                 Id {
-                                                    value: 21,
+                                                    value: 3,
                                                 },
                                             ),
                                         ),

@@ -13,7 +13,7 @@ pub fn fermi_match(concave_components: Leash<Vec<ConcaveComponent>>, templates: 
     return FermiMatchResult(matches, others);
 }
 
-impl {
+impl FermiMatchResult {
     fn norm(self) {
         let mut norm: f32 = 0;
         for i in 0..self.others.ilen() {

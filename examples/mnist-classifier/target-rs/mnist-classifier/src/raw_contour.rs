@@ -83,13 +83,13 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
     return result;
 }
 
-impl {
+impl Visualizefor RawContour {
     fn visualize(self) {
         
     }
 }
 
-impl {
+impl RawContour {
     fn line_segment_sketch(self) {
         LineSegmentSketch::new(self, 1.4)
     }

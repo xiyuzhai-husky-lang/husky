@@ -201,6 +201,134 @@
                             },
                         ],
                     ),
+                    trai: HirTrait {
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        template_arguments: [
+                            Type(
+                                PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 18,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ],
+                    },
+                    self_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::result::Result`, `Enum`),
+                            template_arguments: [
+                                Type(
+                                    Symbol(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                ),
+                                Type(
+                                    Symbol(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 2,
+                                        },
+                                    ),
+                                ),
+                            ],
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockPath {
+                                        module_path: `core::result`,
+                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::result::Result`, `Enum`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `T1`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirComptimeSymbol::Type(
+                                            Type {
+                                                attrs: HirSymbolAttrs,
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `T2`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirComptimeSymbol::Type(
+                                            Type {
+                                                attrs: HirSymbolAttrs,
+                                                variance: None,
+                                                disambiguator: 1,
+                                            },
+                                        ),
+                                    },
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `E1`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirComptimeSymbol::Type(
+                                            Type {
+                                                attrs: HirSymbolAttrs,
+                                                variance: None,
+                                                disambiguator: 2,
+                                            },
+                                        ),
+                                    },
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `E2`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirComptimeSymbol::Type(
+                                            Type {
+                                                attrs: HirSymbolAttrs,
+                                                variance: None,
+                                                disambiguator: 3,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -382,7 +510,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 17,
+                                                value: 18,
                                             },
                                         ),
                                     ),

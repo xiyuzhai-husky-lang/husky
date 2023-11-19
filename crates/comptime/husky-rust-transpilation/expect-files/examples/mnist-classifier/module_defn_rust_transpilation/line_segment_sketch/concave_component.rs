@@ -25,13 +25,13 @@ pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) ->
     return concave_components;
 }
 
-impl {
+impl Visualizefor ConcaveComponent {
     fn visualize(self) {
         self.strokes.visualize()
     }
 }
 
-impl {
+impl ConcaveComponent {
     fn norm(self) {
         self.hausdorff_norm
     }

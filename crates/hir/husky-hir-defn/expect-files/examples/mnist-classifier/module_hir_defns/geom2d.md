@@ -479,6 +479,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -516,7 +549,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -526,7 +559,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -1633,6 +1666,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -4073,6 +4139,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -4495,7 +4594,7 @@
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {
-                                                value: 14,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -4730,6 +4829,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
@@ -5914,6 +6046,39 @@
                             template_arguments: [],
                         },
                     ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::ImplBlock(
+                                ImplBlockPath::TypeImplBlock(
+                                    TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        ),
+                        hir_eager_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_stmt_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
                 },
             },
         ),
