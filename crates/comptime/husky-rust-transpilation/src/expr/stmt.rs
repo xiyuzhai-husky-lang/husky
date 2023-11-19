@@ -9,46 +9,46 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             HirEagerStmt::Let {
                 pattern,
                 initial_value,
-            } => builder.on_new_semicolon_line(|builder| {
+            } => builder.on_fresh_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Let);
                 pattern.transpile_to_rust(builder);
                 builder.opr(RustOpr::Assign);
                 any_precedence(initial_value).transpile_to_rust(builder)
             }),
-            HirEagerStmt::Return { result } => builder.on_new_semicolon_line(|builder| {
+            HirEagerStmt::Return { result } => builder.on_fresh_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Return);
                 any_precedence(result).transpile_to_rust(builder)
             }),
-            HirEagerStmt::Require { condition } => builder.on_new_semicolon_line(|builder| {
+            HirEagerStmt::Require { condition } => builder.on_fresh_semicolon_line(|builder| {
                 builder.macro_name(RustMacroName::Require);
-                builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
+                builder.bracketed_list_with(RustBracket::Par, |builder| {
                     condition.transpile_to_rust(builder)
                 })
             }),
-            HirEagerStmt::Assert { condition } => builder.on_new_semicolon_line(|builder| {
+            HirEagerStmt::Assert { condition } => builder.on_fresh_semicolon_line(|builder| {
                 builder.macro_name(RustMacroName::Assert);
-                builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
+                builder.bracketed_list_with(RustBracket::Par, |builder| {
                     condition.transpile_to_rust(builder)
                 })
             }),
             HirEagerStmt::Break => {
-                builder.on_new_semicolon_line(|builder| builder.keyword(RustKeyword::Break))
+                builder.on_fresh_semicolon_line(|builder| builder.keyword(RustKeyword::Break))
             }
             HirEagerStmt::Eval {
                 expr_idx,
                 discarded,
             } => match discarded || !is_last_stmt {
-                true => builder.on_new_semicolon_line(|builder| {
+                true => builder.on_fresh_semicolon_line(|builder| {
                     any_precedence(expr_idx).transpile_to_rust(builder);
                 }),
-                false => builder.on_new_line(|builder| {
+                false => builder.on_fresh_line(|builder| {
                     any_precedence(expr_idx).transpile_to_rust(builder);
                 }),
             },
             HirEagerStmt::ForBetween {
                 ref particulars,
                 block,
-            } => builder.on_new_line(|builder| {
+            } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::For);
                 particulars.frame_var_ident.transpile_to_rust(builder);
                 builder.keyword(RustKeyword::In);
@@ -60,7 +60,24 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                             match range.initial_boundary.kind {
                                 LoopBoundaryKind::UpperOpen => unreachable!(),
                                 LoopBoundaryKind::UpperClosed => unreachable!(),
-                                LoopBoundaryKind::LowerOpen => todo!(),
+                                LoopBoundaryKind::LowerOpen => {
+                                    match range.initial_boundary.bound_expr {
+                                        Some(initial_bound) => {
+                                            builder.bracketed(RustBracket::Par, |builder| {
+                                                (
+                                                    RustPrecedenceRange::Greater(
+                                                        RustPrecedence::Additive,
+                                                    ),
+                                                    initial_bound,
+                                                )
+                                                    .transpile_to_rust(builder);
+                                                builder.opr(RustOpr::Add);
+                                                builder.one()
+                                            })
+                                        }
+                                        None => unreachable!(),
+                                    }
+                                }
                                 LoopBoundaryKind::LowerClosed => {
                                     match range.initial_boundary.bound_expr {
                                         Some(initial_bound) => {
@@ -81,13 +98,59 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                 None => builder.zero(), // ad hoc, todo: use Default::default()
                             }
                         }
-                        -1 => todo!(),
+                        -1 => {
+                            builder.bracketed(RustBracket::Par, |builder| {
+                                match range.final_boundary.kind {
+                                    LoopBoundaryKind::UpperOpen => unreachable!(),
+                                    LoopBoundaryKind::UpperClosed => unreachable!(),
+                                    LoopBoundaryKind::LowerOpen => {
+                                        match range.final_boundary.bound_expr {
+                                            Some(final_bound) => {
+                                                builder.bracketed(RustBracket::Par, |builder| {
+                                                    (
+                                                        RustPrecedenceRange::Greater(
+                                                            RustPrecedence::Additive,
+                                                        ),
+                                                        final_bound,
+                                                    )
+                                                        .transpile_to_rust(builder);
+                                                    builder.opr(RustOpr::Add);
+                                                    builder.one()
+                                                })
+                                            }
+                                            None => unreachable!(),
+                                        }
+                                    }
+                                    LoopBoundaryKind::LowerClosed => {
+                                        match range.final_boundary.bound_expr {
+                                            Some(final_bound) => {
+                                                t(final_bound).transpile_to_rust(builder)
+                                            }
+                                            None => builder.zero(),
+                                        }
+                                    }
+                                }
+                                builder.opr(match range.initial_boundary.kind {
+                                    LoopBoundaryKind::UpperOpen => RustOpr::DotDot,
+                                    LoopBoundaryKind::UpperClosed => RustOpr::DotDotEq,
+                                    LoopBoundaryKind::LowerOpen => unreachable!(),
+                                    LoopBoundaryKind::LowerClosed => unreachable!(),
+                                });
+                                match range.initial_boundary.bound_expr {
+                                    Some(initial_bound) => {
+                                        t(initial_bound).transpile_to_rust(builder)
+                                    }
+                                    None => builder.zero(), // ad hoc, todo: use Default::default()
+                                }
+                            });
+                            builder.call_recv()
+                        }
                         _ => todo!(),
                     },
                 }
                 block.transpile_to_rust(builder)
             }),
-            HirEagerStmt::Forext { particulars, block } => builder.on_new_line(|builder| {
+            HirEagerStmt::Forext { particulars, block } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::While);
                 particulars.forext_loop_var_ident.transpile_to_rust(builder);
                 match particulars.boundary_kind {
@@ -102,10 +165,9 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 )
                     .transpile_to_rust(builder);
                 builder.curly_block(|builder| {
-                    builder.on_new_line(|builder| block.transpile_to_rust(builder));
-                    builder.on_new_line(|builder| {
+                    builder.on_fresh_line(|builder| block.transpile_to_rust(builder));
+                    builder.on_fresh_line(|builder| {
                         particulars.forext_loop_var_ident.transpile_to_rust(builder);
-                        builder.opr(RustOpr::AddAssign);
                         match particulars.boundary_kind {
                             LoopBoundaryKind::UpperOpen | LoopBoundaryKind::UpperClosed => {
                                 HirSuffixOpr::Incr.transpile_to_rust(builder)
@@ -121,7 +183,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 condition: _,
                 block: _,
             } => todo!(),
-            HirEagerStmt::While { condition, stmts } => builder.on_new_line(|builder| {
+            HirEagerStmt::While { condition, stmts } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::While);
                 condition.transpile_to_rust(builder);
                 stmts.transpile_to_rust(builder)
@@ -131,7 +193,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 block: _,
             } => {
                 builder.comment("DoWhile incomplete");
-                builder.on_new_line(|builder| {
+                builder.on_fresh_line(|builder| {
                     builder.keyword(RustKeyword::While);
                     true.transpile_to_rust(builder);
                 })
@@ -141,7 +203,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 if_branch,
                 ref elif_branches,
                 else_branch,
-            } => builder.on_new_line(|builder| {
+            } => builder.on_fresh_line(|builder| {
                 if_branch.transpile_to_rust(builder);
                 for elif_branch in elif_branches {
                     elif_branch.transpile_to_rust(builder)
@@ -149,7 +211,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 else_branch.transpile_to_rust(builder)
             }),
             HirEagerStmt::Match {} => {
-                builder.on_new_line(|builder| builder.keyword(RustKeyword::Match))
+                builder.on_fresh_line(|builder| builder.keyword(RustKeyword::Match))
             }
         }
     }

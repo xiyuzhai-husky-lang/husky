@@ -1,4 +1,3 @@
-
 pub fn quick_sort<T>(mut arr: Slice<T>) {
     let len = arr.len();
     quick_sort_aux(arr, 0, len - 1 as isize)

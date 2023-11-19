@@ -70,7 +70,7 @@ impl TranspileToRust for ValFugitiveHirDecl {
                     builder.keyword(RustKeyword::Fn);
                     let db = builder.db();
                     self.path(db).ident(db).transpile_to_rust(builder);
-                    builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |_| ())
+                    builder.bracketed_list_with(RustBracket::Par, |_| ())
                 })
             }
             HirExprRegion::Lazy(_) => {

@@ -1,4 +1,3 @@
-
 fn upper_mouth_match() {
     fermi_match(major_concave_components, vec![big_mouth])
 }

@@ -1,4 +1,3 @@
-
 pub fn is_convex(line_segment_sketch: LineSegmentSketch, index: i32) -> bool {
     let L = line_segment_sketch.strokes.ilen();
     let current_displacement = line_segment_sketch.strokes[index.rem_eulicd(L)].displacement();

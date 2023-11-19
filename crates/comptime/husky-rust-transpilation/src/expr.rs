@@ -21,7 +21,7 @@ impl TranspileToRust<HirEagerExprRegion> for (RustPrecedenceRange, HirEagerExprI
         let data = slf.data(builder.hir_eager_expr_arena());
         let precedence = hir_eager_expr_precedence(data);
         if !precedence_range.include(precedence) {
-            builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
+            builder.bracketed_list_with(RustBracket::Par, |builder| {
                 transpile_hir_eager_expr_to_rust(data, precedence, builder)
             })
         } else {
@@ -51,7 +51,7 @@ fn transpile_hir_eager_expr_to_rust(
                 (RustPrecedenceRange::Geq(RustPrecedence::Suffix), lopd).transpile_to_rust(builder);
                 builder.opr(RustOpr::Dot);
                 builder.rem_eulid();
-                builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
+                builder.bracketed_list_with(RustBracket::Par, |builder| {
                     any_precedence(ropd).transpile_to_rust(builder)
                 })
             }
@@ -59,7 +59,7 @@ fn transpile_hir_eager_expr_to_rust(
                 (RustPrecedenceRange::Geq(RustPrecedence::Suffix), lopd).transpile_to_rust(builder);
                 builder.opr(RustOpr::Dot);
                 builder.pow();
-                builder.heterogeneous_bracketed_comma_list(RustBracket::Par, |builder| {
+                builder.bracketed_list_with(RustBracket::Par, |builder| {
                     any_precedence(ropd).transpile_to_rust(builder)
                 })
             }

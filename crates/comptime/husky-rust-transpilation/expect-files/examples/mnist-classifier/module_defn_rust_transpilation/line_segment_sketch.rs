@@ -1,11 +1,12 @@
-
 pub mod concave_component;
-
 pub mod convex_component;
-
 pub mod convexity;
-
 pub mod line_segment;
+
+use self::concave_component::*;
+use self::convex_component::*;
+use self::convexity::*;
+use self::line_segment::*;
 
 struct LineSegmentStroke{
     points: Leash<CyclicSlice<Point2d>>,
@@ -169,4 +170,53 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
         line_segments.first().unwrap() = LineSegmentStroke::new(ct, last_line_segment.points.start() - N, line_segments.first().unwrap().points.end() - 1)
     }
     line_segments
+}
+
+impl {
+    fn visualize(self) {
+        
+    }
+}
+
+impl {
+    fn new(ct: Leash<RawContour>, from: i32, to: i32) {
+        assert!(from <= to);
+        LineSegmentStroke(ct.points.cyclic_slice_leashed(from, to + 1))
+    }
+
+    fn displacement(self) {
+        self.start.to(self.end)
+    }
+}
+
+impl {
+    fn visualize(self) {
+        self.strokes.visualize()
+    }
+}
+
+impl {
+    fn concave_components(self) {
+        find_concave_components(self)
+    }
+
+    fn bounding_box(self) {
+        let start_point = self.strokes[0].start;
+        let mut xmin = start_point.x;
+        let mut xmax = start_point.x;
+        let mut ymin = start_point.y;
+        let mut ymax = start_point.y;
+        for i in 0..self.strokes.ilen() {
+            let point = self.strokes[i].end;
+            xmin = xmin.min(point.x);
+            xmax = xmax.max(point.x);
+            ymin = ymin.min(point.y);
+            ymax = ymax.max(point.y)
+        }
+        return BoundingBox(ClosedRange(xmin, xmax), ClosedRange(ymin, ymax));
+    }
+
+    fn new(ct: Leash<RawContour>, r: f32) {
+        LineSegmentSketch(ct, find_line_segments(ct, r))
+    }
 }

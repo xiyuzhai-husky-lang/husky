@@ -10,7 +10,7 @@ impl TranspileToRust for TypeImplBlockHirDefn {
         builder.curly_block(|builder| {
             for &(_, ty_item_path) in hir_decl.path(db).associated_item_paths(db) {
                 if let Some(hir_defn) = ty_item_path.hir_defn(db) {
-                    builder.make_defn_fresh_lines();
+                    builder.fresh_paragraph();
                     hir_defn.transpile_to_rust(builder);
                 }
             }

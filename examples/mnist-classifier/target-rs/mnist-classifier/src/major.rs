@@ -1,4 +1,3 @@
-
 fn connected_components() {
     find_connected_components(input)
 }
