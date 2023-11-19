@@ -41,22 +41,27 @@ mod __linkages;
     for submodule_path in submodule_paths {
         submodule_path.hir_defn(db).transpile_to_rust(&mut builder)
     }
-    builder.fresh_paragraph();
-    // pub use all in submodules
-    for &submodule_path in submodule_paths {
-        builder.use_all_in_submodule(submodule_path)
-    }
-    // use super::*
+    builder.on_fresh_paragraph(|builder| {
+        // pub use all in submodules
+        for &submodule_path in submodule_paths {
+            builder.use_all_in_submodule(submodule_path)
+        }
+    });
+    builder.on_fresh_paragraph(|builder| match module_path.data(db) {
+        ModulePathData::Root(_) => (),
+        ModulePathData::Child { parent, .. } => match parent.data(db) {
+            ModulePathData::Root(_) => builder.use_all_in_crate(),
+            ModulePathData::Child { .. } => builder.use_all_in_super(),
+        },
+    });
     for item_path in module_item_paths(db, module_path) {
         if let Some(hir_defn) = item_path.hir_defn(db) {
             match hir_defn {
                 HirDefn::MajorItem(hir_defn) => {
-                    builder.fresh_paragraph();
-                    hir_defn.transpile_to_rust(&mut builder)
+                    builder.on_fresh_paragraph(|builder| hir_defn.transpile_to_rust(builder));
                 }
                 HirDefn::ImplBlock(hir_defn) => {
-                    builder.fresh_paragraph();
-                    hir_defn.transpile_to_rust(&mut builder)
+                    builder.on_fresh_paragraph(|builder| hir_defn.transpile_to_rust(builder));
                 }
                 _ => (),
             }

@@ -69,7 +69,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         self.write_indent();
     }
 
-    pub(crate) fn fresh_paragraph(&mut self) {
+    fn fresh_paragraph(&mut self) {
         if self.result.len() == 0 {
             ()
         } else if !self.is_line_fresh() {
@@ -165,6 +165,11 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn on_fresh_line(&mut self, f: impl FnOnce(&mut Self)) {
         self.fresh_line();
         f(self);
+    }
+
+    pub(crate) fn on_fresh_paragraph(&mut self, f: impl FnOnce(&mut Self)) {
+        self.fresh_paragraph();
+        f(self)
     }
 
     pub(crate) fn bracketed(&mut self, bracket: RustBracket, f: impl FnOnce(&mut Self)) {

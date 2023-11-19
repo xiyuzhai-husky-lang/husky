@@ -1,29 +1,31 @@
-struct Point2d{
+use crate::*;
+
+pub struct Point2d{
     x: f32,
     y: f32,
 }
 
-struct RelativePoint2d{
+pub struct RelativePoint2d{
     x: f32,
     y: f32,
 }
 
-struct Vector2d{
+pub struct Vector2d{
     x: f32,
     y: f32,
 }
 
-struct ClosedRange{
+pub struct ClosedRange{
     min: f32,
     max: f32,
 }
 
-struct BoundingBox{
+pub struct BoundingBox{
     xrange: ClosedRange,
     yrange: ClosedRange,
 }
 
-struct RelativeBoundingBox{
+pub struct RelativeBoundingBox{
     xrange: ClosedRange,
     yrange: ClosedRange,
 }

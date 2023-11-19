@@ -24,6 +24,7 @@ impl TranspileToRust for EnumTypeHirDefn {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
         builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
+            builder.keyword(RustKeyword::Pub);
             builder.keyword(RustKeyword::Struct);
             hir_decl.path(db).ident(db).transpile_to_rust(builder);
             hir_decl.template_parameters(db).transpile_to_rust(builder);
@@ -36,6 +37,7 @@ impl TranspileToRust for PropsStructTypeHirDefn {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
         builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
+            builder.keyword(RustKeyword::Pub);
             builder.keyword(RustKeyword::Struct);
             hir_decl.path(db).ident(db).transpile_to_rust(builder);
             hir_decl.template_parameters(db).transpile_to_rust(builder);
@@ -57,6 +59,7 @@ impl TranspileToRust for TupleStructTypeHirDefn {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
         builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
+            builder.keyword(RustKeyword::Pub);
             builder.keyword(RustKeyword::Struct);
             hir_decl.path(db).ident(db).transpile_to_rust(builder);
             hir_decl.template_parameters(db).transpile_to_rust(builder);

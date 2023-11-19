@@ -1,9 +1,11 @@
-struct RawContour{
+use crate::*;
+
+pub struct RawContour{
     cc: Leash<ConnectedComponent>,
     points: Vec<Point2d>,
 }
 
-struct Direction
+pub struct Direction
 
 pub fn get_pixel_pair(row: r32, j: i32) -> r32 {
     row >> j - 1 | 3
@@ -34,7 +36,7 @@ pub fn get_outward_direction(row_above: r32, row_below: r32, j: i32, inward_dire
     match 
 }
 
-struct StreakCache{
+pub struct StreakCache{
     prev1: i32,
     prev2: i32,
 }

@@ -1,8 +1,10 @@
-fn upper_mouth_match() {
+use super::*;
+
+pub fn upper_mouth_match() {
     fermi_match(major_concave_components, vec![big_mouth])
 }
 
-fn is_eight() {
+pub fn is_eight() {
     require!(matches!);
     require!(matches!);
     require!(matches!);

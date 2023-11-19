@@ -8,13 +8,15 @@ use self::convex_component::*;
 use self::convexity::*;
 use self::line_segment::*;
 
-struct LineSegmentStroke{
+use crate::*;
+
+pub struct LineSegmentStroke{
     points: Leash<CyclicSlice<Point2d>>,
     start: Point2d,
     end: Point2d,
 }
 
-struct LineSegmentSketch{
+pub struct LineSegmentSketch{
     contour: Leash<RawContour>,
     strokes: Vec<LineSegmentStroke>,
 }

@@ -1,8 +1,10 @@
-fn six_match() {
+use super::*;
+
+pub fn six_match() {
     fermi_match(major_concave_components, vec![upmost])
 }
 
-fn six_match_refined1() {
+pub fn six_match_refined1() {
     fermi_match(major_concave_components, vec![upmost, bottom1])
 }
 

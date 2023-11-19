@@ -1,4 +1,6 @@
-struct FermiMatchResult{
+use crate::*;
+
+pub struct FermiMatchResult{
     matches: Vec<Option<Leash<ConcaveComponent>>>,
     others: Vec<Leash<ConcaveComponent>>,
 }

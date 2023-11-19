@@ -1,4 +1,6 @@
-fn simple_seven_match() {
+use super::*;
+
+pub fn simple_seven_match() {
     fermi_match(major_concave_components, vec![simple_leftdown_pattern])
 }
 
@@ -8,7 +10,7 @@ pub fn simple_leftdown_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     -dp.y
 }
 
-fn special_seven_match() {
+pub fn special_seven_match() {
     fermi_match(major_concave_components, vec![leftupcc_pattern, leftdowncc_pattern])
 }
 
@@ -28,7 +30,7 @@ pub fn leftdowncc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     ang
 }
 
-fn is_seven() {
+pub fn is_seven() {
     require!(matches!);
     require!(matches!);
     require!(major_connected_component.max_hole_ilen == 0);

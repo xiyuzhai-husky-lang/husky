@@ -67,6 +67,7 @@ impl TranspileToRust for ValFugitiveHirDecl {
         match self.hir_expr_region(builder.db()) {
             HirExprRegion::Eager(hir_eager_expr_region) => {
                 builder.eager_head(hir_eager_expr_region, |builder| {
+                    builder.keyword(RustKeyword::Pub);
                     builder.keyword(RustKeyword::Fn);
                     let db = builder.db();
                     self.path(db).ident(db).transpile_to_rust(builder);

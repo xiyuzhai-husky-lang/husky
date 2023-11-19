@@ -20,4 +20,12 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
     pub(crate) fn call_recv(&mut self) {
         self.write_str(".recv()")
     }
+
+    pub(crate) fn use_all_in_crate(&mut self) {
+        self.on_fresh_semicolon_line(|builder| builder.write_str("use crate::*"))
+    }
+
+    pub(crate) fn use_all_in_super(&mut self) {
+        self.on_fresh_semicolon_line(|builder| builder.write_str("use super::*"))
+    }
 }

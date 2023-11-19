@@ -1,4 +1,6 @@
-struct LineSegment{
+use super::*;
+
+pub struct LineSegment{
     start: Point2d,
     end: Point2d,
 }

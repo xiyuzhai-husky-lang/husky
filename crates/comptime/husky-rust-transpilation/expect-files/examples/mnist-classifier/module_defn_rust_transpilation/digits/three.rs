@@ -1,8 +1,10 @@
-fn three_fermi_match() {
+use super::*;
+
+pub fn three_fermi_match() {
     fermi_match(major_concave_components, vec![downarc, uparc, back])
 }
 
-fn is_three() {
+pub fn is_three() {
     require!(major_concave_components.ilen() >= 2);
     require!(major_concave_components.ilen() <= 4);
     let downarc = three_fermi_match.matches[0];
