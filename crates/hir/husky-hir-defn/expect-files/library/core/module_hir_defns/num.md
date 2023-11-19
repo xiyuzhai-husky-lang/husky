@@ -785,14 +785,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -888,13 +887,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -980,14 +978,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -1238,14 +1235,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -1341,13 +1337,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -1433,14 +1428,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -1691,14 +1685,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -1805,14 +1798,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -1908,13 +1900,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -2000,14 +1991,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -2247,13 +2237,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -2339,14 +2328,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i64`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -2586,13 +2574,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 8,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -2678,14 +2665,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i128`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -2925,13 +2911,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -3017,14 +3002,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::isize`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -3264,13 +3248,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -3356,14 +3339,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::u8`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -3603,13 +3585,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -3695,14 +3676,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::u16`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -3942,13 +3922,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -4034,14 +4013,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::u32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -4281,13 +4259,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -4373,14 +4350,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::u64`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -4620,13 +4596,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -4712,14 +4687,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::u128`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -4959,13 +4933,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -5051,14 +5024,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::usize`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -5395,14 +5367,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -5509,14 +5480,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -5956,13 +5926,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -6048,14 +6017,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -6381,13 +6349,12 @@
                     trai: HirTrait {
                         trai_path: TraitPath(`core::ops::Add`),
                         template_arguments: [
-                            Type(
-                                PathLeading(
-                                    HirTypePathLeading(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
+                            HirTemplateArgument::Type(
+                                HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                        template_arguments: [],
+                                    },
                                 ),
                             ),
                         ],
@@ -6473,14 +6440,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],

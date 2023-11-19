@@ -544,24 +544,22 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 2,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -1002,14 +1000,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 52,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -1454,14 +1451,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 52,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -1911,14 +1907,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 53,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -2363,14 +2358,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 53,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -2591,14 +2585,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 53,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -2819,14 +2812,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 54,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::basic::bool`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -3271,14 +3263,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 53,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -3494,24 +3485,22 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 53,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 2,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 54,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::basic::bool`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -4205,14 +4194,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 51,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -4589,14 +4577,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -4895,14 +4882,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],
@@ -5164,14 +5150,13 @@
                         self_value_parameter: HirEagerSelfValueParameter,
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 52,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            template_arguments: [],
+                                        },
                                     ),
                                 },
                             ],

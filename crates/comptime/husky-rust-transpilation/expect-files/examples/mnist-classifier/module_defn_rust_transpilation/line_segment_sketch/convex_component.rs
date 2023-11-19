@@ -3,7 +3,7 @@ struct ConvexComponent{
     line_segments: Leash<CyclicSlice<LineSegmentStroke>>,
 }
 
-impl Visualizefor ConvexComponent {
+impl Visualize for ConvexComponent {
     fn visualize(self) {
         self.line_segments.visualize()
     }

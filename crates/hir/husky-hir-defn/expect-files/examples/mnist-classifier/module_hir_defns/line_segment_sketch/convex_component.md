@@ -16,13 +16,12 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            Type(
-                                                PathLeading(
-                                                    HirTypePathLeading(
-                                                        Id {
-                                                            value: 58,
-                                                        },
-                                                    ),
+                                            HirTemplateArgument::Type(
+                                                HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ],
@@ -35,13 +34,21 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
-                                            Type(
-                                                PathLeading(
-                                                    HirTypePathLeading(
-                                                        Id {
-                                                            value: 61,
-                                                        },
-                                                    ),
+                                            HirTemplateArgument::Type(
+                                                HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        template_arguments: [
+                                                            HirTemplateArgument::Type(
+                                                                HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                        template_arguments: [],
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                    },
                                                 ),
                                             ),
                                         ],

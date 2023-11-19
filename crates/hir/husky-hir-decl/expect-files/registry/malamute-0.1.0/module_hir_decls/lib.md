@@ -107,13 +107,22 @@
                 trai: HirTrait {
                     trai_path: TraitPath(`core::ops::Unveil`),
                     template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
+                        HirTemplateArgument::Type(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::Symbol(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                },
                             ),
                         ),
                     ],
@@ -122,8 +131,8 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`malamute::Class`, `Enum`),
                         template_arguments: [
-                            Type(
-                                Symbol(
+                            HirTemplateArgument::Type(
+                                HirType::Symbol(
                                     Type {
                                         attrs: HirSymbolAttrs,
                                         variance: None,
@@ -235,13 +244,22 @@
                 trai: HirTrait {
                     trai_path: TraitPath(`core::ops::Unveil`),
                     template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 71,
-                                    },
-                                ),
+                        HirTemplateArgument::Type(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::Symbol(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                },
                             ),
                         ),
                     ],
@@ -250,8 +268,8 @@
                     HirTypePathLeading {
                         ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                         template_arguments: [
-                            Type(
-                                Symbol(
+                            HirTemplateArgument::Type(
+                                HirType::Symbol(
                                     Type {
                                         attrs: HirSymbolAttrs,
                                         variance: None,

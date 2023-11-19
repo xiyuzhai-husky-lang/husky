@@ -25,7 +25,7 @@ pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) ->
     return concave_components;
 }
 
-impl Visualizefor ConcaveComponent {
+impl Visualize for ConcaveComponent {
     fn visualize(self) {
         self.strokes.visualize()
     }

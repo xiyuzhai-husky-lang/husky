@@ -59,18 +59,17 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::array::Array`, `Extern`),
                                         template_arguments: [
-                                            Constant(
+                                            HirTemplateArgument::Constant(
                                                 USize(
                                                     30,
                                                 ),
                                             ),
-                                            Type(
-                                                PathLeading(
-                                                    HirTypePathLeading(
-                                                        Id {
-                                                            value: 17,
-                                                        },
-                                                    ),
+                                            HirTemplateArgument::Type(
+                                                HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ],
@@ -128,18 +127,17 @@
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::array::Array`, `Extern`),
                                         template_arguments: [
-                                            Constant(
+                                            HirTemplateArgument::Constant(
                                                 USize(
                                                     31,
                                                 ),
                                             ),
-                                            Type(
-                                                PathLeading(
-                                                    HirTypePathLeading(
-                                                        Id {
-                                                            value: 17,
-                                                        },
-                                                    ),
+                                            HirTemplateArgument::Type(
+                                                HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ],

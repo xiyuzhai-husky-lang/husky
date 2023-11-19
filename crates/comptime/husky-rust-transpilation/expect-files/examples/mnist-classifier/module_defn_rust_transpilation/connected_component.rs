@@ -77,7 +77,7 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
     return result;
 }
 
-impl Visualizefor ConnectedComponent {
+impl Visualize for ConnectedComponent {
     fn visualize(self) {
         self.mask.visualize()
     }

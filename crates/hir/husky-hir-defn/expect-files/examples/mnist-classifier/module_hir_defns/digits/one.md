@@ -77,14 +77,22 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 43,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::PathLeading(
+                                                        HirTypePathLeading {
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                        },
                                     ),
                                 },
                             ],
@@ -93,13 +101,12 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::option::Option`, `Enum`),
                                 template_arguments: [
-                                    Type(
-                                        PathLeading(
-                                            HirTypePathLeading(
-                                                Id {
-                                                    value: 15,
-                                                },
-                                            ),
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                template_arguments: [],
+                                            },
                                         ),
                                     ),
                                 ],
@@ -298,14 +305,22 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 43,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::PathLeading(
+                                                        HirTypePathLeading {
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                        },
                                     ),
                                 },
                             ],
@@ -314,13 +329,12 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::option::Option`, `Enum`),
                                 template_arguments: [
-                                    Type(
-                                        PathLeading(
-                                            HirTypePathLeading(
-                                                Id {
-                                                    value: 15,
-                                                },
-                                            ),
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                template_arguments: [],
+                                            },
                                         ),
                                     ),
                                 ],
@@ -540,14 +554,22 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                Ordinary {
+                                HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 43,
-                                            },
-                                        ),
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::PathLeading(
+                                                        HirTypePathLeading {
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                        },
                                     ),
                                 },
                             ],
@@ -556,13 +578,12 @@
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::option::Option`, `Enum`),
                                 template_arguments: [
-                                    Type(
-                                        PathLeading(
-                                            HirTypePathLeading(
-                                                Id {
-                                                    value: 15,
-                                                },
-                                            ),
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                template_arguments: [],
+                                            },
                                         ),
                                     ),
                                 ],
