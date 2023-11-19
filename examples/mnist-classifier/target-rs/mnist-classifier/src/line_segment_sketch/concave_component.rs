@@ -1,4 +1,6 @@
-struct ConcaveComponent{
+use super::*;
+
+pub struct ConcaveComponent{
     line_segment_sketch: Leash<LineSegmentSketch>,
     strokes: Leash<CyclicSlice<LineSegmentStroke>>,
 }

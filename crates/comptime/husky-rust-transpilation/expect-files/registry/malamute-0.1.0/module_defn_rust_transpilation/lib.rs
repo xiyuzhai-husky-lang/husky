@@ -1,8 +1,8 @@
-struct Class<Label>
+pub struct Class<Label>
 
-struct OneVsAll<Label>
+pub struct OneVsAll<Label>
 
-struct OneVsAllResult<Label>
+pub struct OneVsAllResult<Label>
 
 impl <Label>Unveil<OneVsAll<Label>> for Class<Label> {
     

@@ -14,7 +14,7 @@ use self::fermi::*;
 use self::digits::*;
 use self::major::*;
 
-fn main() {
+pub fn main() {
     is_one?;
     is_six?;
     is_zero?;

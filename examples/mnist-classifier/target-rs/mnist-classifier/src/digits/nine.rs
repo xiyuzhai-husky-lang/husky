@@ -1,12 +1,14 @@
-fn nine_match() {
+use super::*;
+
+pub fn nine_match() {
     fermi_match(major_concave_components, vec![downmost])
 }
 
-fn nine_match_refine() {
+pub fn nine_match_refine() {
     fermi_match(major_concave_components, vec![big_cc])
 }
 
-fn is_nine() {
+pub fn is_nine() {
     require!(matches!);
     require!(matches!);
     let eff_holes = major_connected_component.eff_holes;

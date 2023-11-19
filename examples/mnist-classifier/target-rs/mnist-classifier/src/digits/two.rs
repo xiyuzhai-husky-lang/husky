@@ -1,4 +1,6 @@
-fn two_match() {
+use super::*;
+
+pub fn two_match() {
     fermi_match(major_concave_components, vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
 
@@ -20,7 +22,7 @@ pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     dp.x
 }
 
-fn is_two() {
+pub fn is_two() {
     require!(matches!);
     require!(matches!);
     require!(matches!);
