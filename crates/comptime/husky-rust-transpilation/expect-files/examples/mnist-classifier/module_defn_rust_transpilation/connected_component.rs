@@ -86,11 +86,11 @@ impl Visualize for ConnectedComponent {
 }
 
 impl ConnectedComponent {
-    pub fn raw_contours(self) -> Vec<RawContour>(self) {
+    pub fn raw_contours(self) -> Vec<RawContour> {
         find_raw_contours(self)
     }
 
-    pub fn eff_holes(self) -> EffHoles(self) {
+    pub fn eff_holes(self) -> EffHoles {
         let mut raw_contours = self.raw_contours.collect_leashes();
         let mut matches: Vec<Option<Leash<RawContour>>> = vec![];
         raw_contours.pop_with_largest_opt_f32(hole_tmpl);
@@ -99,7 +99,7 @@ impl ConnectedComponent {
         return EffHoles(matches);
     }
 
-    pub fn max_hole_ilen(self) -> f32(self) {
+    pub fn max_hole_ilen(self) -> f32 {
         let mut max_hole_ilen = 0;
         let raw_contours = self.raw_contours;
         for i in (0 + 1)..raw_contours.ilen() {
@@ -111,7 +111,7 @@ impl ConnectedComponent {
         return max_hole_ilen as f32;
     }
 
-    pub fn max_row_span(self) -> f32(self) {
+    pub fn max_row_span(self) -> f32 {
         let mut max_row: i32 = 0;
         for i in (0 + 1)..29 {
             max_row = max_row.max(self.mask[i].span())
@@ -119,7 +119,7 @@ impl ConnectedComponent {
         return max_row as f32;
     }
 
-    pub fn row_span_sum(self) -> f32(self) {
+    pub fn row_span_sum(self) -> f32 {
         let mut row_span_sum = 0;
         for i in (0 + 1)..29 {
             row_span_sum += self.mask[i].span()
@@ -127,7 +127,7 @@ impl ConnectedComponent {
         return row_span_sum as f32;
     }
 
-    pub fn distribution(self) -> ConnectedComponentDistribution(self) {
+    pub fn distribution(self) -> ConnectedComponentDistribution {
         let mut row_start = 1;
         while row_start < 29 {
             {
@@ -159,11 +159,11 @@ impl ConnectedComponent {
         return ConnectedComponentDistribution(row_start, row_end, upper_mass, lower_mass);
     }
 
-    pub fn upper_mass(self) -> f32(self) {
+    pub fn upper_mass(self) -> f32 {
         self.distribution.upper_mass as f32
     }
 
-    pub fn lower_mass(self) -> f32(self) {
+    pub fn lower_mass(self) -> f32 {
         self.distribution.lower_mass as f32
     }
 

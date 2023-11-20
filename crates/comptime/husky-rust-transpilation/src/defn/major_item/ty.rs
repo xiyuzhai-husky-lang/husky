@@ -25,7 +25,7 @@ impl TranspileToRust for EnumTypeHirDefn {
         let hir_decl = self.hir_decl(db);
         builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
             builder.keyword(RustKeyword::Pub);
-            builder.keyword(RustKeyword::Struct);
+            builder.keyword(RustKeyword::Enum);
             hir_decl.path(db).ident(db).transpile_to_rust(builder);
             hir_decl.template_parameters(db).transpile_to_rust(builder);
         })
@@ -48,6 +48,7 @@ impl TranspileToRust for PropsStructTypeHirDefn {
 
 impl TranspileToRust<HirEagerExprRegion> for PropsFieldHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+        builder.keyword(RustKeyword::Pub);
         self.ident().transpile_to_rust(builder);
         builder.opr(RustOpr::Colon);
         self.ty().transpile_to_rust(builder)
