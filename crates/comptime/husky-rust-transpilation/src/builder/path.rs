@@ -1,8 +1,8 @@
 use super::*;
-use husky_entity_path::{AssociatedItemPath, TraitPath};
+use husky_entity_path::{AssociatedItemPath, PatternPath, TraitPath, TypeVariantPath};
 
-impl TranspileToRust<HirEagerExprRegion> for AssociatedItemPath {
-    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+impl<E> TranspileToRust<E> for AssociatedItemPath {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
         match self {
             AssociatedItemPath::TypeItem(path) => {
@@ -13,6 +13,15 @@ impl TranspileToRust<HirEagerExprRegion> for AssociatedItemPath {
                 todo!()
             }
         }
+        builder.opr(RustOpr::ColonColon);
+        self.ident(db).transpile_to_rust(builder)
+    }
+}
+
+impl<E> TranspileToRust<E> for TypeVariantPath {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+        let db = builder.db;
+        self.parent_ty_path(db).transpile_to_rust(builder);
         builder.opr(RustOpr::ColonColon);
         self.ident(db).transpile_to_rust(builder)
     }
@@ -49,5 +58,14 @@ impl<E> TranspileToRust<E> for TraitPath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         self.ident(db).transpile_to_rust(builder)
+    }
+}
+
+impl<E> TranspileToRust<E> for PatternPath {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+        match self {
+            PatternPath::Type(path) => path.transpile_to_rust(builder),
+            PatternPath::TypeVariant(path) => path.transpile_to_rust(builder),
+        }
     }
 }

@@ -39,7 +39,7 @@ pub enum TermLiteral {
     /// 32-bit raw bit literal
     R32(u32),
     /// 64-bit raw bit literal
-    R64(TermI64Literal),
+    R64(TermR64Literal),
     /// 128-bit raw bit literal
     R128(TermR128Literal),
     /// for cross compilation

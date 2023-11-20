@@ -429,9 +429,9 @@ impl EagerStmtTrace {
                 }
                 SemaStmtData::Match {
                     match_token: _,
-                    match_target_sema_expr_idx: _,
+                    match_target: _,
                     eol_with_token: _,
-                    sema_case_branches: _,
+                    case_branches: _,
                 } => todo!(),
             }
         }

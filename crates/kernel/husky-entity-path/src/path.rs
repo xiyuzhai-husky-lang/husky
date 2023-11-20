@@ -132,6 +132,7 @@ pub enum ItemPath {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = EntityPathDb)]
+#[enum_class::from_variants]
 pub enum PatternPath {
     Type(TypePath),
     TypeVariant(TypeVariantPath),

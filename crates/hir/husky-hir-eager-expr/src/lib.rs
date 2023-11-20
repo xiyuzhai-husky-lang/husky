@@ -42,3 +42,14 @@ where
         self.as_ref().map(|t| t.to_hir_eager(builder))
     }
 }
+
+impl<T> ToHirEager for [T]
+where
+    T: ToHirEager,
+{
+    type Output = Vec<T::Output>;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        self.iter().map(|t| t.to_hir_eager(builder)).collect()
+    }
+}

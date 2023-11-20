@@ -46,9 +46,9 @@ impl<'a> SemaExprEngine<'a> {
         (
             Ok(SemaStmtData::Match {
                 match_token,
-                match_target_sema_expr_idx,
+                match_target: match_target_sema_expr_idx,
                 eol_with_token,
-                sema_case_branches,
+                case_branches: sema_case_branches,
             }),
             merger
                 .merge(true, self.eth_term_menu())

@@ -69,6 +69,7 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
         | HirEagerExprData::NewList { .. }
         | HirEagerExprData::EmptyHtmlTag { .. }
         | HirEagerExprData::Todo
+        | HirEagerExprData::Unreachable
         | HirEagerExprData::AssociatedFn { .. } => RustPrecedence::Atom,
         HirEagerExprData::Binary { opr, .. } => match opr {
             HirBinaryOpr::Closed(opr) => match opr {

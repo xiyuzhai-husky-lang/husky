@@ -256,6 +256,22 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.fresh_line();
         self.write_str(bracket.ket_code());
     }
+
+    pub(crate) fn bracketed_multiline_list<A: TranspileToRust<E>>(
+        &mut self,
+        bracket: RustBracket,
+        items: impl IntoIterator<Item = A>,
+    ) {
+        self.write_str(bracket.bra_code());
+        self.current_indent += INDENT_UNIT;
+        for item in items {
+            self.fresh_line();
+            item.transpile_to_rust(self);
+        }
+        self.current_indent -= INDENT_UNIT;
+        self.fresh_line();
+        self.write_str(bracket.ket_code());
+    }
 }
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
@@ -366,6 +382,17 @@ where
         match self {
             Some(t) => t.transpile_to_rust(builder),
             None => (),
+        }
+    }
+}
+
+impl<T, E> TranspileToRust<E> for [T]
+where
+    T: TranspileToRust<E>,
+{
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+        for t in self {
+            t.transpile_to_rust(builder)
         }
     }
 }

@@ -98,6 +98,7 @@ pub enum HirEagerExprData {
         arguments: IdentMap<HirEagerHtmlArgumentExpr>,
     },
     Todo,
+    Unreachable,
     AssociatedFn {
         associated_item_path: AssociatedItemPath,
     },
@@ -387,17 +388,12 @@ impl ToHirEager for SemaExprIdx {
             } => HirEagerExprData::Todo,
             SemaExprData::Unreachable {
                 regional_token_idx: _,
-            } => todo!(),
+            } => HirEagerExprData::Unreachable,
             SemaExprData::VecFunctor {
                 lbox_regional_token_idx: _,
                 rbox_regional_token_idx: _,
             } => todo!(),
             SemaExprData::ArrayFunctor {
-                lbox_regional_token_idx: _,
-                items: _,
-                rbox_regional_token_idx: _,
-            } => todo!(),
-            SemaExprData::NewList {
                 lbox_regional_token_idx: _,
                 items: _,
                 rbox_regional_token_idx: _,

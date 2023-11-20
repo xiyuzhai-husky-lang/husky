@@ -23,6 +23,8 @@ husky-expr = { path = "../../kernel/husky-expr" }
 # hir
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-opr = { path = "../../hir/husky-hir-opr" }
+# lex
+husky-token-data = { path = "../../lex/husky-token-data" }
 # semantics
 husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
