@@ -2,7 +2,6 @@ mod libgen;
 mod mapgen;
 
 use crate::*;
-use husky_linkage_path::deps::LinkageDeps;
 use husky_vfs::CratePath;
 
 pub struct BootLinkTimeInternal<ComptimeDb, Linkage>

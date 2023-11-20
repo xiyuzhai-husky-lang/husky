@@ -4,7 +4,7 @@ mod mapgen;
 use self::linkage_storage::MonoLinkageStorage;
 use self::mapgen::generate_map;
 use crate::*;
-use husky_linkage_path::deps::LinkageDeps;
+use husky_linkage_path::root::LinkageDeps;
 use husky_rust_transpilation::db::RustTranspilationDb;
 use husky_vfs::{linktime_target_path::LinktimeTargetPath, PackagePath};
 
