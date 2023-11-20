@@ -5,7 +5,6 @@ pub mod link;
 
 use self::ascension::*;
 use self::link::*;
-use husky_linkage_path::LinkagePath;
 use husky_vfs::CratePath;
 
 pub trait IsTask: Send + 'static {

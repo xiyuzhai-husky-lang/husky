@@ -7,6 +7,8 @@ edition = "2021"
 [dependencies]
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }

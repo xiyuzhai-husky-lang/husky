@@ -1,4 +1,5 @@
 use crate::*;
+use husky_linkage_path::path::LinkagePath;
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 
 pub trait IsLinktime<ComptimeDb>: Sized + Send {

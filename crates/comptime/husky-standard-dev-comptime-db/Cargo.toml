@@ -18,7 +18,6 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
 husky-hir-expr = { path = "../../hir/husky-hir-expr" }
-husky-hir-deps = { path = "../../hir/husky-hir-deps" }
 husky-hir-decl = { path = "../../hir/husky-hir-decl" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 # ide

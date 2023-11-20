@@ -10,7 +10,6 @@ dashmap.workspace = true
 salsa = { path = "../../abstractions/salsa" }
 # comptime
 husky-val-repr = { path = "../../val/husky-val-repr" }
-husky-hir-deps = { path = "../../hir/husky-hir-deps" }
 # devtime
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs

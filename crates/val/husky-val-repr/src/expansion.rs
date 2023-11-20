@@ -12,7 +12,7 @@ use husky_hir_lazy_expr::{
     HirLazyStmtMap,
 };
 
-use husky_linkage_path::LinkagePath;
+use husky_linkage_path::path::LinkagePath;
 
 use husky_val::ValOpn;
 use husky_vfs::ModulePath;
