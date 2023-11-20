@@ -51,8 +51,8 @@ impl RustPrecedenceRange {
     }
 }
 
-pub(crate) fn any_precedence(opd: HirEagerExprIdx) -> (RustPrecedenceRange, HirEagerExprIdx) {
-    (RustPrecedenceRange::Any, opd)
+pub(crate) fn any_precedence<T>(t: T) -> (RustPrecedenceRange, T) {
+    (RustPrecedenceRange::Any, t)
 }
 
 pub trait HasRustPrecedence {
