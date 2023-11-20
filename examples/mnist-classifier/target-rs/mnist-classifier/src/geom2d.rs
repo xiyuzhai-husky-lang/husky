@@ -1,46 +1,46 @@
 use crate::*;
 
-pub struct Point2d{
+pub struct Point2d {
     pub x: f32,
     pub y: f32,
-}
+} 
 
-pub struct RelativePoint2d{
+pub struct RelativePoint2d {
     pub x: f32,
     pub y: f32,
-}
+} 
 
-pub struct Vector2d{
+pub struct Vector2d {
     pub x: f32,
     pub y: f32,
-}
+} 
 
-pub struct ClosedRange{
+pub struct ClosedRange {
     pub min: f32,
     pub max: f32,
-}
+} 
 
-pub struct BoundingBox{
+pub struct BoundingBox {
     pub xrange: ClosedRange,
     pub yrange: ClosedRange,
-}
+} 
 
-pub struct RelativeBoundingBox{
+pub struct RelativeBoundingBox {
     pub xrange: ClosedRange,
     pub yrange: ClosedRange,
-}
+} 
 
 impl Point2d {
     pub fn from_i_shift28(i: i32, shift: i32) -> Point2d {
-        Point2d(29 - shift as f32, 29 - i as f32)
+        Point2d::__constructor(29 - shift as f32, 29 - i as f32)
     }
 
     pub fn vector(self) -> Vector2d {
-        Vector2d(self.x, self.y)
+        Vector2d::__constructor(self.x, self.y)
     }
 
     pub fn to(self, other: Point2d) -> Vector2d {
-        Vector2d(other.x - self.x, other.y - self.y)
+        Vector2d::__constructor(other.x - self.x, other.y - self.y)
     }
 
     pub fn norm(self) -> f32 {
@@ -54,11 +54,11 @@ impl Point2d {
 
 impl Vector2d {
     pub fn point(self) -> Point2d {
-        Point2d(self.x, self.y)
+        Point2d::__constructor(self.x, self.y)
     }
 
     pub fn to(self, other: Vector2d) -> Vector2d {
-        Vector2d(other.x - self.x, other.y - self.y)
+        Vector2d::__constructor(other.x - self.x, other.y - self.y)
     }
 
     pub fn norm(self) -> f32 {
@@ -115,7 +115,7 @@ impl ClosedRange {
         let span = self.max - self.min;
         let rel_min = (other.min - self.min) / span;
         let rel_max = (other.max - self.min) / span;
-        ClosedRange(rel_min, rel_max)
+        ClosedRange::__constructor(rel_min, rel_max)
     }
 
     pub fn relative_point(self, v: f32) -> f32 {
@@ -126,11 +126,11 @@ impl ClosedRange {
 
 impl BoundingBox {
     pub fn relative_bounding_box(self, other: BoundingBox) -> RelativeBoundingBox {
-        RelativeBoundingBox(self.xrange.relative_range(other.xrange), self.yrange.relative_range(other.yrange))
+        RelativeBoundingBox::__constructor(self.xrange.relative_range(other.xrange), self.yrange.relative_range(other.yrange))
     }
 
     pub fn relative_point(self, point: Point2d) -> RelativePoint2d {
-        RelativePoint2d(self.xrange.relative_point(point.x), self.yrange.relative_point(point.x))
+        RelativePoint2d::__constructor(self.xrange.relative_point(point.x), self.yrange.relative_point(point.x))
     }
 
     pub fn xmin(self) -> f32 {

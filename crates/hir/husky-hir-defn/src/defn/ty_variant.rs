@@ -30,3 +30,11 @@ impl TypeVariantHirDefn {
         todo!()
     }
 }
+
+// impl HasHirDefn for TypeVariantPath {
+//     type HirDefn = TypeVariantHirDefn;
+
+//     fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+//         todo!()
+//     }
+// }

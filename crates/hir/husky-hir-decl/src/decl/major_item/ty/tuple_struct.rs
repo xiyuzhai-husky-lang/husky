@@ -14,7 +14,7 @@ pub struct TupleStructTypeHirDecl {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDeclDb, jar= HirDeclJar)]
+#[salsa::debug_with_db(db = HirDeclDb)]
 pub struct TupleFieldHirDecl {
     ty: HirType,
 }
@@ -22,12 +22,9 @@ pub struct TupleFieldHirDecl {
 impl TupleStructTypeHirDecl {
     pub(super) fn from_syn(
         path: TypePath,
-        _syn_decl: TupleStructTypeSynDecl,
+        syn_decl: TupleStructTypeSynDecl,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let TypeSynDecl::TupleStruct(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
-            unreachable!()
-        };
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);

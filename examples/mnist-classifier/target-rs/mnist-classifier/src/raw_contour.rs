@@ -1,11 +1,16 @@
 use crate::*;
 
-pub struct RawContour{
+pub struct RawContour {
     pub cc: Leash<ConnectedComponent>,
     pub points: Vec<Point2d>,
-}
+} 
 
-pub enum Direction
+pub enum Direction {
+    Up,
+    Left,
+    Down,
+    Right,
+} 
 
 pub fn get_pixel_pair(row: r32, j: i32) -> r32 {
     row >> j - 1 | 3
@@ -177,16 +182,16 @@ pub fn get_outward_direction(row_above: r32, row_below: r32, j: i32, inward_dire
     }
 }
 
-pub struct StreakCache{
+pub struct StreakCache {
     pub prev1: i32,
     pub prev2: i32,
-}
+} 
 
 pub fn get_concave_middle_point(points: Vec<Point2d>) -> Point2d {
     let N = points.ilen();
     let p0 = points[N - 2];
     let p2 = points[N - 1];
-    Point2d((p0.x + p2.x) / 2, (p0.y + p2.y) / 2)
+    Point2d::__constructor((p0.x + p2.x) / 2, (p0.y + p2.y) / 2)
 }
 
 pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
@@ -220,7 +225,7 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
             if prev_angle_change1 == -1 && current_streak == 1 && prev_streak1 > 0 {
                 contour.pop();
             }
-            result.push(RawContour(cc, contour))
+            result.push(RawContour::__constructor(cc, contour))
         }
     }
     return result;
@@ -250,7 +255,7 @@ impl RawContour {
             ymin = ymin.min(point.y);
             ymax = ymax.max(point.y)
         }
-        return BoundingBox(ClosedRange(xmin, xmax), ClosedRange(ymin, ymax));
+        return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
     }
 
     pub fn relative_bounding_box(self) -> RelativeBoundingBox {

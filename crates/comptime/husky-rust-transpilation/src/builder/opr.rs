@@ -38,7 +38,7 @@ impl RustBracket {
             RustBracket::TurboFish => "::<",
             RustBracket::Angle => "<",
             RustBracket::Curl => "{",
-            RustBracket::CurlSpaced => "{ ",
+            RustBracket::CurlSpaced => " {",
             RustBracket::Vertical => "|",
         }
     }

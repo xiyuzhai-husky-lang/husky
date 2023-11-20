@@ -23,6 +23,7 @@ husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
+husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-opr = { path = "../../kernel/husky-opr" }

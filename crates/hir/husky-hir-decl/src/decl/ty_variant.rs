@@ -2,6 +2,9 @@ mod enum_props_ty_variant;
 mod enum_tuple_ty_variant;
 mod enum_unit_ty_variant;
 
+use husky_entity_kind::TypeKind;
+use husky_syn_decl::TypeVariantSynDecl;
+
 pub use self::enum_props_ty_variant::*;
 pub use self::enum_tuple_ty_variant::*;
 pub use self::enum_unit_ty_variant::*;
@@ -44,17 +47,19 @@ impl HasHirDecl for TypeVariantPath {
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn ty_variant_hir_decl(_db: &dyn HirDeclDb, _path: TypeVariantPath) -> Option<TypeVariantHirDecl> {
-    todo!()
-    // Ok(match path.declarative_signature_template(db)? {
-    //     TypeVariantDeclarativeSignatureTemplate::Props(_) => todo!(),
-    //     TypeVariantDeclarativeSignatureTemplate::Unit(declarative_signature_template) => {
-    //         EnumUnitTypeVariantHirDecl::from_declarative(db, path, declarative_signature_template)?
-    //             .into()
-    //     }
-    //     TypeVariantDeclarativeSignatureTemplate::Tuple(declarative_signature_template) => {
-    //         EnumTupleTypeVariantHirDecl::from_declarative(db, path, declarative_signature_template)?
-    //             .into()
-    //     }
-    // })
+fn ty_variant_hir_decl(db: &dyn HirDeclDb, path: TypeVariantPath) -> Option<TypeVariantHirDecl> {
+    match path.parent_ty_path(db).ty_kind(db) {
+        TypeKind::Enum => (),
+        TypeKind::Inductive => return None,
+        _ => unreachable!(),
+    }
+    Some(match path.syn_decl(db).expect("no errors for hir stage") {
+        TypeVariantSynDecl::Props(_) => todo!(),
+        TypeVariantSynDecl::Unit(syn_decl) => {
+            EnumUnitTypeVariantHirDecl::from_syn(path, syn_decl, db).into()
+        }
+        TypeVariantSynDecl::Tuple(syn_decl) => {
+            EnumTupleTypeVariantHirDecl::from_syn(path, syn_decl, db).into()
+        }
+    })
 }
