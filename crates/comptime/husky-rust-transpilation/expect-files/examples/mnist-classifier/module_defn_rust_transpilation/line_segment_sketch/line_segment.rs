@@ -6,11 +6,11 @@ pub struct LineSegment{
 }
 
 impl LineSegment {
-    fn displacement(self) -> Vector2d {
+    pub fn displacement(self) -> Vector2d {
         self.start.to(self.end)
     }
 
-    fn dist_to_point(self, pt: Point2d) -> f32 {
+    pub fn dist_to_point(self, pt: Point2d) -> f32 {
         let ab = self.displacement();
         let ap = self.start.to(pt);
         if ab.dot(ap) < 0 {

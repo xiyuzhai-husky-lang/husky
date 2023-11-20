@@ -227,17 +227,17 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
 }
 
 impl Visualize for RawContour {
-    fn visualize(self) {
+    fn visualize(self) -> Html {
         
     }
 }
 
 impl RawContour {
-    fn line_segment_sketch(self) {
+    pub fn line_segment_sketch(self) -> LineSegmentSketch(self) {
         LineSegmentSketch::new(self, 1.4)
     }
 
-    fn bounding_box(self) {
+    pub fn bounding_box(self) -> BoundingBox(self) {
         let start_point = self.points[0];
         let mut xmin = start_point.x;
         let mut xmax = start_point.x;
@@ -253,11 +253,11 @@ impl RawContour {
         return BoundingBox(ClosedRange(xmin, xmax), ClosedRange(ymin, ymax));
     }
 
-    fn relative_bounding_box(self) {
+    pub fn relative_bounding_box(self) -> RelativeBoundingBox(self) {
         self.cc.raw_contours[0].bounding_box.relative_bounding_box(self.bounding_box)
     }
 
-    fn contour_len(self) {
+    pub fn contour_len(self) -> f32(self) {
         let mut contour_len = 0;
         for i in (0 + 1)..self.points.ilen() {
             let a = self.points[i - 1];
@@ -270,7 +270,7 @@ impl RawContour {
         return contour_len;
     }
 
-    fn displacement(self, start: i32, end: i32) -> Vector2d {
+    pub fn displacement(self, start: i32, end: i32) -> Vector2d {
         let N = self.points.ilen();
         let ct_start = self.points[start.rem_eulicd(N)];
         let ct_end = self.points[end.rem_eulicd(N)];
