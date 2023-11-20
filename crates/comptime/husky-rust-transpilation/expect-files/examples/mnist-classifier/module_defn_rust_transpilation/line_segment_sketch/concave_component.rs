@@ -1,8 +1,8 @@
 use super::*;
 
 pub struct ConcaveComponent{
-    line_segment_sketch: Leash<LineSegmentSketch>,
-    strokes: Leash<CyclicSlice<LineSegmentStroke>>,
+    pub line_segment_sketch: Leash<LineSegmentSketch>,
+    pub strokes: Leash<CyclicSlice<LineSegmentStroke>>,
 }
 
 pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) -> Vec<ConcaveComponent> {

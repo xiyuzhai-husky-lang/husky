@@ -1,11 +1,11 @@
 use crate::*;
 
 pub struct RawContour{
-    cc: Leash<ConnectedComponent>,
-    points: Vec<Point2d>,
+    pub cc: Leash<ConnectedComponent>,
+    pub points: Vec<Point2d>,
 }
 
-pub struct Direction
+pub enum Direction
 
 pub fn get_pixel_pair(row: r32, j: i32) -> r32 {
     row >> j - 1 | 3
@@ -178,8 +178,8 @@ pub fn get_outward_direction(row_above: r32, row_below: r32, j: i32, inward_dire
 }
 
 pub struct StreakCache{
-    prev1: i32,
-    prev2: i32,
+    pub prev1: i32,
+    pub prev2: i32,
 }
 
 pub fn get_concave_middle_point(points: Vec<Point2d>) -> Point2d {

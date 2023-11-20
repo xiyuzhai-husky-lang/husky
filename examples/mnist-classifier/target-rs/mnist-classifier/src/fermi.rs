@@ -1,8 +1,8 @@
 use crate::*;
 
 pub struct FermiMatchResult{
-    matches: Vec<Option<Leash<ConcaveComponent>>>,
-    others: Vec<Leash<ConcaveComponent>>,
+    pub matches: Vec<Option<Leash<ConcaveComponent>>>,
+    pub others: Vec<Leash<ConcaveComponent>>,
 }
 
 pub fn fermi_match(concave_components: Leash<Vec<ConcaveComponent>>, templates: Vec< HirTypeRitchieTodo >) -> FermiMatchResult {

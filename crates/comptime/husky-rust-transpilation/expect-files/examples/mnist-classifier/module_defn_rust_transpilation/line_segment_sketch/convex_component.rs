@@ -1,8 +1,8 @@
 use super::*;
 
 pub struct ConvexComponent{
-    line_segment_sketch: Leash<LineSegmentSketch>,
-    line_segments: Leash<CyclicSlice<LineSegmentStroke>>,
+    pub line_segment_sketch: Leash<LineSegmentSketch>,
+    pub line_segments: Leash<CyclicSlice<LineSegmentStroke>>,
 }
 
 impl Visualize for ConvexComponent {
