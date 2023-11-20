@@ -15,14 +15,14 @@ pub use self::digits::*;
 pub use self::major::*;
 
 pub fn main() -> Class<MnistLabel> {
-    is_one?;
-    is_six?;
-    is_zero?;
-    is_seven?;
-    is_eight?;
-    is_three?;
-    is_nine?;
-    is_five?;
-    is_two?;
+    is_one()?;
+    is_six()?;
+    is_zero()?;
+    is_seven()?;
+    is_eight()?;
+    is_three()?;
+    is_nine()?;
+    is_five()?;
+    is_two()?;
     Class::Unknown
 }

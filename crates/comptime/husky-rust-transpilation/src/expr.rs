@@ -6,6 +6,8 @@ pub(crate) use self::precedence::{RustPrecedence, RustPrecedenceRange};
 
 use self::precedence::hir_eager_expr_precedence;
 use crate::*;
+use husky_entity_kind::FugitiveKind;
+use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_hir_eager_expr::{
     HirEagerCallListItemGroup, HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch,
     HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch,
@@ -37,10 +39,24 @@ fn transpile_hir_eager_expr_to_rust(
 ) {
     let geq = |opd| (RustPrecedenceRange::Geq(precedence), opd);
     let greater = |opd| (RustPrecedenceRange::Greater(precedence), opd);
+    let db = builder.db();
     match *data {
         HirEagerExprData::Literal(term_literal) => term_literal.transpile_to_rust(builder),
         HirEagerExprData::PrincipalEntityPath(principal_entity_path) => {
-            principal_entity_path.transpile_to_rust(builder)
+            principal_entity_path.transpile_to_rust(builder);
+            match principal_entity_path {
+                PrincipalEntityPath::Module(_) => unreachable!(),
+                PrincipalEntityPath::MajorItem(MajorItemPath::Fugitive(path)) => {
+                    match path.fugitive_kind(db) {
+                        FugitiveKind::FunctionFn => (),
+                        FugitiveKind::Val => builder.bracketed(RustBracket::Par, |_| ()),
+                        FugitiveKind::FunctionGn => unreachable!(),
+                        FugitiveKind::AliasType => unreachable!(),
+                    }
+                }
+                PrincipalEntityPath::TypeVariant(_) => (),
+                PrincipalEntityPath::MajorItem(_) => (),
+            }
         }
         HirEagerExprData::ConstSymbol(_) => todo!(),
         HirEagerExprData::Variable(hir_eager_runtime_symbol_idx) => {

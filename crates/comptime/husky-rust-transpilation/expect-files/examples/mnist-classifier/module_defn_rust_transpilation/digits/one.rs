@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn one_fermi_match() -> FermiMatchResult {
-    fermi_match(major_concave_components, vec![downmost, upmost, hat])
+    fermi_match(major_concave_components(), vec![downmost, upmost, hat])
 }
 
 pub fn upmost(cc: Leash<ConcaveComponent>) -> Option<f32> {

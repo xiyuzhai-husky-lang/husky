@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn simple_seven_match() -> FermiMatchResult {
-    fermi_match(major_concave_components, vec![simple_leftdown_pattern])
+    fermi_match(major_concave_components(), vec![simple_leftdown_pattern])
 }
 
 pub fn simple_leftdown_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
@@ -11,7 +11,7 @@ pub fn simple_leftdown_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
 }
 
 pub fn special_seven_match() -> FermiMatchResult {
-    fermi_match(major_concave_components, vec![leftupcc_pattern, leftdowncc_pattern])
+    fermi_match(major_concave_components(), vec![leftupcc_pattern, leftdowncc_pattern])
 }
 
 pub fn leftupcc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
@@ -33,25 +33,25 @@ pub fn leftdowncc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
 pub fn is_seven() -> OneVsAll<MnistLabel> {
     require!(matches!);
     require!(matches!);
-    require!(major_connected_component.max_hole_ilen == 0);
-    let simple_match_norm = simple_seven_match.norm;
+    require!(major_connected_component().max_hole_ilen == 0);
+    let simple_match_norm = simple_seven_match().norm;
     if simple_match_norm < 1 {
         require!(matches!);
-        let upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass;
+        let upper_excess = major_connected_component().upper_mass - major_connected_component().lower_mass;
         if upper_excess < 10 {
-            let end_tangent = simple_seven_match.matches[0].unwrap().end_tangent();
+            let end_tangent = simple_seven_match().matches[0].unwrap().end_tangent();
             let a = end_tangent.y;
             require!(a < -7);
         }
         return OneVsAll::Yes;
     }
     if simple_match_norm < 4 {
-        let upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass;
+        let upper_excess = major_connected_component().upper_mass - major_connected_component().lower_mass;
         require!(upper_excess > 10);
         return OneVsAll::Yes;
     }
     require!(matches!);
-    let others = special_seven_match.others;
+    let others = special_seven_match().others;
     require!(false);
     OneVsAll::Yes
 }

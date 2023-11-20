@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn open_one_match() -> FermiMatchResult {
-    fermi_match(major_concave_components, vec![almost_closed])
+    fermi_match(major_concave_components(), vec![almost_closed])
 }
 
 pub fn almost_closed(cc: Leash<ConcaveComponent>) -> Option<f32> {

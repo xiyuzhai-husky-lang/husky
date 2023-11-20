@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn upper_mouth_match() -> FermiMatchResult {
-    fermi_match(major_concave_components, vec![big_mouth])
+    fermi_match(major_concave_components(), vec![big_mouth])
 }
 
 pub fn is_eight() -> OneVsAll<MnistLabel> {
@@ -9,7 +9,7 @@ pub fn is_eight() -> OneVsAll<MnistLabel> {
     require!(matches!);
     require!(matches!);
     require!(matches!);
-    let upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass;
+    let upper_excess = major_connected_component().upper_mass - major_connected_component().lower_mass;
     if matches! {
         if matches! {
             require!(false);

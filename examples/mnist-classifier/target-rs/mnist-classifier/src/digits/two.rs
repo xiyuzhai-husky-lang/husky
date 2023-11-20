@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn two_match() -> FermiMatchResult {
-    fermi_match(major_concave_components, vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
+    fermi_match(major_concave_components(), vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
 
 pub fn left_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
@@ -29,14 +29,14 @@ pub fn is_two() -> OneVsAll<MnistLabel> {
     require!(matches!);
     require!(matches!);
     require!(matches!);
-    let cc_num = major_concave_components.ilen();
-    let eff_holes = major_connected_component.eff_holes;
+    let cc_num = major_concave_components().ilen();
+    let eff_holes = major_connected_component().eff_holes;
     require!(matches!);
-    let left_cc = two_match.matches[0];
-    let right_cc = two_match.matches[1];
-    let down_cc = two_match.matches[2];
+    let left_cc = two_match().matches[0];
+    let right_cc = two_match().matches[1];
+    let down_cc = two_match().matches[2];
     require!(cc_num <= 3);
-    let lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass;
+    let lower_excess = major_connected_component().lower_mass - major_connected_component().upper_mass;
     require!(lower_excess > 10);
     if cc_num == 2 {
         require!(matches!);

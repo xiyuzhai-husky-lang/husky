@@ -1,11 +1,11 @@
 use super::*;
 
 pub fn six_match() -> FermiMatchResult {
-    fermi_match(major_concave_components, vec![upmost])
+    fermi_match(major_concave_components(), vec![upmost])
 }
 
 pub fn six_match_refined1() -> FermiMatchResult {
-    fermi_match(major_concave_components, vec![upmost, bottom1])
+    fermi_match(major_concave_components(), vec![upmost, bottom1])
 }
 
 pub fn upmost(cc: Leash<ConcaveComponent>) -> Option<f32> {
