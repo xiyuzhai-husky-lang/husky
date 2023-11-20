@@ -93,10 +93,10 @@
                 },
             ),
             sema_expr_roots: [],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [],
@@ -321,10 +321,10 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [
@@ -840,12 +840,12 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [
                     None,
                 ],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     None,
                 ],
@@ -1314,10 +1314,10 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [
@@ -1705,10 +1705,10 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [
@@ -2096,10 +2096,10 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [
@@ -2487,10 +2487,10 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [

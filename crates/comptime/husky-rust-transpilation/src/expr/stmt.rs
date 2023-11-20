@@ -1,12 +1,13 @@
 use super::*;
 use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
+use husky_hir_eager_expr::HirEagerCaseBranch;
 use husky_hir_opr::suffix::HirSuffixOpr;
 
 impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let &(IsLastStmt(is_last_stmt), slf) = self;
         match *slf.data(builder.hir_eager_stmt_arena()) {
-            HirEagerStmt::Let {
+            HirEagerStmtData::Let {
                 pattern,
                 initial_value,
             } => builder.on_fresh_semicolon_line(|builder| {
@@ -15,26 +16,26 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 builder.opr(RustOpr::Assign);
                 any_precedence(initial_value).transpile_to_rust(builder)
             }),
-            HirEagerStmt::Return { result } => builder.on_fresh_semicolon_line(|builder| {
+            HirEagerStmtData::Return { result } => builder.on_fresh_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Return);
                 any_precedence(result).transpile_to_rust(builder)
             }),
-            HirEagerStmt::Require { condition } => builder.on_fresh_semicolon_line(|builder| {
+            HirEagerStmtData::Require { condition } => builder.on_fresh_semicolon_line(|builder| {
                 builder.macro_name(RustMacroName::Require);
                 builder.bracketed_list_with(RustBracket::Par, |builder| {
                     condition.transpile_to_rust(builder)
                 })
             }),
-            HirEagerStmt::Assert { condition } => builder.on_fresh_semicolon_line(|builder| {
+            HirEagerStmtData::Assert { condition } => builder.on_fresh_semicolon_line(|builder| {
                 builder.macro_name(RustMacroName::Assert);
                 builder.bracketed_list_with(RustBracket::Par, |builder| {
                     condition.transpile_to_rust(builder)
                 })
             }),
-            HirEagerStmt::Break => {
+            HirEagerStmtData::Break => {
                 builder.on_fresh_semicolon_line(|builder| builder.keyword(RustKeyword::Break))
             }
-            HirEagerStmt::Eval {
+            HirEagerStmtData::Eval {
                 expr_idx,
                 discarded,
             } => match discarded || !is_last_stmt {
@@ -45,7 +46,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                     any_precedence(expr_idx).transpile_to_rust(builder);
                 }),
             },
-            HirEagerStmt::ForBetween {
+            HirEagerStmtData::ForBetween {
                 ref particulars,
                 block,
             } => builder.on_fresh_line(|builder| {
@@ -150,7 +151,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 }
                 block.transpile_to_rust(builder)
             }),
-            HirEagerStmt::Forext { particulars, block } => builder.on_fresh_line(|builder| {
+            HirEagerStmtData::Forext { particulars, block } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::While);
                 particulars.forext_loop_var_ident.transpile_to_rust(builder);
                 match particulars.boundary_kind {
@@ -179,16 +180,16 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                     })
                 })
             }),
-            HirEagerStmt::ForIn {
+            HirEagerStmtData::ForIn {
                 condition: _,
                 block: _,
             } => todo!(),
-            HirEagerStmt::While { condition, stmts } => builder.on_fresh_line(|builder| {
+            HirEagerStmtData::While { condition, stmts } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::While);
                 condition.transpile_to_rust(builder);
                 stmts.transpile_to_rust(builder)
             }),
-            HirEagerStmt::DoWhile {
+            HirEagerStmtData::DoWhile {
                 condition: _,
                 block: _,
             } => {
@@ -199,7 +200,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 })
                 // block.transpile_to_rust(builder)
             }
-            HirEagerStmt::IfElse {
+            HirEagerStmtData::IfElse {
                 if_branch,
                 ref elif_branches,
                 else_branch,
@@ -210,9 +211,14 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 }
                 else_branch.transpile_to_rust(builder)
             }),
-            HirEagerStmt::Match {} => {
-                builder.on_fresh_line(|builder| builder.keyword(RustKeyword::Match))
-            }
+            HirEagerStmtData::Match {
+                match_target,
+                ref case_branches,
+            } => builder.on_fresh_line(|builder| {
+                builder.keyword(RustKeyword::Match);
+                any_precedence(match_target).transpile_to_rust(builder);
+                builder.bracketed_multiline_list(RustBracket::Curl, case_branches)
+            }),
         }
     }
 }
@@ -253,6 +259,14 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerElifBranch {
 impl TranspileToRust<HirEagerExprRegion> for HirEagerElseBranch {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Else);
+        self.stmts.transpile_to_rust(builder)
+    }
+}
+
+impl TranspileToRust<HirEagerExprRegion> for HirEagerCaseBranch {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+        self.pattern.transpile_to_rust(builder);
+        builder.keyword(RustKeyword::HeavyArrow);
         self.stmts.transpile_to_rust(builder)
     }
 }

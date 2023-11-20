@@ -3,6 +3,7 @@ use super::*;
 pub enum RustMacroName {
     Vec,
     Println,
+    Todo,
     Unreachable,
     Panic,
     Require,
@@ -15,6 +16,7 @@ impl RustMacroName {
         match self {
             RustMacroName::Vec => "vec!",
             RustMacroName::Println => "println!",
+            RustMacroName::Todo => "todo!",
             RustMacroName::Unreachable => "unreachable!",
             RustMacroName::Panic => "panic!",
             RustMacroName::Require => "require!",

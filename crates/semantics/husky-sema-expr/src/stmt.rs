@@ -84,9 +84,9 @@ pub enum SemaStmtData {
     },
     Match {
         match_token: MatchRegionalToken,
-        match_target_sema_expr_idx: SemaExprIdx,
+        match_target: SemaExprIdx,
         eol_with_token: EolWithRegionalToken,
-        sema_case_branches: Vec<SemaCaseBranch>,
+        case_branches: Vec<SemaCaseBranch>,
     },
 }
 

@@ -38,8 +38,8 @@ impl SemaExprRegion {
                 sema_expr_arena,
                 sema_stmt_arena,
                 sema_expr_roots,
-                pattern_expr_ty_infos,
-                pattern_symbol_ty_infos,
+                syn_pattern_expr_ty_infos: pattern_expr_ty_infos,
+                syn_pattern_symbol_ty_infos: pattern_symbol_ty_infos,
                 sema_expr_terms,
                 symbol_tys,
                 symbol_terms,
@@ -57,8 +57,8 @@ pub struct SemaExprRegionData {
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
     sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
-    pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
-    pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+    syn_pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
+    syn_pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     sema_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FluffyTerm>,
@@ -116,6 +116,22 @@ impl SemaExprRegionData {
 
     pub fn sema_expr_terms(&self) -> &VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>> {
         &self.sema_expr_terms
+    }
+
+    pub fn syn_pattern_expr_ty(
+        &self,
+        syn_pattern_expr_idx: idx_arena::ArenaIdx<SynPatternExpr>,
+        db: &dyn SemaExprDb,
+    ) -> EtherealTerm {
+        match self.syn_pattern_expr_ty_infos[syn_pattern_expr_idx].ty {
+            Ok(ty_term) => match ty_term.base_resolved_inner(self.fluffy_term_region.terms()) {
+                FluffyTermBase::Ethereal(ty_term) => ty_term,
+                FluffyTermBase::Solid(_) => todo!(),
+                FluffyTermBase::Hollow(_) => todo!(),
+                FluffyTermBase::Place => todo!(),
+            },
+            Err(_) => todo!(),
+        }
     }
 }
 

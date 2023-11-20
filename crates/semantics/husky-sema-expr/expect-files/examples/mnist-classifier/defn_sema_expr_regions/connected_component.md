@@ -981,7 +981,7 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternExprTypeInfo {
@@ -1005,7 +1005,7 @@
                     ),
                 ],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -4721,7 +4721,7 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternExprTypeInfo {
@@ -4765,7 +4765,7 @@
                     ),
                 ],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -16336,7 +16336,7 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternExprTypeInfo {
@@ -16558,7 +16558,7 @@
                     ),
                 ],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -22330,10 +22330,10 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [],
@@ -23108,10 +23108,10 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [],
@@ -25923,7 +25923,7 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternExprTypeInfo {
@@ -25963,7 +25963,7 @@
                     ),
                 ],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -29436,7 +29436,7 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternExprTypeInfo {
@@ -29492,7 +29492,7 @@
                     ),
                 ],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -32271,7 +32271,7 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternExprTypeInfo {
@@ -32295,7 +32295,7 @@
                     ),
                 ],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -34662,7 +34662,7 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternExprTypeInfo {
@@ -34680,7 +34680,7 @@
                     ),
                 ],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -40252,7 +40252,7 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternExprTypeInfo {
@@ -40340,7 +40340,7 @@
                     ),
                 ],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -43401,10 +43401,10 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [
@@ -44408,10 +44408,10 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [
@@ -47264,7 +47264,7 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternExprTypeInfo {
@@ -47296,7 +47296,7 @@
                     ),
                 ],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -51089,7 +51089,7 @@
                     ),
                 ),
             ],
-            pattern_expr_ty_infos: ArenaMap {
+            syn_pattern_expr_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternExprTypeInfo {
@@ -51121,7 +51121,7 @@
                     ),
                 ],
             },
-            pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {

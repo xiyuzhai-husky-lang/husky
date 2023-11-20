@@ -15,8 +15,8 @@ use husky_regional_token::{
     RegionalTokenIdxRange,
 };
 use husky_sema_expr::{
-    helpers::range::sema_expr_range_region, SemaExprRegion, SemaStmtData, SemaStmtIdx,
-    SemaStmtIdxRange, SemaExprData,
+    helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion, SemaStmtData,
+    SemaStmtIdx, SemaStmtIdxRange,
 };
 use husky_token_info::TokenInfoSource;
 use husky_val_repr::expansion::ValReprExpansion;
@@ -581,9 +581,9 @@ impl LazyStmtTrace {
                 }
                 SemaStmtData::Match {
                     match_token: _,
-                    match_target_sema_expr_idx: _,
+                    match_target: _,
                     eol_with_token: _,
-                    sema_case_branches: _,
+                    case_branches: _,
                 } => todo!(),
             }
         }

@@ -858,7 +858,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            9,
+                            25,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -921,15 +921,218 @@
                                                 ),
                                             ],
                                         },
+                                        HirEagerExprData::Variable(
+                                            4,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            5,
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Left`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Up`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::Unreachable,
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Down`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            5,
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Right`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Left`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Up`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::Unreachable,
+                                        HirEagerExprData::Variable(
+                                            5,
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Right`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Up`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::Unreachable,
+                                        HirEagerExprData::Unreachable,
                                         HirEagerExprData::Block {
                                             stmts: ArenaIdxRange(
-                                                1..4,
+                                                16..19,
                                             ),
                                         },
                                     ],
                                 },
                                 hir_eager_stmt_arena: Arena {
                                     data: [
+                                        Eval {
+                                            expr_idx: 11,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 12,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 13,
+                                            discarded: false,
+                                        },
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 6,
+                                                    stmts: ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 7,
+                                                    stmts: ArenaIdxRange(
+                                                        2..3,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 8,
+                                                    stmts: ArenaIdxRange(
+                                                        3..4,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 10,
+                                        },
+                                        Eval {
+                                            expr_idx: 14,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 16,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 17,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 18,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 19,
+                                            discarded: false,
+                                        },
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 11,
+                                                    stmts: ArenaIdxRange(
+                                                        6..7,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 14,
+                                                    stmts: ArenaIdxRange(
+                                                        7..8,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 15,
+                                                    stmts: ArenaIdxRange(
+                                                        8..9,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 16,
+                                                    stmts: ArenaIdxRange(
+                                                        9..10,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 15,
+                                        },
+                                        Eval {
+                                            expr_idx: 21,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 22,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 23,
+                                            discarded: false,
+                                        },
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 20,
+                                                    stmts: ArenaIdxRange(
+                                                        11..12,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 21,
+                                                    stmts: ArenaIdxRange(
+                                                        12..13,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 22,
+                                                    stmts: ArenaIdxRange(
+                                                        13..14,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 20,
+                                        },
+                                        Eval {
+                                            expr_idx: 24,
+                                            discarded: false,
+                                        },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 1,
@@ -944,7 +1147,41 @@
                                             },
                                             initial_value: 8,
                                         },
-                                        Match,
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 3,
+                                                    stmts: ArenaIdxRange(
+                                                        4..5,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 9,
+                                                    stmts: ArenaIdxRange(
+                                                        5..6,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 10,
+                                                    stmts: ArenaIdxRange(
+                                                        10..11,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 17,
+                                                    stmts: ArenaIdxRange(
+                                                        14..15,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 23,
+                                                    stmts: ArenaIdxRange(
+                                                        15..16,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 9,
+                                        },
                                     ],
                                 },
                                 hir_eager_pattern_expr_arena: Arena {
@@ -965,6 +1202,131 @@
                                                 Coword(
                                                     Id {
                                                         value: 319,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                0,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                1,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                3,
+                                            ),
+                                        ),
+                                        OneOf {
+                                            options: ArenaIdxRange(
+                                                4..6,
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                2,
+                                            ),
+                                        ),
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                1,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                2,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                0,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                1,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                3,
+                                            ),
+                                        ),
+                                        OneOf {
+                                            options: ArenaIdxRange(
+                                                12..14,
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                2,
+                                            ),
+                                        ),
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                3,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                0,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                1,
+                                            ),
+                                        ),
+                                        OneOf {
+                                            options: ArenaIdxRange(
+                                                18..20,
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                2,
+                                            ),
+                                        ),
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -1148,7 +1510,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            12,
+                            19,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -1234,15 +1596,55 @@
                                                 ),
                                             ],
                                         },
+                                        HirEagerExprData::Variable(
+                                            3,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            3,
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`core::num::i32`, `Extern`),
+                                                ),
+                                            ),
+                                        ),
+                                        HirEagerExprData::Binary {
+                                            lopd: 13,
+                                            opr: As,
+                                            ropd: 14,
+                                        },
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                1,
+                                            ),
+                                        ),
+                                        HirEagerExprData::Prefix {
+                                            opr: Minus,
+                                            opd_hir_expr_idx: 16,
+                                        },
+                                        HirEagerExprData::Unreachable,
                                         HirEagerExprData::Block {
                                             stmts: ArenaIdxRange(
-                                                1..3,
+                                                4..6,
                                             ),
                                         },
                                     ],
                                 },
                                 hir_eager_stmt_arena: Arena {
                                     data: [
+                                        Eval {
+                                            expr_idx: 15,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 17,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 18,
+                                            discarded: false,
+                                        },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 1,
@@ -1250,7 +1652,29 @@
                                             },
                                             initial_value: 11,
                                         },
-                                        Match,
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 5,
+                                                    stmts: ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 6,
+                                                    stmts: ArenaIdxRange(
+                                                        2..3,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 7,
+                                                    stmts: ArenaIdxRange(
+                                                        3..4,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 12,
+                                        },
                                     ],
                                 },
                                 hir_eager_pattern_expr_arena: Arena {
@@ -1261,6 +1685,41 @@
                                                 Coword(
                                                     Id {
                                                         value: 323,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                0,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                1,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                2,
+                                            ),
+                                        ),
+                                        OneOf {
+                                            options: ArenaIdxRange(
+                                                2..5,
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                3,
+                                            ),
+                                        ),
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -1464,7 +1923,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            9,
+                            35,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -1527,15 +1986,365 @@
                                                 ),
                                             ],
                                         },
+                                        HirEagerExprData::Variable(
+                                            5,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            6,
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Down`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Left`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::Unreachable,
+                                        HirEagerExprData::Variable(
+                                            6,
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Right`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Down`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            4,
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Left`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Right`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::Unreachable,
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Left`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::Unreachable,
+                                        HirEagerExprData::Variable(
+                                            6,
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Up`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            4,
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Up`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Down`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::Unreachable,
+                                        HirEagerExprData::Unreachable,
+                                        HirEagerExprData::Variable(
+                                            6,
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Right`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::PrincipalEntityPath(
+                                            PrincipalEntityPath::TypeVariant(
+                                                TypeVariantPath {
+                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ident: `Down`,
+                                                },
+                                            ),
+                                        ),
+                                        HirEagerExprData::Unreachable,
+                                        HirEagerExprData::Unreachable,
                                         HirEagerExprData::Block {
                                             stmts: ArenaIdxRange(
-                                                1..4,
+                                                26..29,
                                             ),
                                         },
                                     ],
                                 },
                                 hir_eager_stmt_arena: Arena {
                                     data: [
+                                        Eval {
+                                            expr_idx: 11,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 12,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 13,
+                                            discarded: false,
+                                        },
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 4,
+                                                    stmts: ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 7,
+                                                    stmts: ArenaIdxRange(
+                                                        2..3,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 8,
+                                                    stmts: ArenaIdxRange(
+                                                        3..4,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 10,
+                                        },
+                                        Eval {
+                                            expr_idx: 15,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 16,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 18,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 19,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 20,
+                                            discarded: false,
+                                        },
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 13,
+                                                    stmts: ArenaIdxRange(
+                                                        7..8,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 14,
+                                                    stmts: ArenaIdxRange(
+                                                        8..9,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 15,
+                                                    stmts: ArenaIdxRange(
+                                                        9..10,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 17,
+                                        },
+                                        Eval {
+                                            expr_idx: 21,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 22,
+                                            discarded: false,
+                                        },
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 10,
+                                                    stmts: ArenaIdxRange(
+                                                        5..6,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 11,
+                                                    stmts: ArenaIdxRange(
+                                                        6..7,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 12,
+                                                    stmts: ArenaIdxRange(
+                                                        10..11,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 16,
+                                                    stmts: ArenaIdxRange(
+                                                        11..12,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 17,
+                                                    stmts: ArenaIdxRange(
+                                                        12..13,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 14,
+                                        },
+                                        Eval {
+                                            expr_idx: 24,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 26,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 27,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 28,
+                                            discarded: false,
+                                        },
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 24,
+                                                    stmts: ArenaIdxRange(
+                                                        15..16,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 25,
+                                                    stmts: ArenaIdxRange(
+                                                        16..17,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 26,
+                                                    stmts: ArenaIdxRange(
+                                                        17..18,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 25,
+                                        },
+                                        Eval {
+                                            expr_idx: 29,
+                                            discarded: false,
+                                        },
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 22,
+                                                    stmts: ArenaIdxRange(
+                                                        14..15,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 23,
+                                                    stmts: ArenaIdxRange(
+                                                        18..19,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 27,
+                                                    stmts: ArenaIdxRange(
+                                                        19..20,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 23,
+                                        },
+                                        Eval {
+                                            expr_idx: 31,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 32,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 33,
+                                            discarded: false,
+                                        },
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 31,
+                                                    stmts: ArenaIdxRange(
+                                                        21..22,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 32,
+                                                    stmts: ArenaIdxRange(
+                                                        22..23,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 33,
+                                                    stmts: ArenaIdxRange(
+                                                        23..24,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 30,
+                                        },
+                                        Eval {
+                                            expr_idx: 34,
+                                            discarded: false,
+                                        },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 1,
@@ -1550,7 +2359,41 @@
                                             },
                                             initial_value: 8,
                                         },
-                                        Match,
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 3,
+                                                    stmts: ArenaIdxRange(
+                                                        4..5,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 9,
+                                                    stmts: ArenaIdxRange(
+                                                        13..14,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 18,
+                                                    stmts: ArenaIdxRange(
+                                                        20..21,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 28,
+                                                    stmts: ArenaIdxRange(
+                                                        24..25,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 34,
+                                                    stmts: ArenaIdxRange(
+                                                        25..26,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 9,
+                                        },
                                     ],
                                 },
                                 hir_eager_pattern_expr_arena: Arena {
@@ -1571,6 +2414,217 @@
                                                 Coword(
                                                     Id {
                                                         value: 319,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                0,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                1,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                2,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                3,
+                                            ),
+                                        ),
+                                        OneOf {
+                                            options: ArenaIdxRange(
+                                                5..7,
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                1,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                0,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                1,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                2,
+                                            ),
+                                        ),
+                                        Unit(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    Id {
+                                                        value: 11,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        Unit(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    Id {
+                                                        value: 9,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                3,
+                                            ),
+                                        ),
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                2,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                0,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                2,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                3,
+                                            ),
+                                        ),
+                                        OneOf {
+                                            options: ArenaIdxRange(
+                                                19..22,
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                1,
+                                            ),
+                                        ),
+                                        Unit(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    Id {
+                                                        value: 10,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        Unit(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    Id {
+                                                        value: 12,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                3,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                0,
+                                            ),
+                                        ),
+                                        Literal(
+                                            R32(
+                                                2,
+                                            ),
+                                        ),
+                                        OneOf {
+                                            options: ArenaIdxRange(
+                                                29..31,
+                                            ),
+                                        },
+                                        Literal(
+                                            R32(
+                                                1,
+                                            ),
+                                        ),
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -2218,7 +3272,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            267,
+                            308,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -3541,15 +4595,192 @@
                                             ropd: 235,
                                         },
                                         HirEagerExprData::Variable(
+                                            25,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            11,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            11,
+                                        ),
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                1,
+                                            ),
+                                        ),
+                                        HirEagerExprData::Binary {
+                                            lopd: 239,
+                                            opr: Closed(
+                                                Sub,
+                                            ),
+                                            ropd: 240,
+                                        },
+                                        HirEagerExprData::Binary {
+                                            lopd: 238,
+                                            opr: Assign,
+                                            ropd: 241,
+                                        },
+                                        HirEagerExprData::Variable(
+                                            14,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            13,
+                                        ),
+                                        HirEagerExprData::Binary {
+                                            lopd: 243,
+                                            opr: Assign,
+                                            ropd: 244,
+                                        },
+                                        HirEagerExprData::Variable(
+                                            13,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
+                                        HirEagerExprData::Field {
+                                            owner_hir_expr_idx: 247,
+                                            ident: `mask`,
+                                        },
+                                        HirEagerExprData::Variable(
+                                            11,
+                                        ),
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                1,
+                                            ),
+                                        ),
+                                        HirEagerExprData::Binary {
+                                            lopd: 249,
+                                            opr: Closed(
+                                                Sub,
+                                            ),
+                                            ropd: 250,
+                                        },
+                                        HirEagerExprData::Index {
+                                            owner_hir_expr_idx: 248,
+                                            items: [
+                                                251,
+                                            ],
+                                        },
+                                        HirEagerExprData::Binary {
+                                            lopd: 246,
+                                            opr: Assign,
+                                            ropd: 252,
+                                        },
+                                        HirEagerExprData::Variable(
+                                            11,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            11,
+                                        ),
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                1,
+                                            ),
+                                        ),
+                                        HirEagerExprData::Binary {
+                                            lopd: 255,
+                                            opr: Closed(
+                                                Add,
+                                            ),
+                                            ropd: 256,
+                                        },
+                                        HirEagerExprData::Binary {
+                                            lopd: 254,
+                                            opr: Assign,
+                                            ropd: 257,
+                                        },
+                                        HirEagerExprData::Variable(
+                                            13,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            14,
+                                        ),
+                                        HirEagerExprData::Binary {
+                                            lopd: 259,
+                                            opr: Assign,
+                                            ropd: 260,
+                                        },
+                                        HirEagerExprData::Variable(
+                                            14,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            1,
+                                        ),
+                                        HirEagerExprData::Field {
+                                            owner_hir_expr_idx: 263,
+                                            ident: `mask`,
+                                        },
+                                        HirEagerExprData::Variable(
+                                            11,
+                                        ),
+                                        HirEagerExprData::Index {
+                                            owner_hir_expr_idx: 264,
+                                            items: [
+                                                265,
+                                            ],
+                                        },
+                                        HirEagerExprData::Binary {
+                                            lopd: 262,
+                                            opr: Assign,
+                                            ropd: 266,
+                                        },
+                                        HirEagerExprData::Variable(
+                                            12,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            12,
+                                        ),
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                1,
+                                            ),
+                                        ),
+                                        HirEagerExprData::Binary {
+                                            lopd: 269,
+                                            opr: Closed(
+                                                Add,
+                                            ),
+                                            ropd: 270,
+                                        },
+                                        HirEagerExprData::Binary {
+                                            lopd: 268,
+                                            opr: Assign,
+                                            ropd: 271,
+                                        },
+                                        HirEagerExprData::Variable(
+                                            12,
+                                        ),
+                                        HirEagerExprData::Variable(
+                                            12,
+                                        ),
+                                        HirEagerExprData::Literal(
+                                            TermLiteral::I32(
+                                                1,
+                                            ),
+                                        ),
+                                        HirEagerExprData::Binary {
+                                            lopd: 274,
+                                            opr: Closed(
+                                                Sub,
+                                            ),
+                                            ropd: 275,
+                                        },
+                                        HirEagerExprData::Binary {
+                                            lopd: 273,
+                                            opr: Assign,
+                                            ropd: 276,
+                                        },
+                                        HirEagerExprData::Variable(
                                             15,
                                         ),
                                         HirEagerExprData::Variable(
                                             25,
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 237,
+                                            lopd: 278,
                                             opr: Assign,
-                                            ropd: 238,
+                                            ropd: 279,
                                         },
                                         HirEagerExprData::Variable(
                                             24,
@@ -3561,20 +4792,20 @@
                                         ),
                                         HirEagerExprData::Prefix {
                                             opr: Minus,
-                                            opd_hir_expr_idx: 241,
+                                            opd_hir_expr_idx: 282,
                                         },
                                         HirEagerExprData::Binary {
-                                            lopd: 240,
+                                            lopd: 281,
                                             opr: Comparison(
                                                 Neq,
                                             ),
-                                            ropd: 242,
+                                            ropd: 283,
                                         },
                                         HirEagerExprData::Variable(
                                             24,
                                         ),
                                         HirEagerExprData::Suffix {
-                                            opd_hir_expr_idx: 244,
+                                            opd_hir_expr_idx: 285,
                                             opr: Incr,
                                         },
                                         HirEagerExprData::Variable(
@@ -3587,14 +4818,14 @@
                                         ),
                                         HirEagerExprData::Prefix {
                                             opr: Minus,
-                                            opd_hir_expr_idx: 247,
+                                            opd_hir_expr_idx: 288,
                                         },
                                         HirEagerExprData::Binary {
-                                            lopd: 246,
+                                            lopd: 287,
                                             opr: Comparison(
                                                 Eq,
                                             ),
-                                            ropd: 248,
+                                            ropd: 289,
                                         },
                                         HirEagerExprData::Variable(
                                             24,
@@ -3605,18 +4836,18 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 250,
+                                            lopd: 291,
                                             opr: Comparison(
                                                 Eq,
                                             ),
-                                            ropd: 251,
+                                            ropd: 292,
                                         },
                                         HirEagerExprData::Binary {
-                                            lopd: 249,
+                                            lopd: 290,
                                             opr: ShortCircuitLogic(
                                                 And,
                                             ),
-                                            ropd: 252,
+                                            ropd: 293,
                                         },
                                         HirEagerExprData::Variable(
                                             22,
@@ -3627,24 +4858,24 @@
                                             ),
                                         ),
                                         HirEagerExprData::Binary {
-                                            lopd: 254,
+                                            lopd: 295,
                                             opr: Comparison(
                                                 Greater,
                                             ),
-                                            ropd: 255,
+                                            ropd: 296,
                                         },
                                         HirEagerExprData::Binary {
-                                            lopd: 253,
+                                            lopd: 294,
                                             opr: ShortCircuitLogic(
                                                 And,
                                             ),
-                                            ropd: 256,
+                                            ropd: 297,
                                         },
                                         HirEagerExprData::Variable(
                                             10,
                                         ),
                                         HirEagerExprData::MethodFnCall {
-                                            self_argument: 258,
+                                            self_argument: 299,
                                             ident: `pop`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
@@ -3678,19 +4909,19 @@
                                         ),
                                         HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                            function_hir_eager_expr_idx: 261,
+                                            function_hir_eager_expr_idx: 302,
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
-                                                    262,
+                                                    303,
                                                 ),
                                                 Regular(
-                                                    263,
+                                                    304,
                                                 ),
                                             ],
                                         },
                                         HirEagerExprData::MethodFnCall {
-                                            self_argument: 260,
+                                            self_argument: 301,
                                             ident: `push`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
@@ -3706,7 +4937,7 @@
                                             template_arguments: None,
                                             item_groups: [
                                                 Regular(
-                                                    264,
+                                                    305,
                                                 ),
                                             ],
                                         },
@@ -3715,7 +4946,7 @@
                                         ),
                                         HirEagerExprData::Block {
                                             stmts: ArenaIdxRange(
-                                                51..56,
+                                                59..64,
                                             ),
                                         },
                                     ],
@@ -3854,7 +5085,39 @@
                                             discarded: false,
                                         },
                                         Eval {
+                                            expr_idx: 242,
+                                            discarded: false,
+                                        },
+                                        Eval {
                                             expr_idx: 245,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 253,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 258,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 261,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 267,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 272,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 277,
+                                            discarded: false,
+                                        },
+                                        Eval {
+                                            expr_idx: 286,
                                             discarded: false,
                                         },
                                         Let {
@@ -3887,25 +5150,53 @@
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Match,
+                                        Match {
+                                            case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 24,
+                                                    stmts: ArenaIdxRange(
+                                                        23..26,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 25,
+                                                    stmts: ArenaIdxRange(
+                                                        26..29,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 26,
+                                                    stmts: ArenaIdxRange(
+                                                        29..30,
+                                                    ),
+                                                },
+                                                HirEagerCaseBranch {
+                                                    pattern: 27,
+                                                    stmts: ArenaIdxRange(
+                                                        30..31,
+                                                    ),
+                                                },
+                                            ],
+                                            match_target: 237,
+                                        },
                                         Eval {
-                                            expr_idx: 239,
+                                            expr_idx: 280,
                                             discarded: false,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: HirEagerCondition(
-                                                    243,
+                                                    284,
                                                 ),
                                                 stmts: ArenaIdxRange(
-                                                    23..24,
+                                                    31..32,
                                                 ),
                                             },
                                             elif_branches: [],
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr_idx: 259,
+                                            expr_idx: 300,
                                             discarded: true,
                                         },
                                         Let {
@@ -4026,23 +5317,23 @@
                                                 91,
                                             ),
                                             block: ArenaIdxRange(
-                                                24..31,
+                                                32..39,
                                             ),
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
                                                 condition: HirEagerCondition(
-                                                    257,
+                                                    298,
                                                 ),
                                                 stmts: ArenaIdxRange(
-                                                    31..32,
+                                                    39..40,
                                                 ),
                                             },
                                             elif_branches: [],
                                             else_branch: None,
                                         },
                                         Eval {
-                                            expr_idx: 265,
+                                            expr_idx: 306,
                                             discarded: false,
                                         },
                                         While {
@@ -4050,7 +5341,7 @@
                                                 46,
                                             ),
                                             stmts: ArenaIdxRange(
-                                                32..50,
+                                                40..58,
                                             ),
                                         },
                                         Let {
@@ -4134,11 +5425,11 @@
                                                 },
                                             },
                                             block: ArenaIdxRange(
-                                                50..51,
+                                                58..59,
                                             ),
                                         },
                                         Return {
-                                            result: 266,
+                                            result: 307,
                                         },
                                     ],
                                 },
@@ -4402,6 +5693,42 @@
                                                 ),
                                             ),
                                         },
+                                        Unit(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    Id {
+                                                        value: 9,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        Unit(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    Id {
+                                                        value: 11,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        Unit(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    Id {
+                                                        value: 10,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        Unit(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    Id {
+                                                        value: 12,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
                                     ],
                                 },
                                 hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {

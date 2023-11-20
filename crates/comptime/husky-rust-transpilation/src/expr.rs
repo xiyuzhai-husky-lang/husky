@@ -9,7 +9,7 @@ use crate::*;
 use husky_hir_eager_expr::{
     HirEagerCallListItemGroup, HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch,
     HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch,
-    HirEagerLetVariablesPattern, HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmt,
+    HirEagerLetVariablesPattern, HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerStmtData,
     HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
 use husky_hir_opr::binary::HirBinaryOpr;
@@ -182,8 +182,14 @@ fn transpile_hir_eager_expr_to_rust(
         {
             ()
         }
-        // todo!(),
-        HirEagerExprData::Todo => todo!(),
+        HirEagerExprData::Todo => {
+            builder.macro_name(RustMacroName::Todo);
+            builder.bracketed(RustBracket::Par, |_| ())
+        }
+        HirEagerExprData::Unreachable => {
+            builder.macro_name(RustMacroName::Unreachable);
+            builder.bracketed(RustBracket::Par, |_| ())
+        }
         HirEagerExprData::AssociatedFn {
             associated_item_path,
         } => associated_item_path.transpile_to_rust(builder),

@@ -9,9 +9,8 @@ use husky_sema_expr::{SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
-
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum HirEagerStmt {
+pub enum HirEagerStmtData {
     Let {
         pattern: HirEagerLetVariablesPattern,
         initial_value: HirEagerExprIdx,
@@ -56,16 +55,19 @@ pub enum HirEagerStmt {
         elif_branches: Vec<HirEagerElifBranch>,
         else_branch: Option<HirEagerElseBranch>,
     },
-    Match {},
+    Match {
+        case_branches: Vec<HirEagerCaseBranch>,
+        match_target: ArenaIdx<HirEagerExprData>,
+    },
 }
 
-pub type HirEagerStmtArena = Arena<HirEagerStmt>;
-pub type HirEagerStmtIdx = ArenaIdx<HirEagerStmt>;
-pub type HirEagerStmtIdxRange = ArenaIdxRange<HirEagerStmt>;
-pub type HirEagerStmtMap<V> = ArenaMap<HirEagerStmt, V>;
+pub type HirEagerStmtArena = Arena<HirEagerStmtData>;
+pub type HirEagerStmtIdx = ArenaIdx<HirEagerStmtData>;
+pub type HirEagerStmtIdxRange = ArenaIdxRange<HirEagerStmtData>;
+pub type HirEagerStmtMap<V> = ArenaMap<HirEagerStmtData, V>;
 
 impl ToHirEager for SemaStmtIdx {
-    type Output = Option<HirEagerStmt>;
+    type Output = Option<HirEagerStmtData>;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         Some(match self.data(builder.sema_stmt_arena_ref()) {
@@ -74,33 +76,33 @@ impl ToHirEager for SemaStmtIdx {
                 ref let_pattern_sema_obelisk,
                 initial_value_sema_expr_idx: initial_value,
                 ..
-            } => HirEagerStmt::Let {
+            } => HirEagerStmtData::Let {
                 pattern: builder.new_let_variables_pattern(let_pattern_sema_obelisk),
                 initial_value: initial_value.to_hir_eager(builder),
             },
             SemaStmtData::Return {
                 return_token: _,
                 result,
-            } => HirEagerStmt::Return {
+            } => HirEagerStmtData::Return {
                 result: result.to_hir_eager(builder),
             },
             SemaStmtData::Require {
                 require_token: _,
                 condition,
-            } => HirEagerStmt::Require {
+            } => HirEagerStmtData::Require {
                 condition: HirEagerCondition(condition.to_hir_eager(builder)),
             },
             SemaStmtData::Assert {
                 assert_token: _,
                 condition,
-            } => HirEagerStmt::Assert {
+            } => HirEagerStmtData::Assert {
                 condition: HirEagerCondition(condition.to_hir_eager(builder)),
             },
-            SemaStmtData::Break { break_token: _ } => HirEagerStmt::Break,
+            SemaStmtData::Break { break_token: _ } => HirEagerStmtData::Break,
             SemaStmtData::Eval {
                 sema_expr_idx: expr_idx,
                 eol_semicolon,
-            } => HirEagerStmt::Eval {
+            } => HirEagerStmtData::Eval {
                 expr_idx: expr_idx.to_hir_eager(builder),
                 discarded: eol_semicolon.as_ref().expect("no error").is_some(),
             },
@@ -110,7 +112,7 @@ impl ToHirEager for SemaStmtIdx {
                 for_loop_var_symbol_idx: _frame_var_symbol_idx,
                 eol_colon: _,
                 ref block,
-            } => HirEagerStmt::ForBetween {
+            } => HirEagerStmtData::ForBetween {
                 particulars: particulars.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
@@ -125,19 +127,19 @@ impl ToHirEager for SemaStmtIdx {
                 ref particulars,
                 eol_colon: _,
                 ref block,
-            } => HirEagerStmt::Forext {
+            } => HirEagerStmtData::Forext {
                 particulars: particulars.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
             SemaStmtData::While {
                 condition, block, ..
-            } => HirEagerStmt::While {
+            } => HirEagerStmtData::While {
                 condition: HirEagerCondition(condition.to_hir_eager(builder)),
                 stmts: block.to_hir_eager(builder),
             },
             SemaStmtData::DoWhile {
                 condition, block, ..
-            } => HirEagerStmt::DoWhile {
+            } => HirEagerStmtData::DoWhile {
                 condition: HirEagerCondition(condition.to_hir_eager(builder)),
                 block: block.to_hir_eager(builder),
             },
@@ -145,17 +147,19 @@ impl ToHirEager for SemaStmtIdx {
                 sema_if_branch: ref if_branch,
                 sema_elif_branches: ref elif_branches,
                 sema_else_branch: ref else_branch,
-            } => HirEagerStmt::IfElse {
+            } => HirEagerStmtData::IfElse {
                 if_branch: if_branch.to_hir_eager(builder),
-                elif_branches: elif_branches
-                    .iter()
-                    .map(|elif_branch| elif_branch.to_hir_eager(builder))
-                    .collect(),
-                else_branch: else_branch
-                    .as_ref()
-                    .map(|else_branch| else_branch.to_hir_eager(builder)),
+                elif_branches: elif_branches.to_hir_eager(builder),
+                else_branch: else_branch.to_hir_eager(builder),
             },
-            SemaStmtData::Match {  .. } => HirEagerStmt::Match {},
+            SemaStmtData::Match {
+                match_target,
+                case_branches,
+                ..
+            } => HirEagerStmtData::Match {
+                match_target: match_target.to_hir_eager(builder),
+                case_branches: case_branches.to_hir_eager(builder),
+            },
         })
     }
 }
@@ -165,7 +169,7 @@ impl ToHirEager for SemaStmtIdxRange {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         let mut sema_stmt_indices: Vec<SemaStmtIdx> = vec![];
-        let mut hir_eager_stmts: Vec<HirEagerStmt> = vec![];
+        let mut hir_eager_stmts: Vec<HirEagerStmtData> = vec![];
         for sema_stmt_idx in self {
             match sema_stmt_idx.to_hir_eager(builder) {
                 Some(hir_eager_stmt) => {

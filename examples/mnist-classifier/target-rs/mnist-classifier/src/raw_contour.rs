@@ -22,18 +22,159 @@ pub fn get_pixel_to_the_right(row: r32, j: i32) -> r32 {
 pub fn get_inward_direction(row_above: r32, row_below: r32, j: i32) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
     let pixel_pair_below = get_pixel_pair(row_below, j);
-    match 
+    match pixel_pair_above{
+        0 => {
+            match pixel_pair_below{
+                1 | 3 => {
+                    Direction::Left
+                }
+                2 => {
+                    Direction::Up
+                }
+                _ => {
+                    unreachable!()
+                }
+            }
+        }
+        1 => {
+            Direction::Down
+        }
+        2 => {
+            match pixel_pair_below{
+                0 => {
+                    Direction::Right
+                }
+                1 | 3 => {
+                    Direction::Left
+                }
+                2 => {
+                    Direction::Up
+                }
+                _ => {
+                    unreachable!()
+                }
+            }
+        }
+        3 => {
+            match pixel_pair_below{
+                0 | 1 => {
+                    Direction::Right
+                }
+                2 => {
+                    Direction::Up
+                }
+                _ => {
+                    unreachable!()
+                }
+            }
+        }
+        _ => {
+            unreachable!()
+        }
+    }
 }
 
 pub fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
     let raw_angle_change = ((outward as i32) - (inward as i32) as r32).last_bits(2);
-    match 
+    match raw_angle_change{
+        0 | 1 | 2 => {
+            raw_angle_change as i32
+        }
+        3 => {
+            -1
+        }
+        _ => {
+            unreachable!()
+        }
+    }
 }
 
 pub fn get_outward_direction(row_above: r32, row_below: r32, j: i32, inward_direction: Direction) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
     let pixel_pair_below = get_pixel_pair(row_below, j);
-    match 
+    match pixel_pair_above{
+        0 => {
+            match pixel_pair_below{
+                1 => {
+                    Direction::Down
+                }
+                2 | 3 => {
+                    Direction::Left
+                }
+                _ => {
+                    unreachable!()
+                }
+            }
+        }
+        1 => {
+            match pixel_pair_below{
+                0 => {
+                    Direction::Right
+                }
+                1 => {
+                    Direction::Down
+                }
+                2 => {
+                    match inward_direction{
+                        Direction::Down => {
+                            Direction::Left
+                        }
+                        Direction::Up => {
+                            Direction::Right
+                        }
+                        _ => {
+                            unreachable!()
+                        }
+                    }
+                }
+                3 => {
+                    Direction::Left
+                }
+                _ => {
+                    unreachable!()
+                }
+            }
+        }
+        2 => {
+            match pixel_pair_below{
+                0 | 2 | 3 => {
+                    Direction::Up
+                }
+                1 => {
+                    match inward_direction{
+                        Direction::Left => {
+                            Direction::Up
+                        }
+                        Direction::Right => {
+                            Direction::Down
+                        }
+                        _ => {
+                            unreachable!()
+                        }
+                    }
+                }
+                _ => {
+                    unreachable!()
+                }
+            }
+        }
+        3 => {
+            match pixel_pair_below{
+                0 | 2 => {
+                    Direction::Right
+                }
+                1 => {
+                    Direction::Down
+                }
+                _ => {
+                    unreachable!()
+                }
+            }
+        }
+        _ => {
+            unreachable!()
+        }
+    }
 }
 
 pub struct StreakCache{

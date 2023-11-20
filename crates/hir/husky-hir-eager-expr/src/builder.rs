@@ -109,7 +109,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn alloc_stmts(
         &mut self,
         sema_stmt_indices: Vec<SemaStmtIdx>,
-        hir_eager_stmts: Vec<HirEagerStmt>,
+        hir_eager_stmts: Vec<HirEagerStmtData>,
     ) -> HirEagerStmtIdxRange {
         debug_assert_eq!(sema_stmt_indices.len(), hir_eager_stmts.len());
         let hir_stmt_idx_range = self.hir_eager_stmt_arena.alloc_batch(hir_eager_stmts);
@@ -142,6 +142,21 @@ impl<'a> HirEagerExprBuilder<'a> {
         self.syn_to_hir_eager_pattern_expr_idx_map
             .insert_new(syn_pattern_expr_idx, pattern_expr_idx);
         pattern_expr_idx
+    }
+
+    pub(crate) fn alloc_pattern_exprs(
+        &mut self,
+        pattern_exprs: Vec<HirEagerPatternExpr>,
+        syn_pattern_expr_idxs: impl Iterator<Item = SynPatternExprIdx>,
+    ) -> HirEagerPatternExprIdxRange {
+        let pattern_expr_idx_range = self.hir_eager_pattern_expr_arena.alloc_batch(pattern_exprs);
+        for (pattern_expr_idx, syn_pattern_expr_idx) in
+            std::iter::zip(pattern_expr_idx_range, syn_pattern_expr_idxs)
+        {
+            self.syn_to_hir_eager_pattern_expr_idx_map
+                .insert_new(syn_pattern_expr_idx, pattern_expr_idx);
+        }
+        pattern_expr_idx_range
     }
 
     #[cfg(test)]
@@ -218,6 +233,14 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub(crate) fn hir_eager_expr_arena(&self) -> &HirEagerExprArena {
         &self.hir_eager_expr_arena
+    }
+
+    pub(crate) fn syn_pattern_expr_ty(
+        &self,
+        syn_pattern_expr_idx: ArenaIdx<husky_syn_expr::SynPatternExpr>,
+    ) -> EtherealTerm {
+        self.sema_expr_region_data
+            .syn_pattern_expr_ty(syn_pattern_expr_idx, self.db)
     }
 }
 
