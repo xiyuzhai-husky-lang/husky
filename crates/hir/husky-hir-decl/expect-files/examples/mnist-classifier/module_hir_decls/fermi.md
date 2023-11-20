@@ -54,7 +54,50 @@
                                         ty_path: TypePath(`core::vec::Vec`, `Extern`),
                                         template_arguments: [
                                             HirTemplateArgument::Type(
-                                                HirType::Ritchie,
+                                                HirType::Ritchie(
+                                                    HirRitchieType {
+                                                        ritchie_ty_kind: Fn,
+                                                        parameters: HirRitchieParameters {
+                                                            data: [
+                                                                HirRitchieParameter::Regular(
+                                                                    HirRitchieRegularParameter {
+                                                                        contract: None,
+                                                                        ty: HirType::PathLeading(
+                                                                            HirTypePathLeading {
+                                                                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                                                template_arguments: [
+                                                                                    HirTemplateArgument::Type(
+                                                                                        HirType::PathLeading(
+                                                                                            HirTypePathLeading {
+                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                template_arguments: [],
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                ],
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ],
+                                                        },
+                                                        return_ty: HirType::PathLeading(
+                                                            HirTypePathLeading {
+                                                                ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                template_arguments: [
+                                                                    HirTemplateArgument::Type(
+                                                                        HirType::PathLeading(
+                                                                            HirTypePathLeading {
+                                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                                template_arguments: [],
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ],
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
                                             ),
                                         ],
                                     },

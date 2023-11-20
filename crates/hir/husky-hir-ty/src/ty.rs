@@ -1,13 +1,13 @@
 pub mod ritchie;
 
+use self::ritchie::HirRitchieType;
+use crate::*;
 use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_ethereal_term::{
-    EtherealTerm, EtherealTermApplication, EtherealTermRitchie, EtherealTermSymbol,
-    EtherealTermSymbolIndexInner, TermFunctionReduced,
+    EtherealTerm, EtherealTermApplication, EtherealTermRitchie, EtherealTermSymbolIndexInner,
+    TermFunctionReduced,
 };
 use husky_term_prelude::TermEntityPath;
-
-use crate::*;
 
 /// this is much simpler than that in Term, right?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -18,7 +18,7 @@ pub enum HirType {
     Symbol(HirTypeSymbol),
     TypeAssociatedType(HirTypeTypeAssociatedType),
     TraitAssociatedType(HirTypeTraitAssociatedType),
-    Ritchie(),
+    Ritchie(HirRitchieType),
 }
 
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar)]
@@ -49,7 +49,7 @@ impl HirType {
                 TermEntityPath::TypeVariant(_) => todo!(),
             },
             EtherealTerm::Ritchie(term_ritchie) => {
-                hir_ty_from_ethereal_term_ritchie(db, term_ritchie)
+                HirRitchieType::from_ethereal(term_ritchie, db).into()
             }
             EtherealTerm::Application(term_application) => {
                 hir_ty_from_ethereal_term_application(db, term_application)
@@ -73,14 +73,6 @@ impl HirType {
             _ => false,
         }
     }
-}
-
-#[salsa::tracked(jar = HirTypeJar)]
-fn hir_ty_from_ethereal_term_ritchie(
-    db: &dyn HirTypeDb,
-    term_ritchie: EtherealTermRitchie,
-) -> HirType {
-    HirType::Ritchie()
 }
 
 #[salsa::tracked(jar = HirTypeJar)]

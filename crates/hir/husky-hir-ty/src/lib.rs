@@ -1,7 +1,6 @@
 #![feature(trait_upcasting)]
 pub mod db;
 pub mod menu;
-pub mod ritchie_parameter;
 pub mod symbol;
 pub mod template_argument;
 #[cfg(test)]
@@ -17,5 +16,4 @@ pub use self::ty_constant::*;
 
 use self::db::*;
 use husky_entity_path::*;
-use husky_hir_prelude::*;
 use smallvec::*;

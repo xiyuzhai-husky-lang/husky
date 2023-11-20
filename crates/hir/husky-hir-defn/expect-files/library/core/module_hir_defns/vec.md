@@ -1087,7 +1087,42 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    ty: HirType::Ritchie,
+                                    ty: HirType::Ritchie(
+                                        HirRitchieType {
+                                            ritchie_ty_kind: Fn,
+                                            parameters: HirRitchieParameters {
+                                                data: [
+                                                    HirRitchieParameter::Regular(
+                                                        HirRitchieRegularParameter {
+                                                            contract: None,
+                                                            ty: HirType::Symbol(
+                                                                Type {
+                                                                    attrs: HirSymbolAttrs,
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                ],
+                                            },
+                                            return_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    template_arguments: [],
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                },
+                                            ),
+                                        },
+                                    ),
                                 },
                             ],
                         ),

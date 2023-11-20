@@ -42,7 +42,7 @@ impl EnumTupleTypeVariantDeclarativeSignatureTemplate {
         let return_ty = parent_ty_template.self_ty(db);
         let instance_constructor_ty = DeclarativeTermRitchie::new(
             db,
-            RitchieKind::FnType,
+            RitchieTypeKind::Fn.into(),
             fields
                 .iter()
                 .copied()

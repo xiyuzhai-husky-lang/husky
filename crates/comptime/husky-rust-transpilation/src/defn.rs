@@ -14,7 +14,7 @@ use husky_hir_decl::parameter::{
 };
 use husky_hir_defn::*;
 use husky_hir_eager_expr::HirEagerExprRegion;
-use husky_hir_ty::ritchie::HirRitchieParameter;
+use husky_hir_ty::ritchie::{HirRitchieParameter, HirRitchieRegularParameter};
 use husky_print_utils::p;
 use husky_vfs::ModulePathData;
 
@@ -151,7 +151,17 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerParenateParameters {
 }
 
 impl TranspileToRust<HirEagerExprRegion> for HirRitchieParameter {
-    fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
-        todo!()
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+        match self {
+            HirRitchieParameter::Regular(param) => param.transpile_to_rust(builder),
+            HirRitchieParameter::Variadic(_) => todo!(),
+            HirRitchieParameter::Keyed(_) => todo!(),
+        }
+    }
+}
+
+impl TranspileToRust<HirEagerExprRegion> for HirRitchieRegularParameter {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+        self.ty().transpile_to_rust(builder)
     }
 }

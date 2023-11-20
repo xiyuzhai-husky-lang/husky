@@ -625,7 +625,7 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: None,
-                                            ty: DeclarativeTerm(`fn(t) -> core::option::Option core::num::f32`),
+                                            ty: DeclarativeTerm(`fn((t) -> core::option::Option core::num::f32`),
                                         },
                                     ),
                                 ],

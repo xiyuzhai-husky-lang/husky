@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn(~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, [](fn(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32, ) -> mnist_classifier::fermi::FermiMatchResult`),
+            DeclarativeTerm(`fn((~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, [](fn((~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32, ) -> mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
 ]

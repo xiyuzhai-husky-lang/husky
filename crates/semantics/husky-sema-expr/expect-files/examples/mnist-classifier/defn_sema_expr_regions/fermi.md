@@ -107,7 +107,9 @@
                                         opd: 8,
                                     },
                                     SynExprData::Ritchie {
-                                        ritchie_kind: FnType,
+                                        ritchie_kind: Type(
+                                            Fn,
+                                        ),
                                         ritchie_kind_regional_token_idx: RegionalTokenIdx(
                                             17,
                                         ),
@@ -3711,7 +3713,9 @@
                                                         ),
                                                     },
                                                     variant: Ritchie {
-                                                        ritchie_kind: FnType,
+                                                        ritchie_kind: Type(
+                                                            Fn,
+                                                        ),
                                                         parameter_contracted_tys: [
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {
