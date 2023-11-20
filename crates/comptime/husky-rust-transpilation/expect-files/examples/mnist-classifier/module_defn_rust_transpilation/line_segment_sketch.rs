@@ -10,16 +10,16 @@ pub use self::line_segment::*;
 
 use crate::*;
 
-pub struct LineSegmentStroke{
+pub struct LineSegmentStroke {
     pub points: Leash<CyclicSlice<Point2d>>,
     pub start: Point2d,
     pub end: Point2d,
-}
+} 
 
-pub struct LineSegmentSketch{
+pub struct LineSegmentSketch {
     pub contour: Leash<RawContour>,
     pub strokes: Vec<LineSegmentStroke>,
-}
+} 
 
 pub fn go_right(u: Vector2d, r: f32) -> Vector2d {
     let L = (u.x * u.x + u.y * u.y).sqrt();
@@ -27,7 +27,7 @@ pub fn go_right(u: Vector2d, r: f32) -> Vector2d {
     let dr = r * L / (L * L - r * r).sqrt();
     let dx = dr * u.y / L;
     let dy = -dr * u.x / L;
-    Vector2d(u.x + dx, u.y + dy)
+    Vector2d::__constructor(u.x + dx, u.y + dy)
 }
 
 pub fn go_left(u: Vector2d, r: f32) -> Vector2d {
@@ -36,7 +36,7 @@ pub fn go_left(u: Vector2d, r: f32) -> Vector2d {
     let dr = r * L / (L * L - r * r).sqrt();
     let dx = -dr * u.y / L;
     let dy = dr * u.x / L;
-    Vector2d(u.x + dx, u.y + dy)
+    Vector2d::__constructor(u.x + dx, u.y + dy)
 }
 
 pub fn extend_end(ct: Leash<RawContour>, start: i32, r: f32) -> i32 {
@@ -183,7 +183,7 @@ impl Visualize for LineSegmentStroke {
 impl LineSegmentStroke {
     pub fn new(ct: Leash<RawContour>, from: i32, to: i32) -> LineSegmentStroke {
         assert!(from <= to);
-        LineSegmentStroke(ct.points.cyclic_slice_leashed(from, to + 1))
+        LineSegmentStroke::__constructor(ct.points.cyclic_slice_leashed(from, to + 1))
     }
 
     pub fn displacement(self) -> Vector2d {
@@ -215,10 +215,10 @@ impl LineSegmentSketch {
             ymin = ymin.min(point.y);
             ymax = ymax.max(point.y)
         }
-        return BoundingBox(ClosedRange(xmin, xmax), ClosedRange(ymin, ymax));
+        return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
     }
 
     pub fn new(ct: Leash<RawContour>, r: f32) -> LineSegmentSketch {
-        LineSegmentSketch(ct, find_line_segments(ct, r))
+        LineSegmentSketch::__constructor(ct, find_line_segments(ct, r))
     }
 }

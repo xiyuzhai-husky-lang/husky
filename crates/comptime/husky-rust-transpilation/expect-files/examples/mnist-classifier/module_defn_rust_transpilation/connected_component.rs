@@ -1,15 +1,15 @@
 use crate::*;
 
-pub struct ConnectedComponentDistribution{
+pub struct ConnectedComponentDistribution {
     pub row_start: i32,
     pub row_end: i32,
     pub upper_mass: i32,
     pub lower_mass: i32,
-}
+} 
 
-pub struct EffHoles{
+pub struct EffHoles {
     pub matches: Vec<Option<Leash<RawContour>>>,
-}
+} 
 
 pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
     let len = ct.contour_len;
@@ -17,9 +17,9 @@ pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
     len + 0
 }
 
-pub struct ConnectedComponent{
+pub struct ConnectedComponent {
     pub mask: BinaryImage28,
-}
+} 
 
 pub fn horizontal_extend(a: r32, x: r32) -> r32 {
     let mut y = a | (x | x << 1 | x >> 1);
@@ -73,7 +73,7 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
             for k in j..30 {
                 unsearched[k] &= !mask[k]
             }
-            result.push(ConnectedComponent(mask))
+            result.push(ConnectedComponent::__constructor(mask))
         }
     }
     return result;
@@ -96,7 +96,7 @@ impl ConnectedComponent {
         raw_contours.pop_with_largest_opt_f32(hole_tmpl);
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl));
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl));
-        return EffHoles(matches);
+        return EffHoles::__constructor(matches);
     }
 
     pub fn max_hole_ilen(self) -> f32 {
@@ -156,7 +156,7 @@ impl ConnectedComponent {
         for i2 in (row_end - half_height..row_end).recv() {
             lower_mass += self.mask[i2].co()
         }
-        return ConnectedComponentDistribution(row_start, row_end, upper_mass, lower_mass);
+        return ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
     }
 
     pub fn upper_mass(self) -> f32 {

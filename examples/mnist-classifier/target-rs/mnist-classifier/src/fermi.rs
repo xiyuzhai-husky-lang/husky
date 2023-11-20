@@ -1,9 +1,9 @@
 use crate::*;
 
-pub struct FermiMatchResult{
+pub struct FermiMatchResult {
     pub matches: Vec<Option<Leash<ConcaveComponent>>>,
     pub others: Vec<Leash<ConcaveComponent>>,
-}
+} 
 
 pub fn fermi_match(concave_components: Leash<Vec<ConcaveComponent>>, templates: Vec< HirTypeRitchieTodo >) -> FermiMatchResult {
     let mut others = concave_components.collect_leashes();
@@ -12,7 +12,7 @@ pub fn fermi_match(concave_components: Leash<Vec<ConcaveComponent>>, templates: 
         let template = templates[i];
         matches.push(others.pop_with_largest_opt_f32(template))
     }
-    return FermiMatchResult(matches, others);
+    return FermiMatchResult::__constructor(matches, others);
 }
 
 impl FermiMatchResult {

@@ -91,7 +91,7 @@ fn transpile_hir_eager_expr_to_rust(
             ref template_arguments,
             ref item_groups,
         } => {
-            geq(function_hir_eager_expr_idx).transpile_to_rust(builder);
+            builder.ty_constructor(path);
             if let Some(_template_arguments) = template_arguments {
                 todo!()
             }

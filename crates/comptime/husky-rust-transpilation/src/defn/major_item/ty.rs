@@ -1,6 +1,9 @@
 use super::*;
 
-use husky_hir_decl::{PropsFieldHirDecl, TupleFieldHirDecl};
+use husky_entity_syn_tree::HasTypeVariantPaths;
+use husky_hir_decl::{ HasHirDecl, PropsFieldHirDecl,
+    TupleFieldHirDecl, TypeVariantHirDecl,
+};
 
 impl TranspileToRust for TypeHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
@@ -28,8 +31,25 @@ impl TranspileToRust for EnumTypeHirDefn {
             builder.keyword(RustKeyword::Enum);
             hir_decl.path(db).ident(db).transpile_to_rust(builder);
             hir_decl.template_parameters(db).transpile_to_rust(builder);
-            // todo: variants
-        })
+        });
+        builder.bracketed_multiline_comma_list(
+            RustBracket::CurlSpaced,
+            hir_decl
+                .path(db)
+                .ty_variant_paths(db)
+                .iter()
+                .map(|(_, path)| path.hir_decl(db)),
+        )
+    }
+}
+
+impl TranspileToRust for TypeVariantHirDecl {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
+        match self {
+            TypeVariantHirDecl::Props(hir_decl) => todo!(),
+            TypeVariantHirDecl::Unit(hir_decl) => hir_decl.transpile_to_rust(builder),
+            TypeVariantHirDecl::Tuple(hir_decl) => hir_decl.transpile_to_rust(builder),
+        }
     }
 }
 
@@ -42,7 +62,7 @@ impl TranspileToRust for PropsStructTypeHirDefn {
             builder.keyword(RustKeyword::Struct);
             hir_decl.path(db).ident(db).transpile_to_rust(builder);
             hir_decl.template_parameters(db).transpile_to_rust(builder);
-            builder.bracketed_multiline_comma_list(RustBracket::Curl, hir_decl.fields(db))
+            builder.bracketed_multiline_comma_list(RustBracket::CurlSpaced, hir_decl.fields(db))
         })
     }
 }

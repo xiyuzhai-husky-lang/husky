@@ -1,9 +1,9 @@
 use super::*;
 
-pub struct LineSegment{
+pub struct LineSegment {
     pub start: Point2d,
     pub end: Point2d,
-}
+} 
 
 impl LineSegment {
     pub fn displacement(self) -> Vector2d {

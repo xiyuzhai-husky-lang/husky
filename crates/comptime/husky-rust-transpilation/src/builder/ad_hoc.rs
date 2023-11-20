@@ -1,4 +1,5 @@
 use super::*;
+use husky_hir_defn::{HasHirDefn, TypeHirDefn};
 use husky_vfs::SubmodulePath;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
@@ -19,6 +20,15 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
 
     pub(crate) fn call_recv(&mut self) {
         self.write_str(".recv()")
+    }
+
+    pub(crate) fn ty_constructor(&mut self, ty_path: TypePath) {
+        ty_path.transpile_to_rust(self);
+        match ty_path.hir_defn(self.db).unwrap() {
+            TypeHirDefn::PropsStruct(_) => self.write_str("::__constructor"),
+            TypeHirDefn::TupleStruct(_) => (),
+            _ => unreachable!(),
+        }
     }
 
     pub(crate) fn use_all_in_crate(&mut self) {

@@ -1,4 +1,15 @@
-pub enum MnistLabel
+pub enum MnistLabel {
+    Zero,
+    One,
+    Two,
+    Three,
+    Four,
+    Five,
+    Six,
+    Seven,
+    Eight,
+    Nine,
+} 
 
 pub struct BinaryImage28{Array<30, r32>}
 
