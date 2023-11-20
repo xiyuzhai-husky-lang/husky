@@ -1,8 +1,8 @@
 use super::*;
 
 pub struct LineSegment{
-    start: Point2d,
-    end: Point2d,
+    pub start: Point2d,
+    pub end: Point2d,
 }
 
 impl LineSegment {

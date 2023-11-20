@@ -1,14 +1,14 @@
 use crate::*;
 
 pub struct ConnectedComponentDistribution{
-    row_start: i32,
-    row_end: i32,
-    upper_mass: i32,
-    lower_mass: i32,
+    pub row_start: i32,
+    pub row_end: i32,
+    pub upper_mass: i32,
+    pub lower_mass: i32,
 }
 
 pub struct EffHoles{
-    matches: Vec<Option<Leash<RawContour>>>,
+    pub matches: Vec<Option<Leash<RawContour>>>,
 }
 
 pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
@@ -18,7 +18,7 @@ pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
 }
 
 pub struct ConnectedComponent{
-    mask: BinaryImage28,
+    pub mask: BinaryImage28,
 }
 
 pub fn horizontal_extend(a: r32, x: r32) -> r32 {

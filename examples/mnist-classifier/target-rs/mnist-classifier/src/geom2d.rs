@@ -1,33 +1,33 @@
 use crate::*;
 
 pub struct Point2d{
-    x: f32,
-    y: f32,
+    pub x: f32,
+    pub y: f32,
 }
 
 pub struct RelativePoint2d{
-    x: f32,
-    y: f32,
+    pub x: f32,
+    pub y: f32,
 }
 
 pub struct Vector2d{
-    x: f32,
-    y: f32,
+    pub x: f32,
+    pub y: f32,
 }
 
 pub struct ClosedRange{
-    min: f32,
-    max: f32,
+    pub min: f32,
+    pub max: f32,
 }
 
 pub struct BoundingBox{
-    xrange: ClosedRange,
-    yrange: ClosedRange,
+    pub xrange: ClosedRange,
+    pub yrange: ClosedRange,
 }
 
 pub struct RelativeBoundingBox{
-    xrange: ClosedRange,
-    yrange: ClosedRange,
+    pub xrange: ClosedRange,
+    pub yrange: ClosedRange,
 }
 
 impl Point2d {

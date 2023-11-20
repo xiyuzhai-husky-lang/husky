@@ -11,14 +11,14 @@ pub use self::line_segment::*;
 use crate::*;
 
 pub struct LineSegmentStroke{
-    points: Leash<CyclicSlice<Point2d>>,
-    start: Point2d,
-    end: Point2d,
+    pub points: Leash<CyclicSlice<Point2d>>,
+    pub start: Point2d,
+    pub end: Point2d,
 }
 
 pub struct LineSegmentSketch{
-    contour: Leash<RawContour>,
-    strokes: Vec<LineSegmentStroke>,
+    pub contour: Leash<RawContour>,
+    pub strokes: Vec<LineSegmentStroke>,
 }
 
 pub fn go_right(u: Vector2d, r: f32) -> Vector2d {
