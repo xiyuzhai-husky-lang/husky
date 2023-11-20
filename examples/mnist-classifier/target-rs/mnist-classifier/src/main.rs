@@ -6,13 +6,13 @@ pub mod fermi;
 pub mod digits;
 pub mod major;
 
-use self::connected_component::*;
-use self::raw_contour::*;
-use self::geom2d::*;
-use self::line_segment_sketch::*;
-use self::fermi::*;
-use self::digits::*;
-use self::major::*;
+pub use self::connected_component::*;
+pub use self::raw_contour::*;
+pub use self::geom2d::*;
+pub use self::line_segment_sketch::*;
+pub use self::fermi::*;
+pub use self::digits::*;
+pub use self::major::*;
 
 pub fn main() -> Class<MnistLabel> {
     is_one?;

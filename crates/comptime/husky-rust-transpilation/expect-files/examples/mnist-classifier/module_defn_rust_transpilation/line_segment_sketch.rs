@@ -3,10 +3,10 @@ pub mod convex_component;
 pub mod convexity;
 pub mod line_segment;
 
-use self::concave_component::*;
-use self::convex_component::*;
-use self::convexity::*;
-use self::line_segment::*;
+pub use self::concave_component::*;
+pub use self::convex_component::*;
+pub use self::convexity::*;
+pub use self::line_segment::*;
 
 use crate::*;
 

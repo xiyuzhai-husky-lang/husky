@@ -5,7 +5,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
     pub(crate) fn use_all_in_submodule(&mut self, submodule_path: SubmodulePath) {
         let db = self.db;
         self.on_fresh_semicolon_line(|builder| {
-            builder.write_str("use self::");
+            builder.write_str("pub use self::");
             builder.write_str(submodule_path.ident(db).data(db));
             builder.write_str("::*")
         })
