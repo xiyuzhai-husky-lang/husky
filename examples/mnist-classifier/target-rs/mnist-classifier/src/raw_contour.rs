@@ -220,8 +220,62 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
             let mut total_angle_change = 0;
             let mut prev_streak1 = -1;
             let mut prev_streak2 = -1;
-            let mut current_streak = -1;// DoWhile incomplete
-            while true
+            let mut current_streak = -1;
+            loop {
+                {
+                    let outward_direction = get_outward_direction(row_above, row_below, j, inward_direction);
+                    let angle_change = get_angle_change(inward_direction, outward_direction);
+                    boundary_unsearched[i] = boundary_unsearched[i] | !(1 << j);
+                    if angle_change {
+                        if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
+                            contour.last().unwrap() = get_concave_middle_point(contour);
+                            contour.push(Point2d::from_i_shift28(i, j));
+                            prev_streak2 = -1;
+                            prev_streak1 = -1
+                        } else if prev_angle_change1 == -1 && prev_streak1 > 0 && prev_streak1 == 1 {
+                            contour.last().unwrap() = Point2d::from_i_shift28(i, j);
+                            prev_streak2 = prev_streak1;
+                            prev_streak1 = current_streak
+                        } else if prev_angle_change1 == -1 && prev_streak1 > 0 && current_streak == 1 && prev_streak1 > 1 {
+                            contour.last().unwrap() = Point2d::from_i_shift28(i, j);
+                            prev_streak2 = -1;
+                            prev_streak1 = -1
+                        } else {
+                            contour.push(Point2d::from_i_shift28(i, j));
+                            prev_streak2 = prev_streak1;
+                            prev_streak1 = current_streak
+                        }
+                        current_streak = 0;
+                        prev_angle_change2 = prev_angle_change1;
+                        prev_angle_change1 = angle_change
+                    }
+                    match outward_direction{
+                        Direction::Up => {
+                            i = i - 1;
+                            row_below = row_above;
+                            row_above = cc.mask[i - 1]
+                        }
+                        Direction::Down => {
+                            i = i + 1;
+                            row_above = row_below;
+                            row_below = cc.mask[i]
+                        }
+                        Direction::Left => {
+                            j = j + 1
+                        }
+                        Direction::Right => {
+                            j = j - 1
+                        }
+                    }
+                    inward_direction = outward_direction;
+                    if current_streak != -1 {
+                        current_streak+= 1
+                    }
+                }
+                if !!(i == i0 && j == j0 && inward_direction == dir0) {
+                    break;
+                }
+            }
             if prev_angle_change1 == -1 && current_streak == 1 && prev_streak1 > 0 {
                 contour.pop();
             }

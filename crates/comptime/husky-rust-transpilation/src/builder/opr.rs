@@ -17,6 +17,7 @@ pub enum RustOpr {
     Geq,
     Add,
     PatternOr,
+    Not,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -75,6 +76,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustOpr::Geq => " >= ",
             RustOpr::Add => " + ",
             RustOpr::PatternOr => " | ",
+            RustOpr::Not => "!",
         };
         self.write_str(s)
     }

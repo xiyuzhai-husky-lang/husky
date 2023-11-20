@@ -23,13 +23,13 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             HirEagerStmtData::Require { condition } => builder.on_fresh_semicolon_line(|builder| {
                 builder.macro_name(RustMacroName::Require);
                 builder.bracketed_list_with(RustBracket::Par, |builder| {
-                    condition.transpile_to_rust(builder)
+                    any_precedence(condition).transpile_to_rust(builder)
                 })
             }),
             HirEagerStmtData::Assert { condition } => builder.on_fresh_semicolon_line(|builder| {
                 builder.macro_name(RustMacroName::Assert);
                 builder.bracketed_list_with(RustBracket::Par, |builder| {
-                    condition.transpile_to_rust(builder)
+                    any_precedence(condition).transpile_to_rust(builder)
                 })
             }),
             HirEagerStmtData::Break => {
@@ -186,17 +186,26 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             } => todo!(),
             HirEagerStmtData::While { condition, stmts } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::While);
-                condition.transpile_to_rust(builder);
+                any_precedence(condition).transpile_to_rust(builder);
                 stmts.transpile_to_rust(builder)
             }),
-            HirEagerStmtData::DoWhile {
-                condition: _,
-                block: _,
-            } => {
-                builder.comment("DoWhile incomplete");
+            HirEagerStmtData::DoWhile { condition, block } => {
                 builder.on_fresh_line(|builder| {
-                    builder.keyword(RustKeyword::While);
-                    true.transpile_to_rust(builder);
+                    builder.keyword(RustKeyword::Loop);
+                    builder.curly_block(|builder| {
+                        builder.on_fresh_line(|builder| block.transpile_to_rust(builder));
+                        builder.on_fresh_line(|builder| {
+                            builder.keyword(RustKeyword::If);
+                            builder.opr(RustOpr::Not);
+                            (RustPrecedenceRange::Geq(RustPrecedence::Prefix), condition)
+                                .transpile_to_rust(builder);
+                            builder.curly_block(|builder| {
+                                builder.on_fresh_semicolon_line(|builder| {
+                                    builder.keyword(RustKeyword::Break)
+                                })
+                            })
+                        })
+                    })
                 })
                 // block.transpile_to_rust(builder)
             }
@@ -223,9 +232,11 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for HirEagerCondition {
+impl TranspileToRust<HirEagerExprRegion> for (RustPrecedenceRange, HirEagerCondition) {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
-        any_precedence(self.hir_eager_expr_idx()).transpile_to_rust(builder)
+        // todo: do proper conversion
+        let &(precedence, condition) = self;
+        (precedence, condition.hir_eager_expr_idx()).transpile_to_rust(builder)
     }
 }
 
@@ -242,7 +253,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerLetVariablesPattern {
 impl TranspileToRust<HirEagerExprRegion> for HirEagerIfBranch {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::If);
-        self.condition.transpile_to_rust(builder);
+        any_precedence(self.condition).transpile_to_rust(builder);
         self.stmts.transpile_to_rust(builder)
     }
 }
@@ -251,7 +262,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerElifBranch {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Else);
         builder.keyword(RustKeyword::If);
-        self.condition.transpile_to_rust(builder);
+        any_precedence(self.condition).transpile_to_rust(builder);
         self.stmts.transpile_to_rust(builder)
     }
 }
