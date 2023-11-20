@@ -28,6 +28,7 @@ impl TranspileToRust for EnumTypeHirDefn {
             builder.keyword(RustKeyword::Enum);
             hir_decl.path(db).ident(db).transpile_to_rust(builder);
             hir_decl.template_parameters(db).transpile_to_rust(builder);
+            // todo: variants
         })
     }
 }
