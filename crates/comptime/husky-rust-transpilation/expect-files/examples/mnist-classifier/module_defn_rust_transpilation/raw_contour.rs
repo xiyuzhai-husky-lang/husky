@@ -3,14 +3,14 @@ use crate::*;
 pub struct RawContour {
     pub cc: Leash<ConnectedComponent>,
     pub points: Vec<Point2d>,
-}
+} 
 
 pub enum Direction {
     Up,
     Left,
     Down,
     Right,
-}
+} 
 
 pub fn get_pixel_pair(row: r32, j: i32) -> r32 {
     row >> j - 1 | 3
@@ -27,30 +27,52 @@ pub fn get_pixel_to_the_right(row: r32, j: i32) -> r32 {
 pub fn get_inward_direction(row_above: r32, row_below: r32, j: i32) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
     let pixel_pair_below = get_pixel_pair(row_below, j);
-    match pixel_pair_above {
-        0 => match pixel_pair_below {
-            1 | 3 => Direction::Left,
-            2 => Direction::Up,
-            _ => {
-                unreachable!()
+    match pixel_pair_above{
+        0 => {
+            match pixel_pair_below{
+                1 | 3 => {
+                    Direction::Left
+                }
+                2 => {
+                    Direction::Up
+                }
+                _ => {
+                    unreachable!()
+                }
             }
-        },
-        1 => Direction::Down,
-        2 => match pixel_pair_below {
-            0 => Direction::Right,
-            1 | 3 => Direction::Left,
-            2 => Direction::Up,
-            _ => {
-                unreachable!()
+        }
+        1 => {
+            Direction::Down
+        }
+        2 => {
+            match pixel_pair_below{
+                0 => {
+                    Direction::Right
+                }
+                1 | 3 => {
+                    Direction::Left
+                }
+                2 => {
+                    Direction::Up
+                }
+                _ => {
+                    unreachable!()
+                }
             }
-        },
-        3 => match pixel_pair_below {
-            0 | 1 => Direction::Right,
-            2 => Direction::Up,
-            _ => {
-                unreachable!()
+        }
+        3 => {
+            match pixel_pair_below{
+                0 | 1 => {
+                    Direction::Right
+                }
+                2 => {
+                    Direction::Up
+                }
+                _ => {
+                    unreachable!()
+                }
             }
-        },
+        }
         _ => {
             unreachable!()
         }
@@ -59,66 +81,101 @@ pub fn get_inward_direction(row_above: r32, row_below: r32, j: i32) -> Direction
 
 pub fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
     let raw_angle_change = ((outward as i32) - (inward as i32) as r32).last_bits(2);
-    match raw_angle_change {
-        0 | 1 | 2 => raw_angle_change as i32,
-        3 => -1,
+    match raw_angle_change{
+        0 | 1 | 2 => {
+            raw_angle_change as i32
+        }
+        3 => {
+            -1
+        }
         _ => {
             unreachable!()
         }
     }
 }
 
-pub fn get_outward_direction(
-    row_above: r32,
-    row_below: r32,
-    j: i32,
-    inward_direction: Direction,
-) -> Direction {
+pub fn get_outward_direction(row_above: r32, row_below: r32, j: i32, inward_direction: Direction) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
     let pixel_pair_below = get_pixel_pair(row_below, j);
-    match pixel_pair_above {
-        0 => match pixel_pair_below {
-            1 => Direction::Down,
-            2 | 3 => Direction::Left,
-            _ => {
-                unreachable!()
-            }
-        },
-        1 => match pixel_pair_below {
-            0 => Direction::Right,
-            1 => Direction::Down,
-            2 => match inward_direction {
-                Direction::Down => Direction::Left,
-                Direction::Up => Direction::Right,
+    match pixel_pair_above{
+        0 => {
+            match pixel_pair_below{
+                1 => {
+                    Direction::Down
+                }
+                2 | 3 => {
+                    Direction::Left
+                }
                 _ => {
                     unreachable!()
                 }
-            },
-            3 => Direction::Left,
-            _ => {
-                unreachable!()
             }
-        },
-        2 => match pixel_pair_below {
-            0 | 2 | 3 => Direction::Up,
-            1 => match inward_direction {
-                Direction::Left => Direction::Up,
-                Direction::Right => Direction::Down,
+        }
+        1 => {
+            match pixel_pair_below{
+                0 => {
+                    Direction::Right
+                }
+                1 => {
+                    Direction::Down
+                }
+                2 => {
+                    match inward_direction{
+                        Direction::Down => {
+                            Direction::Left
+                        }
+                        Direction::Up => {
+                            Direction::Right
+                        }
+                        _ => {
+                            unreachable!()
+                        }
+                    }
+                }
+                3 => {
+                    Direction::Left
+                }
                 _ => {
                     unreachable!()
                 }
-            },
-            _ => {
-                unreachable!()
             }
-        },
-        3 => match pixel_pair_below {
-            0 | 2 => Direction::Right,
-            1 => Direction::Down,
-            _ => {
-                unreachable!()
+        }
+        2 => {
+            match pixel_pair_below{
+                0 | 2 | 3 => {
+                    Direction::Up
+                }
+                1 => {
+                    match inward_direction{
+                        Direction::Left => {
+                            Direction::Up
+                        }
+                        Direction::Right => {
+                            Direction::Down
+                        }
+                        _ => {
+                            unreachable!()
+                        }
+                    }
+                }
+                _ => {
+                    unreachable!()
+                }
             }
-        },
+        }
+        3 => {
+            match pixel_pair_below{
+                0 | 2 => {
+                    Direction::Right
+                }
+                1 => {
+                    Direction::Down
+                }
+                _ => {
+                    unreachable!()
+                }
+            }
+        }
         _ => {
             unreachable!()
         }
@@ -128,7 +185,7 @@ pub fn get_outward_direction(
 pub struct StreakCache {
     pub prev1: i32,
     pub prev2: i32,
-}
+} 
 
 pub fn get_concave_middle_point(points: Vec<Point2d>) -> Point2d {
     let N = points.ilen();
@@ -166,31 +223,20 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
             let mut current_streak = -1;
             loop {
                 {
-                    let outward_direction =
-                        get_outward_direction(row_above, row_below, j, inward_direction);
+                    let outward_direction = get_outward_direction(row_above, row_below, j, inward_direction);
                     let angle_change = get_angle_change(inward_direction, outward_direction);
                     boundary_unsearched[i] = boundary_unsearched[i] | !(1 << j);
                     if angle_change {
-                        if prev_angle_change1 == -1
-                            && prev_angle_change2 == -1
-                            && current_streak == 1
-                            && prev_streak1 != -1
-                            && prev_streak2 == 1
-                        {
+                        if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
                             contour.last().unwrap() = get_concave_middle_point(contour);
                             contour.push(Point2d::from_i_shift28(i, j));
                             prev_streak2 = -1;
                             prev_streak1 = -1
-                        } else if prev_angle_change1 == -1 && prev_streak1 > 0 && prev_streak1 == 1
-                        {
+                        } else if prev_angle_change1 == -1 && prev_streak1 > 0 && prev_streak1 == 1 {
                             contour.last().unwrap() = Point2d::from_i_shift28(i, j);
                             prev_streak2 = prev_streak1;
                             prev_streak1 = current_streak
-                        } else if prev_angle_change1 == -1
-                            && prev_streak1 > 0
-                            && current_streak == 1
-                            && prev_streak1 > 1
-                        {
+                        } else if prev_angle_change1 == -1 && prev_streak1 > 0 && current_streak == 1 && prev_streak1 > 1 {
                             contour.last().unwrap() = Point2d::from_i_shift28(i, j);
                             prev_streak2 = -1;
                             prev_streak1 = -1
@@ -203,7 +249,7 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
                         prev_angle_change2 = prev_angle_change1;
                         prev_angle_change1 = angle_change
                     }
-                    match outward_direction {
+                    match outward_direction{
                         Direction::Up => {
                             i = i - 1;
                             row_below = row_above;
@@ -214,12 +260,16 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
                             row_above = row_below;
                             row_below = cc.mask[i]
                         }
-                        Direction::Left => j = j + 1,
-                        Direction::Right => j = j - 1,
+                        Direction::Left => {
+                            j = j + 1
+                        }
+                        Direction::Right => {
+                            j = j - 1
+                        }
                     }
                     inward_direction = outward_direction;
                     if current_streak != -1 {
-                        current_streak += 1
+                        current_streak+= 1
                     }
                 }
                 if !!(i == i0 && j == j0 && inward_direction == dir0) {
@@ -236,7 +286,9 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
 }
 
 impl Visualize for RawContour {
-    fn visualize(self) -> Html {}
+    fn visualize(self) -> Html {
+        
+    }
 }
 
 impl RawContour {
@@ -257,16 +309,11 @@ impl RawContour {
             ymin = ymin.min(point.y);
             ymax = ymax.max(point.y)
         }
-        return BoundingBox::__constructor(
-            ClosedRange::__constructor(xmin, xmax),
-            ClosedRange::__constructor(ymin, ymax),
-        );
+        return BoundingBox::__constructor(ClosedRange::__constructor(xmin, xmax), ClosedRange::__constructor(ymin, ymax));
     }
 
     pub fn relative_bounding_box(self) -> RelativeBoundingBox {
-        self.cc.raw_contours[0]
-            .bounding_box
-            .relative_bounding_box(self.bounding_box)
+        self.cc.raw_contours[0].bounding_box.relative_bounding_box(self.bounding_box)
     }
 
     pub fn contour_len(self) -> f32 {
