@@ -4,9 +4,9 @@ pub mod algebraic_topology;
 pub mod category_theory;
 pub mod probability;
 
-use self::algebra::*;
-use self::algebraic_geometry::*;
-use self::algebraic_topology::*;
-use self::category_theory::*;
-use self::probability::*;
+pub use self::algebra::*;
+pub use self::algebraic_geometry::*;
+pub use self::algebraic_topology::*;
+pub use self::category_theory::*;
+pub use self::probability::*;
 

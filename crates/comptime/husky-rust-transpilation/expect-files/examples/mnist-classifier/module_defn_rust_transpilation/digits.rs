@@ -9,15 +9,15 @@ pub mod eight;
 pub mod nine;
 pub mod two;
 
-use self::zero::*;
-use self::one::*;
-use self::six::*;
-use self::three::*;
-use self::four::*;
-use self::five::*;
-use self::seven::*;
-use self::eight::*;
-use self::nine::*;
-use self::two::*;
+pub use self::zero::*;
+pub use self::one::*;
+pub use self::six::*;
+pub use self::three::*;
+pub use self::four::*;
+pub use self::five::*;
+pub use self::seven::*;
+pub use self::eight::*;
+pub use self::nine::*;
+pub use self::two::*;
 
 use crate::*;
