@@ -277,7 +277,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerElseBranch {
 impl TranspileToRust<HirEagerExprRegion> for HirEagerCaseBranch {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.pattern.transpile_to_rust(builder);
-        builder.keyword(RustKeyword::HeavyArrow);
+        builder.opr(RustOpr::HeavyArrow);
         self.stmts.transpile_to_rust(builder)
     }
 }

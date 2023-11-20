@@ -122,7 +122,7 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
             FinalDestination::TypeOntology
             | FinalDestination::AnyOriginal
             | FinalDestination::AnyDerived => TypePathDisambiguation::InstanceConstructor,
-            FinalDestination::Ritchie(RitchieKind::FnType) => {
+            FinalDestination::Ritchie(RitchieKind::Type(RitchieTypeKind::Fn)) => {
                 TypePathDisambiguation::InstanceConstructor
             }
             FinalDestination::Ritchie(_) => todo!(),

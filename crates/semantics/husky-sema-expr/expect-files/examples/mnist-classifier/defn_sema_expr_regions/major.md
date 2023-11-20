@@ -547,7 +547,9 @@
                                                         ),
                                                     },
                                                     variant: Ritchie {
-                                                        ritchie_kind: FnType,
+                                                        ritchie_kind: Type(
+                                                            Fn,
+                                                        ),
                                                         parameter_contracted_tys: [
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {

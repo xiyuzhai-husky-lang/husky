@@ -1553,7 +1553,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
@@ -1758,7 +1760,9 @@
                                                         ),
                                                     },
                                                     variant: Ritchie {
-                                                        ritchie_kind: FnType,
+                                                        ritchie_kind: Type(
+                                                            Fn,
+                                                        ),
                                                         parameter_contracted_tys: [
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {
@@ -4786,7 +4790,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
@@ -4932,7 +4938,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
@@ -5078,7 +5086,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
@@ -5342,7 +5352,9 @@
                                                         ),
                                                     },
                                                     variant: Ritchie {
-                                                        ritchie_kind: FnType,
+                                                        ritchie_kind: Type(
+                                                            Fn,
+                                                        ),
                                                         parameter_contracted_tys: [
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {
@@ -5684,7 +5696,9 @@
                                                         ),
                                                     },
                                                     variant: Ritchie {
-                                                        ritchie_kind: FnType,
+                                                        ritchie_kind: Type(
+                                                            Fn,
+                                                        ),
                                                         parameter_contracted_tys: [
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {
@@ -6128,7 +6142,9 @@
                                                         ),
                                                     },
                                                     variant: Ritchie {
-                                                        ritchie_kind: FnType,
+                                                        ritchie_kind: Type(
+                                                            Fn,
+                                                        ),
                                                         parameter_contracted_tys: [
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {

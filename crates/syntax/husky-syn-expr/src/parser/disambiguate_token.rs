@@ -1,8 +1,6 @@
 use super::*;
 use husky_entity_kind::{EntityKind, FugitiveKind, MajorItemKind};
 use husky_opr::*;
-use husky_print_utils::p;
-use salsa::DebugWithDb;
 use std::ops::ControlFlow;
 
 pub type TokenDisambiguationResult<T> = ControlFlow<(), T>;
@@ -57,7 +55,7 @@ where
                     PronounKeyword::Super => todo!(),
                 },
                 Keyword::Fugitive(FugitiveKeyword::Fn) => {
-                    DisambiguatedTokenData::Ritchie(regional_token_idx, RitchieKind::FnType)
+                    DisambiguatedTokenData::Ritchie(regional_token_idx, RitchieTypeKind::Fn.into())
                 }
                 Keyword::Sorry => DisambiguatedTokenData::Sorry { regional_token_idx },
                 Keyword::Todo => DisambiguatedTokenData::Todo { regional_token_idx },

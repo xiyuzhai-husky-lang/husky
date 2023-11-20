@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{ritchie::HirRitchieType, *};
 use husky_ethereal_term::{EtherealTerm, EtherealTermSymbolIndexInner};
 use husky_term_prelude::TermEntityPath;
 
@@ -55,7 +55,9 @@ impl HirTemplateArgument {
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),
             EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => HirType::Ritchie().into(),
+            EtherealTerm::Ritchie(term) => {
+                HirType::Ritchie(HirRitchieType::from_ethereal(term, db)).into()
+            }
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(application) => {
                 hir_ty_from_ethereal_term_application(db, application).into()

@@ -827,7 +827,9 @@
                                                         ),
                                                     },
                                                     variant: Ritchie {
-                                                        ritchie_kind: FnType,
+                                                        ritchie_kind: Type(
+                                                            Fn,
+                                                        ),
                                                         parameter_contracted_tys: [
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {
@@ -22234,7 +22236,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -22406,7 +22410,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -22520,7 +22526,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -22692,7 +22700,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -22965,7 +22975,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -23137,7 +23149,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -23304,7 +23318,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -23476,7 +23492,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -23590,7 +23608,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -23762,7 +23782,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -23982,7 +24004,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -24154,7 +24178,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -24268,7 +24294,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -24440,7 +24468,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -24554,7 +24584,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -24726,7 +24758,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -24999,7 +25033,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -25171,7 +25207,9 @@
                             },
                             HollowTermEntry {
                                 data: Ritchie {
-                                    ritchie_kind: FnType,
+                                    ritchie_kind: Type(
+                                        Fn,
+                                    ),
                                     params: [
                                         Variadic(
                                             FluffyTermRitchieVariadicParameter {
@@ -25319,7 +25357,9 @@
                                         Ok(
                                             EqsRitchieCallType(
                                                 ExpectEqsRitchieTypeOutcome {
-                                                    ritchie_kind: FnType,
+                                                    ritchie_kind: Type(
+                                                        Fn,
+                                                    ),
                                                     template_parameter_substitutions: [
                                                         ImplicitParameterSubstitution {
                                                             variable: FluffyTerm {
@@ -25832,7 +25872,9 @@
                                                         ),
                                                     },
                                                     variant: Ritchie {
-                                                        ritchie_kind: FnType,
+                                                        ritchie_kind: Type(
+                                                            Fn,
+                                                        ),
                                                         parameter_contracted_tys: [
                                                             Regular(
                                                                 FluffyTermRitchieRegularParameter {
@@ -26163,7 +26205,9 @@
                                         Ok(
                                             EqsRitchieCallType(
                                                 ExpectEqsRitchieTypeOutcome {
-                                                    ritchie_kind: FnType,
+                                                    ritchie_kind: Type(
+                                                        Fn,
+                                                    ),
                                                     template_parameter_substitutions: [
                                                         ImplicitParameterSubstitution {
                                                             variable: FluffyTerm {
@@ -27794,7 +27838,9 @@
                                         Ok(
                                             EqsRitchieCallType(
                                                 ExpectEqsRitchieTypeOutcome {
-                                                    ritchie_kind: FnType,
+                                                    ritchie_kind: Type(
+                                                        Fn,
+                                                    ),
                                                     template_parameter_substitutions: [
                                                         ImplicitParameterSubstitution {
                                                             variable: FluffyTerm {
@@ -29012,7 +29058,9 @@
                                         Ok(
                                             EqsRitchieCallType(
                                                 ExpectEqsRitchieTypeOutcome {
-                                                    ritchie_kind: FnType,
+                                                    ritchie_kind: Type(
+                                                        Fn,
+                                                    ),
                                                     template_parameter_substitutions: [
                                                         ImplicitParameterSubstitution {
                                                             variable: FluffyTerm {
@@ -29737,7 +29785,9 @@
                                         Ok(
                                             EqsRitchieCallType(
                                                 ExpectEqsRitchieTypeOutcome {
-                                                    ritchie_kind: FnType,
+                                                    ritchie_kind: Type(
+                                                        Fn,
+                                                    ),
                                                     template_parameter_substitutions: [
                                                         ImplicitParameterSubstitution {
                                                             variable: FluffyTerm {
@@ -31439,7 +31489,9 @@
                                         Ok(
                                             EqsRitchieCallType(
                                                 ExpectEqsRitchieTypeOutcome {
-                                                    ritchie_kind: FnType,
+                                                    ritchie_kind: Type(
+                                                        Fn,
+                                                    ),
                                                     template_parameter_substitutions: [
                                                         ImplicitParameterSubstitution {
                                                             variable: FluffyTerm {
@@ -32139,7 +32191,9 @@
                                         Ok(
                                             EqsRitchieCallType(
                                                 ExpectEqsRitchieTypeOutcome {
-                                                    ritchie_kind: FnType,
+                                                    ritchie_kind: Type(
+                                                        Fn,
+                                                    ),
                                                     template_parameter_substitutions: [
                                                         ImplicitParameterSubstitution {
                                                             variable: FluffyTerm {
@@ -32828,7 +32882,9 @@
                                         Ok(
                                             EqsRitchieCallType(
                                                 ExpectEqsRitchieTypeOutcome {
-                                                    ritchie_kind: FnType,
+                                                    ritchie_kind: Type(
+                                                        Fn,
+                                                    ),
                                                     template_parameter_substitutions: [
                                                         ImplicitParameterSubstitution {
                                                             variable: FluffyTerm {
@@ -34581,7 +34637,9 @@
                                         Ok(
                                             EqsRitchieCallType(
                                                 ExpectEqsRitchieTypeOutcome {
-                                                    ritchie_kind: FnType,
+                                                    ritchie_kind: Type(
+                                                        Fn,
+                                                    ),
                                                     template_parameter_substitutions: [
                                                         ImplicitParameterSubstitution {
                                                             variable: FluffyTerm {

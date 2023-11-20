@@ -43,11 +43,48 @@ pub struct TermPreludeJar(
 );
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[enum_class::from_variants]
 pub enum RitchieKind {
-    FnType,
-    FnTrait,
-    FnMutTrait,
-    GnType,
+    Type(RitchieTypeKind),
+    Trait(RitchieTraitKind),
+}
+
+impl RitchieKind {
+    pub fn code(self) -> &'static str {
+        match self {
+            RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
+                RitchieTypeKind::Fn => "fn(",
+                RitchieTypeKind::Gn => "gn(",
+            },
+            RitchieKind::Trait(ritchie_trai_kind) => match ritchie_trai_kind {
+                RitchieTraitKind::Fn => "Fn(",
+                RitchieTraitKind::FnMut => "FnMut(",
+                RitchieTraitKind::FnOnce => "FnOnce(",
+                RitchieTraitKind::Gn => "Gn(",
+            },
+        }
+    }
+
+    pub fn ritchie_ty_kind(self) -> Option<RitchieTypeKind> {
+        match self {
+            RitchieKind::Type(ritchie_ty_kind) => Some(ritchie_ty_kind),
+            RitchieKind::Trait(_) => None,
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum RitchieTypeKind {
+    Fn,
+    Gn,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum RitchieTraitKind {
+    Fn,
+    FnMut,
+    FnOnce,
+    Gn,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

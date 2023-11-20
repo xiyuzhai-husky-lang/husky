@@ -3515,7 +3515,9 @@
                                             opd: 2,
                                         },
                                         SynExprData::Ritchie {
-                                            ritchie_kind: FnType,
+                                            ritchie_kind: Type(
+                                                Fn,
+                                            ),
                                             ritchie_kind_regional_token_idx: RegionalTokenIdx(
                                                 11,
                                             ),
