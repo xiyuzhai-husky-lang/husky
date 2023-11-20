@@ -36,6 +36,7 @@ impl TranspileToRust for TraitForTypeMethodFnHirDefn {
                 builder.heterogeneous_comma_list_item(hir_decl.self_value_parameter(db));
                 builder.heterogeneous_comma_list_items(hir_decl.parenate_parameters(db).iter())
             });
+            builder.return_ty(hir_decl.return_ty(db))
         });
         builder.eager_body(hir_eager_expr_region, body)
     }

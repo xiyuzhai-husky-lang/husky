@@ -175,34 +175,34 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
 }
 
 impl Visualize for LineSegmentStroke {
-    fn visualize(self) {
+    fn visualize(self) -> Html {
         
     }
 }
 
 impl LineSegmentStroke {
-    fn new(ct: Leash<RawContour>, from: i32, to: i32) -> LineSegmentStroke {
+    pub fn new(ct: Leash<RawContour>, from: i32, to: i32) -> LineSegmentStroke {
         assert!(from <= to);
         LineSegmentStroke(ct.points.cyclic_slice_leashed(from, to + 1))
     }
 
-    fn displacement(self) -> Vector2d {
+    pub fn displacement(self) -> Vector2d {
         self.start.to(self.end)
     }
 }
 
 impl Visualize for LineSegmentSketch {
-    fn visualize(self) {
+    fn visualize(self) -> Html {
         self.strokes.visualize()
     }
 }
 
 impl LineSegmentSketch {
-    fn concave_components(self) {
+    pub fn concave_components(self) -> Vec<ConcaveComponent>(self) {
         find_concave_components(self)
     }
 
-    fn bounding_box(self) {
+    pub fn bounding_box(self) -> BoundingBox(self) {
         let start_point = self.strokes[0].start;
         let mut xmin = start_point.x;
         let mut xmax = start_point.x;
@@ -218,7 +218,7 @@ impl LineSegmentSketch {
         return BoundingBox(ClosedRange(xmin, xmax), ClosedRange(ymin, ymax));
     }
 
-    fn new(ct: Leash<RawContour>, r: f32) -> LineSegmentSketch {
+    pub fn new(ct: Leash<RawContour>, r: f32) -> LineSegmentSketch {
         LineSegmentSketch(ct, find_line_segments(ct, r))
     }
 }

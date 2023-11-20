@@ -28,21 +28,21 @@ pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) ->
 }
 
 impl Visualize for ConcaveComponent {
-    fn visualize(self) {
+    fn visualize(self) -> Html {
         self.strokes.visualize()
     }
 }
 
 impl ConcaveComponent {
-    fn norm(self) {
+    pub fn norm(self) -> f32(self) {
         self.hausdorff_norm
     }
 
-    fn rel_norm(self) {
+    pub fn rel_norm(self) -> f32(self) {
         self.norm / self.displacement().norm()
     }
 
-    fn hausdorff_norm(self) {
+    pub fn hausdorff_norm(self) -> f32(self) {
         let mut hausdorff_norm = 0;
         let curve_start = self.strokes.first().unwrap().start;
         let curve_ls = self.line_segment();
@@ -57,7 +57,7 @@ impl ConcaveComponent {
         return hausdorff_norm;
     }
 
-    fn angle_change(self) {
+    pub fn angle_change(self) -> f32(self) {
         let mut angle_change = 0;
         let mut dp0 = self.strokes[self.strokes.start()].displacement();
         for i in (self.strokes.start() + 1)..self.strokes.end() {
@@ -68,7 +68,7 @@ impl ConcaveComponent {
         return angle_change;
     }
 
-    fn bounding_box(self) {
+    pub fn bounding_box(self) -> BoundingBox(self) {
         let start_point = self.strokes.first().unwrap().start;
         let mut xmin = start_point.x;
         let mut xmax = start_point.x;
@@ -84,31 +84,31 @@ impl ConcaveComponent {
         return BoundingBox(ClosedRange(xmin, xmax), ClosedRange(ymin, ymax));
     }
 
-    fn relative_bounding_box(self) {
+    pub fn relative_bounding_box(self) -> RelativeBoundingBox(self) {
         self.line_segment_sketch.bounding_box.relative_bounding_box(self.bounding_box)
     }
 
-    fn line_segment(self) -> LineSegment {
+    pub fn line_segment(self) -> LineSegment {
         LineSegment(self.strokes.first().unwrap().start.clone(), self.strokes.last().unwrap().end.clone())
     }
 
-    fn start(self) -> Point2d {
+    pub fn start(self) -> Point2d {
         self.strokes.first().unwrap().start.clone()
     }
 
-    fn end(self) -> Point2d {
+    pub fn end(self) -> Point2d {
         self.strokes.last().unwrap().end.clone()
     }
 
-    fn displacement(self) -> Vector2d {
+    pub fn displacement(self) -> Vector2d {
         self.line_segment().displacement()
     }
 
-    fn start_tangent(self) -> Vector2d {
+    pub fn start_tangent(self) -> Vector2d {
         self.strokes.first().unwrap().displacement()
     }
 
-    fn end_tangent(self) -> Vector2d {
+    pub fn end_tangent(self) -> Vector2d {
         self.strokes.last().unwrap().displacement()
     }
 }

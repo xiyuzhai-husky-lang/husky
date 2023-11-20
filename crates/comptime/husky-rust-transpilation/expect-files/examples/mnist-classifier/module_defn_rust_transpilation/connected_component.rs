@@ -80,17 +80,17 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
 }
 
 impl Visualize for ConnectedComponent {
-    fn visualize(self) {
+    fn visualize(self) -> Html {
         self.mask.visualize()
     }
 }
 
 impl ConnectedComponent {
-    fn raw_contours(self) {
+    pub fn raw_contours(self) -> Vec<RawContour>(self) {
         find_raw_contours(self)
     }
 
-    fn eff_holes(self) {
+    pub fn eff_holes(self) -> EffHoles(self) {
         let mut raw_contours = self.raw_contours.collect_leashes();
         let mut matches: Vec<Option<Leash<RawContour>>> = vec![];
         raw_contours.pop_with_largest_opt_f32(hole_tmpl);
@@ -99,7 +99,7 @@ impl ConnectedComponent {
         return EffHoles(matches);
     }
 
-    fn max_hole_ilen(self) {
+    pub fn max_hole_ilen(self) -> f32(self) {
         let mut max_hole_ilen = 0;
         let raw_contours = self.raw_contours;
         for i in (0 + 1)..raw_contours.ilen() {
@@ -111,7 +111,7 @@ impl ConnectedComponent {
         return max_hole_ilen as f32;
     }
 
-    fn max_row_span(self) {
+    pub fn max_row_span(self) -> f32(self) {
         let mut max_row: i32 = 0;
         for i in (0 + 1)..29 {
             max_row = max_row.max(self.mask[i].span())
@@ -119,7 +119,7 @@ impl ConnectedComponent {
         return max_row as f32;
     }
 
-    fn row_span_sum(self) {
+    pub fn row_span_sum(self) -> f32(self) {
         let mut row_span_sum = 0;
         for i in (0 + 1)..29 {
             row_span_sum += self.mask[i].span()
@@ -127,7 +127,7 @@ impl ConnectedComponent {
         return row_span_sum as f32;
     }
 
-    fn distribution(self) {
+    pub fn distribution(self) -> ConnectedComponentDistribution(self) {
         let mut row_start = 1;
         while row_start < 29 {
             {
@@ -159,15 +159,15 @@ impl ConnectedComponent {
         return ConnectedComponentDistribution(row_start, row_end, upper_mass, lower_mass);
     }
 
-    fn upper_mass(self) {
+    pub fn upper_mass(self) -> f32(self) {
         self.distribution.upper_mass as f32
     }
 
-    fn lower_mass(self) {
+    pub fn lower_mass(self) -> f32(self) {
         self.distribution.lower_mass as f32
     }
 
-    fn top_k_row_span_sum(self, k: i32) -> f32 {
+    pub fn top_k_row_span_sum(self, k: i32) -> f32 {
         let mut top_k_row_span_sum = 0;
         assert!(k > 0);
         let mut i = 1;
@@ -185,7 +185,7 @@ impl ConnectedComponent {
         return top_k_row_span_sum as f32;
     }
 
-    fn top_k_row_right_mass_sum(self, k: i32) -> f32 {
+    pub fn top_k_row_right_mass_sum(self, k: i32) -> f32 {
         let mut top_k_row_span_sum = 0;
         assert!(k > 0);
         let mut i = 1;

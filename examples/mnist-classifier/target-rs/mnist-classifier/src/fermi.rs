@@ -16,7 +16,7 @@ pub fn fermi_match(concave_components: Leash<Vec<ConcaveComponent>>, templates: 
 }
 
 impl FermiMatchResult {
-    fn norm(self) {
+    pub fn norm(self) -> f32(self) {
         let mut norm: f32 = 0;
         for i in 0..self.others.ilen() {
             norm = norm.max(self.others[i].norm)
@@ -24,7 +24,7 @@ impl FermiMatchResult {
         return norm;
     }
 
-    fn rel_norm(self) {
+    pub fn rel_norm(self) -> f32(self) {
         let mut norm: f32 = 0;
         for i in 0..self.others.ilen() {
             norm = norm.max(self.others[i].rel_norm)
@@ -32,7 +32,7 @@ impl FermiMatchResult {
         return norm;
     }
 
-    fn angle_change_norm(self) {
+    pub fn angle_change_norm(self) -> f32(self) {
         let mut norm: f32 = 0;
         for i in 0..self.others.ilen() {
             norm = norm.max(self.others[i].angle_change.abs())
