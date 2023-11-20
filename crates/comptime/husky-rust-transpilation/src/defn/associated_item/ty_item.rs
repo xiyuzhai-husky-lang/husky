@@ -85,7 +85,6 @@ impl TranspileToRust for TypeMemoizedFieldHirDefn {
             return;
         };
         self.hir_decl(db).transpile_to_rust(builder);
-        builder.bracketed_list_with(RustBracket::Par, |builder| builder.self_value());
         builder.eager_body(hir_eager_expr_region, body)
     }
 }

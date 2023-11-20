@@ -198,11 +198,11 @@ impl Visualize for LineSegmentSketch {
 }
 
 impl LineSegmentSketch {
-    pub fn concave_components(self) -> Vec<ConcaveComponent>(self) {
+    pub fn concave_components(self) -> Vec<ConcaveComponent> {
         find_concave_components(self)
     }
 
-    pub fn bounding_box(self) -> BoundingBox(self) {
+    pub fn bounding_box(self) -> BoundingBox {
         let start_point = self.strokes[0].start;
         let mut xmin = start_point.x;
         let mut xmax = start_point.x;

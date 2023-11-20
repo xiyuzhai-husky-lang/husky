@@ -233,11 +233,11 @@ impl Visualize for RawContour {
 }
 
 impl RawContour {
-    pub fn line_segment_sketch(self) -> LineSegmentSketch(self) {
+    pub fn line_segment_sketch(self) -> LineSegmentSketch {
         LineSegmentSketch::new(self, 1.4)
     }
 
-    pub fn bounding_box(self) -> BoundingBox(self) {
+    pub fn bounding_box(self) -> BoundingBox {
         let start_point = self.points[0];
         let mut xmin = start_point.x;
         let mut xmax = start_point.x;
@@ -253,11 +253,11 @@ impl RawContour {
         return BoundingBox(ClosedRange(xmin, xmax), ClosedRange(ymin, ymax));
     }
 
-    pub fn relative_bounding_box(self) -> RelativeBoundingBox(self) {
+    pub fn relative_bounding_box(self) -> RelativeBoundingBox {
         self.cc.raw_contours[0].bounding_box.relative_bounding_box(self.bounding_box)
     }
 
-    pub fn contour_len(self) -> f32(self) {
+    pub fn contour_len(self) -> f32 {
         let mut contour_len = 0;
         for i in (0 + 1)..self.points.ilen() {
             let a = self.points[i - 1];

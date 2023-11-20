@@ -34,15 +34,15 @@ impl Visualize for ConcaveComponent {
 }
 
 impl ConcaveComponent {
-    pub fn norm(self) -> f32(self) {
+    pub fn norm(self) -> f32 {
         self.hausdorff_norm
     }
 
-    pub fn rel_norm(self) -> f32(self) {
+    pub fn rel_norm(self) -> f32 {
         self.norm / self.displacement().norm()
     }
 
-    pub fn hausdorff_norm(self) -> f32(self) {
+    pub fn hausdorff_norm(self) -> f32 {
         let mut hausdorff_norm = 0;
         let curve_start = self.strokes.first().unwrap().start;
         let curve_ls = self.line_segment();
@@ -57,7 +57,7 @@ impl ConcaveComponent {
         return hausdorff_norm;
     }
 
-    pub fn angle_change(self) -> f32(self) {
+    pub fn angle_change(self) -> f32 {
         let mut angle_change = 0;
         let mut dp0 = self.strokes[self.strokes.start()].displacement();
         for i in (self.strokes.start() + 1)..self.strokes.end() {
@@ -68,7 +68,7 @@ impl ConcaveComponent {
         return angle_change;
     }
 
-    pub fn bounding_box(self) -> BoundingBox(self) {
+    pub fn bounding_box(self) -> BoundingBox {
         let start_point = self.strokes.first().unwrap().start;
         let mut xmin = start_point.x;
         let mut xmax = start_point.x;
@@ -84,7 +84,7 @@ impl ConcaveComponent {
         return BoundingBox(ClosedRange(xmin, xmax), ClosedRange(ymin, ymax));
     }
 
-    pub fn relative_bounding_box(self) -> RelativeBoundingBox(self) {
+    pub fn relative_bounding_box(self) -> RelativeBoundingBox {
         self.line_segment_sketch.bounding_box.relative_bounding_box(self.bounding_box)
     }
 
