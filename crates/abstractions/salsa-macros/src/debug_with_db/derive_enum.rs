@@ -72,7 +72,8 @@ fn enum_struct_variant_debug_with_db(
         .iter()
         .map(|field| -> proc_macro2::TokenStream {
             let field_ident = field.ident.as_ref().unwrap();
-            quote! {
+            quote_spanned! {
+                field_ident.span()=>
                 ref #field_ident
             }
         });
@@ -81,6 +82,7 @@ fn enum_struct_variant_debug_with_db(
         .iter()
         .map(|field| -> proc_macro2::TokenStream {
             let field_ident = &field.ident.as_ref().unwrap();
+            let field_ident = quote_spanned! {Span::call_site()=>field_ident};
             let field_ident_string = field_ident.to_string();
             let field_ty = &field.ty;
             // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
