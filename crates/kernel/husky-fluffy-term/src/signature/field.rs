@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
 pub enum FluffyFieldSignature {
-    PropsStruct { ty: FluffyTerm },
+    PropsStruct { ty2: FluffyTerm },
     Memoized { ty: FluffyTerm },
 }
 
@@ -14,7 +14,7 @@ impl FluffyFieldSignature {
         // }
         // ad hoc
         match self {
-            FluffyFieldSignature::PropsStruct { ty } => ty,
+            FluffyFieldSignature::PropsStruct { ty2: ty } => ty,
             FluffyFieldSignature::Memoized { ty } => ty,
         }
     }
@@ -31,7 +31,7 @@ impl From<PropsFieldEtherealSignature> for FluffyFieldSignature {
         match signature {
             PropsFieldEtherealSignature::PropsStruct(signature) => {
                 FluffyFieldSignature::PropsStruct {
-                    ty: signature.ty().into(),
+                    ty2: signature.ty().into(),
                 }
             }
         }
