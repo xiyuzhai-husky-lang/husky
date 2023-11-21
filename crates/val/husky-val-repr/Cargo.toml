@@ -29,7 +29,7 @@ husky-coword = { path = "../../kernel/husky-coword" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-task = { path = "../../kernel/husky-task" }
 # linkage
-husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
+husky-linkage = { path = "../../linkage/husky-linkage" }
 # val
 husky-val = { path = "../../val/husky-val" }
 # utils

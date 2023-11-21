@@ -2,7 +2,7 @@ use crate::*;
 use husky_coword::Ident;
 use husky_entity_path::FugitivePath;
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
-use husky_linkage_path::path::LinkagePath;
+use husky_linkage::linkage::Linkage;
 use husky_term_prelude::TermLiteral;
 use smallvec::SmallVec;
 
@@ -84,7 +84,7 @@ pub enum ValOpn {
     Prefix(HirPrefixOpr),
     Suffix(HirSuffixOpr),
     Binary(HirBinaryOpr),
-    Linkage(LinkagePath),
+    LinkageImpl(Linkage),
     EvalDiscarded,
     Literal(TermLiteral),
     NewList,

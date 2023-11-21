@@ -317,13 +317,9 @@ impl<A: AllowedOptions> SalsaStruct<A> {
     pub(crate) fn as_debug_with_db_impl(&self) -> syn::ItemImpl {
         let ident = self.id_ident();
         let jar_ty = self.jar_ty();
-        let db_trai: TokenStream = match self.db_trai() {
-            Some(db_trai) => quote! {
-                #db_trai
-            },
-            None => quote! {
-                ExpectDbArgument
-            },
+        let db_trai = self.db_trai().expect("expect db argument");
+        let db_trai: TokenStream = quote! {
+            #db_trai
         };
         let db_dyn_ty = self.db_dyn_ty();
         let ident_string = ident.to_string();

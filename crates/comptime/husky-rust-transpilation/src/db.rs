@@ -1,13 +1,13 @@
 use husky_hir_defn::db::HirDefnDb;
-use husky_linkage_path::db::LinkagePathDb;
+use husky_linkage::db::LinkageDb;
 
 pub trait RustTranspilationDb:
-    salsa::DbWithJar<RustTranspilationJar> + HirDefnDb + LinkagePathDb
+    salsa::DbWithJar<RustTranspilationJar> + HirDefnDb + LinkageDb
 {
 }
 
 impl<Db> RustTranspilationDb for Db where
-    Db: salsa::DbWithJar<RustTranspilationJar> + HirDefnDb + LinkagePathDb
+    Db: salsa::DbWithJar<RustTranspilationJar> + HirDefnDb + LinkageDb
 {
 }
 

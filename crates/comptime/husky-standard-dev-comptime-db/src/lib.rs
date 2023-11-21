@@ -13,7 +13,6 @@ use std::panic::RefUnwindSafe;
     husky_hir_eager_expr::db::HirEagerExprJar,
     husky_hir_lazy_expr::db::HirLazyExprJar,
     husky_hir_expr::db::HirExprJar,
-    husky_hir_deps::db::HirDepsJar,
     husky_hir_decl::db::HirDeclJar,
     husky_hir_defn::db::HirDefnJar,
     // ide
@@ -35,7 +34,7 @@ use std::panic::RefUnwindSafe;
     husky_toml_token::TomlTokenJar,
     husky_text::db::TextJar,
     // linkage
-    husky_linkage_path::db::LinkagePathJar,
+    husky_linkage::db::LinkageJar,
     // semantics
     husky_sema_expr::SemaExprJar,
     husky_corgi_config::CorgiConfigJar,

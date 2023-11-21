@@ -2,22 +2,23 @@ mod libgen;
 mod mapgen;
 
 use crate::*;
+use husky_linkage::version_stamp::LinkageVersionStamp;
 use husky_vfs::CratePath;
 
-pub struct BootLinkTimeInternal<ComptimeDb, Linkage>
+pub struct BootLinkTimeInternal<ComptimeDb, LinkageImpl>
 where
-    ComptimeDb: LinkagePathDb,
-    Linkage: IsLinkage,
+    ComptimeDb: LinkageDb,
+    LinkageImpl: IsLinkageImpl,
 {
     library_storage: BootLibraryStorage,
-    map: HashMap<LinkagePath, (LinkageDeps, Linkage)>,
+    map: HashMap<Linkage, (LinkageVersionStamp, LinkageImpl)>,
     _marker: PhantomData<ComptimeDb>,
 }
 
-impl<Db, Linkage> Default for BootLinkTimeInternal<Db, Linkage>
+impl<Db, LinkageImpl> Default for BootLinkTimeInternal<Db, LinkageImpl>
 where
-    Db: LinkagePathDb,
-    Linkage: IsLinkage,
+    Db: LinkageDb,
+    LinkageImpl: IsLinkageImpl,
 {
     fn default() -> Self {
         Self {
@@ -30,10 +31,10 @@ where
 
 pub struct BootLibraryStorage {}
 
-impl<ComptimeDb, Linkage: IsLinkage> BootLinkTimeInternal<ComptimeDb, Linkage>
+impl<ComptimeDb, LinkageImpl: IsLinkageImpl> BootLinkTimeInternal<ComptimeDb, LinkageImpl>
 where
-    ComptimeDb: LinkagePathDb,
-    Linkage: IsLinkage,
+    ComptimeDb: LinkageDb,
+    LinkageImpl: IsLinkageImpl,
 {
     pub(crate) fn new(target_path: LinktimeTargetPath, _db: &ComptimeDb) -> Self {
         todo!()
@@ -47,21 +48,26 @@ where
         // }
     }
 
-    pub(crate) fn get_linkage(&self, key: LinkagePath, db: &ComptimeDb) -> Option<Linkage> {
-        let (deps, linkage) = self.map.get(&key).copied().expect("todo");
-        (deps == key.deps(db)).then_some(linkage)
+    pub(crate) fn get_linkage(&self, linkage: Linkage, db: &ComptimeDb) -> Option<LinkageImpl> {
+        let (version_stamp, linkage_impl) = self.map.get(&linkage).copied().expect("todo");
+        (version_stamp == linkage.version_stamp(db)).then_some(linkage_impl)
     }
 
     /// still need the key to avoid redundant reload when two attempts simultaneously want to lock
-    pub(crate) fn get_linkage_with_reload(&mut self, key: LinkagePath, db: &ComptimeDb) -> Linkage {
-        let (deps, linkage) = self.map.get(&key).copied().expect("todo");
-        if deps == key.deps(db) {
-            return linkage;
+    pub(crate) fn get_linkage_with_reload(
+        &mut self,
+        linkage: Linkage,
+        db: &ComptimeDb,
+    ) -> LinkageImpl {
+        let (deps, linkage_impl) = self.map.get(&linkage).copied().expect("todo");
+        if deps == linkage.version_stamp(db) {
+            return linkage_impl;
         }
-        todo!("reload")
+        self.reload(db);
+        todo!()
     }
 
-    fn reload(&mut self, _db: &dyn LinkagePathDb) {
+    fn reload(&mut self, _db: &dyn LinkageDb) {
         todo!()
         // self.library_storage = generate_library(self.target_crate, db);
         // self.map = generate_map(self.target_crate, &self.library_storage, db)

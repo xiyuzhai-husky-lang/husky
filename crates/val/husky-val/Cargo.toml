@@ -15,4 +15,4 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 # hir
 husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 # linkage
-husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
+husky-linkage = { path = "../../linkage/husky-linkage" }

@@ -1,5 +1,5 @@
 [package]
-name = "husky-linkage-path"
+name = "husky-linkage"
 version = "0.1.0"
 edition = "2021"
 

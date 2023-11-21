@@ -1,11 +1,11 @@
 mod runtime_storage;
 
 use self::runtime_storage::*;
-use husky_linkage_path::db::LinkagePathDb;
+use husky_linkage::db::LinkageDb;
 use husky_mono_linktime::MonoLinkTime;
 use husky_regular_value::RegularValue;
 use husky_rust_transpilation::db::RustTranspilationDb;
-use husky_task::{ascension::IsDevAscension, link::IsLinkage, IsTask};
+use husky_task::{ascension::IsDevAscension, link::IsLinkageImpl, IsTask};
 use husky_trace_protocol::protocol::IsTraceProtocol;
 use husky_val::ValDb;
 use husky_visual_protocol::IsVisualProtocol;
@@ -35,7 +35,7 @@ where
 impl<ComptimeDb, VisualProtocol> IsTask for MlTask<ComptimeDb, VisualProtocol>
 where
     ComptimeDb:
-        Default + husky_vfs::VfsDb + ValDb + RustTranspilationDb + LinkagePathDb + Send + 'static,
+        Default + husky_vfs::VfsDb + ValDb + RustTranspilationDb + LinkageDb + Send + 'static,
     VisualProtocol: IsVisualProtocol + Send,
 {
     type DevAscension = MlDevAscension<ComptimeDb, VisualProtocol>;
@@ -48,7 +48,7 @@ where
 
 impl<ComptimeDb, VisualProtocol> IsDevAscension for MlDevAscension<ComptimeDb, VisualProtocol>
 where
-    ComptimeDb: Default + husky_vfs::VfsDb + ValDb + RustTranspilationDb + LinkagePathDb + Send,
+    ComptimeDb: Default + husky_vfs::VfsDb + ValDb + RustTranspilationDb + LinkageDb + Send,
     VisualProtocol: IsVisualProtocol,
 {
     type Base = DevInput;
@@ -85,7 +85,7 @@ pub enum DevInput {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum MlLinkage {}
 
-impl IsLinkage for MlLinkage {
+impl IsLinkageImpl for MlLinkage {
     type Value = RegularValue;
 
     fn eval_fn() -> Self::Value {

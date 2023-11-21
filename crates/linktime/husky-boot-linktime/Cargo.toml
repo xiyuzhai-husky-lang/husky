@@ -11,4 +11,4 @@ smallvec.workspace = true
 husky-task = { path = "../../kernel/husky-task" }
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 husky-vfs = { path = "../../fs/husky-vfs" }
-husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
+husky-linkage = { path = "../../linkage/husky-linkage" }

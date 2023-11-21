@@ -3,7 +3,7 @@ use husky_regular_value::RegularValue;
 use husky_standard_dev_comptime_db::StandardDevComptimeDb;
 use husky_task::{ascension::IsDevAscension, IsTask};
 use husky_trace_protocol::protocol::trivial::TrivialTraceProtocol;
-use husky_trivial_linkage::TrivialLinkage;
+use husky_trivial_linkage_impl::TrivialLinkage;
 
 #[derive(Default)]
 pub struct BootTask;

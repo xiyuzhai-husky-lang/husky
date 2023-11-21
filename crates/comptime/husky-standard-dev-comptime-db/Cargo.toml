@@ -40,7 +40,7 @@ husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 husky-text = { path = "../../lex/husky-text" }
 # linkage
-husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
+husky-linkage = { path = "../../linkage/husky-linkage" }
 # protocols
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # semantics
