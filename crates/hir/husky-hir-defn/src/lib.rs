@@ -1,6 +1,7 @@
 #![feature(trait_upcasting)]
 pub mod db;
 pub mod defn;
+mod dependencies;
 #[cfg(test)]
 mod tests;
 pub mod version_stamp;

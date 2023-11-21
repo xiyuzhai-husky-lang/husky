@@ -67,7 +67,11 @@ pub enum HirEagerExprData {
         template_arguments: Option<HirEagerTemplateArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
-    Field {
+    OrdinaryField {
+        owner_hir_expr_idx: HirEagerExprIdx,
+        ident: Ident,
+    },
+    MemoizedField {
         owner_hir_expr_idx: HirEagerExprIdx,
         ident: Ident,
     },

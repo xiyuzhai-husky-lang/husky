@@ -57,10 +57,10 @@ mod __linkages;
     for item_path in module_item_paths(db, module_path) {
         if let Some(hir_defn) = item_path.hir_defn(db) {
             match hir_defn {
-                HirDefn::MajorItem(hir_defn) => {
+                ItemHirDefn::MajorItem(hir_defn) => {
                     builder.on_fresh_paragraph(|builder| hir_defn.transpile_to_rust(builder));
                 }
-                HirDefn::ImplBlock(hir_defn) => {
+                ItemHirDefn::ImplBlock(hir_defn) => {
                     builder.on_fresh_paragraph(|builder| hir_defn.transpile_to_rust(builder));
                 }
                 _ => (),
@@ -80,15 +80,15 @@ fn module_defn_rust_transpilation_works() {
     );
 }
 
-impl TranspileToRust for HirDefn {
+impl TranspileToRust for ItemHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         match self {
-            HirDefn::Submodule(hir_defn) => hir_defn.transpile_to_rust(builder),
-            HirDefn::MajorItem(hir_defn) => hir_defn.transpile_to_rust(builder),
-            HirDefn::TypeVariant(hir_defn) => hir_defn.transpile_to_rust(builder),
-            HirDefn::ImplBlock(hir_defn) => hir_defn.transpile_to_rust(builder),
-            HirDefn::AssociatedItem(hir_defn) => hir_defn.transpile_to_rust(builder),
-            HirDefn::Attr(hir_defn) => hir_defn.transpile_to_rust(builder),
+            ItemHirDefn::Submodule(hir_defn) => hir_defn.transpile_to_rust(builder),
+            ItemHirDefn::MajorItem(hir_defn) => hir_defn.transpile_to_rust(builder),
+            ItemHirDefn::TypeVariant(hir_defn) => hir_defn.transpile_to_rust(builder),
+            ItemHirDefn::ImplBlock(hir_defn) => hir_defn.transpile_to_rust(builder),
+            ItemHirDefn::AssociatedItem(hir_defn) => hir_defn.transpile_to_rust(builder),
+            ItemHirDefn::Attr(hir_defn) => hir_defn.transpile_to_rust(builder),
         }
     }
 }

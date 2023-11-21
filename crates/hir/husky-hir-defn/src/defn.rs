@@ -19,7 +19,7 @@ use husky_hir_eager_expr::helpers::hir_eager_body_with_expr_region;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = HirDefnDb)]
 #[enum_class::from_variants]
-pub enum HirDefn {
+pub enum ItemHirDefn {
     Submodule(SubmoduleHirDefn),
     MajorItem(MajorItemHirDefn),
     TypeVariant(TypeVariantHirDefn),
@@ -28,15 +28,15 @@ pub enum HirDefn {
     Attr(AttrHirDefn),
 }
 
-impl HirDefn {
+impl ItemHirDefn {
     pub fn hir_decl(self, db: &dyn HirDefnDb) -> HirDecl {
         match self {
-            HirDefn::Submodule(hir_defn) => HirDecl::Submodule(hir_defn.hir_decl()),
-            HirDefn::MajorItem(hir_defn) => hir_defn.hir_decl(db).into(),
-            HirDefn::TypeVariant(hir_defn) => hir_defn.hir_decl(db).into(),
-            HirDefn::ImplBlock(hir_decl) => hir_decl.hir_decl().into(),
-            HirDefn::AssociatedItem(hir_defn) => hir_defn.hir_decl(db).into(),
-            HirDefn::Attr(hir_defn) => hir_defn.hir_decl().into(),
+            ItemHirDefn::Submodule(hir_defn) => HirDecl::Submodule(hir_defn.hir_decl()),
+            ItemHirDefn::MajorItem(hir_defn) => hir_defn.hir_decl(db).into(),
+            ItemHirDefn::TypeVariant(hir_defn) => hir_defn.hir_decl(db).into(),
+            ItemHirDefn::ImplBlock(hir_decl) => hir_decl.hir_decl().into(),
+            ItemHirDefn::AssociatedItem(hir_defn) => hir_defn.hir_decl(db).into(),
+            ItemHirDefn::Attr(hir_defn) => hir_defn.hir_decl().into(),
         }
     }
 
@@ -46,25 +46,25 @@ impl HirDefn {
 
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
-            HirDefn::Submodule(_) => None,
-            HirDefn::MajorItem(hir_defn) => hir_defn.hir_expr_region(db),
-            HirDefn::AssociatedItem(hir_defn) => hir_defn.hir_expr_region(db),
-            HirDefn::TypeVariant(_defn) => None,
-            HirDefn::ImplBlock(_) => None,
-            HirDefn::Attr(_) => None,
+            ItemHirDefn::Submodule(_) => None,
+            ItemHirDefn::MajorItem(hir_defn) => hir_defn.hir_expr_region(db),
+            ItemHirDefn::AssociatedItem(hir_defn) => hir_defn.hir_expr_region(db),
+            ItemHirDefn::TypeVariant(_defn) => None,
+            ItemHirDefn::ImplBlock(_) => None,
+            ItemHirDefn::Attr(_) => None,
         }
     }
 }
 
-impl HirDefn {
+impl ItemHirDefn {
     pub fn path(self, db: &dyn HirDefnDb) -> ItemPath {
         match self {
-            HirDefn::MajorItem(hir_defn) => hir_defn.path(db).into(),
-            HirDefn::AssociatedItem(hir_defn) => hir_defn.path(db).into(),
-            HirDefn::TypeVariant(hir_defn) => hir_defn.path(db).into(),
-            HirDefn::ImplBlock(hir_defn) => hir_defn.path(db).into(),
-            HirDefn::Submodule(hir_defn) => hir_defn.path(db).into(),
-            HirDefn::Attr(hir_defn) => hir_defn.path(db).into(),
+            ItemHirDefn::MajorItem(hir_defn) => hir_defn.path(db).into(),
+            ItemHirDefn::AssociatedItem(hir_defn) => hir_defn.path(db).into(),
+            ItemHirDefn::TypeVariant(hir_defn) => hir_defn.path(db).into(),
+            ItemHirDefn::ImplBlock(hir_defn) => hir_defn.path(db).into(),
+            ItemHirDefn::Submodule(hir_defn) => hir_defn.path(db).into(),
+            ItemHirDefn::Attr(hir_defn) => hir_defn.path(db).into(),
         }
     }
 }
@@ -76,7 +76,7 @@ pub trait HasHirDefn: Copy {
 }
 
 impl HasHirDefn for ItemPath {
-    type HirDefn = HirDefn;
+    type HirDefn = ItemHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
         Some(match self {

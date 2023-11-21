@@ -8,6 +8,7 @@ edition = "2021"
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 enum-class = { path = "../../abstractions/enum-class" }
+vec-like = { path = "../../abstractions/vec-like" }
 # comptime
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }

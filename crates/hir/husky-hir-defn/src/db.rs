@@ -7,7 +7,8 @@ impl<Db> HirDefnDb for Db where Db: salsa::DbWithJar<HirDefnJar> + HirDeclDb {}
 
 #[salsa::jar(db = HirDefnDb)]
 pub struct HirDefnJar(
-    // type
+    // defn
+    // - type
     ty_hir_defn,
     EnumTypeHirDefn,
     UnitStructTypeHirDefn,
@@ -15,38 +16,40 @@ pub struct HirDefnJar(
     PropsStructTypeHirDefn,
     ExternTypeHirDefn,
     UnionTypeHirDefn,
-    // fugitive
+    // - fugitive
     fugitive_hir_defn,
     ValFugitiveHirDefn,
     FunctionFnFugitiveHirDefn,
     FunctionGnHirDefn,
-    // morphism_defn,
+    // - morphism_defn,
     TypeAliasHirDefn,
-    // type_alias_defn,
-    // trait
+    // - type_alias_defn,
+    // - trait
     TraitHirDefn,
     trai_hir_defn,
-    // enum variant,
+    // - enum variant,
     EnumUnitVariantHirDefn,
     EnumTupleVariantHirDefn,
     EnumPropsVariantHirDefn,
-    // type item
+    // - type item
     ty_item_hir_defn,
     TypeAssociatedFnHirDefn,
     TypeMethodFnHirDefn,
     TypeAssociatedTypeHirDefn,
     TypeAssociatedValHirDefn,
     TypeMemoizedFieldHirDefn,
-    // trait item
+    // vtrait item
     trai_item_hir_defn,
     TraitAssociatedFnHirDefn,
     TraitMethodFnHirDefn,
     TraitAssociatedTypeHirDefn,
     TraitAssociatedValHirDefn,
-    // trait for type item
+    // - trait for type item
     trai_for_ty_item_hir_defn,
     TraitForTypeAssociatedFnHirDefn,
     TraitForTypeMethodFnHirDefn,
     TraitForTypeAssociatedTypeHirDefn,
     TraitForTypeAssociatedValHirDefn,
+    // version stamp
+    crate::version_stamp::ItemHirDefnVersionStamp,
 );
