@@ -3,6 +3,7 @@ pub mod db;
 pub mod defn;
 #[cfg(test)]
 mod tests;
+pub mod version_stamp;
 
 pub use self::defn::*;
 

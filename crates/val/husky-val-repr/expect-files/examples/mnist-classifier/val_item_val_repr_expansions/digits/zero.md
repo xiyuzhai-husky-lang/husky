@@ -111,8 +111,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -135,8 +135,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Method,
                             },
                         ),
@@ -214,8 +214,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -238,8 +238,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -319,8 +319,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -363,8 +363,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Index,
                             },
                         ),
@@ -422,8 +422,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Method,
                             },
                         ),
@@ -501,8 +501,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -545,8 +545,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Index,
                             },
                         ),
@@ -598,8 +598,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Method,
                             },
                         ),
@@ -622,8 +622,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Method,
                             },
                         ),
@@ -646,8 +646,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Method,
                             },
                         ),
@@ -756,8 +756,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Item {
                                     path: MajorItem(
                                         Fugitive(
@@ -798,8 +798,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Item {
                                     path: MajorItem(
                                         Fugitive(
@@ -840,8 +840,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -864,8 +864,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Item {
                                     path: MajorItem(
                                         Fugitive(
@@ -906,8 +906,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -930,8 +930,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Item {
                                     path: MajorItem(
                                         Fugitive(
@@ -972,8 +972,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1012,8 +1012,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Item {
                                     path: MajorItem(
                                         Fugitive(
@@ -1097,8 +1097,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Item {
                                     path: MajorItem(
                                         Fugitive(
@@ -1139,8 +1139,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1220,8 +1220,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1244,8 +1244,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1288,8 +1288,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Index,
                             },
                         ),
@@ -1347,8 +1347,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1371,8 +1371,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1415,8 +1415,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Index,
                             },
                         ),
@@ -1474,8 +1474,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1498,8 +1498,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1542,8 +1542,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Index,
                             },
                         ),
@@ -1573,8 +1573,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Index,
                             },
                         ),
@@ -1626,8 +1626,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1650,8 +1650,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Method,
                             },
                         ),
@@ -1674,8 +1674,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Index,
                             },
                         ),
@@ -1727,8 +1727,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1751,8 +1751,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Method,
                             },
                         ),
@@ -1814,8 +1814,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1838,8 +1838,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Method,
                             },
                         ),
@@ -1870,8 +1870,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),
@@ -1894,8 +1894,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Method,
                             },
                         ),
@@ -2122,8 +2122,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Item {
                                     path: MajorItem(
                                         Fugitive(
@@ -2164,8 +2164,8 @@
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
-                            LinkagePath {
+                        opn: ValOpn::LinkageImpl(
+                            Linkage {
                                 data: Field,
                             },
                         ),

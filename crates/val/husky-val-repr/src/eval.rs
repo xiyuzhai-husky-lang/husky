@@ -10,7 +10,7 @@ impl ValRepr {
             ValOpn::Assert => todo!(),
             ValOpn::Literal(_) => todo!(),
             ValOpn::ValItem(_) => todo!(),
-            ValOpn::Linkage(_) => todo!(),
+            ValOpn::LinkageImpl(_) => todo!(),
             ValOpn::FunctionGn(_) => todo!(),
             ValOpn::Prefix(_) => todo!(),
             ValOpn::Suffix(_) => todo!(),

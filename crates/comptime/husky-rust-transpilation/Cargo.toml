@@ -30,7 +30,7 @@ husky-opr = { path = "../../kernel/husky-opr" }
 husky-expr = { path = "../../kernel/husky-expr" }
 # lex
 # linkage
-husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
+husky-linkage = { path = "../../linkage/husky-linkage" }
 # semantics
 husky-manifest = { path = "../../semantics/husky-manifest" }
 # syntax

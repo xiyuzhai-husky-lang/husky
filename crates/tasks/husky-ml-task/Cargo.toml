@@ -18,7 +18,7 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-task = { path = "../../kernel/husky-task" }
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 # linkage
-husky-linkage-path = { path = "../../linkage/husky-linkage-path" }
+husky-linkage = { path = "../../linkage/husky-linkage" }
 # linktime
 husky-mono-linktime = { path = "../../linktime/husky-mono-linktime" }
 # protocols

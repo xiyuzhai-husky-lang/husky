@@ -59,7 +59,7 @@ use husky_vfs::VfsJar;
     husky_hir_decl::db::HirDeclJar,
     husky_hir_defn::db::HirDefnJar,
     // linkage
-    husky_linkage_path::db::LinkagePathJar,
+    husky_linkage::db::LinkageJar,
     // val
     husky_val::db::ValJar,
     crate::db::ValReprJar,

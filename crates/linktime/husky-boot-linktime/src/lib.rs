@@ -1,26 +1,26 @@
 mod internal;
 
 use self::internal::BootLinkTimeInternal;
-use husky_linkage_path::{db::LinkagePathDb, LinkagePath};
+use husky_linkage::{db::LinkageDb, linkage::Linkage};
 
-use husky_task::link::{IsLinkage, IsLinktime};
+use husky_task::link::{IsLinkageImpl, IsLinktime};
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use std::{collections::HashMap, marker::PhantomData};
 
 // this will transpile everything compilable to Rust
 // then use rustc to obtain a single dylib
-pub struct BootLinkTime<Db, Linkage>
+pub struct BootLinkTime<Db, LinkageImpl>
 where
-    Db: LinkagePathDb,
-    Linkage: IsLinkage,
+    Db: LinkageDb,
+    LinkageImpl: IsLinkageImpl,
 {
-    internal: std::sync::RwLock<BootLinkTimeInternal<Db, Linkage>>,
+    internal: std::sync::RwLock<BootLinkTimeInternal<Db, LinkageImpl>>,
 }
 
-impl<Db, Linkage> Default for BootLinkTime<Db, Linkage>
+impl<Db, LinkageImpl> Default for BootLinkTime<Db, LinkageImpl>
 where
-    Db: LinkagePathDb,
-    Linkage: IsLinkage,
+    Db: LinkageDb,
+    LinkageImpl: IsLinkageImpl,
 {
     fn default() -> Self {
         Self {
@@ -30,21 +30,21 @@ where
 }
 
 // ad hoc
-unsafe impl<Db, Linkage> Send for BootLinkTime<Db, Linkage>
+unsafe impl<Db, LinkageImpl> Send for BootLinkTime<Db, LinkageImpl>
 where
-    Db: LinkagePathDb,
-    Linkage: IsLinkage,
+    Db: LinkageDb,
+    LinkageImpl: IsLinkageImpl,
 {
 }
 
-impl<Db, Linkage> IsLinktime<Db> for BootLinkTime<Db, Linkage>
+impl<Db, LinkageImpl> IsLinktime<Db> for BootLinkTime<Db, LinkageImpl>
 where
-    Db: LinkagePathDb,
-    Linkage: IsLinkage,
+    Db: LinkageDb,
+    LinkageImpl: IsLinkageImpl,
 {
-    type Linkage = Linkage;
+    type LinkageImpl = LinkageImpl;
 
-    fn get_linkage(&self, key: LinkagePath, db: &Db) -> Linkage {
+    fn get_linkage(&self, key: Linkage, db: &Db) -> LinkageImpl {
         if let Some(linkage) = self.internal.read().expect("todo").get_linkage(key, db) {
             linkage
         } else {

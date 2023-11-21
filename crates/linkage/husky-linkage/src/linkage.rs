@@ -1,29 +1,29 @@
 use crate::*;
 
-#[salsa::interned(db = LinkagePathDb, jar = LinkagePathJar, constructor = new)]
-pub struct LinkagePath {
+#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
+pub struct Linkage {
     pub data: LinkagePathData,
 }
 
-impl LinkagePath {
-    pub fn new_suffix(db: &dyn LinkagePathDb) -> Self {
+impl Linkage {
+    pub fn new_suffix(db: &dyn LinkageDb) -> Self {
         todo!()
     }
 
-    pub fn new_field(db: &dyn LinkagePathDb) -> Self {
+    pub fn new_field(db: &dyn LinkageDb) -> Self {
         Self::new(db, LinkagePathData::Field)
     }
 
-    pub fn new_method(db: &dyn LinkagePathDb) -> Self {
+    pub fn new_method(db: &dyn LinkageDb) -> Self {
         Self::new(db, LinkagePathData::Method)
     }
 
-    pub fn new_index(db: &dyn LinkagePathDb) -> Self {
+    pub fn new_index(db: &dyn LinkageDb) -> Self {
         Self::new(db, LinkagePathData::Index)
     }
 
     pub fn new_item(
-        db: &dyn LinkagePathDb,
+        db: &dyn LinkageDb,
         path: impl Into<ItemPath>,
         template_arguments: HirTemplateArgumentLiterals,
     ) -> Self {

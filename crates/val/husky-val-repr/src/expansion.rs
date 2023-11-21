@@ -12,7 +12,7 @@ use husky_hir_lazy_expr::{
     HirLazyStmtMap,
 };
 
-use husky_linkage_path::path::LinkagePath;
+use husky_linkage::linkage::Linkage;
 
 use husky_val::ValOpn;
 use husky_vfs::ModulePath;
@@ -337,7 +337,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::Linkage(LinkagePath::new_item(
+                let opn = ValOpn::LinkageImpl(Linkage::new_item(
                     self.db,
                     path,
                     match template_arguments {
@@ -355,7 +355,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::Linkage(LinkagePath::new_item(
+                let opn = ValOpn::LinkageImpl(Linkage::new_item(
                     self.db,
                     path,
                     match template_arguments {
@@ -373,7 +373,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::Linkage(LinkagePath::new_item(
+                let opn = ValOpn::LinkageImpl(Linkage::new_item(
                     self.db,
                     path,
                     match template_arguments {
@@ -391,7 +391,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = ValOpn::Linkage(LinkagePath::new_item(
+                let opn = ValOpn::LinkageImpl(Linkage::new_item(
                     self.db,
                     path,
                     match template_arguments {
@@ -405,7 +405,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
             }
             HirLazyExprData::FunctionGnCall { .. } => todo!(),
             HirLazyExprData::Field { owner, .. } => (
-                ValOpn::Linkage(LinkagePath::new_field(self.db)),
+                ValOpn::LinkageImpl(Linkage::new_field(self.db)),
                 smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, owner)
                 )],
@@ -423,7 +423,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     todo!()
                 }
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
-                (ValOpn::Linkage(LinkagePath::new_method(self.db)), arguments)
+                (ValOpn::LinkageImpl(Linkage::new_method(self.db)), arguments)
             }
             HirLazyExprData::NewTuple { items: _ } => todo!(),
             HirLazyExprData::Index { owner, ref items } => {
@@ -435,7 +435,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                         self.build_expr(val_domain_repr_guard, item),
                     ))
                 }
-                (ValOpn::Linkage(LinkagePath::new_index(self.db)), arguments)
+                (ValOpn::LinkageImpl(Linkage::new_index(self.db)), arguments)
             }
             HirLazyExprData::NewList { ref items } => (
                 ValOpn::NewList,

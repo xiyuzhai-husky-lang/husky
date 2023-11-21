@@ -39,7 +39,7 @@ use husky_toml_token::TomlTokenJar;
     CorgiConfigJar,
     CorgiConfigAstJar,
     // linkage
-    husky_linkage_path::db::LinkagePathJar,
+    husky_linkage::db::LinkageJar,
     ManifestJar,
     SynExprJar,
     SynDefnJar,

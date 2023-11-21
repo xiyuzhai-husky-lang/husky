@@ -5,30 +5,30 @@ mod tests;
 use self::internal::MonoLinkTimeInternal;
 #[cfg(test)]
 use self::tests::*;
-use husky_linkage_path::{db::LinkagePathDb, LinkagePath};
+use husky_linkage::{db::LinkageDb, linkage::Linkage};
 use husky_rust_transpilation::db::RustTranspilationDb;
-use husky_task::link::{IsLinkage, IsLinktime};
+use husky_task::link::{IsLinkageImpl, IsLinktime};
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use std::{collections::HashMap, marker::PhantomData};
 
 // this will transpile everything compilable to Rust
 // then use rustc to obtain a single dylib
-pub struct MonoLinkTime<Db, Linkage>
+pub struct MonoLinkTime<Db, LinkageImpl>
 where
     Db: RustTranspilationDb,
-    Linkage: IsLinkage,
+    LinkageImpl: IsLinkageImpl,
 {
-    internal: std::sync::RwLock<MonoLinkTimeInternal<Db, Linkage>>,
+    internal: std::sync::RwLock<MonoLinkTimeInternal<Db, LinkageImpl>>,
 }
 
-impl<Db, Linkage> IsLinktime<Db> for MonoLinkTime<Db, Linkage>
+impl<Db, LinkageImpl> IsLinktime<Db> for MonoLinkTime<Db, LinkageImpl>
 where
     Db: RustTranspilationDb,
-    Linkage: IsLinkage,
+    LinkageImpl: IsLinkageImpl,
 {
-    type Linkage = Linkage;
+    type LinkageImpl = LinkageImpl;
 
-    fn get_linkage(&self, key: LinkagePath, db: &Db) -> Linkage {
+    fn get_linkage(&self, key: Linkage, db: &Db) -> LinkageImpl {
         if let Some(linkage) = self.internal.read().expect("todo").get_linkage(key, db) {
             linkage
         } else {
