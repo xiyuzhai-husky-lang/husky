@@ -117,7 +117,7 @@ fn module_node_defns_works() {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
-pub enum ItemSynDefn {
+pub enum SynDefn {
     Submodule(SubmoduleSynDefn),
     MajorItem(MajorItemSynDefn),
     TypeVariant(TypeVariantSynDefn),
@@ -125,14 +125,14 @@ pub enum ItemSynDefn {
     AssociatedItem(AssociatedItemSynDefn),
 }
 
-impl ItemSynDefn {
+impl SynDefn {
     pub fn syn_decl(self, db: &dyn SynDefnDb) -> SynDecl {
         match self {
-            ItemSynDefn::Submodule(defn) => SynDecl::Submodule(defn.decl()),
-            ItemSynDefn::MajorItem(defn) => defn.syn_decl(db).into(),
-            ItemSynDefn::TypeVariant(defn) => defn.decl(db).into(),
-            ItemSynDefn::ImplBlock(decl) => decl.into(),
-            ItemSynDefn::AssociatedItem(defn) => defn.decl(db).into(),
+            SynDefn::Submodule(defn) => SynDecl::Submodule(defn.decl()),
+            SynDefn::MajorItem(defn) => defn.syn_decl(db).into(),
+            SynDefn::TypeVariant(defn) => defn.decl(db).into(),
+            SynDefn::ImplBlock(decl) => decl.into(),
+            SynDefn::AssociatedItem(defn) => defn.decl(db).into(),
         }
     }
 
@@ -150,11 +150,11 @@ impl ItemSynDefn {
         db: &dyn SynDefnDb,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
-            ItemSynDefn::Submodule(_) => None,
-            ItemSynDefn::MajorItem(defn) => defn.body_with_syn_expr_region(db),
-            ItemSynDefn::AssociatedItem(defn) => defn.body_with_syn_expr_region(db),
-            ItemSynDefn::TypeVariant(_defn) => None,
-            ItemSynDefn::ImplBlock(_) => None,
+            SynDefn::Submodule(_) => None,
+            SynDefn::MajorItem(defn) => defn.body_with_syn_expr_region(db),
+            SynDefn::AssociatedItem(defn) => defn.body_with_syn_expr_region(db),
+            SynDefn::TypeVariant(_defn) => None,
+            SynDefn::ImplBlock(_) => None,
         }
     }
 
@@ -163,14 +163,14 @@ impl ItemSynDefn {
     }
 }
 
-impl ItemSynDefn {
+impl SynDefn {
     pub fn path(self, db: &dyn SynDefnDb) -> ItemPath {
         match self {
-            ItemSynDefn::Submodule(defn) => defn.path(db).into(),
-            ItemSynDefn::MajorItem(defn) => defn.path(db).into(),
-            ItemSynDefn::AssociatedItem(defn) => defn.path(db).into(),
-            ItemSynDefn::TypeVariant(defn) => defn.path(db).into(),
-            ItemSynDefn::ImplBlock(decl) => decl.path(db).into(),
+            SynDefn::Submodule(defn) => defn.path(db).into(),
+            SynDefn::MajorItem(defn) => defn.path(db).into(),
+            SynDefn::AssociatedItem(defn) => defn.path(db).into(),
+            SynDefn::TypeVariant(defn) => defn.path(db).into(),
+            SynDefn::ImplBlock(decl) => decl.path(db).into(),
         }
     }
 }
@@ -182,7 +182,7 @@ pub trait HasSynDefn: Copy {
 }
 
 impl HasSynDefn for ItemPath {
-    type SynDefn = ItemSynDefn;
+    type SynDefn = SynDefn;
 
     fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         Ok(match self {
@@ -197,11 +197,11 @@ impl HasSynDefn for ItemPath {
 }
 
 pub trait HasDefns: Copy {
-    fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[ItemSynDefn]>;
+    fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynDefn]>;
 }
 
 impl HasDefns for ModulePath {
-    fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[ItemSynDefn]> {
+    fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynDefn]> {
         Ok(module_syn_defns(db, self)
             .as_ref()
             .expect("syn tree error is deprecated"))
@@ -212,7 +212,7 @@ impl HasDefns for ModulePath {
 pub(crate) fn module_syn_defns(
     db: &dyn SynDefnDb,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<ItemSynDefn>> {
+) -> EntitySynTreeResult<Vec<SynDefn>> {
     Ok(module_item_paths(db, module_path)
         .iter()
         .copied()

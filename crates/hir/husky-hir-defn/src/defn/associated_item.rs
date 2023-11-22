@@ -42,7 +42,7 @@ impl AssociatedItemHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> ItemHirDefnDependencies {
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         match self {
             AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.dependencies(db),
             AssociatedItemHirDefn::TraitItem(_) => todo!(),

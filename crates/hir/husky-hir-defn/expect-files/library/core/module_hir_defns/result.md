@@ -1,5 +1,5 @@
 [
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Enum(
                 EnumTypeHirDefn {
@@ -109,7 +109,7 @@
             ),
         ),
     ),
-    ItemHirDefn::ImplBlock(
+    HirDefn::ImplBlock(
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
@@ -351,7 +351,7 @@
             },
         ),
     ),
-    ItemHirDefn::AssociatedItem(
+    HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssociatedType(
                 TraitForTypeAssociatedTypeHirDefn {
@@ -488,7 +488,7 @@
             ),
         ),
     ),
-    ItemHirDefn::AssociatedItem(
+    HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {

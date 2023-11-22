@@ -1,5 +1,5 @@
 [
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
                 ExternTypeHirDefn {
@@ -81,7 +81,7 @@
             ),
         ),
     ),
-    ItemHirDefn::ImplBlock(
+    HirDefn::ImplBlock(
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
@@ -180,7 +180,7 @@
             },
         ),
     ),
-    ItemHirDefn::AssociatedItem(
+    HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -280,7 +280,7 @@
             ),
         ),
     ),
-    ItemHirDefn::AssociatedItem(
+    HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -408,7 +408,7 @@
             ),
         ),
     ),
-    ItemHirDefn::AssociatedItem(
+    HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -532,7 +532,7 @@
             ),
         ),
     ),
-    ItemHirDefn::AssociatedItem(
+    HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -656,7 +656,7 @@
             ),
         ),
     ),
-    ItemHirDefn::AssociatedItem(
+    HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -766,7 +766,7 @@
             ),
         ),
     ),
-    ItemHirDefn::AssociatedItem(
+    HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -885,7 +885,7 @@
             ),
         ),
     ),
-    ItemHirDefn::AssociatedItem(
+    HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -1056,7 +1056,7 @@
             ),
         ),
     ),
-    ItemHirDefn::AssociatedItem(
+    HirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {

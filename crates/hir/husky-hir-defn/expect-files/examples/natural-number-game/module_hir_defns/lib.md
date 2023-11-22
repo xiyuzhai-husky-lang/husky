@@ -1,5 +1,5 @@
 [
-    ItemHirDefn::ImplBlock(
+    HirDefn::ImplBlock(
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {

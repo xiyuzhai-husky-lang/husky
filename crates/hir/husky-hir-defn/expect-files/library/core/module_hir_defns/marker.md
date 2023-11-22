@@ -1,5 +1,5 @@
 [
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::marker::Copy`),
@@ -41,7 +41,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::marker::Sized`),

@@ -62,7 +62,7 @@ impl TypeItemHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> ItemHirDefnDependencies {
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         match self {
             TypeItemHirDefn::AssociatedFn(_) => todo!(),
             TypeItemHirDefn::MethodFn(_) => todo!(),

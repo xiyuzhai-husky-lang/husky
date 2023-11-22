@@ -12,6 +12,7 @@ use self::db::*;
 use self::dependencies::*;
 #[cfg(test)]
 use self::tests::*;
+use self::version_stamp::*;
 use husky_entity_path::*;
 use husky_hir_decl::*;
 use husky_hir_eager_expr::*;

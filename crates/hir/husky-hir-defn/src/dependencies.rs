@@ -4,14 +4,14 @@ use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use vec_like::VecSet;
 
 #[salsa::tracked(db = HirDefnDb, jar = HirDefnJar, constructor = new)]
-pub(crate) struct ItemHirDefnDependencies {
+pub(crate) struct HirDefnDependencies {
     #[return_ref]
-    item_paths_in_current_crate: VecSet<ItemPath>,
+    pub(crate) item_paths_in_current_crate: VecSet<ItemPath>,
     #[return_ref]
-    item_paths_in_other_local_crates: VecSet<ItemPath>,
+    pub(crate) item_paths_in_other_local_crates: VecSet<ItemPath>,
 }
 
-pub(crate) struct ItemHirDefnDependenciesBuilder<'a> {
+pub(crate) struct HirDefnDependenciesBuilder<'a> {
     item_path: ItemPath,
     crate_path: CratePath,
     item_paths_in_current_crate: VecSet<ItemPath>,
@@ -19,7 +19,7 @@ pub(crate) struct ItemHirDefnDependenciesBuilder<'a> {
     db: &'a dyn HirDefnDb,
 }
 
-impl<'a> ItemHirDefnDependenciesBuilder<'a> {
+impl<'a> HirDefnDependenciesBuilder<'a> {
     pub(crate) fn new(
         item_path: ItemPath,
         hir_expr_region: HirExprRegion,
@@ -122,8 +122,8 @@ impl<'a> ItemHirDefnDependenciesBuilder<'a> {
         }
     }
 
-    fn finish(self) -> ItemHirDefnDependencies {
-        ItemHirDefnDependencies::new(
+    fn finish(self) -> HirDefnDependencies {
+        HirDefnDependencies::new(
             self.db,
             self.item_paths_in_current_crate,
             self.item_paths_in_other_local_crates,
@@ -135,7 +135,7 @@ impl<'a> ItemHirDefnDependenciesBuilder<'a> {
 pub(crate) fn module_hir_defn_dependencies(
     db: &DB,
     module_path: ModulePath,
-) -> Vec<ItemHirDefnDependencies> {
+) -> Vec<HirDefnDependencies> {
     module_item_paths(db, module_path)
         .iter()
         .filter_map(|path| path.hir_defn(db)?.dependencies(db))

@@ -1,5 +1,5 @@
 [
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::Add`),
@@ -75,7 +75,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::AddAssign`),
@@ -151,7 +151,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::BitAnd`),
@@ -227,7 +227,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::BitAndAssign`),
@@ -303,7 +303,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::BitOr`),
@@ -379,7 +379,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::BitOrAssign`),
@@ -455,7 +455,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::BitXor`),
@@ -531,7 +531,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::BitXorAssign`),
@@ -607,7 +607,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::Div`),
@@ -683,7 +683,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::DivAssign`),
@@ -759,7 +759,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::IntIndex`),
@@ -801,7 +801,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::Mul`),
@@ -877,7 +877,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::MulAssign`),
@@ -953,7 +953,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::Neg`),
@@ -995,7 +995,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::Not`),
@@ -1037,7 +1037,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::Sub`),
@@ -1113,7 +1113,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::ops::Unveil`),
@@ -1189,7 +1189,7 @@
             },
         ),
     ),
-    ItemHirDefn::MajorItem(
+    HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Enum(
                 EnumTypeHirDefn {
