@@ -6,6 +6,18 @@ pub struct TupleStructHirDefn {
     pub hir_decl: TupleStructTypeHirDecl,
 }
 
+impl From<TupleStructHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: TupleStructHirDefn) -> Self {
+        MajorItemHirDefn::Type(hir_defn.into())
+    }
+}
+
+impl From<TupleStructHirDefn> for HirDefn {
+    fn from(hir_defn: TupleStructHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
+}
+
 impl TupleStructHirDefn {
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         tuple_struct_hir_defn_dependencies(db, self)
@@ -35,5 +47,5 @@ fn tuple_struct_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: TupleStructHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

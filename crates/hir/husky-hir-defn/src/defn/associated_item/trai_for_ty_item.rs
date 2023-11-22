@@ -20,6 +20,12 @@ pub enum TraitForTypeItemHirDefn {
     AssociatedVal(TraitForTypeAssociatedValHirDefn),
 }
 
+impl From<TraitForTypeItemHirDefn> for HirDefn {
+    fn from(hir_defn: TraitForTypeItemHirDefn) -> Self {
+        HirDefn::AssociatedItem(hir_defn.into())
+    }
+}
+
 impl TraitForTypeItemHirDefn {
     pub fn path(self, db: &dyn HirDefnDb) -> TraitForTypeItemPath {
         match self {
@@ -55,19 +61,19 @@ impl TraitForTypeItemHirDefn {
 
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         match self {
-            TraitForTypeItemHirDefn::AssociatedFn(_) => todo!(),
-            TraitForTypeItemHirDefn::MethodFn(_) => todo!(),
-            TraitForTypeItemHirDefn::AssociatedType(_) => todo!(),
-            TraitForTypeItemHirDefn::AssociatedVal(_) => todo!(),
+            TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.dependencies(db),
+            TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.dependencies(db),
+            TraitForTypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.dependencies(db),
+            TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.dependencies(db),
         }
     }
 
     pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
         match self {
-            TraitForTypeItemHirDefn::AssociatedFn(_) => todo!(),
-            TraitForTypeItemHirDefn::MethodFn(_) => todo!(),
-            TraitForTypeItemHirDefn::AssociatedType(_) => todo!(),
-            TraitForTypeItemHirDefn::AssociatedVal(_) => todo!(),
+            TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.version_stamp(db),
+            TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.version_stamp(db),
+            TraitForTypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.version_stamp(db),
+            TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.version_stamp(db),
         }
     }
 }

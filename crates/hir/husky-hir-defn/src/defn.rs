@@ -13,6 +13,7 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
+use husky_hir_decl::parameter::parenate::eager::HirEagerParenateParameter;
 use husky_hir_decl::parameter::template::HirTemplateParameter;
 use husky_hir_eager_expr::helpers::hir_eager_body_with_expr_region;
 
@@ -71,8 +72,8 @@ impl HirDefn {
             HirDefn::Submodule(_) => None,
             HirDefn::MajorItem(hir_defn) => Some(hir_defn.dependencies(db)),
             // ask its parent
-            HirDefn::TypeVariant(_) => None,
-            HirDefn::ImplBlock(_) => None,
+            HirDefn::TypeVariant(hir_defn) => Some(hir_defn.dependencies(db)),
+            HirDefn::ImplBlock(hir_defn) => Some(hir_defn.dependencies(db)),
             HirDefn::AssociatedItem(hir_defn) => Some(hir_defn.dependencies(db)),
             HirDefn::Attr(_) => None,
         }
@@ -83,7 +84,7 @@ impl HirDefn {
             HirDefn::Submodule(_) => None,
             HirDefn::MajorItem(hir_defn) => Some(hir_defn.version_stamp(db)),
             HirDefn::TypeVariant(hir_defn) => Some(hir_defn.version_stamp(db)),
-            HirDefn::ImplBlock(hir_defn) => hir_defn.version_stamp(db),
+            HirDefn::ImplBlock(hir_defn) => Some(hir_defn.version_stamp(db)),
             HirDefn::AssociatedItem(hir_defn) => Some(hir_defn.version_stamp(db)),
             HirDefn::Attr(_) => None,
         }
@@ -105,7 +106,7 @@ impl HasHirDefn for ItemPath {
             ItemPath::MajorItem(path) => path.hir_defn(db)?.into(),
             ItemPath::ImplBlock(path) => path.hir_defn(db)?.into(),
             ItemPath::AssociatedItem(path) => path.hir_defn(db)?.into(),
-            ItemPath::TypeVariant(_) => todo!(),
+            ItemPath::TypeVariant(path) => path.hir_defn(db)?.into(),
             ItemPath::Attr(_) => todo!(),
         })
     }

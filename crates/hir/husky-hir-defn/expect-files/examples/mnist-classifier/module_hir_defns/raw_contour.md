@@ -10,7 +10,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `cc`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -28,7 +28,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `points`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -2739,7 +2739,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `prev1`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -2748,7 +2748,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `prev2`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {

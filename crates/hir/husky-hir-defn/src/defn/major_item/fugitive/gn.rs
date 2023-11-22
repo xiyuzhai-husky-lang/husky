@@ -10,6 +10,18 @@ pub struct FunctionGnHirDefn {
     pub lazy_body_with_hir_lazy_expr_region: Option<(HirLazyExprIdx, HirLazyExprRegion)>,
 }
 
+impl From<FunctionGnHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: FunctionGnHirDefn) -> Self {
+        MajorItemHirDefn::Fugitive(hir_defn.into())
+    }
+}
+
+impl From<FunctionGnHirDefn> for HirDefn {
+    fn from(hir_defn: FunctionGnHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
+}
+
 impl FunctionGnHirDefn {
     pub(super) fn new(
         db: &dyn HirDefnDb,
@@ -47,7 +59,7 @@ fn function_gn_hir_defn_dependencies(
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
-    builder.add_hir_lazy_expr_region(hir_decl.hir_lazy_expr_region(db));
+    builder.add_lazy_expr_region(hir_decl.hir_lazy_expr_region(db));
     for param in hir_decl.parenate_parameters(db).iter() {
         match *param {
             HirLazyParenateParameter::SelfValue => unreachable!(),
@@ -58,7 +70,7 @@ fn function_gn_hir_defn_dependencies(
     }
     builder.add_hir_ty(hir_decl.return_ty(db));
     if let Some(hir_lazy_expr_region) = hir_defn.hir_lazy_expr_region(db) {
-        builder.add_hir_lazy_expr_region(hir_lazy_expr_region);
+        builder.add_lazy_expr_region(hir_lazy_expr_region);
     }
     builder.finish()
 }
@@ -68,5 +80,5 @@ fn function_gn_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: FunctionGnHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

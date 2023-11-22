@@ -18,7 +18,13 @@ pub enum FugitiveHirDefn {
     // Function(FunctionDefn),
     Val(ValHirDefn),
     FunctionGn(FunctionGnHirDefn),
-    // AliasType(TypeAliasDefn)
+    TypeAlias(TypeAliasHirDefn),
+}
+
+impl From<FugitiveHirDefn> for HirDefn {
+    fn from(hir_defn: FugitiveHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
 }
 
 impl FugitiveHirDefn {
@@ -27,6 +33,7 @@ impl FugitiveHirDefn {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.path(db),
             FugitiveHirDefn::Val(hir_defn) => hir_defn.path(db),
             FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.path(db),
+            FugitiveHirDefn::TypeAlias(hir_defn) => hir_defn.path(db),
         }
     }
 
@@ -35,6 +42,7 @@ impl FugitiveHirDefn {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.hir_decl(db).into(),
             FugitiveHirDefn::Val(hir_defn) => hir_defn.hir_decl(db).into(),
             FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.hir_decl(db).into(),
+            FugitiveHirDefn::TypeAlias(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
@@ -47,6 +55,9 @@ impl FugitiveHirDefn {
             FugitiveHirDefn::FunctionGn(hir_defn) => {
                 hir_defn.hir_lazy_expr_region(db).map(Into::into)
             }
+            FugitiveHirDefn::TypeAlias(hir_defn) => {
+                hir_defn.hir_eager_expr_region(db).map(Into::into)
+            }
         }
     }
 
@@ -55,6 +66,7 @@ impl FugitiveHirDefn {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.dependencies(db),
             FugitiveHirDefn::Val(hir_defn) => hir_defn.dependencies(db),
             FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.dependencies(db),
+            FugitiveHirDefn::TypeAlias(hir_defn) => hir_defn.dependencies(db),
         }
     }
 
@@ -63,6 +75,7 @@ impl FugitiveHirDefn {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.version_stamp(db),
             FugitiveHirDefn::Val(hir_defn) => hir_defn.version_stamp(db),
             FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.version_stamp(db),
+            FugitiveHirDefn::TypeAlias(hir_defn) => hir_defn.version_stamp(db),
         }
     }
 }

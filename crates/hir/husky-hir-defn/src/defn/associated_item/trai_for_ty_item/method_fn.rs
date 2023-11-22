@@ -7,6 +7,18 @@ pub struct TraitForTypeMethodFnHirDefn {
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
+impl From<TraitForTypeMethodFnHirDefn> for AssociatedItemHirDefn {
+    fn from(hir_defn: TraitForTypeMethodFnHirDefn) -> Self {
+        AssociatedItemHirDefn::TraitForTypeItem(hir_defn.into())
+    }
+}
+
+impl From<TraitForTypeMethodFnHirDefn> for HirDefn {
+    fn from(hir_defn: TraitForTypeMethodFnHirDefn) -> Self {
+        HirDefn::AssociatedItem(hir_defn.into())
+    }
+}
+
 impl TraitForTypeMethodFnHirDefn {
     pub(super) fn new(
         db: &dyn HirDefnDb,
@@ -26,6 +38,11 @@ impl TraitForTypeMethodFnHirDefn {
         )
     }
 
+    pub fn hir_eager_expr_region(self, db: &dyn HirDefnDb) -> Option<HirEagerExprRegion> {
+        self.eager_body_with_hir_eager_expr_region(db)
+            .map(|(_, region)| region)
+    }
+
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         trai_for_ty_method_fn_hir_defn_dependencies(db, self)
     }
@@ -43,6 +60,7 @@ fn trai_for_ty_method_fn_hir_defn_dependencies(
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
+    builder.add_item_path(hir_decl.path(db).impl_block(db));
     for param in hir_decl.parenate_parameters(db).iter() {
         match *param {
             HirEagerParenateParameter::Ordinary { ty, .. } => builder.add_hir_ty(ty),
@@ -62,5 +80,5 @@ fn trai_for_ty_method_fn_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: TraitForTypeMethodFnHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

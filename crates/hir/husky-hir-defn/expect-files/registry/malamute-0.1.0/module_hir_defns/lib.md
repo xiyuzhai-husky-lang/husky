@@ -269,6 +269,63 @@
                                 Keyed,
                             ],
                         ),
+                        return_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                template_arguments: [
+                                    HirTemplateArgument::Type(
+                                        HirType::Symbol(
+                                            Type {
+                                                attrs: HirSymbolAttrs,
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                        ),
+                        hir_lazy_expr_region: HirLazyExprRegion {
+                            hir_lazy_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_lazy_stmt_arena: Arena {
+                                data: [],
+                            },
+                            hir_lazy_pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                            hir_lazy_variable_region: HirLazyVariableRegion {
+                                arena: Arena {
+                                    data: [
+                                        HirLazyVariable {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 154,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: ParenateParameter,
+                                        },
+                                        HirLazyVariable {
+                                            name: Ident(
+                                                Ident(
+                                                    Coword(
+                                                        Id {
+                                                            value: 453,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            data: ParenateParameter,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
                     },
                     lazy_body_with_hir_lazy_expr_region: None,
                 },
@@ -435,7 +492,7 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        associated_ty: HirType::PathLeading(
+                        ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::basic::unit`, `Extern`),
                                 template_arguments: [],
@@ -660,7 +717,7 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        associated_ty: HirType::PathLeading(
+                        ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::basic::unit`, `Extern`),
                                 template_arguments: [],

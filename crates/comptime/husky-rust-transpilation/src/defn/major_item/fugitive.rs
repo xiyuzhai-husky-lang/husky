@@ -10,6 +10,7 @@ impl TranspileToRust for FugitiveHirDefn {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.transpile_to_rust(builder),
             FugitiveHirDefn::Val(hir_defn) => hir_defn.transpile_to_rust(builder),
             FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.transpile_to_rust(builder),
+            FugitiveHirDefn::TypeAlias(_) => todo!(),
         }
     }
 }

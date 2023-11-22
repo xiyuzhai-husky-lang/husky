@@ -8,17 +8,9 @@ use vec_like::VecSet;
 pub struct HirDefnVersionStamp {
     hir_defn: HirDefn,
     #[return_ref]
-    data: HirDefnVersionStampData,
-}
-
-/// do not derive DebugWithDb
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub enum HirDefnVersionStampData {
-    Simple {
-        item_hir_defns_in_current_crate: VecSet<HirDefn>,
-        item_hir_defn_version_stamps_in_other_local_crates: VecSet<HirDefnVersionStamp>,
-    },
-    Composite(Vec<HirDefnVersionStamp>),
+    item_hir_defns_in_current_crate: VecSet<HirDefn>,
+    #[return_ref]
+    item_hir_defn_version_stamps_in_other_local_crates: VecSet<HirDefnVersionStamp>,
 }
 
 impl HirDefn {
@@ -29,22 +21,10 @@ impl HirDefn {
 }
 
 impl HirDefnVersionStamp {
-    pub(crate) fn new_simple(hir_defn: impl Into<HirDefn>, db: &dyn HirDefnDb) -> Self {
+    pub(crate) fn new(hir_defn: impl Into<HirDefn>, db: &dyn HirDefnDb) -> Self {
         let mut builder = HirDefnVersionStampSimpleBuilder::new(hir_defn.into(), db);
         builder.collect_all();
         builder.finish()
-    }
-
-    pub(crate) fn new_composite(
-        hir_defn: impl Into<HirDefn>,
-        version_stamps: Vec<HirDefnVersionStamp>,
-        db: &dyn HirDefnDb,
-    ) -> Self {
-        Self::new_inner(
-            db,
-            hir_defn.into(),
-            HirDefnVersionStampData::Composite(version_stamps),
-        )
     }
 }
 
@@ -97,11 +77,8 @@ impl<'a> HirDefnVersionStampSimpleBuilder<'a> {
         HirDefnVersionStamp::new_inner(
             self.db,
             self.hir_defn,
-            HirDefnVersionStampData::Simple {
-                item_hir_defns_in_current_crate: self.item_hir_defns_in_current_crate,
-                item_hir_defn_version_stamps_in_other_local_crates: self
-                    .item_hir_defn_version_stamps_in_other_local_crates,
-            },
+            self.item_hir_defns_in_current_crate,
+            self.item_hir_defn_version_stamps_in_other_local_crates,
         )
     }
 }

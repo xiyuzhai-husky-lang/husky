@@ -5,6 +5,19 @@ pub struct TypeAssociatedTypeHirDefn {
     pub path: TypeItemPath,
     pub hir_decl: TypeAssociatedTypeHirDecl,
     pub hir_expr_region: HirEagerExprRegion,
+    pub hir_eager_expr_region: Option<HirEagerExprRegion>,
+}
+
+impl From<TypeAssociatedTypeHirDefn> for AssociatedItemHirDefn {
+    fn from(hir_defn: TypeAssociatedTypeHirDefn) -> Self {
+        AssociatedItemHirDefn::TypeItem(hir_defn.into())
+    }
+}
+
+impl From<TypeAssociatedTypeHirDefn> for HirDefn {
+    fn from(hir_defn: TypeAssociatedTypeHirDefn) -> Self {
+        HirDefn::AssociatedItem(hir_defn.into())
+    }
 }
 
 impl TypeAssociatedTypeHirDefn {
@@ -32,6 +45,7 @@ fn ty_associated_ty_hir_defn_dependencies(
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
+    builder.add_item_path(hir_decl.path(db).impl_block(db));
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     builder.add_hir_ty(hir_decl.ty(db));
     if let Some(hir_eager_expr_region) = hir_defn.hir_eager_expr_region(db) {
@@ -45,5 +59,5 @@ fn ty_associated_ty_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: TypeAssociatedTypeHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

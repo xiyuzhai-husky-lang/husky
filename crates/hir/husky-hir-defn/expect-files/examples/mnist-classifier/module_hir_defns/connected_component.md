@@ -10,7 +10,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `row_start`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -19,7 +19,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `row_end`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -28,7 +28,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `upper_mass`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -37,7 +37,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `lower_mass`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -117,7 +117,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `matches`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -427,7 +427,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `mask`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {

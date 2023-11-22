@@ -5,6 +5,19 @@ pub struct TraitAssociatedTypeHirDefn {
     pub path: TraitItemPath,
     pub hir_decl: TraitAssociatedTypeHirDecl,
     pub hir_expr_region: HirEagerExprRegion,
+    pub hir_eager_expr_region: Option<HirEagerExprRegion>,
+}
+
+impl From<TraitAssociatedTypeHirDefn> for AssociatedItemHirDefn {
+    fn from(hir_defn: TraitAssociatedTypeHirDefn) -> Self {
+        AssociatedItemHirDefn::TraitItem(hir_defn.into())
+    }
+}
+
+impl From<TraitAssociatedTypeHirDefn> for HirDefn {
+    fn from(hir_defn: TraitAssociatedTypeHirDefn) -> Self {
+        HirDefn::AssociatedItem(hir_defn.into())
+    }
 }
 
 impl TraitAssociatedTypeHirDefn {
@@ -24,6 +37,7 @@ fn trai_associated_ty_hir_defn_dependencies(
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
+    builder.add_item_path(hir_decl.path(db).trai_path(db));
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     builder.add_hir_ty(hir_decl.ty(db));
     if let Some(hir_eager_expr_region) = hir_defn.hir_eager_expr_region(db) {
@@ -37,5 +51,5 @@ fn trai_associated_ty_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: TraitAssociatedTypeHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

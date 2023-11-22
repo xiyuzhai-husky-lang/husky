@@ -9,6 +9,18 @@ pub struct FunctionFnHirDefn {
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
+impl From<FunctionFnHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: FunctionFnHirDefn) -> Self {
+        MajorItemHirDefn::Fugitive(hir_defn.into())
+    }
+}
+
+impl From<FunctionFnHirDefn> for HirDefn {
+    fn from(hir_defn: FunctionFnHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
+}
+
 impl FunctionFnHirDefn {
     pub(super) fn new(
         db: &dyn HirDefnDb,
@@ -66,5 +78,5 @@ fn function_fn_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: FunctionFnHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

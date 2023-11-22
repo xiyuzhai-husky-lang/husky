@@ -4,7 +4,19 @@ use super::*;
 pub struct TypeAssociatedValHirDefn {
     pub path: TypeItemPath,
     pub hir_decl: TypeAssociatedValHirDecl,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub hir_expr_region: Option<HirExprRegion>,
+}
+
+impl From<TypeAssociatedValHirDefn> for AssociatedItemHirDefn {
+    fn from(hir_defn: TypeAssociatedValHirDefn) -> Self {
+        AssociatedItemHirDefn::TypeItem(hir_defn.into())
+    }
+}
+
+impl From<TypeAssociatedValHirDefn> for HirDefn {
+    fn from(hir_defn: TypeAssociatedValHirDefn) -> Self {
+        HirDefn::AssociatedItem(hir_defn.into())
+    }
 }
 
 impl TypeAssociatedValHirDefn {
@@ -32,6 +44,7 @@ fn ty_associated_val_hir_defn_dependencies(
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
+    builder.add_item_path(hir_decl.path(db).impl_block(db));
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     builder.add_hir_ty(hir_decl.return_ty(db));
     if let Some(hir_expr_region) = hir_defn.hir_expr_region(db) {
@@ -45,5 +58,5 @@ fn ty_associated_val_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: TypeAssociatedValHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

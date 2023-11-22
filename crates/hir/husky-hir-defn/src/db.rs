@@ -76,7 +76,7 @@ pub struct HirDefnJar(
     TypeMemoizedFieldHirDefn,
     crate::defn::ty_memoized_field_hir_defn_dependencies,
     crate::defn::ty_memoized_field_hir_defn_version_stamp,
-    // vtrait item
+    // - trait item
     trai_item_hir_defn,
     TraitAssociatedFnHirDefn,
     crate::defn::trai_associated_fn_hir_defn_dependencies,
@@ -104,6 +104,11 @@ pub struct HirDefnJar(
     TraitForTypeAssociatedValHirDefn,
     crate::defn::trai_for_ty_associated_val_hir_defn_dependencies,
     crate::defn::trai_for_ty_associated_val_hir_defn_version_stamp,
+    // - impl block
+    crate::defn::ty_impl_block_dependencies,
+    crate::defn::ty_impl_block_version_stamp,
+    crate::defn::trai_for_ty_impl_block_dependencies,
+    crate::defn::trai_for_ty_impl_block_version_stamp,
     // dependencies
     crate::dependencies::HirDefnDependencies,
     // version stamp

@@ -6,6 +6,18 @@ pub struct UnionHirDefn {
     pub hir_decl: UnionHirDecl,
 }
 
+impl From<UnionHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: UnionHirDefn) -> Self {
+        MajorItemHirDefn::Type(hir_defn.into())
+    }
+}
+
+impl From<UnionHirDefn> for HirDefn {
+    fn from(hir_defn: UnionHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
+}
+
 impl UnionHirDefn {
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         union_hir_defn_dependencies(db, self)
@@ -26,5 +38,5 @@ fn union_hir_defn_dependencies(db: &dyn HirDefnDb, hir_defn: UnionHirDefn) -> Hi
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn union_hir_defn_version_stamp(db: &dyn HirDefnDb, hir_defn: UnionHirDefn) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

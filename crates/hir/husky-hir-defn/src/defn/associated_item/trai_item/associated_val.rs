@@ -2,9 +2,21 @@ use super::*;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct TraitAssociatedValHirDefn {
-    pub syn_node_path: TraitItemPath,
+    pub path: TraitItemPath,
     pub hir_decl: TraitAssociatedValHirDecl,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub hir_expr_region: Option<HirExprRegion>,
+}
+
+impl From<TraitAssociatedValHirDefn> for AssociatedItemHirDefn {
+    fn from(hir_defn: TraitAssociatedValHirDefn) -> Self {
+        AssociatedItemHirDefn::TraitItem(hir_defn.into())
+    }
+}
+
+impl From<TraitAssociatedValHirDefn> for HirDefn {
+    fn from(hir_defn: TraitAssociatedValHirDefn) -> Self {
+        HirDefn::AssociatedItem(hir_defn.into())
+    }
 }
 
 impl TraitAssociatedValHirDefn {
@@ -24,6 +36,7 @@ fn trai_associated_val_hir_defn_dependencies(
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
+    builder.add_item_path(hir_decl.path(db).trai_path(db));
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     builder.add_hir_ty(hir_decl.return_ty(db));
     if let Some(hir_expr_region) = hir_defn.hir_expr_region(db) {
@@ -37,5 +50,5 @@ fn trai_associated_val_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: TraitAssociatedValHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

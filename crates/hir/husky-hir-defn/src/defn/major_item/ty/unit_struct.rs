@@ -6,6 +6,18 @@ pub struct UnitStructHirDefn {
     pub hir_decl: UnitStructHirDecl,
 }
 
+impl From<UnitStructHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: UnitStructHirDefn) -> Self {
+        MajorItemHirDefn::Type(hir_defn.into())
+    }
+}
+
+impl From<UnitStructHirDefn> for HirDefn {
+    fn from(hir_defn: UnitStructHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
+}
+
 impl UnitStructHirDefn {
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         unit_struct_hir_defn_dependencies(db, self)
@@ -32,5 +44,5 @@ fn unit_struct_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: UnitStructHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

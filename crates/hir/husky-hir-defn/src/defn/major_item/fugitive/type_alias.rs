@@ -4,7 +4,19 @@ use super::*;
 pub struct TypeAliasHirDefn {
     pub path: FugitivePath,
     pub hir_decl: TypeAliasHirDecl,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub hir_eager_expr_region: Option<HirEagerExprRegion>,
+}
+
+impl From<TypeAliasHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: TypeAliasHirDefn) -> Self {
+        MajorItemHirDefn::Fugitive(hir_defn.into())
+    }
+}
+
+impl From<TypeAliasHirDefn> for HirDefn {
+    fn from(hir_defn: TypeAliasHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
 }
 
 impl TypeAliasHirDefn {
@@ -37,5 +49,5 @@ fn ty_alias_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: TypeAliasHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

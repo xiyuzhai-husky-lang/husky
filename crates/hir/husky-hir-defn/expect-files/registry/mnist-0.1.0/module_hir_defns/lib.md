@@ -624,7 +624,7 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        associated_ty: HirType::PathLeading(
+                        ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
                                 template_arguments: [],
@@ -1072,7 +1072,7 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        associated_ty: HirType::PathLeading(
+                        ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
                                 template_arguments: [],

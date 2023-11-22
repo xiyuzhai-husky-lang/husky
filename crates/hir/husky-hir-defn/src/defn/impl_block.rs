@@ -1,3 +1,9 @@
+pub mod trai_for_ty_impl_block;
+pub mod ty_impl_block;
+
+pub use self::trai_for_ty_impl_block::*;
+pub use self::ty_impl_block::*;
+
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -23,17 +29,18 @@ impl ImplBlockHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> Option<HirDefnDependencies> {
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        // ad hoc
         match self {
-            ImplBlockHirDefn::Type(_) => todo!(),
-            ImplBlockHirDefn::TraitForType(_) => todo!(),
+            ImplBlockHirDefn::Type(hir_defn) => hir_defn.dependencies(db),
+            ImplBlockHirDefn::TraitForType(hir_defn) => hir_defn.dependencies(db),
         }
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> Option<HirDefnVersionStamp> {
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
         match self {
-            ImplBlockHirDefn::Type(_) => todo!(),
-            ImplBlockHirDefn::TraitForType(_) => todo!(),
+            ImplBlockHirDefn::Type(hir_defn) => hir_defn.version_stamp(db),
+            ImplBlockHirDefn::TraitForType(hir_defn) => hir_defn.version_stamp(db),
         }
     }
 }
@@ -42,43 +49,9 @@ impl HasHirDefn for ImplBlockPath {
     type HirDefn = ImplBlockHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
-        Some(match self.hir_decl(db)? {
-            ImplBlockHirDecl::Type(hir_decl) => TypeImplBlockHirDefn { hir_decl }.into(),
-            ImplBlockHirDecl::TraitForType(hir_decl) => {
-                TraitForTypeImplBlockHirDefn { hir_decl }.into()
-            }
-        })
-    }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirDefnDb)]
-pub struct TypeImplBlockHirDefn {
-    hir_decl: TypeImplBlockHirDecl,
-}
-
-impl TypeImplBlockHirDefn {
-    pub fn hir_decl(self) -> TypeImplBlockHirDecl {
-        self.hir_decl
-    }
-
-    pub fn path(self, db: &dyn HirDefnDb) -> TypeImplBlockPath {
-        self.hir_decl.path(db)
-    }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirDefnDb)]
-pub struct TraitForTypeImplBlockHirDefn {
-    hir_decl: TraitForTypeImplBlockHirDecl,
-}
-
-impl TraitForTypeImplBlockHirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> TraitForTypeImplBlockPath {
-        self.hir_decl.path(db)
-    }
-
-    pub fn hir_decl(self) -> TraitForTypeImplBlockHirDecl {
-        self.hir_decl
+        match self {
+            ImplBlockPath::TypeImplBlock(path) => path.hir_defn(db).map(Into::into),
+            ImplBlockPath::TraitForTypeImplBlock(path) => path.hir_defn(db).map(Into::into),
+        }
     }
 }

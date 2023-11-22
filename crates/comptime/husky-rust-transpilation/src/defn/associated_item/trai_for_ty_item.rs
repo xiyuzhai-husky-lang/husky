@@ -51,7 +51,7 @@ impl TranspileToRust for TraitForTypeAssociatedTypeHirDefn {
                 builder.keyword(RustKeyword::Type);
                 self.path(db).ident(db).transpile_to_rust(builder);
                 builder.opr(RustOpr::Assign);
-                hir_decl.associated_ty(db).transpile_to_rust(builder)
+                hir_decl.ty(db).transpile_to_rust(builder)
             })
         })
     }

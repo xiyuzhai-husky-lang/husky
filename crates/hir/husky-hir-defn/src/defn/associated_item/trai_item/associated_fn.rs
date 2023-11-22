@@ -2,9 +2,21 @@ use super::*;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct TraitAssociatedFnHirDefn {
-    pub syn_node_path: TraitItemPath,
+    pub path: TraitItemPath,
     pub hir_decl: TraitAssociatedFnHirDecl,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
+}
+
+impl From<TraitAssociatedFnHirDefn> for AssociatedItemHirDefn {
+    fn from(hir_defn: TraitAssociatedFnHirDefn) -> Self {
+        AssociatedItemHirDefn::TraitItem(hir_defn.into())
+    }
+}
+
+impl From<TraitAssociatedFnHirDefn> for HirDefn {
+    fn from(hir_defn: TraitAssociatedFnHirDefn) -> Self {
+        HirDefn::AssociatedItem(hir_defn.into())
+    }
 }
 
 impl TraitAssociatedFnHirDefn {
@@ -33,6 +45,11 @@ impl TraitAssociatedFnHirDefn {
         // TraitForTypeMethodFnDefn::new(db, syn_node_path, hir_decl, body, parser.finish())
     }
 
+    pub fn hir_eager_expr_region(self, db: &dyn HirDefnDb) -> Option<HirEagerExprRegion> {
+        self.eager_body_with_hir_eager_expr_region(db)
+            .map(|(_, region)| region)
+    }
+
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         trai_associated_fn_hir_defn_dependencies(db, self)
     }
@@ -49,6 +66,7 @@ fn trai_associated_fn_hir_defn_dependencies(
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
+    builder.add_item_path(hir_decl.path(db).trai_path(db));
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     for param in hir_decl.parenate_parameters(db).iter() {
         match *param {
@@ -69,5 +87,5 @@ fn trai_associated_fn_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: TraitAssociatedFnHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }
