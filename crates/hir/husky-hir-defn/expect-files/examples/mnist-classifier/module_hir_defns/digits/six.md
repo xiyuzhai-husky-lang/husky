@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
@@ -63,7 +63,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
@@ -124,7 +124,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -194,7 +194,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
@@ -422,7 +422,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),

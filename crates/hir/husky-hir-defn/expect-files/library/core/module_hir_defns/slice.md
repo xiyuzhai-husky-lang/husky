@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::slice::Slice`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::slice::Slice`, `Extern`),
@@ -84,7 +84,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::slice::CyclicSlice`, `Extern`),

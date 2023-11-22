@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
@@ -63,7 +63,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
@@ -238,7 +238,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
@@ -299,7 +299,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
@@ -360,7 +360,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
@@ -430,7 +430,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
@@ -658,7 +658,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),

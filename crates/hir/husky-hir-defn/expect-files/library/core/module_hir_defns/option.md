@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Enum(
-                EnumTypeHirDefn {
+                EnumHirDefn {
                     path: TypePath(`core::option::Option`, `Enum`),
                     hir_decl: EnumTypeHirDecl {
                         path: TypePath(`core::option::Option`, `Enum`),

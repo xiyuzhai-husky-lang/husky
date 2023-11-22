@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
-                PropsStructTypeHirDefn {
+                PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -124,7 +124,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),

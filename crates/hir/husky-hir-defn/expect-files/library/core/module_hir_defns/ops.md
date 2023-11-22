@@ -1192,7 +1192,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Enum(
-                EnumTypeHirDefn {
+                EnumHirDefn {
                     path: TypePath(`core::ops::ControlFlow`, `Enum`),
                     hir_decl: EnumTypeHirDecl {
                         path: TypePath(`core::ops::ControlFlow`, `Enum`),

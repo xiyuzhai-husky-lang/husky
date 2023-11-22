@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::str::str`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::str::str`, `Extern`),
@@ -46,7 +46,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::str::StringLiteral`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::str::StringLiteral`, `Extern`),

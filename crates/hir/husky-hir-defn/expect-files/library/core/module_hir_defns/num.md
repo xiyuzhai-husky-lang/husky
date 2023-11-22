@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::i8`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::i8`, `Extern`),
@@ -46,7 +46,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::i16`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::i16`, `Extern`),
@@ -90,7 +90,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::i32`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::i32`, `Extern`),
@@ -134,7 +134,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::i64`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::i64`, `Extern`),
@@ -178,7 +178,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::i128`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::i128`, `Extern`),
@@ -222,7 +222,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::isize`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::isize`, `Extern`),
@@ -266,7 +266,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::u8`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::u8`, `Extern`),
@@ -310,7 +310,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::u16`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::u16`, `Extern`),
@@ -354,7 +354,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::u32`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::u32`, `Extern`),
@@ -398,7 +398,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::u64`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::u64`, `Extern`),
@@ -442,7 +442,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::u128`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::u128`, `Extern`),
@@ -486,7 +486,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::usize`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::usize`, `Extern`),
@@ -530,7 +530,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::f32`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::f32`, `Extern`),
@@ -574,7 +574,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::num::f64`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::num::f64`, `Extern`),
