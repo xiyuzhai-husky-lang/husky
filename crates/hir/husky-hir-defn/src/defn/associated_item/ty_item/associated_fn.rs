@@ -27,4 +27,28 @@ impl TypeAssociatedFnHirDefn {
     pub fn hir_eager_expr_region(self, db: &dyn HirDefnDb) -> Option<HirEagerExprRegion> {
         Some(self.eager_body_with_hir_eager_expr_region(db)?.1)
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        ty_associated_fn_hir_defn_dependencies(db, self)
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        ty_associated_fn_hir_defn_version_stamp(db, self)
+    }
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn ty_associated_fn_hir_defn_dependencies(
+    db: &dyn HirDefnDb,
+    hir_defn: TypeAssociatedFnHirDefn,
+) -> HirDefnDependencies {
+    todo!()
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn ty_associated_fn_hir_defn_version_stamp(
+    db: &dyn HirDefnDb,
+    hir_defn: TypeAssociatedFnHirDefn,
+) -> HirDefnVersionStamp {
+    todo!()
 }

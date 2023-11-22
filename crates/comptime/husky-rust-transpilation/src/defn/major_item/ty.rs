@@ -1,9 +1,7 @@
 use super::*;
 
 use husky_entity_syn_tree::HasTypeVariantPaths;
-use husky_hir_decl::{ HasHirDecl, PropsFieldHirDecl,
-    TupleFieldHirDecl, TypeVariantHirDecl,
-};
+use husky_hir_decl::{HasHirDecl, PropsFieldHirDecl, TupleFieldHirDecl, TypeVariantHirDecl};
 
 impl TranspileToRust for TypeHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
@@ -22,7 +20,7 @@ impl TranspileToRust for TypeHirDefn {
     }
 }
 
-impl TranspileToRust for EnumTypeHirDefn {
+impl TranspileToRust for EnumHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
@@ -53,7 +51,7 @@ impl TranspileToRust for TypeVariantHirDecl {
     }
 }
 
-impl TranspileToRust for PropsStructTypeHirDefn {
+impl TranspileToRust for PropsStructHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
@@ -76,7 +74,7 @@ impl TranspileToRust<HirEagerExprRegion> for PropsFieldHirDecl {
     }
 }
 
-impl TranspileToRust for TupleStructTypeHirDefn {
+impl TranspileToRust for TupleStructHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);

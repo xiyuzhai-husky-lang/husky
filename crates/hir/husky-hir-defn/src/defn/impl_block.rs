@@ -22,6 +22,20 @@ impl ImplBlockHirDefn {
             ImplBlockHirDefn::TraitForType(hir_defn) => hir_defn.hir_decl().into(),
         }
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> Option<HirDefnDependencies> {
+        match self {
+            ImplBlockHirDefn::Type(_) => todo!(),
+            ImplBlockHirDefn::TraitForType(_) => todo!(),
+        }
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> Option<HirDefnVersionStamp> {
+        match self {
+            ImplBlockHirDefn::Type(_) => todo!(),
+            ImplBlockHirDefn::TraitForType(_) => todo!(),
+        }
+    }
 }
 
 impl HasHirDefn for ImplBlockPath {

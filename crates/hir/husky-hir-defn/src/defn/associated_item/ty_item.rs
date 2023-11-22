@@ -64,11 +64,21 @@ impl TypeItemHirDefn {
 
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         match self {
-            TypeItemHirDefn::AssociatedFn(_) => todo!(),
-            TypeItemHirDefn::MethodFn(_) => todo!(),
-            TypeItemHirDefn::AssociatedType(_) => todo!(),
-            TypeItemHirDefn::AssociatedVal(_) => todo!(),
-            TypeItemHirDefn::MemoizedField(_) => todo!(),
+            TypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.dependencies(db),
+            TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.dependencies(db),
+            TypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.dependencies(db),
+            TypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.dependencies(db),
+            TypeItemHirDefn::MemoizedField(hir_defn) => hir_defn.dependencies(db),
+        }
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        match self {
+            TypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.version_stamp(db),
+            TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.version_stamp(db),
+            TypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.version_stamp(db),
+            TypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.version_stamp(db),
+            TypeItemHirDefn::MemoizedField(hir_defn) => hir_defn.version_stamp(db),
         }
     }
 }

@@ -2,14 +2,14 @@ use super::*;
 use husky_syn_decl::UnionTypeSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
-pub struct UnionTypeHirDecl {
+pub struct UnionHirDecl {
     pub path: TypePath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
-impl UnionTypeHirDecl {
+impl UnionHirDecl {
     pub(super) fn from_syn(
         _path: TypePath,
         syn_decl: UnionTypeSynDecl,

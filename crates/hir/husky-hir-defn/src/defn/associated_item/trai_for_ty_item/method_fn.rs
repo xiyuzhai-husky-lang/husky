@@ -25,4 +25,28 @@ impl TraitForTypeMethodFnHirDefn {
             hir_eager_body_with_expr_region(syn_defn.body_with_syn_expr_region(db), db),
         )
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        trai_for_ty_method_fn_hir_defn_dependencies(db, self)
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        trai_for_ty_method_fn_hir_defn_version_stamp(db, self)
+    }
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn trai_for_ty_method_fn_hir_defn_dependencies(
+    db: &dyn HirDefnDb,
+    hir_defn: TraitForTypeMethodFnHirDefn,
+) -> HirDefnDependencies {
+    todo!()
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn trai_for_ty_method_fn_hir_defn_version_stamp(
+    db: &dyn HirDefnDb,
+    hir_defn: TraitForTypeMethodFnHirDefn,
+) -> HirDefnVersionStamp {
+    todo!()
 }

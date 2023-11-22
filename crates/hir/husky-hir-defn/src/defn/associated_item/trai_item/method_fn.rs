@@ -25,4 +25,28 @@ impl TraitMethodFnHirDefn {
         //     syn_node_defn.hir_expr_region(db),
         // ))
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        trai_method_fn_hir_defn_dependencies(db, self)
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        trai_method_fn_hir_defn_version_stamp(db, self)
+    }
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn trai_method_fn_hir_defn_dependencies(
+    db: &dyn HirDefnDb,
+    hir_defn: TraitMethodFnHirDefn,
+) -> HirDefnDependencies {
+    todo!()
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn trai_method_fn_hir_defn_version_stamp(
+    db: &dyn HirDefnDb,
+    hir_defn: TraitMethodFnHirDefn,
+) -> HirDefnVersionStamp {
+    todo!()
 }

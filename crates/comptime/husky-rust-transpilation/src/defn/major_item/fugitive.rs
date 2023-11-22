@@ -14,7 +14,7 @@ impl TranspileToRust for FugitiveHirDefn {
     }
 }
 
-impl TranspileToRust for FunctionFnFugitiveHirDefn {
+impl TranspileToRust for FunctionFnHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let Some((body, body_hir_eager_expr_region)) =
@@ -45,7 +45,7 @@ impl TranspileToRust for FunctionGnHirDefn {
     fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {}
 }
 
-impl TranspileToRust for ValFugitiveHirDefn {
+impl TranspileToRust for ValHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let Some((HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region))) =

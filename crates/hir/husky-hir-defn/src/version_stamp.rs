@@ -88,7 +88,7 @@ impl<'a> HirDefnVersionStampSimpleBuilder<'a> {
                 .iter()
             {
                 self.item_hir_defn_version_stamps_in_other_local_crates
-                    .insert(item_path.hir_defn(db).unwrap().version_stamp(db))
+                    .insert(item_path.hir_defn(db).unwrap().version_stamp(db).unwrap())
             }
         }
     }
@@ -110,11 +110,16 @@ impl<'a> HirDefnVersionStampSimpleBuilder<'a> {
 pub(crate) fn module_hir_defn_version_stamps(
     db: &DB,
     module_path: ModulePath,
-) -> Vec<HirDefnVersionStamp> {
+) -> Vec<(ItemPath, Option<Option<HirDefnVersionStamp>>)> {
     use husky_entity_syn_tree::helpers::paths::module_item_paths;
     module_item_paths(db, module_path)
         .iter()
-        .filter_map(|path| Some(path.hir_defn(db)?.version_stamp(db)))
+        .map(|&path| {
+            (
+                path,
+                path.hir_defn(db).map(|hir_defn| hir_defn.version_stamp(db)),
+            )
+        })
         .collect()
 }
 

@@ -35,8 +35,8 @@ pub struct HirDeclJar(
     RecordTypeHirDecl,
     PropsStructTypeHirDecl,
     TupleStructTypeHirDecl,
-    UnionTypeHirDecl,
-    UnitStructTypeHirDecl,
+    UnionHirDecl,
+    UnitStructHirDecl,
     // trai
     trai_hir_decl,
     TraitHirDecl,

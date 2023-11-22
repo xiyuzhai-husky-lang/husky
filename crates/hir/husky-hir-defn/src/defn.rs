@@ -82,8 +82,15 @@ impl HirDefn {
         }
     }
 
-    pub(crate) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
-        todo!()
+    pub(crate) fn version_stamp(self, db: &dyn HirDefnDb) -> Option<HirDefnVersionStamp> {
+        match self {
+            HirDefn::Submodule(hir_defn) => None,
+            HirDefn::MajorItem(hir_defn) => Some(hir_defn.version_stamp(db)),
+            HirDefn::TypeVariant(hir_defn) => None,
+            HirDefn::ImplBlock(hir_defn) => hir_defn.version_stamp(db),
+            HirDefn::AssociatedItem(hir_defn) => Some(hir_defn.version_stamp(db)),
+            HirDefn::Attr(hir_defn) => None,
+        }
     }
 }
 
