@@ -8,13 +8,13 @@ pub struct PropsStructTypeHirDecl {
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     #[return_ref]
-    pub fields: SmallVec<[PropsFieldHirDecl; 4]>,
+    pub fields: SmallVec<[PropsStructFieldHirDecl; 4]>,
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = HirDeclDb, jar= HirDeclJar)]
-pub struct PropsFieldHirDecl {
+pub struct PropsStructFieldHirDecl {
     ident: Ident,
     ty: HirType,
 }
@@ -34,7 +34,7 @@ impl PropsStructTypeHirDecl {
         let fields = syn_decl
             .fields(db)
             .iter()
-            .map(|field| PropsFieldHirDecl::from_syn(field, &builder))
+            .map(|field| PropsStructFieldHirDecl::from_syn(field, &builder))
             .collect();
         Self::new(
             db,
@@ -46,7 +46,7 @@ impl PropsStructTypeHirDecl {
     }
 }
 
-impl PropsFieldHirDecl {
+impl PropsStructFieldHirDecl {
     fn from_syn(field: &PropsFieldSyndicate, builder: &HirDeclBuilder) -> Self {
         Self {
             ident: field.ident(),

@@ -1,6 +1,7 @@
 use crate::*;
 #[cfg(test)]
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
+use husky_hir_ty::HirType;
 use vec_like::VecSet;
 
 #[salsa::tracked(db = HirDefnDb, jar = HirDefnJar, constructor = new)]
@@ -20,23 +21,18 @@ pub(crate) struct HirDefnDependenciesBuilder<'a> {
 }
 
 impl<'a> HirDefnDependenciesBuilder<'a> {
-    pub(crate) fn new(
-        item_path: ItemPath,
-        hir_expr_region: HirExprRegion,
-        db: &'a dyn HirDefnDb,
-    ) -> Self {
-        let mut slf = Self {
+    pub(crate) fn new(item_path: impl Into<ItemPath>, db: &'a dyn HirDefnDb) -> Self {
+        let item_path = item_path.into();
+        Self {
             item_path,
             crate_path: item_path.crate_path(db),
             item_paths_in_current_crate: Default::default(),
             item_paths_in_other_local_crates: Default::default(),
             db,
-        };
-        slf.add_hir_expr_region(hir_expr_region);
-        slf
+        }
     }
 
-    fn add_hir_expr_region(&mut self, hir_expr_region: HirExprRegion) {
+    pub(crate) fn add_hir_expr_region(&mut self, hir_expr_region: HirExprRegion) {
         match hir_expr_region {
             HirExprRegion::Eager(hir_eager_expr_region) => {
                 self.add_hir_eager_expr_region(hir_eager_expr_region)
@@ -45,7 +41,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
         }
     }
 
-    fn add_hir_eager_expr_region(&mut self, hir_eager_expr_region: HirEagerExprRegion) {
+    pub(crate) fn add_hir_eager_expr_region(&mut self, hir_eager_expr_region: HirEagerExprRegion) {
         let db = self.db;
         let hir_eager_expr_arena = hir_eager_expr_region.hir_eager_expr_arena(db);
         for hir_eager_expr_data in hir_eager_expr_arena.iter() {
@@ -100,7 +96,15 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
         }
     }
 
-    fn add_item_path(&mut self, item_path: impl Into<ItemPath>) {
+    pub(crate) fn add_hir_lazy_expr_region(&mut self, hir_lazy_expr_region: HirLazyExprRegion) {
+        todo!()
+    }
+
+    pub(crate) fn add_hir_ty(&mut self, hir_ty: HirType) {
+        todo!()
+    }
+
+    pub(crate) fn add_item_path(&mut self, item_path: impl Into<ItemPath>) {
         let item_path: ItemPath = item_path.into();
         if item_path == self.item_path {
             // no need to add self
@@ -122,7 +126,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
         }
     }
 
-    fn finish(self) -> HirDefnDependencies {
+    pub(crate) fn finish(self) -> HirDefnDependencies {
         HirDefnDependencies::new(
             self.db,
             self.item_paths_in_current_crate,

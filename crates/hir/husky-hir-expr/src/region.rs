@@ -15,4 +15,12 @@ impl HirExprRegion {
             HirExprRegion::Lazy(_) => panic!(),
         }
     }
+
+    #[track_caller]
+    pub fn lazy(self) -> HirLazyExprRegion {
+        match self {
+            HirExprRegion::Eager(_) => panic!(),
+            HirExprRegion::Lazy(slf) => slf,
+        }
+    }
 }

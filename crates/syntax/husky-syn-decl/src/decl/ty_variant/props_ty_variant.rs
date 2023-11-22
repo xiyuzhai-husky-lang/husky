@@ -4,26 +4,26 @@ use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 // todo: GADT
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct PropsTypeVariantSynNodeDecl {
+pub struct TypePropsVariantSynNodeDecl {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
     #[return_ref]
-    lcurl: SynNodeDeclResult<PropsTypeVariantLeftCurlyBrace>,
+    lcurl: SynNodeDeclResult<TypePropsVariantLeftCurlyBrace>,
     #[return_ref]
     fields: SynNodeDeclResult<
         PunctuatedSmallList<PropsFieldSyndicate, CommaRegionalToken, SynNodeDeclError, true, 4>,
     >,
     #[return_ref]
-    rcurl: SynNodeDeclResult<PropsTypeVariantRcurlRegionalToken>,
+    rcurl: SynNodeDeclResult<TypePropsVariantRcurlRegionalToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
 /// we delegate a struct for this for better error message
 /// regular struct is the fallback case, but the lang user might want to mean other things
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct PropsTypeVariantLeftCurlyBrace(LcurlRegionalToken);
+pub struct TypePropsVariantLeftCurlyBrace(LcurlRegionalToken);
 
-impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsTypeVariantLeftCurlyBrace {
+impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TypePropsVariantLeftCurlyBrace {
     type Error = SynNodeDeclError;
 
     fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
@@ -35,9 +35,9 @@ impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsTypeVariantLeftCurly
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct PropsTypeVariantRcurlRegionalToken(RcurlRegionalToken);
+pub struct TypePropsVariantRcurlRegionalToken(RcurlRegionalToken);
 
-impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsTypeVariantRcurlRegionalToken {
+impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TypePropsVariantRcurlRegionalToken {
     type Error = SynNodeDeclError;
 
     fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
@@ -50,18 +50,25 @@ impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsTypeVariantRcurlRegi
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct PropsTypeVariantSynDecl {
+pub struct TypePropsVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,
+    pub fields: SmallVec<[PropsFieldSyndicate; 4]>,
     pub syn_expr_region: SynExprRegion,
 }
 
-impl PropsTypeVariantSynDecl {
+impl TypePropsVariantSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn SynDeclDb,
         path: TypeVariantPath,
-        syn_node_decl: PropsTypeVariantSynNodeDecl,
+        syn_node_decl: TypePropsVariantSynNodeDecl,
     ) -> DeclResult<Self> {
-        Ok(Self::new(db, path, syn_node_decl.syn_expr_region(db)))
+        let fields = SmallVec::from(syn_node_decl.fields(db).as_ref()?.elements());
+        Ok(Self::new(
+            db,
+            path,
+            fields,
+            syn_node_decl.syn_expr_region(db),
+        ))
     }
 }

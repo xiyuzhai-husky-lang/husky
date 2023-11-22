@@ -1,7 +1,7 @@
 use super::*;
 
 use husky_entity_syn_tree::HasTypeVariantPaths;
-use husky_hir_decl::{HasHirDecl, PropsFieldHirDecl, TupleFieldHirDecl, TypeVariantHirDecl};
+use husky_hir_decl::{HasHirDecl, PropsStructFieldHirDecl, TupleFieldHirDecl, TypeVariantHirDecl};
 
 impl TranspileToRust for TypeHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
@@ -65,7 +65,7 @@ impl TranspileToRust for PropsStructHirDefn {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for PropsFieldHirDecl {
+impl TranspileToRust<HirEagerExprRegion> for PropsStructFieldHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Pub);
         self.ident().transpile_to_rust(builder);

@@ -13,9 +13,9 @@ use husky_token_data::Punctuation;
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantSynNodeDecl {
-    Props(PropsTypeVariantSynNodeDecl),
+    Props(TypePropsVariantSynNodeDecl),
     Unit(UnitTypeVariantSynNodeDecl),
-    Tuple(TupleTypeVariantSynNodeDecl),
+    Tuple(TypeTupleVariantSynNodeDecl),
 }
 
 impl TypeVariantSynNodeDecl {
@@ -72,7 +72,7 @@ impl<'a> DeclParser<'a, TypeVariantSynNodePath> {
             Some(TokenData::Punctuation(Punctuation::LPAR)) => {
                 let field_comma_list = parser.try_parse();
                 let rpar = parser.try_parse();
-                TupleTypeVariantSynNodeDecl::new(
+                TypeTupleVariantSynNodeDecl::new(
                     db,
                     self.syn_node_path(),
                     state.next_regional_token_idx(),
@@ -95,9 +95,9 @@ impl<'a> DeclParser<'a, TypeVariantSynNodePath> {
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantSynDecl {
-    Props(PropsTypeVariantSynDecl),
+    Props(TypePropsVariantSynDecl),
     Unit(UnitTypeVariantSynDecl),
-    Tuple(TupleTypeVariantSynDecl),
+    Tuple(TypeTupleVariantSynDecl),
 }
 
 impl TypeVariantSynDecl {
@@ -108,13 +108,13 @@ impl TypeVariantSynDecl {
     ) -> DeclResult<Self> {
         Ok(match syn_node_decl {
             TypeVariantSynNodeDecl::Props(syn_node_decl) => {
-                PropsTypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TypePropsVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeVariantSynNodeDecl::Unit(syn_node_decl) => {
                 UnitTypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeVariantSynNodeDecl::Tuple(syn_node_decl) => {
-                TupleTypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TypeTupleVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
         })
     }

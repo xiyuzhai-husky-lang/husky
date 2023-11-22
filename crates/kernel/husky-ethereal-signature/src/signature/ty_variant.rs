@@ -12,9 +12,9 @@ use super::*;
 #[salsa::debug_with_db(db = EtherealSignatureDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantEtherealSignatureTemplate {
-    Props(EnumPropsTypeVariantEtherealSignatureTemplate),
+    Props(EnumPropsVariantEtherealSignatureTemplate),
     Unit(EnumUnitTypeVariantEtherealSignatureTemplate),
-    Tuple(EnumTupleTypeVariantEtherealSignatureTemplate),
+    Tuple(EnumTupleVariantEtherealSignatureTemplate),
 }
 
 impl TypeVariantEtherealSignatureTemplate {
@@ -54,7 +54,7 @@ fn ty_variant_ethereal_signature_template(
             .into()
         }
         TypeVariantDeclarativeSignatureTemplate::Tuple(declarative_signature_template) => {
-            EnumTupleTypeVariantEtherealSignatureTemplate::from_declarative(
+            EnumTupleVariantEtherealSignatureTemplate::from_declarative(
                 db,
                 path,
                 declarative_signature_template,
