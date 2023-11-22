@@ -18,12 +18,12 @@ use super::*;
 #[salsa::debug_with_db(db = HirDefnDb)]
 #[enum_class::from_variants]
 pub enum TypeHirDefn {
-    Enum(EnumTypeHirDefn),
-    PropsStruct(PropsStructTypeHirDefn),
-    TupleStruct(TupleStructTypeHirDefn),
-    UnitStruct(UnitStructTypeHirDefn),
-    Extern(ExternTypeHirDefn),
-    Union(UnionTypeHirDefn),
+    Enum(EnumHirDefn),
+    PropsStruct(PropsStructHirDefn),
+    TupleStruct(TupleStructHirDefn),
+    UnitStruct(UnitStructHirDefn),
+    Extern(ExternHirDefn),
+    Union(UnionHirDefn),
 }
 
 impl TypeHirDefn {
@@ -48,6 +48,28 @@ impl TypeHirDefn {
             TypeHirDefn::Union(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        match self {
+            TypeHirDefn::Enum(hir_defn) => hir_defn.dependencies(db),
+            TypeHirDefn::PropsStruct(hir_defn) => hir_defn.dependencies(db),
+            TypeHirDefn::TupleStruct(hir_defn) => hir_defn.dependencies(db),
+            TypeHirDefn::UnitStruct(hir_defn) => hir_defn.dependencies(db),
+            TypeHirDefn::Extern(hir_defn) => hir_defn.dependencies(db),
+            TypeHirDefn::Union(hir_defn) => hir_defn.dependencies(db),
+        }
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        match self {
+            TypeHirDefn::Enum(hir_defn) => hir_defn.version_stamp(db),
+            TypeHirDefn::PropsStruct(hir_defn) => hir_defn.version_stamp(db),
+            TypeHirDefn::TupleStruct(hir_defn) => hir_defn.version_stamp(db),
+            TypeHirDefn::UnitStruct(hir_defn) => hir_defn.version_stamp(db),
+            TypeHirDefn::Extern(hir_defn) => hir_defn.version_stamp(db),
+            TypeHirDefn::Union(hir_defn) => hir_defn.version_stamp(db),
+        }
+    }
 }
 
 impl HasHirDefn for TypePath {
@@ -61,17 +83,13 @@ impl HasHirDefn for TypePath {
 #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn ty_hir_defn(db: &dyn HirDefnDb, path: TypePath) -> Option<TypeHirDefn> {
     Some(match path.hir_decl(db)? {
-        TypeHirDecl::Enum(hir_decl) => EnumTypeHirDefn::new(db, path, hir_decl).into(),
-        TypeHirDecl::PropsStruct(hir_decl) => {
-            PropsStructTypeHirDefn::new(db, path, hir_decl).into()
-        }
-        TypeHirDecl::TupleStruct(hir_decl) => {
-            TupleStructTypeHirDefn::new(db, path, hir_decl).into()
-        }
-        TypeHirDecl::UnitStruct(hir_decl) => UnitStructTypeHirDefn::new(db, path, hir_decl).into(),
+        TypeHirDecl::Enum(hir_decl) => EnumHirDefn::new(db, path, hir_decl).into(),
+        TypeHirDecl::PropsStruct(hir_decl) => PropsStructHirDefn::new(db, path, hir_decl).into(),
+        TypeHirDecl::TupleStruct(hir_decl) => TupleStructHirDefn::new(db, path, hir_decl).into(),
+        TypeHirDecl::UnitStruct(hir_decl) => UnitStructHirDefn::new(db, path, hir_decl).into(),
         TypeHirDecl::Record(_hir_decl) => todo!(),
         // RecordTypeHirDefn::new(db, path, hir_decl).into(),
-        TypeHirDecl::Extern(hir_decl) => ExternTypeHirDefn::new(db, path, hir_decl).into(),
-        TypeHirDecl::Union(hir_decl) => UnionTypeHirDefn::new(db, path, hir_decl).into(),
+        TypeHirDecl::Extern(hir_decl) => ExternHirDefn::new(db, path, hir_decl).into(),
+        TypeHirDecl::Union(hir_decl) => UnionHirDefn::new(db, path, hir_decl).into(),
     })
 }

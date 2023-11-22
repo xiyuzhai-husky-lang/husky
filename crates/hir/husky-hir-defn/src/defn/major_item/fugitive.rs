@@ -14,9 +14,9 @@ use super::*;
 #[salsa::debug_with_db(db = HirDefnDb)]
 #[enum_class::from_variants]
 pub enum FugitiveHirDefn {
-    FunctionFn(FunctionFnFugitiveHirDefn),
+    FunctionFn(FunctionFnHirDefn),
     // Function(FunctionDefn),
-    Val(ValFugitiveHirDefn),
+    Val(ValHirDefn),
     FunctionGn(FunctionGnHirDefn),
     // AliasType(TypeAliasDefn)
 }
@@ -49,6 +49,22 @@ impl FugitiveHirDefn {
             }
         }
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        match self {
+            FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.dependencies(db),
+            FugitiveHirDefn::Val(hir_defn) => hir_defn.dependencies(db),
+            FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.dependencies(db),
+        }
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        match self {
+            FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.version_stamp(db),
+            FugitiveHirDefn::Val(hir_defn) => hir_defn.version_stamp(db),
+            FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.version_stamp(db),
+        }
+    }
 }
 
 impl HasHirDefn for FugitivePath {
@@ -63,9 +79,9 @@ impl HasHirDefn for FugitivePath {
 pub(crate) fn fugitive_hir_defn(db: &dyn HirDefnDb, path: FugitivePath) -> Option<FugitiveHirDefn> {
     match path.hir_decl(db)? {
         FugitiveHirDecl::FunctionFn(hir_decl) => {
-            Some(FunctionFnFugitiveHirDefn::new(db, path, hir_decl).into())
+            Some(FunctionFnHirDefn::new(db, path, hir_decl).into())
         }
-        FugitiveHirDecl::Val(hir_decl) => Some(ValFugitiveHirDefn::new(db, path, hir_decl).into()),
+        FugitiveHirDecl::Val(hir_decl) => Some(ValHirDefn::new(db, path, hir_decl).into()),
         FugitiveHirDecl::FunctionGn(hir_decl) => {
             Some(FunctionGnHirDefn::new(db, path, hir_decl).into())
         }

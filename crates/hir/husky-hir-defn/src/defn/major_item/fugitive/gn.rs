@@ -29,4 +29,28 @@ impl FunctionGnHirDefn {
     pub fn hir_lazy_expr_region(self, db: &dyn HirDefnDb) -> Option<HirLazyExprRegion> {
         Some(self.lazy_body_with_hir_lazy_expr_region(db)?.1)
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        function_gn_hir_defn_dependencies(db, self)
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        function_gn_hir_defn_version_stamp(db, self)
+    }
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn function_gn_hir_defn_dependencies(
+    db: &dyn HirDefnDb,
+    hir_defn: FunctionGnHirDefn,
+) -> HirDefnDependencies {
+    todo!()
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn function_gn_hir_defn_version_stamp(
+    db: &dyn HirDefnDb,
+    hir_defn: FunctionGnHirDefn,
+) -> HirDefnVersionStamp {
+    todo!()
 }

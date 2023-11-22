@@ -32,6 +32,24 @@ impl TraitItemHirDefn {
     pub fn hir_expr_region(self, _db: &dyn HirDefnDb) -> HirExprRegion {
         todo!()
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        match self {
+            TraitItemHirDefn::AssociatedFn(_) => todo!(),
+            TraitItemHirDefn::MethodFn(_) => todo!(),
+            TraitItemHirDefn::AssociatedType(_) => todo!(),
+            TraitItemHirDefn::AssociatedVal(_) => todo!(),
+        }
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        match self {
+            TraitItemHirDefn::AssociatedFn(_) => todo!(),
+            TraitItemHirDefn::MethodFn(_) => todo!(),
+            TraitItemHirDefn::AssociatedType(_) => todo!(),
+            TraitItemHirDefn::AssociatedVal(_) => todo!(),
+        }
+    }
 }
 
 impl HasHirDefn for TraitItemPath {

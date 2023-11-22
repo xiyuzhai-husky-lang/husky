@@ -1,6 +1,5 @@
 use super::*;
 
-
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct TypeMethodFnHirDefn {
     pub path: TypeItemPath,
@@ -28,4 +27,28 @@ impl TypeMethodFnHirDefn {
     pub fn hir_eager_expr_region(self, db: &dyn HirDefnDb) -> Option<HirEagerExprRegion> {
         Some(self.eager_body_with_hir_eager_expr_region(db)?.1)
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        ty_method_fn_hir_defn_dependencies(db, self)
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        ty_method_fn_hir_defn_version_stamp(db, self)
+    }
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn ty_method_fn_hir_defn_dependencies(
+    db: &dyn HirDefnDb,
+    hir_defn: TypeMethodFnHirDefn,
+) -> HirDefnDependencies {
+    todo!()
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn ty_method_fn_hir_defn_version_stamp(
+    db: &dyn HirDefnDb,
+    hir_defn: TypeMethodFnHirDefn,
+) -> HirDefnVersionStamp {
+    todo!()
 }

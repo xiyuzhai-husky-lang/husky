@@ -24,11 +24,11 @@ use husky_syn_decl::TypeSynDecl;
 pub enum TypeHirDecl {
     Enum(EnumTypeHirDecl),
     PropsStruct(PropsStructTypeHirDecl),
-    UnitStruct(UnitStructTypeHirDecl),
+    UnitStruct(UnitStructHirDecl),
     TupleStruct(TupleStructTypeHirDecl),
     Record(RecordTypeHirDecl),
     Extern(ExternTypeHirDecl),
-    Union(UnionTypeHirDecl),
+    Union(UnionHirDecl),
 }
 
 impl TypeHirDecl {
@@ -85,7 +85,7 @@ fn ty_hir_decl(db: &dyn HirDeclDb, path: TypePath) -> Option<TypeHirDecl> {
             Some(PropsStructTypeHirDecl::from_syn(path, syn_decl, db).into())
         }
         TypeSynDecl::UnitStruct(syn_decl) => {
-            Some(UnitStructTypeHirDecl::from_syn(path, syn_decl, db).into())
+            Some(UnitStructHirDecl::from_syn(path, syn_decl, db).into())
         }
         TypeSynDecl::TupleStruct(syn_decl) => {
             Some(TupleStructTypeHirDecl::from_syn(path, syn_decl, db).into())
@@ -98,7 +98,7 @@ fn ty_hir_decl(db: &dyn HirDeclDb, path: TypePath) -> Option<TypeHirDecl> {
         TypeSynDecl::Extern(syn_decl) => {
             Some(ExternTypeHirDecl::from_syn(path, syn_decl, db).into())
         }
-        TypeSynDecl::Union(syn_decl) => Some(UnionTypeHirDecl::from_syn(path, syn_decl, db).into()),
+        TypeSynDecl::Union(syn_decl) => Some(UnionHirDecl::from_syn(path, syn_decl, db).into()),
     }
 }
 

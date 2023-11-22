@@ -32,4 +32,28 @@ impl TraitAssociatedFnHirDefn {
         // };
         // TraitForTypeMethodFnDefn::new(db, syn_node_path, hir_decl, body, parser.finish())
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        trai_associated_fn_hir_defn_dependencies(db, self)
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        trai_associated_fn_hir_defn_version_stamp(db, self)
+    }
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn trai_associated_fn_hir_defn_dependencies(
+    db: &dyn HirDefnDb,
+    hir_defn: TraitAssociatedFnHirDefn,
+) -> HirDefnDependencies {
+    todo!()
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn trai_associated_fn_hir_defn_version_stamp(
+    db: &dyn HirDefnDb,
+    hir_defn: TraitAssociatedFnHirDefn,
+) -> HirDefnVersionStamp {
+    todo!()
 }

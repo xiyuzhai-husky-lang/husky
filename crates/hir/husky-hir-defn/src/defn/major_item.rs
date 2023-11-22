@@ -40,6 +40,22 @@ impl MajorItemHirDefn {
             MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.hir_expr_region(db),
         }
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        match self {
+            MajorItemHirDefn::Type(_) => todo!(),
+            MajorItemHirDefn::Trait(_) => todo!(),
+            MajorItemHirDefn::Fugitive(_) => todo!(),
+        }
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        match self {
+            MajorItemHirDefn::Type(_) => todo!(),
+            MajorItemHirDefn::Trait(_) => todo!(),
+            MajorItemHirDefn::Fugitive(_) => todo!(),
+        }
+    }
 }
 
 impl HasHirDefn for MajorItemPath {

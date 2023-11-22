@@ -15,4 +15,28 @@ impl TypeAssociatedTypeHirDefn {
     ) -> Self {
         todo!()
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        ty_associated_ty_hir_defn_dependencies(db, self)
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        ty_associated_ty_hir_defn_version_stamp(db, self)
+    }
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn ty_associated_ty_hir_defn_dependencies(
+    db: &dyn HirDefnDb,
+    hir_defn: TypeAssociatedTypeHirDefn,
+) -> HirDefnDependencies {
+    todo!()
+}
+
+#[salsa::tracked(jar = HirDefnJar)]
+fn ty_associated_ty_hir_defn_version_stamp(
+    db: &dyn HirDefnDb,
+    hir_defn: TypeAssociatedTypeHirDefn,
+) -> HirDefnVersionStamp {
+    todo!()
 }

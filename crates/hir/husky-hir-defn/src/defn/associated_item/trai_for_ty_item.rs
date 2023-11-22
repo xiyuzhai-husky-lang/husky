@@ -52,6 +52,24 @@ impl TraitForTypeItemHirDefn {
         //     TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.hir_expr_region(db).into(),
         // }
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        match self {
+            TraitForTypeItemHirDefn::AssociatedFn(_) => todo!(),
+            TraitForTypeItemHirDefn::MethodFn(_) => todo!(),
+            TraitForTypeItemHirDefn::AssociatedType(_) => todo!(),
+            TraitForTypeItemHirDefn::AssociatedVal(_) => todo!(),
+        }
+    }
+
+    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        match self {
+            TraitForTypeItemHirDefn::AssociatedFn(_) => todo!(),
+            TraitForTypeItemHirDefn::MethodFn(_) => todo!(),
+            TraitForTypeItemHirDefn::AssociatedType(_) => todo!(),
+            TraitForTypeItemHirDefn::AssociatedVal(_) => todo!(),
+        }
+    }
 }
 
 impl HasHirDefn for TraitForTypeItemPath {
