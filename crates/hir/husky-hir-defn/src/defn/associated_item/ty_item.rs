@@ -12,7 +12,6 @@ pub use self::method_fn::*;
 
 use super::*;
 
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = HirDefnDb)]
 #[enum_class::from_variants]
@@ -60,6 +59,16 @@ impl TypeItemHirDefn {
             TypeItemHirDefn::MemoizedField(hir_defn) => {
                 hir_defn.hir_eager_expr_region(db).map(Into::into)
             }
+        }
+    }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> ItemHirDefnDependencies {
+        match self {
+            TypeItemHirDefn::AssociatedFn(_) => todo!(),
+            TypeItemHirDefn::MethodFn(_) => todo!(),
+            TypeItemHirDefn::AssociatedType(_) => todo!(),
+            TypeItemHirDefn::AssociatedVal(_) => todo!(),
+            TypeItemHirDefn::MemoizedField(_) => todo!(),
         }
     }
 }

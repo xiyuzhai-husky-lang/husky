@@ -50,6 +50,8 @@ pub struct HirDefnJar(
     TraitForTypeMethodFnHirDefn,
     TraitForTypeAssociatedTypeHirDefn,
     TraitForTypeAssociatedValHirDefn,
+    // dependencies
+    crate::dependencies::ItemHirDefnDependencies,
     // version stamp
     crate::version_stamp::ItemHirDefnVersionStamp,
 );

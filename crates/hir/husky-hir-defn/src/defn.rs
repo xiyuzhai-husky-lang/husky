@@ -54,9 +54,7 @@ impl ItemHirDefn {
             ItemHirDefn::Attr(_) => None,
         }
     }
-}
 
-impl ItemHirDefn {
     pub fn path(self, db: &dyn HirDefnDb) -> ItemPath {
         match self {
             ItemHirDefn::MajorItem(hir_defn) => hir_defn.path(db).into(),
@@ -65,6 +63,22 @@ impl ItemHirDefn {
             ItemHirDefn::ImplBlock(hir_defn) => hir_defn.path(db).into(),
             ItemHirDefn::Submodule(hir_defn) => hir_defn.path(db).into(),
             ItemHirDefn::Attr(hir_defn) => hir_defn.path(db).into(),
+        }
+    }
+
+    pub(crate) fn dependencies(self, db: &dyn HirDefnDb) -> Option<ItemHirDefnDependencies> {
+        match self {
+            ItemHirDefn::Submodule(_) => None,
+            ItemHirDefn::MajorItem(hir_defn) => match hir_defn {
+                MajorItemHirDefn::Type(_) => todo!(),
+                MajorItemHirDefn::Trait(_) => todo!(),
+                MajorItemHirDefn::Fugitive(_) => todo!(),
+            },
+            // ask its parent
+            ItemHirDefn::TypeVariant(_) => None,
+            ItemHirDefn::ImplBlock(_) => None,
+            ItemHirDefn::AssociatedItem(hir_defn) => Some(hir_defn.dependencies(db)),
+            ItemHirDefn::Attr(_) => None,
         }
     }
 }
