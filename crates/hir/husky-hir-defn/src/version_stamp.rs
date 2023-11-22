@@ -4,19 +4,125 @@ mod major_item;
 use crate::*;
 use vec_like::VecSet;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new)]
-pub struct ItemHirDefnVersionStamp {
-    pub toolchain: Toolchain,
-    pub hir_defn: ItemHirDefn,
+#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
+pub struct HirDefnVersionStamp {
+    hir_defn: HirDefn,
     #[return_ref]
-    pub item_hir_defns_in_current_crate: VecSet<ItemHirDefn>,
-    #[return_ref]
-    pub item_hir_defn_version_stamps_in_other_local_crates: VecSet<ItemHirDefnVersionStamp>,
+    data: HirDefnVersionStampData,
 }
 
-impl ItemHirDefn {
-    pub fn item_version_stamp(self, db: &dyn HirDefnDb) -> ItemHirDefnVersionStamp {
+/// do not derive DebugWithDb
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub enum HirDefnVersionStampData {
+    Simple {
+        item_hir_defns_in_current_crate: VecSet<HirDefn>,
+        item_hir_defn_version_stamps_in_other_local_crates: VecSet<HirDefnVersionStamp>,
+    },
+    Composite(Vec<HirDefnVersionStamp>),
+}
+
+impl HirDefn {
+    pub fn item_version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
         let dependencies = self.dependencies(db);
         todo!()
     }
+}
+
+impl HirDefnVersionStamp {
+    pub(crate) fn new_simple(hir_defn: impl Into<HirDefn>, db: &dyn HirDefnDb) -> Self {
+        let mut builder = HirDefnVersionStampSimpleBuilder::new(hir_defn.into(), db);
+        builder.collect_all();
+        builder.finish()
+    }
+
+    pub(crate) fn new_composite(
+        hir_defn: impl Into<HirDefn>,
+        version_stamps: Vec<HirDefnVersionStamp>,
+        db: &dyn HirDefnDb,
+    ) -> Self {
+        Self::new_inner(
+            db,
+            hir_defn.into(),
+            HirDefnVersionStampData::Composite(version_stamps),
+        )
+    }
+}
+
+pub struct HirDefnVersionStampSimpleBuilder<'a> {
+    hir_defn: HirDefn,
+    item_hir_defns_in_current_crate: VecSet<HirDefn>,
+    item_hir_defn_version_stamps_in_other_local_crates: VecSet<HirDefnVersionStamp>,
+    db: &'a dyn HirDefnDb,
+}
+
+impl<'a> HirDefnVersionStampSimpleBuilder<'a> {
+    fn new(hir_defn: HirDefn, db: &'a dyn HirDefnDb) -> Self {
+        Self {
+            hir_defn,
+            item_hir_defns_in_current_crate: VecSet::new_one_elem_set(hir_defn),
+            item_hir_defn_version_stamps_in_other_local_crates: Default::default(),
+            db,
+        }
+    }
+
+    fn collect_all(&mut self) {
+        let mut round_start = 0;
+        while round_start < self.item_hir_defns_in_current_crate.len() {
+            let len = self.item_hir_defns_in_current_crate.len();
+            self.collect_round(round_start);
+            round_start = len
+        }
+    }
+
+    fn collect_round(&mut self, round_start: usize) {
+        let db = self.db;
+        for i in round_start..self.item_hir_defns_in_current_crate.len() {
+            let hir_defn = self.item_hir_defns_in_current_crate[i];
+            let hir_defn_dependencies = hir_defn.dependencies(db).unwrap();
+            for &item_path in hir_defn_dependencies.item_paths_in_current_crate(db).iter() {
+                self.item_hir_defns_in_current_crate
+                    .insert(item_path.hir_defn(db).unwrap())
+            }
+            for &item_path in hir_defn_dependencies
+                .item_paths_in_other_local_crates(db)
+                .iter()
+            {
+                self.item_hir_defn_version_stamps_in_other_local_crates
+                    .insert(item_path.hir_defn(db).unwrap().version_stamp(db))
+            }
+        }
+    }
+
+    fn finish(self) -> HirDefnVersionStamp {
+        HirDefnVersionStamp::new_inner(
+            self.db,
+            self.hir_defn,
+            HirDefnVersionStampData::Simple {
+                item_hir_defns_in_current_crate: self.item_hir_defns_in_current_crate,
+                item_hir_defn_version_stamps_in_other_local_crates: self
+                    .item_hir_defn_version_stamps_in_other_local_crates,
+            },
+        )
+    }
+}
+
+#[cfg(test)]
+pub(crate) fn module_hir_defn_version_stamps(
+    db: &DB,
+    module_path: ModulePath,
+) -> Vec<HirDefnVersionStamp> {
+    use husky_entity_syn_tree::helpers::paths::module_item_paths;
+    module_item_paths(db, module_path)
+        .iter()
+        .filter_map(|path| Some(path.hir_defn(db)?.version_stamp(db)))
+        .collect()
+}
+
+#[test]
+fn module_hir_defn_version_stamps_works() {
+    let mut db = DB::default();
+    db.ast_expect_test_debug(
+        module_hir_defn_version_stamps,
+        &AstTestConfig::new("module_hir_defn_version_stamps"),
+    )
 }
