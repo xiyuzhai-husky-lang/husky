@@ -1,5 +1,5 @@
 [
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
                 ExternTypeHirDefn {
@@ -43,7 +43,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
                 ExternTypeHirDefn {

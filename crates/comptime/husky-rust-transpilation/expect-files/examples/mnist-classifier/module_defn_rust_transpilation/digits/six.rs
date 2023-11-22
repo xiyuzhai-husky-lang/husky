@@ -19,8 +19,8 @@ pub fn bottom1(cc: Leash<ConcaveComponent>) -> Option<f32> {
     if dp.y < -3 {
         require!((dp.x / dp.y).abs() > 1.4);
     }
-    require!(cc.relative_bounding_box.ymax() < 0.6);
-    let relative_end = cc.line_segment_sketch.bounding_box.relative_point(cc.end());
+    require!(cc.relative_bounding_box().ymax() < 0.6);
+    let relative_end = cc.line_segment_sketch.bounding_box().relative_point(cc.end());
     require!(relative_end.x > 0.5);
     -cc.end().y
 }

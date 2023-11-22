@@ -1,5 +1,5 @@
 [
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
                 ExternTypeHirDefn {
@@ -119,7 +119,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
                 ExternTypeHirDefn {
@@ -239,7 +239,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
                 ExternTypeHirDefn {
@@ -321,7 +321,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
                 ExternTypeHirDefn {
@@ -433,7 +433,7 @@
             ),
         ),
     ),
-    HirDefn::ImplBlock(
+    ItemHirDefn::ImplBlock(
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {

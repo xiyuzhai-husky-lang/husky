@@ -1,5 +1,5 @@
 [
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::fmt::Debug`),

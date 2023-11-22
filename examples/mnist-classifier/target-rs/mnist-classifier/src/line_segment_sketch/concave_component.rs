@@ -35,11 +35,11 @@ impl Visualize for ConcaveComponent {
 
 impl ConcaveComponent {
     pub fn norm(self) -> f32 {
-        self.hausdorff_norm
+        self.hausdorff_norm()
     }
 
     pub fn rel_norm(self) -> f32 {
-        self.norm / self.displacement().norm()
+        self.norm() / self.displacement().norm()
     }
 
     pub fn hausdorff_norm(self) -> f32 {
@@ -85,7 +85,7 @@ impl ConcaveComponent {
     }
 
     pub fn relative_bounding_box(self) -> RelativeBoundingBox {
-        self.line_segment_sketch.bounding_box.relative_bounding_box(self.bounding_box)
+        self.line_segment_sketch.bounding_box().relative_bounding_box(self.bounding_box())
     }
 
     pub fn line_segment(self) -> LineSegment {

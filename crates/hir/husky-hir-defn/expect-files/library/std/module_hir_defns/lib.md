@@ -1,5 +1,5 @@
 [
-    HirDefn::Submodule(
+    ItemHirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmodulePath(
@@ -8,7 +8,7 @@
             },
         },
     ),
-    HirDefn::Submodule(
+    ItemHirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmodulePath(
@@ -17,7 +17,7 @@
             },
         },
     ),
-    HirDefn::Submodule(
+    ItemHirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmodulePath(

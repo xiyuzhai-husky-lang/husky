@@ -1,5 +1,5 @@
 [
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
                 PropsStructTypeHirDefn {
@@ -103,7 +103,7 @@
             ),
         ),
     ),
-    HirDefn::ImplBlock(
+    ItemHirDefn::ImplBlock(
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
@@ -168,7 +168,7 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
@@ -285,7 +285,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `line_segments`,
                                         },

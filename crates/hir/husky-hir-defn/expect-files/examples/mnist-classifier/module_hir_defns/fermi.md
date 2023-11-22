@@ -1,5 +1,5 @@
 [
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
                 PropsStructTypeHirDefn {
@@ -121,7 +121,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
                 FunctionFnFugitiveHirDefn {
@@ -602,7 +602,7 @@
             ),
         ),
     ),
-    HirDefn::ImplBlock(
+    ItemHirDefn::ImplBlock(
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
@@ -657,7 +657,7 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
@@ -762,7 +762,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `others`,
                                         },
@@ -792,7 +792,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 7,
                                             ident: `others`,
                                         },
@@ -805,7 +805,7 @@
                                                 9,
                                             ],
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 10,
                                             ident: `norm`,
                                         },
@@ -953,7 +953,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
@@ -1058,7 +1058,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `others`,
                                         },
@@ -1088,7 +1088,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 7,
                                             ident: `others`,
                                         },
@@ -1101,7 +1101,7 @@
                                                 9,
                                             ],
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 10,
                                             ident: `rel_norm`,
                                         },
@@ -1249,7 +1249,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
@@ -1354,7 +1354,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `others`,
                                         },
@@ -1384,7 +1384,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 7,
                                             ident: `others`,
                                         },
@@ -1397,7 +1397,7 @@
                                                 9,
                                             ],
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 10,
                                             ident: `angle_change`,
                                         },

@@ -1,5 +1,5 @@
 [
-    HirDefn::Submodule(
+    ItemHirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmodulePath(
@@ -8,7 +8,7 @@
             },
         },
     ),
-    HirDefn::Submodule(
+    ItemHirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmodulePath(
@@ -17,7 +17,7 @@
             },
         },
     ),
-    HirDefn::Submodule(
+    ItemHirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmodulePath(
@@ -26,7 +26,7 @@
             },
         },
     ),
-    HirDefn::Submodule(
+    ItemHirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmodulePath(
@@ -35,7 +35,7 @@
             },
         },
     ),
-    HirDefn::Submodule(
+    ItemHirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmodulePath(
@@ -44,7 +44,7 @@
             },
         },
     ),
-    HirDefn::Submodule(
+    ItemHirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmodulePath(
@@ -53,7 +53,7 @@
             },
         },
     ),
-    HirDefn::Submodule(
+    ItemHirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmodulePath(
@@ -62,7 +62,7 @@
             },
         },
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
                 ValFugitiveHirDefn {

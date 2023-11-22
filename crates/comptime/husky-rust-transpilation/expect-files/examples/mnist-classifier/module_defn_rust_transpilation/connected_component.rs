@@ -12,7 +12,7 @@ pub struct EffHoles {
 } 
 
 pub fn hole_tmpl(ct: Leash<RawContour>) -> Option<f32> {
-    let len = ct.contour_len;
+    let len = ct.contour_len();
     require!(len > 4);
     len + 0
 }
@@ -91,7 +91,7 @@ impl ConnectedComponent {
     }
 
     pub fn eff_holes(self) -> EffHoles {
-        let mut raw_contours = self.raw_contours.collect_leashes();
+        let mut raw_contours = self.raw_contours().collect_leashes();
         let mut matches: Vec<Option<Leash<RawContour>>> = vec![];
         raw_contours.pop_with_largest_opt_f32(hole_tmpl);
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl));
@@ -101,7 +101,7 @@ impl ConnectedComponent {
 
     pub fn max_hole_ilen(self) -> f32 {
         let mut max_hole_ilen = 0;
-        let raw_contours = self.raw_contours;
+        let raw_contours = self.raw_contours();
         for i in (0 + 1)..raw_contours.ilen() {
             let hole_ilen = raw_contours[i].points.ilen();
             if max_hole_ilen < hole_ilen {
@@ -160,11 +160,11 @@ impl ConnectedComponent {
     }
 
     pub fn upper_mass(self) -> f32 {
-        self.distribution.upper_mass as f32
+        self.distribution().upper_mass as f32
     }
 
     pub fn lower_mass(self) -> f32 {
-        self.distribution.lower_mass as f32
+        self.distribution().lower_mass as f32
     }
 
     pub fn top_k_row_span_sum(self, k: i32) -> f32 {

@@ -1,5 +1,5 @@
 [
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
                 ValFugitiveHirDefn {
@@ -60,7 +60,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
                 ValFugitiveHirDefn {
@@ -130,7 +130,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
                 FunctionFnFugitiveHirDefn {
@@ -241,7 +241,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 1,
                                             ident: `relative_bounding_box`,
                                         },
@@ -279,7 +279,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 6,
                                             ident: `strokes`,
                                         },
@@ -304,18 +304,18 @@
                                             opd_hir_expr_idx: 8,
                                             opr: Unwrap,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 9,
                                             ident: `start`,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 10,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 12,
                                             ident: `strokes`,
                                         },
@@ -340,11 +340,11 @@
                                             opd_hir_expr_idx: 14,
                                             opr: Unwrap,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 15,
                                             ident: `end`,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 16,
                                             ident: `x`,
                                         },
@@ -358,7 +358,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 19,
                                             ident: `relative_bounding_box`,
                                         },

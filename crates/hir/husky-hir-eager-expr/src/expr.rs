@@ -23,6 +23,9 @@ pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprData, V>;
 pub enum HirEagerExprData {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),
+    AssociatedFn {
+        associated_item_path: AssociatedItemPath,
+    },
     ConstSymbol(HirConstSymbol),
     Variable(HirEagerRuntimeSymbolIdx),
     Binary {
@@ -103,9 +106,6 @@ pub enum HirEagerExprData {
     },
     Todo,
     Unreachable,
-    AssociatedFn {
-        associated_item_path: AssociatedItemPath,
-    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

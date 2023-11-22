@@ -1,5 +1,5 @@
 [
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
                 PropsStructTypeHirDefn {
@@ -76,7 +76,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
                 PropsStructTypeHirDefn {
@@ -153,7 +153,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
                 PropsStructTypeHirDefn {
@@ -230,7 +230,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
                 PropsStructTypeHirDefn {
@@ -307,7 +307,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
                 PropsStructTypeHirDefn {
@@ -384,7 +384,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
                 PropsStructTypeHirDefn {
@@ -461,7 +461,7 @@
             ),
         ),
     ),
-    HirDefn::ImplBlock(
+    ItemHirDefn::ImplBlock(
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
@@ -516,7 +516,7 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::AssociatedFn(
                 TypeAssociatedFnHirDefn {
@@ -792,7 +792,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -904,14 +904,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 4,
                                             ident: `y`,
                                         },
@@ -971,7 +971,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -1110,14 +1110,14 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 4,
                                             ident: `x`,
                                         },
@@ -1131,14 +1131,14 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 7,
                                             ident: `y`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 9,
                                             ident: `y`,
                                         },
@@ -1211,7 +1211,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -1316,14 +1316,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 3,
                                             ident: `x`,
                                         },
@@ -1337,14 +1337,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 6,
                                             ident: `y`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 8,
                                             ident: `y`,
                                         },
@@ -1422,7 +1422,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -1644,7 +1644,7 @@
             ),
         ),
     ),
-    HirDefn::ImplBlock(
+    ItemHirDefn::ImplBlock(
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
@@ -1699,7 +1699,7 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -1811,14 +1811,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 4,
                                             ident: `y`,
                                         },
@@ -1878,7 +1878,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -2017,14 +2017,14 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 4,
                                             ident: `x`,
                                         },
@@ -2038,14 +2038,14 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 7,
                                             ident: `y`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 9,
                                             ident: `y`,
                                         },
@@ -2118,7 +2118,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -2223,14 +2223,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 3,
                                             ident: `x`,
                                         },
@@ -2244,14 +2244,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 6,
                                             ident: `y`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 8,
                                             ident: `y`,
                                         },
@@ -2329,7 +2329,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -2461,14 +2461,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 3,
                                             ident: `x`,
                                         },
@@ -2482,14 +2482,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 6,
                                             ident: `y`,
                                         },
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 8,
                                             ident: `y`,
                                         },
@@ -2556,7 +2556,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -2688,14 +2688,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `x`,
                                         },
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 3,
                                             ident: `y`,
                                         },
@@ -2709,14 +2709,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 6,
                                             ident: `y`,
                                         },
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 8,
                                             ident: `x`,
                                         },
@@ -2783,7 +2783,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -2915,7 +2915,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `x`,
                                         },
@@ -3029,7 +3029,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 17,
                                             ident: `y`,
                                         },
@@ -3234,7 +3234,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -3456,7 +3456,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -4110,7 +4110,7 @@
             ),
         ),
     ),
-    HirDefn::ImplBlock(
+    ItemHirDefn::ImplBlock(
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
@@ -4165,7 +4165,7 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -4297,14 +4297,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `max`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 3,
                                             ident: `min`,
                                         },
@@ -4318,14 +4318,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 6,
                                             ident: `max`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 8,
                                             ident: `min`,
                                         },
@@ -4339,14 +4339,14 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 11,
                                             ident: `min`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 13,
                                             ident: `min`,
                                         },
@@ -4370,14 +4370,14 @@
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 18,
                                             ident: `max`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 20,
                                             ident: `min`,
                                         },
@@ -4548,7 +4548,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -4680,14 +4680,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `max`,
                                         },
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 3,
                                             ident: `min`,
                                         },
@@ -4704,7 +4704,7 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 7,
                                             ident: `min`,
                                         },
@@ -4798,7 +4798,7 @@
             ),
         ),
     ),
-    HirDefn::ImplBlock(
+    ItemHirDefn::ImplBlock(
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
@@ -4853,7 +4853,7 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -4992,14 +4992,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `xrange`,
                                         },
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 4,
                                             ident: `xrange`,
                                         },
@@ -5027,14 +5027,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 7,
                                             ident: `yrange`,
                                         },
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 9,
                                             ident: `yrange`,
                                         },
@@ -5121,7 +5121,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -5260,14 +5260,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `xrange`,
                                         },
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 4,
                                             ident: `x`,
                                         },
@@ -5295,14 +5295,14 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 7,
                                             ident: `yrange`,
                                         },
                                         HirEagerExprData::Variable(
                                             2,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 9,
                                             ident: `x`,
                                         },
@@ -5389,7 +5389,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -5494,11 +5494,11 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `xrange`,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `min`,
                                         },
@@ -5545,7 +5545,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -5650,11 +5650,11 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `xrange`,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `max`,
                                         },
@@ -5701,7 +5701,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -5806,11 +5806,11 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `yrange`,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `min`,
                                         },
@@ -5857,7 +5857,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -5962,11 +5962,11 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `yrange`,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `max`,
                                         },
@@ -6013,7 +6013,7 @@
             ),
         ),
     ),
-    HirDefn::ImplBlock(
+    ItemHirDefn::ImplBlock(
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
@@ -6068,7 +6068,7 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -6173,11 +6173,11 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `xrange`,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `min`,
                                         },
@@ -6224,7 +6224,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -6329,11 +6329,11 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `xrange`,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `max`,
                                         },
@@ -6380,7 +6380,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -6485,11 +6485,11 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `yrange`,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `min`,
                                         },
@@ -6536,7 +6536,7 @@
             ),
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
@@ -6641,11 +6641,11 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 1,
                                             ident: `yrange`,
                                         },
-                                        HirEagerExprData::Field {
+                                        HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
                                             ident: `max`,
                                         },

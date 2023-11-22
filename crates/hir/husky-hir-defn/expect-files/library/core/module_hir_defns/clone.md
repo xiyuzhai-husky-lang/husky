@@ -1,5 +1,5 @@
 [
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::clone::Clone`),
@@ -41,7 +41,7 @@
             },
         ),
     ),
-    HirDefn::ImplBlock(
+    ItemHirDefn::ImplBlock(
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
@@ -99,7 +99,7 @@
             },
         ),
     ),
-    HirDefn::AssociatedItem(
+    ItemHirDefn::AssociatedItem(
         AssociatedItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {

@@ -1,5 +1,5 @@
 [
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
                 ValFugitiveHirDefn {
@@ -69,7 +69,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
                 ValFugitiveHirDefn {
@@ -139,7 +139,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
                 ValFugitiveHirDefn {
@@ -200,7 +200,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
                 ValFugitiveHirDefn {
@@ -279,7 +279,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
                 ValFugitiveHirDefn {
@@ -349,7 +349,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
                 ValFugitiveHirDefn {
@@ -419,7 +419,7 @@
             ),
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
                 ValFugitiveHirDefn {
