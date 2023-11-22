@@ -1,7 +1,5 @@
 use super::*;
-use husky_hir_decl::{
-    EnumTupleTypeVariantField, EnumTupleTypeVariantHirDecl, EnumUnitTypeVariantHirDecl,
-};
+use husky_hir_decl::{EnumTupleVariantField, EnumTupleVariantHirDecl, EnumUnitTypeVariantHirDecl};
 
 impl TranspileToRust for TypeVariantHirDefn {
     fn transpile_to_rust(&self, _builder: &mut RustTranspilationBuilder) {
@@ -16,7 +14,7 @@ impl TranspileToRust for EnumUnitTypeVariantHirDecl {
     }
 }
 
-impl TranspileToRust for EnumTupleTypeVariantHirDecl {
+impl TranspileToRust for EnumTupleVariantHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         builder.eager_head(self.hir_eager_expr_region(db), |builder| {
@@ -26,7 +24,7 @@ impl TranspileToRust for EnumTupleTypeVariantHirDecl {
     }
 }
 
-impl TranspileToRust<HirEagerExprRegion> for EnumTupleTypeVariantField {
+impl TranspileToRust<HirEagerExprRegion> for EnumTupleVariantField {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.ty().transpile_to_rust(builder)
     }

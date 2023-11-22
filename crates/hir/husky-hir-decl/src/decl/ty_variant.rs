@@ -15,9 +15,9 @@ use super::*;
 #[salsa::debug_with_db(db = HirDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantHirDecl {
-    Props(EnumPropsTypeVariantHirDecl),
+    Props(EnumPropsVariantHirDecl),
     Unit(EnumUnitTypeVariantHirDecl),
-    Tuple(EnumTupleTypeVariantHirDecl),
+    Tuple(EnumTupleVariantHirDecl),
 }
 
 impl TypeVariantHirDecl {
@@ -59,7 +59,7 @@ fn ty_variant_hir_decl(db: &dyn HirDeclDb, path: TypeVariantPath) -> Option<Type
             EnumUnitTypeVariantHirDecl::from_syn(path, syn_decl, db).into()
         }
         TypeVariantSynDecl::Tuple(syn_decl) => {
-            EnumTupleTypeVariantHirDecl::from_syn(path, syn_decl, db).into()
+            EnumTupleVariantHirDecl::from_syn(path, syn_decl, db).into()
         }
     })
 }

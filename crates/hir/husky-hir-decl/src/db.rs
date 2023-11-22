@@ -48,8 +48,8 @@ pub struct HirDeclJar(
     ValFugitiveHirDecl,
     // ty variant
     ty_variant_hir_decl,
-    EnumTupleTypeVariantHirDecl,
-    EnumPropsTypeVariantHirDecl,
+    EnumTupleVariantHirDecl,
+    EnumPropsVariantHirDecl,
     EnumUnitTypeVariantHirDecl,
     // impl block
     // - type

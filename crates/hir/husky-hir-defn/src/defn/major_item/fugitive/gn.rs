@@ -1,3 +1,4 @@
+use husky_hir_decl::parameter::parenate::lazy::HirLazyParenateParameter;
 use husky_hir_lazy_expr::helpers::hir_lazy_body_with_expr_region;
 
 use super::*;
@@ -44,7 +45,22 @@ fn function_gn_hir_defn_dependencies(
     db: &dyn HirDefnDb,
     hir_defn: FunctionGnHirDefn,
 ) -> HirDefnDependencies {
-    todo!()
+    let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
+    let hir_decl = hir_defn.hir_decl(db);
+    builder.add_hir_lazy_expr_region(hir_decl.hir_lazy_expr_region(db));
+    for param in hir_decl.parenate_parameters(db).iter() {
+        match *param {
+            HirLazyParenateParameter::SelfValue => unreachable!(),
+            HirLazyParenateParameter::Ordinary { ty, .. } => builder.add_hir_ty(ty),
+            HirLazyParenateParameter::Keyed => todo!(),
+            HirLazyParenateParameter::Variadic => todo!(),
+        }
+    }
+    builder.add_hir_ty(hir_decl.return_ty(db));
+    if let Some(hir_lazy_expr_region) = hir_defn.hir_lazy_expr_region(db) {
+        builder.add_hir_lazy_expr_region(hir_lazy_expr_region);
+    }
+    builder.finish()
 }
 
 #[salsa::tracked(jar = HirDefnJar)]

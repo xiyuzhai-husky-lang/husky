@@ -52,8 +52,8 @@ pub struct DeclarativeSignatureJar(
     // type variant
     ty_variant_syn_declarative_signature_template,
     EnumUnitTypeVariantDeclarativeSignatureTemplate,
-    EnumPropsTypeVariantDeclarativeSignatureTemplate,
-    EnumTupleTypeVariantDeclarativeSignatureTemplate,
+    EnumPropsVariantDeclarativeSignatureTemplate,
+    EnumTupleVariantDeclarativeSignatureTemplate,
     // associated items
     // associated_item_syn_declarative_signature_from_decl,
     // type item

@@ -50,8 +50,8 @@ pub struct EtherealSignatureJar(
     UnitStructTypeEtherealSignatureTemplate,
     ty_ethereal_signature_template,
     // ty variant
-    EnumTupleTypeVariantEtherealSignatureTemplate,
-    EnumPropsTypeVariantEtherealSignatureTemplate,
+    EnumTupleVariantEtherealSignatureTemplate,
+    EnumPropsVariantEtherealSignatureTemplate,
     EnumUnitTypeVariantEtherealSignatureTemplate,
     ty_variant_ethereal_signature_template,
     // impl block

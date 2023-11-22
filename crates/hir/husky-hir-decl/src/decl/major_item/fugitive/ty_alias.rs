@@ -6,6 +6,8 @@ pub struct TypeAliasHirDecl {
     pub path: FugitivePath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
+    pub ty: HirType,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 impl TypeAliasHirDecl {
@@ -17,6 +19,7 @@ impl TypeAliasHirDecl {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
-        Self::new(db, path, template_parameters)
+        let ty = builder.hir_ty(todo!());
+        Self::new(db, path, template_parameters, ty, builder.finish().eager())
     }
 }

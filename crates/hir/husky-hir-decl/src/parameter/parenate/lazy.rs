@@ -6,6 +6,7 @@ pub enum HirLazyParenateParameter {
     SelfValue,
     Ordinary {
         pattern_expr_idx: HirLazyPatternExprIdx,
+        ty: HirType,
     },
     Keyed,
     Variadic,
@@ -31,6 +32,7 @@ impl HirLazyParenateParameter {
                 ty: _,
             } => HirLazyParenateParameter::Ordinary {
                 pattern_expr_idx: todo!(),
+                ty: todo!(),
             },
             ParenateSynParameterData::Variadic {
                 dot_dot_dot_token: _,
