@@ -10,7 +10,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `x`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -19,7 +19,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `y`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -87,7 +87,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `x`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -96,7 +96,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `y`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -164,7 +164,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `x`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -173,7 +173,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `y`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -241,7 +241,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `min`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -250,7 +250,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `max`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -318,7 +318,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `xrange`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -327,7 +327,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `yrange`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -395,7 +395,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `xrange`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -404,7 +404,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `yrange`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {

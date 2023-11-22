@@ -47,10 +47,20 @@ impl TypeVariantHirDefn {
     }
 }
 
-// impl HasHirDefn for TypeVariantPath {
-//     type HirDefn = TypeVariantHirDefn;
+impl HasHirDefn for TypeVariantPath {
+    type HirDefn = TypeVariantHirDefn;
 
-//     fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
-//         todo!()
-//     }
-// }
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+        Some(match self.hir_decl(db)? {
+            TypeVariantHirDecl::Props(hir_decl) => {
+                EnumPropsVariantHirDefn::new(db, self, hir_decl).into()
+            }
+            TypeVariantHirDecl::Unit(hir_decl) => {
+                EnumUnitVariantHirDefn::new(db, self, hir_decl).into()
+            }
+            TypeVariantHirDecl::Tuple(hir_decl) => {
+                EnumTupleVariantHirDefn::new(db, self, hir_decl).into()
+            }
+        })
+    }
+}

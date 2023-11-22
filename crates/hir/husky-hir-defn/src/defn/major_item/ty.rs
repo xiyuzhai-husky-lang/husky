@@ -26,6 +26,12 @@ pub enum TypeHirDefn {
     Union(UnionHirDefn),
 }
 
+impl From<TypeHirDefn> for HirDefn {
+    fn from(hir_defn: TypeHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
+}
+
 impl TypeHirDefn {
     pub fn path(self, db: &dyn HirDefnDb) -> TypePath {
         match self {

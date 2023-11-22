@@ -10,7 +10,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `matches`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -46,7 +46,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `others`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {

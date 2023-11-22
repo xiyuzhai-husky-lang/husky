@@ -1,9 +1,16 @@
 use super::*;
+use husky_entity_syn_tree::HasAssociatedItemPaths;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
 pub struct TraitHirDefn {
     pub path: TraitPath,
     pub hir_decl: TraitHirDecl,
+}
+
+impl From<TraitHirDefn> for HirDefn {
+    fn from(hir_defn: TraitHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
 }
 
 impl HasHirDefn for TraitPath {
@@ -32,10 +39,18 @@ impl TraitHirDefn {
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_hir_defn_dependencies(db: &dyn HirDefnDb, hir_defn: TraitHirDefn) -> HirDefnDependencies {
-    todo!()
+    let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
+    let hir_decl = hir_defn.hir_decl(db);
+    builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
+    // todo: add traits that this trait depends on
+    // comment out temporarilly
+    // for &(_, path) in hir_defn.path(db).associated_item_paths(db) {
+    //     builder.add_item_path(path)
+    // }
+    builder.finish()
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_hir_defn_version_stamp(db: &dyn HirDefnDb, hir_defn: TraitHirDefn) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

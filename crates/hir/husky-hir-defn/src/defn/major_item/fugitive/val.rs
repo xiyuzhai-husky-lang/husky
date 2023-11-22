@@ -8,6 +8,18 @@ pub struct ValHirDefn {
     pub body_with_hir_expr_region: Option<(HirExprIdx, HirExprRegion)>,
 }
 
+impl From<ValHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: ValHirDefn) -> Self {
+        MajorItemHirDefn::Fugitive(hir_defn.into())
+    }
+}
+
+impl From<ValHirDefn> for HirDefn {
+    fn from(hir_defn: ValHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
+}
+
 impl ValHirDefn {
     pub(super) fn new(
         db: &dyn HirDefnDb,
@@ -52,5 +64,5 @@ fn val_hir_defn_dependencies(db: &dyn HirDefnDb, hir_defn: ValHirDefn) -> HirDef
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn val_hir_defn_version_stamp(db: &dyn HirDefnDb, hir_defn: ValHirDefn) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

@@ -90,6 +90,7 @@ impl<'a> DeclParser<'a, TraitForTypeItemSynNodePath> {
             TraitItemKind::AssociatedType => {
                 self.parse_trai_for_ty_associated_ty_node_decl().into()
             }
+            TraitItemKind::AssociatedVal => todo!(),
         }
     }
 }

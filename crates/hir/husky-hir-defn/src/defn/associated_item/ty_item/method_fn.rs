@@ -7,6 +7,18 @@ pub struct TypeMethodFnHirDefn {
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
+impl From<TypeMethodFnHirDefn> for AssociatedItemHirDefn {
+    fn from(hir_defn: TypeMethodFnHirDefn) -> Self {
+        AssociatedItemHirDefn::TypeItem(hir_defn.into())
+    }
+}
+
+impl From<TypeMethodFnHirDefn> for HirDefn {
+    fn from(hir_defn: TypeMethodFnHirDefn) -> Self {
+        HirDefn::AssociatedItem(hir_defn.into())
+    }
+}
+
 impl TypeMethodFnHirDefn {
     pub(super) fn new(
         db: &dyn HirDefnDb,
@@ -44,6 +56,7 @@ fn ty_method_fn_hir_defn_dependencies(
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
+    builder.add_item_path(hir_decl.path(db).impl_block(db));
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     for param in hir_decl.parenate_parameters(db).iter() {
         match *param {
@@ -64,5 +77,5 @@ fn ty_method_fn_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: TypeMethodFnHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

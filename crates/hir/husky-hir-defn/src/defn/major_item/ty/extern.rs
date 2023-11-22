@@ -6,6 +6,18 @@ pub struct ExternHirDefn {
     pub hir_decl: ExternTypeHirDecl,
 }
 
+impl From<ExternHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: ExternHirDefn) -> Self {
+        MajorItemHirDefn::Type(hir_defn.into())
+    }
+}
+
+impl From<ExternHirDefn> for HirDefn {
+    fn from(hir_defn: ExternHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
+}
+
 impl ExternHirDefn {
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         extern_hir_defn_dependencies(db, self)
@@ -32,5 +44,5 @@ fn extern_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: ExternHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

@@ -383,7 +383,7 @@
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
-                        associated_ty: HirType::Symbol(
+                        ty: HirType::Symbol(
                             Type {
                                 attrs: HirSymbolAttrs,
                                 variance: None,

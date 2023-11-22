@@ -25,6 +25,12 @@ pub struct TypeImplBlockPath {
     pub disambiguator: u8,
 }
 
+impl From<TypeImplBlockPath> for ItemPath {
+    fn from(path: TypeImplBlockPath) -> Self {
+        ItemPath::ImplBlock(path.into())
+    }
+}
+
 impl TypeImplBlockPath {
     pub fn new(
         db: &dyn EntityPathDb,
@@ -51,6 +57,12 @@ pub struct TraitForTypeImplBlockPath {
     pub trai_path: TraitPath,
     pub ty_sketch: TypeSketch,
     pub disambiguator: u8,
+}
+
+impl From<TraitForTypeImplBlockPath> for ItemPath {
+    fn from(path: TraitForTypeImplBlockPath) -> Self {
+        ItemPath::ImplBlock(path.into())
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -89,7 +101,7 @@ impl TraitForTypeImplBlockPath {
     }
 }
 
-// deprecated
+#[deprecated]
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar, constructor = new_inner)]
 pub struct IllFormedImplBlockPath {
     pub module_path: ModulePath,

@@ -1,7 +1,10 @@
 use crate::*;
 #[cfg(test)]
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
-use husky_hir_ty::HirType;
+use husky_hir_ty::{
+    ritchie::HirRitchieParameter, trai::HirTrait, HirTemplateArgument, HirTemplateArguments,
+    HirType,
+};
 use vec_like::VecSet;
 
 #[salsa::tracked(db = HirDefnDb, jar = HirDefnJar, constructor = new)]
@@ -32,18 +35,18 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
         }
     }
 
-    pub(crate) fn add_hir_expr_region(&mut self, hir_expr_region: HirExprRegion) {
-        match hir_expr_region {
-            HirExprRegion::Eager(hir_eager_expr_region) => {
-                self.add_hir_eager_expr_region(hir_eager_expr_region)
+    pub(crate) fn add_hir_expr_region(&mut self, expr_region: HirExprRegion) {
+        match expr_region {
+            HirExprRegion::Eager(eager_expr_region) => {
+                self.add_hir_eager_expr_region(eager_expr_region)
             }
-            HirExprRegion::Lazy(hir_lazy_expr_region) => todo!(),
+            HirExprRegion::Lazy(lazy_expr_region) => todo!(),
         }
     }
 
-    pub(crate) fn add_hir_eager_expr_region(&mut self, hir_eager_expr_region: HirEagerExprRegion) {
+    pub(crate) fn add_hir_eager_expr_region(&mut self, eager_expr_region: HirEagerExprRegion) {
         let db = self.db;
-        let hir_eager_expr_arena = hir_eager_expr_region.hir_eager_expr_arena(db);
+        let hir_eager_expr_arena = eager_expr_region.hir_eager_expr_arena(db);
         for hir_eager_expr_data in hir_eager_expr_arena.iter() {
             match *hir_eager_expr_data {
                 HirEagerExprData::Literal(_) => (),
@@ -79,11 +82,16 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                     ref template_arguments,
                     ..
                 } => {
-                    todo!();
+                    // todo!();
                     self.add_item_path(path)
                 }
                 HirEagerExprData::NewTuple { .. } => (),
-                HirEagerExprData::Index { .. } => todo!(),
+                HirEagerExprData::Index { .. } =>
+                /* ad hoc */
+                {
+                    ()
+                }
+                // todo!(),
                 HirEagerExprData::NewList { .. } => (),
                 HirEagerExprData::Block { .. } => (),
                 HirEagerExprData::EmptyHtmlTag { .. } => (),
@@ -96,12 +104,53 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
         }
     }
 
-    pub(crate) fn add_hir_lazy_expr_region(&mut self, hir_lazy_expr_region: HirLazyExprRegion) {
+    pub(crate) fn add_lazy_expr_region(&mut self, lazy_expr_region: HirLazyExprRegion) {
         todo!()
     }
 
-    pub(crate) fn add_hir_ty(&mut self, hir_ty: HirType) {
-        todo!()
+    pub(crate) fn add_hir_trai(&mut self, hir_trai: HirTrait) {
+        let db = self.db;
+        self.add_item_path(hir_trai.trai_path(db));
+        self.add_hir_template_arguments(hir_trai.template_arguments(db))
+    }
+
+    pub(crate) fn add_hir_ty(&mut self, ty: HirType) {
+        let db = self.db;
+        match ty {
+            HirType::PathLeading(hir_ty) => {
+                self.add_item_path(hir_ty.ty_path(db));
+                self.add_hir_template_arguments(hir_ty.template_arguments(db))
+            }
+            HirType::Symbol(_) => (),
+            HirType::TypeAssociatedType(_) => (),
+            HirType::TraitAssociatedType(_) => (),
+            HirType::Ritchie(hir_ty) => {
+                for param in hir_ty.parameters(db).iter() {
+                    match param {
+                        HirRitchieParameter::Regular(param) => self.add_hir_ty(param.ty()),
+                        HirRitchieParameter::Variadic(_) => todo!(),
+                        HirRitchieParameter::Keyed(_) => todo!(),
+                    }
+                }
+                self.add_hir_ty(hir_ty.return_ty(db))
+            }
+        }
+    }
+
+    pub(crate) fn add_hir_template_arguments(&mut self, args: &[HirTemplateArgument]) {
+        for arg in args {
+            self.add_hir_template_argument(arg)
+        }
+    }
+
+    pub(crate) fn add_hir_template_argument(&mut self, arg: &HirTemplateArgument) {
+        match *arg {
+            HirTemplateArgument::Vacant => (),
+            HirTemplateArgument::Type(hir_ty) => self.add_hir_ty(hir_ty),
+            HirTemplateArgument::Constant(_) => (),
+            HirTemplateArgument::Lifetime(_) => (),
+            HirTemplateArgument::Place(_) => (),
+        }
     }
 
     pub(crate) fn add_item_path(&mut self, item_path: impl Into<ItemPath>) {

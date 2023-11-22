@@ -23,7 +23,8 @@ impl HasHirDecl for TraitItemPath {
     type HirDecl = TraitItemHirDecl;
 
     fn hir_decl(self, _db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
-        todo!()
+        // ad hoc
+        None
     }
 }
 
@@ -48,10 +49,10 @@ impl TraitItemHirDecl {
 
     pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
         match self {
-            TraitItemHirDecl::AssociatedFn(hir_decl) => hir_decl.hir_expr_region(db).into(),
-            TraitItemHirDecl::MethodFn(hir_decl) => hir_decl.hir_expr_region(db).into(),
-            TraitItemHirDecl::AssociatedType(hir_decl) => hir_decl.hir_expr_region(db).into(),
-            TraitItemHirDecl::AssociatedVal(hir_decl) => hir_decl.hir_expr_region(db).into(),
+            TraitItemHirDecl::AssociatedFn(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
+            TraitItemHirDecl::MethodFn(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
+            TraitItemHirDecl::AssociatedType(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
+            TraitItemHirDecl::AssociatedVal(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
         }
     }
 }

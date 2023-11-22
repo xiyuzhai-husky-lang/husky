@@ -4,6 +4,7 @@ use husky_syn_decl::TypeAssociatedTypeSynDecl;
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct TypeAssociatedTypeHirDecl {
     pub path: TypeItemPath,
+    pub ty: HirType,
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
@@ -17,6 +18,6 @@ impl TypeAssociatedTypeHirDecl {
         // let mut builder = HirEagerExprBuilder::new(db, syn_decl.expr_region(db));
         // // let return_ty = builder.hir_ty(ethereal_signature_template.return_ty(db), db);
         // let hir_expr_region = builder.finish();
-        Self::new(db, path, builder.finish().eager())
+        Self::new(db, path, todo!(), builder.finish().eager())
     }
 }

@@ -6,6 +6,18 @@ pub struct PropsStructHirDefn {
     pub hir_decl: PropsStructTypeHirDecl,
 }
 
+impl From<PropsStructHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: PropsStructHirDefn) -> Self {
+        MajorItemHirDefn::Type(hir_defn.into())
+    }
+}
+
+impl From<PropsStructHirDefn> for HirDefn {
+    fn from(hir_defn: PropsStructHirDefn) -> Self {
+        HirDefn::MajorItem(hir_defn.into())
+    }
+}
+
 impl PropsStructHirDefn {
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         props_struct_hir_defn_dependencies(db, self)
@@ -35,5 +47,5 @@ fn props_struct_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: PropsStructHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

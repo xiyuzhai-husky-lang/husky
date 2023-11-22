@@ -4,9 +4,7 @@ use husky_syn_decl::TraitForTypeAssociatedValSynDecl;
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct TraitForTypeAssociatedValHirDecl {
     pub path: TraitForTypeItemPath,
-    #[return_ref]
-    pub template_parameters: HirTemplateParameters,
-    pub ty_term: EtherealTerm,
+    pub return_ty: HirType,
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 

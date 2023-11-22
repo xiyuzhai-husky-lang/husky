@@ -23,6 +23,12 @@ pub enum TypeItemHirDefn {
     MemoizedField(TypeMemoizedFieldHirDefn),
 }
 
+impl From<TypeItemHirDefn> for HirDefn {
+    fn from(hir_defn: TypeItemHirDefn) -> Self {
+        HirDefn::AssociatedItem(hir_defn.into())
+    }
+}
+
 impl TypeItemHirDefn {
     pub fn path(self, db: &dyn HirDefnDb) -> TypeItemPath {
         match self {

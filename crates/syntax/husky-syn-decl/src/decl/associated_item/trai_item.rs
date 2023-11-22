@@ -83,6 +83,7 @@ impl<'a> DeclParser<'a, TraitItemSynNodePath> {
         match self.syn_node_path().item_kind(self.db()) {
             TraitItemKind::MethodFn => self.parse_trai_method_fn_node_decl().into(),
             TraitItemKind::AssociatedType => self.parse_trai_associated_ty_node_decl().into(),
+            TraitItemKind::AssociatedVal => todo!(),
         }
     }
 }

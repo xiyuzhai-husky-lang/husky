@@ -10,7 +10,7 @@
                             [],
                         ),
                         fields: [
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `line_segment_sketch`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -28,7 +28,7 @@
                                     },
                                 ),
                             },
-                            PropsFieldHirDecl {
+                            PropsStructFieldHirDecl {
                                 ident: `strokes`,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
