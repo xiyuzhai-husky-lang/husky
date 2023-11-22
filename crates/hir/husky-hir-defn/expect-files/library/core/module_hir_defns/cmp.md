@@ -1,5 +1,5 @@
 [
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::cmp::PartialEq`),
@@ -41,7 +41,7 @@
             },
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::cmp::Eq`),
@@ -83,7 +83,7 @@
             },
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::cmp::PartialOrd`),
@@ -125,7 +125,7 @@
             },
         ),
     ),
-    HirDefn::MajorItem(
+    ItemHirDefn::MajorItem(
         MajorItemHirDefn::Trait(
             TraitHirDefn {
                 path: TraitPath(`core::cmp::Ord`),

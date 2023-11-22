@@ -4819,7 +4819,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty: FluffyTerm {
+                                            ty2: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(
@@ -5097,7 +5097,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty: FluffyTerm {
+                                            ty2: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(
@@ -7369,7 +7369,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty: FluffyTerm {
+                                            ty2: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(
@@ -7647,7 +7647,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty: FluffyTerm {
+                                            ty2: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(
@@ -9939,7 +9939,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty: FluffyTerm {
+                                            ty2: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(
@@ -10217,7 +10217,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty: FluffyTerm {
+                                            ty2: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(

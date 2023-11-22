@@ -35,48 +35,30 @@ impl<'a> ItemHirDefnDependenciesBuilder<'a> {
     }
 
     fn add_hir_eager_expr_region(&mut self, hir_eager_expr_region: HirEagerExprRegion) {
-        let hir_eager_expr_arena = hir_eager_expr_region.hir_eager_expr_arena(self.db);
+        let db = self.db;
+        let hir_eager_expr_arena = hir_eager_expr_region.hir_eager_expr_arena(db);
         for hir_eager_expr_data in hir_eager_expr_arena.iter() {
-            match hir_eager_expr_data {
-                HirEagerExprData::Literal(_) => todo!(),
-                HirEagerExprData::PrincipalEntityPath(_) => todo!(),
-                HirEagerExprData::ConstSymbol(_) => todo!(),
-                HirEagerExprData::Variable(_) => todo!(),
-                HirEagerExprData::Binary { lopd, opr, ropd } => todo!(),
-                HirEagerExprData::Be { src, target } => todo!(),
-                HirEagerExprData::Prefix {
-                    opr,
-                    opd_hir_expr_idx,
-                } => todo!(),
-                HirEagerExprData::Suffix {
-                    opd_hir_expr_idx,
-                    opr,
-                } => todo!(),
-                HirEagerExprData::TypeConstructorFnCall {
-                    path,
-                    function_hir_eager_expr_idx,
-                    template_arguments,
-                    item_groups,
-                } => todo!(),
-                HirEagerExprData::TypeVariantConstructorCall {
-                    path,
-                    function_hir_eager_expr_idx,
-                    template_arguments,
-                    item_groups,
-                } => todo!(),
-                HirEagerExprData::FunctionFnCall {
-                    path,
-                    function_hir_eager_expr_idx,
-                    template_arguments,
-                    item_groups,
-                } => todo!(),
-                HirEagerExprData::AssociatedFunctionFnCall {
-                    path,
-                    function_hir_eager_expr_idx,
-                    parent_template_arguments,
-                    template_arguments,
-                    item_groups,
-                } => todo!(),
+            match *hir_eager_expr_data {
+                HirEagerExprData::Literal(_) => (),
+                HirEagerExprData::PrincipalEntityPath(path) => match path {
+                    PrincipalEntityPath::Module(_) => unreachable!(),
+                    PrincipalEntityPath::MajorItem(path) => self.add_item_path(path),
+                    PrincipalEntityPath::TypeVariant(path) => {
+                        self.add_item_path(path.parent_ty_path(db))
+                    }
+                },
+                HirEagerExprData::ConstSymbol(_) => (),
+                HirEagerExprData::Variable(_) => (),
+                HirEagerExprData::Binary { .. } => (),
+                HirEagerExprData::Be { .. } => (),
+                HirEagerExprData::Prefix { .. } => (),
+                HirEagerExprData::Suffix { .. } => (),
+                HirEagerExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
+                HirEagerExprData::TypeVariantConstructorCall { path, .. } => {
+                    self.add_item_path(path.parent_ty_path(db))
+                }
+                HirEagerExprData::FunctionFnCall { path, .. } => self.add_item_path(path),
+                HirEagerExprData::AssociatedFunctionFnCall { path, .. } => self.add_item_path(path),
                 HirEagerExprData::PropsStructField {
                     owner_hir_expr_idx,
                     ident,
@@ -86,28 +68,23 @@ impl<'a> ItemHirDefnDependenciesBuilder<'a> {
                     ident,
                 } => todo!(),
                 HirEagerExprData::MethodFnCall {
-                    self_argument,
-                    ident,
                     path,
-                    template_arguments,
-                    item_groups,
-                } => todo!(),
-                HirEagerExprData::NewTuple { items } => todo!(),
-                HirEagerExprData::Index {
-                    owner_hir_expr_idx,
-                    items,
-                } => todo!(),
-                HirEagerExprData::NewList { items } => todo!(),
-                HirEagerExprData::Block { stmts } => todo!(),
-                HirEagerExprData::EmptyHtmlTag {
-                    function_ident,
-                    arguments,
-                } => todo!(),
-                HirEagerExprData::Todo => todo!(),
-                HirEagerExprData::Unreachable => todo!(),
+                    ref template_arguments,
+                    ..
+                } => {
+                    todo!();
+                    self.add_item_path(path)
+                }
+                HirEagerExprData::NewTuple { .. } => (),
+                HirEagerExprData::Index { .. } => todo!(),
+                HirEagerExprData::NewList { .. } => (),
+                HirEagerExprData::Block { .. } => (),
+                HirEagerExprData::EmptyHtmlTag { .. } => (),
+                HirEagerExprData::Todo => (),
+                HirEagerExprData::Unreachable => (),
                 HirEagerExprData::AssociatedFn {
                     associated_item_path,
-                } => todo!(),
+                } => self.add_item_path(associated_item_path),
             }
         }
     }

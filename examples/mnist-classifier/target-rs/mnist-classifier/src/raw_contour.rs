@@ -313,7 +313,7 @@ impl RawContour {
     }
 
     pub fn relative_bounding_box(self) -> RelativeBoundingBox {
-        self.cc.raw_contours[0].bounding_box.relative_bounding_box(self.bounding_box)
+        self.cc.raw_contours()[0].bounding_box().relative_bounding_box(self.bounding_box())
     }
 
     pub fn contour_len(self) -> f32 {
