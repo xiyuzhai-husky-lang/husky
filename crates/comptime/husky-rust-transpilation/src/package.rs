@@ -1,8 +1,7 @@
 use husky_io_utils::error::IOResult;
-use husky_manifest::{HasPackageManifest, ManifestDependency};
+use husky_manifest::HasPackageManifest;
 use husky_vfs::{
     path::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData},
-    workspace_path::WorkspacePath,
     PackagePathSource,
 };
 

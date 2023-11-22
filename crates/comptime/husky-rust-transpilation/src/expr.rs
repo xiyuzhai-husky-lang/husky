@@ -150,13 +150,22 @@ fn transpile_hir_eager_expr_to_rust(
             }
             builder.bracketed_comma_list(RustBracket::Par, item_groups)
         }
-        HirEagerExprData::Field {
+        HirEagerExprData::PropsStructField {
             owner_hir_expr_idx,
             ident,
         } => {
             geq(owner_hir_expr_idx).transpile_to_rust(builder);
             builder.opr(RustOpr::Dot);
             ident.transpile_to_rust(builder)
+        }
+        HirEagerExprData::MemoizedField {
+            owner_hir_expr_idx,
+            ident,
+        } => {
+            geq(owner_hir_expr_idx).transpile_to_rust(builder);
+            builder.opr(RustOpr::Dot);
+            ident.transpile_to_rust(builder);
+            builder.bracketed(RustBracket::Par, |_| ())
         }
         HirEagerExprData::MethodFnCall {
             self_argument,
