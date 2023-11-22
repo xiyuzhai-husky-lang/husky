@@ -69,11 +69,7 @@ impl HirDefn {
     pub(crate) fn dependencies(self, db: &dyn HirDefnDb) -> Option<HirDefnDependencies> {
         match self {
             HirDefn::Submodule(_) => None,
-            HirDefn::MajorItem(hir_defn) => match hir_defn {
-                MajorItemHirDefn::Type(_) => todo!(),
-                MajorItemHirDefn::Trait(_) => todo!(),
-                MajorItemHirDefn::Fugitive(_) => todo!(),
-            },
+            HirDefn::MajorItem(hir_defn) => Some(hir_defn.dependencies(db)),
             // ask its parent
             HirDefn::TypeVariant(_) => None,
             HirDefn::ImplBlock(_) => None,
@@ -82,14 +78,14 @@ impl HirDefn {
         }
     }
 
-    pub(crate) fn version_stamp(self, db: &dyn HirDefnDb) -> Option<HirDefnVersionStamp> {
+    pub fn version_stamp(self, db: &dyn HirDefnDb) -> Option<HirDefnVersionStamp> {
         match self {
-            HirDefn::Submodule(hir_defn) => None,
+            HirDefn::Submodule(_) => None,
             HirDefn::MajorItem(hir_defn) => Some(hir_defn.version_stamp(db)),
-            HirDefn::TypeVariant(hir_defn) => None,
+            HirDefn::TypeVariant(hir_defn) => Some(hir_defn.version_stamp(db)),
             HirDefn::ImplBlock(hir_defn) => hir_defn.version_stamp(db),
             HirDefn::AssociatedItem(hir_defn) => Some(hir_defn.version_stamp(db)),
-            HirDefn::Attr(hir_defn) => None,
+            HirDefn::Attr(_) => None,
         }
     }
 }
