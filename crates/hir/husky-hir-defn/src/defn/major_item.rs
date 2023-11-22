@@ -43,17 +43,17 @@ impl MajorItemHirDefn {
 
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         match self {
-            MajorItemHirDefn::Type(_) => todo!(),
-            MajorItemHirDefn::Trait(_) => todo!(),
-            MajorItemHirDefn::Fugitive(_) => todo!(),
+            MajorItemHirDefn::Type(hir_defn) => hir_defn.dependencies(db),
+            MajorItemHirDefn::Trait(hir_defn) => hir_defn.dependencies(db),
+            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.dependencies(db),
         }
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
         match self {
-            MajorItemHirDefn::Type(_) => todo!(),
-            MajorItemHirDefn::Trait(_) => todo!(),
-            MajorItemHirDefn::Fugitive(_) => todo!(),
+            MajorItemHirDefn::Type(hir_defn) => hir_defn.version_stamp(db),
+            MajorItemHirDefn::Trait(hir_defn) => hir_defn.version_stamp(db),
+            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.version_stamp(db),
         }
     }
 }

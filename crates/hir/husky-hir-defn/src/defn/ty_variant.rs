@@ -29,6 +29,22 @@ impl TypeVariantHirDefn {
     pub fn hir_decl(self, _db: &dyn HirDefnDb) -> HirDecl {
         todo!()
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+        match self {
+            TypeVariantHirDefn::Unit(hir_defn) => hir_defn.dependencies(db),
+            TypeVariantHirDefn::Tuple(hir_defn) => hir_defn.dependencies(db),
+            TypeVariantHirDefn::Props(hir_defn) => hir_defn.dependencies(db),
+        }
+    }
+
+    pub fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+        match self {
+            TypeVariantHirDefn::Unit(hir_defn) => hir_defn.version_stamp(db),
+            TypeVariantHirDefn::Tuple(hir_defn) => hir_defn.version_stamp(db),
+            TypeVariantHirDefn::Props(hir_defn) => hir_defn.version_stamp(db),
+        }
+    }
 }
 
 // impl HasHirDefn for TypeVariantPath {
