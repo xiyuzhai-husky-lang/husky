@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
-                PropsStructTypeHirDefn {
+                PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -79,7 +79,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
-                PropsStructTypeHirDefn {
+                PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -156,7 +156,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
-                PropsStructTypeHirDefn {
+                PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -233,7 +233,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
-                PropsStructTypeHirDefn {
+                PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -310,7 +310,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
-                PropsStructTypeHirDefn {
+                PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -387,7 +387,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::PropsStruct(
-                PropsStructTypeHirDefn {
+                PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                     hir_decl: PropsStructTypeHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),

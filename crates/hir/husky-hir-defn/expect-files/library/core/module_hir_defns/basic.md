@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::basic::bool`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::basic::bool`, `Extern`),
@@ -46,7 +46,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::basic::never`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::basic::never`, `Extern`),
@@ -90,7 +90,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::basic::unit`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::basic::unit`, `Extern`),
@@ -134,7 +134,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::basic::Trait`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::basic::Trait`, `Extern`),
@@ -178,7 +178,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::basic::Module`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::basic::Module`, `Extern`),
@@ -222,7 +222,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::basic::Lifetime`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::basic::Lifetime`, `Extern`),
@@ -266,7 +266,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::basic::Place`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::basic::Place`, `Extern`),

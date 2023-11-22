@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::mem::Ref`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::mem::Ref`, `Extern`),
@@ -122,7 +122,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::mem::RefMut`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::mem::RefMut`, `Extern`),
@@ -242,7 +242,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::mem::Leash`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::mem::Leash`, `Extern`),
@@ -324,7 +324,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::mem::At`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::mem::At`, `Extern`),

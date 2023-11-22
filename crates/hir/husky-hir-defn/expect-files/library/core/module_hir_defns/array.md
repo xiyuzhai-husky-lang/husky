@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::array::Array`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::array::Array`, `Extern`),

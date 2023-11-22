@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Enum(
-                EnumTypeHirDefn {
+                EnumHirDefn {
                     path: TypePath(`mnist::MnistLabel`, `Enum`),
                     hir_decl: EnumTypeHirDecl {
                         path: TypePath(`mnist::MnistLabel`, `Enum`),
@@ -46,7 +46,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::TupleStruct(
-                TupleStructTypeHirDefn {
+                TupleStructHirDefn {
                     path: TypePath(`mnist::BinaryImage28`, `Struct`),
                     hir_decl: TupleStructTypeHirDecl {
                         path: TypePath(`mnist::BinaryImage28`, `Struct`),
@@ -114,7 +114,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::TupleStruct(
-                TupleStructTypeHirDefn {
+                TupleStructHirDefn {
                     path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                     hir_decl: TupleStructTypeHirDecl {
                         path: TypePath(`mnist::BinaryGrid28`, `Struct`),
@@ -182,7 +182,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist::input`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist::input`, `Val`),

@@ -44,7 +44,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
-                ExternTypeHirDefn {
+                ExternHirDefn {
                     path: TypePath(`core::visual::Html`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
                         path: TypePath(`core::visual::Html`, `Extern`),

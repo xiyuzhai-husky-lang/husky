@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
@@ -63,7 +63,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
@@ -291,7 +291,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
@@ -519,7 +519,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
@@ -747,7 +747,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),

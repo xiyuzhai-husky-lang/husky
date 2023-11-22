@@ -2,7 +2,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
@@ -63,7 +63,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::Val(
-                ValFugitiveHirDefn {
+                ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
@@ -133,7 +133,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
@@ -403,7 +403,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
@@ -673,7 +673,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
-                FunctionFnFugitiveHirDefn {
+                FunctionFnHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
                     hir_decl: FunctionFnFugitiveHirDecl {
                         path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
