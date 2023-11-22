@@ -1,3 +1,5 @@
+use husky_hir_decl::parameter::parenate::eager::HirEagerParenateParameter;
+
 use super::*;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
@@ -42,7 +44,21 @@ fn function_fn_hir_defn_dependencies(
     db: &dyn HirDefnDb,
     hir_defn: FunctionFnHirDefn,
 ) -> HirDefnDependencies {
-    todo!()
+    let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
+    let hir_decl = hir_defn.hir_decl(db);
+    builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
+    for param in hir_decl.parenate_parameters(db).iter() {
+        match *param {
+            HirEagerParenateParameter::Ordinary { ty, .. } => builder.add_hir_ty(ty),
+            HirEagerParenateParameter::Keyed => todo!(),
+            HirEagerParenateParameter::Variadic => todo!(),
+        }
+    }
+    builder.add_hir_ty(hir_decl.return_ty(db));
+    if let Some(hir_eager_expr_region) = hir_defn.hir_eager_expr_region(db) {
+        builder.add_hir_eager_expr_region(hir_eager_expr_region);
+    }
+    builder.finish()
 }
 
 #[salsa::tracked(jar = HirDefnJar)]

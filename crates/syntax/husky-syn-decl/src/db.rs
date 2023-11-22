@@ -85,10 +85,10 @@ pub struct SynDeclJar(
     ty_variant_syn_decl,
     UnitTypeVariantSynNodeDecl,
     UnitTypeVariantSynDecl,
-    PropsTypeVariantSynNodeDecl,
-    PropsTypeVariantSynDecl,
-    TupleTypeVariantSynNodeDecl,
-    TupleTypeVariantSynDecl,
+    TypePropsVariantSynNodeDecl,
+    TypePropsVariantSynDecl,
+    TypeTupleVariantSynNodeDecl,
+    TypeTupleVariantSynDecl,
     // - associated items
     // -- type item
     ty_item_syn_node_decl,
