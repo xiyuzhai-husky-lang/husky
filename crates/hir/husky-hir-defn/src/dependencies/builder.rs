@@ -77,7 +77,11 @@ impl<'a> ItemHirDefnDependenciesBuilder<'a> {
                     template_arguments,
                     item_groups,
                 } => todo!(),
-                HirEagerExprData::Field {
+                HirEagerExprData::PropsStructField {
+                    owner_hir_expr_idx,
+                    ident,
+                } => todo!(),
+                HirEagerExprData::MemoizedField {
                     owner_hir_expr_idx,
                     ident,
                 } => todo!(),

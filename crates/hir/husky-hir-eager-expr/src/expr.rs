@@ -6,7 +6,7 @@ pub use self::html::*;
 
 use crate::{symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
 use husky_ethereal_term::EtherealTerm;
-use husky_fluffy_term::{MethodFluffySignature, StaticDispatch};
+use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature, StaticDispatch};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::HirConstSymbol;
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
@@ -67,7 +67,7 @@ pub enum HirEagerExprData {
         template_arguments: Option<HirEagerTemplateArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
-    OrdinaryField {
+    PropsStructField {
         owner_hir_expr_idx: HirEagerExprIdx,
         ident: Ident,
     },
@@ -284,10 +284,17 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::Field {
                 owner_sema_expr_idx,
                 ident_token,
+                field_dispatch,
                 ..
-            } => HirEagerExprData::Field {
-                owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
-                ident: ident_token.ident(),
+            } => match field_dispatch.signature() {
+                FluffyFieldSignature::PropsStruct { ty2 } => HirEagerExprData::PropsStructField {
+                    owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
+                    ident: ident_token.ident(),
+                },
+                FluffyFieldSignature::Memoized { ty } => HirEagerExprData::MemoizedField {
+                    owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
+                    ident: ident_token.ident(),
+                },
             },
             SemaExprData::MethodApplication { .. } => todo!(),
             SemaExprData::MethodFnCall {
