@@ -4,7 +4,7 @@ use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 // todo: GADT
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TupleTypeVariantSynNodeDecl {
+pub struct TypeTupleVariantSynNodeDecl {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
     lpar_token_idx: RegionalTokenIdx,
@@ -13,14 +13,14 @@ pub struct TupleTypeVariantSynNodeDecl {
         PunctuatedSmallList<TupleFieldSyndicate, CommaRegionalToken, SynNodeDeclError, true, 4>,
     >,
     #[return_ref]
-    rpar: SynNodeDeclResult<TupleTypeVariantRparRegionalToken>,
+    rpar: SynNodeDeclResult<TypeTupleVariantRparRegionalToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TupleTypeVariantRparRegionalToken(RparRegionalToken);
+pub struct TypeTupleVariantRparRegionalToken(RparRegionalToken);
 
-impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TupleTypeVariantRparRegionalToken {
+impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TypeTupleVariantRparRegionalToken {
     type Error = SynNodeDeclError;
 
     fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
@@ -35,18 +35,18 @@ impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TupleTypeVariantRparRegio
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TupleTypeVariantSynDecl {
+pub struct TypeTupleVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,
     pub fields: SmallVec<[TupleFieldSyndicate; 4]>,
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TupleTypeVariantSynDecl {
+impl TypeTupleVariantSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn SynDeclDb,
         path: TypeVariantPath,
-        syn_node_decl: TupleTypeVariantSynNodeDecl,
+        syn_node_decl: TypeTupleVariantSynNodeDecl,
     ) -> DeclResult<Self> {
         let fields = SmallVec::from(syn_node_decl.field_comma_list(db).as_ref()?.elements());
         Ok(Self::new(
