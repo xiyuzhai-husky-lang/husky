@@ -41,6 +41,14 @@ impl AssociatedItemHirDefn {
             AssociatedItemHirDefn::TraitForTypeItem(hir_defn) => hir_defn.hir_expr_region(db),
         }
     }
+
+    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> ItemHirDefnDependencies {
+        match self {
+            AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.dependencies(db),
+            AssociatedItemHirDefn::TraitItem(_) => todo!(),
+            AssociatedItemHirDefn::TraitForTypeItem(_) => todo!(),
+        }
+    }
 }
 
 impl HasHirDefn for AssociatedItemPath {

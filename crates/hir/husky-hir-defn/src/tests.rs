@@ -64,7 +64,7 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn module_hir_defns(db: &DB, module_path: ModulePath) -> Vec<ItemHirDefn> {
+pub(crate) fn module_hir_defns(db: &DB, module_path: ModulePath) -> Vec<ItemHirDefn> {
     module_item_paths(db, module_path)
         .iter()
         .filter_map(|path| path.hir_defn(db))
