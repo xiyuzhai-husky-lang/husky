@@ -24,7 +24,6 @@ pub struct HirTypeJar(
     HirTypePathLeading,
     HirTypeTypeAssociatedType,
     HirTypeTraitAssociatedType,
-    HirTypeLiteral,
     hir_template_symbol_from_ethereal,
     HirConstSymbol,
     crate::ty::ritchie::hir_ty_from_ethereal_term_ritchie,

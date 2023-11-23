@@ -9,6 +9,7 @@ dashmap.workspace = true
 smallvec.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
+version-stamp = { path = "../../abstractions/version-stamp" }
 # fs
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 # kernel

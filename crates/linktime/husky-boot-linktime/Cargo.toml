@@ -7,6 +7,8 @@ edition = "2021"
 [dependencies]
 dashmap.workspace = true
 smallvec.workspace = true
+# abstraction
+version-stamp = { path = "../../abstractions/version-stamp" }
 # kernel
 husky-task = { path = "../../kernel/husky-task" }
 husky-regular-value = { path = "../../kernel/husky-regular-value" }

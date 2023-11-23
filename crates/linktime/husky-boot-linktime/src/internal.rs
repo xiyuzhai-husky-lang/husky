@@ -4,6 +4,7 @@ mod mapgen;
 use crate::*;
 use husky_linkage::version_stamp::LinkageVersionStamp;
 use husky_vfs::CratePath;
+use version_stamp::HasVersionStamp;
 
 pub struct BootLinkTimeInternal<ComptimeDb, LinkageImpl>
 where

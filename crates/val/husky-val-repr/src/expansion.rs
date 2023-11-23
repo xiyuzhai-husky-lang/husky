@@ -338,12 +338,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ..
             } => {
                 let opn = ValOpn::LinkageImpl(Linkage::new_item(
-                    self.db,
                     path,
                     match template_arguments {
                         Some(_) => todo!(),
-                        None => Default::default(),
+                        None => &[],
                     },
+                    self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
@@ -356,12 +356,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ..
             } => {
                 let opn = ValOpn::LinkageImpl(Linkage::new_item(
-                    self.db,
                     path,
                     match template_arguments {
                         Some(_) => todo!(),
-                        None => Default::default(),
+                        None => &[],
                     },
+                    self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
@@ -374,12 +374,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ..
             } => {
                 let opn = ValOpn::LinkageImpl(Linkage::new_item(
-                    self.db,
                     path,
                     match template_arguments {
                         Some(_) => todo!(),
-                        None => Default::default(),
+                        None => &[],
                     },
+                    self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
@@ -392,12 +392,12 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 ..
             } => {
                 let opn = ValOpn::LinkageImpl(Linkage::new_item(
-                    self.db,
                     path,
                     match template_arguments {
                         Some(_) => todo!(),
-                        None => Default::default(),
+                        None => &[],
                     },
+                    self.db,
                 ));
                 let mut arguments: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);

@@ -118,12 +118,3 @@ pub(crate) fn hir_ty_from_ethereal_term_application(
         TermFunctionReduced::Other(_) => todo!(),
     }
 }
-
-/// excluding symbols
-#[salsa::interned(db = HirTypeDb, jar = HirTypeJar)]
-pub struct HirTypeLiteral {
-    pub ty_path: TypePath,
-    /// phantom arguments are ignored
-    #[return_ref]
-    pub template_arguments: HirTemplateArgumentLiterals,
-}
