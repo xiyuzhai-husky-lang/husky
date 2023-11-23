@@ -2,6 +2,8 @@ use husky_ethereal_signature::helpers::trai_for_ty::trai_for_ty_impl_block_ether
 use salsa::DisplayWithDb;
 use vec_like::SmallVecPairMap;
 
+use crate::method_fn::MethodFnFluffySignature;
+
 use super::*;
 
 impl HasFluffyTraitMethodDispatch for EtherealTerm {
@@ -20,7 +22,7 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
         let mut trai_path_selected: Option<TraitPath> = None;
         let mut matches_map: SmallVecPairMap<
             TraitPath,
-            SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated; 2]>,
+            SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]>,
             2,
         > = Default::default();
         let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
@@ -29,16 +31,13 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
         for record in trai_item_records.records() {
             // todo: check scope
             let trai_path = record.trai_path();
-            let mut matches: SmallVec<
-                [TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated; 2],
-            > = Default::default();
+            let mut matches: SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]> =
+                Default::default();
             for template in
                 trai_for_ty_impl_block_ethereal_signature_templates(db, trai_path, ty_path)?.iter()
             {
                 match template.instantiate_ty(db, arguments, self) {
-                    JustOk(template_partially_instantiated) => {
-                        matches.push(template_partially_instantiated)
-                    }
+                    JustOk(signature_builder) => matches.push(signature_builder),
                     JustErr(_) => todo!(),
                     Nothing => todo!(),
                 }
@@ -79,19 +78,23 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
                 match matches.len() {
                     0 => unreachable!(),
                     1 => {
-                        let impl_block_template_partially_instantiated = matches[0];
+                        let impl_block_signature_builder = matches[0];
                         // todo: check scope
-                        let TraitForTypeItemEtherealSignatureTemplatePartiallyInstantiated::Method(
-                            method_template_partially_instantiated,
-                        ) = impl_block_template_partially_instantiated
+                        let TraitForTypeItemEtherealSignatureBuilder::Method(
+                            method_signature_builder,
+                        ) = impl_block_signature_builder
                             .associated_item_ethereal_signature_template(db, ident_token.ident())?
                         else {
                             todo!()
                         };
-                        match method_template_partially_instantiated.try_into_signature(db) {
-                            Some(signature) => JustOk(FluffyDynamicDispatch {
+                        match method_signature_builder.try_finish(db) {
+                            Some(eth_sig) => JustOk(FluffyDynamicDispatch {
+                                signature: MethodFnFluffySignature::from_ethereal(
+                                    indirections.final_place(),
+                                    eth_sig,
+                                )
+                                .into(),
                                 indirections,
-                                signature: signature.into(),
                             }),
                             None => todo!(),
                         }

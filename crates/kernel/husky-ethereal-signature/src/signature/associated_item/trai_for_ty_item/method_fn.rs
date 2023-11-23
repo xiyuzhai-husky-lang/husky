@@ -43,51 +43,45 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
         ))
     }
 
-    pub(super) fn inherit_partial_instantiation(
+    pub(super) fn inherit_instantiation_builder(
         self,
         db: &dyn EtherealSignatureDb,
-        impl_block_template_partially_instantiated: TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
-    ) -> TraitForTypeMethodFnEtherealSignatureTemplatePartiallyInstantiated {
-        let partial_instantiation = impl_block_template_partially_instantiated
-            .partial_instantiation(db)
+        impl_block_signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
+    ) -> TraitForTypeMethodFnEtherealSignatureBuilder {
+        let instantiation_builder = impl_block_signature_builder
+            .instantiation_builder(db)
             .merge_with_item_template_parameters(self.template_parameters(db));
-        TraitForTypeMethodFnEtherealSignatureTemplatePartiallyInstantiated::new(
-            db,
-            self,
-            partial_instantiation,
-        )
+        TraitForTypeMethodFnEtherealSignatureBuilder::new(db, self, instantiation_builder)
     }
 }
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct TraitForTypeMethodFnEtherealSignatureTemplatePartiallyInstantiated {
+pub struct TraitForTypeMethodFnEtherealSignatureBuilder {
     pub template: TraitForTypeMethodFnEtherealSignatureTemplate,
     #[return_ref]
-    pub partial_instantiation: EtherealTermPartialInstantiation,
+    pub instantiation_builder: EtherealInstantiationBuilder,
 }
 
-impl TraitForTypeMethodFnEtherealSignatureTemplatePartiallyInstantiated {
-    pub fn try_into_signature(
+impl TraitForTypeMethodFnEtherealSignatureBuilder {
+    pub fn try_finish(
         self,
         db: &dyn EtherealSignatureDb,
     ) -> Option<&TraitForTypeMethodFnEtherealSignature> {
-        trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_into_signature(
-            db, self,
-        )
-        .as_ref()
+        trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature(db, self)
+            .as_ref()
     }
 }
 
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
-fn trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_into_signature(
+fn trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature(
     db: &dyn EtherealSignatureDb,
-    template_partially_instantiated: TraitForTypeMethodFnEtherealSignatureTemplatePartiallyInstantiated,
+    signature_builder: TraitForTypeMethodFnEtherealSignatureBuilder,
 ) -> Option<TraitForTypeMethodFnEtherealSignature> {
     // todo: deal with dependent type
-    let instantiation = template_partially_instantiated
-        .partial_instantiation(db)
+    let instantiation = signature_builder
+        .instantiation_builder(db)
         .try_into_instantiation()?;
-    let template = template_partially_instantiated.template(db);
+    let template = signature_builder.template(db);
     Some(TraitForTypeMethodFnEtherealSignature {
         path: template.path(db),
         self_value_parameter: template
@@ -102,12 +96,14 @@ fn trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_
             })
             .collect(),
         return_ty: template.return_ty(db).instantiate(db, &instantiation),
+        instantiation,
     })
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitForTypeMethodFnEtherealSignature {
     path: TraitForTypeItemPath,
+    instantiation: EtherealInstantiation,
     self_value_parameter: EtherealRitchieParameter,
     parenate_parameters: SmallVec<[EtherealRitchieParameter; 4]>,
     return_ty: EtherealTerm,
@@ -124,5 +120,9 @@ impl TraitForTypeMethodFnEtherealSignature {
 
     pub fn path(&self) -> TraitForTypeItemPath {
         self.path
+    }
+
+    pub fn instantiation(&self) -> &EtherealInstantiation {
+        &self.instantiation
     }
 }

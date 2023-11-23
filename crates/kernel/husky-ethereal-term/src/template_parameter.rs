@@ -28,8 +28,8 @@ impl EtherealTermTemplateParameters {
     }
 
     /// returns an empty partial instantiation
-    pub fn empty_partial_instantiation(&self) -> EtherealTermPartialInstantiation {
-        EtherealTermPartialInstantiation::new(self.iter().map(|param| param.symbol()))
+    pub fn empty_instantiation_builder(&self) -> EtherealInstantiationBuilder {
+        EtherealInstantiationBuilder::new(self.iter().map(|param| param.symbol()))
     }
 }
 
