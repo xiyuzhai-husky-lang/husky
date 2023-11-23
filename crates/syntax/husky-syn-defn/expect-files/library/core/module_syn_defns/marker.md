@@ -1,6 +1,6 @@
 Ok(
     [
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::marker::Copy`),
@@ -68,7 +68,7 @@ Ok(
                 },
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::marker::Sized`),

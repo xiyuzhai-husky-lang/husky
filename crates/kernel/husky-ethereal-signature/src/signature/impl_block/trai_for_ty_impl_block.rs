@@ -1,8 +1,8 @@
 use super::*;
-use husky_entity_syn_tree::{HasAssociatedItemPaths};
+use husky_entity_syn_tree::HasAssociatedItemPaths;
 use husky_term_prelude::TermTypeExpectation;
 use smallvec::SmallVec;
-use vec_like::{VecMapGetEntry};
+use vec_like::VecMapGetEntry;
 
 #[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
 pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
@@ -40,7 +40,7 @@ impl EtherealTermInstantiate for EtherealSelfTypeInTraitImpl {
     fn instantiate(
         self,
         db: &dyn EtherealTermDb,
-        instantiation: &EtherealTermInstantiation,
+        instantiation: &EtherealInstantiation,
     ) -> Self::Target {
         match self {
             EtherealSelfTypeInTraitImpl::PathLeading(term) => term.instantiate(db, instantiation),
@@ -146,7 +146,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
     ) -> EtherealSignatureMaybeResult<
         TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
     > {
-        let mut instantiation = self.template_parameters(db).instantiation();
+        let mut instantiation = self.template_parameters(db).empty_partial_instantiation();
         match self.self_ty_refined(db) {
             EtherealSelfTypeInTraitImpl::PathLeading(self_ty_term) => {
                 match instantiation.try_add_rules_from_application(

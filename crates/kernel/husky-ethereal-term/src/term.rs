@@ -559,7 +559,7 @@ impl EtherealTermInstantiate for EtherealTerm {
     fn instantiate(
         self,
         db: &dyn EtherealTermDb,
-        instantiation: &EtherealTermInstantiation,
+        instantiation: &EtherealInstantiation,
     ) -> Self::Target {
         match self {
             EtherealTerm::Literal(_) => todo!(),

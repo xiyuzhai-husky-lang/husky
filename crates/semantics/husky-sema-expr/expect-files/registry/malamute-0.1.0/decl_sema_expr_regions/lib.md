@@ -1,6 +1,6 @@
 [
     SemaExprRegion {
-        [salsa id]: 353,
+        [salsa id]: 349,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
@@ -105,7 +105,7 @@
                     Type(
                         TypeSynNodePath(
                             Id {
-                                value: 67,
+                                value: 64,
                             },
                         ),
                     ),
@@ -209,7 +209,7 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 354,
+        [salsa id]: 350,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
@@ -378,7 +378,7 @@
                     Type(
                         TypeSynNodePath(
                             Id {
-                                value: 68,
+                                value: 65,
                             },
                         ),
                     ),
@@ -628,7 +628,7 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 355,
+        [salsa id]: 351,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
@@ -797,7 +797,7 @@
                     Type(
                         TypeSynNodePath(
                             Id {
-                                value: 69,
+                                value: 66,
                             },
                         ),
                     ),
@@ -1047,7 +1047,7 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 356,
+        [salsa id]: 352,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
@@ -1599,7 +1599,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 74,
+                                                    value: 71,
                                                 },
                                             ),
                                         ),
@@ -1928,7 +1928,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 74,
+                                                value: 71,
                                             },
                                         ),
                                     ),
@@ -2604,7 +2604,7 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 357,
+        [salsa id]: 353,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
@@ -3071,7 +3071,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 73,
+                                                    value: 70,
                                                 },
                                             ),
                                         ),
@@ -3276,7 +3276,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 72,
+                                                    value: 69,
                                                 },
                                             ),
                                         ),
@@ -3468,7 +3468,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 73,
+                                                value: 70,
                                             },
                                         ),
                                     ),
@@ -3584,7 +3584,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 72,
+                                                value: 69,
                                             },
                                         ),
                                     ),
@@ -4304,7 +4304,7 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 358,
+        [salsa id]: 354,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
@@ -5018,7 +5018,7 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 359,
+        [salsa id]: 355,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
@@ -5506,7 +5506,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 74,
+                                                    value: 71,
                                                 },
                                             ),
                                         ),
@@ -5711,7 +5711,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 73,
+                                                    value: 70,
                                                 },
                                             ),
                                         ),
@@ -5976,7 +5976,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 74,
+                                                value: 71,
                                             },
                                         ),
                                     ),
@@ -6111,7 +6111,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 73,
+                                                value: 70,
                                             },
                                         ),
                                     ),
@@ -6976,7 +6976,7 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 360,
+        [salsa id]: 356,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(

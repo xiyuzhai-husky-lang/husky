@@ -1,6 +1,6 @@
 Ok(
     [
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::cmp::PartialEq`),
@@ -68,7 +68,7 @@ Ok(
                 },
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::cmp::Eq`),
@@ -136,7 +136,7 @@ Ok(
                 },
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::cmp::PartialOrd`),
@@ -204,7 +204,7 @@ Ok(
                 },
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::cmp::Ord`),

@@ -24,7 +24,7 @@ EntitySynTreePresheet {
                         block: Type {
                             path: TypePath(
                                 Id {
-                                    value: 64,
+                                    value: 61,
                                 },
                             ),
                             variants: Some(
@@ -72,7 +72,7 @@ EntitySynTreePresheet {
                         block: Type {
                             path: TypePath(
                                 Id {
-                                    value: 65,
+                                    value: 62,
                                 },
                             ),
                             variants: None,
@@ -114,7 +114,7 @@ EntitySynTreePresheet {
                         block: Type {
                             path: TypePath(
                                 Id {
-                                    value: 66,
+                                    value: 63,
                                 },
                             ),
                             variants: None,

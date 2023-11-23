@@ -417,7 +417,7 @@
                                             3,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -429,7 +429,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty2: FluffyTerm {
+                                            ty: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     EntityPath(
@@ -510,7 +510,7 @@
                                             9,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -522,7 +522,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty2: FluffyTerm {
+                                            ty: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     EntityPath(
@@ -2401,7 +2401,7 @@
                                             14,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -2413,7 +2413,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty2: FluffyTerm {
+                                            ty: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     EntityPath(
@@ -3055,7 +3055,7 @@
                                             42,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -3067,7 +3067,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty2: FluffyTerm {
+                                            ty: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     EntityPath(

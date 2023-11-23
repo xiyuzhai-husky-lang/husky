@@ -37,10 +37,12 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
 
     pub(crate) fn add_hir_expr_region(&mut self, expr_region: HirExprRegion) {
         match expr_region {
-            HirExprRegion::Eager(eager_expr_region) => {
-                self.add_hir_eager_expr_region(eager_expr_region)
+            HirExprRegion::Eager(hir_eager_expr_region) => {
+                self.add_hir_eager_expr_region(hir_eager_expr_region)
             }
-            HirExprRegion::Lazy(lazy_expr_region) => todo!(),
+            HirExprRegion::Lazy(hir_lazy_expr_region) => {
+                self.add_hir_lazy_expr_region(hir_lazy_expr_region)
+            }
         }
     }
 
@@ -69,14 +71,8 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 }
                 HirEagerExprData::FunctionFnCall { path, .. } => self.add_item_path(path),
                 HirEagerExprData::AssociatedFunctionFnCall { path, .. } => self.add_item_path(path),
-                HirEagerExprData::PropsStructField {
-                    owner_hir_expr_idx,
-                    ident,
-                } => todo!(),
-                HirEagerExprData::MemoizedField {
-                    owner_hir_expr_idx,
-                    ident,
-                } => todo!(),
+                HirEagerExprData::PropsStructField { .. } => (),
+                HirEagerExprData::MemoizedField { path, .. } => self.add_item_path(path),
                 HirEagerExprData::MethodFnCall {
                     path,
                     ref template_arguments,
@@ -104,8 +100,57 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
         }
     }
 
-    pub(crate) fn add_lazy_expr_region(&mut self, lazy_expr_region: HirLazyExprRegion) {
-        todo!()
+    pub(crate) fn add_hir_lazy_expr_region(&mut self, hir_lazy_expr_region: HirLazyExprRegion) {
+        let db = self.db;
+        let hir_lazy_expr_arena = hir_lazy_expr_region.hir_lazy_expr_arena(db);
+        for hir_lazy_expr_data in hir_lazy_expr_arena.iter() {
+            match *hir_lazy_expr_data {
+                HirLazyExprData::Literal(_) => (),
+                HirLazyExprData::PrincipalEntityPath(path) => match path {
+                    PrincipalEntityPath::Module(_) => unreachable!(),
+                    PrincipalEntityPath::MajorItem(path) => self.add_item_path(path),
+                    PrincipalEntityPath::TypeVariant(path) => {
+                        self.add_item_path(path.parent_ty_path(db))
+                    }
+                },
+                HirLazyExprData::ConstSymbol(_) => (),
+                HirLazyExprData::Variable(_) => (),
+                HirLazyExprData::Binary { .. } => (),
+                HirLazyExprData::Be { .. } => (),
+                HirLazyExprData::Prefix { .. } => (),
+                HirLazyExprData::Suffix { .. } => (),
+                HirLazyExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::TypeVariantConstructorFnCall { path, .. } => {
+                    self.add_item_path(path.parent_ty_path(db))
+                }
+                HirLazyExprData::FunctionFnItemCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::FunctionGnItemCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::AssociatedFunctionFnCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::PropsStructField { owner, ident } => (),
+                HirLazyExprData::MemoizedField { path, .. } => self.add_item_path(path),
+                HirLazyExprData::MethodFnCall {
+                    path,
+                    ref template_arguments,
+                    ..
+                } => {
+                    // todo!();
+                    self.add_item_path(path)
+                }
+                HirLazyExprData::NewTuple { .. } => (),
+                HirLazyExprData::Index { .. } =>
+                /* ad hoc */
+                {
+                    ()
+                }
+                // todo!(),
+                HirLazyExprData::NewList { .. } => (),
+                HirLazyExprData::Block { .. } => (),
+                HirLazyExprData::EmptyHtmlTag { .. } => (),
+                HirLazyExprData::Todo => (),
+                HirLazyExprData::Unreachable => (),
+                HirLazyExprData::AssociatedFn { path } => self.add_item_path(path),
+            }
+        }
     }
 
     pub(crate) fn add_hir_trai(&mut self, hir_trai: HirTrait) {

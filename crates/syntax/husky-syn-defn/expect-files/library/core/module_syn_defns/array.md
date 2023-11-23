@@ -1,6 +1,6 @@
 Ok(
     [
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {

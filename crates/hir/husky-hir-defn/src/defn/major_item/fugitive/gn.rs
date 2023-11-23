@@ -59,18 +59,18 @@ fn function_gn_hir_defn_dependencies(
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
-    builder.add_lazy_expr_region(hir_decl.hir_lazy_expr_region(db));
+    builder.add_hir_lazy_expr_region(hir_decl.hir_lazy_expr_region(db));
     for param in hir_decl.parenate_parameters(db).iter() {
         match *param {
             HirLazyParenateParameter::SelfValue => unreachable!(),
             HirLazyParenateParameter::Ordinary { ty, .. } => builder.add_hir_ty(ty),
-            HirLazyParenateParameter::Keyed => todo!(),
-            HirLazyParenateParameter::Variadic => todo!(),
+            HirLazyParenateParameter::Keyed { ty, .. } => builder.add_hir_ty(ty),
+            HirLazyParenateParameter::Variadic { ty, .. } => builder.add_hir_ty(ty),
         }
     }
     builder.add_hir_ty(hir_decl.return_ty(db));
     if let Some(hir_lazy_expr_region) = hir_defn.hir_lazy_expr_region(db) {
-        builder.add_lazy_expr_region(hir_lazy_expr_region);
+        builder.add_hir_lazy_expr_region(hir_lazy_expr_region);
     }
     builder.finish()
 }

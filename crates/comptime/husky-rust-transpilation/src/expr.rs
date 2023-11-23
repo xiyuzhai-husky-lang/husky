@@ -161,6 +161,7 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::MemoizedField {
             owner_hir_expr_idx,
             ident,
+            ..
         } => {
             geq(owner_hir_expr_idx).transpile_to_rust(builder);
             builder.opr(RustOpr::Dot);

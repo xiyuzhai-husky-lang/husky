@@ -6,6 +6,12 @@ pub struct EnumUnitVariantHirDefn {
     pub hir_decl: EnumUnitTypeVariantHirDecl,
 }
 
+impl From<EnumUnitVariantHirDefn> for HirDefn {
+    fn from(hir_defn: EnumUnitVariantHirDefn) -> Self {
+        HirDefn::TypeVariant(hir_defn.into())
+    }
+}
+
 impl EnumUnitVariantHirDefn {
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         enum_unit_variant_hir_defn_dependencies(db, self)
@@ -21,7 +27,10 @@ fn enum_unit_variant_hir_defn_dependencies(
     db: &dyn HirDefnDb,
     hir_defn: EnumUnitVariantHirDefn,
 ) -> HirDefnDependencies {
-    todo!()
+    let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
+    let hir_decl = hir_defn.hir_decl(db);
+    // builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
+    builder.finish()
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
@@ -29,5 +38,5 @@ fn enum_unit_variant_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: EnumUnitVariantHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

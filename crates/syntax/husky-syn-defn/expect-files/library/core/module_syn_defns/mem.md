@@ -1,6 +1,6 @@
 Ok(
     [
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -184,7 +184,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -368,7 +368,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -497,7 +497,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Extern(
                     ExternTypeSynDefn {
@@ -649,7 +649,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::ImplBlock(
+        SynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {

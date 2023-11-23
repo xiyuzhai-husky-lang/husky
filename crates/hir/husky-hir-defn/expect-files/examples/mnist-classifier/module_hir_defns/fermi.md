@@ -808,6 +808,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 10,
                                             ident: `norm`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `norm`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 6,
@@ -1104,6 +1115,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 10,
                                             ident: `rel_norm`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `rel_norm`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 6,
@@ -1400,6 +1422,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 10,
                                             ident: `angle_change`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `angle_change`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 11,

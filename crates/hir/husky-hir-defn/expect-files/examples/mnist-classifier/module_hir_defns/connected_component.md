@@ -309,6 +309,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 1,
                                             ident: `contour_len`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::raw_contour`,
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `contour_len`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::Variable(
                                             2,
@@ -2663,6 +2674,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 1,
                                             ident: `raw_contours`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `raw_contours`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
@@ -3064,6 +3086,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 2,
                                             ident: `raw_contours`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `raw_contours`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::I32(
@@ -4698,6 +4731,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 1,
                                             ident: `distribution`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `distribution`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
@@ -4859,6 +4903,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 1,
                                             ident: `distribution`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `distribution`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,

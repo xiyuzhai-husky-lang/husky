@@ -174,6 +174,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 1,
                                             ident: `angle_change`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `angle_change`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::F32(
@@ -213,6 +224,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 8,
                                             ident: `angle_change`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `angle_change`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::Prefix {
                                             opr: Minus,

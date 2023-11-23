@@ -62,8 +62,32 @@
                     ),
                     parenate_parameters: HirLazyParenateParameters(
                         [
-                            Variadic,
-                            Keyed,
+                            Variadic {
+                                variant: Vec,
+                                ty: PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                ),
+                            },
+                            Keyed {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 453,
+                                        },
+                                    ),
+                                ),
+                                ty: PathLeading(
+                                    HirTypePathLeading(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            },
                         ],
                     ),
                     return_ty: HirType::PathLeading(
