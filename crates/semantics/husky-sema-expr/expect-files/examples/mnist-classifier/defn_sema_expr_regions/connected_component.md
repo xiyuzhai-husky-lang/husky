@@ -11044,6 +11044,13 @@
                                                     ),
                                                 ),
                                             },
+                                            instantiation: FluffyInstantiation {
+                                                env: AssociatedFn,
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                         },
                                     ),
                                 },

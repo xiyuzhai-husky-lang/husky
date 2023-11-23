@@ -7,6 +7,16 @@ pub struct EtherealTermTemplateParameters {
     data: SmallVec<[EtherealTemplateParameter; 2]>,
 }
 
+impl<'a> IntoIterator for &'a EtherealTermTemplateParameters {
+    type Item = &'a EtherealTemplateParameter;
+
+    type IntoIter = impl Iterator<Item = &'a EtherealTemplateParameter> + 'a;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.iter()
+    }
+}
+
 impl EtherealTermTemplateParameters {
     pub fn from_declarative(
         db: &dyn EtherealTermDb,
