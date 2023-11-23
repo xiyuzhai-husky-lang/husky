@@ -13,6 +13,7 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
+use ::version_stamp::HasVersionStamp;
 use husky_hir_decl::parameter::parenate::eager::HirEagerParenateParameter;
 use husky_hir_decl::parameter::template::HirTemplateParameter;
 use husky_hir_eager_expr::helpers::hir_eager_body_with_expr_region;
@@ -79,7 +80,7 @@ impl HirDefn {
         }
     }
 
-    pub fn version_stamp(self, db: &dyn HirDefnDb) -> Option<HirDefnVersionStamp> {
+    pub fn opt_version_stamp(self, db: &dyn HirDefnDb) -> Option<HirDefnVersionStamp> {
         match self {
             HirDefn::Submodule(_) => None,
             HirDefn::MajorItem(hir_defn) => Some(hir_defn.version_stamp(db)),
@@ -88,6 +89,18 @@ impl HirDefn {
             HirDefn::AssociatedItem(hir_defn) => Some(hir_defn.version_stamp(db)),
             HirDefn::Attr(_) => None,
         }
+    }
+}
+
+impl<Db> HasVersionStamp<Db> for HirDefn
+where
+    Db: ?Sized + HirDefnDb,
+{
+    type VersionStamp = HirDefnVersionStamp;
+
+    fn version_stamp(self, db: &Db) -> Self::VersionStamp {
+        let db = <Db as salsa::DbWithJar<HirDefnJar>>::as_jar_db(db);
+        self.opt_version_stamp(db).unwrap()
     }
 }
 

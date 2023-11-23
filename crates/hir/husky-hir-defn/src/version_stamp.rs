@@ -61,7 +61,13 @@ impl<'a> HirDefnVersionStampSimpleBuilder<'a> {
                 .iter()
             {
                 self.item_hir_defn_version_stamps_in_other_local_crates
-                    .insert(item_path.hir_defn(db).unwrap().version_stamp(db).unwrap())
+                    .insert(
+                        item_path
+                            .hir_defn(db)
+                            .unwrap()
+                            .opt_version_stamp(db)
+                            .unwrap(),
+                    )
             }
         }
     }
@@ -87,7 +93,8 @@ pub(crate) fn module_hir_defn_version_stamps(
         .map(|&path| {
             (
                 path,
-                path.hir_defn(db).map(|hir_defn| hir_defn.version_stamp(db)),
+                path.hir_defn(db)
+                    .map(|hir_defn| hir_defn.opt_version_stamp(db)),
             )
         })
         .collect()

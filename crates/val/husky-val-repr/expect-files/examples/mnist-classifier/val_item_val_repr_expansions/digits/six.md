@@ -148,12 +148,10 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            USize(
-                                TermUSizeLiteral(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                            TermLiteral::USize(
+                                TermUSizeLiteral {
+                                    value: 0,
+                                },
                             ),
                         ),
                         arguments: [],
@@ -425,12 +423,10 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            USize(
-                                TermUSizeLiteral(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                            TermLiteral::USize(
+                                TermUSizeLiteral {
+                                    value: 0,
+                                },
                             ),
                         ),
                         arguments: [],
@@ -560,7 +556,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            I32(
+                            TermLiteral::I32(
                                 5,
                             ),
                         ),
@@ -688,12 +684,10 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            USize(
-                                TermUSizeLiteral(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                            TermLiteral::USize(
+                                TermUSizeLiteral {
+                                    value: 1,
+                                },
                             ),
                         ),
                         arguments: [],
@@ -1029,7 +1023,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            F32(
+                            TermLiteral::F32(
                                 NotNan(
                                     1.8,
                                 ),
@@ -1153,7 +1147,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            F32(
+                            TermLiteral::F32(
                                 NotNan(
                                     2.5,
                                 ),
@@ -1232,7 +1226,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            F32(
+                            TermLiteral::F32(
                                 NotNan(
                                     30.0,
                                 ),
@@ -1305,7 +1299,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            I32(
+                            TermLiteral::I32(
                                 15,
                             ),
                         ),
@@ -1624,7 +1618,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            I32(
+                            TermLiteral::I32(
                                 6,
                             ),
                         ),
@@ -1671,7 +1665,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            I32(
+                            TermLiteral::I32(
                                 15,
                             ),
                         ),
@@ -1832,7 +1826,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            F32(
+                            TermLiteral::F32(
                                 NotNan(
                                     0.7,
                                 ),
@@ -1947,7 +1941,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            I32(
+                            TermLiteral::I32(
                                 5,
                             ),
                         ),
@@ -2070,7 +2064,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            F32(
+                            TermLiteral::F32(
                                 NotNan(
                                     1.8,
                                 ),
@@ -2151,7 +2145,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            F32(
+                            TermLiteral::F32(
                                 NotNan(
                                     1.8,
                                 ),
@@ -2248,12 +2242,10 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            USize(
-                                TermUSizeLiteral(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                            TermLiteral::USize(
+                                TermUSizeLiteral {
+                                    value: 0,
+                                },
                             ),
                         ),
                         arguments: [],
@@ -2369,7 +2361,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            F32(
+                            TermLiteral::F32(
                                 NotNan(
                                     0.75,
                                 ),
@@ -2466,12 +2458,10 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            USize(
-                                TermUSizeLiteral(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                            TermLiteral::USize(
+                                TermUSizeLiteral {
+                                    value: 1,
+                                },
                             ),
                         ),
                         arguments: [],
@@ -2585,12 +2575,10 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            USize(
-                                TermUSizeLiteral(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                            TermLiteral::USize(
+                                TermUSizeLiteral {
+                                    value: 1,
+                                },
                             ),
                         ),
                         arguments: [],
@@ -2706,7 +2694,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            F32(
+                            TermLiteral::F32(
                                 NotNan(
                                     0.75,
                                 ),
@@ -2786,7 +2774,7 @@
                             ),
                         ),
                         opn: ValOpn::Literal(
-                            F32(
+                            TermLiteral::F32(
                                 NotNan(
                                     15.0,
                                 ),
