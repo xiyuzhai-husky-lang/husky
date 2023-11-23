@@ -532,6 +532,37 @@
                                                         ),
                                                     ),
                                                 },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Leashed,
+                                                    },
+                                                    symbol_map: [
+                                                        (
+                                                            EtherealTermSymbol(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                            Normal(
+                                                                FluffyTerm {
+                                                                    place: None,
+                                                                    base: Ethereal(
+                                                                        Application(
+                                                                            EtherealTermApplication(
+                                                                                Id {
+                                                                                    value: 74,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    separator: Some(
+                                                        1,
+                                                    ),
+                                                },
                                             },
                                         ),
                                     },

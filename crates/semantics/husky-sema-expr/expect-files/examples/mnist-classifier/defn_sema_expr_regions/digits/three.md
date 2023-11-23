@@ -3292,6 +3292,39 @@
                                                         ),
                                                     ),
                                                 },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Leashed,
+                                                    },
+                                                    symbol_map: [
+                                                        (
+                                                            EtherealTermSymbol(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                            Normal(
+                                                                FluffyTerm {
+                                                                    place: None,
+                                                                    base: Ethereal(
+                                                                        EntityPath(
+                                                                            TypeOntology(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 59,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    separator: Some(
+                                                        1,
+                                                    ),
+                                                },
                                             },
                                         ),
                                     },
@@ -3476,6 +3509,39 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Leashed,
+                                                    },
+                                                    symbol_map: [
+                                                        (
+                                                            EtherealTermSymbol(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                            Normal(
+                                                                FluffyTerm {
+                                                                    place: None,
+                                                                    base: Ethereal(
+                                                                        EntityPath(
+                                                                            TypeOntology(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 59,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    separator: Some(
+                                                        1,
                                                     ),
                                                 },
                                             },
@@ -4585,6 +4651,15 @@
                                                         ),
                                                     ),
                                                 },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Leashed,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                         ),
                                     },
@@ -4712,6 +4787,15 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Transient,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
                                                     ),
                                                 },
                                             },
@@ -5167,6 +5251,15 @@
                                                         ),
                                                     ),
                                                 },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Leashed,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                         ),
                                     },
@@ -5309,6 +5402,15 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Leashed,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
                                                     ),
                                                 },
                                             },
@@ -5482,6 +5584,15 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Transient,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
                                                     ),
                                                 },
                                             },
@@ -10686,6 +10797,15 @@
                                                         ),
                                                     ),
                                                 },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Leashed,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                         ),
                                     },
@@ -11091,6 +11211,15 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Transient,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
                                                     ),
                                                 },
                                             },
@@ -12774,6 +12903,15 @@
                                                         ),
                                                     ),
                                                 },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Leashed,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                         ),
                                     },
@@ -13179,6 +13317,15 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Transient,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
                                                     ),
                                                 },
                                             },
@@ -14862,6 +15009,15 @@
                                                         ),
                                                     ),
                                                 },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Leashed,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
                                             },
                                         ),
                                     },
@@ -15267,6 +15423,15 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Transient,
+                                                    },
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
                                                     ),
                                                 },
                                             },

@@ -6,8 +6,16 @@ use vec_like::SmallVecPairMap;
 #[salsa::debug_with_db(db = FluffyTermDb)]
 pub(crate) struct FluffyInstantiation {
     env: FluffyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<EtherealTermSymbol, FluffyTerm, 4>,
+    symbol_map: SmallVecPairMap<EtherealTermSymbol, EtherealTermSymbolFluffyResolution, 4>,
     separator: Option<u8>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum EtherealTermSymbolFluffyResolution {
+    Normal(FluffyTerm),
+    /// means we don't care about it now
+    SelfLifetime,
+    SelfPlace(Place),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -35,7 +43,12 @@ impl FluffyInstantiation {
             symbol_map: instantiation
                 .symbol_map()
                 .iter()
-                .map(|&(symbol, term)| (symbol, term.into()))
+                .map(|&(symbol, term)| {
+                    (
+                        symbol,
+                        EtherealTermSymbolFluffyResolution::Normal(term.into()),
+                    )
+                })
                 .collect(),
             separator: instantiation.separator(),
         }
@@ -90,12 +103,12 @@ pub(crate) trait FluffyInstantiateRef {
 
 pub struct FluffyInstantiationBuilder {
     env: FluffyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<FluffyTerm>, 4>,
+    symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTermSymbolFluffyResolution>, 4>,
     separator: Option<u8>,
 }
 
 impl std::ops::Index<EtherealTermSymbol> for FluffyInstantiationBuilder {
-    type Output = Option<FluffyTerm>;
+    type Output = Option<EtherealTermSymbolFluffyResolution>;
 
     fn index(&self, index: EtherealTermSymbol) -> &Self::Output {
         &self.symbol_map[index].1
@@ -107,13 +120,31 @@ impl FluffyInstantiationBuilder {
         env: FluffyInstantiationEnvironment,
         impl_block_template_parameters: &[EtherealTemplateParameter],
         associated_item_template_parameters: &[EtherealTemplateParameter],
+        db: &dyn FluffyTermDb,
     ) -> Self {
         Self {
             env,
             symbol_map: impl_block_template_parameters
                 .iter()
                 .chain(associated_item_template_parameters)
-                .map(|param| (param.symbol(), None))
+                .map(|param| {
+                    let symbol = param.symbol();
+                    (
+                        symbol,
+                        match symbol.index(db).inner() {
+                            EtherealTermSymbolIndexInner::SelfLifetime => {
+                                Some(EtherealTermSymbolFluffyResolution::SelfLifetime)
+                            }
+                            EtherealTermSymbolIndexInner::SelfPlace => Some(match env {
+                                FluffyInstantiationEnvironment::AssociatedFn => todo!(),
+                                FluffyInstantiationEnvironment::MethodFn { self_place } => {
+                                    EtherealTermSymbolFluffyResolution::SelfPlace(self_place)
+                                }
+                            }),
+                            _ => None,
+                        },
+                    )
+                })
                 .collect(),
             separator: Some(
                 impl_block_template_parameters
@@ -122,10 +153,6 @@ impl FluffyInstantiationBuilder {
                     .expect("within range"),
             ),
         }
-    }
-
-    pub(crate) fn merge(&mut self) {
-        todo!()
     }
 
     // todo: add try_add_rules_from_application as in Etherealinstantiation
@@ -143,14 +170,18 @@ impl FluffyInstantiationBuilder {
             EtherealTerm::Symbol(symbol) => {
                 let (_, ref mut dst0) = self.symbol_map[symbol];
                 match *dst0 {
-                    Some(dst0) => {
-                        if dst != dst0 {
-                            todo!()
-                        } else {
-                            return JustOk(());
+                    Some(dst0) => match dst0 {
+                        EtherealTermSymbolFluffyResolution::Normal(dst0) => {
+                            if dst != dst0 {
+                                todo!()
+                            } else {
+                                return JustOk(());
+                            }
                         }
-                    }
-                    None => *dst0 = Some(dst),
+                        EtherealTermSymbolFluffyResolution::SelfLifetime => todo!(),
+                        EtherealTermSymbolFluffyResolution::SelfPlace(_) => todo!(),
+                    },
+                    None => *dst0 = Some(EtherealTermSymbolFluffyResolution::Normal(dst)),
                 }
                 JustOk(())
             }
@@ -174,18 +205,7 @@ impl FluffyInstantiationBuilder {
             symbol_map: self
                 .symbol_map
                 .into_iter()
-                .map(|(symbol, term)| {
-                    (
-                        symbol,
-                        match term {
-                            Some(term) => term,
-                            None => {
-                                p!(symbol.index(db));
-                                todo!()
-                            }
-                        },
-                    )
-                })
+                .map(|(symbol, resolution)| (symbol, resolution.unwrap()))
                 .collect(),
             separator: self.separator,
         }
@@ -207,7 +227,11 @@ impl FluffyInstantiate for EtherealTerm {
         match self {
             EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(symbol) => match builder[symbol] {
-                Some(instantiated_term) => instantiated_term,
+                Some(resolution) => match resolution {
+                    EtherealTermSymbolFluffyResolution::Normal(term) => term,
+                    EtherealTermSymbolFluffyResolution::SelfLifetime => todo!(),
+                    EtherealTermSymbolFluffyResolution::SelfPlace(place) => place.into(),
+                },
                 None => match symbol.index(engine.db()).inner() {
                     EtherealTermSymbolIndexInner::ExplicitLifetime {
                         attrs,

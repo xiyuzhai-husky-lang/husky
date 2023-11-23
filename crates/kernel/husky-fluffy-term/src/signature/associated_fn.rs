@@ -36,6 +36,7 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
+    p!(template.path(db).debug(db));
     let mut instantiation_builder = FluffyInstantiationBuilder::new_associated(
         FluffyInstantiationEnvironment::AssociatedFn,
         template
@@ -44,6 +45,7 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
             .ethereal_signature_template(db)?
             .template_parameters(db),
         template.template_parameters(db),
+        db,
     );
     // FluffyInstantiation::new(FluffyInstantiationEnvironment::AssociatedFn);
     // initialize pattern matcher
