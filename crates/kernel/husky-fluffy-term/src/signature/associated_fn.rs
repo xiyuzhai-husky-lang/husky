@@ -8,6 +8,7 @@ pub struct AssociatedFnFluffySignature {
     parenate_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,
     return_ty: FluffyTerm,
     ty: FluffyTerm,
+    instantiation: FluffyInstantiation,
 }
 
 impl AssociatedFnFluffySignature {
@@ -50,14 +51,17 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     // FluffyInstantiation::new(FluffyInstantiationEnvironment::AssociatedFn);
     // initialize pattern matcher
     std::iter::zip(
-        self_ty_application_expansion.arguments(db).iter().copied(),
+        self_ty_application_expansion.arguments(db),
         ty_template_arguments.iter().copied(),
     )
-    .try_for_each(|(src, dst)| instantiation_builder.try_add_rule(src, dst.into()))?;
-    let mut associated_fn_template_argument_iter = associated_fn_template_arguments.iter();
-    for _ in template.template_parameters(db).iter() {
-        todo!()
-    }
+    .try_for_each(|(&src, dst)| instantiation_builder.try_add_rule(src, dst.into()))?;
+    std::iter::zip(
+        template.template_parameters(db),
+        associated_fn_template_arguments,
+    )
+    .try_for_each(|(src, &dst)| {
+        instantiation_builder.try_add_rule(src.symbol().into(), dst.into())
+    })?;
     JustOk(AssociatedFnFluffySignature {
         path: template.path(db).into(),
         parenate_parameters: template
@@ -71,5 +75,6 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         ty: template
             .ty(db)
             .instantiate(engine, expr_idx, &mut instantiation_builder),
+        instantiation: instantiation_builder.finish(db),
     })
 }

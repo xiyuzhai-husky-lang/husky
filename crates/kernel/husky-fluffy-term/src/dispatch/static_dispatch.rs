@@ -31,18 +31,18 @@ impl FluffyTerm {
             FluffyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,
-                ty_arguments: arguments,
+                ty_arguments,
                 ty_ethereal_term,
             } => match ty_path.ty_item_ethereal_signature_templates(db, ident) {
                 JustOk(templates) => match templates {
                     TypeItemEtherealSignatureTemplates::AssociatedFn(templates) => {
-                        let arguments: SmallVec<[_; 2]> = arguments.to_smallvec();
+                        let ty_arguments: SmallVec<[_; 2]> = ty_arguments.to_smallvec();
                         for template in templates.iter().copied() {
                             if let JustOk(signature) = ty_associated_fn_fluffy_signature(
                                 engine,
                                 expr_idx,
                                 template,
-                                &arguments,
+                                &ty_arguments,
                                 /* ad hoc */ &[],
                             ) {
                                 return JustOk(signature.into());
