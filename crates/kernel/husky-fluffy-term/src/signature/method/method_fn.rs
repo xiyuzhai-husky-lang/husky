@@ -117,24 +117,25 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
 fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
-    ty_method_template: TypeMethodFnEtherealSignatureTemplate,
+    template: TypeMethodFnEtherealSignatureTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
     self_place: Place,
 ) -> FluffyTermMaybeResult<MethodFnFluffySignature> {
     let db = engine.db();
-    let self_ty_application_expansion = ty_method_template.self_ty(db).application_expansion(db);
+    let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
     let mut instantiation_builder = FluffyInstantiationBuilder::new_associated(
         FluffyInstantiationEnvironment::MethodFn { self_place },
-        ty_method_template
+        template
             .path(db)
             .impl_block(db)
             .ethereal_signature_template(db)?
             .template_parameters(db),
-        ty_method_template.template_parameters(db),
+        template.template_parameters(db),
+        db,
     );
     // FluffyInstantiation::new(FluffyInstantiationEnvironment::MethodFn { self_place });
     // initialize pattern matcher
@@ -144,7 +145,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     )
     .try_for_each(|(src, dst)| instantiation_builder.try_add_rule(src, dst.into()))?;
     let mut method_template_argument_iter = method_template_arguments.iter();
-    for template_parameter in ty_method_template.template_parameters(db).iter() {
+    for template_parameter in template.template_parameters(db).iter() {
         match template_parameter.symbol().index(db).inner() {
             EtherealTermSymbolIndexInner::ExplicitLifetime {
                 attrs,
@@ -186,17 +187,15 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         todo!()
     }
     JustOk(MethodFnFluffySignature {
-        path: ty_method_template.path(db).into(),
-        parenate_parameters: ty_method_template
+        path: template.path(db).into(),
+        parenate_parameters: template
             .parenate_parameters(db)
             .iter()
             .map(|param| param.instantiate(engine, expr_idx, &mut instantiation_builder))
             .collect(),
-        return_ty: ty_method_template.return_ty(db).instantiate(
-            engine,
-            expr_idx,
-            &mut instantiation_builder,
-        ),
+        return_ty: template
+            .return_ty(db)
+            .instantiate(engine, expr_idx, &mut instantiation_builder),
         instantiation: instantiation_builder.finish(db),
     })
 }

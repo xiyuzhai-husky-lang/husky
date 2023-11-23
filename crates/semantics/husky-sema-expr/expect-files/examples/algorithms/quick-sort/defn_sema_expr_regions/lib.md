@@ -706,6 +706,37 @@
                                                         ),
                                                     ),
                                                 },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Transient,
+                                                    },
+                                                    symbol_map: [
+                                                        (
+                                                            EtherealTermSymbol(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                            Normal(
+                                                                FluffyTerm {
+                                                                    place: None,
+                                                                    base: Ethereal(
+                                                                        Symbol(
+                                                                            EtherealTermSymbol(
+                                                                                Id {
+                                                                                    value: 1,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    separator: Some(
+                                                        1,
+                                                    ),
+                                                },
                                             },
                                         ),
                                     },
@@ -10396,6 +10427,45 @@
                                                         ),
                                                     ),
                                                 },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Transient,
+                                                    },
+                                                    symbol_map: [
+                                                        (
+                                                            EtherealTermSymbol(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                            Normal(
+                                                                FluffyTerm {
+                                                                    place: None,
+                                                                    base: Ethereal(
+                                                                        Symbol(
+                                                                            EtherealTermSymbol(
+                                                                                Id {
+                                                                                    value: 1,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        (
+                                                            EtherealTermSymbol(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                            SelfLifetime,
+                                                        ),
+                                                    ],
+                                                    separator: Some(
+                                                        1,
+                                                    ),
+                                                },
                                             },
                                         ),
                                     },
@@ -10823,6 +10893,45 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                },
+                                                instantiation: FluffyInstantiation {
+                                                    env: MethodFn {
+                                                        self_place: Transient,
+                                                    },
+                                                    symbol_map: [
+                                                        (
+                                                            EtherealTermSymbol(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                            Normal(
+                                                                FluffyTerm {
+                                                                    place: None,
+                                                                    base: Ethereal(
+                                                                        Symbol(
+                                                                            EtherealTermSymbol(
+                                                                                Id {
+                                                                                    value: 1,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        (
+                                                            EtherealTermSymbol(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                            SelfLifetime,
+                                                        ),
+                                                    ],
+                                                    separator: Some(
+                                                        1,
                                                     ),
                                                 },
                                             },
