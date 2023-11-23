@@ -1,18 +1,68 @@
 use crate::*;
 use maybe_result::*;
-use vec_like::{SmallVecPairMap, VecPairMap};
+use vec_like::SmallVecPairMap;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb)]
-pub struct EtherealTermPartialInstantiation {
-    symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTerm>, 4>,
+pub struct EtherealInstantiation {
+    symbol_map: SmallVecPairMap<EtherealTermSymbol, EtherealTerm, 4>,
+    /// indicates the separation for associated item template instantiation
+    separator: Option<u8>,
 }
 
-impl EtherealTermPartialInstantiation {
+impl EtherealInstantiation {
+    /// assume that symbol is in symbol_map
+    /// panic otherwise
+    pub fn symbol_mapped(&self, symbol: EtherealTermSymbol) -> EtherealTerm {
+        *self
+            .symbol_map
+            .get_value(symbol)
+            .expect("symbol should be in symbol_map")
+    }
+
+    pub fn symbol_map(&self) -> &[(EtherealTermSymbol, EtherealTerm)] {
+        self.symbol_map.as_ref()
+    }
+
+    pub fn separator(&self) -> Option<u8> {
+        self.separator
+    }
+}
+
+pub trait EtherealTermInstantiate: Copy {
+    type Target;
+
+    fn instantiate(
+        self,
+        db: &dyn EtherealTermDb,
+        instantiation: &EtherealInstantiation,
+    ) -> Self::Target;
+}
+
+pub trait EtherealTermInstantiateRef {
+    type Target;
+
+    fn instantiate(
+        &self,
+        db: &dyn EtherealTermDb,
+        instantiation: &EtherealInstantiation,
+    ) -> Self::Target;
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = EtherealTermDb)]
+pub struct EtherealInstantiationBuilder {
+    symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTerm>, 4>,
+    /// indicates the separation for associated item template instantiation
+    separator: Option<u8>,
+}
+
+impl EtherealInstantiationBuilder {
     /// symbols must be unique
     pub(crate) fn new(symbols: impl Iterator<Item = EtherealTermSymbol>) -> Self {
         Self {
             symbol_map: symbols.map(|symbol| (symbol, None)).collect(),
+            separator: None,
         }
     }
 
@@ -117,7 +167,10 @@ impl EtherealTermPartialInstantiation {
             let mapped = (*mapped)?;
             unsafe { symbol_map.insert_new_unchecked((*symbol, mapped)) }
         }
-        Some(EtherealInstantiation { symbol_map })
+        Some(EtherealInstantiation {
+            symbol_map,
+            separator: self.separator,
+        })
     }
 
     pub fn merge_with_item_template_parameters(
@@ -125,52 +178,13 @@ impl EtherealTermPartialInstantiation {
         template_parameters: &EtherealTermTemplateParameters,
     ) -> Self {
         let mut symbol_map = self.symbol_map.clone();
+        let len = symbol_map.len().try_into().unwrap();
         for param in template_parameters.iter() {
             unsafe { symbol_map.insert_new_unchecked((param.symbol(), None)) }
         }
-        Self { symbol_map }
+        Self {
+            symbol_map,
+            separator: Some(len),
+        }
     }
-}
-
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EtherealTermDb)]
-pub struct EtherealInstantiation {
-    symbol_map: SmallVecPairMap<EtherealTermSymbol, EtherealTerm, 4>,
-}
-
-impl EtherealInstantiation {
-    /// assume that symbol is in symbol_map
-    /// panic otherwise
-    pub fn symbol_mapped(&self, symbol: EtherealTermSymbol) -> EtherealTerm {
-        *self
-            .symbol_map
-            .get_value(symbol)
-            .expect("symbol should be in symbol_map")
-    }
-
-    // /// assume that symbol is in symbol_map
-    // /// panic otherwise
-    // pub fn is_symbol_resolved(&self, symbol: EtherealTermSymbol) -> bool {
-    //     self.symbol_map[symbol].1.is_some()
-    // }
-}
-
-pub trait EtherealTermInstantiate: Copy {
-    type Target;
-
-    fn instantiate(
-        self,
-        db: &dyn EtherealTermDb,
-        instantiation: &EtherealInstantiation,
-    ) -> Self::Target;
-}
-
-pub trait EtherealTermInstantiateRef {
-    type Target;
-
-    fn instantiate(
-        &self,
-        db: &dyn EtherealTermDb,
-        instantiation: &EtherealInstantiation,
-    ) -> Self::Target;
 }

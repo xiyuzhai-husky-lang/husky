@@ -2,12 +2,13 @@ use super::*;
 use husky_regional_token::IdentRegionalToken;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct MethodFnFluffySignature {
     path: AssociatedItemPath,
     // todo: self_parameter_contracted_ty
     parenate_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,
     return_ty: FluffyTerm,
+    instantiation: FluffyInstantiation,
 }
 
 impl MemberSignature for MethodFnFluffySignature {
@@ -16,19 +17,41 @@ impl MemberSignature for MethodFnFluffySignature {
     }
 }
 
-impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFnFluffySignature {
-    fn from(sig: &TraitForTypeMethodFnEtherealSignature) -> Self {
-        MethodFnFluffySignature {
-            path: sig.path().into(),
-            parenate_parameters: sig
+impl MethodFnFluffySignature {
+    pub(crate) fn from_ethereal(
+        self_place: Place,
+        eth_sig: &TraitForTypeMethodFnEtherealSignature,
+    ) -> Self {
+        Self {
+            path: eth_sig.path().into(),
+            parenate_parameters: eth_sig
                 .parenate_parameters()
                 .iter()
                 .map(|&param| param.into())
                 .collect(),
-            return_ty: sig.return_ty().into(),
+            return_ty: eth_sig.return_ty().into(),
+            instantiation: FluffyInstantiation::from_ethereal(
+                FluffyInstantiationEnvironment::MethodFn { self_place },
+                eth_sig.instantiation(),
+            ),
         }
     }
 }
+
+// impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFnFluffySignature {
+//     fn from(sig: &TraitForTypeMethodFnEtherealSignature) -> Self {
+//         MethodFnFluffySignature {
+//             path: sig.path().into(),
+//             parenate_parameters: sig
+//                 .parenate_parameters()
+//                 .iter()
+//                 .map(|&param| param.into())
+//                 .collect(),
+//             return_ty: sig.return_ty().into(),
+//             instantiation: todo!(),
+//         }
+//     }
+// }
 
 impl MethodFnFluffySignature {
     pub fn nonself_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
@@ -104,16 +127,22 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
-    let mut instantiation =
-        FluffyTermInstantiation::new(FluffyTermInstantiationEnvironment::TypeMethodFn {
-            self_place,
-        });
+    let mut instantiation_builder = FluffyInstantiationBuilder::new_associated(
+        FluffyInstantiationEnvironment::MethodFn { self_place },
+        ty_method_template
+            .path(db)
+            .impl_block(db)
+            .ethereal_signature_template(db)?
+            .template_parameters(db),
+        ty_method_template.template_parameters(db),
+    );
+    // FluffyInstantiation::new(FluffyInstantiationEnvironment::MethodFn { self_place });
     // initialize pattern matcher
     std::iter::zip(
         self_ty_application_expansion.arguments(db).iter().copied(),
         ty_template_arguments.iter().copied(),
     )
-    .try_for_each(|(src, dst)| instantiation.try_add_rule(src, dst.into()))?;
+    .try_for_each(|(src, dst)| instantiation_builder.try_add_rule(src, dst.into()))?;
     let mut method_template_argument_iter = method_template_arguments.iter();
     for template_parameter in ty_method_template.template_parameters(db).iter() {
         match template_parameter.symbol().index(db).inner() {
@@ -161,13 +190,14 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         parenate_parameters: ty_method_template
             .parenate_parameters(db)
             .iter()
-            .map(|param| param.instantiate(engine, expr_idx, &mut instantiation))
+            .map(|param| param.instantiate(engine, expr_idx, &mut instantiation_builder))
             .collect(),
         return_ty: ty_method_template.return_ty(db).instantiate(
             engine,
             expr_idx,
-            &mut instantiation,
+            &mut instantiation_builder,
         ),
+        instantiation: instantiation_builder.finish(db),
     })
 }
 

@@ -78,18 +78,18 @@ impl From<EtherealRitchieParameter> for FluffyTermRitchieParameter {
     }
 }
 
-impl FluffyTermInstantiate for EtherealRitchieParameter {
+impl FluffyInstantiate for EtherealRitchieParameter {
     type Target = FluffyTermRitchieParameter;
 
     fn instantiate(
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        instantiation: &mut FluffyTermInstantiation,
+        builder: &mut FluffyInstantiationBuilder,
     ) -> Self::Target {
         match self {
             EtherealRitchieParameter::Regular(param) => {
-                param.instantiate(engine, expr_idx, instantiation).into()
+                param.instantiate(engine, expr_idx, builder).into()
             }
             EtherealRitchieParameter::Variadic(_) => todo!(),
             EtherealRitchieParameter::Keyed(_) => todo!(),

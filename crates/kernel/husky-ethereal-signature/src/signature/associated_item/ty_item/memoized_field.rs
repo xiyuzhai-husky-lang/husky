@@ -32,18 +32,18 @@ impl TypeMemoizedFieldEtherealSignatureTemplate {
         target_self_ty_arguments: &[EtherealTerm],
     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
         let self_ty = self.impl_block(db).self_ty(db);
-        let mut partial_instantiation = self
+        let mut instantiation_builder = self
             .impl_block(db)
             .template_parameters(db)
-            .empty_partial_instantiation();
-        partial_instantiation.try_add_rules_from_application(
+            .empty_instantiation_builder();
+        instantiation_builder.try_add_rules_from_application(
             self_ty,
             target_self_ty_arguments,
             db,
         )?;
         JustOk(TypeMemoizedFieldEtherealSignature {
             path: self.path(db),
-            instantiation: partial_instantiation
+            instantiation: instantiation_builder
                 .try_into_instantiation()
                 .expect("business done"),
             return_ty: self.return_ty(db),

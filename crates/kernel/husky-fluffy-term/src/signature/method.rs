@@ -16,8 +16,8 @@ impl MemberSignature for MethodFluffySignature {
     }
 }
 
-impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {
-    fn from(sig: &TraitForTypeMethodFnEtherealSignature) -> Self {
-        MethodFluffySignature::MethodFn(sig.into())
-    }
-}
+// impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {
+//     fn from(sig: &TraitForTypeMethodFnEtherealSignature) -> Self {
+//         MethodFluffySignature::MethodFn(sig.into())
+//     }
+// }

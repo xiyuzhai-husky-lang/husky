@@ -11,9 +11,8 @@ pub enum EtherealSignatureError {
     #[error("DerivedFromDeclarative")]
     DerivedFromDeclarativeSignature(DeclarativeSignatureError),
     #[error("NoSuchItem")]
-    NoSuchItemInTraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated {
-        template_partially_instantiated:
-            TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
+    NoSuchItemInTraitForTypeImplBlockEtherealSignatureBuilder {
+        signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
         ident: Ident,
     },
     #[error("EntityTreeError")]

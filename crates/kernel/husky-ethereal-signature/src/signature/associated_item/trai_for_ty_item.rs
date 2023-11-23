@@ -9,7 +9,6 @@ pub use self::associated_ty::*;
 pub use self::associated_val::*;
 pub use self::method_fn::*;
 
-
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -34,19 +33,19 @@ impl TraitForTypeItemEtherealSignatureTemplate {
         }
     }
 
-    pub(crate) fn inherit_partial_instantiation(
+    pub(crate) fn inherit_instantiation_builder(
         self,
         db: &dyn EtherealSignatureDb,
-        impl_block_template_partially_instantiated: TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
-    ) -> TraitForTypeItemEtherealSignatureTemplatePartiallyInstantiated {
+        impl_block_signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
+    ) -> TraitForTypeItemEtherealSignatureBuilder {
         match self {
             TraitForTypeItemEtherealSignatureTemplate::AssociatedType(item_template) => {
                 item_template
-                    .inherit_partial_instantiation(db, impl_block_template_partially_instantiated)
+                    .inherit_instantiation_builder(db, impl_block_signature_builder)
                     .into()
             }
             TraitForTypeItemEtherealSignatureTemplate::MethodFn(item_template) => item_template
-                .inherit_partial_instantiation(db, impl_block_template_partially_instantiated)
+                .inherit_instantiation_builder(db, impl_block_signature_builder)
                 .into(),
             TraitForTypeItemEtherealSignatureTemplate::AssociatedFn(_) => todo!(),
             TraitForTypeItemEtherealSignatureTemplate::AssociatedVal(_) => todo!(),
@@ -56,9 +55,9 @@ impl TraitForTypeItemEtherealSignatureTemplate {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[enum_class::from_variants]
-pub enum TraitForTypeItemEtherealSignatureTemplatePartiallyInstantiated {
-    AssociatedType(TraitForTypeAssociatedTypeEtherealSignatureTemplatePartiallyInstantiated),
-    Method(TraitForTypeMethodFnEtherealSignatureTemplatePartiallyInstantiated),
+pub enum TraitForTypeItemEtherealSignatureBuilder {
+    AssociatedType(TraitForTypeAssociatedTypeEtherealSignatureBuilder),
+    Method(TraitForTypeMethodFnEtherealSignatureBuilder),
 }
 
 impl HasEtherealSignatureTemplate for TraitForTypeItemPath {

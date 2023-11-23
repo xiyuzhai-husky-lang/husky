@@ -13,13 +13,6 @@ pub struct HirDefnVersionStamp {
     item_hir_defn_version_stamps_in_other_local_crates: VecSet<HirDefnVersionStamp>,
 }
 
-impl HirDefn {
-    pub fn item_version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
-        let dependencies = self.dependencies(db);
-        todo!()
-    }
-}
-
 impl HirDefnVersionStamp {
     pub(crate) fn new(hir_defn: impl Into<HirDefn>, db: &dyn HirDefnDb) -> Self {
         let mut builder = HirDefnVersionStampSimpleBuilder::new(hir_defn.into(), db);
