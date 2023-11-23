@@ -630,6 +630,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 16,
                                             ident: `relative_bounding_box`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `relative_bounding_box`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 17,
@@ -672,6 +683,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 22,
                                             ident: `bounding_box`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `bounding_box`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::Variable(
                                             1,

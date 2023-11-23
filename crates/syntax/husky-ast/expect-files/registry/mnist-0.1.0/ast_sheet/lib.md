@@ -513,7 +513,7 @@ AstSheet {
                 block: Type {
                     path: TypePath(
                         Id {
-                            value: 64,
+                            value: 61,
                         },
                     ),
                     variants: Some(
@@ -567,7 +567,7 @@ AstSheet {
                 block: Type {
                     path: TypePath(
                         Id {
-                            value: 65,
+                            value: 62,
                         },
                     ),
                     variants: None,
@@ -651,7 +651,7 @@ AstSheet {
                 block: Type {
                     path: TypePath(
                         Id {
-                            value: 66,
+                            value: 63,
                         },
                     ),
                     variants: None,

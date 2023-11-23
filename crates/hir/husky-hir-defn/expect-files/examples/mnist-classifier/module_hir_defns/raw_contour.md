@@ -7146,6 +7146,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 2,
                                             ident: `raw_contours`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::connected_component`,
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `raw_contours`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::USize(
@@ -7163,6 +7174,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 5,
                                             ident: `bounding_box`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::raw_contour`,
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `bounding_box`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::Variable(
                                             1,
@@ -7170,6 +7192,17 @@
                                         HirEagerExprData::MemoizedField {
                                             owner_hir_expr_idx: 7,
                                             ident: `bounding_box`,
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    impl_block: TypeImplBlockPath {
+                                                        module_path: `mnist_classifier::raw_contour`,
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ident: `bounding_box`,
+                                                    item_kind: MemoizedField,
+                                                },
+                                            ),
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 6,

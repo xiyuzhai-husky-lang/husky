@@ -1,6 +1,6 @@
 Ok(
     [
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Enum(
                     EnumTypeSynDefn {
@@ -113,7 +113,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Enum(
                     EnumTypeSynDefn {
@@ -313,7 +313,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::Enum(
                     EnumTypeSynDefn {
@@ -513,7 +513,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionGn(
                     GnSynDefn {
@@ -1008,7 +1008,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::ImplBlock(
+        SynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
@@ -1415,7 +1415,7 @@ Ok(
                 },
             ),
         ),
-        ItemSynDefn::AssociatedItem(
+        SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::AssociatedType(
                     TraitForTypeAssociatedTypeSynDefn {
@@ -1905,7 +1905,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::ImplBlock(
+        SynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
@@ -2333,7 +2333,7 @@ Ok(
                 },
             ),
         ),
-        ItemSynDefn::AssociatedItem(
+        SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::AssociatedType(
                     TraitForTypeAssociatedTypeSynDefn {

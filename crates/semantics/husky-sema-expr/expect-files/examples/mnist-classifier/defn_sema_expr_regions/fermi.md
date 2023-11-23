@@ -4807,7 +4807,7 @@
                                             13,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -4819,7 +4819,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty2: FluffyTerm {
+                                            ty: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(
@@ -5085,7 +5085,7 @@
                                             27,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -5097,7 +5097,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty2: FluffyTerm {
+                                            ty: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(
@@ -5243,7 +5243,7 @@
                                             32,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [
@@ -5271,6 +5271,13 @@
                                                     ),
                                                 ),
                                             },
+                                            path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 63,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     },
                                 },
@@ -7357,7 +7364,7 @@
                                             13,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -7369,7 +7376,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty2: FluffyTerm {
+                                            ty: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(
@@ -7635,7 +7642,7 @@
                                             27,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -7647,7 +7654,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty2: FluffyTerm {
+                                            ty: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(
@@ -7793,7 +7800,7 @@
                                             32,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [
@@ -7821,6 +7828,13 @@
                                                     ),
                                                 ),
                                             },
+                                            path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 64,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     },
                                 },
@@ -9927,7 +9941,7 @@
                                             13,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -9939,7 +9953,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty2: FluffyTerm {
+                                            ty: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(
@@ -10205,7 +10219,7 @@
                                             27,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -10217,7 +10231,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty2: FluffyTerm {
+                                            ty: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(
@@ -10363,7 +10377,7 @@
                                             32,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [
@@ -10391,6 +10405,13 @@
                                                     ),
                                                 ),
                                             },
+                                            path: TypeItem(
+                                                TypeItemPath(
+                                                    Id {
+                                                        value: 66,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     },
                                 },

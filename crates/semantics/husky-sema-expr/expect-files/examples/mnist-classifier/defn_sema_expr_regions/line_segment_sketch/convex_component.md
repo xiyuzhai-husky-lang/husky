@@ -436,7 +436,7 @@
                                             3,
                                         ),
                                     },
-                                    field_dispatch: FluffyFieldDyanmicDispatch {
+                                    dispatch: FluffyFieldDyanmicDispatch {
                                         indirections: FluffyTermDynamicDispatchIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -448,7 +448,7 @@
                                             },
                                         ),
                                         signature: PropsStruct {
-                                            ty2: FluffyTerm {
+                                            ty: FluffyTerm {
                                                 place: None,
                                                 base: Ethereal(
                                                     Application(

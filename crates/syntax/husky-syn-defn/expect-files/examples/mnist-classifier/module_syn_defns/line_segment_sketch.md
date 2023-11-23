@@ -1,6 +1,6 @@
 Ok(
     [
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -9,7 +9,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -18,7 +18,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -27,7 +27,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -36,7 +36,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
@@ -59,7 +59,7 @@ Ok(
                                             6,
                                         ),
                                     ),
-                                    ty_expr_idx: 4,
+                                    ty_syn_expr_idx: 4,
                                     initialization: None,
                                     variable: 1,
                                 },
@@ -77,7 +77,7 @@ Ok(
                                             12,
                                         ),
                                     ),
-                                    ty_expr_idx: 5,
+                                    ty_syn_expr_idx: 5,
                                     initialization: Some(
                                         Bind {
                                             colon_eq_token: ColonEqRegionalToken(
@@ -104,7 +104,7 @@ Ok(
                                             27,
                                         ),
                                     ),
-                                    ty_expr_idx: 10,
+                                    ty_syn_expr_idx: 10,
                                     initialization: Some(
                                         Bind {
                                             colon_eq_token: ColonEqRegionalToken(
@@ -570,7 +570,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
@@ -593,7 +593,7 @@ Ok(
                                             6,
                                         ),
                                     ),
-                                    ty_expr_idx: 2,
+                                    ty_syn_expr_idx: 2,
                                     initialization: None,
                                     variable: 1,
                                 },
@@ -611,7 +611,7 @@ Ok(
                                             11,
                                         ),
                                     ),
-                                    ty_expr_idx: 5,
+                                    ty_syn_expr_idx: 5,
                                     initialization: None,
                                     variable: 2,
                                 },
@@ -845,7 +845,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -2422,7 +2422,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -3999,7 +3999,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -7390,7 +7390,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -11202,7 +11202,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Fugitive(
                 FugitiveSynDefn::FunctionFn(
                     FnSynDefn {
@@ -16420,7 +16420,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::ImplBlock(
+        SynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
@@ -16565,7 +16565,7 @@ Ok(
                 },
             ),
         ),
-        ItemSynDefn::AssociatedItem(
+        SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
                     TraitForTypeMethodFnSynDefn {
@@ -17269,7 +17269,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::ImplBlock(
+        SynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -17374,7 +17374,7 @@ Ok(
                 },
             ),
         ),
-        ItemSynDefn::AssociatedItem(
+        SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::AssociatedFn(
                     TypeAssociatedFnSynDefn {
@@ -18634,7 +18634,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::AssociatedItem(
+        SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -19198,7 +19198,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::ImplBlock(
+        SynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
@@ -19343,7 +19343,7 @@ Ok(
                 },
             ),
         ),
-        ItemSynDefn::AssociatedItem(
+        SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
                     TraitForTypeMethodFnSynDefn {
@@ -19964,7 +19964,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::ImplBlock(
+        SynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -20069,7 +20069,7 @@ Ok(
                 },
             ),
         ),
-        ItemSynDefn::AssociatedItem(
+        SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
                     TypeMemoizedFieldSynDefn {
@@ -20645,7 +20645,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::AssociatedItem(
+        SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
                     TypeMemoizedFieldSynDefn {
@@ -22511,7 +22511,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::AssociatedItem(
+        SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::AssociatedFn(
                     TypeAssociatedFnSynDefn {

@@ -84,7 +84,7 @@ SynDeclSheet {
                                             6,
                                         ),
                                     ),
-                                    ty_expr_idx: 4,
+                                    ty_syn_expr_idx: 4,
                                     initialization: None,
                                     variable: 1,
                                 },
@@ -102,7 +102,7 @@ SynDeclSheet {
                                             12,
                                         ),
                                     ),
-                                    ty_expr_idx: 5,
+                                    ty_syn_expr_idx: 5,
                                     initialization: Some(
                                         Bind {
                                             colon_eq_token: ColonEqRegionalToken(
@@ -129,7 +129,7 @@ SynDeclSheet {
                                             27,
                                         ),
                                     ),
-                                    ty_expr_idx: 10,
+                                    ty_syn_expr_idx: 10,
                                     initialization: Some(
                                         Bind {
                                             colon_eq_token: ColonEqRegionalToken(
@@ -622,7 +622,7 @@ SynDeclSheet {
                                             6,
                                         ),
                                     ),
-                                    ty_expr_idx: 2,
+                                    ty_syn_expr_idx: 2,
                                     initialization: None,
                                     variable: 1,
                                 },
@@ -640,7 +640,7 @@ SynDeclSheet {
                                             11,
                                         ),
                                     ),
-                                    ty_expr_idx: 5,
+                                    ty_syn_expr_idx: 5,
                                     initialization: None,
                                     variable: 2,
                                 },

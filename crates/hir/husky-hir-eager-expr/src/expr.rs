@@ -77,6 +77,7 @@ pub enum HirEagerExprData {
     MemoizedField {
         owner_hir_expr_idx: HirEagerExprIdx,
         ident: Ident,
+        path: AssociatedItemPath,
     },
     MethodFnCall {
         self_argument: HirEagerExprIdx,
@@ -284,16 +285,19 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::Field {
                 owner_sema_expr_idx,
                 ident_token,
-                field_dispatch,
+                dispatch: field_dispatch,
                 ..
             } => match field_dispatch.signature() {
-                FluffyFieldSignature::PropsStruct { ty2 } => HirEagerExprData::PropsStructField {
+                FluffyFieldSignature::PropsStruct { ty: ty2 } => {
+                    HirEagerExprData::PropsStructField {
+                        owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
+                        ident: ident_token.ident(),
+                    }
+                }
+                FluffyFieldSignature::Memoized { ty, path } => HirEagerExprData::MemoizedField {
                     owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
                     ident: ident_token.ident(),
-                },
-                FluffyFieldSignature::Memoized { ty } => HirEagerExprData::MemoizedField {
-                    owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
-                    ident: ident_token.ident(),
+                    path,
                 },
             },
             SemaExprData::MethodApplication { .. } => todo!(),

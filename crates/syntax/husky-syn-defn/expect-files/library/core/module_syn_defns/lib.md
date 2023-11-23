@@ -1,6 +1,6 @@
 Ok(
     [
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -9,7 +9,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -18,7 +18,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -27,7 +27,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -36,7 +36,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -45,7 +45,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -54,7 +54,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -63,7 +63,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -72,7 +72,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -81,7 +81,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -90,7 +90,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -99,7 +99,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -108,7 +108,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -117,7 +117,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -126,7 +126,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -135,7 +135,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -144,7 +144,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -153,7 +153,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
@@ -162,7 +162,7 @@ Ok(
                 },
             },
         ),
-        ItemSynDefn::Submodule(
+        SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(

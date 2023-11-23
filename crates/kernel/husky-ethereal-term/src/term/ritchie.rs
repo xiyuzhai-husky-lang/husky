@@ -160,7 +160,7 @@ impl EtherealTermInstantiate for EtherealRitchieParameter {
     fn instantiate(
         self,
         db: &dyn EtherealTermDb,
-        instantiation: &EtherealTermInstantiation,
+        instantiation: &EtherealInstantiation,
     ) -> Self::Target {
         todo!()
     }

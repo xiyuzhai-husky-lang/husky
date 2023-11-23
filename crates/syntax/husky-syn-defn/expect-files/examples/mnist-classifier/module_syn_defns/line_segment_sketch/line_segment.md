@@ -1,6 +1,6 @@
 Ok(
     [
-        ItemSynDefn::MajorItem(
+        SynDefn::MajorItem(
             MajorItemSynDefn::Type(
                 TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
@@ -23,7 +23,7 @@ Ok(
                                             6,
                                         ),
                                     ),
-                                    ty_expr_idx: 1,
+                                    ty_syn_expr_idx: 1,
                                     initialization: None,
                                     variable: 1,
                                 },
@@ -41,7 +41,7 @@ Ok(
                                             10,
                                         ),
                                     ),
-                                    ty_expr_idx: 2,
+                                    ty_syn_expr_idx: 2,
                                     initialization: None,
                                     variable: 2,
                                 },
@@ -255,7 +255,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::ImplBlock(
+        SynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -360,7 +360,7 @@ Ok(
                 },
             ),
         ),
-        ItemSynDefn::AssociatedItem(
+        SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
@@ -924,7 +924,7 @@ Ok(
                 ),
             ),
         ),
-        ItemSynDefn::AssociatedItem(
+        SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {

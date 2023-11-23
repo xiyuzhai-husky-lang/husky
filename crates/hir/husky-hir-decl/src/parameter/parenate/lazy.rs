@@ -1,5 +1,6 @@
 use super::*;
 use husky_hir_lazy_expr::HirLazyPatternExprIdx;
+use husky_syn_expr::SynVariadicParameterVariant;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirLazyParenateParameter {
@@ -8,8 +9,28 @@ pub enum HirLazyParenateParameter {
         pattern_expr_idx: HirLazyPatternExprIdx,
         ty: HirType,
     },
-    Keyed,
-    Variadic,
+    Keyed {
+        ident: Ident,
+        ty: HirType,
+    },
+    Variadic {
+        variant: HirLazyParenateParameterVariadicVariant,
+        ty: HirType,
+    },
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum HirLazyParenateParameterVariadicVariant {
+    Vec,
+}
+
+impl From<&SynVariadicParameterVariant> for HirLazyParenateParameterVariadicVariant {
+    fn from(value: &SynVariadicParameterVariant) -> Self {
+        match value {
+            SynVariadicParameterVariant::Default => todo!(),
+            SynVariadicParameterVariant::Vec { .. } => HirLazyParenateParameterVariadicVariant::Vec,
+        }
+    }
 }
 
 impl HirLazyParenateParameter {
@@ -22,37 +43,31 @@ impl HirLazyParenateParameter {
 
     pub(crate) fn from_syn(
         syndicate: &ParenateSynParameterData,
-        _builder: &HirDeclBuilder,
+        builder: &HirDeclBuilder,
     ) -> Option<Self> {
-        Some(match syndicate {
+        Some(match *syndicate {
             ParenateSynParameterData::Ordinary {
-                syn_pattern_root: _,
-                variables: _,
-                colon: _,
-                ty: _,
+                syn_pattern_root,
+                ty,
+                ..
             } => HirLazyParenateParameter::Ordinary {
-                pattern_expr_idx: todo!(),
-                ty: todo!(),
+                pattern_expr_idx: builder.hir_lazy_pattern_expr_idx(syn_pattern_root),
+                ty: builder.hir_ty(ty),
             },
             ParenateSynParameterData::Variadic {
-                dot_dot_dot_token: _,
-                variadic_variant: _,
-                symbol_modifier_keyword_group: _,
-                ident_token: _,
-                variable: _,
-                colon: _,
-                ty: _,
-            } => HirLazyParenateParameter::Variadic,
+                ref variadic_variant,
+                ty,
+                ..
+            } => HirLazyParenateParameter::Variadic {
+                variant: variadic_variant.into(),
+                ty: builder.hir_ty(ty),
+            },
             ParenateSynParameterData::Keyed {
-                syn_pattern_root: _,
-                symbol_modifier_keyword_group: _,
-                ident_token: _,
-                variable: _,
-                colon: _,
-                ty: _,
-                eq_token: _,
-                default: _,
-            } => HirLazyParenateParameter::Keyed,
+                ident_token, ty, ..
+            } => HirLazyParenateParameter::Keyed {
+                ident: ident_token.ident(),
+                ty: builder.hir_ty(ty),
+            },
         })
     }
 }

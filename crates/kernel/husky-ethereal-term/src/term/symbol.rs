@@ -77,7 +77,7 @@ impl EtherealTermInstantiate for EtherealTermSymbol {
     fn instantiate(
         self,
         db: &dyn EtherealTermDb,
-        instantiation: &EtherealTermInstantiation,
+        instantiation: &EtherealInstantiation,
     ) -> Self::Target {
         /// it's assumed that all symbols will be replaced by its map
         /// otherwise it's illegal

@@ -26,7 +26,7 @@ EntitySynTreeCrateBundle {
                                 block: Type {
                                     path: TypePath(
                                         Id {
-                                            value: 72,
+                                            value: 69,
                                         },
                                     ),
                                     variants: Some(
@@ -74,7 +74,7 @@ EntitySynTreeCrateBundle {
                                 block: Type {
                                     path: TypePath(
                                         Id {
-                                            value: 73,
+                                            value: 70,
                                         },
                                     ),
                                     variants: Some(
@@ -122,7 +122,7 @@ EntitySynTreeCrateBundle {
                                 block: Type {
                                     path: TypePath(
                                         Id {
-                                            value: 74,
+                                            value: 71,
                                         },
                                     ),
                                     variants: Some(

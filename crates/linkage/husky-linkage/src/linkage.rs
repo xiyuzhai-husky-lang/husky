@@ -10,8 +10,12 @@ impl Linkage {
         todo!()
     }
 
-    pub fn new_field(db: &dyn LinkageDb) -> Self {
-        Self::new(db, LinkagePathData::Field)
+    pub fn new_props_struct_field(db: &dyn LinkageDb) -> Self {
+        Self::new(db, LinkagePathData::PropsStructField)
+    }
+
+    pub fn new_memoized_field(db: &dyn LinkageDb) -> Self {
+        Self::new(db, LinkagePathData::MemoizedField)
     }
 
     pub fn new_method(db: &dyn LinkageDb) -> Self {
@@ -44,7 +48,8 @@ pub enum LinkagePathData {
         path: ItemPath,
         template_arguments: HirTemplateArgumentLiterals,
     },
-    Field,
+    PropsStructField,
+    MemoizedField,
     Index,
     Method,
 }

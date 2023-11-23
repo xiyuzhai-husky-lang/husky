@@ -41,11 +41,7 @@ impl EtherealRitchieRegularParameter {
 impl EtherealTermInstantiate for EtherealRitchieRegularParameter {
     type Target = Self;
 
-    fn instantiate(
-        self,
-        db: &dyn EtherealTermDb,
-        instantiation: &EtherealTermInstantiation,
-    ) -> Self {
+    fn instantiate(self, db: &dyn EtherealTermDb, instantiation: &EtherealInstantiation) -> Self {
         Self {
             contract: self.contract,
             ty: self.ty.instantiate(db, instantiation),

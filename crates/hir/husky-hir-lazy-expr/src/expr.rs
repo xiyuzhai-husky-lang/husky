@@ -8,7 +8,7 @@ use crate::*;
 use husky_entity_path::{
     AssociatedItemPath, FugitivePath, MajorItemPath, PrincipalEntityPath, TypePath, TypeVariantPath,
 };
-use husky_fluffy_term::MethodFluffySignature;
+use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::HirConstSymbol;
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
@@ -63,7 +63,7 @@ pub enum HirLazyExprData {
         template_arguments: Option<HirLazyTemplateArgumentList>,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
-    FunctionGnCall {
+    FunctionGnItemCall {
         path: FugitivePath,
         function_hir_lazy_expr_idx: HirLazyExprIdx,
         template_arguments: Option<HirLazyTemplateArgumentList>,
@@ -76,9 +76,16 @@ pub enum HirLazyExprData {
         template_arguments: Option<HirLazyTemplateArgumentList>,
         item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
     },
-    Field {
+    PropsStructField {
         owner: HirLazyExprIdx,
         ident: Ident,
+    },
+    MemoizedField {
+        owner: HirLazyExprIdx,
+        ident: Ident,
+        path: AssociatedItemPath,
+        // indirections:
+        // instantiations:
     },
     MethodFnCall {
         self_argument: HirLazyExprIdx,
@@ -107,6 +114,7 @@ pub enum HirLazyExprData {
         arguments: IdentMap<HirLazyHtmlArgumentExpr>,
     },
     Todo,
+    Unreachable,
     AssociatedFn {
         // ad hoc, needs more
         path: AssociatedItemPath,
@@ -250,10 +258,18 @@ impl ToHirLazy for SemaExprIdx {
             SemaExprData::Field {
                 owner_sema_expr_idx,
                 ident_token,
+                ref dispatch,
                 ..
-            } => HirLazyExprData::Field {
-                owner: owner_sema_expr_idx.to_hir_lazy(builder),
-                ident: ident_token.ident(),
+            } => match dispatch.signature() {
+                FluffyFieldSignature::PropsStruct { ty } => HirLazyExprData::PropsStructField {
+                    owner: owner_sema_expr_idx.to_hir_lazy(builder),
+                    ident: ident_token.ident(),
+                },
+                FluffyFieldSignature::Memoized { ty, path } => HirLazyExprData::MemoizedField {
+                    owner: owner_sema_expr_idx.to_hir_lazy(builder),
+                    ident: ident_token.ident(),
+                    path,
+                },
             },
             SemaExprData::MethodApplication {
                 self_argument: _,

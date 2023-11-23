@@ -142,7 +142,7 @@ fn lazy_expr_trace_have_subtraces(db: &dyn TraceDb, trace: LazyExprTrace) -> boo
         HirLazyExprData::AssociatedFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
         HirLazyExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
         HirLazyExprData::AssociatedFn { path } => path.hir_defn(db).is_some(),
-        HirLazyExprData::FunctionGnCall { path, .. } => path.hir_defn(db).is_some(),
+        HirLazyExprData::FunctionGnItemCall { path, .. } => path.hir_defn(db).is_some(),
         HirLazyExprData::Block { stmts } => unreachable!(),
         _ => false,
     }
@@ -215,7 +215,7 @@ fn lazy_expr_trace_subtraces(db: &dyn TraceDb, trace: LazyExprTrace) -> Vec<Trac
             subtraces
         }
         HirLazyExprData::Block { .. } => unreachable!(),
-        HirLazyExprData::FunctionGnCall { path, .. } => {
+        HirLazyExprData::FunctionGnItemCall { path, .. } => {
             let SemaExprData::FunctionGnCall {
                 ref ritchie_parameter_argument_matches,
                 ..

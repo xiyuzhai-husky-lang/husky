@@ -356,7 +356,7 @@ impl EtherealTermInstantiate for EtherealTermApplication {
     fn instantiate(
         self,
         db: &dyn EtherealTermDb,
-        instantiation: &EtherealTermInstantiation,
+        instantiation: &EtherealInstantiation,
     ) -> Self::Target {
         Self::new_reduced(
             db,

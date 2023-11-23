@@ -6,6 +6,12 @@ pub struct EnumPropsVariantHirDefn {
     pub hir_decl: EnumPropsVariantHirDecl,
 }
 
+impl From<EnumPropsVariantHirDefn> for HirDefn {
+    fn from(hir_defn: EnumPropsVariantHirDefn) -> Self {
+        HirDefn::TypeVariant(hir_defn.into())
+    }
+}
+
 impl EnumPropsVariantHirDefn {
     pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
         enum_props_variant_hir_defn_dependencies(db, self)
@@ -35,5 +41,5 @@ fn enum_props_variant_hir_defn_version_stamp(
     db: &dyn HirDefnDb,
     hir_defn: EnumPropsVariantHirDefn,
 ) -> HirDefnVersionStamp {
-    todo!()
+    HirDefnVersionStamp::new(hir_defn, db)
 }

@@ -403,9 +403,15 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 self.build_item_groups(item_groups, val_domain_repr_guard, &mut arguments);
                 (opn, arguments)
             }
-            HirLazyExprData::FunctionGnCall { .. } => todo!(),
-            HirLazyExprData::Field { owner, .. } => (
-                ValOpn::LinkageImpl(Linkage::new_field(self.db)),
+            HirLazyExprData::FunctionGnItemCall { .. } => todo!(),
+            HirLazyExprData::PropsStructField { owner, .. } => (
+                ValOpn::LinkageImpl(Linkage::new_props_struct_field(self.db)),
+                smallvec![ValArgumentRepr::Ordinary(
+                    self.build_expr(val_domain_repr_guard, owner)
+                )],
+            ),
+            HirLazyExprData::MemoizedField { owner, .. } => (
+                ValOpn::LinkageImpl(Linkage::new_memoized_field(self.db)),
                 smallvec![ValArgumentRepr::Ordinary(
                     self.build_expr(val_domain_repr_guard, owner)
                 )],
@@ -452,6 +458,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 arguments: _,
             } => todo!(),
             HirLazyExprData::Todo => todo!(),
+            HirLazyExprData::Unreachable => todo!(),
             HirLazyExprData::AssociatedFn { .. } => todo!(),
         };
         val_domain_repr_guard.new_expr_val_repr(

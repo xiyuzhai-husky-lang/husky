@@ -27,8 +27,9 @@ impl EtherealTermTemplateParameters {
         &self.data
     }
 
-    pub fn instantiation(&self) -> EtherealTermPartialInstantiation {
-        unsafe { EtherealTermPartialInstantiation::new(self.iter().map(|param| param.symbol())) }
+    /// returns an empty partial instantiation
+    pub fn empty_partial_instantiation(&self) -> EtherealTermPartialInstantiation {
+        EtherealTermPartialInstantiation::new(self.iter().map(|param| param.symbol()))
     }
 }
 

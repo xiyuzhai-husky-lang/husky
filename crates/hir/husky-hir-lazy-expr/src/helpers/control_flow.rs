@@ -154,7 +154,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             | HirLazyExprData::AssociatedFunctionFnCall {
                 ref item_groups, ..
             } => self.infer_new_item_groups(item_groups)?,
-            HirLazyExprData::FunctionGnCall {
+            HirLazyExprData::FunctionGnItemCall {
                 function_hir_lazy_expr_idx,
                 ref item_groups,
                 ..
@@ -162,7 +162,8 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 self.expr_has_control_flow(function_hir_lazy_expr_idx)?;
                 self.infer_new_item_groups(item_groups)?
             }
-            HirLazyExprData::Field { owner, ident: _ } => self.expr_has_control_flow(owner)?,
+            HirLazyExprData::PropsStructField { owner, .. }
+            | HirLazyExprData::MemoizedField { owner, .. } => self.expr_has_control_flow(owner)?,
             HirLazyExprData::MethodFnCall {
                 self_argument,
                 ref item_groups,
@@ -200,6 +201,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 }
             }
             HirLazyExprData::Todo => (),
+            HirLazyExprData::Unreachable => (),
             HirLazyExprData::AssociatedFn { .. } => (),
         }
         HasControlFlow::False

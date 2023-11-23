@@ -153,7 +153,7 @@ SynNodeDeclSheet {
                                                     6,
                                                 ),
                                             ),
-                                            ty_expr_idx: 4,
+                                            ty_syn_expr_idx: 4,
                                             initialization: None,
                                             variable: 1,
                                         },
@@ -177,7 +177,7 @@ SynNodeDeclSheet {
                                                     12,
                                                 ),
                                             ),
-                                            ty_expr_idx: 5,
+                                            ty_syn_expr_idx: 5,
                                             initialization: Some(
                                                 Bind {
                                                     colon_eq_token: ColonEqRegionalToken(
@@ -210,7 +210,7 @@ SynNodeDeclSheet {
                                                     27,
                                                 ),
                                             ),
-                                            ty_expr_idx: 10,
+                                            ty_syn_expr_idx: 10,
                                             initialization: Some(
                                                 Bind {
                                                     colon_eq_token: ColonEqRegionalToken(
@@ -761,7 +761,7 @@ SynNodeDeclSheet {
                                                     6,
                                                 ),
                                             ),
-                                            ty_expr_idx: 2,
+                                            ty_syn_expr_idx: 2,
                                             initialization: None,
                                             variable: 1,
                                         },
@@ -785,7 +785,7 @@ SynNodeDeclSheet {
                                                     11,
                                                 ),
                                             ),
-                                            ty_expr_idx: 5,
+                                            ty_syn_expr_idx: 5,
                                             initialization: None,
                                             variable: 2,
                                         },

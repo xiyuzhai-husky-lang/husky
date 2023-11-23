@@ -133,7 +133,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -365,7 +365,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -446,7 +446,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -569,7 +569,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -650,7 +650,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -748,7 +748,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -886,7 +886,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -969,7 +969,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1052,7 +1052,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1220,7 +1220,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -1335,7 +1335,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -1500,7 +1500,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -1563,7 +1563,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -1737,7 +1737,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1838,7 +1838,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1925,7 +1925,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2061,7 +2061,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2093,7 +2093,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2125,7 +2125,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2263,7 +2263,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -2360,7 +2360,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2392,7 +2392,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -2489,7 +2489,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2737,7 +2737,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -2838,7 +2838,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -3017,7 +3017,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -3094,7 +3094,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -3299,7 +3299,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -3425,7 +3425,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -3502,7 +3502,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -3579,7 +3579,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -3800,7 +3800,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -3848,7 +3848,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -4058,7 +4058,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -4155,7 +4155,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -4187,7 +4187,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -4284,7 +4284,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -4316,7 +4316,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -4413,7 +4413,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -4693,7 +4693,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -4770,7 +4770,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -4957,7 +4957,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -5034,7 +5034,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -5239,7 +5239,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -5287,7 +5287,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: PropsStructField,
                             },
                         ),
                         arguments: [
@@ -5493,7 +5493,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -5525,7 +5525,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -5549,7 +5549,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -5573,7 +5573,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [
@@ -5659,7 +5659,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Field,
+                                data: MemoizedField,
                             },
                         ),
                         arguments: [

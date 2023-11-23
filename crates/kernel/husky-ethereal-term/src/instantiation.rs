@@ -111,13 +111,13 @@ impl EtherealTermPartialInstantiation {
         }
     }
 
-    pub fn try_into_instantiation(&self) -> Option<EtherealTermInstantiation> {
+    pub fn try_into_instantiation(&self) -> Option<EtherealInstantiation> {
         let mut symbol_map = SmallVecPairMap::<EtherealTermSymbol, EtherealTerm, 4>::default();
         for (symbol, mapped) in self.symbol_map.iter() {
             let mapped = (*mapped)?;
             unsafe { symbol_map.insert_new_unchecked((*symbol, mapped)) }
         }
-        Some(EtherealTermInstantiation { symbol_map })
+        Some(EtherealInstantiation { symbol_map })
     }
 
     pub fn merge_with_item_template_parameters(
@@ -134,11 +134,11 @@ impl EtherealTermPartialInstantiation {
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb)]
-pub struct EtherealTermInstantiation {
+pub struct EtherealInstantiation {
     symbol_map: SmallVecPairMap<EtherealTermSymbol, EtherealTerm, 4>,
 }
 
-impl EtherealTermInstantiation {
+impl EtherealInstantiation {
     /// assume that symbol is in symbol_map
     /// panic otherwise
     pub fn symbol_mapped(&self, symbol: EtherealTermSymbol) -> EtherealTerm {
@@ -161,7 +161,7 @@ pub trait EtherealTermInstantiate: Copy {
     fn instantiate(
         self,
         db: &dyn EtherealTermDb,
-        instantiation: &EtherealTermInstantiation,
+        instantiation: &EtherealInstantiation,
     ) -> Self::Target;
 }
 
@@ -171,6 +171,6 @@ pub trait EtherealTermInstantiateRef {
     fn instantiate(
         &self,
         db: &dyn EtherealTermDb,
-        instantiation: &EtherealTermInstantiation,
+        instantiation: &EtherealInstantiation,
     ) -> Self::Target;
 }

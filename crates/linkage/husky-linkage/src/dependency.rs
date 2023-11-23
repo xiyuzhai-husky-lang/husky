@@ -9,7 +9,8 @@ fn linkage_path_dependencies(db: &dyn LinkageDb, linkage_path: Linkage) {
             path,
             template_arguments,
         } => todo!(),
-        LinkagePathData::Field => todo!(),
+        LinkagePathData::PropsStructField => todo!(),
+        LinkagePathData::MemoizedField => todo!(),
         LinkagePathData::Index => todo!(),
         LinkagePathData::Method => todo!(),
     }
