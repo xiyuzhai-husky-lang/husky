@@ -102,35 +102,52 @@ fn transpile_hir_eager_expr_to_rust(
             opr.transpile_to_rust(builder)
         }
         HirEagerExprData::TypeConstructorFnCall {
+            function_hir_eager_expr_idx,
             path,
-            ref instantiation,
+            ref template_arguments,
             ref item_groups,
         } => {
             builder.ty_constructor(path);
+            if let Some(_template_arguments) = template_arguments {
+                todo!()
+            }
             builder.bracketed_comma_list(RustBracket::Par, item_groups)
         }
-        HirEagerExprData::TypeVariantConstructorFnCall {
+        HirEagerExprData::TypeVariantConstructorCall {
+            function_hir_eager_expr_idx,
             path,
-            ref instantiation,
+            ref template_arguments,
             ref item_groups,
         } => {
-            path.transpile_to_rust(builder);
+            geq(function_hir_eager_expr_idx).transpile_to_rust(builder);
+            if let Some(_template_arguments) = template_arguments {
+                todo!()
+            }
             builder.bracketed_comma_list(RustBracket::Par, item_groups)
         }
-        HirEagerExprData::FunctionFnItemCall {
+        HirEagerExprData::FunctionFnCall {
+            function_hir_eager_expr_idx,
             path,
-            ref instantiation,
+            ref template_arguments,
             ref item_groups,
         } => {
-            path.transpile_to_rust(builder);
+            geq(function_hir_eager_expr_idx).transpile_to_rust(builder);
+            if let Some(_template_arguments) = template_arguments {
+                todo!()
+            }
             builder.bracketed_comma_list(RustBracket::Par, item_groups)
         }
         HirEagerExprData::AssociatedFunctionFnCall {
+            function_hir_eager_expr_idx,
             path,
-            ref instantiation,
+            ref parent_template_arguments,
+            ref template_arguments,
             ref item_groups,
         } => {
-            path.transpile_to_rust(builder);
+            geq(function_hir_eager_expr_idx).transpile_to_rust(builder);
+            if let Some(_template_arguments) = template_arguments {
+                todo!()
+            }
             builder.bracketed_comma_list(RustBracket::Par, item_groups)
         }
         HirEagerExprData::PropsStructField {
@@ -155,13 +172,15 @@ fn transpile_hir_eager_expr_to_rust(
             self_argument,
             ident,
             path,
-            ref indirections,
-            ref instantiation,
+            ref template_arguments,
             ref item_groups,
         } => {
             geq(self_argument).transpile_to_rust(builder);
             builder.opr(RustOpr::Dot);
             ident.transpile_to_rust(builder);
+            if let Some(_template_arguments) = template_arguments {
+                todo!()
+            }
             builder.bracketed_comma_list(RustBracket::Par, item_groups)
         }
         HirEagerExprData::NewTuple { items: _ } => {
