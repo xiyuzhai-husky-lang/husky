@@ -7,7 +7,7 @@ use husky_entity_path::EntityPathJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 
-#[salsa::db(
+#[salsa::test_db(
     CowordJar,
     VfsJar,
     EntityPathJar,
@@ -18,11 +18,7 @@ use husky_token::TokenJar;
     FoldingRangeJar
 )]
 #[derive(Default)]
-pub struct DB {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for DB {}
+pub struct DB;
 
 #[test]
 fn folding_ranges_works() {

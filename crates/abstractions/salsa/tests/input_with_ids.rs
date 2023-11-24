@@ -8,6 +8,8 @@ struct Jar(MyInput);
 
 trait Db: salsa::DbWithJar<Jar> {}
 
+impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> {}
+
 // Recursive expansion of input! macro
 // ====================================
 
@@ -197,8 +199,6 @@ struct Database {
 }
 
 impl salsa::Database for Database {}
-
-impl Db for Database {}
 
 #[test]
 fn test_debug() {

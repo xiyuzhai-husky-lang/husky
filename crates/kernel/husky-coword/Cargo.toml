@@ -13,3 +13,9 @@ vec-like = { path = "../../abstractions/vec-like" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
+
+[dev-dependencies]
+husky-coword = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

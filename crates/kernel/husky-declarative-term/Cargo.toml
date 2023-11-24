@@ -29,3 +29,7 @@ husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
+husky-declarative-term = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

@@ -178,6 +178,7 @@ fn collect_package_relative_dirs_aux<Db: ?Sized + CowordDb>(
 fn collect_package_relative_dirs_works() {
     use salsa::DebugWithDb;
     let db = DB::default();
+    let db = &*db;
     let cargo_manifest_dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
     let library_dir = cargo_manifest_dir
         .join("../../../library")
@@ -199,7 +200,7 @@ fn collect_package_relative_dirs_works() {
             ),
         ]
     "#]]
-    .assert_debug_eq(&collect_package_relative_dirs(&db, &library_dir).debug(&db));
+    .assert_debug_eq(&collect_package_relative_dirs(db, &library_dir).debug(db));
 
     let examples_dir = cargo_manifest_dir
         .join("../../../examples")
@@ -227,13 +228,16 @@ fn collect_package_relative_dirs_works() {
             ),
         ]
     "#]]
-    .assert_debug_eq(&collect_package_relative_dirs(&db, &examples_dir).debug(&db));
+    .assert_debug_eq(&collect_package_relative_dirs(db, &examples_dir).debug(db));
 }
 
 #[test]
 fn collect_package_dirs_works() {
+    use salsa::test_utils::TestDb;
+
     let db = DB::default();
-    fn t(db: &DB, dir: &Path) {
+    let db = &*db;
+    fn t(db: &TestDb, dir: &Path) {
         assert_eq!(
             collect_package_relative_dirs(db, dir)
                 .into_iter()

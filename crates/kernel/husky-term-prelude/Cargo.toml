@@ -12,3 +12,9 @@ enum-class = { path = "../../abstractions/enum-class" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 husky-coword = { path = "../../kernel/husky-coword" }
+
+[dev-dependencies]
+husky-term-prelude = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

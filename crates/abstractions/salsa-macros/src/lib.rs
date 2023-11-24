@@ -37,6 +37,7 @@ mod interned;
 mod jar;
 mod options;
 mod salsa_struct;
+mod test_db;
 mod tracked;
 mod tracked_fn;
 mod tracked_struct;
@@ -65,6 +66,11 @@ pub fn wrap_id(args: TokenStream, input: TokenStream) -> TokenStream {
 #[proc_macro_attribute]
 pub fn db(args: TokenStream, input: TokenStream) -> TokenStream {
     db::db(args, input)
+}
+
+#[proc_macro_attribute]
+pub fn test_db(args: TokenStream, input: TokenStream) -> TokenStream {
+    test_db::test_db(args, input)
 }
 
 #[proc_macro_attribute]

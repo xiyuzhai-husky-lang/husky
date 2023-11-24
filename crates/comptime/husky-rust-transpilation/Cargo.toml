@@ -65,3 +65,7 @@ husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
+husky-rust-transpilation = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

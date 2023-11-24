@@ -52,3 +52,7 @@ husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
+husky-fluffy-term = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

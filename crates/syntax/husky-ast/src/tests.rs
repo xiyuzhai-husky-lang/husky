@@ -8,7 +8,7 @@ use husky_token::TokenJar;
 use husky_vfs::*;
 use salsa::{Database, ParallelDatabase, Snapshot};
 
-#[salsa::db(
+#[salsa::test_db(
     CowordJar,
     VfsJar,
     EntityPathJar,
@@ -17,20 +17,7 @@ use salsa::{Database, ParallelDatabase, Snapshot};
     AstJar,
     TermPreludeJar
 )]
-#[derive(Default)]
-pub(crate) struct DB {
-    storage: salsa::Storage<Self>,
-}
-
-impl Database for DB {}
-
-impl ParallelDatabase for DB {
-    fn snapshot(&self) -> Snapshot<Self> {
-        Snapshot::new(DB {
-            storage: self.storage.snapshot(),
-        })
-    }
-}
+pub(crate) struct DB;
 
 #[test]
 fn ast_sheet_works() {

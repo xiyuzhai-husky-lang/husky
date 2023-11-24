@@ -21,3 +21,7 @@ husky-minimal-toml-utils = { path = "../../utils/husky-minimal-toml-utils" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
+husky-path-utils = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

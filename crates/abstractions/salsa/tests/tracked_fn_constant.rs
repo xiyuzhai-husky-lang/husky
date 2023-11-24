@@ -7,6 +7,8 @@ struct Jar(tracked_fn);
 
 trait Db: salsa::DbWithJar<Jar> {}
 
+impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> {}
+
 #[salsa::tracked]
 fn tracked_fn(db: &dyn Db) -> u32 {
     44
@@ -21,8 +23,6 @@ fn execute() {
     }
 
     impl salsa::Database for Database {}
-
-    impl Db for Database {}
 
     let mut db = Database::default();
     assert_eq!(tracked_fn(&db), 44);

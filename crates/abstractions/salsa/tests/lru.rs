@@ -15,6 +15,8 @@ struct Jar(MyInput, get_hot_potato, get_hot_potato2, get_volatile);
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
+impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
+
 #[derive(Debug, PartialEq, Eq)]
 struct HotPotato(u32);
 
@@ -67,8 +69,6 @@ struct DatabaseImpl {
 }
 
 impl salsa::Database for DatabaseImpl {}
-
-impl Db for DatabaseImpl {}
 
 impl HasLogger for DatabaseImpl {
     fn logger(&self) -> &Logger {

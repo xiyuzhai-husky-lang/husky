@@ -19,6 +19,8 @@ struct Jar(
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
+impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
+
 #[salsa::input(db = Db)]
 struct MyInput {
     field: u32,
@@ -70,8 +72,6 @@ impl salsa::Database for Database {
         }
     }
 }
-
-impl Db for Database {}
 
 impl HasLogger for Database {
     fn logger(&self) -> &Logger {

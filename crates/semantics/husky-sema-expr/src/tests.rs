@@ -1,4 +1,5 @@
 pub(crate) use husky_ast::test_utils::*;
+pub(crate) use salsa::test_utils::TestDb;
 
 use crate::*;
 use husky_ast::AstJar;
@@ -23,7 +24,7 @@ use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 use husky_vfs::*;
 
-#[salsa::db(
+#[salsa::test_db(
     CowordJar,
     VfsJar,
     EntityPathJar,
@@ -50,13 +51,9 @@ use husky_vfs::*;
     SemaExprJar
 )]
 #[derive(Default)]
-pub(crate) struct DB {
-    storage: salsa::Storage<Self>,
-}
+pub(crate) struct DB;
 
-impl salsa::Database for DB {}
-
-fn decl_sema_expr_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegion> {
+fn decl_sema_expr_regions(db: &TestDb, module_path: ModulePath) -> Vec<SemaExprRegion> {
     db.syn_decl_sheet(module_path)
         .decls(db)
         .iter()
@@ -73,7 +70,7 @@ fn decl_sema_expr_sheets_works() {
     )
 }
 
-fn defn_sema_expr_regions(db: &DB, module_path: ModulePath) -> Vec<SemaExprRegion> {
+fn defn_sema_expr_regions(db: &TestDb, module_path: ModulePath) -> Vec<SemaExprRegion> {
     let Ok(defns) = module_path.defns(db) else {
         return vec![];
     };

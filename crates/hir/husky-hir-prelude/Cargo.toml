@@ -9,3 +9,9 @@ ordered-float.workspace = true
 salsa = { path = "../../abstractions/salsa" }
 # kernel
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
+
+[dev-dependencies]
+husky-hir-prelude = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

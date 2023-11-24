@@ -6,7 +6,6 @@ mod utils;
 
 pub use self::fugitive::*;
 
-
 pub use self::ty_instance_constructor::*;
 
 use crate::*;
@@ -59,6 +58,7 @@ pub fn item_path_declarative_ty(
 #[test]
 fn item_path_declarative_ty_works() {
     let db = DB::default();
+    let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
     let item_path_menu = db.item_path_menu(toolchain);
     let declarative_term_menu = db.declarative_term_menu(toolchain).unwrap();
@@ -74,7 +74,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.bool_ty_path().into(),
         ),
@@ -83,7 +83,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.add_trai_path().into(),
         ),
@@ -92,7 +92,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.add_assign_trai_path().into(),
         ),
@@ -101,7 +101,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.bit_and_trai_path().into(),
         ),
@@ -110,7 +110,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.bit_and_assign_trai_path().into(),
         ),
@@ -119,7 +119,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.bit_or_trai_path().into(),
         ),
@@ -128,7 +128,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.core_ops_bit_or_assign_trai_path().into(),
         ),
@@ -137,7 +137,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.bit_xor_trai_path().into(),
         ),
@@ -146,7 +146,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.bit_xor_assign_trai_path().into(),
         ),
@@ -155,7 +155,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.div_trai_path().into(),
         ),
@@ -164,7 +164,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.div_assign_trai_path().into(),
         ),
@@ -173,7 +173,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.mul_trai_path().into(),
         ),
@@ -182,7 +182,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.mul_assign_trai_path().into(),
         ),
@@ -191,7 +191,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.neg_trai_path().into(),
         ),
@@ -200,7 +200,7 @@ fn item_path_declarative_ty_works() {
     assert_eq_with_db!(
         db,
         item_path_declarative_ty(
-            &db,
+            db,
             TypePathDisambiguation::OntologyConstructor,
             item_path_menu.not_trai_path().into(),
         ),
@@ -208,7 +208,7 @@ fn item_path_declarative_ty_works() {
     );
     // assert_eq_with_db!(
     //     db,
-    //     item_path_declarative_ty(&db, item_path_menu.ref_declarative_ty_path().into()),
+    //     item_path_declarative_ty(db, item_path_menu.ref_declarative_ty_path().into()),
     //     Ok(covariant_lifetime_to_covariant_ty0_to_ty0)
     // );
 }
@@ -238,10 +238,11 @@ pub fn ty_ontology_path_declarative_ty(
 #[test]
 fn ty_ontology_path_declarative_ty_works() {
     let db = DB::default();
+    let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
     let item_path_menu = db.item_path_menu(toolchain);
     let _array_ty_ontology_path_declarative_ty =
-        ty_ontology_path_declarative_ty(&db, item_path_menu.array_ty_path());
+        ty_ontology_path_declarative_ty(db, item_path_menu.array_ty_path());
     // use husky_print_utils::*;
     // use salsa::DebugWithDb;
     // p!(array_ty_ontology_path_declarative_ty.debug(&db));

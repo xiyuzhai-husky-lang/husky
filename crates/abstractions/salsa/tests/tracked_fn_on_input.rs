@@ -7,6 +7,8 @@ struct Jar(MyInput, tracked_fn);
 
 trait Db: salsa::DbWithJar<Jar> {}
 
+impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> {}
+
 #[salsa::input(db = Db, jar = Jar)]
 struct MyInput {
     field: u32,
@@ -26,8 +28,6 @@ fn execute() {
     }
 
     impl salsa::Database for Database {}
-
-    impl Db for Database {}
 
     let mut db = Database::default();
     let input = MyInput::new(&db, 22);

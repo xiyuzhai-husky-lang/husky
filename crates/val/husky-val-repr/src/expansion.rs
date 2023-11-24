@@ -484,7 +484,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
 
 #[cfg(test)]
 fn val_item_val_repr_expansions(
-    db: &DB,
+    db: &TestDb,
     module_path: ModulePath,
 ) -> Vec<(FugitivePath, Option<ValReprExpansion>)> {
     val_item_val_reprs(db, module_path)
@@ -497,7 +497,6 @@ fn val_item_val_repr_expansions(
 fn val_item_val_repr_expansions_works() {
     // todo: why compiler needs this line to work?
     use husky_ast::test_utils::AstTestUtils;
-    let _db = DB::default();
     DB::default().ast_expect_test_debug_with_db(
         val_item_val_repr_expansions,
         &AstTestConfig::new("val_item_val_repr_expansions"),

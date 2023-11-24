@@ -1,4 +1,6 @@
 pub(crate) use husky_ast::test_utils::*;
+#[cfg(test)]
+use salsa::test_utils::TestDb;
 
 use crate::{db::*, *};
 use husky_ast::AstJar;
@@ -25,7 +27,7 @@ use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 
-#[salsa::db(
+#[salsa::test_db(
     CowordJar,
     VfsJar,
     EntityPathJar,
@@ -56,14 +58,9 @@ use husky_toml_token::TomlTokenJar;
     husky_hir_expr::db::HirExprJar,
     HirDeclJar
 )]
-#[derive(Default)]
-pub(crate) struct DB {
-    storage: salsa::Storage<Self>,
-}
+pub(crate) struct DB;
 
-impl salsa::Database for DB {}
-
-fn module_hir_decls(db: &DB, module_path: ModulePath) -> Vec<HirDecl> {
+fn module_hir_decls(db: &TestDb, module_path: ModulePath) -> Vec<HirDecl> {
     module_item_paths(db, module_path)
         .iter()
         .filter_map(|path| path.hir_decl(db))
