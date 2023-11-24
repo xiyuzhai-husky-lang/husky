@@ -29,10 +29,6 @@ pub type HirLazyExprMap<V> = ArenaMap<HirLazyExprData, V>;
 pub enum HirLazyExprData {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),
-    AssociatedFn {
-        // ad hoc, needs more
-        path: AssociatedItemPath,
-    },
     ConstSymbol(HirConstSymbol),
     Variable(HirLazyVariableIdx),
     Binary {
@@ -117,6 +113,10 @@ pub enum HirLazyExprData {
     },
     Todo,
     Unreachable,
+    AssociatedFn {
+        // ad hoc, needs more
+        path: AssociatedItemPath,
+    },
 }
 
 impl ToHirLazy for SemaExprIdx {
@@ -220,6 +220,11 @@ impl ToHirLazy for SemaExprIdx {
                             MajorItemPath::Fugitive(path) => HirLazyExprData::FunctionFnItemCall {
                                 path,
                                 instantiation: HirInstantiation::new_empty(),
+                                // HirInstantiation::from_fluffy(
+                                //     instantiation,
+                                //     builder.db(),
+                                //     builder.fluffy_terms(),
+                                // ),
                                 item_groups,
                             },
                         },
