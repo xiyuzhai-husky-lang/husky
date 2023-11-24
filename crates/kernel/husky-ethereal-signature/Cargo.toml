@@ -23,3 +23,9 @@ husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+
+[dev-dependencies]
+husky-ethereal-signature = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

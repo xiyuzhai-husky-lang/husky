@@ -306,7 +306,7 @@ impl<'a, T> RegionalTokenStreamParser<'a> for T where
 }
 
 #[cfg(test)]
-fn quick_parse<T, Error>(db: &DB, input: &str) -> Result<Option<T>, Error>
+fn quick_parse<T, Error>(db: &TestDb, input: &str) -> Result<Option<T>, Error>
 where
     T: for<'a> TryParseOptionFromStream<RegionalTokenStream<'a>, Error = Error>,
 {

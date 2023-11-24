@@ -1,5 +1,6 @@
 pub(crate) use husky_ast::test_utils::{AstTestConfig, AstTestUtils};
 pub(crate) use husky_vfs::ModulePath;
+pub(crate) use salsa::test_utils::TestDb;
 
 use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
@@ -27,7 +28,7 @@ use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 use husky_vfs::VfsJar;
 
-#[salsa::db(
+#[salsa::test_db(
     CowordJar,
     VfsJar,
     EntityPathJar,
@@ -65,8 +66,4 @@ use husky_vfs::VfsJar;
     crate::db::ValReprJar,
 )]
 #[derive(Default)]
-pub struct DB {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for DB {}
+pub struct DB;

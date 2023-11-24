@@ -28,6 +28,8 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
+# abstractions
+salsa = { path = "../../abstractions/salsa", features = ["test-utils"] }
 # hir
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
@@ -58,3 +60,7 @@ husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
+husky-hir-defn = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

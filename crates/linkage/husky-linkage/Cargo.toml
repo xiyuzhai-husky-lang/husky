@@ -17,3 +17,9 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
+
+[dev-dependencies]
+husky-linkage = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

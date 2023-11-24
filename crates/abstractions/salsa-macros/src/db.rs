@@ -14,6 +14,7 @@ pub(crate) fn db(
 ) -> proc_macro::TokenStream {
     let args = syn::parse_macro_input!(args as Args);
     let input = syn::parse_macro_input!(input as syn::ItemStruct);
+    let ident = &input.ident;
     let storage = match find_storage_field(&input) {
         Ok(v) => v,
         Err(err) => {

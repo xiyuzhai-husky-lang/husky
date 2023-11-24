@@ -71,13 +71,13 @@ struct Jar(
 
 trait Db: salsa::DbWithJar<Jar> {}
 
+impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> {}
+
 #[salsa::db(Jar)]
 #[derive(Default)]
 struct Database {
     storage: salsa::Storage<Self>,
 }
-
-impl Db for Database {}
 
 impl salsa::Database for Database {}
 

@@ -1,7 +1,6 @@
 #![feature(try_trait_v2)]
 
 mod config;
-mod db;
 mod evaluator;
 mod hot_reload;
 

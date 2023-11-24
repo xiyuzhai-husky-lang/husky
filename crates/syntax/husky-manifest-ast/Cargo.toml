@@ -19,3 +19,9 @@ husky-coword = { path = "../../kernel/husky-coword" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # syntax
 husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
+
+[dev-dependencies]
+husky-manifest-ast = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

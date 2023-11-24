@@ -3,7 +3,7 @@ use crate::*;
 #[macro_export]
 macro_rules! assert_eq_with_db {
     ($db: expr, $left: expr, $right: expr) => {
-        if let Err(error_message) = ::salsa::utils::assert_eq_with_db_f(&$db, &$left, &$right) {
+        if let Err(error_message) = ::salsa::utils::assert_eq_with_db_f($db, &$left, &$right) {
             panic!("{}", error_message)
         }
     };

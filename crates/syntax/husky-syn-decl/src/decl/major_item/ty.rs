@@ -259,7 +259,8 @@ pub(crate) fn ty_decl(db: &dyn SynDeclDb, path: TypePath) -> DeclResult<TypeSynD
 fn ty_decl_works() {
     use husky_vfs::VfsTestUtils;
     let db = DB::default();
+    let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
     let menu = db.item_path_menu(toolchain);
-    assert!(menu.never_ty_path().syn_decl(&db).is_ok());
+    assert!(menu.never_ty_path().syn_decl(db).is_ok());
 }

@@ -24,3 +24,9 @@ husky-scope = { path = "../../kernel/husky-scope" }
 husky-hir-prelude = { path = "../../hir/husky-hir-prelude" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+
+[dev-dependencies]
+husky-hir-ty = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

@@ -31,3 +31,7 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-token-data = { path = "../../lex/husky-token-data" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
+husky-folding-range = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

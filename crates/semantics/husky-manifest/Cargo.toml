@@ -24,3 +24,9 @@ husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
 husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+
+[dev-dependencies]
+husky-manifest = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

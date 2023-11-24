@@ -7,7 +7,7 @@ use husky_expect_test_snippets_utils::*;
 use husky_vfs::{snippet::Snippet, *};
 use salsa::{Database, DebugWithDb, Storage};
 
-#[salsa::db(
+#[salsa::test_db(
     CowordJar,
     VfsJar,
     husky_token_data::db::TokenDataJar,
@@ -16,16 +16,13 @@ use salsa::{Database, DebugWithDb, Storage};
     EntityPathJar
 )]
 #[derive(Default)]
-pub(crate) struct DB {
-    storage: Storage<Self>,
-}
-
-impl Database for DB {}
+pub(crate) struct DB;
 
 fn tokenize_snippet_debug(snippet: &str) -> String {
     let db = DB::default();
-    let snippet = Snippet::new(&db, snippet.to_owned());
-    format!("{:#?}", db.snippet_token_sheet_data(snippet).debug(&db))
+    let db = &*db;
+    let snippet = Snippet::new(db, snippet.to_owned());
+    format!("{:#?}", db.snippet_token_sheet_data(snippet).debug(db))
 }
 
 #[test]

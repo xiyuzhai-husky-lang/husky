@@ -58,3 +58,7 @@ husky-declarative-signature = { path = "../../kernel/husky-declarative-signature
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # utils
 husky-path-utils = { path = "../../utils/husky-path-utils" }
+husky-diagnostics = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]
