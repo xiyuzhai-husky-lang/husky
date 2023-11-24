@@ -70,4 +70,9 @@ husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 # val
 husky-val = { path = "../../val/husky-val" }
-husky-val-repr = { path = "../../val/husky-val-repr" }
+husky-val-repr = { path = "../../val/husky-val-repr", features = [
+    "test-utils"
+] }
+
+[features]
+test-utils = ["salsa/test-utils"]

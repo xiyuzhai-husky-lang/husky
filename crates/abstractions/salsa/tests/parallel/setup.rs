@@ -1,5 +1,7 @@
 use std::{cell::Cell, sync::Arc};
 
+use salsa::test_utils::TestDb;
+
 use crate::signal::Signal;
 
 /// Various "knobs" and utilities used by tests to force
@@ -10,6 +12,20 @@ pub(crate) trait Knobs {
     fn signal(&self, stage: usize);
 
     fn wait_for(&self, stage: usize);
+}
+
+impl Knobs for TestDb {
+    fn knobs(&self) -> &KnobsStruct {
+        todo!()
+    }
+
+    fn signal(&self, stage: usize) {
+        todo!()
+    }
+
+    fn wait_for(&self, stage: usize) {
+        todo!()
+    }
 }
 
 /// Various "knobs" that can be used to customize how the queries

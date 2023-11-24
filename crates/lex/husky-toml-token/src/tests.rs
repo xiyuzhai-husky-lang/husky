@@ -6,17 +6,13 @@ use husky_vfs::*;
 use salsa::Database;
 use std::sync::Arc;
 
-#[salsa::db(CowordJar, VfsJar, TomlTokenJar)]
-#[derive(Default)]
-struct DB {
-    storage: salsa::Storage<Self>,
-}
-
-impl Database for DB {}
+#[salsa::test_db(CowordJar, VfsJar, TomlTokenJar)]
+struct DB;
 
 fn err(input: &str, err: TomlTokenError) {
     let db = DB::default();
-    let mut t = TomlTokenIter::new(&db, input);
+    let db = &*db;
+    let mut t = TomlTokenIter::new(db, input);
     let token = t.next().unwrap().data().clone();
     assert_eq!(token, TomlTokenData::Err(err));
     assert!(t.next().is_none());
@@ -38,14 +34,15 @@ fn literal_strings() {
     }
 
     let db = DB::default();
-    t(&db, "''", "", false);
-    t(&db, "''''''", "", true);
-    t(&db, "'''\n'''", "", true);
-    t(&db, "'a'", "a", false);
-    t(&db, "'\"a'", "\"a", false);
-    t(&db, "''''a'''", "'a", true);
-    t(&db, "'''\n'a\n'''", "'a\n", true);
-    t(&db, "'''a\n'a\r\n'''", "a\n'a\n", true);
+    let db = &*db;
+    t(db, "''", "", false);
+    t(db, "''''''", "", true);
+    t(db, "'''\n'''", "", true);
+    t(db, "'a'", "a", false);
+    t(db, "'\"a'", "\"a", false);
+    t(db, "''''a'''", "'a", true);
+    t(db, "'''\n'a\n'''", "'a\n", true);
+    t(db, "'''a\n'a\r\n'''", "a\n'a\n", true);
 }
 
 #[test]
@@ -64,32 +61,33 @@ fn basic_strings() {
     }
 
     let db = DB::default();
-    t(&db, r#""""#, "", false);
-    t(&db, r#""""""""#, "", true);
-    t(&db, r#""a""#, "a", false);
-    t(&db, r#""""a""""#, "a", true);
-    t(&db, r#""\t""#, "\t", false);
-    t(&db, r#""\u0000""#, "\0", false);
-    t(&db, r#""\U00000000""#, "\0", false);
-    t(&db, r#""\U000A0000""#, "\u{A0000}", false);
-    t(&db, r#""\\t""#, "\\t", false);
-    t(&db, "\"\t\"", "\t", false);
-    t(&db, "\"\"\"\n\t\"\"\"", "\t", true);
-    t(&db, "\"\"\"\\\n\"\"\"", "", true);
+    let db = &*db;
+    t(db, r#""""#, "", false);
+    t(db, r#""""""""#, "", true);
+    t(db, r#""a""#, "a", false);
+    t(db, r#""""a""""#, "a", true);
+    t(db, r#""\t""#, "\t", false);
+    t(db, r#""\u0000""#, "\0", false);
+    t(db, r#""\U00000000""#, "\0", false);
+    t(db, r#""\U000A0000""#, "\u{A0000}", false);
+    t(db, r#""\\t""#, "\\t", false);
+    t(db, "\"\t\"", "\t", false);
+    t(db, "\"\"\"\n\t\"\"\"", "\t", true);
+    t(db, "\"\"\"\\\n\"\"\"", "", true);
     t(
-        &db,
+        db,
         "\"\"\"\\\n     \t   \t  \\\r\n  \t \n  \t \r\n\"\"\"",
         "",
         true,
     );
-    t(&db, r#""\r""#, "\r", false);
-    t(&db, r#""\n""#, "\n", false);
-    t(&db, r#""\b""#, "\u{8}", false);
-    t(&db, r#""a\fa""#, "a\u{c}a", false);
-    t(&db, r#""\"a""#, "\"a", false);
-    t(&db, "\"\"\"\na\"\"\"", "a", true);
-    t(&db, "\"\"\"\n\"\"\"", "", true);
-    t(&db, r#""""a\"""b""""#, "a\"\"\"b", true);
+    t(db, r#""\r""#, "\r", false);
+    t(db, r#""\n""#, "\n", false);
+    t(db, r#""\b""#, "\u{8}", false);
+    t(db, r#""a\fa""#, "a\u{c}a", false);
+    t(db, r#""\"a""#, "\"a", false);
+    t(db, "\"\"\"\na\"\"\"", "a", true);
+    t(db, "\"\"\"\n\"\"\"", "", true);
+    t(db, r#""""a\"""b""""#, "a\"\"\"b", true);
     err(r#""\a"#, TomlTokenError::InvalidEscape(2, 'a'));
     err("\"\\\n", TomlTokenError::InvalidEscape(2, '\n'));
     err("\"\\\r\n", TomlTokenError::InvalidEscape(2, '\n'));
@@ -117,14 +115,15 @@ fn keylike() {
     }
 
     let db = DB::default();
-    t(&db, "foo");
-    t(&db, "0bar");
-    t(&db, "bar0");
-    t(&db, "1234");
-    t(&db, "a-b");
-    t(&db, "a_B");
-    t(&db, "-_-");
-    t(&db, "___");
+    let db = &*db;
+    t(db, "foo");
+    t(db, "0bar");
+    t(db, "bar0");
+    t(db, "1234");
+    t(db, "a-b");
+    t(db, "a_B");
+    t(db, "-_-");
+    t(db, "___");
 }
 
 #[test]
@@ -143,14 +142,15 @@ fn all() {
     }
 
     let db = DB::default();
+    let db = &*db;
     t(
-        &db,
+        db,
         " a ",
         &[((1, 2), TomlTokenData::Word(db.it_coword_borrowed("a")), "a")],
     );
 
     t(
-        &db,
+        db,
         " a\t [[]] \t [] {} , . =\n# foo \r\n#foo \n ",
         &[
             ((1, 2), TomlTokenData::Word(db.it_coword_borrowed("a")), "a"),
@@ -183,7 +183,8 @@ fn bare_cr_bad() {
 #[test]
 fn bad_comment() {
     let db = DB::default();
-    let mut t = TomlTokenIter::new(&db, "#\u{0}");
+    let db = &*db;
+    let mut t = TomlTokenIter::new(db, "#\u{0}");
     t.next().unwrap();
     assert_eq!(
         t.next().unwrap().data(),
@@ -195,18 +196,19 @@ fn bad_comment() {
 #[test]
 fn builtin_library_toml_token_sheets() {
     let db = DB::default();
+    let db = &*db;
     let _toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.dev_path_menu().unwrap();
     expect_file!["../tests/package_core_toml_token_sheets.txt"].assert_eq(&format!(
         "{:#?}",
-        db.toml_token_sheet(path_menu.core_package().manifest_path(&db).unwrap().path())
+        db.toml_token_sheet(path_menu.core_package().manifest_path(db).unwrap().path())
             .as_ref()
             .unwrap()
             .unwrap()
     ));
     expect_file!["../tests/package_std_toml_token_sheets.txt"].assert_eq(&format!(
         "{:#?}",
-        db.toml_token_sheet(path_menu.std_package().manifest_path(&db).unwrap().path())
+        db.toml_token_sheet(path_menu.std_package().manifest_path(db).unwrap().path())
             .as_ref()
             .unwrap()
     ));

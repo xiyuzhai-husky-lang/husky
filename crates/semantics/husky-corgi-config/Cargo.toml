@@ -20,3 +20,9 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # syntax
 husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
 husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
+
+[dev-dependencies]
+husky-corgi-config = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

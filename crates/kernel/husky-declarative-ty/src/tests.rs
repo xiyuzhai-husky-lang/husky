@@ -1,4 +1,5 @@
 pub(crate) use husky_ast::test_utils::*;
+use salsa::test_utils::TestDb;
 
 use crate::*;
 use husky_ast::AstJar;
@@ -19,7 +20,7 @@ use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 use husky_vfs::ModulePath;
 
-#[salsa::db(
+#[salsa::test_db(
     CowordJar,
     husky_vfs::db::VfsJar,
     EntityPathJar,
@@ -41,14 +42,10 @@ use husky_vfs::ModulePath;
     DeclarativeTypeJar
 )]
 #[derive(Default)]
-pub(crate) struct DB {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for DB {}
+pub(crate) struct DB;
 
 fn major_item_declarative_tys(
-    db: &DB,
+    db: &TestDb,
     module_path: ModulePath,
 ) -> Vec<(ItemPath, DeclarativeTypeResult<DeclarativeTerm>)> {
     db.item_syn_tree_sheet(module_path)

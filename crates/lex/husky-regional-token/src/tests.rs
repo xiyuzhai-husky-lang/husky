@@ -1,7 +1,8 @@
+pub use salsa::test_utils::TestDb;
 
 use salsa::{Database, Storage};
 
-#[salsa::db(
+#[salsa::test_db(
     husky_coword::CowordJar,
     husky_vfs::VfsJar,
     husky_token_data::db::TokenDataJar,
@@ -10,8 +11,4 @@ use salsa::{Database, Storage};
     husky_entity_path::EntityPathJar
 )]
 #[derive(Default)]
-pub(crate) struct DB {
-    storage: Storage<Self>,
-}
-
-impl Database for DB {}
+pub(crate) struct DB;

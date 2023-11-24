@@ -10,6 +10,8 @@ struct Jar(MyInput, MyInterned, MyTracked);
 
 trait Db: salsa::DbWithJar<Jar> {}
 
+impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> {}
+
 #[salsa::input(db = Db, jar = Jar, constructor = from_string)]
 struct MyInput {
     #[get(text)]
@@ -73,8 +75,6 @@ fn execute() {
     }
 
     impl salsa::Database for Database {}
-
-    impl Db for Database {}
 
     let mut db = Database::default();
 }

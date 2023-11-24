@@ -9,7 +9,7 @@ use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 
 use husky_entity_path::EntityPathJar;
-use husky_entity_syn_tree::{EntitySynTreeJar};
+use husky_entity_syn_tree::EntitySynTreeJar;
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
 use husky_fluffy_term::FluffyTermJar;
@@ -25,7 +25,7 @@ use husky_token_info::TokenInfoJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 
-#[salsa::db(
+#[salsa::test_db(
     VfsJar,
     CowordJar,
     husky_token_data::db::TokenDataJar,
@@ -54,11 +54,7 @@ use husky_toml_token::TomlTokenJar;
     HoverJar
 )]
 #[derive(Default)]
-pub(crate) struct DB {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for DB {}
+pub(crate) struct DB;
 
 #[test]
 fn hover_result_works() {

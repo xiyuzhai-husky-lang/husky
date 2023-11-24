@@ -1,5 +1,6 @@
 pub(crate) use husky_ast::test_utils::*;
 use husky_vfs::ModulePath;
+pub(crate) use salsa::test_utils::TestDb;
 
 use crate::*;
 use husky_ast::AstJar;
@@ -16,7 +17,7 @@ use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 
-#[salsa::db(
+#[salsa::test_db(
     CowordJar,
     husky_vfs::db::VfsJar,
     EntityPathJar,
@@ -37,14 +38,10 @@ use husky_toml_token::TomlTokenJar;
     DeclarativeSignatureJar
 )]
 #[derive(Default)]
-pub(crate) struct DB {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for DB {}
+pub(crate) struct DB;
 
 fn module_declarative_signature_templates(
-    db: &DB,
+    db: &TestDb,
     module_path: ModulePath,
 ) -> Vec<(ItemPath, DeclarativeSignatureResult<SignatureTemplate>)> {
     syn_decl_sheet(db, module_path)
@@ -66,6 +63,7 @@ fn module_declarative_signature_templates_works() {
 #[test]
 fn menu_ty_declarative_signature_templates_works() {
     let db = DB::default();
+    let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
     let item_path_menu = db.item_path_menu(toolchain);
     let ty_paths = vec![
@@ -83,7 +81,7 @@ fn menu_ty_declarative_signature_templates_works() {
 
     // Iterate over the type paths and assert that they are Ok
     for ty_path in ty_paths {
-        let ty_declarative_signature_template = ty_path.declarative_signature_template(&db);
+        let ty_declarative_signature_template = ty_path.declarative_signature_template(db);
         assert!(
             ty_declarative_signature_template.is_ok(),
             "Failed for type path: {:?}",

@@ -6,21 +6,8 @@ use husky_toml_token::TomlTokenJar;
 use husky_vfs::*;
 use salsa::{Database, ParallelDatabase, Snapshot};
 
-#[salsa::db(CowordJar, VfsJar, TomlTokenJar, TomlAstJar)]
-#[derive(Default)]
-struct DB {
-    storage: salsa::Storage<Self>,
-}
-
-impl Database for DB {}
-
-impl ParallelDatabase for DB {
-    fn snapshot(&self) -> Snapshot<Self> {
-        Snapshot::new(DB {
-            storage: self.storage.snapshot(),
-        })
-    }
-}
+#[salsa::test_db(CowordJar, VfsJar, TomlTokenJar, TomlAstJar)]
+struct DB;
 
 #[test]
 fn manifest_ast_works() {

@@ -800,47 +800,48 @@ impl ItemPathMenu {
 #[test]
 fn menu_works() {
     let db = DB::default();
+    let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
     let item_path_menu = db.item_path_menu(toolchain);
-    assert_eq!(item_path_menu.add_trai_path().show(&db), "core::ops::Add");
+    assert_eq!(item_path_menu.add_trai_path().show(db), "core::ops::Add");
     assert_eq!(
-        item_path_menu.add_assign_trai_path().show(&db),
+        item_path_menu.add_assign_trai_path().show(db),
         "core::ops::AddAssign"
     );
     assert_eq!(
-        item_path_menu.bit_and_trai_path().show(&db),
+        item_path_menu.bit_and_trai_path().show(db),
         "core::ops::BitAnd"
     );
     assert_eq!(
-        item_path_menu.bit_and_assign_trai_path().show(&db),
+        item_path_menu.bit_and_assign_trai_path().show(db),
         "core::ops::BitAndAssign"
     );
     assert_eq!(
-        item_path_menu.bit_or_trai_path().show(&db),
+        item_path_menu.bit_or_trai_path().show(db),
         "core::ops::BitOr"
     );
     assert_eq!(
-        item_path_menu.core_ops_bit_or_assign_trai_path().show(&db),
+        item_path_menu.core_ops_bit_or_assign_trai_path().show(db),
         "core::ops::BitOrAssign"
     );
     assert_eq!(
-        item_path_menu.bit_xor_trai_path().show(&db),
+        item_path_menu.bit_xor_trai_path().show(db),
         "core::ops::BitXor"
     );
     assert_eq!(
-        item_path_menu.bit_xor_assign_trai_path().show(&db),
+        item_path_menu.bit_xor_assign_trai_path().show(db),
         "core::ops::BitXorAssign"
     );
-    assert_eq!(item_path_menu.div_trai_path().show(&db), "core::ops::Div");
+    assert_eq!(item_path_menu.div_trai_path().show(db), "core::ops::Div");
     assert_eq!(
-        item_path_menu.div_assign_trai_path().show(&db),
+        item_path_menu.div_assign_trai_path().show(db),
         "core::ops::DivAssign"
     );
-    assert_eq!(item_path_menu.mul_trai_path().show(&db), "core::ops::Mul");
+    assert_eq!(item_path_menu.mul_trai_path().show(db), "core::ops::Mul");
     assert_eq!(
-        item_path_menu.mul_assign_trai_path().show(&db),
+        item_path_menu.mul_assign_trai_path().show(db),
         "core::ops::MulAssign"
     );
-    assert_eq!(item_path_menu.neg_trai_path().show(&db), "core::ops::Neg");
-    assert_eq!(item_path_menu.not_trai_path().show(&db), "core::ops::Not");
+    assert_eq!(item_path_menu.neg_trai_path().show(db), "core::ops::Neg");
+    assert_eq!(item_path_menu.not_trai_path().show(db), "core::ops::Not");
 }

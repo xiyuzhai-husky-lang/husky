@@ -1,6 +1,7 @@
 use crate::*;
 
 use husky_vfs::{error::VfsResult, *};
+use salsa::test_utils::TestDb;
 use vec_like::VecSet;
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
@@ -44,7 +45,8 @@ fn collect_all_modules(
 
 #[test]
 fn submodules_works() {
-    DB::default().ast_expect_test_debug_with_db(DB::submodules, &AstTestConfig::new("submodules"))
+    DB::default()
+        .ast_expect_test_debug_with_db(TestDb::submodules, &AstTestConfig::new("submodules"))
 }
 
 #[test]

@@ -27,7 +27,7 @@ use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 use husky_vfs::VfsJar;
 
-#[salsa::db(
+#[salsa::test_db(
     CowordJar,
     VfsJar,
     EntityPathJar,
@@ -71,8 +71,4 @@ use husky_vfs::VfsJar;
     crate::db::TraceJar,
 )]
 #[derive(Default)]
-pub struct DB {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for DB {}
+pub struct DB;

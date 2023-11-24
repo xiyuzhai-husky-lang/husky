@@ -49,4 +49,6 @@ pub use self::storage::DbWithJar;
 pub use self::storage::Storage;
 pub use self::tracked_struct::TrackedStructData;
 pub use self::tracked_struct::TrackedStructId;
-pub use salsa_macros::{accumulator, db, debug_with_db, input, interned, jar, tracked, wrap_id};
+pub use salsa_macros::{
+    accumulator, db, debug_with_db, input, interned, jar, test_db, tracked, wrap_id,
+};
