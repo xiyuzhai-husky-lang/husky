@@ -255,6 +255,17 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
+                                            indirections: HirIndirections {
+                                                initial_place: Transient,
+                                                indirections: [
+                                                    Leash,
+                                                ],
+                                                final_place: Leashed,
+                                            },
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
@@ -270,7 +281,17 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            template_arguments: None,
+                                            indirections: HirIndirections {
+                                                initial_place: Transient,
+                                                indirections: [],
+                                                final_place: Transient,
+                                            },
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Literal(
@@ -308,7 +329,40 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            template_arguments: None,
+                                            indirections: HirIndirections {
+                                                initial_place: Transient,
+                                                indirections: [
+                                                    Leash,
+                                                ],
+                                                final_place: Leashed,
+                                            },
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Suffix {
@@ -344,7 +398,40 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            template_arguments: None,
+                                            indirections: HirIndirections {
+                                                initial_place: Transient,
+                                                indirections: [
+                                                    Leash,
+                                                ],
+                                                final_place: Leashed,
+                                            },
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Suffix {
@@ -383,6 +470,17 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
+                                            indirections: HirIndirections {
+                                                initial_place: Transient,
+                                                indirections: [
+                                                    Leash,
+                                                ],
+                                                final_place: Leashed,
+                                            },
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 20,
@@ -398,7 +496,17 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            template_arguments: None,
+                                            indirections: HirIndirections {
+                                                initial_place: Transient,
+                                                indirections: [],
+                                                final_place: Transient,
+                                            },
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Block {

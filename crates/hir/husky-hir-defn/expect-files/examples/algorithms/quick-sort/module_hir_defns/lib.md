@@ -152,7 +152,38 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            template_arguments: None,
+                                            indirections: HirIndirections {
+                                                initial_place: Transient,
+                                                indirections: [],
+                                                final_place: Transient,
+                                            },
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                Symbol(
+                                                                    Type {
+                                                                        attrs: HirSymbolAttrs,
+                                                                        variance: None,
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::PrincipalEntityPath(
@@ -201,10 +232,12 @@
                                             opr: As,
                                             ropd: 9,
                                         },
-                                        HirEagerExprData::FunctionFnCall {
+                                        HirEagerExprData::FunctionFnItemCall {
                                             path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
-                                            function_hir_eager_expr_idx: 3,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     4,
@@ -513,10 +546,12 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FunctionFnCall {
+                                        HirEagerExprData::FunctionFnItemCall {
                                             path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
-                                            function_hir_eager_expr_idx: 4,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     5,
@@ -559,10 +594,12 @@
                                             ),
                                             ropd: 13,
                                         },
-                                        HirEagerExprData::FunctionFnCall {
+                                        HirEagerExprData::FunctionFnItemCall {
                                             path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
-                                            function_hir_eager_expr_idx: 9,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     10,
@@ -605,10 +642,12 @@
                                         HirEagerExprData::Variable(
                                             3,
                                         ),
-                                        HirEagerExprData::FunctionFnCall {
+                                        HirEagerExprData::FunctionFnItemCall {
                                             path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
-                                            function_hir_eager_expr_idx: 16,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     17,
@@ -1194,7 +1233,44 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            template_arguments: None,
+                                            indirections: HirIndirections {
+                                                initial_place: Transient,
+                                                indirections: [],
+                                                final_place: Transient,
+                                            },
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                Symbol(
+                                                                    Type {
+                                                                        attrs: HirSymbolAttrs,
+                                                                        variance: None,
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    (
+                                                        Type(
+                                                            SelfLifetime,
+                                                        ),
+                                                        SelfLifetime,
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     49,
@@ -1251,7 +1327,44 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            template_arguments: None,
+                                            indirections: HirIndirections {
+                                                initial_place: Transient,
+                                                indirections: [],
+                                                final_place: Transient,
+                                            },
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                Symbol(
+                                                                    Type {
+                                                                        attrs: HirSymbolAttrs,
+                                                                        variance: None,
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    (
+                                                        Type(
+                                                            SelfLifetime,
+                                                        ),
+                                                        SelfLifetime,
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     57,

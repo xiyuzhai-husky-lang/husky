@@ -185,6 +185,17 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
+                                            indirections: HirIndirections {
+                                                initial_place: Transient,
+                                                indirections: [
+                                                    Leash,
+                                                ],
+                                                final_place: Leashed,
+                                            },
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::F32(
@@ -235,6 +246,17 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
+                                            indirections: HirIndirections {
+                                                initial_place: Transient,
+                                                indirections: [
+                                                    Leash,
+                                                ],
+                                                final_place: Leashed,
+                                            },
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                         HirEagerExprData::Prefix {
                                             opr: Minus,

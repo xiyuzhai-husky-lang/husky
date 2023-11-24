@@ -68,21 +68,58 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::Be { .. } => (),
                 HirEagerExprData::Prefix { .. } => (),
                 HirEagerExprData::Suffix { .. } => (),
-                HirEagerExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
-                HirEagerExprData::TypeVariantConstructorCall { path, .. } => {
-                    self.add_item_path(path.parent_ty_path(db))
-                }
-                HirEagerExprData::FunctionFnCall { path, .. } => self.add_item_path(path),
-                HirEagerExprData::AssociatedFunctionFnCall { path, .. } => self.add_item_path(path),
-                HirEagerExprData::PropsStructField { .. } => (),
-                HirEagerExprData::MemoizedField { path, .. } => self.add_item_path(path),
-                HirEagerExprData::MethodFnCall {
+                HirEagerExprData::TypeConstructorFnCall {
                     path,
-                    ref template_arguments,
+                    ref instantiation,
                     ..
                 } => {
-                    // todo!();
-                    self.add_item_path(path)
+                    self.add_item_path(path);
+                    self.add_instantiation(instantiation)
+                }
+                HirEagerExprData::TypeVariantConstructorFnCall {
+                    path,
+                    ref instantiation,
+                    ..
+                } => {
+                    self.add_item_path(path.parent_ty_path(db));
+                    self.add_instantiation(instantiation)
+                }
+                HirEagerExprData::FunctionFnItemCall {
+                    path,
+                    ref instantiation,
+                    ..
+                } => {
+                    self.add_item_path(path);
+                    self.add_instantiation(instantiation)
+                }
+                HirEagerExprData::AssociatedFunctionFnCall {
+                    path,
+                    ref instantiation,
+                    ..
+                } => {
+                    self.add_item_path(path);
+                    self.add_instantiation(instantiation)
+                }
+                HirEagerExprData::PropsStructField { .. } => (),
+                HirEagerExprData::MemoizedField {
+                    path,
+                    ref indirections,
+                    ref instantiation,
+                    ..
+                } => {
+                    self.add_item_path(path);
+                    self.add_indirections(indirections);
+                    self.add_instantiation(instantiation)
+                }
+                HirEagerExprData::MethodFnCall {
+                    path,
+                    ref indirections,
+                    ref instantiation,
+                    ..
+                } => {
+                    self.add_item_path(path);
+                    self.add_indirections(indirections);
+                    self.add_instantiation(instantiation)
                 }
                 HirEagerExprData::NewTuple { .. } => (),
                 HirEagerExprData::Index { .. } =>
@@ -122,13 +159,46 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirLazyExprData::Be { .. } => (),
                 HirLazyExprData::Prefix { .. } => (),
                 HirLazyExprData::Suffix { .. } => (),
-                HirLazyExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
-                HirLazyExprData::TypeVariantConstructorFnCall { path, .. } => {
-                    self.add_item_path(path.parent_ty_path(db))
+                HirLazyExprData::TypeConstructorFnCall {
+                    path,
+                    ref instantiation,
+                    ..
+                } => {
+                    self.add_item_path(path);
+                    self.add_instantiation(instantiation)
                 }
-                HirLazyExprData::FunctionFnItemCall { path, .. } => self.add_item_path(path),
-                HirLazyExprData::FunctionGnItemCall { path, .. } => self.add_item_path(path),
-                HirLazyExprData::AssociatedFunctionFnCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::TypeVariantConstructorFnCall {
+                    path,
+                    ref instantiation,
+                    ..
+                } => {
+                    self.add_item_path(path.parent_ty_path(db));
+                    self.add_instantiation(instantiation)
+                }
+                HirLazyExprData::FunctionFnItemCall {
+                    path,
+                    ref instantiation,
+                    ..
+                } => {
+                    self.add_item_path(path);
+                    self.add_instantiation(instantiation)
+                }
+                HirLazyExprData::FunctionGnItemCall {
+                    path,
+                    ref instantiation,
+                    ..
+                } => {
+                    self.add_item_path(path);
+                    self.add_instantiation(instantiation)
+                }
+                HirLazyExprData::AssociatedFunctionFnCall {
+                    path,
+                    ref instantiation,
+                    ..
+                } => {
+                    self.add_item_path(path);
+                    self.add_instantiation(instantiation)
+                }
                 HirLazyExprData::PropsStructField { owner, ident } => (),
                 HirLazyExprData::MemoizedField {
                     path,
