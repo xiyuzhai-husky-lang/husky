@@ -135,7 +135,7 @@ fn eager_expr_trace_have_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> b
         return false;
     };
     match trace.hir_eager_expr_region(db).hir_eager_expr_arena(db)[hir_eager_expr_idx] {
-        HirEagerExprData::FunctionFnItemCall { path, .. } => path.hir_defn(db).is_some(),
+        HirEagerExprData::FunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
         HirEagerExprData::AssociatedFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
         HirEagerExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
         HirEagerExprData::Block { stmts } => unreachable!(),
@@ -157,7 +157,7 @@ fn eager_expr_trace_subtraces(db: &dyn TraceDb, trace: EagerExprTrace) -> Vec<Tr
     let caller_sema_expr_region_data = caller_sema_expr_region.data(db);
     let hir_eager_expr_source_map_data = trace.hir_eager_expr_source_map(db).data(db);
     match trace.hir_eager_expr_region(db).hir_eager_expr_arena(db)[hir_eager_expr_idx] {
-        HirEagerExprData::FunctionFnItemCall {
+        HirEagerExprData::FunctionFnCall {
             path,
             ref item_groups,
             ..

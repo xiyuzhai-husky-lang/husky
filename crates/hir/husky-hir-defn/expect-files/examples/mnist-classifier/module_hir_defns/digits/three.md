@@ -255,19 +255,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -316,17 +304,6 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 9,
@@ -342,32 +319,20 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Prefix {
                                             opr: Minus,
                                             opd_hir_expr_idx: 10,
                                         },
-                                        HirEagerExprData::TypeVariantConstructorFnCall {
+                                        HirEagerExprData::TypeVariantConstructorCall {
                                             path: TypeVariantPath {
                                                 parent_ty_path: TypePath(`core::option::Option`, `Enum`),
                                                 ident: `Some`,
                                             },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
+                                            function_hir_eager_expr_idx: 7,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     11,
@@ -571,19 +536,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -632,17 +585,6 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 9,
@@ -658,32 +600,20 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Prefix {
                                             opr: Minus,
                                             opd_hir_expr_idx: 10,
                                         },
-                                        HirEagerExprData::TypeVariantConstructorFnCall {
+                                        HirEagerExprData::TypeVariantConstructorCall {
                                             path: TypeVariantPath {
                                                 parent_ty_path: TypePath(`core::option::Option`, `Enum`),
                                                 ident: `Some`,
                                             },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
+                                            function_hir_eager_expr_idx: 7,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     11,
@@ -887,19 +817,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -948,17 +866,6 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 9,
@@ -974,32 +881,20 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Prefix {
                                             opr: Minus,
                                             opd_hir_expr_idx: 10,
                                         },
-                                        HirEagerExprData::TypeVariantConstructorFnCall {
+                                        HirEagerExprData::TypeVariantConstructorCall {
                                             path: TypeVariantPath {
                                                 parent_ty_path: TypePath(`core::option::Option`, `Enum`),
                                                 ident: `Some`,
                                             },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
+                                            function_hir_eager_expr_idx: 7,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     11,
