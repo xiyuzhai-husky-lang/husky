@@ -23,6 +23,8 @@ pub mod runtime;
 pub mod salsa_struct;
 pub mod setter;
 pub mod storage;
+#[cfg(feature = "test-utils")]
+pub mod test_utils;
 #[doc(hidden)]
 pub mod tracked_struct;
 pub mod utils;

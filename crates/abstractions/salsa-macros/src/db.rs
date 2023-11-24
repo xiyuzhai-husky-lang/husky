@@ -33,10 +33,15 @@ pub(crate) fn db(
     let per_jar_impls = per_jar_impls(&args, &input, &storage);
 
     quote! {
+        #[cfg(not(test))]
         #input
+        #[cfg(not(test))]
         #as_salsa_database_impl
+        #[cfg(not(test))]
         #has_jars_impl
+        #[cfg(not(test))]
         #has_jars_dyn_impl
+        #[cfg(not(test))]
         #(#per_jar_impls)*
     }
     .into()
