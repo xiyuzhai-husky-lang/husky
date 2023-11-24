@@ -16,3 +16,9 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 # linkage
 husky-linkage = { path = "../../linkage/husky-linkage" }
+
+[dev-dependencies]
+husky-val = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

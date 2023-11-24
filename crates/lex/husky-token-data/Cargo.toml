@@ -38,5 +38,9 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 
+[dev-dependencies]
+husky-token-data = { path = ".", features = ["test-utils"] }
+
 [features]
 protocol_support = ["dep:husky-token-protocol"]
+test-utils = ["salsa/test-utils"]

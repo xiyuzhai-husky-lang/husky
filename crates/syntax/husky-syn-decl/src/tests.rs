@@ -15,7 +15,7 @@ use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 use husky_vfs::VfsTestUtils;
 
-#[salsa::db(
+#[salsa::test_db(
     CowordJar,
     husky_vfs::VfsJar,
     EntityPathJar,
@@ -34,17 +34,14 @@ use husky_vfs::VfsTestUtils;
     SynDeclJar
 )]
 #[derive(Default)]
-pub(crate) struct DB {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for DB {}
+pub(crate) struct DB;
 
 #[test]
 fn menu_item_decl_works() {
     let db = DB::default();
+    let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
     let item_path_menu = db.item_path_menu(toolchain);
-    let i32_ty_path_decl = item_path_menu.i32_ty_path().syn_decl(&db).unwrap();
-    salsa::assert_eq_with_db!(db, i32_ty_path_decl.template_parameters(&db).len(), 0);
+    let i32_ty_path_decl = item_path_menu.i32_ty_path().syn_decl(db).unwrap();
+    salsa::assert_eq_with_db!(db, i32_ty_path_decl.template_parameters(db).len(), 0);
 }

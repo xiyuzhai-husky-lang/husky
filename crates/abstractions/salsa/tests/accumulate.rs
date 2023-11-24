@@ -12,6 +12,8 @@ struct Jar(MyInput, Logs, push_logs, push_a_logs, push_b_logs);
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
+impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
+
 #[salsa::input(db = Db)]
 struct MyInput {
     field_a: u32,
@@ -71,8 +73,6 @@ struct Database {
 impl salsa::Database for Database {
     fn salsa_event(&self, _event: salsa::Event) {}
 }
-
-impl Db for Database {}
 
 impl HasLogger for Database {
     fn logger(&self) -> &Logger {

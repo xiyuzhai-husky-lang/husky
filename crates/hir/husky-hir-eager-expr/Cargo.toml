@@ -34,5 +34,8 @@ husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
+[dev-dependencies]
+husky-hir-eager-expr = { path = ".", features = ["test-utils"] }
+
 [features]
-rust-syn-gen = ["dep:syn"]
+test-utils = ["salsa/test-utils"]

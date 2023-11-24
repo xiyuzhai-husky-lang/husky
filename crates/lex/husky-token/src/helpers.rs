@@ -17,9 +17,11 @@ pub use self::symbol_modifier::*;
 
 use crate::*;
 use parsec::*;
+#[cfg(test)]
+use salsa::test_utils::TestDb;
 
 #[cfg(test)]
-fn quick_parse<T, Error>(db: &DB, input: &str) -> Result<Option<T>, Error>
+fn quick_parse<T, Error>(db: &TestDb, input: &str) -> Result<Option<T>, Error>
 where
     T: for<'a> TryParseOptionFromStream<TokenStream<'a>, Error = Error>,
 {

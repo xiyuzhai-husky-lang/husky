@@ -22,6 +22,7 @@ either.workspace = true
 salsa-macros = { path = "../../abstractions/salsa-macros" }
 vec-like = { path = "../../abstractions/vec-like" }
 maybe-result = { path = "../../abstractions/maybe-result" }
+husky-salsa-log-utils = { path = "../../utils/husky-salsa-log-utils", optional = true }
 
 [dev-dependencies]
 expect-test = "1.4.0"
@@ -30,3 +31,7 @@ husky-salsa-log-utils = { path = "../../utils/husky-salsa-log-utils" }
 env_logger = "*"
 rustversion = "1.0"
 trybuild = "1.0"
+salsa = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["husky-salsa-log-utils"]

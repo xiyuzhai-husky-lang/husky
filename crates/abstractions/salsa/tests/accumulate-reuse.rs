@@ -13,6 +13,8 @@ struct Jar(List, Integers, compute);
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
+impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
+
 #[salsa::input(db = Db)]
 struct List {
     value: u32,
@@ -51,8 +53,6 @@ struct Database {
 impl salsa::Database for Database {
     fn salsa_event(&self, _event: salsa::Event) {}
 }
-
-impl Db for Database {}
 
 impl HasLogger for Database {
     fn logger(&self) -> &Logger {

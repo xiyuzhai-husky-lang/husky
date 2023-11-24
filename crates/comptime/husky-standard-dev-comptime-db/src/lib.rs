@@ -1,5 +1,6 @@
 use std::panic::RefUnwindSafe;
 
+#[cfg(not(test))]
 #[derive(Default)]
 #[salsa::db(
     // comptime
@@ -55,7 +56,9 @@ pub struct StandardDevComptimeDb {
     storage: salsa::Storage<Self>,
 }
 
+#[cfg(not(test))]
 impl salsa::Database for StandardDevComptimeDb {}
 
 // ad hoc: is this correct?
+#[cfg(not(test))]
 impl RefUnwindSafe for StandardDevComptimeDb {}

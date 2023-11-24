@@ -59,3 +59,7 @@ husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
+husky-semantic-token = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]

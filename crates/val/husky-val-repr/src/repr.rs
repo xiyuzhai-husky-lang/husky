@@ -136,7 +136,10 @@ impl ValDomainRepr {
 }
 
 #[cfg(test)]
-pub(crate) fn val_item_val_reprs(db: &DB, module_path: ModulePath) -> Vec<(FugitivePath, ValRepr)> {
+pub(crate) fn val_item_val_reprs(
+    db: &TestDb,
+    module_path: ModulePath,
+) -> Vec<(FugitivePath, ValRepr)> {
     use husky_entity_kind::FugitiveKind;
     use husky_entity_path::{ItemPath, MajorItemPath};
     use husky_entity_syn_tree::helpers::paths::module_item_paths;

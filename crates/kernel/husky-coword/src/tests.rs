@@ -1,42 +1,32 @@
 use crate::*;
 use salsa::DebugWithDb;
 
-#[salsa::db(CowordJar)]
+#[salsa::test_db(CowordJar)]
 #[derive(Default)]
-pub struct DB {
-    storage: salsa::Storage<DB>,
-}
-
-impl salsa::Database for DB {}
-
-impl salsa::ParallelDatabase for DB {
-    fn snapshot(&self) -> salsa::Snapshot<Self> {
-        salsa::Snapshot::new(DB {
-            storage: self.storage.snapshot(),
-        })
-    }
-}
+pub struct DB;
 
 #[test]
 fn word_debug_works() {
     let db = DB::default();
+    let db = &*db;
     let haha = db.it_coword_borrowed("haha");
     expect_test::expect![[r#"
         Word(
             "haha",
         )
     "#]]
-    .assert_debug_eq(&haha.debug(&db));
+    .assert_debug_eq(&haha.debug(db));
 }
 
 #[test]
 fn ident_debug_works() {
     let db = DB::default();
+    let db = &*db;
     let haha = db.it_ident_borrowed("haha").unwrap();
     expect_test::expect![[r#"
         Ident(
             "haha",
         )
     "#]]
-    .assert_debug_eq(&haha.debug(&db));
+    .assert_debug_eq(&haha.debug(db));
 }

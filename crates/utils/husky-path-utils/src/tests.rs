@@ -1,9 +1,5 @@
 use husky_coword::CowordJar;
 
-#[salsa::db(CowordJar)]
+#[salsa::test_db(CowordJar)]
 #[derive(Default)]
-pub(crate) struct DB {
-    storage: salsa::Storage<DB>,
-}
-
-impl salsa::Database for DB {}
+pub(crate) struct DB;

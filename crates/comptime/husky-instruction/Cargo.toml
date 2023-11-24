@@ -34,3 +34,7 @@ husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 
 [dev-dependencies]
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
+husky-instruction = { path = ".", features = ["test-utils"] }
+
+[features]
+test-utils = ["salsa/test-utils"]
