@@ -304,36 +304,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        Type(
-                                                            SelfType,
-                                                        ),
-                                                        Explicit(
-                                                            Type(
-                                                                PathLeading(
-                                                                    HirTypePathLeading(
-                                                                        Id {
-                                                                            value: 64,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ],
-                                                separator: Some(
-                                                    1,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Block {

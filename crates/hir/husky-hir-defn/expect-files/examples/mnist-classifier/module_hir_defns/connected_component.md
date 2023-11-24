@@ -320,17 +320,6 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
                                         },
                                         HirEagerExprData::Variable(
                                             2,
@@ -1056,34 +1045,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        Type(
-                                                            SelfType,
-                                                        ),
-                                                        Explicit(
-                                                            Type(
-                                                                PathLeading(
-                                                                    HirTypePathLeading(
-                                                                        Id {
-                                                                            value: 38,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ],
-                                                separator: Some(
-                                                    1,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Literal(
@@ -1132,17 +1094,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::AssociatedFn {
@@ -1170,10 +1122,9 @@
                                                     item_kind: AssociatedFunctionFn,
                                                 },
                                             ),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
+                                            function_hir_eager_expr_idx: 13,
+                                            parent_template_arguments: None,
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -1213,12 +1164,10 @@
                                             ),
                                             ropd: 21,
                                         },
-                                        HirEagerExprData::FunctionFnItemCall {
+                                        HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
+                                            function_hir_eager_expr_idx: 18,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     19,
@@ -1348,12 +1297,10 @@
                                                 48,
                                             ],
                                         },
-                                        HirEagerExprData::FunctionFnItemCall {
+                                        HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
+                                            function_hir_eager_expr_idx: 41,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     46,
@@ -1496,12 +1443,10 @@
                                                 79,
                                             ],
                                         },
-                                        HirEagerExprData::FunctionFnItemCall {
+                                        HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
+                                            function_hir_eager_expr_idx: 72,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     75,
@@ -1622,10 +1567,8 @@
                                         ),
                                         HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
+                                            function_hir_eager_expr_idx: 105,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     106,
@@ -1646,44 +1589,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        Type(
-                                                            Type {
-                                                                attrs: HirSymbolAttrs,
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                        Explicit(
-                                                            Type(
-                                                                PathLeading(
-                                                                    HirTypePathLeading(
-                                                                        Id {
-                                                                            value: 39,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    (
-                                                        Type(
-                                                            SelfLifetime,
-                                                        ),
-                                                        SelfLifetime,
-                                                    ),
-                                                ],
-                                                separator: Some(
-                                                    1,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     107,
@@ -2399,17 +2305,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Block {
@@ -2624,12 +2520,10 @@
                                         HirEagerExprData::Variable(
                                             1,
                                         ),
-                                        HirEagerExprData::FunctionFnItemCall {
+                                        HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
+                                            function_hir_eager_expr_idx: 1,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     2,
@@ -2791,15 +2685,6 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
@@ -2815,38 +2700,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        Type(
-                                                            Type {
-                                                                attrs: HirSymbolAttrs,
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                        Explicit(
-                                                            Type(
-                                                                PathLeading(
-                                                                    HirTypePathLeading(
-                                                                        Id {
-                                                                            value: 34,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ],
-                                                separator: Some(
-                                                    1,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::NewList {
@@ -2876,44 +2730,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        Type(
-                                                            Type {
-                                                                attrs: HirSymbolAttrs,
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                        Explicit(
-                                                            Type(
-                                                                PathLeading(
-                                                                    HirTypePathLeading(
-                                                                        Id {
-                                                                            value: 35,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    (
-                                                        Type(
-                                                            SelfLifetime,
-                                                        ),
-                                                        SelfLifetime,
-                                                    ),
-                                                ],
-                                                separator: Some(
-                                                    1,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     6,
@@ -2947,44 +2764,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        Type(
-                                                            Type {
-                                                                attrs: HirSymbolAttrs,
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                        Explicit(
-                                                            Type(
-                                                                PathLeading(
-                                                                    HirTypePathLeading(
-                                                                        Id {
-                                                                            value: 35,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    (
-                                                        Type(
-                                                            SelfLifetime,
-                                                        ),
-                                                        SelfLifetime,
-                                                    ),
-                                                ],
-                                                separator: Some(
-                                                    1,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     10,
@@ -3005,44 +2785,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        Type(
-                                                            Type {
-                                                                attrs: HirSymbolAttrs,
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                        Explicit(
-                                                            Type(
-                                                                PathLeading(
-                                                                    HirTypePathLeading(
-                                                                        Id {
-                                                                            value: 36,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    (
-                                                        Type(
-                                                            SelfLifetime,
-                                                        ),
-                                                        SelfLifetime,
-                                                    ),
-                                                ],
-                                                separator: Some(
-                                                    1,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     11,
@@ -3076,44 +2819,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        Type(
-                                                            Type {
-                                                                attrs: HirSymbolAttrs,
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                        Explicit(
-                                                            Type(
-                                                                PathLeading(
-                                                                    HirTypePathLeading(
-                                                                        Id {
-                                                                            value: 35,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    (
-                                                        Type(
-                                                            SelfLifetime,
-                                                        ),
-                                                        SelfLifetime,
-                                                    ),
-                                                ],
-                                                separator: Some(
-                                                    1,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     15,
@@ -3134,44 +2840,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        Type(
-                                                            Type {
-                                                                attrs: HirSymbolAttrs,
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                        Explicit(
-                                                            Type(
-                                                                PathLeading(
-                                                                    HirTypePathLeading(
-                                                                        Id {
-                                                                            value: 36,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    (
-                                                        Type(
-                                                            SelfLifetime,
-                                                        ),
-                                                        SelfLifetime,
-                                                    ),
-                                                ],
-                                                separator: Some(
-                                                    1,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     16,
@@ -3190,10 +2859,8 @@
                                         ),
                                         HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
+                                            function_hir_eager_expr_idx: 18,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     19,
@@ -3430,15 +3097,6 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
                                         },
                                         HirEagerExprData::Literal(
                                             TermLiteral::I32(
@@ -3462,38 +3120,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        Type(
-                                                            Type {
-                                                                attrs: HirSymbolAttrs,
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                        Explicit(
-                                                            Type(
-                                                                PathLeading(
-                                                                    HirTypePathLeading(
-                                                                        Id {
-                                                                            value: 34,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ],
-                                                separator: Some(
-                                                    1,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -3526,38 +3153,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [
-                                                    (
-                                                        Type(
-                                                            Type {
-                                                                attrs: HirSymbolAttrs,
-                                                                variance: None,
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                        Explicit(
-                                                            Type(
-                                                                PathLeading(
-                                                                    HirTypePathLeading(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ],
-                                                separator: Some(
-                                                    1,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -3912,17 +3508,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::MethodFnCall {
@@ -3939,17 +3525,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     10,
@@ -4236,17 +3812,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Binary {
@@ -4623,17 +4189,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Binary {
@@ -4697,17 +4253,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Binary {
@@ -4738,10 +4284,8 @@
                                         ),
                                         HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
+                                            function_hir_eager_expr_idx: 46,
+                                            template_arguments: None,
                                             item_groups: [
                                                 Regular(
                                                     47,
@@ -5198,15 +4742,6 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
                                         },
                                         HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
@@ -5379,15 +4914,6 @@
                                                     item_kind: MemoizedField,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: None,
-                                            },
                                         },
                                         HirEagerExprData::PropsStructField {
                                             owner_hir_expr_idx: 2,
@@ -5672,17 +5198,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Binary {
@@ -6105,17 +5621,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [],
-                                                final_place: Transient,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Binary {

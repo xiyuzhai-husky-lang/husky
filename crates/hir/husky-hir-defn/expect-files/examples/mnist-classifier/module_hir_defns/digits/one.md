@@ -255,19 +255,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -495,19 +483,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -548,19 +524,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::PropsStructField {
@@ -768,19 +732,7 @@
                                                     item_kind: MethodFn,
                                                 },
                                             ),
-                                            indirections: HirIndirections {
-                                                initial_place: Transient,
-                                                indirections: [
-                                                    Leash,
-                                                ],
-                                                final_place: Leashed,
-                                            },
-                                            instantiation: HirInstantiation {
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
+                                            template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
