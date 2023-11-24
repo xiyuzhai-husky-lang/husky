@@ -8,7 +8,7 @@ pub(super) fn ethereal_owner_ty_int_index_signature(
     custom_ty_path: CustomTypePath,
     owner_ty_arguments: &[EtherealTerm],
     index_ty: FluffyTerm,
-    final_place: Place,
+    final_place: FluffyPlace,
 ) -> FluffyTermMaybeResult<FluffyIndexSignature> {
     if !coersible_to_int(engine, index_ty) {
         return Nothing;

@@ -9,7 +9,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch(
     expr_idx: SynExprIdx,
     owner_ty: EtherealTerm,
     index_ty: FluffyTerm,
-    indirections: FluffyTermDynamicDispatchIndirections,
+    indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
     ethereal_owner_ty_index_dispatch_aux(engine, expr_idx, owner_ty, index_ty, indirections)
 }
@@ -19,7 +19,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
     expr_idx: SynExprIdx,
     owner_ty: EtherealTerm,
     index_ty: FluffyTerm,
-    mut indirections: FluffyTermDynamicDispatchIndirections,
+    mut indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
     let db = engine.db();
     let owner_ty_application_expansion = owner_ty.application_expansion(db);
@@ -53,7 +53,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
                     PreludeIndirectionTypePath::Ref => todo!(),
                     PreludeIndirectionTypePath::RefMut => todo!(),
                     PreludeIndirectionTypePath::Leash => {
-                        indirections.add(FluffyTermDynamicDispatchIndirection::Leash);
+                        indirections.add(FluffyIndirection::Leash);
                         if owner_ty_arguments.len() != 1 {
                             todo!()
                         }

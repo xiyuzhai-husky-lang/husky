@@ -8,7 +8,7 @@ pub mod dispatch;
 mod engine;
 mod error;
 mod expectation;
-mod instantiation;
+pub mod instantiation;
 mod progress;
 mod region;
 mod resolve;

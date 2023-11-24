@@ -10,7 +10,7 @@ pub(crate) fn ethereal_owner_ty_index_signature(
     refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
     owner_ty_arguments: &[EtherealTerm],
     index_ty: FluffyTerm,
-    final_place: Place,
+    final_place: FluffyPlace,
 ) -> FluffyTermMaybeResult<FluffyIndexSignature> {
     let db = engine.db();
     match refined_ty_path {

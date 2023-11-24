@@ -171,7 +171,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
 fn resolve_aux(
     src: FluffyTerm,
     dst: FluffyTerm,
-    coersion: impl Fn(Option<Place>, Option<Place>) -> Option<Coersion>,
+    coersion: impl Fn(Option<FluffyPlace>, Option<FluffyPlace>) -> Option<Coersion>,
     db: &dyn FluffyTermDb,
     terms: &FluffyTerms,
     state: &mut ExpectationState,

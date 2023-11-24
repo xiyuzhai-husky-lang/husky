@@ -8,7 +8,7 @@ impl SemaBinaryOprDynamicDispatch {
     #[deprecated]
     pub fn builtin() -> Self {
         SemaBinaryOprDynamicDispatch::new(
-            FluffyTermDynamicDispatchIndirections::new(Place::Transient),
+            FluffyIndirections::new(FluffyPlace::Transient),
             SemaBinaryOprFluffySignature::Builtin,
         )
     }

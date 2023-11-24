@@ -24,19 +24,19 @@ impl<'a> SemaExprEngine<'a> {
                 let lopd_base_ty = lopd_ty.base_ty_data(self);
                 match lopd_ty.place() {
                     Some(lopd_place) => match lopd_place {
-                        Place::Const => todo!(),
-                        Place::StackPure { location } => todo!(),
-                        Place::ImmutableStackOwned { location } => todo!(),
-                        Place::MutableStackOwned { .. } => (),
-                        Place::Transient => {
+                        FluffyPlace::Const => todo!(),
+                        FluffyPlace::StackPure { location } => todo!(),
+                        FluffyPlace::ImmutableStackOwned { location } => todo!(),
+                        FluffyPlace::MutableStackOwned { .. } => (),
+                        FluffyPlace::Transient => {
                             // ad hoc
                             // should return err
                             ()
                         }
-                        Place::Ref { guard } => todo!(),
-                        Place::RefMut { guard } => todo!(),
-                        Place::Leashed => todo!(),
-                        Place::Todo => todo!(),
+                        FluffyPlace::Ref { guard } => todo!(),
+                        FluffyPlace::RefMut { guard } => todo!(),
+                        FluffyPlace::Leashed => todo!(),
+                        FluffyPlace::Todo => todo!(),
                     },
                     // ad hoc
                     None => (), // todo!(),

@@ -1,5 +1,6 @@
 use crate::{ritchie::HirRitchieType, *};
 use husky_ethereal_term::{EtherealTerm, EtherealTermSymbolIndexInner};
+use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 use husky_term_prelude::TermEntityPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -66,5 +67,18 @@ impl HirTemplateArgument {
             EtherealTerm::AsTraitSubitem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         })
+    }
+
+    pub(crate) fn from_fluffy(
+        fluffy_term: FluffyTerm,
+        db: &dyn HirTypeDb,
+        fluffy_terms: &FluffyTerms,
+    ) -> Option<Self> {
+        match fluffy_term.base_resolved_inner(fluffy_terms) {
+            FluffyTermBase::Ethereal(ethereal_term) => Self::from_ethereal(ethereal_term, db),
+            FluffyTermBase::Solid(_) => todo!(),
+            FluffyTermBase::Hollow(_) => todo!(),
+            FluffyTermBase::Place => todo!(),
+        }
     }
 }

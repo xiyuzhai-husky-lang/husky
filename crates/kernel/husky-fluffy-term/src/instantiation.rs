@@ -3,37 +3,29 @@ use husky_ethereal_term::instantiation::EtherealInstantiation;
 use vec_like::SmallVecPairMap;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
-pub(crate) struct FluffyInstantiation {
+// #[salsa::debug_with_db(db = FluffyTermDb)]
+pub struct FluffyInstantiation {
     env: FluffyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<EtherealTermSymbol, EtherealTermSymbolFluffyResolution, 4>,
+    symbol_map: SmallVecPairMap<EtherealTermSymbol, FluffyTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EtherealTermSymbolFluffyResolution {
-    Normal(FluffyTerm),
+pub enum FluffyTermSymbolResolution {
+    Explicit(FluffyTerm),
     /// means we don't care about it now
     SelfLifetime,
-    SelfPlace(Place),
+    SelfPlace(FluffyPlace),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FluffyInstantiationEnvironment {
     AssociatedFn,
-    MethodFn { self_place: Place },
+    MethodFn { self_place: FluffyPlace },
+    MemoizedField,
 }
 
 impl FluffyInstantiation {
-    #[deprecated]
-    pub(crate) fn new(env: FluffyInstantiationEnvironment) -> Self {
-        Self {
-            env,
-            symbol_map: Default::default(),
-            separator: None,
-        }
-    }
-
     pub(crate) fn from_ethereal(
         env: FluffyInstantiationEnvironment,
         instantiation: &EtherealInstantiation,
@@ -43,19 +35,18 @@ impl FluffyInstantiation {
             symbol_map: instantiation
                 .symbol_map()
                 .iter()
-                .map(|&(symbol, term)| {
-                    (
-                        symbol,
-                        EtherealTermSymbolFluffyResolution::Normal(term.into()),
-                    )
-                })
+                .map(|&(symbol, term)| (symbol, FluffyTermSymbolResolution::Explicit(term.into())))
                 .collect(),
             separator: instantiation.separator(),
         }
     }
 
-    pub(crate) fn env(&self) -> FluffyInstantiationEnvironment {
-        self.env
+    pub fn symbol_map(&self) -> &[(EtherealTermSymbol, FluffyTermSymbolResolution)] {
+        self.symbol_map.as_ref()
+    }
+
+    pub fn separator(&self) -> Option<u8> {
+        self.separator
     }
 }
 
@@ -103,12 +94,12 @@ pub(crate) trait FluffyInstantiateRef {
 
 pub struct FluffyInstantiationBuilder {
     env: FluffyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTermSymbolFluffyResolution>, 4>,
+    symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<FluffyTermSymbolResolution>, 4>,
     separator: Option<u8>,
 }
 
 impl std::ops::Index<EtherealTermSymbol> for FluffyInstantiationBuilder {
-    type Output = Option<EtherealTermSymbolFluffyResolution>;
+    type Output = Option<FluffyTermSymbolResolution>;
 
     fn index(&self, index: EtherealTermSymbol) -> &Self::Output {
         &self.symbol_map[index].1
@@ -133,13 +124,14 @@ impl FluffyInstantiationBuilder {
                         symbol,
                         match symbol.index(db).inner() {
                             EtherealTermSymbolIndexInner::SelfLifetime => {
-                                Some(EtherealTermSymbolFluffyResolution::SelfLifetime)
+                                Some(FluffyTermSymbolResolution::SelfLifetime)
                             }
                             EtherealTermSymbolIndexInner::SelfPlace => Some(match env {
                                 FluffyInstantiationEnvironment::AssociatedFn => todo!(),
                                 FluffyInstantiationEnvironment::MethodFn { self_place } => {
-                                    EtherealTermSymbolFluffyResolution::SelfPlace(self_place)
+                                    FluffyTermSymbolResolution::SelfPlace(self_place)
                                 }
+                                FluffyInstantiationEnvironment::MemoizedField => todo!(),
                             }),
                             _ => None,
                         },
@@ -171,17 +163,17 @@ impl FluffyInstantiationBuilder {
                 let (_, ref mut dst0) = self.symbol_map[symbol];
                 match *dst0 {
                     Some(dst0) => match dst0 {
-                        EtherealTermSymbolFluffyResolution::Normal(dst0) => {
+                        FluffyTermSymbolResolution::Explicit(dst0) => {
                             if dst != dst0 {
                                 todo!()
                             } else {
                                 return JustOk(());
                             }
                         }
-                        EtherealTermSymbolFluffyResolution::SelfLifetime => todo!(),
-                        EtherealTermSymbolFluffyResolution::SelfPlace(_) => todo!(),
+                        FluffyTermSymbolResolution::SelfLifetime => todo!(),
+                        FluffyTermSymbolResolution::SelfPlace(_) => todo!(),
                     },
-                    None => *dst0 = Some(EtherealTermSymbolFluffyResolution::Normal(dst)),
+                    None => *dst0 = Some(FluffyTermSymbolResolution::Explicit(dst)),
                 }
                 JustOk(())
             }
@@ -228,9 +220,9 @@ impl FluffyInstantiate for EtherealTerm {
             EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(symbol) => match builder[symbol] {
                 Some(resolution) => match resolution {
-                    EtherealTermSymbolFluffyResolution::Normal(term) => term,
-                    EtherealTermSymbolFluffyResolution::SelfLifetime => todo!(),
-                    EtherealTermSymbolFluffyResolution::SelfPlace(place) => place.into(),
+                    FluffyTermSymbolResolution::Explicit(term) => term,
+                    FluffyTermSymbolResolution::SelfLifetime => todo!(),
+                    FluffyTermSymbolResolution::SelfPlace(place) => place.into(),
                 },
                 None => match symbol.index(engine.db()).inner() {
                     EtherealTermSymbolIndexInner::ExplicitLifetime {
@@ -271,6 +263,7 @@ impl FluffyInstantiate for EtherealTerm {
                         FluffyInstantiationEnvironment::MethodFn { self_place } => {
                             self_place.into()
                         }
+                        FluffyInstantiationEnvironment::MemoizedField => todo!(),
                     },
                 },
             },

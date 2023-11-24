@@ -75,7 +75,7 @@ impl<'a> SemaExprEngine<'a> {
         let Some(expected_frame_var_ty) = expected_frame_var_ty else {
             todo!()
         };
-        let place = Place::ImmutableStackOwned {
+        let place = FluffyPlace::ImmutableStackOwned {
             location: for_loop_var_symbol_idx
                 .into_local_symbol_idx(self.syn_expr_region_data())
                 .into(),

@@ -8,6 +8,7 @@ edition = "2021"
 smallvec.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
+vec-like = { path = "../../abstractions/vec-like" }
 enum-class = { path = "../../abstractions/enum-class" }
 version-stamp = { path = "../../abstractions/version-stamp" }
 # fs

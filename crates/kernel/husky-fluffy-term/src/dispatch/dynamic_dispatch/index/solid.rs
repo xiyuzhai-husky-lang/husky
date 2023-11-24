@@ -7,12 +7,7 @@ impl SolidTerm {
         expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
     ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
-        self.disambiguate_index_aux(
-            engine,
-            expr_idx,
-            index_ty,
-            FluffyTermDynamicDispatchIndirections::new(todo!()),
-        )
+        self.disambiguate_index_aux(engine, expr_idx, index_ty, FluffyIndirections::new(todo!()))
     }
 
     pub(super) fn disambiguate_index_aux(
@@ -20,7 +15,7 @@ impl SolidTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
-        mut indirections: FluffyTermDynamicDispatchIndirections,
+        mut indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
         let db = engine.db();
         match self.data(engine) {

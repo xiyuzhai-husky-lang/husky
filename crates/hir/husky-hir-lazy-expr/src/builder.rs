@@ -1,5 +1,5 @@
 use crate::{source_map::HirLazyExprSourceMap, *};
-use husky_fluffy_term::FluffyTermBase;
+use husky_fluffy_term::{FluffyTermBase, FluffyTerms};
 use husky_sema_expr::{
     SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
@@ -186,6 +186,10 @@ impl<'a> HirLazyExprBuilder<'a> {
 
     pub(crate) fn hir_lazy_expr_arena(&self) -> &HirLazyExprArena {
         &self.hir_lazy_expr_arena
+    }
+
+    pub(crate) fn fluffy_terms(&self) -> &FluffyTerms {
+        self.sema_expr_region_data.fluffy_term_region().terms()
     }
 }
 

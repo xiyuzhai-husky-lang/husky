@@ -7,7 +7,7 @@ fn linkage_path_dependencies(db: &dyn LinkageDb, linkage_path: Linkage) {
         LinkagePathData::Coersion {} => todo!(),
         LinkagePathData::Item {
             path,
-            template_arguments,
+            ref instantiation,
         } => todo!(),
         LinkagePathData::PropsStructField => todo!(),
         LinkagePathData::MemoizedField => todo!(),

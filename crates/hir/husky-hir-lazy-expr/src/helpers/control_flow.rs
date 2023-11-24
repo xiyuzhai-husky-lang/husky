@@ -155,13 +155,8 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 ref item_groups, ..
             } => self.infer_new_item_groups(item_groups)?,
             HirLazyExprData::FunctionGnItemCall {
-                function_hir_lazy_expr_idx,
-                ref item_groups,
-                ..
-            } => {
-                self.expr_has_control_flow(function_hir_lazy_expr_idx)?;
-                self.infer_new_item_groups(item_groups)?
-            }
+                ref item_groups, ..
+            } => self.infer_new_item_groups(item_groups)?,
             HirLazyExprData::PropsStructField { owner, .. }
             | HirLazyExprData::MemoizedField { owner, .. } => self.expr_has_control_flow(owner)?,
             HirLazyExprData::MethodFnCall {

@@ -1,5 +1,5 @@
 use husky_hir_defn::HasHirDefn;
-use husky_hir_ty::{HirTemplateArguments, HirTemplateArgument};
+use husky_hir_ty::{instantiation::HirInstantiation, HirTemplateArgument, HirTemplateArguments};
 
 use crate::*;
 
@@ -13,7 +13,7 @@ pub enum LinkagePathData {
     Coersion {},
     Item {
         path: ItemPath,
-        template_arguments: LinkageTemplateArguments,
+        instantiation: LinkageInstantiation,
     },
     PropsStructField,
     MemoizedField,
@@ -44,17 +44,14 @@ impl Linkage {
 
     pub fn new_item(
         path: impl Into<ItemPath>,
-        template_arguments: &[HirTemplateArgument],
+        instantiation: &HirInstantiation,
         db: &dyn LinkageDb,
     ) -> Self {
         Self::new(
             db,
             LinkagePathData::Item {
                 path: path.into(),
-                template_arguments: LinkageTemplateArgument::from_hir_template_arguments(
-                    template_arguments,
-                    db,
-                ),
+                instantiation: LinkageInstantiation::from_hir(instantiation, db),
             },
         )
     }
@@ -73,7 +70,7 @@ where
             LinkagePathData::Coersion {} => (),
             LinkagePathData::Item {
                 path,
-                template_arguments,
+                instantiation,
             } => {
                 builder.add(path.hir_defn(db).unwrap());
                 todo!()

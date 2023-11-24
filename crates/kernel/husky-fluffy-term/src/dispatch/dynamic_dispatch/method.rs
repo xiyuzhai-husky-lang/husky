@@ -19,7 +19,7 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_regional_token: IdentRegionalToken,
-        mut indirections: FluffyTermDynamicDispatchIndirections,
+        mut indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
         self.trai_method_dispatch_aux(
             engine,
@@ -38,7 +38,7 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
-        indirections: FluffyTermDynamicDispatchIndirections,
+        indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch>;
 }
 
@@ -48,7 +48,7 @@ pub trait HasFluffyTypeMethodDispatch: Copy {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        indirections: FluffyTermDynamicDispatchIndirections,
+        indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch>;
 }
 
@@ -74,7 +74,7 @@ pub trait HasFluffyMethodDispatch:
                 engine,
                 expr_idx,
                 ident_token,
-                FluffyTermDynamicDispatchIndirections::new(initial_place),
+                FluffyIndirections::new(initial_place),
             )
             .into_result_option()?
         {
@@ -84,11 +84,11 @@ pub trait HasFluffyMethodDispatch:
             engine,
             expr_idx,
             ident_token,
-            FluffyTermDynamicDispatchIndirections::new(initial_place),
+            FluffyIndirections::new(initial_place),
         )
     }
 
-    fn initial_place(self) -> Place;
+    fn initial_place(self) -> FluffyPlace;
 }
 
 impl HasFluffyTypeMethodDispatch for FluffyTerm {
@@ -97,7 +97,7 @@ impl HasFluffyTypeMethodDispatch for FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        indirections: FluffyTermDynamicDispatchIndirections,
+        indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
         match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(ty_term) => {
@@ -121,7 +121,7 @@ impl HasFluffyTraitMethodDispatch for FluffyTerm {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
-        indirections: FluffyTermDynamicDispatchIndirections,
+        indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
         match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(ty_term) => ty_term.trai_method_dispatch_aux(
@@ -151,9 +151,9 @@ impl HasFluffyTraitMethodDispatch for FluffyTerm {
 }
 
 impl HasFluffyMethodDispatch for FluffyTerm {
-    fn initial_place(self) -> Place {
+    fn initial_place(self) -> FluffyPlace {
         // ad hoc
-        self.place().unwrap_or(Place::Transient)
+        self.place().unwrap_or(FluffyPlace::Transient)
     }
 }
 

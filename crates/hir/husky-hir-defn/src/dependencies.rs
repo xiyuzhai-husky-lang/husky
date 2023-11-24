@@ -2,8 +2,11 @@ use crate::*;
 #[cfg(test)]
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_hir_ty::{
-    ritchie::HirRitchieParameter, trai::HirTrait, HirTemplateArgument, HirTemplateArguments,
-    HirType,
+    indirections::{HirIndirection, HirIndirections},
+    instantiation::{HirInstantiation, HirTermSymbolResolution},
+    ritchie::HirRitchieParameter,
+    trai::HirTrait,
+    HirTemplateArgument, HirType,
 };
 use vec_like::VecSet;
 
@@ -127,12 +130,17 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirLazyExprData::FunctionGnItemCall { path, .. } => self.add_item_path(path),
                 HirLazyExprData::AssociatedFunctionFnCall { path, .. } => self.add_item_path(path),
                 HirLazyExprData::PropsStructField { owner, ident } => (),
-                HirLazyExprData::MemoizedField { path, .. } => self.add_item_path(path),
-                HirLazyExprData::MethodFnCall {
+                HirLazyExprData::MemoizedField {
                     path,
-                    ref template_arguments,
+                    ref indirections,
+                    ref instantiation,
                     ..
                 } => {
+                    self.add_item_path(path);
+                    self.add_indirections(indirections);
+                    self.add_instantiation(instantiation)
+                }
+                HirLazyExprData::MethodFnCall { path, .. } => {
                     // todo!();
                     self.add_item_path(path)
                 }
@@ -226,6 +234,27 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
             self.item_paths_in_current_crate,
             self.item_paths_in_other_local_crates,
         )
+    }
+
+    fn add_indirections(&mut self, indirections: &HirIndirections) {
+        for indirection in indirections.iter() {
+            match indirection {
+                HirIndirection::Place(_) => (),
+                HirIndirection::Leash => (),
+            }
+        }
+    }
+
+    fn add_instantiation(&mut self, instantiation: &HirInstantiation) {
+        for (_, resolution) in instantiation.iter() {
+            match resolution {
+                HirTermSymbolResolution::Explicit(hir_template_argument) => {
+                    self.add_hir_template_argument(hir_template_argument)
+                }
+                HirTermSymbolResolution::SelfLifetime => (),
+                HirTermSymbolResolution::SelfPlace(_) => (),
+            }
+        }
     }
 }
 
