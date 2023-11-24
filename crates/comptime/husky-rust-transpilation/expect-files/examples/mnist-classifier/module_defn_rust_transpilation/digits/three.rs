@@ -27,17 +27,17 @@ pub fn is_three() -> OneVsAll<MnistLabel> {
 pub fn uparc(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y <= 0);
-    Some(-cc.bounding_box().ymin())
+    Option::Some(-cc.bounding_box().ymin())
 }
 
 pub fn downarc(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y <= 0);
-    Some(-cc.bounding_box().ymin())
+    Option::Some(-cc.bounding_box().ymin())
 }
 
 pub fn back(cc: Leash<ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y >= 0);
-    Some(-cc.bounding_box().ymin())
+    Option::Some(-cc.bounding_box().ymin())
 }
