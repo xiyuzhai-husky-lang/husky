@@ -8,7 +8,7 @@ pub(super) fn ethereal_ty_field_dispatch(
     db: &dyn FluffyTermDb,
     ty_term: EtherealTerm,
     ident: Ident,
-    indirections: FluffyTermDynamicDispatchIndirections,
+    indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
     // divide into cases for memoization
     match ty_term {
@@ -26,7 +26,7 @@ pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch(
     db: &dyn FluffyTermDb,
     ty_path: TypePath,
     ident: Ident,
-    indirections: FluffyTermDynamicDispatchIndirections,
+    indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
     ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, indirections)
 }
@@ -35,7 +35,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch(
     db: &dyn FluffyTermDb,
     ty_term: EtherealTermApplication,
     ident: Ident,
-    indirections: FluffyTermDynamicDispatchIndirections,
+    indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
     let application_expansion = ty_term.application_expansion(db);
     match application_expansion.function() {
@@ -55,7 +55,7 @@ fn ethereal_ty_field_dispatch_aux<'a>(
     ty_path: TypePath,
     arguments: &'a [EtherealTerm],
     ident: Ident,
-    mut indirections: FluffyTermDynamicDispatchIndirections,
+    mut indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
     match ty_path.refine(db) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
@@ -63,7 +63,7 @@ fn ethereal_ty_field_dispatch_aux<'a>(
                 PreludeIndirectionTypePath::Ref => todo!(),
                 PreludeIndirectionTypePath::RefMut => todo!(),
                 PreludeIndirectionTypePath::Leash => {
-                    indirections.add(FluffyTermDynamicDispatchIndirection::Leash);
+                    indirections.add(FluffyIndirection::Leash);
                     if arguments.len() != 1 {
                         todo!()
                     }

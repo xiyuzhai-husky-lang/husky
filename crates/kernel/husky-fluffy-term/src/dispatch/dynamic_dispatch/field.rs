@@ -13,13 +13,13 @@ use husky_ethereal_signature::{PropsFieldEtherealSignature, TypeMemoizedFieldEth
 #[derive(Debug, PartialEq, Eq)]
 // #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct FluffyFieldDyanmicDispatch {
-    indirections: FluffyTermDynamicDispatchIndirections,
+    indirections: FluffyIndirections,
     ty_path: TypePath,
     signature: FluffyFieldSignature,
 }
 
 impl FluffyFieldDyanmicDispatch {
-    pub fn indirections(&self) -> &[FluffyTermDynamicDispatchIndirection] {
+    pub fn indirections(&self) -> &FluffyIndirections {
         &self.indirections
     }
 
@@ -27,8 +27,8 @@ impl FluffyFieldDyanmicDispatch {
         self.ty_path
     }
 
-    pub fn signature(&self) -> FluffyFieldSignature {
-        self.signature
+    pub fn signature(&self) -> &FluffyFieldSignature {
+        &self.signature
     }
 }
 
@@ -44,7 +44,7 @@ impl FluffyTerm {
             engine,
             ident,
             available_traits,
-            FluffyTermDynamicDispatchIndirections::new(self.initial_place()),
+            FluffyIndirections::new(self.initial_place()),
         )
     }
 
@@ -53,7 +53,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: FluffyTermDynamicDispatchIndirections,
+        mut indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
         match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(term) => {

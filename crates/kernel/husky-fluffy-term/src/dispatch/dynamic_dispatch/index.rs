@@ -20,7 +20,7 @@ impl FluffyTerm {
             engine,
             expr_idx,
             index_ty,
-            FluffyTermDynamicDispatchIndirections::new(self.initial_place()),
+            FluffyIndirections::new(self.initial_place()),
         )
     }
 
@@ -29,7 +29,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
-        mut indirections: FluffyTermDynamicDispatchIndirections,
+        mut indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyIndexDynamicDispatch> {
         match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(owner_ty) => {

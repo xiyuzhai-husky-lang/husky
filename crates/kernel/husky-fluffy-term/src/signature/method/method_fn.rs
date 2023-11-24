@@ -19,7 +19,7 @@ impl MemberSignature for MethodFnFluffySignature {
 
 impl MethodFnFluffySignature {
     pub(crate) fn from_ethereal(
-        self_place: Place,
+        self_place: FluffyPlace,
         eth_sig: &TraitForTypeMethodFnEtherealSignature,
     ) -> Self {
         Self {
@@ -35,6 +35,10 @@ impl MethodFnFluffySignature {
                 eth_sig.instantiation(),
             ),
         }
+    }
+
+    pub fn instantiation(&self) -> &FluffyInstantiation {
+        &self.instantiation
     }
 }
 
@@ -77,7 +81,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
     ident_token: IdentRegionalToken,
-    self_place: Place,
+    self_place: FluffyPlace,
 ) -> FluffyTermMaybeResult<MethodFnFluffySignature> {
     let ident = ident_token.ident();
     match ty_path.ty_item_ethereal_signature_templates(engine.db(), ident)? {
@@ -120,7 +124,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     template: TypeMethodFnEtherealSignatureTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
-    self_place: Place,
+    self_place: FluffyPlace,
 ) -> FluffyTermMaybeResult<MethodFnFluffySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);

@@ -17,19 +17,19 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct FluffyTerm {
-    place: Option<Place>,
+    place: Option<FluffyPlace>,
     base: FluffyTermBase,
 }
 
 impl FluffyTerm {
-    pub(crate) fn new_ethereal(place: Place, ethereal_term: EtherealTerm) -> Self {
+    pub(crate) fn new_ethereal(place: FluffyPlace, ethereal_term: EtherealTerm) -> Self {
         Self {
             place: Some(place),
             base: ethereal_term.into(),
         }
     }
 
-    pub(crate) fn with_place(self, place: Place) -> Self {
+    pub(crate) fn with_place(self, place: FluffyPlace) -> Self {
         Self {
             place: Some(place),
             base: self.base,
@@ -47,8 +47,8 @@ pub enum FluffyTermBase {
     Place,
 }
 
-impl From<Place> for FluffyTerm {
-    fn from(place: Place) -> Self {
+impl From<FluffyPlace> for FluffyTerm {
+    fn from(place: FluffyPlace) -> Self {
         FluffyTerm {
             place: Some(place),
             base: FluffyTermBase::Place,
@@ -149,7 +149,7 @@ fn term_to_fluffy_term_works() {
 }
 
 impl FluffyTerm {
-    pub fn place(self) -> Option<Place> {
+    pub fn place(self) -> Option<FluffyPlace> {
         self.place
     }
 

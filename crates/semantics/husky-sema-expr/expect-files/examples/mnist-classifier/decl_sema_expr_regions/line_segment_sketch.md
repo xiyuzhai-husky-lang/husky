@@ -688,7 +688,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -728,7 +728,7 @@
                                                                     value: 5,
                                                                 },
                                                             ),
-                                                            Normal(
+                                                            Explicit(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -827,7 +827,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -869,7 +869,7 @@
                                                                     value: 3,
                                                                 },
                                                             ),
-                                                            Normal(
+                                                            Explicit(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -1019,7 +1019,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -1059,7 +1059,7 @@
                                                                     value: 5,
                                                                 },
                                                             ),
-                                                            Normal(
+                                                            Explicit(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -1158,7 +1158,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -1200,7 +1200,7 @@
                                                                     value: 3,
                                                                 },
                                                             ),
-                                                            Normal(
+                                                            Explicit(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(

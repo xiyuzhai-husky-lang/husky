@@ -26,7 +26,7 @@ impl LinkageTemplateArgument {
             .collect()
     }
 
-    fn from_hir(template_argument: HirTemplateArgument, db: &dyn LinkageDb) -> Self {
+    pub(crate) fn from_hir(template_argument: HirTemplateArgument, db: &dyn LinkageDb) -> Self {
         match template_argument {
             HirTemplateArgument::Vacant => LinkageTemplateArgument::Vacant,
             HirTemplateArgument::Type(hir_ty) => {

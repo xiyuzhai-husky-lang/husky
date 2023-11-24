@@ -7175,7 +7175,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -7209,6 +7209,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -7671,7 +7676,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -7703,6 +7708,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -7768,7 +7778,7 @@
                                         Less,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -7884,7 +7894,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -7918,6 +7928,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -8159,7 +8174,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -8193,6 +8208,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -8258,7 +8278,7 @@
                                         Greater,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -8343,7 +8363,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -8377,6 +8397,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -8442,7 +8467,7 @@
                                         Eq,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -8556,7 +8581,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -8590,6 +8615,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -8655,7 +8685,7 @@
                                         Eq,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -8764,7 +8794,7 @@
                                         Eq,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -8849,7 +8879,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -8938,7 +8968,7 @@
                                         80,
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -9028,7 +9058,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -9117,7 +9147,7 @@
                                         89,
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -9207,7 +9237,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -9296,7 +9326,7 @@
                                         98,
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -9461,7 +9491,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -9493,6 +9523,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -9558,7 +9593,7 @@
                                         Less,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -9679,7 +9714,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -9711,6 +9746,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -9754,7 +9794,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -10070,7 +10110,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -10104,6 +10144,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -10135,7 +10180,7 @@
                                         Mul,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -10220,7 +10265,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -10254,6 +10299,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -10285,7 +10335,7 @@
                                         Sub,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -10361,7 +10411,7 @@
                                         Less,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -10505,7 +10555,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -10571,7 +10621,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -10613,7 +10663,7 @@
                                                                     value: 1,
                                                                 },
                                                             ),
-                                                            Normal(
+                                                            Explicit(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -10748,7 +10798,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -10814,7 +10864,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -10856,7 +10906,7 @@
                                                                     value: 1,
                                                                 },
                                                             ),
-                                                            Normal(
+                                                            Explicit(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -10918,7 +10968,7 @@
                                         Sub,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -11003,7 +11053,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -11037,6 +11087,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -11102,7 +11157,7 @@
                                         Less,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -11248,7 +11303,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -11417,7 +11472,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -11451,6 +11506,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -11525,7 +11585,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -11559,6 +11619,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -11633,7 +11698,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -11667,6 +11732,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -11969,7 +12039,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -12058,7 +12128,7 @@
                                         202,
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -12144,7 +12214,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -12178,6 +12248,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -12252,7 +12327,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -12341,7 +12416,7 @@
                                         212,
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -12427,7 +12502,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -12461,6 +12536,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -12504,7 +12584,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -12902,7 +12982,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -12968,7 +13048,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -13010,7 +13090,7 @@
                                                                     value: 1,
                                                                 },
                                                             ),
-                                                            Normal(
+                                                            Explicit(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -13145,7 +13225,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -13211,7 +13291,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -13253,7 +13333,7 @@
                                                                     value: 1,
                                                                 },
                                                             ),
-                                                            Normal(
+                                                            Explicit(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -13315,7 +13395,7 @@
                                         Sub,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -13387,7 +13467,7 @@
                                         Eq,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -13502,7 +13582,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -13629,7 +13709,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -13695,7 +13775,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -13737,7 +13817,7 @@
                                                                     value: 1,
                                                                 },
                                                             ),
-                                                            Normal(
+                                                            Explicit(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -13829,7 +13909,7 @@
                                         Add,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -13882,7 +13962,7 @@
                                         270,
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -13983,7 +14063,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -14109,7 +14189,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -14199,7 +14279,7 @@
                                         Greater,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -14345,7 +14425,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -14379,6 +14459,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -14483,7 +14568,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -14517,6 +14602,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -14621,7 +14711,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -14655,6 +14745,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -14698,7 +14793,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -15042,7 +15137,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -15168,7 +15263,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -15272,7 +15367,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -15328,7 +15423,7 @@
                                         Div,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -15691,7 +15786,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -15780,7 +15875,7 @@
                                         346,
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -15866,7 +15961,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -15900,6 +15995,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -15974,7 +16074,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -16063,7 +16163,7 @@
                                         356,
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -16149,7 +16249,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -16183,6 +16283,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -16257,7 +16362,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -16346,7 +16451,7 @@
                                         366,
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -16432,7 +16537,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -16466,6 +16571,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -16509,7 +16619,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -16840,7 +16950,7 @@
                                         Eq,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -16955,7 +17065,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -17082,7 +17192,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -17148,7 +17258,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -17190,7 +17300,7 @@
                                                                     value: 1,
                                                                 },
                                                             ),
-                                                            Normal(
+                                                            Explicit(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -17263,7 +17373,7 @@
                                         401,
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -17364,7 +17474,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -17515,7 +17625,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -17642,7 +17752,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -17708,7 +17818,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -17750,7 +17860,7 @@
                                                                     value: 1,
                                                                 },
                                                             ),
-                                                            Normal(
+                                                            Explicit(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -17842,7 +17952,7 @@
                                         Add,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -17895,7 +18005,7 @@
                                         428,
                                     ),
                                     index_dynamic_dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -17996,7 +18106,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -18153,7 +18263,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -18257,7 +18367,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -18552,7 +18662,7 @@
                                         Eq,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -18637,7 +18747,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -18671,6 +18781,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -18745,7 +18860,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -18779,6 +18894,11 @@
                                                     },
                                                 ),
                                             ),
+                                            instantiation: FluffyInstantiation {
+                                                env: MemoizedField,
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                         },
                                     },
                                 },
@@ -18882,7 +19002,7 @@
                                         Sub,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -18996,7 +19116,7 @@
                                         Add,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -19125,7 +19245,7 @@
                                         Geq,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -19237,7 +19357,7 @@
                                         Leq,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -36958,7 +37078,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -37086,7 +37206,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -37176,7 +37296,7 @@
                                         Greater,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -37266,7 +37386,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -38525,7 +38645,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -38653,7 +38773,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -38743,7 +38863,7 @@
                                         Leq,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -38837,7 +38957,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -38929,7 +39049,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -40339,7 +40459,7 @@
                                         ),
                                     },
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
@@ -40467,7 +40587,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -40557,7 +40677,7 @@
                                         Less,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -40647,7 +40767,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -40737,7 +40857,7 @@
                                         Less,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -40827,7 +40947,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -40960,7 +41080,7 @@
                                         ),
                                     },
                                     dispatch: FluffyFieldDyanmicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,
@@ -41016,7 +41136,7 @@
                                         Sub,
                                     ),
                                     dispatch: FluffyDynamicDispatch {
-                                        indirections: FluffyTermDynamicDispatchIndirections {
+                                        indirections: FluffyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
                                             final_place: Transient,

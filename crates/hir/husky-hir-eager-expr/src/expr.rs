@@ -287,14 +287,18 @@ impl ToHirEager for SemaExprIdx {
                 ident_token,
                 dispatch: field_dispatch,
                 ..
-            } => match field_dispatch.signature() {
+            } => match *field_dispatch.signature() {
                 FluffyFieldSignature::PropsStruct { ty: ty2 } => {
                     HirEagerExprData::PropsStructField {
                         owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
                         ident: ident_token.ident(),
                     }
                 }
-                FluffyFieldSignature::Memoized { ty, path } => HirEagerExprData::MemoizedField {
+                FluffyFieldSignature::Memoized {
+                    ty,
+                    path,
+                    ref instantiation,
+                } => HirEagerExprData::MemoizedField {
                     owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
                     ident: ident_token.ident(),
                     path,

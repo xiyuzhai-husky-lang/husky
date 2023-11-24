@@ -1,6 +1,9 @@
 #![feature(trait_upcasting)]
 pub mod db;
+pub mod indirections;
+pub mod instantiation;
 pub mod menu;
+pub mod place;
 pub mod symbol;
 pub mod template_argument;
 #[cfg(test)]

@@ -7,7 +7,7 @@ impl HasFluffyTraitMethodDispatch for SolidTerm {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
-        indirections: FluffyTermDynamicDispatchIndirections,
+        indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {

@@ -210,27 +210,27 @@ impl SymbolType {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct PlaceTypeData {
-    place: Place,
+    place: FluffyPlace,
     ty: EtherealTerm,
 }
 
 /// `PlaceQual` qualifies the place of a base type `T`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum Place {
+pub enum FluffyPlace {
     Const,
     /// reduce to
     /// - ImmutableStackOwned if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
     StackPure {
-        location: StackLocationIdx,
+        location: FluffyStackLocationIdx,
     },
     /// lvalue nonreference
     ImmutableStackOwned {
-        location: StackLocationIdx,
+        location: FluffyStackLocationIdx,
     },
     /// lvalue nonreference
     MutableStackOwned {
-        location: StackLocationIdx,
+        location: FluffyStackLocationIdx,
     },
     // rvalue
     Transient,
@@ -254,7 +254,7 @@ pub enum Place {
         ///
         /// let `a` be a reference to `A<'b>`, then `a.x` is a valid for `'b` time,
         /// even if `a` is short lived.
-        guard: Either<StackLocationIdx, FluffyLifetimeIdx>,
+        guard: Either<FluffyStackLocationIdx, FluffyLifetimeIdx>,
     },
     /// a place accessed through ref mut
     ///
@@ -284,7 +284,7 @@ pub enum Place {
         ///
         /// If `a` is a mutable variable on stack of type `A<'b>`, then `a.x` is valid as long as `a` is valid,
         /// even if `b` is long lived. So we should only care about the stack location.
-        guard: Either<StackLocationIdx, FluffyLifetimeIdx>,
+        guard: Either<FluffyStackLocationIdx, FluffyLifetimeIdx>,
     },
     /// stored in database
     /// always immutable
@@ -293,9 +293,9 @@ pub enum Place {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct StackLocationIdx(LocalSymbolIdx);
+pub struct FluffyStackLocationIdx(LocalSymbolIdx);
 
-impl From<LocalSymbolIdx> for StackLocationIdx {
+impl From<LocalSymbolIdx> for FluffyStackLocationIdx {
     fn from(idx: LocalSymbolIdx) -> Self {
         Self(idx)
     }
