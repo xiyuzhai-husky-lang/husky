@@ -1,8 +1,3 @@
-mod document;
-mod notebook;
-
-pub use notebook::*;
-
 use crate::*;
 use salsa::{input::InputIngredient, input_field::InputFieldIngredient, Durability};
 
@@ -14,7 +9,6 @@ pub enum FileContent {
     NotExists,
     OnDisk(String),
     LiveDoc(String),
-    LiveNotebook(Notebook),
     Directory(Vec<VirtualPath>),
     Err(VfsError),
 }
@@ -32,7 +26,6 @@ impl FileContent {
             FileContent::OnDisk(text) | FileContent::LiveDoc(text) => Ok(Some(text)),
             FileContent::Directory(_) => todo!(),
             FileContent::Err(_) => todo!(),
-            FileContent::LiveNotebook(_) => todo!(),
         }
     }
 }
