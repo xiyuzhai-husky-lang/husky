@@ -1910,16 +1910,22 @@ EntitySynTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::TypeVariant {
-                                                    ty_variant_path: TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    ty_variant_path: TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 4,
@@ -1927,10 +1933,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::Pub,
                                         ast_idx: 8,
@@ -1938,10 +1947,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core`,
@@ -1963,16 +1975,22 @@ EntitySynTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::TypeVariant {
-                                                    ty_variant_path: TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    ty_variant_path: TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 4,
@@ -1980,10 +1998,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::Pub,
                                         ast_idx: 8,
@@ -1991,10 +2012,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core`,
@@ -2372,12 +2396,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::array::Array`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -4338,16 +4358,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -4355,10 +4381,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -4366,10 +4395,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -4379,10 +4411,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::array`,
@@ -4406,16 +4441,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -4423,10 +4464,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -4434,10 +4478,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -4447,10 +4494,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::array`,
@@ -4892,12 +4942,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::basic::bool`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -4934,12 +4980,8 @@ EntitySynTreeCrateBundle {
                                         11,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::basic::never`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -4976,12 +5018,8 @@ EntitySynTreeCrateBundle {
                                         15,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::basic::unit`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -5018,12 +5056,8 @@ EntitySynTreeCrateBundle {
                                         19,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::basic::Trait`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -5060,12 +5094,8 @@ EntitySynTreeCrateBundle {
                                         23,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::basic::Module`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -5102,12 +5132,8 @@ EntitySynTreeCrateBundle {
                                         27,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::basic::Lifetime`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -5144,12 +5170,8 @@ EntitySynTreeCrateBundle {
                                         31,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 8,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::basic::Place`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -7164,16 +7186,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -7181,10 +7209,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -7192,10 +7223,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -7205,10 +7239,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::basic`,
@@ -7232,16 +7269,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -7249,10 +7292,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -7260,10 +7306,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -7273,10 +7322,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::basic`,
@@ -7718,12 +7770,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::clone::Clone`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -9690,16 +9738,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -9707,10 +9761,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -9718,10 +9775,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -9731,10 +9791,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::clone`,
@@ -9758,16 +9821,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -9775,10 +9844,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -9786,10 +9858,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -9799,10 +9874,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::clone`,
@@ -10175,22 +10253,26 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::clone`,
-                                trai_path: TraitPath(`core::clone::Clone`),
-                                ty_sketch: TypeSketch::DeriveAny,
-                                disambiguator: 0,
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
+                                    module_path: `core::clone`,
+                                    trai_path: TraitPath(`core::clone::Clone`),
+                                    ty_sketch: TypeSketch::DeriveAny,
+                                    disambiguator: 0,
+                                },
                             },
                         },
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::clone`,
-                                    trai_path: TraitPath(`core::clone::Clone`),
-                                    ty_sketch: TypeSketch::DeriveAny,
-                                    disambiguator: 0,
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::clone`,
+                                        trai_path: TraitPath(`core::clone::Clone`),
+                                        ty_sketch: TypeSketch::DeriveAny,
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 5,
@@ -10305,12 +10387,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::cmp::PartialEq`),
                                     items: None,
                                 },
                             },
@@ -10347,12 +10425,8 @@ EntitySynTreeCrateBundle {
                                         11,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::cmp::Eq`),
                                     items: None,
                                 },
                             },
@@ -10389,12 +10463,8 @@ EntitySynTreeCrateBundle {
                                         15,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::cmp::PartialOrd`),
                                     items: None,
                                 },
                             },
@@ -10431,12 +10501,8 @@ EntitySynTreeCrateBundle {
                                         19,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::cmp::Ord`),
                                     items: None,
                                 },
                             },
@@ -12424,16 +12490,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -12441,10 +12513,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -12452,10 +12527,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -12465,10 +12543,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::cmp`,
@@ -12492,16 +12573,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -12509,10 +12596,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -12520,10 +12610,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -12533,10 +12626,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::cmp`,
@@ -14892,16 +14988,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -14909,10 +15011,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -14920,10 +15025,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -14933,10 +15041,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::default`,
@@ -14960,16 +15071,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -14977,10 +15094,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -14988,10 +15108,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -15001,10 +15124,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::default`,
@@ -15446,12 +15572,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::fmt::Debug`),
                                     items: None,
                                 },
                             },
@@ -17412,16 +17534,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -17429,10 +17557,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -17440,10 +17571,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -17453,10 +17587,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::fmt`,
@@ -17480,16 +17617,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -17497,10 +17640,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -17508,10 +17654,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -17521,10 +17670,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::fmt`,
@@ -17966,12 +18118,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::logic::Prop`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -18008,12 +18156,8 @@ EntitySynTreeCrateBundle {
                                         11,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                     variants: None,
                                 },
                             },
@@ -18050,12 +18194,8 @@ EntitySynTreeCrateBundle {
                                         33,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
@@ -20040,16 +20180,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -20057,10 +20203,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -20068,10 +20217,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -20081,10 +20233,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::logic`,
@@ -20108,16 +20263,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -20125,10 +20286,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -20136,10 +20300,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -20149,10 +20316,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::logic`,
@@ -20594,12 +20764,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::marker::Copy`),
                                     items: None,
                                 },
                             },
@@ -20636,12 +20802,8 @@ EntitySynTreeCrateBundle {
                                         11,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 8,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::marker::Sized`),
                                     items: None,
                                 },
                             },
@@ -22611,16 +22773,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -22628,10 +22796,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -22639,10 +22810,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -22652,10 +22826,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::marker`,
@@ -22679,16 +22856,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -22696,10 +22879,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -22707,10 +22893,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -22720,10 +22909,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::marker`,
@@ -23165,12 +23357,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::mem::Ref`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -23207,12 +23395,8 @@ EntitySynTreeCrateBundle {
                                         18,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::mem::RefMut`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -23249,12 +23433,8 @@ EntitySynTreeCrateBundle {
                                         29,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::mem::Leash`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -23291,12 +23471,8 @@ EntitySynTreeCrateBundle {
                                         46,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::mem::At`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -25284,16 +25460,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -25301,10 +25483,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -25312,10 +25497,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -25325,10 +25513,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::mem`,
@@ -25352,16 +25543,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -25369,10 +25566,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -25380,10 +25580,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -25393,10 +25596,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::mem`,
@@ -25769,26 +25975,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::mem`,
-                                trai_path: TraitPath(`core::marker::Copy`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::mem::Leash`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::mem`,
                                     trai_path: TraitPath(`core::marker::Copy`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::mem::Leash`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::mem`,
+                                        trai_path: TraitPath(`core::marker::Copy`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::mem::Leash`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 5,
@@ -25881,12 +26091,8 @@ EntitySynTreeCrateBundle {
                                         33,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::i8`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -25923,12 +26129,8 @@ EntitySynTreeCrateBundle {
                                         96,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::i16`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -25965,12 +26167,8 @@ EntitySynTreeCrateBundle {
                                         159,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::i32`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -26007,12 +26205,8 @@ EntitySynTreeCrateBundle {
                                         232,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::i64`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -26049,12 +26243,8 @@ EntitySynTreeCrateBundle {
                                         284,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::i128`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -26091,12 +26281,8 @@ EntitySynTreeCrateBundle {
                                         336,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::isize`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -26133,12 +26319,8 @@ EntitySynTreeCrateBundle {
                                         388,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::u8`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -26175,12 +26357,8 @@ EntitySynTreeCrateBundle {
                                         440,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::u16`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -26217,12 +26395,8 @@ EntitySynTreeCrateBundle {
                                         492,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 24,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::u32`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -26259,12 +26433,8 @@ EntitySynTreeCrateBundle {
                                         544,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::u64`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -26301,12 +26471,8 @@ EntitySynTreeCrateBundle {
                                         596,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 26,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::u128`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -26343,12 +26509,8 @@ EntitySynTreeCrateBundle {
                                         648,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 27,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::usize`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -26385,12 +26547,8 @@ EntitySynTreeCrateBundle {
                                         700,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 28,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::f32`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -26427,12 +26585,8 @@ EntitySynTreeCrateBundle {
                                         813,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 29,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::num::f64`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -28535,16 +28689,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -28552,10 +28712,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -28563,10 +28726,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -28576,10 +28742,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::num`,
@@ -28603,16 +28772,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -28620,10 +28795,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -28631,10 +28809,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -28644,10 +28825,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::num`,
@@ -29020,21 +29204,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 76,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 76,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 46,
                             impl_regional_token: ImplToken {
@@ -29054,26 +29242,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::i8`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::i8`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i8`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 47,
@@ -29104,21 +29296,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 78,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 78,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 51,
                             impl_regional_token: ImplToken {
@@ -29138,26 +29334,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::i16`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::i16`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i16`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 52,
@@ -29188,21 +29388,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 80,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 80,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 56,
                             impl_regional_token: ImplToken {
@@ -29222,26 +29426,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::i32`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::i32`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i32`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 57,
@@ -29272,21 +29480,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i64`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 82,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 82,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 61,
                             impl_regional_token: ImplToken {
@@ -29306,26 +29518,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::i64`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::i64`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i64`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 62,
@@ -29356,21 +29572,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i128`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 84,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 84,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 66,
                             impl_regional_token: ImplToken {
@@ -29390,26 +29610,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::i128`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::i128`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i128`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 67,
@@ -29440,21 +29664,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::isize`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 86,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 86,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 71,
                             impl_regional_token: ImplToken {
@@ -29474,26 +29702,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::isize`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::isize`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::isize`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 72,
@@ -29524,21 +29756,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u8`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 88,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 88,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 76,
                             impl_regional_token: ImplToken {
@@ -29558,26 +29794,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::u8`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::u8`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u8`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 77,
@@ -29608,21 +29848,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u16`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 90,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 90,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 81,
                             impl_regional_token: ImplToken {
@@ -29642,26 +29886,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::u16`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::u16`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u16`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 82,
@@ -29692,21 +29940,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u32`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 92,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 92,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 86,
                             impl_regional_token: ImplToken {
@@ -29726,26 +29978,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::u32`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::u32`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u32`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 87,
@@ -29776,21 +30032,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u64`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 94,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 94,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 91,
                             impl_regional_token: ImplToken {
@@ -29810,26 +30070,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::u64`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::u64`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u64`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 92,
@@ -29860,21 +30124,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u128`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 96,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 96,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 96,
                             impl_regional_token: ImplToken {
@@ -29894,26 +30162,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::u128`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::u128`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u128`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 97,
@@ -29944,21 +30216,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::usize`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 98,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 98,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 101,
                             impl_regional_token: ImplToken {
@@ -29978,26 +30254,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::usize`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::usize`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::usize`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 102,
@@ -30028,21 +30308,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 100,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 100,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 106,
                             impl_regional_token: ImplToken {
@@ -30062,26 +30346,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::f32`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::f32`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 107,
@@ -30112,21 +30400,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 102,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 102,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 111,
                             impl_regional_token: ImplToken {
@@ -30146,26 +30438,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::num::f64`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::num::f64`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::f64`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 112,
@@ -30356,12 +30652,8 @@ EntitySynTreeCrateBundle {
                                         14,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::Add`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30404,12 +30696,8 @@ EntitySynTreeCrateBundle {
                                         43,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::AddAssign`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30452,12 +30740,8 @@ EntitySynTreeCrateBundle {
                                         72,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::BitAnd`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30500,12 +30784,8 @@ EntitySynTreeCrateBundle {
                                         101,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::BitAndAssign`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30548,12 +30828,8 @@ EntitySynTreeCrateBundle {
                                         126,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::BitOr`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30596,12 +30872,8 @@ EntitySynTreeCrateBundle {
                                         155,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::BitOrAssign`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30644,12 +30916,8 @@ EntitySynTreeCrateBundle {
                                         180,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::BitXor`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30692,12 +30960,8 @@ EntitySynTreeCrateBundle {
                                         209,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::BitXorAssign`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30740,12 +31004,8 @@ EntitySynTreeCrateBundle {
                                         234,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::Div`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30788,12 +31048,8 @@ EntitySynTreeCrateBundle {
                                         263,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::DivAssign`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30836,12 +31092,8 @@ EntitySynTreeCrateBundle {
                                         281,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::IntIndex`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30884,12 +31136,8 @@ EntitySynTreeCrateBundle {
                                         295,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::Mul`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30932,12 +31180,8 @@ EntitySynTreeCrateBundle {
                                         324,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::MulAssign`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -30980,12 +31224,8 @@ EntitySynTreeCrateBundle {
                                         349,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::Neg`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -31028,12 +31268,8 @@ EntitySynTreeCrateBundle {
                                         373,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::Not`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -31076,12 +31312,8 @@ EntitySynTreeCrateBundle {
                                         397,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 24,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::Sub`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -31124,12 +31356,8 @@ EntitySynTreeCrateBundle {
                                         419,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::ops::Unveil`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -31172,12 +31400,8 @@ EntitySynTreeCrateBundle {
                                         448,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 30,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
@@ -33297,16 +33521,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -33314,10 +33544,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -33325,10 +33558,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -33338,10 +33574,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::ops`,
@@ -33365,16 +33604,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -33382,10 +33627,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -33393,10 +33641,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -33406,10 +33657,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::ops`,
@@ -33851,12 +34105,8 @@ EntitySynTreeCrateBundle {
                                         12,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::option::Option`, `Enum`),
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
@@ -33899,16 +34149,22 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::TypeVariant {
-                                    ty_variant_path: TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    ty_variant_path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 },
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 4,
@@ -33922,16 +34178,22 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::TypeVariant {
-                                    ty_variant_path: TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    ty_variant_path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 },
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 4,
@@ -35869,16 +36131,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -35886,10 +36154,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -35897,10 +36168,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -35910,10 +36184,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::option`,
@@ -35937,16 +36214,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -35954,10 +36237,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -35965,10 +36251,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -35978,10 +36267,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::option`,
@@ -37070,16 +37362,22 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::TypeVariant {
-                                            ty_variant_path: TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            ty_variant_path: TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::Pub,
                                         ast_idx: 4,
@@ -37087,10 +37385,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 8,
@@ -37106,16 +37407,22 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::TypeVariant {
-                                            ty_variant_path: TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            ty_variant_path: TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::Pub,
                                         ast_idx: 4,
@@ -37123,10 +37430,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 8,
@@ -38054,12 +38364,8 @@ EntitySynTreeCrateBundle {
                                         27,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 32,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::raw_bits::r32`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -40020,16 +40326,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -40037,10 +40349,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -40048,10 +40363,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -40061,10 +40379,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::raw_bits`,
@@ -40088,16 +40409,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -40105,10 +40432,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -40116,10 +40446,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -40129,10 +40462,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::raw_bits`,
@@ -40505,21 +40841,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::raw_bits`,
-                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 104,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::raw_bits`,
-                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 104,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 10,
                             impl_regional_token: ImplToken {
@@ -40609,12 +40949,8 @@ EntitySynTreeCrateBundle {
                                         12,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::result::Result`, `Enum`),
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
@@ -40657,16 +40993,22 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::TypeVariant {
-                                    ty_variant_path: TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::result::Result`, `Enum`),
-                                        ident: `Ok`,
-                                    },
+                                    ty_variant_path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 65,
+                                            },
+                                        ),
+                                    ),
                                 },
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::result::Result`, `Enum`),
-                                        ident: `Ok`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 65,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 7,
@@ -40680,16 +41022,22 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::TypeVariant {
-                                    ty_variant_path: TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::result::Result`, `Enum`),
-                                        ident: `Err`,
-                                    },
+                                    ty_variant_path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 66,
+                                            },
+                                        ),
+                                    ),
                                 },
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::result::Result`, `Enum`),
-                                        ident: `Err`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 66,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 7,
@@ -42627,16 +42975,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -42644,10 +42998,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -42655,10 +43012,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -42668,10 +43028,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::result`,
@@ -42695,16 +43058,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -42712,10 +43081,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -42723,10 +43095,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -42736,10 +43111,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::result`,
@@ -43112,26 +43490,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::result`,
-                                trai_path: TraitPath(`core::ops::Unveil`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::result::Result`, `Enum`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::result`,
                                     trai_path: TraitPath(`core::ops::Unveil`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::result::Result`, `Enum`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::result`,
+                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::result::Result`, `Enum`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 9,
@@ -43278,12 +43660,8 @@ EntitySynTreeCrateBundle {
                                         16,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 34,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::vec::Vec`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -45244,16 +45622,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -45261,10 +45645,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -45272,10 +45659,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -45285,10 +45675,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::vec`,
@@ -45312,16 +45705,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -45329,10 +45728,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -45340,10 +45742,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -45353,10 +45758,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::vec`,
@@ -45729,21 +46137,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 106,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 106,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 12,
                             impl_regional_token: ImplToken {
@@ -45833,12 +46245,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 35,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::slice::Slice`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -45875,12 +46283,8 @@ EntitySynTreeCrateBundle {
                                         54,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 36,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -47850,16 +48254,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -47867,10 +48277,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -47878,10 +48291,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -47891,10 +48307,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::slice`,
@@ -47918,16 +48337,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -47935,10 +48360,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -47946,10 +48374,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -47959,10 +48390,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::slice`,
@@ -48335,21 +48769,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::slice`,
-                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 107,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 107,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 11,
                             impl_regional_token: ImplToken {
@@ -48369,26 +48807,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::slice`,
-                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `core::slice`,
                                     trai_path: TraitPath(`core::ops::IntIndex`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`core::slice::CyclicSlice`, `Extern`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::slice`,
+                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 14,
@@ -48419,21 +48861,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `core::slice`,
-                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 109,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 109,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 15,
                             impl_regional_token: ImplToken {
@@ -48523,12 +48969,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::str::str`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -48565,12 +49007,8 @@ EntitySynTreeCrateBundle {
                                         11,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::str::StringLiteral`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -50540,16 +50978,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -50557,10 +51001,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -50568,10 +51015,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -50581,10 +51031,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::str`,
@@ -50608,16 +51061,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -50625,10 +51084,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -50636,10 +51098,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -50649,10 +51114,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::str`,
@@ -51094,12 +51562,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 26,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`core::visual::Visualize`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -51142,12 +51606,8 @@ EntitySynTreeCrateBundle {
                                         18,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::visual::Html`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -53117,16 +53577,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 61,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -53134,10 +53600,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -53145,10 +53614,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -53158,10 +53630,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::visual`,
@@ -53185,16 +53660,22 @@ EntitySynTreeCrateBundle {
                                                 original_symbol: EntitySymbol::Use(
                                                     UseSymbol {
                                                         original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                         path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `None`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 62,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                         visibility: Scope::Pub,
                                                         ast_idx: 4,
@@ -53202,10 +53683,13 @@ EntitySynTreeCrateBundle {
                                                     },
                                                 ),
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 8,
@@ -53213,10 +53697,13 @@ EntitySynTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::PubUnder(
                                             `core`,
@@ -53226,10 +53713,13 @@ EntitySynTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core::visual`,
@@ -53602,22 +54092,26 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `core::visual`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::DeriveAny,
-                                disambiguator: 0,
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
+                                    module_path: `core::visual`,
+                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                    ty_sketch: TypeSketch::DeriveAny,
+                                    disambiguator: 0,
+                                },
                             },
                         },
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::visual`,
-                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: TypeSketch::DeriveAny,
-                                    disambiguator: 0,
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::visual`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::DeriveAny,
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 6,

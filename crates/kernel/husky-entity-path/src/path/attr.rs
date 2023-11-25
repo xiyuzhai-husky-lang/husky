@@ -8,7 +8,7 @@ use crate::*;
 pub struct AttrItemPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct AttrPathData {
+pub struct AttrItemPathData {
     // todo: change type to AttrParentPath
     parent: ItemPath,
     // ad hoc
@@ -23,7 +23,24 @@ pub enum AttrParentPath {
     Type(TypePath),
 }
 
-impl AttrPathData {
+impl AttrItemPath {
+    pub fn data(self, db: &dyn EntityPathDb) -> AttrItemPathData {
+        match self.0.data(db) {
+            ItemPathData::Attr(data) => data,
+            _ => unreachable!(),
+        }
+    }
+
+    pub fn parent(self, db: &dyn EntityPathDb) -> ItemPath {
+        self.data(db).parent
+    }
+
+    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
+        self.data(db).ident
+    }
+}
+
+impl AttrItemPathData {
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
         self.parent.module_path(db)
     }
@@ -54,7 +71,7 @@ impl AttrRegistry {
         *next_disambiguator += 1;
         AttrItemPath(ItemPathId::new(
             db,
-            ItemPathData::Attr(AttrPathData {
+            ItemPathData::Attr(AttrItemPathData {
                 parent: self.parent,
                 ident,
                 disambiguator,

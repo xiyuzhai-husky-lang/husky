@@ -46,6 +46,16 @@ impl From<TypeItemPath> for ItemPath {
     }
 }
 
+impl AssociatedItemPathData {
+    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+        match self {
+            AssociatedItemPathData::TypeItem(data) => data.module_path(db),
+            AssociatedItemPathData::TraitItem(data) => data.module_path(db),
+            AssociatedItemPathData::TraitForTypeItem(data) => data.module_path(db),
+        }
+    }
+}
+
 impl<Db> salsa::DisplayWithDb<Db> for AssociatedItemPath
 where
     Db: EntityPathDb + ?Sized,

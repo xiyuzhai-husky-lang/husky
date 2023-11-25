@@ -361,12 +361,8 @@ EntitySynTreeCrateBundle {
                                         8,
                                     ),
                                 },
-                                block: Trait {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 27,
-                                        },
-                                    ),
+                                block: DefnBlock::Trait {
+                                    path: TraitPath(`std::ops::Add`),
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(

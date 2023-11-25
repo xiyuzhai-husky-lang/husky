@@ -6,76 +6,68 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath {
-                module_path: `core::raw_bits`,
-                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                disambiguator: 0,
-            },
+            TypeImplBlockPath(
+                ItemPathId(
+                    Id {
+                        value: 104,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::raw_bits`,
-                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `last_bits`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 152,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::raw_bits`,
-                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `ctz`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 153,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::raw_bits`,
-                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `co`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 154,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::raw_bits`,
-                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `span`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 155,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::raw_bits`,
-                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `right_mass`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 156,
+                    },
+                ),
+            ),
         ),
     ),
 ]

@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::logic::Prop`, `Extern`),
                             variants: None,
                         },
                     },
@@ -63,12 +59,8 @@ EntitySynTreePresheet {
                                 11,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::logic::LogicAnd`, `Structure`),
                             variants: None,
                         },
                     },
@@ -105,12 +97,8 @@ EntitySynTreePresheet {
                                 33,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::logic::LogicOr`, `Inductive`),
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(

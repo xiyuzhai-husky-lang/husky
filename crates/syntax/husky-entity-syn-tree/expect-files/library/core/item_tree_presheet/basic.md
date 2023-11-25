@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::basic::bool`, `Extern`),
                             variants: None,
                         },
                     },
@@ -63,12 +59,8 @@ EntitySynTreePresheet {
                                 11,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::basic::never`, `Extern`),
                             variants: None,
                         },
                     },
@@ -105,12 +97,8 @@ EntitySynTreePresheet {
                                 15,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 4,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::basic::unit`, `Extern`),
                             variants: None,
                         },
                     },
@@ -147,12 +135,8 @@ EntitySynTreePresheet {
                                 19,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::basic::Trait`, `Extern`),
                             variants: None,
                         },
                     },
@@ -189,12 +173,8 @@ EntitySynTreePresheet {
                                 23,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::basic::Module`, `Extern`),
                             variants: None,
                         },
                     },
@@ -231,12 +211,8 @@ EntitySynTreePresheet {
                                 27,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 7,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::basic::Lifetime`, `Extern`),
                             variants: None,
                         },
                     },
@@ -273,12 +249,8 @@ EntitySynTreePresheet {
                                 31,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 8,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::basic::Place`, `Extern`),
                             variants: None,
                         },
                     },

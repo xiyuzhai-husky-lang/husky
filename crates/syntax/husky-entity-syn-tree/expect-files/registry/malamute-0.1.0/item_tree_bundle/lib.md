@@ -23,12 +23,8 @@ EntitySynTreeCrateBundle {
                                         12,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 69,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`malamute::Class`, `Enum`),
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
@@ -71,12 +67,8 @@ EntitySynTreeCrateBundle {
                                         34,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 70,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
@@ -119,12 +111,8 @@ EntitySynTreeCrateBundle {
                                         88,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 71,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
@@ -167,12 +155,8 @@ EntitySynTreeCrateBundle {
                                         136,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 80,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                     body: None,
                                 },
                             },
@@ -236,26 +220,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `malamute`,
-                                trai_path: TraitPath(`core::ops::Unveil`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`malamute::Class`, `Enum`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `malamute`,
                                     trai_path: TraitPath(`core::ops::Unveil`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`malamute::Class`, `Enum`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `malamute`,
+                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`malamute::Class`, `Enum`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 14,
@@ -286,26 +274,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `malamute`,
-                                trai_path: TraitPath(`core::ops::Unveil`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `malamute`,
                                     trai_path: TraitPath(`core::ops::Unveil`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`malamute::OneVsAll`, `Enum`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `malamute`,
+                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 17,

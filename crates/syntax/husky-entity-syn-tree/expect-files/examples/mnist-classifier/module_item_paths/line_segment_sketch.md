@@ -1,20 +1,24 @@
 [
     ItemPath::Submodule(
+        Room32,
         SubmodulePath(
             `mnist_classifier::line_segment_sketch::concave_component`,
         ),
     ),
     ItemPath::Submodule(
+        Room32,
         SubmodulePath(
             `mnist_classifier::line_segment_sketch::convex_component`,
         ),
     ),
     ItemPath::Submodule(
+        Room32,
         SubmodulePath(
             `mnist_classifier::line_segment_sketch::convexity`,
         ),
     ),
     ItemPath::Submodule(
+        Room32,
         SubmodulePath(
             `mnist_classifier::line_segment_sketch::line_segment`,
         ),
@@ -56,20 +60,8 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TraitForTypeImplBlock(
-            TraitForTypeImplBlockPath {
-                module_path: `mnist_classifier::line_segment_sketch`,
-                trai_path: TraitPath(`core::visual::Visualize`),
-                ty_sketch: TypeSketch::Path(
-                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                ),
-                disambiguator: 0,
-            },
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TraitForTypeItem(
-            TraitForTypeItemPath {
-                impl_block: TraitForTypeImplBlockPath {
+            TraitForTypeImplBlock {
+                data: TraitForTypeImplBlockPathData {
                     module_path: `mnist_classifier::line_segment_sketch`,
                     trai_path: TraitPath(`core::visual::Visualize`),
                     ty_sketch: TypeSketch::Path(
@@ -77,62 +69,57 @@
                     ),
                     disambiguator: 0,
                 },
-                ident: `visualize`,
-                item_kind: MethodFn,
-            },
-        ),
-    ),
-    ItemPath::ImplBlock(
-        ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath {
-                module_path: `mnist_classifier::line_segment_sketch`,
-                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                disambiguator: 0,
-            },
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `mnist_classifier::line_segment_sketch`,
-                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                    disambiguator: 0,
-                },
-                ident: `new`,
-                item_kind: AssociatedFunctionFn,
-            },
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `mnist_classifier::line_segment_sketch`,
-                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                    disambiguator: 0,
-                },
-                ident: `displacement`,
-                item_kind: MethodFn,
-            },
-        ),
-    ),
-    ItemPath::ImplBlock(
-        ImplBlockPath::TraitForTypeImplBlock(
-            TraitForTypeImplBlockPath {
-                module_path: `mnist_classifier::line_segment_sketch`,
-                trai_path: TraitPath(`core::visual::Visualize`),
-                ty_sketch: TypeSketch::Path(
-                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                ),
-                disambiguator: 0,
             },
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TraitForTypeItem(
-            TraitForTypeItemPath {
-                impl_block: TraitForTypeImplBlockPath {
+            TraitForTypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 388,
+                    },
+                ),
+            ),
+        ),
+    ),
+    ItemPath::ImplBlock(
+        ImplBlockPath::TypeImplBlock(
+            TypeImplBlockPath(
+                ItemPathId(
+                    Id {
+                        value: 325,
+                    },
+                ),
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 389,
+                    },
+                ),
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 390,
+                    },
+                ),
+            ),
+        ),
+    ),
+    ItemPath::ImplBlock(
+        ImplBlockPath::TraitForTypeImplBlock(
+            TraitForTypeImplBlock {
+                data: TraitForTypeImplBlockPathData {
                     module_path: `mnist_classifier::line_segment_sketch`,
                     trai_path: TraitPath(`core::visual::Visualize`),
                     ty_sketch: TypeSketch::Path(
@@ -140,57 +127,62 @@
                     ),
                     disambiguator: 0,
                 },
-                ident: `visualize`,
-                item_kind: MethodFn,
             },
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TraitForTypeItem(
+            TraitForTypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 391,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath {
-                module_path: `mnist_classifier::line_segment_sketch`,
-                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                disambiguator: 0,
-            },
+            TypeImplBlockPath(
+                ItemPathId(
+                    Id {
+                        value: 327,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `mnist_classifier::line_segment_sketch`,
-                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                    disambiguator: 0,
-                },
-                ident: `concave_components`,
-                item_kind: MemoizedField,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 392,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `mnist_classifier::line_segment_sketch`,
-                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                    disambiguator: 0,
-                },
-                ident: `bounding_box`,
-                item_kind: MemoizedField,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 393,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `mnist_classifier::line_segment_sketch`,
-                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                    disambiguator: 0,
-                },
-                ident: `new`,
-                item_kind: AssociatedFunctionFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 394,
+                    },
+                ),
+            ),
         ),
     ),
 ]

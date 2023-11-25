@@ -43,6 +43,10 @@ impl FugitivePath {
         self.data(db).ident
     }
 
+    pub fn fugitive_kind(self, db: &dyn EntityPathDb) -> FugitiveKind {
+        self.data(db).fugitive_kind
+    }
+
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,

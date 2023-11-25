@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 14,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Add`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -69,12 +65,8 @@ EntitySynTreePresheet {
                                 43,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::AddAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -117,12 +109,8 @@ EntitySynTreePresheet {
                                 72,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitAnd`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -165,12 +153,8 @@ EntitySynTreePresheet {
                                 101,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitAndAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -213,12 +197,8 @@ EntitySynTreePresheet {
                                 126,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitOr`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -261,12 +241,8 @@ EntitySynTreePresheet {
                                 155,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitOrAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -309,12 +285,8 @@ EntitySynTreePresheet {
                                 180,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitXor`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -357,12 +329,8 @@ EntitySynTreePresheet {
                                 209,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitXorAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -405,12 +373,8 @@ EntitySynTreePresheet {
                                 234,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Div`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -453,12 +417,8 @@ EntitySynTreePresheet {
                                 263,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::DivAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -501,12 +461,8 @@ EntitySynTreePresheet {
                                 281,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::IntIndex`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -549,12 +505,8 @@ EntitySynTreePresheet {
                                 295,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Mul`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -597,12 +549,8 @@ EntitySynTreePresheet {
                                 324,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::MulAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -645,12 +593,8 @@ EntitySynTreePresheet {
                                 349,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Neg`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -693,12 +637,8 @@ EntitySynTreePresheet {
                                 373,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 23,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Not`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -741,12 +681,8 @@ EntitySynTreePresheet {
                                 397,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Sub`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -789,12 +725,8 @@ EntitySynTreePresheet {
                                 419,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Unveil`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -837,12 +769,8 @@ EntitySynTreePresheet {
                                 448,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 30,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::ops::ControlFlow`, `Enum`),
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(

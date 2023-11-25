@@ -21,12 +21,8 @@ EntitySynTreeSheet {
                                 12,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 51,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             variants: None,
                         },
                     },
@@ -63,12 +59,8 @@ EntitySynTreeSheet {
                                 154,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                             variants: None,
                         },
                     },
@@ -105,12 +97,8 @@ EntitySynTreeSheet {
                                 167,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             variants: None,
                         },
                     },
@@ -147,12 +135,8 @@ EntitySynTreeSheet {
                                 496,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             variants: None,
                         },
                     },
@@ -189,12 +173,8 @@ EntitySynTreeSheet {
                                 604,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 55,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             variants: None,
                         },
                     },
@@ -231,12 +211,8 @@ EntitySynTreeSheet {
                                 740,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 56,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             variants: None,
                         },
                     },
@@ -318,21 +294,25 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 254,
+                            },
+                        ),
+                    ),
                 },
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 254,
+                                },
+                            ),
+                        ),
                     },
                     ast_idx: 81,
                     impl_regional_token: ImplToken {
@@ -352,21 +332,25 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 255,
+                            },
+                        ),
+                    ),
                 },
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
+                        ),
                     },
                     ast_idx: 84,
                     impl_regional_token: ImplToken {
@@ -386,21 +370,25 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 256,
+                            },
+                        ),
+                    ),
                 },
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 256,
+                                },
+                            ),
+                        ),
                     },
                     ast_idx: 86,
                     impl_regional_token: ImplToken {
@@ -420,21 +408,25 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 257,
+                            },
+                        ),
+                    ),
                 },
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 257,
+                                },
+                            ),
+                        ),
                     },
                     ast_idx: 88,
                     impl_regional_token: ImplToken {
@@ -454,21 +446,25 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 258,
+                            },
+                        ),
+                    ),
                 },
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 258,
+                                },
+                            ),
+                        ),
                     },
                     ast_idx: 90,
                     impl_regional_token: ImplToken {

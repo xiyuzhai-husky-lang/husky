@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 26,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::visual::Visualize`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -69,12 +65,8 @@ EntitySynTreePresheet {
                                 18,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 39,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::visual::Html`, `Extern`),
                             variants: None,
                         },
                     },

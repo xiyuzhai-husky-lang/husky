@@ -98,7 +98,7 @@ pub fn module_submodule_paths(
         .iter()
         .copied()
         .filter_map(|item_path| match item_path {
-            ItemPath::Submodule(submodule_path) => Some(submodule_path),
+            ItemPath::Submodule(_, submodule_path) => Some(submodule_path),
             _ => None,
         })
         .collect()
@@ -129,7 +129,7 @@ pub fn collect_module_paths(
     module_paths.push(module_path);
     for item_path in module_item_paths(db, module_path) {
         match item_path {
-            ItemPath::Submodule(submodule_path) => {
+            ItemPath::Submodule(_, submodule_path) => {
                 collect_module_paths(submodule_path.inner(), module_paths, db)
             }
             _ => (),

@@ -11,50 +11,46 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath {
-                module_path: `mnist_classifier::fermi`,
-                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                disambiguator: 0,
-            },
+            TypeImplBlockPath(
+                ItemPathId(
+                    Id {
+                        value: 332,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `mnist_classifier::fermi`,
-                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                    disambiguator: 0,
-                },
-                ident: `norm`,
-                item_kind: MemoizedField,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 344,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `mnist_classifier::fermi`,
-                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                    disambiguator: 0,
-                },
-                ident: `rel_norm`,
-                item_kind: MemoizedField,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 345,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `mnist_classifier::fermi`,
-                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                    disambiguator: 0,
-                },
-                ident: `angle_change_norm`,
-                item_kind: MemoizedField,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 346,
+                    },
+                ),
+            ),
         ),
     ),
 ]

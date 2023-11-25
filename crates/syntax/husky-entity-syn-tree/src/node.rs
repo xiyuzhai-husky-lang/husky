@@ -89,12 +89,12 @@ impl HasSynNodePath for ItemPath {
 
     fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         match self {
-            ItemPath::Submodule(path) => path.syn_node_path(db).into(),
+            ItemPath::Submodule(_, path) => path.syn_node_path(db).into(),
             ItemPath::MajorItem(path) => path.syn_node_path(db).into(),
             ItemPath::AssociatedItem(path) => path.syn_node_path(db).into(),
-            ItemPath::TypeVariant(path) => path.syn_node_path(db).into(),
+            ItemPath::TypeVariant(_, path) => path.syn_node_path(db).into(),
             ItemPath::ImplBlock(path) => path.syn_node_path(db).into(),
-            ItemPath::Attr(path) => path.syn_node_path(db).into(),
+            ItemPath::Attr(_, path) => path.syn_node_path(db).into(),
         }
     }
 }
@@ -169,7 +169,7 @@ impl ItemSynNode {
         block: DefnBlock,
     ) -> Option<Self> {
         match item_path {
-            ItemPath::Submodule(submodule_path) => Some(
+            ItemPath::Submodule(_, submodule_path) => Some(
                 SubmoduleSynNode::new(
                     db,
                     registry,
@@ -192,9 +192,9 @@ impl ItemSynNode {
                 )
                 .into(),
             ),
-            ItemPath::AssociatedItem(_) | ItemPath::TypeVariant(_) => None,
+            ItemPath::AssociatedItem(_) | ItemPath::TypeVariant(_, _) => None,
             ItemPath::ImplBlock(_) => todo!(),
-            ItemPath::Attr(_) => todo!(),
+            ItemPath::Attr(_, _) => todo!(),
         }
     }
 

@@ -89,7 +89,7 @@ impl TypeItemSynNode {
         visibility: Scope,
         is_generic: bool,
     ) -> (TypeItemSynNodePath, Self) {
-        let path = TypeItemPath::new(db, impl_block_syn_node_path.path(), ident, item_kind);
+        let path = TypeItemPath::new(impl_block_syn_node_path.path(), ident, item_kind, db);
         let syn_node_path = TypeItemSynNodePath::new(db, impl_block_syn_node_path, registry, path);
         (
             syn_node_path,

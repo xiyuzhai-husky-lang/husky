@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::clone::Clone`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(

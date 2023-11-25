@@ -6,115 +6,101 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath {
-                module_path: `core::vec`,
-                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                disambiguator: 0,
-            },
+            TypeImplBlockPath(
+                ItemPathId(
+                    Id {
+                        value: 106,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::vec`,
-                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `ilen`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 167,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::vec`,
-                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `push`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 168,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::vec`,
-                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `first`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 169,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::vec`,
-                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `last`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 170,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::vec`,
-                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `pop`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 171,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::vec`,
-                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `collect_leashes`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 172,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::vec`,
-                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `cyclic_slice_leashed`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 173,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::vec`,
-                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `pop_with_largest_opt_f32`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 174,
+                    },
+                ),
+            ),
         ),
     ),
 ]

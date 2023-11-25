@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 36,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::str::str`, `Extern`),
                             variants: None,
                         },
                     },
@@ -63,12 +59,8 @@ EntitySynTreePresheet {
                                 11,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 37,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::str::StringLiteral`, `Extern`),
                             variants: None,
                         },
                     },

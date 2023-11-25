@@ -66,6 +66,7 @@ where
 
 #[salsa::jar(db = EntitySynTreeDb)]
 pub struct EntitySynTreeJar(
+    IllFormedImplBlockSynNodePath,
     SubmoduleSynNodePath,
     SubmoduleSynNode,
     submodule_syn_node,

@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 12,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 58,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`malamute::Class`, `Enum`),
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
@@ -69,12 +65,8 @@ EntitySynTreePresheet {
                                 34,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 59,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`malamute::OneVsAll`, `Enum`),
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
@@ -117,12 +109,8 @@ EntitySynTreePresheet {
                                 88,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 60,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
@@ -165,12 +153,8 @@ EntitySynTreePresheet {
                                 136,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 78,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             body: None,
                         },
                     },

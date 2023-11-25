@@ -291,12 +291,8 @@ EntitySynTreeCrateBundle {
                                         61,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::main`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -2041,12 +2037,8 @@ EntitySynTreeCrateBundle {
                                         13,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 45,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -2083,12 +2075,8 @@ EntitySynTreeCrateBundle {
                                         34,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 46,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -2127,12 +2115,8 @@ EntitySynTreeCrateBundle {
                                         46,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -2177,12 +2161,8 @@ EntitySynTreeCrateBundle {
                                         72,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 47,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -2221,12 +2201,8 @@ EntitySynTreeCrateBundle {
                                         571,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 8,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -2271,12 +2247,8 @@ EntitySynTreeCrateBundle {
                                         657,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -4191,26 +4163,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `mnist_classifier::connected_component`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 125,
@@ -4241,21 +4217,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 251,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 251,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 126,
                             impl_regional_token: ImplToken {
@@ -4418,12 +4398,8 @@ EntitySynTreeCrateBundle {
                                         25,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 48,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -4462,12 +4438,8 @@ EntitySynTreeCrateBundle {
                                         402,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 49,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                     variants: Some(
                                         TypeVariants {
                                             ast_idx_range: ArenaIdxRange(
@@ -4514,12 +4486,8 @@ EntitySynTreeCrateBundle {
                                         412,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -4566,12 +4534,8 @@ EntitySynTreeCrateBundle {
                                         437,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -4618,12 +4582,8 @@ EntitySynTreeCrateBundle {
                                         458,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -4670,12 +4630,8 @@ EntitySynTreeCrateBundle {
                                         483,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -4722,12 +4678,8 @@ EntitySynTreeCrateBundle {
                                         611,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -4774,12 +4726,8 @@ EntitySynTreeCrateBundle {
                                         672,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -4826,12 +4774,8 @@ EntitySynTreeCrateBundle {
                                         868,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 50,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -4872,12 +4816,8 @@ EntitySynTreeCrateBundle {
                                         880,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -4922,12 +4862,8 @@ EntitySynTreeCrateBundle {
                                         946,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -7262,26 +7198,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `mnist_classifier::raw_contour`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `mnist_classifier::raw_contour`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::raw_contour`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 196,
@@ -7312,21 +7252,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::raw_contour`,
-                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 253,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 253,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 197,
                             impl_regional_token: ImplToken {
@@ -7635,12 +7579,8 @@ EntitySynTreeCrateBundle {
                                         12,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 51,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -7677,12 +7617,8 @@ EntitySynTreeCrateBundle {
                                         154,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 52,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -7719,12 +7655,8 @@ EntitySynTreeCrateBundle {
                                         167,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 53,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -7761,12 +7693,8 @@ EntitySynTreeCrateBundle {
                                         496,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -7803,12 +7731,8 @@ EntitySynTreeCrateBundle {
                                         604,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 55,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -7845,12 +7769,8 @@ EntitySynTreeCrateBundle {
                                         740,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -7932,21 +7852,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 254,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 254,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 81,
                             impl_regional_token: ImplToken {
@@ -7966,21 +7890,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 255,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 255,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 84,
                             impl_regional_token: ImplToken {
@@ -8000,21 +7928,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 256,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 256,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 86,
                             impl_regional_token: ImplToken {
@@ -8034,21 +7966,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 257,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 257,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 88,
                             impl_regional_token: ImplToken {
@@ -8068,21 +8004,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 258,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 258,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 90,
                             impl_regional_token: ImplToken {
@@ -8283,12 +8223,8 @@ EntitySynTreeCrateBundle {
                                         42,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 57,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -8325,12 +8261,8 @@ EntitySynTreeCrateBundle {
                                         171,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 58,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -8369,12 +8301,8 @@ EntitySynTreeCrateBundle {
                                         370,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -8421,12 +8349,8 @@ EntitySynTreeCrateBundle {
                                         467,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -8473,12 +8397,8 @@ EntitySynTreeCrateBundle {
                                         564,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -8525,12 +8445,8 @@ EntitySynTreeCrateBundle {
                                         797,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -8577,12 +8493,8 @@ EntitySynTreeCrateBundle {
                                         1063,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -8998,26 +8910,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `mnist_classifier::line_segment_sketch`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `mnist_classifier::line_segment_sketch`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 171,
@@ -9048,21 +8964,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::line_segment_sketch`,
-                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 260,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 260,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 172,
                             impl_regional_token: ImplToken {
@@ -9082,26 +9002,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `mnist_classifier::line_segment_sketch`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `mnist_classifier::line_segment_sketch`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 174,
@@ -9132,21 +9056,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::line_segment_sketch`,
-                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 262,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 175,
                             impl_regional_token: ImplToken {
@@ -9516,12 +9444,8 @@ EntitySynTreeCrateBundle {
                                         35,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 59,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -9558,12 +9482,8 @@ EntitySynTreeCrateBundle {
                                         554,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -12278,26 +12198,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 76,
@@ -12328,21 +12252,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 264,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 264,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 77,
                             impl_regional_token: ImplToken {
@@ -12794,12 +12722,8 @@ EntitySynTreeCrateBundle {
                                         8,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -13530,26 +13454,30 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath {
-                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
-                    ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNode {
-                            syn_node_path: TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
+                            path: TraitForTypeImplBlock {
+                                data: TraitForTypeImplBlockPathData {
                                     module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
                                     ty_sketch: TypeSketch::Path(
                                         TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                     ),
                                     disambiguator: 0,
+                                },
+                            },
+                        },
+                    ),
+                    ImplBlockSynNode::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNode {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             },
                             ast_idx: 5,
@@ -13684,12 +13612,8 @@ EntitySynTreeCrateBundle {
                                         21,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 24,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -14871,12 +14795,8 @@ EntitySynTreeCrateBundle {
                                         9,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 61,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -15063,21 +14983,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 266,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 266,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 18,
                             impl_regional_token: ImplToken {
@@ -15201,12 +15125,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Type {
-                                    path: TypePath(
-                                        Id {
-                                            value: 62,
-                                        },
-                                    ),
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -15243,12 +15163,8 @@ EntitySynTreeCrateBundle {
                                         154,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -17073,21 +16989,25 @@ EntitySynTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::fermi`,
-                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                disambiguator: 0,
-                            },
+                            path: TypeImplBlockPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 267,
+                                    },
+                                ),
+                            ),
                         },
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                path: TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 267,
+                                        },
+                                    ),
+                                ),
                             },
                             ast_idx: 24,
                             impl_regional_token: ImplToken {
@@ -20418,12 +20338,8 @@ EntitySynTreeCrateBundle {
                                         6,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 26,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -20470,12 +20386,8 @@ EntitySynTreeCrateBundle {
                                         19,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 27,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -20522,12 +20434,8 @@ EntitySynTreeCrateBundle {
                                         50,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 28,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -23620,12 +23528,8 @@ EntitySynTreeCrateBundle {
                                         6,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 29,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -23670,12 +23574,8 @@ EntitySynTreeCrateBundle {
                                         24,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 30,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -23720,12 +23620,8 @@ EntitySynTreeCrateBundle {
                                         524,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -23772,12 +23668,8 @@ EntitySynTreeCrateBundle {
                                         553,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 32,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -23824,12 +23716,8 @@ EntitySynTreeCrateBundle {
                                         587,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -26942,12 +26830,8 @@ EntitySynTreeCrateBundle {
                                         6,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 34,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -26994,12 +26878,8 @@ EntitySynTreeCrateBundle {
                                         19,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 35,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -27046,12 +26926,8 @@ EntitySynTreeCrateBundle {
                                         38,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 36,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -27098,12 +26974,8 @@ EntitySynTreeCrateBundle {
                                         303,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -27150,12 +27022,8 @@ EntitySynTreeCrateBundle {
                                         332,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -30270,12 +30138,8 @@ EntitySynTreeCrateBundle {
                                         6,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -30322,12 +30186,8 @@ EntitySynTreeCrateBundle {
                                         27,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -30374,12 +30234,8 @@ EntitySynTreeCrateBundle {
                                         165,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -30426,12 +30282,8 @@ EntitySynTreeCrateBundle {
                                         202,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 42,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -30478,12 +30330,8 @@ EntitySynTreeCrateBundle {
                                         239,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 43,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -33598,12 +33446,8 @@ EntitySynTreeCrateBundle {
                                         6,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 44,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -33650,12 +33494,8 @@ EntitySynTreeCrateBundle {
                                         21,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 45,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -33702,12 +33542,8 @@ EntitySynTreeCrateBundle {
                                         40,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 46,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -33754,12 +33590,8 @@ EntitySynTreeCrateBundle {
                                         53,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 47,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -33806,12 +33638,8 @@ EntitySynTreeCrateBundle {
                                         66,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 48,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -33858,12 +33686,8 @@ EntitySynTreeCrateBundle {
                                         255,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 49,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -33910,12 +33734,8 @@ EntitySynTreeCrateBundle {
                                         284,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 50,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -37052,12 +36872,8 @@ EntitySynTreeCrateBundle {
                                         10,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 51,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -40128,12 +39944,8 @@ EntitySynTreeCrateBundle {
                                         6,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 52,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -40180,12 +39992,8 @@ EntitySynTreeCrateBundle {
                                         19,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 53,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -40232,12 +40040,8 @@ EntitySynTreeCrateBundle {
                                         49,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -40284,12 +40088,8 @@ EntitySynTreeCrateBundle {
                                         64,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 55,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -40336,12 +40136,8 @@ EntitySynTreeCrateBundle {
                                         107,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -40388,12 +40184,8 @@ EntitySynTreeCrateBundle {
                                         165,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 57,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -43519,12 +43311,8 @@ EntitySynTreeCrateBundle {
                                         6,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 58,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -43571,12 +43359,8 @@ EntitySynTreeCrateBundle {
                                         23,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 59,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -43623,12 +43407,8 @@ EntitySynTreeCrateBundle {
                                         89,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -46721,12 +46501,8 @@ EntitySynTreeCrateBundle {
                                         6,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 61,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -46773,12 +46549,8 @@ EntitySynTreeCrateBundle {
                                         19,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 62,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -46825,12 +46597,8 @@ EntitySynTreeCrateBundle {
                                         36,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 63,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -46877,12 +46645,8 @@ EntitySynTreeCrateBundle {
                                         215,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 64,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -46929,12 +46693,8 @@ EntitySynTreeCrateBundle {
                                         244,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 65,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -50049,12 +49809,8 @@ EntitySynTreeCrateBundle {
                                         6,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 66,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -50101,12 +49857,8 @@ EntitySynTreeCrateBundle {
                                         23,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 67,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -50153,12 +49905,8 @@ EntitySynTreeCrateBundle {
                                         52,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 68,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -50205,12 +49953,8 @@ EntitySynTreeCrateBundle {
                                         81,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 69,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -50257,12 +50001,8 @@ EntitySynTreeCrateBundle {
                                         114,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 70,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -53375,12 +53115,8 @@ EntitySynTreeCrateBundle {
                                         7,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 71,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -53423,12 +53159,8 @@ EntitySynTreeCrateBundle {
                                         19,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 72,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -53471,12 +53203,8 @@ EntitySynTreeCrateBundle {
                                         70,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 73,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -53519,12 +53247,8 @@ EntitySynTreeCrateBundle {
                                         104,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 74,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -53567,12 +53291,8 @@ EntitySynTreeCrateBundle {
                                         116,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 75,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -53615,12 +53335,8 @@ EntitySynTreeCrateBundle {
                                         129,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 76,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -53663,12 +53379,8 @@ EntitySynTreeCrateBundle {
                                         139,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 77,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(

@@ -11,55 +11,41 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath {
-                module_path: `core::slice`,
-                ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                disambiguator: 0,
-            },
+            TypeImplBlockPath(
+                ItemPathId(
+                    Id {
+                        value: 107,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `len`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 159,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `swap`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 160,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TraitForTypeImplBlock(
-            TraitForTypeImplBlockPath {
-                module_path: `core::slice`,
-                trai_path: TraitPath(`core::ops::IntIndex`),
-                ty_sketch: TypeSketch::Path(
-                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                ),
-                disambiguator: 0,
-            },
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TraitForTypeItem(
-            TraitForTypeItemPath {
-                impl_block: TraitForTypeImplBlockPath {
+            TraitForTypeImplBlock {
+                data: TraitForTypeImplBlockPathData {
                     module_path: `core::slice`,
                     trai_path: TraitPath(`core::ops::IntIndex`),
                     ty_sketch: TypeSketch::Path(
@@ -67,83 +53,84 @@
                     ),
                     disambiguator: 0,
                 },
-                ident: `Output`,
-                item_kind: AssociatedType,
             },
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TraitForTypeItem(
+            TraitForTypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 161,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath {
-                module_path: `core::slice`,
-                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                disambiguator: 0,
-            },
+            TypeImplBlockPath(
+                ItemPathId(
+                    Id {
+                        value: 109,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `ilen`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 162,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `start`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 163,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `end`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 164,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `first`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 165,
+                    },
+                ),
+            ),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath {
-                impl_block: TypeImplBlockPath {
-                    module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                    disambiguator: 0,
-                },
-                ident: `last`,
-                item_kind: MethodFn,
-            },
+            TypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 166,
+                    },
+                ),
+            ),
         ),
     ),
 ]

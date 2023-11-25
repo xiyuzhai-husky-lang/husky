@@ -29,6 +29,10 @@ impl TypeVariantPath {
         }
     }
 
+    pub fn parent_ty_path(self, db: &dyn EntityPathDb) -> TypePath {
+        self.data(db).parent_ty_path
+    }
+
     pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
         self.data(db).ident
     }

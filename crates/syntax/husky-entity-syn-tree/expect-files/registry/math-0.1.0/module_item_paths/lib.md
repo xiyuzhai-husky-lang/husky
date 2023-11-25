@@ -1,25 +1,30 @@
 [
     ItemPath::Submodule(
+        Room32,
         SubmodulePath(
             `math::algebra`,
         ),
     ),
     ItemPath::Submodule(
+        Room32,
         SubmodulePath(
             `math::algebraic_geometry`,
         ),
     ),
     ItemPath::Submodule(
+        Room32,
         SubmodulePath(
             `math::algebraic_topology`,
         ),
     ),
     ItemPath::Submodule(
+        Room32,
         SubmodulePath(
             `math::category_theory`,
         ),
     ),
     ItemPath::Submodule(
+        Room32,
         SubmodulePath(
             `math::probability`,
         ),

@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::cmp::PartialEq`),
                             items: None,
                         },
                     },
@@ -63,12 +59,8 @@ EntitySynTreePresheet {
                                 11,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::cmp::Eq`),
                             items: None,
                         },
                     },
@@ -105,12 +97,8 @@ EntitySynTreePresheet {
                                 15,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 4,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::cmp::PartialOrd`),
                             items: None,
                         },
                     },
@@ -147,12 +135,8 @@ EntitySynTreePresheet {
                                 19,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::cmp::Ord`),
                             items: None,
                         },
                     },

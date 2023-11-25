@@ -2,11 +2,10 @@ use original_error::OriginalError;
 
 use super::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
-#[salsa::as_id(jar = EntitySynTreeJar)]
+#[salsa::interned(db =EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct IllFormedImplBlockSynNodePath {
-    path: IllFormedImplBlockPath,
+    module_path: ModulePath,
+    disambiguator: u8,
 }
 
 impl IllFormedImplBlockSynNodePath {
@@ -26,21 +25,14 @@ where
 {
     fn module_path(self, db: &Db) -> ModulePath {
         let db = entity_syn_tree_db(db);
-        self.path.module_path(db)
+        // self.path.module_path(db)
+        todo!()
     }
 }
 
 impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
     fn from(id: IllFormedImplBlockSynNodePath) -> Self {
         ItemSynNodePath::ImplBlock(id.into())
-    }
-}
-
-impl HasSynNodePath for IllFormedImplBlockPath {
-    type SynNodePath = IllFormedImplBlockSynNodePath;
-
-    fn syn_node_path(self, _db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
-        IllFormedImplBlockSynNodePath { path: self }
     }
 }
 
@@ -65,16 +57,17 @@ impl IllFormedImplBlockSynNode {
         items: Option<ImplBlockItems>,
         ill_form: ImplBlockIllForm,
     ) -> Self {
-        IllFormedImplBlockSynNode::new_inner(
-            db,
-            IllFormedImplBlockSynNodePath {
-                path: IllFormedImplBlockPath::new(db, registry, module),
-            },
-            impl_token,
-            ast_idx,
-            items,
-            ill_form,
-        )
+        todo!()
+        // IllFormedImplBlockSynNode::new_inner(
+        //     db,
+        //     IllFormedImplBlockSynNodePath {
+        //         path: IllFormedImplBlockPath::new(db, registry, module),
+        //     },
+        //     impl_token,
+        //     ast_idx,
+        //     items,
+        //     ill_form,
+        // )
     }
 }
 

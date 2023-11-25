@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 7,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::marker::Copy`),
                             items: None,
                         },
                     },
@@ -63,12 +59,8 @@ EntitySynTreePresheet {
                                 11,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 8,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::marker::Sized`),
                             items: None,
                         },
                     },
