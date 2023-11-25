@@ -75,3 +75,8 @@ save:
 	git add -A
 	git commit -m "save"
 	git push
+
+syn-tree-build-timings:
+	cargo clean
+	cargo build -p husky-entity-syn-tree --timings
+	cp target/cargo-timings/cargo-timing.html syn-tree-build-timings

@@ -98,6 +98,7 @@ impl EtherealTermRitchie {
         ethereal_term_ritchie_from_declarative_term_ritchie(db, declarative_term_ritchie)
     }
 
+    #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

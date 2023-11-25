@@ -6,7 +6,6 @@ pub use self::set::*;
 
 use super::*;
 
-
 /// variables are externalized symbols, derived from symbols, and defined in a bottom-up manner
 ///
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
@@ -21,6 +20,7 @@ pub struct DeclarativeTermRune {
 pub enum RefinedDeBrujinIndex {}
 
 impl DeclarativeTermRune {
+    #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

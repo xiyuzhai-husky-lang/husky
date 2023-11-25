@@ -47,6 +47,7 @@ impl FugitivePath {
         self.data(db).fugitive_kind
     }
 
+    #[inline(never)]
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -81,6 +82,7 @@ impl FugitivePathData {
         self.fugitive_kind
     }
 
+    #[inline(never)]
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,

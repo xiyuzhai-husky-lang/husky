@@ -214,19 +214,18 @@ impl ModulePath {
         self.display(db).to_string()
     }
 
-    pub fn show(
-        &self,
-        f: &mut ::std::fmt::Formatter<'_>,
-        db: &<VfsJar as salsa::jar::Jar<'_>>::DynDb,
-    ) -> ::std::fmt::Result {
+    #[inline(never)]
+    pub fn show(&self, f: &mut ::std::fmt::Formatter<'_>, db: &dyn VfsDb) -> ::std::fmt::Result {
         f.write_str("`")?;
         self.show_aux(f, db)?;
         f.write_str("`")
     }
+
+    #[inline(never)]
     pub fn show_aux(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
-        db: &<VfsJar as salsa::jar::Jar<'_>>::DynDb,
+        db: &dyn VfsDb,
     ) -> ::std::fmt::Result {
         match self.data(db) {
             ModulePathData::Root(crate_path) => f.write_str(crate_path.package_ident(db).data(db)),

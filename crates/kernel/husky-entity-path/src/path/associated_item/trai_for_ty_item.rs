@@ -51,6 +51,7 @@ impl TraitForTypeItemPath {
         self.data(db).item_kind
     }
 
+    #[inline(never)]
     fn show_aux(
         self,
         _f: &mut std::fmt::Formatter<'_>,

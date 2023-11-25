@@ -21,6 +21,7 @@ impl EtherealTermRune {
         Ok(Self::new_inner(db, ty, variable.idx(db)))
     }
 
+    #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
