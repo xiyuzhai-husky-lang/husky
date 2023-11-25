@@ -2,7 +2,6 @@ use crate::*;
 use salsa::DebugWithDb;
 
 #[salsa::test_db(CowordJar)]
-#[derive(Default)]
 pub struct DB;
 
 #[test]
