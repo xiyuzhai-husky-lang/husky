@@ -1,4 +1,4 @@
-use parsec::{PunctuatedSmallList};
+use parsec::PunctuatedSmallList;
 
 use super::*;
 
@@ -60,7 +60,7 @@ impl DeriveAttrSynNodeDecl {
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct DeriveAttrSynDecl {
     #[id]
-    pub path: AttrPath,
+    pub path: AttrItemPath,
     #[return_ref]
     pub trais: SmallVec<[TraitSyndicate; 8]>,
     pub syn_expr_region: SynExprRegion,
@@ -70,7 +70,7 @@ impl DeriveAttrSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &dyn SynDeclDb,
-        path: AttrPath,
+        path: AttrItemPath,
         syn_node_decl: DeriveAttrSynNodeDecl,
     ) -> DeclResult<Self> {
         let trais = SmallVec::from(syn_node_decl.trais(db).as_ref()?.elements());

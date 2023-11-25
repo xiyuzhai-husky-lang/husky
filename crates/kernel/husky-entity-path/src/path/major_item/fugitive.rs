@@ -2,6 +2,7 @@ use super::*;
 use std::fmt::Debug;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::deref_id]
 pub struct FugitivePath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -13,11 +14,33 @@ pub struct FugitivePathData {
 }
 
 impl FugitivePath {
+    pub fn new(
+        module_path: ModulePath,
+        ident: Ident,
+        connection: MajorItemConnection,
+        fugitive_kind: FugitiveKind,
+        db: &dyn EntityPathDb,
+    ) -> Self {
+        Self(ItemPathId::new(
+            db,
+            ItemPathData::MajorItem(MajorItemPathData::Fugitive(FugitivePathData {
+                module_path,
+                ident,
+                connection,
+                fugitive_kind,
+            })),
+        ))
+    }
+
     pub fn data(self, db: &dyn EntityPathDb) -> FugitivePathData {
         match self.0.data(db) {
             ItemPathData::MajorItem(MajorItemPathData::Fugitive(data)) => data,
             _ => unreachable!(),
         }
+    }
+
+    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
+        self.data(db).ident
     }
 
     pub fn show_aux(

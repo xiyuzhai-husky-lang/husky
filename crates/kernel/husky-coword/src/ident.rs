@@ -3,7 +3,7 @@ use salsa::DebugWithDb;
 use vec_like::{VecMap, VecPairMap};
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
-#[salsa::wrap_id(jar = CowordJar)]
+#[salsa::as_id(jar = CowordJar)]
 pub struct Ident(Coword);
 
 impl Ident {

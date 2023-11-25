@@ -1,7 +1,8 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::wrap_id(jar = EntityPathJar)]
+#[salsa::as_id(jar = EntityPathJar)]
+#[salsa::deref_id]
 pub struct TypeVariantPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -11,11 +12,25 @@ pub struct TypeVariantPathData {
 }
 
 impl TypeVariantPath {
+    pub fn new(parent_ty_path: TypePath, ident: Ident, db: &dyn EntityPathDb) -> Self {
+        Self(ItemPathId::new(
+            db,
+            ItemPathData::TypeVariant(TypeVariantPathData {
+                parent_ty_path,
+                ident,
+            }),
+        ))
+    }
+
     pub fn data(self, db: &dyn EntityPathDb) -> TypeVariantPathData {
         match self.0.data(db) {
             ItemPathData::TypeVariant(data) => data,
             _ => unreachable!(),
         }
+    }
+
+    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
+        self.data(db).ident
     }
 
     pub fn show_aux(

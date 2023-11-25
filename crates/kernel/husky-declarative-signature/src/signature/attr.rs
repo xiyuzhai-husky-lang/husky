@@ -11,7 +11,7 @@ pub enum AttrDeclarativeSignatureTemplate {
     Derive(DeriveAttrDeclarativeSignatureTemplate),
 }
 
-impl HasDeclarativeSignatureTemplate for AttrPath {
+impl HasDeclarativeSignatureTemplate for AttrItemPath {
     type DeclarativeSignatureTemplate = AttrDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
@@ -25,7 +25,7 @@ impl HasDeclarativeSignatureTemplate for AttrPath {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 fn attr_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    path: AttrPath,
+    path: AttrItemPath,
 ) -> DeclarativeSignatureResult<AttrDeclarativeSignatureTemplate> {
     match path.syn_decl(db)? {
         AttrSynDecl::Derive(decl) => {
