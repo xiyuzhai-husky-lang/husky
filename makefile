@@ -44,7 +44,7 @@ update-expect-local:
 
 update-expect-server:
 	cargo check --tests
-	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --test-threads 1 --nocapture
+	UPDATE_EXPECT=1 cargo test --timimgs --features "allow-print" -- --test-threads 1 --nocapture
 
 ubuntu-setup:
 	scripts/ubuntu_setup.sh

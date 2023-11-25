@@ -1,16 +1,16 @@
 use std::marker::PhantomData;
 use vec_like::VecPairMap;
 
-pub(crate) struct TracePathRegistry<PathData>
+pub(crate) struct TracePathRegistry<Essence>
 where
-    PathData: Eq,
+    Essence: Eq,
 {
-    pub(crate) paths_data: VecPairMap<PathData, u8>,
+    pub(crate) paths_data: VecPairMap<Essence, u8>,
 }
 
-impl<PathData> Default for TracePathRegistry<PathData>
+impl<Essence> Default for TracePathRegistry<Essence>
 where
-    PathData: Eq,
+    Essence: Eq,
 {
     fn default() -> Self {
         Self {
@@ -20,9 +20,9 @@ where
 }
 
 #[derive(Default, Clone, Copy, PartialEq, Eq)]
-pub struct TracePathDisambiguator<PathData>(u8, PhantomData<PathData>);
+pub struct TracePathDisambiguator<Essence>(u8, PhantomData<Essence>);
 
-impl<PathData> std::fmt::Debug for TracePathDisambiguator<PathData> {
+impl<Essence> std::fmt::Debug for TracePathDisambiguator<Essence> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.0.fmt(f)
     }
@@ -34,11 +34,11 @@ impl<PathData> std::hash::Hash for TracePathDisambiguator<PathData> {
     }
 }
 
-impl<PathData> TracePathRegistry<PathData>
+impl<Essence> TracePathRegistry<Essence>
 where
-    PathData: Eq,
+    Essence: Eq,
 {
-    pub(crate) fn issue(&mut self, path_data: PathData) -> TracePathDisambiguator<PathData> {
+    pub(crate) fn issue(&mut self, path_data: Essence) -> TracePathDisambiguator<Essence> {
         let next_disambiguator = self.paths_data.get_value_mut_or_insert_default(path_data);
         let disambiguator = *next_disambiguator;
         *next_disambiguator += 1;

@@ -58,6 +58,7 @@ pub fn debug_with_db(args: TokenStream, input: TokenStream) -> TokenStream {
     debug_with_db::debug_with_db(args, input)
 }
 
+/// jar = ???
 #[proc_macro_attribute]
 pub fn wrap_id(args: TokenStream, input: TokenStream) -> TokenStream {
     wrap_id::wrap_id(args, input)

@@ -1,96 +1,64 @@
-use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
-
 use super::*;
+use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{ItemPath, MajorItemPath};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
+use husky_entity_syn_tree::helpers::tokra_region::HasDeclTokraRegion;
+use husky_entity_syn_tree::HasSynNodePath;
 use husky_vfs::SubmodulePath;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = TraceDb)]
-pub struct SubmoduleTrace {
+pub struct SubmoduleTracePathData {
     submodule_path: SubmodulePath,
 }
 
-impl salsa::AsId for SubmoduleTrace {
-    fn as_id(self) -> salsa::Id {
-        self.submodule_path.as_id()
-    }
-
-    fn from_id(id: salsa::Id) -> Self {
-        Self {
-            submodule_path: SubmodulePath::from_id(id),
-        }
-    }
-}
-
-impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for SubmoduleTrace
-where
-    DB: ?Sized + salsa::DbWithJar<VfsJar>,
-{
-    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
-}
-
-impl SubmoduleTrace {
-    pub fn from_submodule_path(submodule_path: SubmodulePath, db: &dyn TraceDb) -> Option<Self> {
+impl Trace {
+    pub fn new_submodule(submodule_path: SubmodulePath, db: &dyn TraceDb) -> Option<Self> {
         if !submodule_contains_val_item(db, submodule_path) {
             return None;
         }
-        Some(Self { submodule_path })
-    }
-
-    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
-        submodule_view_tokens(db, self)
-    }
-
-    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
-        true
-    }
-
-    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
-        submodule_trace_subtraces(db, self)
+        Some(Trace::new(
+            TracePath::new(
+                TracePathData::Submodule(SubmoduleTracePathData { submodule_path }),
+                db,
+            ),
+            SubmoduleTraceData { submodule_path }.into(),
+            db,
+        ))
     }
 }
 
-#[salsa::tracked(jar = TraceJar, return_ref)]
-pub(crate) fn submodule_view_tokens(
-    db: &dyn TraceDb,
-    submodule_trace: SubmoduleTrace,
-) -> TraceViewLines {
-    use husky_entity_syn_tree::helpers::tokra_region::HasDeclTokraRegion;
-    use husky_entity_syn_tree::HasSynNodePath;
-    let submodule_path = submodule_trace.submodule_path;
-    let token_idx_range = submodule_path
-        .syn_node_path(db)
-        .decl_tokra_region_token_idx_range(db);
-    TraceViewLines::new(
-        submodule_path.parent(db),
-        token_idx_range,
-        VoidAssociatedTraceRegistry,
-        db,
-    )
-}
-
-#[salsa::tracked(jar = TraceJar, return_ref)]
-pub(crate) fn submodule_trace_subtraces(
-    db: &dyn TraceDb,
-    submodule_trace: SubmoduleTrace,
-) -> Vec<Trace> {
-    module_item_paths(db, submodule_trace.submodule_path.inner())
-        .iter()
-        .filter_map(|&item_path| Trace::from_item_path(item_path, db))
-        .collect()
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = TraceDb)]
-pub enum SubmoduleSubtrace {
-    Submodule(SubmoduleTrace),
-    ValItem(ValItemTrace),
+pub struct SubmoduleTraceData {
+    submodule_path: SubmodulePath,
+}
+
+impl SubmoduleTraceData {
+    pub(super) fn view_tokens(self, db: &dyn TraceDb) -> TraceViewLines {
+        let submodule_path = self.submodule_path;
+        let token_idx_range = submodule_path
+            .syn_node_path(db)
+            .decl_tokra_region_token_idx_range(db);
+        TraceViewLines::new(
+            submodule_path.parent(db),
+            token_idx_range,
+            VoidAssociatedTraceRegistry,
+            db,
+        )
+    }
+
+    pub(super) fn subtraces(self, db: &dyn TraceDb) -> Vec<Trace> {
+        module_item_paths(db, self.submodule_path.inner())
+            .iter()
+            .filter_map(|&item_path| Trace::from_item_path(item_path, db))
+            .collect()
+    }
 }
 
 #[salsa::tracked(jar = TraceJar)]
-fn submodule_contains_val_item(db: &dyn TraceDb, submodule_path: SubmodulePath) -> bool {
+pub(super) fn submodule_contains_val_item(db: &dyn TraceDb, submodule_path: SubmodulePath) -> bool {
     for &subitem_path in module_item_paths(db, submodule_path.module_path(db)) {
         match subitem_path {
             ItemPath::Submodule(subitem_submodule_path) => {

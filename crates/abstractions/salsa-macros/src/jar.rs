@@ -132,7 +132,7 @@ pub(crate) fn jar_impl(
                 #(#field_initializations)*
             }
 
-            #[cfg(feature = "test-utils")]
+            #[cfg(debug_assertions)]
             fn cast_test_db(db: &'salsa_db salsa::test_utils::TestDb) -> &'salsa_db Self::DynDb {
                 db
             }

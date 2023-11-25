@@ -21,24 +21,16 @@ use husky_sema_expr::{
 use husky_token_info::TokenInfoSource;
 use husky_val_repr::expansion::ValReprExpansion;
 
-#[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]
-pub struct LazyStmtTracePath {
-    pub parent_path: LazyStmtTraceBiologicalParentPath,
-    #[return_ref]
-    pub path_data: LazyStmtTracePathData,
-    pub disambiguator: TracePathDisambiguator<LazyStmtTracePathData>,
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[cfg_attr(debug_assertions, salsa::debug_with_db(db = TraceDb))]
+pub struct LazyStmtTracePathData {
+    biological_parent_path: TracePath,
+    essence: LazyStmtEssence,
+    disambiguator: TracePathDisambiguator<LazyStmtEssence>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[enum_class::from_variants]
-pub enum LazyStmtTraceBiologicalParentPath {
-    ValItem(ValItemTracePath),
-    LazyCall(LazyCallTracePath),
-    LazyStmt(LazyStmtTracePath),
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum LazyStmtTracePathData {
+pub enum LazyStmtEssence {
     Let,
     Return,
     Require,
@@ -50,38 +42,19 @@ pub enum LazyStmtTracePathData {
     ElseBranch,
 }
 
-impl LazyStmtTracePath {
-    pub(crate) fn new(
-        biological_parent_path: impl Into<LazyStmtTraceBiologicalParentPath>,
-        path_data: LazyStmtTracePathData,
-        registry: &mut TracePathRegistry<LazyStmtTracePathData>,
-        db: &dyn TraceDb,
-    ) -> Self {
-        Self::new_inner(
-            db,
-            biological_parent_path.into(),
-            path_data,
-            registry.issue(path_data),
-        )
-    }
-}
-
-#[salsa::tracked(db = TraceDb, jar = TraceJar, constructor = new_inner)]
-pub struct LazyStmtTrace {
-    #[id]
-    pub path: LazyStmtTracePath,
-    pub biological_parent: LazyStmtTraceBiologicalParent,
-    pub sema_stmt_idx: SemaStmtIdx,
-    pub hir_lazy_stmt_idx: Option<HirLazyStmtIdx>,
-    pub data: LazyStmtTraceData,
-    #[skip_fmt]
-    pub sema_expr_region: SemaExprRegion,
-    #[skip_fmt]
-    pub hir_lazy_expr_region: HirLazyExprRegion,
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct LazyStmtTraceData {
+    path: TracePath,
+    biological_parent: Trace,
+    sema_stmt_idx: SemaStmtIdx,
+    hir_lazy_stmt_idx: Option<HirLazyStmtIdx>,
+    lazy_stmt_sketch: LazyStmtSketch,
+    sema_expr_region: SemaExprRegion,
+    hir_lazy_expr_region: HirLazyExprRegion,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum LazyStmtTraceData {
+pub enum LazyStmtSketch {
     BasicStmt,
     IfBranch {
         if_regional_token: IfRegionalToken,
@@ -101,168 +74,152 @@ pub enum LazyStmtTraceData {
     },
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[enum_class::from_variants]
-pub enum LazyStmtTraceBiologicalParent {
-    ValItem(ValItemTrace),
-    LazyCall(LazyCallTrace),
-    LazyStmt(LazyStmtTrace),
-}
-
-impl LazyStmtTrace {
-    pub(crate) fn new(
-        biological_parent: impl Into<LazyStmtTraceBiologicalParent>,
-        biological_parent_path: impl Into<LazyStmtTraceBiologicalParentPath>,
-        trace_path_data: LazyStmtTracePathData,
-        registry: &mut crate::registry::trace_path::TracePathRegistry<LazyStmtTracePathData>,
+impl Trace {
+    pub(crate) fn new_lazy_stmt(
+        biological_parent_path: TracePath,
+        biological_parent: Trace,
+        essence: LazyStmtEssence,
+        registry: &mut crate::registry::trace_path::TracePathRegistry<LazyStmtEssence>,
         sema_stmt_idx: SemaStmtIdx,
-        trace_data: LazyStmtTraceData,
+        lazy_stmt_sketch: LazyStmtSketch,
         sema_expr_region: SemaExprRegion,
         db: &dyn TraceDb,
     ) -> Self {
-        let path = LazyStmtTracePath::new(biological_parent_path, trace_path_data, registry, db);
+        let path = TracePath::new(
+            LazyStmtTracePathData {
+                biological_parent_path: biological_parent_path.into(),
+                essence,
+                disambiguator: registry.issue(essence),
+            },
+            db,
+        );
         let (hir_lazy_expr_region, hir_lazy_expr_source_map) =
             hir_lazy_expr_region_with_source_map(db, sema_expr_region);
         let hir_lazy_stmt_idx = hir_lazy_expr_source_map
             .data(db)
             .sema_to_hir_lazy_stmt_idx(sema_stmt_idx);
-        LazyStmtTrace::new_inner(
-            db,
+        Trace::new(
             path,
-            biological_parent.into(),
-            sema_stmt_idx,
-            hir_lazy_stmt_idx,
-            trace_data,
-            sema_expr_region,
-            hir_lazy_expr_region,
+            LazyStmtTraceData {
+                path,
+                biological_parent: biological_parent.into(),
+                sema_stmt_idx,
+                hir_lazy_stmt_idx,
+                lazy_stmt_sketch,
+                sema_expr_region,
+                hir_lazy_expr_region,
+            }
+            .into(),
+            db,
         )
     }
+}
 
-    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
-        lazy_stmt_trace_view_lines(db, self)
+impl LazyStmtTraceData {
+    fn view_lines(&self, trace: Trace, db: &dyn TraceDb) -> TraceViewLines {
+        let sema_stmt_idx = self.sema_stmt_idx;
+        let sema_expr_region = self.sema_expr_region;
+        let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
+        let region_path = sema_expr_region.path(db);
+        let regional_token_idx_range = match self.lazy_stmt_sketch {
+            LazyStmtSketch::BasicStmt => sema_expr_range_region.data(db)[sema_stmt_idx],
+            LazyStmtSketch::IfBranch {
+                if_regional_token,
+                eol_colon_regional_token,
+                ..
+            } => RegionalTokenIdxRange::new_closed(
+                if_regional_token.regional_token_idx(),
+                eol_colon_regional_token.regional_token_idx(),
+            ),
+            LazyStmtSketch::ElifBranch {
+                elif_regional_token,
+                eol_colon_regional_token,
+                ..
+            } => RegionalTokenIdxRange::new_closed(
+                elif_regional_token.regional_token_idx(),
+                eol_colon_regional_token.regional_token_idx(),
+            ),
+            LazyStmtSketch::ElseBranch {
+                else_regional_token,
+                eol_colon_regional_token,
+                ..
+            } => RegionalTokenIdxRange::new_closed(
+                else_regional_token.regional_token_idx(),
+                eol_colon_regional_token.regional_token_idx(),
+            ),
+        };
+        let token_idx_range = regional_token_idx_range
+            .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
+        let registry = LazyStmtAssociatedTraceRegistry::new(self.path, trace, sema_expr_region, db);
+        TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
     }
 
     pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
-        match self.data(db) {
-            LazyStmtTraceData::BasicStmt => false,
-            LazyStmtTraceData::IfBranch { .. } => true,
-            LazyStmtTraceData::ElifBranch { .. } => true,
-            LazyStmtTraceData::ElseBranch { .. } => true,
+        match self.lazy_stmt_sketch {
+            LazyStmtSketch::BasicStmt => false,
+            LazyStmtSketch::IfBranch { .. } => true,
+            LazyStmtSketch::ElifBranch { .. } => true,
+            LazyStmtSketch::ElseBranch { .. } => true,
         }
     }
 
-    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
-        lazy_stmt_trace_subtraces(db, self)
-    }
-
-    pub fn val_repr(self, db: &dyn TraceDb) -> Option<ValRepr> {
-        lazy_stmt_trace_val_repr(db, self)
-    }
-}
-
-#[salsa::tracked(jar = TraceJar, return_ref)]
-fn lazy_stmt_trace_view_lines(db: &dyn TraceDb, trace: LazyStmtTrace) -> TraceViewLines {
-    let sema_stmt_idx = trace.sema_stmt_idx(db);
-    let sema_expr_region = trace.sema_expr_region(db);
-    let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
-    let region_path = sema_expr_region.path(db);
-    let regional_token_idx_range = match trace.data(db) {
-        LazyStmtTraceData::BasicStmt => sema_expr_range_region.data(db)[sema_stmt_idx],
-        LazyStmtTraceData::IfBranch {
-            if_regional_token,
-            eol_colon_regional_token,
-            ..
-        } => RegionalTokenIdxRange::new_closed(
-            if_regional_token.regional_token_idx(),
-            eol_colon_regional_token.regional_token_idx(),
-        ),
-        LazyStmtTraceData::ElifBranch {
-            elif_regional_token,
-            eol_colon_regional_token,
-            ..
-        } => RegionalTokenIdxRange::new_closed(
-            elif_regional_token.regional_token_idx(),
-            eol_colon_regional_token.regional_token_idx(),
-        ),
-        LazyStmtTraceData::ElseBranch {
-            else_regional_token,
-            eol_colon_regional_token,
-            ..
-        } => RegionalTokenIdxRange::new_closed(
-            else_regional_token.regional_token_idx(),
-            eol_colon_regional_token.regional_token_idx(),
-        ),
-    };
-    let token_idx_range =
-        regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
-    let registry = LazyStmtAssociatedTraceRegistry::new(trace, sema_expr_region, db);
-    TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
-}
-
-#[salsa::tracked(jar = TraceJar, return_ref)]
-fn lazy_stmt_trace_subtraces(db: &dyn TraceDb, trace: LazyStmtTrace) -> Vec<Trace> {
-    match trace.data(db) {
-        LazyStmtTraceData::BasicStmt => vec![],
-        LazyStmtTraceData::IfBranch { stmts, .. }
-        | LazyStmtTraceData::ElifBranch { stmts, .. }
-        | LazyStmtTraceData::ElseBranch { stmts, .. } => {
-            LazyStmtTrace::from_stmts(trace.path(db), trace, stmts, trace.sema_expr_region(db), db)
+    fn subtraces(&self, trace_id: Trace, db: &dyn TraceDb) -> Vec<Trace> {
+        let biological_parent_path = self.path;
+        let biological_parent = trace_id;
+        match self.lazy_stmt_sketch {
+            LazyStmtSketch::BasicStmt => vec![],
+            LazyStmtSketch::IfBranch { stmts, .. }
+            | LazyStmtSketch::ElifBranch { stmts, .. }
+            | LazyStmtSketch::ElseBranch { stmts, .. } => Trace::new_lazy_stmts(
+                biological_parent_path,
+                biological_parent,
+                stmts,
+                self.sema_expr_region,
+                db,
+            ),
         }
     }
-}
 
-#[salsa::tracked(jar = TraceJar)]
-fn lazy_stmt_trace_val_repr(db: &dyn TraceDb, trace: LazyStmtTrace) -> Option<ValRepr> {
-    let val_repr_expansion = lazy_stmt_trace_val_repr_expansion(db, trace);
-    val_repr_expansion
-        .hir_lazy_stmt_val_repr_map(db)
-        .get(trace.hir_lazy_stmt_idx(db)?)
-        .copied()
-}
+    pub(super) fn val_repr(&self, trace_id: Trace, db: &dyn TraceDb) -> Option<ValRepr> {
+        let val_repr_expansion = trace_val_repr_expansion(db, trace_id);
+        val_repr_expansion
+            .hir_lazy_stmt_val_repr_map(db)
+            .get(self.hir_lazy_stmt_idx?)
+            .copied()
+    }
 
-#[salsa::tracked(jar = TraceJar)]
-pub(crate) fn lazy_stmt_trace_val_repr_expansion(
-    db: &dyn TraceDb,
-    trace: LazyStmtTrace,
-) -> ValReprExpansion {
-    match trace.biological_parent(db) {
-        LazyStmtTraceBiologicalParent::ValItem(trace) => trace.val_repr(db).expansion(db).unwrap(),
-        LazyStmtTraceBiologicalParent::LazyCall(_) => todo!(),
-        LazyStmtTraceBiologicalParent::LazyStmt(trace) => match trace.biological_parent(db) {
-            LazyStmtTraceBiologicalParent::ValItem(parent) => {
-                parent.val_repr(db).expansion(db).unwrap()
-            }
-            LazyStmtTraceBiologicalParent::LazyCall(_) => todo!(),
-            LazyStmtTraceBiologicalParent::LazyStmt(parent) => {
-                lazy_stmt_trace_val_repr_expansion(db, parent)
-            }
-        },
+    pub(super) fn val_repr_expansion(&self, db: &dyn TraceDb) -> ValReprExpansion {
+        // todo: handle loops
+        self.biological_parent.val_repr_expansion(db)
     }
 }
 
 struct LazyStmtAssociatedTraceRegistry<'a> {
-    parent_trace: LazyStmtTrace,
+    biological_parent_path: TracePath,
+    biological_parent: Trace,
     sema_expr_region: SemaExprRegion,
     hir_lazy_expr_region: HirLazyExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
     hir_lazy_expr_source_map: HirLazyExprSourceMap,
     hir_lazy_expr_source_map_data: &'a HirLazyExprSourceMapData,
-    lazy_expr_trace_path_registry: TracePathRegistry<LazyExprTracePathData>,
-    lazy_expr_traces_issued: VecPairMap<SemaExprIdx, LazyExprTrace>,
-    lazy_pattern_expr_trace_path_registry: TracePathRegistry<LazyPatternExprTracePathData>,
-    lazy_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, LazyPatternExprTrace>,
+    lazy_expr_trace_path_registry: TracePathRegistry<LazyExprEssence>,
+    lazy_expr_traces_issued: VecPairMap<SemaExprIdx, Trace>,
+    lazy_pattern_expr_trace_path_registry: TracePathRegistry<LazyPatternExprEssence>,
+    lazy_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, Trace>,
 }
 
 impl<'a> LazyStmtAssociatedTraceRegistry<'a> {
     fn new(
-        parent_trace: LazyStmtTrace,
+        parent_trace_path: TracePath,
+        parent_trace: Trace,
         sema_expr_region: SemaExprRegion,
         db: &'a dyn TraceDb,
     ) -> Self {
         let (hir_lazy_expr_region, hir_lazy_expr_source_map) =
             hir_lazy_expr_region_with_source_map(db, sema_expr_region);
         LazyStmtAssociatedTraceRegistry {
-            parent_trace,
+            biological_parent_path: parent_trace_path,
+            biological_parent: parent_trace,
             sema_expr_region,
             hir_lazy_expr_region,
             syn_expr_region_data: sema_expr_region.syn_expr_region(db).data(db),
@@ -290,9 +247,9 @@ impl<'a> IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry<'a> {
                         let hir_lazy_expr_idx = self
                             .hir_lazy_expr_source_map_data
                             .sema_to_hir_lazy_expr_idx(sema_expr_idx);
-                        LazyExprTrace::new(
-                            self.parent_trace.path(db),
-                            self.parent_trace,
+                        Trace::new_lazy_expr(
+                            self.biological_parent_path,
+                            self.biological_parent,
                             sema_expr_idx,
                             hir_lazy_expr_idx,
                             self.sema_expr_region,
@@ -317,9 +274,9 @@ impl<'a> IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry<'a> {
             TokenInfoSource::PatternExpr(syn_pattern_expr_idx) => Some(
                 self.lazy_pattern_expr_traces_issued
                     .get_value_copied_or_insert_with(syn_pattern_expr_idx, || {
-                        LazyPatternExprTrace::new(
-                            self.parent_trace.path(db),
-                            self.parent_trace,
+                        Trace::new_lazy_pattern_expr(
+                            self.biological_parent_path,
+                            self.biological_parent,
                             syn_pattern_expr_idx,
                             self.hir_lazy_expr_source_map_data
                                 .syn_to_hir_lazy_pattern_expr_idx(syn_pattern_expr_idx),
@@ -347,10 +304,10 @@ impl<'a> IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry<'a> {
     }
 }
 
-impl LazyStmtTrace {
-    pub(crate) fn from_syn_body_with_syn_expr_region(
-        parent_trace_path: impl Into<LazyStmtTraceBiologicalParentPath>,
-        parent_trace: impl Into<LazyStmtTraceBiologicalParent>,
+impl Trace {
+    pub(crate) fn new_lazy_stmts_from_syn_body_with_syn_expr_region(
+        parent_trace_path: TracePath,
+        parent_trace: Trace,
         body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
         db: &dyn TraceDb,
     ) -> Vec<Trace> {
@@ -364,19 +321,17 @@ impl LazyStmtTrace {
         else {
             unreachable!()
         };
-        Self::from_stmts(parent_trace_path, parent_trace, stmts, sema_expr_region, db)
+        Self::new_lazy_stmts(parent_trace_path, parent_trace, stmts, sema_expr_region, db)
     }
 
-    pub(crate) fn from_stmts(
-        parent_trace_path: impl Into<LazyStmtTraceBiologicalParentPath>,
-        parent_trace: impl Into<LazyStmtTraceBiologicalParent>,
+    pub(crate) fn new_lazy_stmts(
+        parent_trace_path: TracePath,
+        parent_trace: Trace,
         stmts: husky_sema_expr::SemaStmtIdxRange,
         sema_expr_region: husky_sema_expr::SemaExprRegion,
         db: &dyn TraceDb,
     ) -> Vec<Trace> {
-        let parent_trace = parent_trace.into();
-        let parent_trace_path = parent_trace_path.into();
-        let mut registry = TracePathRegistry::<LazyStmtTracePathData>::default();
+        let mut registry = TracePathRegistry::<LazyStmtEssence>::default();
         let mut subtraces: Vec<Trace> = vec![];
         let sema_stmt_arena = sema_expr_region.data(db).sema_stmt_arena();
         for stmt in stmts {
@@ -387,14 +342,14 @@ impl LazyStmtTrace {
                     eq_token: _,
                     initial_value_sema_expr_idx: _,
                 } => {
-                    let path_data = LazyStmtTracePathData::Let {};
-                    let lazy_stmt_trace = LazyStmtTrace::new(
-                        parent_trace,
+                    let lazy_stmt_sketch = LazyStmtEssence::Let {};
+                    let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
-                        path_data,
+                        parent_trace,
+                        lazy_stmt_sketch,
                         &mut registry,
                         stmt,
-                        LazyStmtTraceData::BasicStmt,
+                        LazyStmtSketch::BasicStmt,
                         sema_expr_region,
                         db,
                     );
@@ -404,14 +359,14 @@ impl LazyStmtTrace {
                     return_token: _,
                     result: _,
                 } => {
-                    let path_data = LazyStmtTracePathData::Return {};
-                    let lazy_stmt_trace = LazyStmtTrace::new(
-                        parent_trace,
+                    let path_data = LazyStmtEssence::Return {};
+                    let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
+                        parent_trace,
                         path_data,
                         &mut registry,
                         stmt,
-                        LazyStmtTraceData::BasicStmt,
+                        LazyStmtSketch::BasicStmt,
                         sema_expr_region,
                         db,
                     );
@@ -421,14 +376,14 @@ impl LazyStmtTrace {
                     require_token: _,
                     condition: _,
                 } => {
-                    let path_data = LazyStmtTracePathData::Require {};
-                    let lazy_stmt_trace = LazyStmtTrace::new(
-                        parent_trace,
+                    let path_data = LazyStmtEssence::Require {};
+                    let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
+                        parent_trace,
                         path_data,
                         &mut registry,
                         stmt,
-                        LazyStmtTraceData::BasicStmt,
+                        LazyStmtSketch::BasicStmt,
                         sema_expr_region,
                         db,
                     );
@@ -438,28 +393,28 @@ impl LazyStmtTrace {
                     assert_token: _,
                     condition: _,
                 } => {
-                    let path_data = LazyStmtTracePathData::Assert {};
-                    let lazy_stmt_trace = LazyStmtTrace::new(
-                        parent_trace,
+                    let path_data = LazyStmtEssence::Assert {};
+                    let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
+                        parent_trace,
                         path_data,
                         &mut registry,
                         stmt,
-                        LazyStmtTraceData::BasicStmt,
+                        LazyStmtSketch::BasicStmt,
                         sema_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
                 }
                 SemaStmtData::Break { break_token: _ } => {
-                    let path_data = LazyStmtTracePathData::Break {};
-                    let lazy_stmt_trace = LazyStmtTrace::new(
-                        parent_trace,
+                    let path_data = LazyStmtEssence::Break {};
+                    let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
+                        parent_trace,
                         path_data,
                         &mut registry,
                         stmt,
-                        LazyStmtTraceData::BasicStmt,
+                        LazyStmtSketch::BasicStmt,
                         sema_expr_region,
                         db,
                     );
@@ -469,14 +424,14 @@ impl LazyStmtTrace {
                     sema_expr_idx: _,
                     eol_semicolon: _,
                 } => {
-                    let path_data = LazyStmtTracePathData::Eval {};
-                    let lazy_stmt_trace = LazyStmtTrace::new(
-                        parent_trace,
+                    let path_data = LazyStmtEssence::Eval {};
+                    let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
+                        parent_trace,
                         path_data,
                         &mut registry,
                         stmt,
-                        LazyStmtTraceData::BasicStmt,
+                        LazyStmtSketch::BasicStmt,
                         sema_expr_region,
                         db,
                     );
@@ -520,13 +475,13 @@ impl LazyStmtTrace {
                     sema_else_branch,
                 } => {
                     subtraces.push(
-                        LazyStmtTrace::new(
-                            parent_trace,
+                        Trace::new_lazy_stmt(
                             parent_trace_path,
-                            LazyStmtTracePathData::IfBranch,
+                            parent_trace,
+                            LazyStmtEssence::IfBranch,
                             &mut registry,
                             stmt,
-                            LazyStmtTraceData::IfBranch {
+                            LazyStmtSketch::IfBranch {
                                 if_regional_token: sema_if_branch.if_token(),
                                 eol_colon_regional_token: sema_if_branch.eol_colon_token(),
                                 stmts: sema_if_branch.stmts(),
@@ -540,13 +495,13 @@ impl LazyStmtTrace {
                     {
                         let elif_branch_idx = elif_branch_idx.try_into().unwrap();
                         subtraces.push(
-                            LazyStmtTrace::new(
-                                parent_trace,
+                            Trace::new_lazy_stmt(
                                 parent_trace_path,
-                                LazyStmtTracePathData::ElifBranch { elif_branch_idx },
+                                parent_trace,
+                                LazyStmtEssence::ElifBranch { elif_branch_idx },
                                 &mut registry,
                                 stmt,
-                                LazyStmtTraceData::ElifBranch {
+                                LazyStmtSketch::ElifBranch {
                                     elif_branch_idx,
                                     elif_regional_token: sema_elif_branch.elif_regional_token(),
                                     eol_colon_regional_token: sema_elif_branch.eol_colon_token(),
@@ -560,13 +515,13 @@ impl LazyStmtTrace {
                     }
                     if let Some(sema_else_branch) = sema_else_branch {
                         subtraces.push(
-                            LazyStmtTrace::new(
-                                parent_trace,
+                            Trace::new_lazy_stmt(
                                 parent_trace_path,
-                                LazyStmtTracePathData::ElseBranch,
+                                parent_trace,
+                                LazyStmtEssence::ElseBranch,
                                 &mut registry,
                                 stmt,
-                                LazyStmtTraceData::ElseBranch {
+                                LazyStmtSketch::ElseBranch {
                                     else_regional_token: sema_else_branch.else_regional_token(),
                                     eol_colon_regional_token: sema_else_branch
                                         .eol_colon_regional_token(),

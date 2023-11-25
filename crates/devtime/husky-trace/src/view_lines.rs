@@ -1,5 +1,4 @@
 use crate::{registry::associated_trace::IsAssociatedTraceRegistry, *};
-
 use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenIdx, TokenIdxRange};
 use husky_token_info::TokenInfoSheetRef;

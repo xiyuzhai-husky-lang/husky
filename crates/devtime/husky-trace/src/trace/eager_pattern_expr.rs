@@ -6,117 +6,86 @@ use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 
 use super::*;
 
-#[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]
-pub struct EagerPatternExprTracePath {
-    pub biological_parent_path: EagerPatternExprTraceBiologicalParentPath,
-    #[return_ref]
-    pub data: EagerPatternExprTracePathData,
-    pub disambiguator: TracePathDisambiguator<EagerPatternExprTracePathData>,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[enum_class::from_variants]
-pub enum EagerPatternExprTraceBiologicalParentPath {
-    EagerStmt(EagerStmtTracePath),
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub struct EagerPatternExprTracePathData {
+    biological_parent_path: TracePath,
+    essence: EagerPatternExprEssence,
+    disambiguator: TracePathDisambiguator<EagerPatternExprEssence>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum EagerPatternExprTracePathData {
+pub enum EagerPatternExprEssence {
     Haha,
 }
 
-impl EagerPatternExprTracePath {
-    fn new(
-        biological_parent_path: EagerPatternExprTraceBiologicalParentPath,
-        path_data: EagerPatternExprTracePathData,
-        eager_expr_trace_path_registry: &mut TracePathRegistry<EagerPatternExprTracePathData>,
-        db: &dyn TraceDb,
-    ) -> Self {
-        Self::new_inner(
-            db,
-            biological_parent_path,
-            path_data.clone(),
-            eager_expr_trace_path_registry.issue(path_data),
-        )
-    }
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct EagerPatternExprTrace(Trace);
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct EagerPatternExprTraceData {
+    path: TracePath,
+    biological_parent: Trace,
+    syn_pattern_expr_idx: SynPatternExprIdx,
+    hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeSymbolIdx>>,
+    sema_expr_region: SemaExprRegion,
 }
 
-#[salsa::tracked(db = TraceDb, jar = TraceJar, constructor = new_inner)]
-pub struct EagerPatternExprTrace {
-    #[id]
-    pub path: EagerPatternExprTracePath,
-    pub biological_parent: EagerPatternExprTraceBiologicalParent,
-    pub syn_pattern_expr_idx: SynPatternExprIdx,
-    #[return_ref]
-    pub hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeSymbolIdx>>,
-    #[skip_fmt]
-    pub sema_expr_region: SemaExprRegion,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[enum_class::from_variants]
-pub enum EagerPatternExprTraceBiologicalParent {
-    EagerStmt(EagerStmtTrace),
-}
-
-impl EagerPatternExprTrace {
-    pub(crate) fn new(
-        biological_parent_path: impl Into<EagerPatternExprTraceBiologicalParentPath>,
-        biological_parent: impl Into<EagerPatternExprTraceBiologicalParent>,
+impl Trace {
+    pub(crate) fn new_eager_pattern_expr(
+        biological_parent_path: TracePath,
+        biological_parent: Trace,
         syn_pattern_expr_idx: SynPatternExprIdx,
         hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeSymbolIdx>>,
         sema_expr_region: SemaExprRegion,
-        eager_pattern_expr_trace_path_registry: &mut TracePathRegistry<
-            EagerPatternExprTracePathData,
-        >,
+        eager_pattern_expr_trace_path_registry: &mut TracePathRegistry<EagerPatternExprEssence>,
         db: &dyn TraceDb,
     ) -> Self {
-        let path_data = EagerPatternExprTracePathData::Haha;
-        let path = EagerPatternExprTracePath::new(
-            biological_parent_path.into(),
-            path_data,
-            eager_pattern_expr_trace_path_registry,
+        let essence = EagerPatternExprEssence::Haha;
+        let path = TracePath::new(
+            EagerPatternExprTracePathData {
+                biological_parent_path,
+                essence: essence.clone(),
+                disambiguator: eager_pattern_expr_trace_path_registry.issue(essence),
+            },
             db,
         );
-        Self::new_inner(
-            db,
+        Trace::new(
             path,
-            biological_parent.into(),
-            syn_pattern_expr_idx,
-            hir_eager_runtime_symbol_idxs,
-            sema_expr_region,
+            EagerPatternExprTraceData {
+                path,
+                biological_parent: biological_parent.into(),
+                syn_pattern_expr_idx,
+                hir_eager_runtime_symbol_idxs,
+                sema_expr_region,
+            }
+            .into(),
+            db,
         )
-    }
-
-    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
-        eager_pattern_expr_trace_view_lines(db, self)
-    }
-
-    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
-        false
-    }
-
-    pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
-        &[]
     }
 }
 
-#[salsa::tracked(jar = TraceJar, return_ref)]
-fn eager_pattern_expr_trace_view_lines(
-    db: &dyn TraceDb,
-    trace: EagerPatternExprTrace,
-) -> TraceViewLines {
-    let sema_expr_region = trace.sema_expr_region(db);
-    let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
-    let sema_expr_range_region_data = sema_expr_range_region.data(db);
-    let region_path = sema_expr_region.path(db);
-    let regional_token_idx_range = sema_expr_range_region_data[trace.syn_pattern_expr_idx(db)];
-    let token_idx_range =
-        regional_token_idx_range.token_idx_range(region_path.regional_token_idx_base(db).unwrap());
-    TraceViewLines::new(
-        region_path.module_path(db),
-        token_idx_range,
-        VoidAssociatedTraceRegistry,
-        db,
-    )
+impl EagerPatternExprTraceData {
+    fn eager_pattern_expr_trace_view_lines(&self, db: &dyn TraceDb) -> TraceViewLines {
+        let sema_expr_region = self.sema_expr_region;
+        let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
+        let sema_expr_range_region_data = sema_expr_range_region.data(db);
+        let region_path = sema_expr_region.path(db);
+        let regional_token_idx_range = sema_expr_range_region_data[self.syn_pattern_expr_idx];
+        let token_idx_range = regional_token_idx_range
+            .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
+        TraceViewLines::new(
+            region_path.module_path(db),
+            token_idx_range,
+            VoidAssociatedTraceRegistry,
+            db,
+        )
+    }
+
+    pub fn have_subtraces(&self, _db: &dyn TraceDb) -> bool {
+        false
+    }
+
+    pub fn subtraces(&self, _db: &dyn TraceDb) -> &[Trace] {
+        &[]
+    }
 }
