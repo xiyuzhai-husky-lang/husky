@@ -147,6 +147,18 @@ impl TraitForTypeImplBlockPath {
     pub fn ty_sketch(self, db: &dyn EntityPathDb) -> TypeSketch {
         self.data(db).ty_sketch
     }
+
+    #[inline(never)]
+    fn show(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn EntityPathDb,
+    ) -> Result<(), std::fmt::Error> {
+        use salsa::DebugWithDb;
+        f.debug_struct("TraitForTypeImplBlock")
+            .field("data", &self.data(db).debug(db))
+            .finish()
+    }
 }
 
 impl TraitForTypeImplBlockPathData {
@@ -210,10 +222,7 @@ impl<Db: ?Sized + EntityPathDb> salsa::DebugWithDb<Db> for TraitForTypeImplBlock
         db: &Db,
         level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
-        f.debug_struct("TraitForTypeImplBlock")
-            .field("data", &self.data(db).debug(db))
-            .finish()
+        self.show(f, <Db as DbWithJar<EntityPathJar>>::as_jar_db(db))
     }
 }
 

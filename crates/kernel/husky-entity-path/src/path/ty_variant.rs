@@ -37,6 +37,7 @@ impl TypeVariantPath {
         self.data(db).ident
     }
 
+    #[inline(never)]
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -55,6 +56,7 @@ impl TypeVariantPathData {
         self.parent_ty_path.module_path(db)
     }
 
+    #[inline(never)]
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,

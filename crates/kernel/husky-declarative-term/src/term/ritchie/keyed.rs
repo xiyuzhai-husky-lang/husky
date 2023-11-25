@@ -44,6 +44,7 @@ impl DeclarativeRitchieKeyedParameter {
         self.has_default
     }
 
+    #[inline(never)]
     pub(super) fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

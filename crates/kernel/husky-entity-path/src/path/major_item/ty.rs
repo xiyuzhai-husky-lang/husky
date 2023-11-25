@@ -99,6 +99,7 @@ impl TypePathData {
         self.ty_kind
     }
 
+    #[inline(never)]
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,

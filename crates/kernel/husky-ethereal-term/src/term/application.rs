@@ -97,6 +97,7 @@ impl EtherealTermApplication {
         ethereal_term_application_declarative_ty(db, self)
     }
 
+    #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

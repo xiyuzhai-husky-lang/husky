@@ -27,6 +27,7 @@ impl DeclarativeRitchieVariadicParameter {
         self.ty
     }
 
+    #[inline(never)]
     pub(super) fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

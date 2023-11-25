@@ -33,6 +33,7 @@ impl EtherealTermCurry {
         term_curry_from_declarative(db, declarative_term_curry)
     }
 
+    #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

@@ -31,6 +31,7 @@ impl TraitPath {
         ))
     }
 
+    #[inline(never)]
     pub fn show(self, db: &dyn EntityPathDb) -> String {
         self.display(db).to_string()
     }

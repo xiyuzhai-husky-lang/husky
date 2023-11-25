@@ -11,6 +11,7 @@ impl DeclarativeTermAbstraction {
         todo!()
     }
 
+    #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
         _f: &mut std::fmt::Formatter<'_>,

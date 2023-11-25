@@ -46,6 +46,7 @@ pub enum FluffyTermData<'a> {
 }
 
 impl<'a> FluffyTermData<'a> {
+    #[inline(never)]
     pub fn show(&self, db: &dyn FluffyTermDb, terms: &FluffyTerms) -> String {
         use salsa::DisplayWithDb;
         match self {

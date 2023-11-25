@@ -46,6 +46,7 @@ impl SolidTerm {
         &solid_terms.entries.data()[self.0 as usize]
     }
 
+    #[inline(never)]
     pub fn show(self, db: &dyn FluffyTermDb, solid_terms: &SolidTerms) -> String {
         match self.data_inner(solid_terms) {
             SolidTermData::TypeOntology {

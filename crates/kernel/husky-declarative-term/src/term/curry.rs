@@ -81,6 +81,7 @@ impl DeclarativeTermCurry {
         }
     }
 
+    #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
