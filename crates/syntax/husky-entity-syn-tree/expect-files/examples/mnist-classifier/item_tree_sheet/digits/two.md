@@ -23,12 +23,8 @@ EntitySynTreeSheet {
                                 6,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 66,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -75,12 +71,8 @@ EntitySynTreeSheet {
                                 23,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 67,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -127,12 +119,8 @@ EntitySynTreeSheet {
                                 52,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 68,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -179,12 +167,8 @@ EntitySynTreeSheet {
                                 81,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 69,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -231,12 +215,8 @@ EntitySynTreeSheet {
                                 114,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 70,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(

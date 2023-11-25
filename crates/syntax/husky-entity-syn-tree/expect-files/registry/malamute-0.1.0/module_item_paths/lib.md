@@ -21,20 +21,8 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TraitForTypeImplBlock(
-            TraitForTypeImplBlockPath {
-                module_path: `malamute`,
-                trai_path: TraitPath(`core::ops::Unveil`),
-                ty_sketch: TypeSketch::Path(
-                    TypePath(`malamute::Class`, `Enum`),
-                ),
-                disambiguator: 0,
-            },
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TraitForTypeItem(
-            TraitForTypeItemPath {
-                impl_block: TraitForTypeImplBlockPath {
+            TraitForTypeImplBlock {
+                data: TraitForTypeImplBlockPathData {
                     module_path: `malamute`,
                     trai_path: TraitPath(`core::ops::Unveil`),
                     ty_sketch: TypeSketch::Path(
@@ -42,27 +30,24 @@
                     ),
                     disambiguator: 0,
                 },
-                ident: `Output`,
-                item_kind: AssociatedType,
-            },
-        ),
-    ),
-    ItemPath::ImplBlock(
-        ImplBlockPath::TraitForTypeImplBlock(
-            TraitForTypeImplBlockPath {
-                module_path: `malamute`,
-                trai_path: TraitPath(`core::ops::Unveil`),
-                ty_sketch: TypeSketch::Path(
-                    TypePath(`malamute::OneVsAll`, `Enum`),
-                ),
-                disambiguator: 0,
             },
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TraitForTypeItem(
-            TraitForTypeItemPath {
-                impl_block: TraitForTypeImplBlockPath {
+            TraitForTypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 414,
+                    },
+                ),
+            ),
+        ),
+    ),
+    ItemPath::ImplBlock(
+        ImplBlockPath::TraitForTypeImplBlock(
+            TraitForTypeImplBlock {
+                data: TraitForTypeImplBlockPathData {
                     module_path: `malamute`,
                     trai_path: TraitPath(`core::ops::Unveil`),
                     ty_sketch: TypeSketch::Path(
@@ -70,9 +55,18 @@
                     ),
                     disambiguator: 0,
                 },
-                ident: `Output`,
-                item_kind: AssociatedType,
             },
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TraitForTypeItem(
+            TraitForTypeItemPath(
+                ItemPathId(
+                    Id {
+                        value: 415,
+                    },
+                ),
+            ),
         ),
     ),
 ]

@@ -21,12 +21,8 @@ EntitySynTreeSheet {
                                 3,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 72,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
@@ -69,12 +65,8 @@ EntitySynTreeSheet {
                                 33,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 73,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist::BinaryImage28`, `Struct`),
                             variants: None,
                         },
                     },
@@ -111,12 +103,8 @@ EntitySynTreeSheet {
                                 79,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 74,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                             variants: None,
                         },
                     },
@@ -153,12 +141,8 @@ EntitySynTreeSheet {
                                 125,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 81,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist::input`, `Val`),
                             body: None,
                         },
                     },
@@ -222,26 +206,30 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryImage28`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
-            ),
-            ImplBlockSynNode::TraitForTypeImplBlock(
-                TraitForTypeImplBlockSynNode {
-                    syn_node_path: TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `mnist`,
                             trai_path: TraitPath(`core::visual::Visualize`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`mnist::BinaryImage28`, `Struct`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                },
+            ),
+            ImplBlockSynNode::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNode {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `mnist`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                     },
                     ast_idx: 20,
@@ -272,21 +260,25 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist`,
-                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 296,
+                            },
+                        ),
+                    ),
                 },
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist`,
-                            ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 296,
+                                },
+                            ),
+                        ),
                     },
                     ast_idx: 21,
                     impl_regional_token: ImplToken {
@@ -306,26 +298,30 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryImage28`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
-            ),
-            ImplBlockSynNode::TraitForTypeImplBlock(
-                TraitForTypeImplBlockSynNode {
-                    syn_node_path: TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `mnist`,
                             trai_path: TraitPath(`core::ops::IntIndex`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`mnist::BinaryImage28`, `Struct`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                },
+            ),
+            ImplBlockSynNode::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNode {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `mnist`,
+                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                     },
                     ast_idx: 22,
@@ -356,26 +352,30 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryGrid28`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
-            ),
-            ImplBlockSynNode::TraitForTypeImplBlock(
-                TraitForTypeImplBlockSynNode {
-                    syn_node_path: TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `mnist`,
                             trai_path: TraitPath(`core::visual::Visualize`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`mnist::BinaryGrid28`, `Struct`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                },
+            ),
+            ImplBlockSynNode::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNode {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `mnist`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                     },
                     ast_idx: 24,
@@ -406,21 +406,25 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist`,
-                        ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 299,
+                            },
+                        ),
+                    ),
                 },
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist`,
-                            ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 299,
+                                },
+                            ),
+                        ),
                     },
                     ast_idx: 25,
                     impl_regional_token: ImplToken {
@@ -440,26 +444,30 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryGrid28`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
-            ),
-            ImplBlockSynNode::TraitForTypeImplBlock(
-                TraitForTypeImplBlockSynNode {
-                    syn_node_path: TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `mnist`,
                             trai_path: TraitPath(`core::ops::IntIndex`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`mnist::BinaryGrid28`, `Struct`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                },
+            ),
+            ImplBlockSynNode::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNode {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `mnist`,
+                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                     },
                     ast_idx: 26,

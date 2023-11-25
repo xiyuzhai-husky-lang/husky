@@ -21,12 +21,8 @@ EntitySynTreeSheet {
                                 14,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Add`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -69,12 +65,8 @@ EntitySynTreeSheet {
                                 43,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::AddAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -117,12 +109,8 @@ EntitySynTreeSheet {
                                 72,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitAnd`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -165,12 +153,8 @@ EntitySynTreeSheet {
                                 101,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitAndAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -213,12 +197,8 @@ EntitySynTreeSheet {
                                 126,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitOr`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -261,12 +241,8 @@ EntitySynTreeSheet {
                                 155,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitOrAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -309,12 +285,8 @@ EntitySynTreeSheet {
                                 180,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitXor`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -357,12 +329,8 @@ EntitySynTreeSheet {
                                 209,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::BitXorAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -405,12 +373,8 @@ EntitySynTreeSheet {
                                 234,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Div`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -453,12 +417,8 @@ EntitySynTreeSheet {
                                 263,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::DivAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -501,12 +461,8 @@ EntitySynTreeSheet {
                                 281,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::IntIndex`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -549,12 +505,8 @@ EntitySynTreeSheet {
                                 295,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Mul`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -597,12 +549,8 @@ EntitySynTreeSheet {
                                 324,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::MulAssign`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -645,12 +593,8 @@ EntitySynTreeSheet {
                                 349,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Neg`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -693,12 +637,8 @@ EntitySynTreeSheet {
                                 373,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 23,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Not`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -741,12 +681,8 @@ EntitySynTreeSheet {
                                 397,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Sub`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -789,12 +725,8 @@ EntitySynTreeSheet {
                                 419,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::ops::Unveil`),
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -837,12 +769,8 @@ EntitySynTreeSheet {
                                 448,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 30,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::ops::ControlFlow`, `Enum`),
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
@@ -2962,16 +2890,22 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::TypeVariant {
-                                                    ty_variant_path: TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    ty_variant_path: TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 4,
@@ -2979,10 +2913,13 @@ EntitySynTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::Pub,
                                         ast_idx: 8,
@@ -2990,10 +2927,13 @@ EntitySynTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core`,
@@ -3003,10 +2943,13 @@ EntitySynTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                ident: `Some`,
-                            },
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 61,
+                                    },
+                                ),
+                            ),
                         ),
                         visibility: Scope::PubUnder(
                             `core::ops`,
@@ -3030,16 +2973,22 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::TypeVariant {
-                                                    ty_variant_path: TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    ty_variant_path: TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `None`,
-                                                    },
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 4,
@@ -3047,10 +2996,13 @@ EntitySynTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                            },
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                         visibility: Scope::Pub,
                                         ast_idx: 8,
@@ -3058,10 +3010,13 @@ EntitySynTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `None`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `core`,
@@ -3071,10 +3026,13 @@ EntitySynTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                ident: `None`,
-                            },
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 62,
+                                    },
+                                ),
+                            ),
                         ),
                         visibility: Scope::PubUnder(
                             `core::ops`,

@@ -173,12 +173,8 @@ EntitySynTreeSheet {
                                 42,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 57,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             variants: None,
                         },
                     },
@@ -215,12 +211,8 @@ EntitySynTreeSheet {
                                 171,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 58,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             variants: None,
                         },
                     },
@@ -259,12 +251,8 @@ EntitySynTreeSheet {
                                 370,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -311,12 +299,8 @@ EntitySynTreeSheet {
                                 467,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -363,12 +347,8 @@ EntitySynTreeSheet {
                                 564,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -415,12 +395,8 @@ EntitySynTreeSheet {
                                 797,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -467,12 +443,8 @@ EntitySynTreeSheet {
                                 1063,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -888,26 +860,30 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
-            ),
-            ImplBlockSynNode::TraitForTypeImplBlock(
-                TraitForTypeImplBlockSynNode {
-                    syn_node_path: TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `mnist_classifier::line_segment_sketch`,
                             trai_path: TraitPath(`core::visual::Visualize`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                },
+            ),
+            ImplBlockSynNode::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNode {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `mnist_classifier::line_segment_sketch`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                     },
                     ast_idx: 171,
@@ -938,21 +914,25 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 260,
+                            },
+                        ),
+                    ),
                 },
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 260,
+                                },
+                            ),
+                        ),
                     },
                     ast_idx: 172,
                     impl_regional_token: ImplToken {
@@ -972,26 +952,30 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
-            ),
-            ImplBlockSynNode::TraitForTypeImplBlock(
-                TraitForTypeImplBlockSynNode {
-                    syn_node_path: TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `mnist_classifier::line_segment_sketch`,
                             trai_path: TraitPath(`core::visual::Visualize`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                },
+            ),
+            ImplBlockSynNode::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNode {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `mnist_classifier::line_segment_sketch`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                     },
                     ast_idx: 174,
@@ -1022,21 +1006,25 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 262,
+                            },
+                        ),
+                    ),
                 },
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 262,
+                                },
+                            ),
+                        ),
                     },
                     ast_idx: 175,
                     impl_regional_token: ImplToken {

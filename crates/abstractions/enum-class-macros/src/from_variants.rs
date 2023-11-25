@@ -40,7 +40,9 @@ fn enum_from_variant_impl(
     variant_ident: &Ident,
     fields: &FieldsUnnamed,
 ) -> Option<proc_macro2::TokenStream> {
-    if fields.unnamed.len() == 1 {
+    if fields.unnamed.len() == 0 {
+        return None;
+    } else if fields.unnamed.len() == 1 {
         let field_ty = &fields.unnamed[0].ty;
         // todo: generics
         Some(quote! {

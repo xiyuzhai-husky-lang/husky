@@ -43,6 +43,7 @@ impl ImplBlockPathData {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::as_id(jar = EntityPathJar)]
 #[salsa::deref_id]
 pub struct TypeImplBlockPath(ItemPathId);
 
@@ -51,6 +52,19 @@ pub struct TypeImplBlockPathData {
     module_path: ModulePath,
     ty_path: TypePath,
     disambiguator: u8,
+}
+
+impl TypeImplBlockPath {
+    pub fn data(self, db: &dyn EntityPathDb) -> TypeImplBlockPathData {
+        match self.0.data(db) {
+            ItemPathData::ImplBlock(ImplBlockPathData::TypeImplBlock(data)) => data,
+            _ => unreachable!(),
+        }
+    }
+
+    pub fn ty_path(self, db: &dyn EntityPathDb) -> TypePath {
+        self.data(db).ty_path
+    }
 }
 
 impl TypeImplBlockPathData {
@@ -99,16 +113,23 @@ impl TypeImplBlockPathData {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-// #[salsa::as_id(jar = EntityPathJar)]
+#[salsa::as_id(jar = EntityPathJar)]
 #[salsa::deref_id]
 pub struct TraitForTypeImplBlockPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db(db = EntityPathDb)]
 pub struct TraitForTypeImplBlockPathData {
     module_path: ModulePath,
     trai_path: TraitPath,
     ty_sketch: TypeSketch,
     disambiguator: u8,
+}
+
+impl From<TraitForTypeImplBlockPath> for ItemPath {
+    fn from(path: TraitForTypeImplBlockPath) -> Self {
+        ItemPath::ImplBlock(path.into())
+    }
 }
 
 impl TraitForTypeImplBlockPath {
@@ -143,12 +164,6 @@ impl TraitForTypeImplBlockPathData {
 
     pub fn disambiguator(self) -> u8 {
         self.disambiguator
-    }
-}
-
-impl From<TraitForTypeImplBlockPath> for ItemPath {
-    fn from(path: TraitForTypeImplBlockPath) -> Self {
-        ItemPath::ImplBlock(path.into())
     }
 }
 
@@ -188,27 +203,17 @@ impl TraitForTypeImplBlockPath {
     }
 }
 
-#[deprecated]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct IllFormedImplBlockPath(ItemPathId);
-
-pub struct IllFormedImplBlockPathData {
-    module_path: ModulePath,
-    disambiguator: u8,
-}
-
-impl IllFormedImplBlockPath {
-    pub fn new(
-        db: &dyn EntityPathDb,
-        registry: &mut ImplBlockRegistry,
-        module_path: ModulePath,
-    ) -> Self {
-        todo!()
-        // IllFormedImplBlockPath::new_inner(
-        //     db,
-        //     module_path,
-        //     registry.issue_disambiguitor(module_path, ImplBlockKind::Err),
-        // )
+impl<Db: ?Sized + EntityPathDb> salsa::DebugWithDb<Db> for TraitForTypeImplBlockPath {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        level: salsa::DebugFormatLevel,
+    ) -> std::fmt::Result {
+        let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
+        f.debug_struct("TraitForTypeImplBlock")
+            .field("data", &self.data(db).debug(db))
+            .finish()
     }
 }
 
@@ -227,7 +232,6 @@ pub enum ImplBlockKind {
         ty_sketch: TypeSketch,
         trai_path: TraitPath,
     },
-    Err,
 }
 
 impl ImplBlockRegistry {

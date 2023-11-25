@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 12,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 31,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::option::Option`, `Enum`),
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(

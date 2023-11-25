@@ -173,12 +173,8 @@ EntitySynTreePresheet {
                                 42,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             variants: None,
                         },
                     },
@@ -215,12 +211,8 @@ EntitySynTreePresheet {
                                 171,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             variants: None,
                         },
                     },
@@ -259,12 +251,8 @@ EntitySynTreePresheet {
                                 370,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 58,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -311,12 +299,8 @@ EntitySynTreePresheet {
                                 467,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 59,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -363,12 +347,8 @@ EntitySynTreePresheet {
                                 564,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 60,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -415,12 +395,8 @@ EntitySynTreePresheet {
                                 797,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 61,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -467,12 +443,8 @@ EntitySynTreePresheet {
                                 1063,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 62,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(

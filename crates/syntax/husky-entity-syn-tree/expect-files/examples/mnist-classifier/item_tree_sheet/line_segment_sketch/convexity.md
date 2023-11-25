@@ -21,12 +21,8 @@ EntitySynTreeSheet {
                                 21,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(

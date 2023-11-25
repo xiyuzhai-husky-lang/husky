@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             variants: None,
                         },
                     },
@@ -63,12 +59,8 @@ EntitySynTreePresheet {
                                 154,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 55,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(

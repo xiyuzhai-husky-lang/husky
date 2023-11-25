@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 34,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::slice::Slice`, `Extern`),
                             variants: None,
                         },
                     },
@@ -63,12 +59,8 @@ EntitySynTreePresheet {
                                 54,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                             variants: None,
                         },
                     },

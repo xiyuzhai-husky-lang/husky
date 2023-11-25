@@ -3,7 +3,7 @@ use salsa::DisplayWithDb;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-// #[salsa::as_id(jar = EntityPathJar)]
+#[salsa::as_id(jar = EntityPathJar)]
 #[salsa::deref_id]
 pub struct TraitPath(ItemPathId);
 

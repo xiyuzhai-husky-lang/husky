@@ -23,12 +23,8 @@ EntitySynTreeCrateBundle {
                                         3,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -73,12 +69,8 @@ EntitySynTreeCrateBundle {
                                         42,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -125,12 +117,8 @@ EntitySynTreeCrateBundle {
                                         103,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -177,12 +165,8 @@ EntitySynTreeCrateBundle {
                                         228,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
@@ -229,12 +213,8 @@ EntitySynTreeCrateBundle {
                                         265,
                                     ),
                                 },
-                                block: Fugitive {
-                                    path: FugitivePath(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
+                                block: DefnBlock::Fugitive {
+                                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(

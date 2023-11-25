@@ -137,7 +137,7 @@ impl HasSynDecl for FugitivePath {
     }
 }
 
-#[salsa::tracked(jar = SynDeclJar)]
+// #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn fugitive_syn_decl(
     db: &dyn SynDeclDb,
     path: FugitivePath,

@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::deref_id]
 pub struct TraitForTypeItemPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -16,22 +17,40 @@ impl From<TraitForTypeItemPath> for ItemPath {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for TraitForTypeItemPath
-where
-    Db: EntityPathDb + ?Sized,
-{
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
-        self.show_aux(f, db)
-    }
-}
-
 impl TraitForTypeItemPath {
+    pub fn new(
+        impl_block: TraitForTypeImplBlockPath,
+        ident: Ident,
+        item_kind: TraitItemKind,
+        db: &dyn EntityPathDb,
+    ) -> Self {
+        Self(ItemPathId::new(
+            db,
+            ItemPathData::AssociatedItem(AssociatedItemPathData::TraitForTypeItem(
+                TraitForTypeItemPathData {
+                    impl_block,
+                    ident,
+                    item_kind,
+                },
+            )),
+        ))
+    }
+
+    pub fn data(self, db: &dyn EntityPathDb) -> TraitForTypeItemPathData {
+        match self.0.data(db) {
+            ItemPathData::AssociatedItem(AssociatedItemPathData::TraitForTypeItem(data)) => data,
+            _ => unreachable!(),
+        }
+    }
+
+    pub fn impl_block(self, db: &dyn EntityPathDb) -> TraitForTypeImplBlockPath {
+        self.data(db).impl_block
+    }
+
+    pub fn item_kind(self, db: &dyn EntityPathDb) -> TraitItemKind {
+        self.data(db).item_kind
+    }
+
     fn show_aux(
         self,
         _f: &mut std::fmt::Formatter<'_>,
@@ -48,5 +67,20 @@ impl TraitForTypeItemPathData {
 
     pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
         self.impl_block.toolchain(db)
+    }
+}
+
+impl<Db> salsa::DisplayWithDb<Db> for TraitForTypeItemPath
+where
+    Db: EntityPathDb + ?Sized,
+{
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        _level: salsa::DisplayFormatLevel,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
+        self.show_aux(f, db)
     }
 }

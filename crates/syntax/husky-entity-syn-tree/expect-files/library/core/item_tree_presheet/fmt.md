@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Trait {
-                            path: TraitPath(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::fmt::Debug`),
                             items: None,
                         },
                     },

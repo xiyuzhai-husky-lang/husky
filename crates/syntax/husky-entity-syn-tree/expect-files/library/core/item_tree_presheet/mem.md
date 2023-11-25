@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::mem::Ref`, `Extern`),
                             variants: None,
                         },
                     },
@@ -63,12 +59,8 @@ EntitySynTreePresheet {
                                 18,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::mem::RefMut`, `Extern`),
                             variants: None,
                         },
                     },
@@ -105,12 +97,8 @@ EntitySynTreePresheet {
                                 29,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::mem::Leash`, `Extern`),
                             variants: None,
                         },
                     },
@@ -147,12 +135,8 @@ EntitySynTreePresheet {
                                 46,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::mem::At`, `Extern`),
                             variants: None,
                         },
                     },

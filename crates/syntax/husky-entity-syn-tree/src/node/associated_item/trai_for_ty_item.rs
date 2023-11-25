@@ -81,7 +81,7 @@ impl TraitForTypeItemSynNode {
         visibility: Scope,
         is_generic: bool,
     ) -> (TraitForTypeItemSynNodePath, Self) {
-        let path = TraitForTypeItemPath::new(db, impl_block_syn_node_path.path(), ident, item_kind);
+        let path = TraitForTypeItemPath::new(impl_block_syn_node_path.path(), ident, item_kind, db);
         let syn_node_path = TraitForTypeItemSynNodePath::new(db, registry, path);
         (
             syn_node_path,

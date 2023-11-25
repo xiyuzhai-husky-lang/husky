@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 33,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::i8`, `Extern`),
                             variants: None,
                         },
                     },
@@ -63,12 +59,8 @@ EntitySynTreePresheet {
                                 96,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::i16`, `Extern`),
                             variants: None,
                         },
                     },
@@ -105,12 +97,8 @@ EntitySynTreePresheet {
                                 159,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::i32`, `Extern`),
                             variants: None,
                         },
                     },
@@ -147,12 +135,8 @@ EntitySynTreePresheet {
                                 232,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::i64`, `Extern`),
                             variants: None,
                         },
                     },
@@ -189,12 +173,8 @@ EntitySynTreePresheet {
                                 284,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::i128`, `Extern`),
                             variants: None,
                         },
                     },
@@ -231,12 +211,8 @@ EntitySynTreePresheet {
                                 336,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::isize`, `Extern`),
                             variants: None,
                         },
                     },
@@ -273,12 +249,8 @@ EntitySynTreePresheet {
                                 388,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::u8`, `Extern`),
                             variants: None,
                         },
                     },
@@ -315,12 +287,8 @@ EntitySynTreePresheet {
                                 440,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 23,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::u16`, `Extern`),
                             variants: None,
                         },
                     },
@@ -357,12 +325,8 @@ EntitySynTreePresheet {
                                 492,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::u32`, `Extern`),
                             variants: None,
                         },
                     },
@@ -399,12 +363,8 @@ EntitySynTreePresheet {
                                 544,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::u64`, `Extern`),
                             variants: None,
                         },
                     },
@@ -441,12 +401,8 @@ EntitySynTreePresheet {
                                 596,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 26,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::u128`, `Extern`),
                             variants: None,
                         },
                     },
@@ -483,12 +439,8 @@ EntitySynTreePresheet {
                                 648,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 27,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::usize`, `Extern`),
                             variants: None,
                         },
                     },
@@ -525,12 +477,8 @@ EntitySynTreePresheet {
                                 700,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::f32`, `Extern`),
                             variants: None,
                         },
                     },
@@ -567,12 +515,8 @@ EntitySynTreePresheet {
                                 813,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 29,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::num::f64`, `Extern`),
                             variants: None,
                         },
                     },

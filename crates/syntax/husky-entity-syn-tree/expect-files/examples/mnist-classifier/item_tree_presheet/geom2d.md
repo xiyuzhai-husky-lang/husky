@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 12,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             variants: None,
                         },
                     },
@@ -63,12 +59,8 @@ EntitySynTreePresheet {
                                 154,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                             variants: None,
                         },
                     },
@@ -105,12 +97,8 @@ EntitySynTreePresheet {
                                 167,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 46,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             variants: None,
                         },
                     },
@@ -147,12 +135,8 @@ EntitySynTreePresheet {
                                 496,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 47,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             variants: None,
                         },
                     },
@@ -189,12 +173,8 @@ EntitySynTreePresheet {
                                 604,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             variants: None,
                         },
                     },
@@ -231,12 +211,8 @@ EntitySynTreePresheet {
                                 740,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 49,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             variants: None,
                         },
                     },

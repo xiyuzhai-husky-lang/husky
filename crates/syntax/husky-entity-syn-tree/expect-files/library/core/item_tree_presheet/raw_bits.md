@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 27,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 32,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::raw_bits::r32`, `Extern`),
                             variants: None,
                         },
                     },

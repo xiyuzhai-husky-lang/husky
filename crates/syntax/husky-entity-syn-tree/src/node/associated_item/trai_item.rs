@@ -85,7 +85,7 @@ impl TraitItemSynNode {
         visibility: Scope,
         is_generic: bool,
     ) -> (TraitItemSynNodePath, Self) {
-        let trai_item_path = TraitItemPath::new(db, trai_syn_node_path.path(db), ident, item_kind);
+        let trai_item_path = TraitItemPath::new(trai_syn_node_path.path(db), ident, item_kind, db);
         let syn_node_path =
             TraitItemSynNodePath::new(db, registry, trai_syn_node_path, trai_item_path);
         (

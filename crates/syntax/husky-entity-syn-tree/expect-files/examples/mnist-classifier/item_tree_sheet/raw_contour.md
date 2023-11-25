@@ -21,12 +21,8 @@ EntitySynTreeSheet {
                                 25,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             variants: None,
                         },
                     },
@@ -65,12 +61,8 @@ EntitySynTreeSheet {
                                 402,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 49,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
@@ -117,12 +109,8 @@ EntitySynTreeSheet {
                                 412,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -169,12 +157,8 @@ EntitySynTreeSheet {
                                 437,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -221,12 +205,8 @@ EntitySynTreeSheet {
                                 458,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -273,12 +253,8 @@ EntitySynTreeSheet {
                                 483,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -325,12 +301,8 @@ EntitySynTreeSheet {
                                 611,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -377,12 +349,8 @@ EntitySynTreeSheet {
                                 672,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -429,12 +397,8 @@ EntitySynTreeSheet {
                                 868,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 50,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                             variants: None,
                         },
                     },
@@ -475,12 +439,8 @@ EntitySynTreeSheet {
                                 880,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -525,12 +485,8 @@ EntitySynTreeSheet {
                                 946,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                             body: Some(
                                 FugitiveBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -2865,26 +2821,30 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
-            ),
-            ImplBlockSynNode::TraitForTypeImplBlock(
-                TraitForTypeImplBlockSynNode {
-                    syn_node_path: TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `mnist_classifier::raw_contour`,
                             trai_path: TraitPath(`core::visual::Visualize`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                },
+            ),
+            ImplBlockSynNode::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNode {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `mnist_classifier::raw_contour`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                     },
                     ast_idx: 196,
@@ -2915,21 +2875,25 @@ EntitySynTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 253,
+                            },
+                        ),
+                    ),
                 },
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist_classifier::raw_contour`,
-                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 253,
+                                },
+                            ),
+                        ),
                     },
                     ast_idx: 197,
                     impl_regional_token: ImplToken {

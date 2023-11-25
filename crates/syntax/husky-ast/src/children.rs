@@ -19,6 +19,7 @@ use husky_token::*;
 use parsec::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::debug_with_db(db = AstDb)]
 #[enum_class::from_variants]
 pub enum DefnBlock {
     Fugitive {

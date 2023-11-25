@@ -62,6 +62,10 @@ impl TypePath {
         self.data(db).ident
     }
 
+    pub fn ty_kind(self, db: &dyn EntityPathDb) -> TypeKind {
+        self.data(db).ty_kind
+    }
+
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -79,16 +83,6 @@ impl TypePathData {
         }
     }
 
-    pub fn show_aux(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityPathDb,
-    ) -> std::fmt::Result {
-        self.module_path.show_aux(f, db)?;
-        f.write_str(show_connection(self.connection))?;
-        f.write_str(self.ident.data(db))
-    }
-
     pub fn module_path(&self) -> ModulePath {
         self.module_path
     }
@@ -103,6 +97,16 @@ impl TypePathData {
 
     pub fn ty_kind(&self) -> TypeKind {
         self.ty_kind
+    }
+
+    pub fn show_aux(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn EntityPathDb,
+    ) -> std::fmt::Result {
+        self.module_path.show_aux(f, db)?;
+        f.write_str(show_connection(self.connection))?;
+        f.write_str(self.ident.data(db))
     }
 }
 

@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 3,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 61,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
@@ -69,12 +65,8 @@ EntitySynTreePresheet {
                                 33,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 62,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist::BinaryImage28`, `Struct`),
                             variants: None,
                         },
                     },
@@ -111,12 +103,8 @@ EntitySynTreePresheet {
                                 79,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 63,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                             variants: None,
                         },
                     },
@@ -153,12 +141,8 @@ EntitySynTreePresheet {
                                 125,
                             ),
                         },
-                        block: Fugitive {
-                            path: FugitivePath(
-                                Id {
-                                    value: 79,
-                                },
-                            ),
+                        block: DefnBlock::Fugitive {
+                            path: FugitivePath(`mnist::input`, `Val`),
                             body: None,
                         },
                     },

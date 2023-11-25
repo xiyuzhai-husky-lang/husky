@@ -21,7 +21,7 @@ pub struct ItemPathId {
 
 impl ItemPathId {
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
-        todo!()
+        self.data(db).module_path(db)
     }
 
     pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
@@ -44,7 +44,7 @@ impl ItemPathId {
         // }
     }
 
-    pub(crate) fn item_kind(self, db: &dyn EntityPathDb) -> EntityKind {
+    pub fn item_kind(self, db: &dyn EntityPathDb) -> EntityKind {
         todo!()
         // EntityKind::AssociatedItem {
         //     associated_item_kind: match self {
@@ -71,7 +71,20 @@ pub enum ItemPathData {
     AssociatedItem(AssociatedItemPathData),
     TypeVariant(TypeVariantPathData),
     ImplBlock(ImplBlockPathData),
-    Attr(AttrPathData),
+    Attr(AttrItemPathData),
+}
+
+impl ItemPathData {
+    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+        match self {
+            ItemPathData::Submodule(data) => data.module_path(db),
+            ItemPathData::MajorItem(data) => data.module_path(db),
+            ItemPathData::AssociatedItem(data) => data.module_path(db),
+            ItemPathData::TypeVariant(data) => data.module_path(db),
+            ItemPathData::ImplBlock(data) => data.module_path(db),
+            ItemPathData::Attr(data) => data.module_path(db),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

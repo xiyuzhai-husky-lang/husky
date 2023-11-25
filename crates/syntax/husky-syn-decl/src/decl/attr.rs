@@ -67,7 +67,7 @@ impl HasSynDecl for AttrItemPath {
     }
 }
 
-#[salsa::tracked(jar = SynDeclJar)]
+// #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn attr_syn_decl(db: &dyn SynDeclDb, path: AttrItemPath) -> DeclResult<AttrSynDecl> {
     AttrSynDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
 }

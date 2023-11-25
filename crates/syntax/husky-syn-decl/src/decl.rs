@@ -152,12 +152,12 @@ impl HasSynDecl for ItemPath {
 
     fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         match self {
-            ItemPath::Submodule(path) => path.syn_decl(db).map(Into::into),
+            ItemPath::Submodule(_, path) => path.syn_decl(db).map(Into::into),
             ItemPath::MajorItem(path) => path.syn_decl(db).map(Into::into),
             ItemPath::AssociatedItem(path) => path.syn_decl(db).map(Into::into),
-            ItemPath::TypeVariant(path) => path.syn_decl(db).map(Into::into),
+            ItemPath::TypeVariant(_, path) => path.syn_decl(db).map(Into::into),
             ItemPath::ImplBlock(path) => path.syn_decl(db).map(Into::into),
-            ItemPath::Attr(_) => todo!(),
+            ItemPath::Attr(_, _) => todo!(),
         }
     }
 }

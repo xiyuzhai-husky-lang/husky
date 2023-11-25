@@ -21,12 +21,8 @@ EntitySynTreePresheet {
                                 7,
                             ),
                         },
-                        block: Type {
-                            path: TypePath(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::array::Array`, `Extern`),
                             variants: None,
                         },
                     },
