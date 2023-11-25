@@ -25,18 +25,4 @@ use salsa::DbWithJar;
 use tests::*;
 
 #[salsa::jar(db = EntityPathDb)]
-pub struct EntityPathJar(
-    TypePath,
-    prelude_ty_path,
-    TraitPath,
-    FugitivePath,
-    TypeItemPath,
-    TraitItemPath,
-    TraitForTypeItemPath,
-    TypeVariantPath,
-    TypeImplBlockPath,
-    TraitForTypeImplBlockPath,
-    IllFormedImplBlockPath,
-    AttrPath,
-    item_path_menu,
-);
+pub struct EntityPathJar(ItemPathId, prelude_ty_path, item_path_menu);

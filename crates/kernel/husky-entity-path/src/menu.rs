@@ -104,398 +104,398 @@ impl ItemPathMenu {
         let core_array = path_menu.core_array().inner();
         let core_visual = path_menu.core_visual().inner();
         let option_ty_path = TypePath::new(
-            db,
             core_option,
             db.it_ident_borrowed("Option").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Enum,
+            db,
         );
         let result_ty_path = TypePath::new(
-            db,
             core_result,
             db.it_ident_borrowed("Result").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Enum,
+            db,
         );
         let unit_ty_path = TypePath::new(
-            db,
             core_basic,
             ident_menu.unit_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let never_ty_path = TypePath::new(
-            db,
             core_basic,
             ident_menu.never_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let bool_ty_path = TypePath::new(
-            db,
             core_basic,
             ident_menu.bool_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let i8_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.i8_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let i16_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.i16_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let i32_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.i32_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let i64_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.i64_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let i128_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.i128_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let isize_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.isize_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let u8_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.u8_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let u16_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.u16_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let u32_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.u32_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let u64_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.u64_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let u128_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.u128_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let usize_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.usize_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let r8_ty_path = TypePath::new(
-            db,
             core_raw_bits,
             ident_menu.r8_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let r16_ty_path = TypePath::new(
-            db,
             core_raw_bits,
             ident_menu.r16_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let r32_ty_path = TypePath::new(
-            db,
             core_raw_bits,
             ident_menu.r32_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let r64_ty_path = TypePath::new(
-            db,
             core_raw_bits,
             ident_menu.r64_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let r128_ty_path = TypePath::new(
-            db,
             core_raw_bits,
             ident_menu.r128_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let rsize_ty_path = TypePath::new(
-            db,
             core_raw_bits,
             ident_menu.rsize_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let f32_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.f32_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let f64_ty_path = TypePath::new(
-            db,
             core_num,
             ident_menu.f64_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let lifetime_ty_path = TypePath::new(
-            db,
             core_basic,
             ident_menu.lifetime_ty_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let place_ty_path = TypePath::new(
-            db,
             core_basic,
             ident_menu.place_ty_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let module_ty_path = TypePath::new(
-            db,
             core_basic,
             ident_menu.module_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let html_ty_path = TypePath::new(
-            db,
             core_visual,
             db.it_ident_borrowed("Html").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let trai_ty_path = TypePath::new(
-            db,
             core_basic,
             ident_menu.trai_ty_ident(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let ref_ty_path = TypePath::new(
-            db,
             core_mem,
             db.it_ident_borrowed("Ref").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let ref_mut_ty_path = TypePath::new(
-            db,
             core_mem,
             db.it_ident_borrowed("RefMut").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let leash_ty_path = TypePath::new(
-            db,
             core_mem,
             db.it_ident_borrowed("Leash").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let at_ty_path = TypePath::new(
-            db,
             core_mem,
             db.it_ident_borrowed("At").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let vec_ty_path = TypePath::new(
-            db,
             core_vec,
             db.it_ident_borrowed("Vec").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let array_ty_path = TypePath::new(
-            db,
             core_array,
             db.it_ident_borrowed("Array").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let slice_ty_path = TypePath::new(
-            db,
             core_slice,
             db.it_ident_borrowed("Slice").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let cyclic_slice_leashed_ty_path = TypePath::new(
-            db,
             core_slice,
             db.it_ident_borrowed("CyclicSlice").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let string_literal_ty_path = TypePath::new(
-            db,
             core_str,
             db.it_ident_borrowed("StringLiteral").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let str_ty_path = TypePath::new(
-            db,
             core_str,
             db.it_ident_borrowed("str").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
+            db,
         );
         let core_ops_add_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("Add").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let add_assign_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("AddAssign").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let bit_and_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("BitAnd").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let bit_and_assign_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("BitAndAssign").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let bit_or_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("BitOr").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let core_ops_bit_or_assign_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("BitOrAssign").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let bit_xor_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("BitXor").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let bit_xor_assign_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("BitXorAssign").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let div_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("Div").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let div_assign_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("DivAssign").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let int_index_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("IntIndex").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let mul_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("Mul").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let mul_assign_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("MulAssign").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let neg_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("Neg").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let not_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("Not").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let unveil_trai_path = TraitPath::new(
-            db,
             core_ops,
             db.it_ident_borrowed("Unveil").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let clone_trai_path = TraitPath::new(
-            db,
             core_clone,
             db.it_ident_borrowed("Clone").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let copy_trai_path = TraitPath::new(
-            db,
             core_marker,
             db.it_ident_borrowed("Copy").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         let default_trai_path = TraitPath::new(
-            db,
             core_default,
             db.it_ident_borrowed("Default").unwrap(),
             MajorItemConnection::Connected,
+            db,
         );
         Self {
             unit_ty_path,

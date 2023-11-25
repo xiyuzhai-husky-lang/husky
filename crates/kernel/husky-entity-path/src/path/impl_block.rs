@@ -9,20 +9,45 @@ pub enum ImplBlockPath {
     TraitForTypeImplBlock(TraitForTypeImplBlockPath),
 }
 
-impl ImplBlockPath {
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[enum_class::from_variants]
+#[salsa::debug_with_db(db = EntityPathDb)]
+pub enum ImplBlockPathData {
+    TypeImplBlock(TypeImplBlockPathData),
+    TraitForTypeImplBlock(TraitForTypeImplBlockPathData),
+}
+
+impl ImplBlockPathData {
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
         match self {
-            ImplBlockPath::TypeImplBlock(path) => path.module_path(db),
-            ImplBlockPath::TraitForTypeImplBlock(path) => path.module_path(db),
+            ImplBlockPathData::TypeImplBlock(data) => data.module_path(),
+            ImplBlockPathData::TraitForTypeImplBlock(data) => data.module_path(),
         }
     }
 }
 
-#[salsa::interned(db = EntityPathDb, jar = EntityPathJar, constructor = new_inner)]
-pub struct TypeImplBlockPath {
-    pub module_path: ModulePath,
-    pub ty_path: TypePath,
-    pub disambiguator: u8,
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct TypeImplBlockPath(ItemPathId);
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct TypeImplBlockPathData {
+    module_path: ModulePath,
+    ty_path: TypePath,
+    disambiguator: u8,
+}
+
+impl TypeImplBlockPathData {
+    pub fn module_path(self) -> ModulePath {
+        self.module_path
+    }
+
+    pub fn ty_path(self) -> TypePath {
+        self.ty_path
+    }
+
+    pub fn disambiguator(self) -> u8 {
+        self.disambiguator
+    }
 }
 
 impl From<TypeImplBlockPath> for ItemPath {
@@ -38,25 +63,52 @@ impl TypeImplBlockPath {
         module_path: ModulePath,
         ty_path: TypePath,
     ) -> Self {
-        TypeImplBlockPath::new_inner(
+        TypeImplBlockPath(ItemPathId::new(
             db,
-            module_path,
-            ty_path,
-            registry.issue_disambiguitor(module_path, ImplBlockKind::Type { ty_path }),
-        )
-    }
-
-    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
-        self.module_path(db).toolchain(db)
+            ItemPathData::ImplBlock(ImplBlockPathData::TypeImplBlock(TypeImplBlockPathData {
+                module_path,
+                ty_path,
+                disambiguator: registry
+                    .issue_disambiguitor(module_path, ImplBlockKind::Type { ty_path }),
+            })),
+        ))
     }
 }
 
-#[salsa::interned(db = EntityPathDb, jar = EntityPathJar, constructor = new_inner)]
-pub struct TraitForTypeImplBlockPath {
-    pub module_path: ModulePath,
-    pub trai_path: TraitPath,
-    pub ty_sketch: TypeSketch,
-    pub disambiguator: u8,
+impl TypeImplBlockPathData {
+    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+        self.module_path.toolchain(db)
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::wrap_id(jar = EntityPathJar)]
+pub struct TraitForTypeImplBlockPath(ItemPathId);
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct TraitForTypeImplBlockPathData {
+    module_path: ModulePath,
+    trai_path: TraitPath,
+    ty_sketch: TypeSketch,
+    disambiguator: u8,
+}
+
+impl TraitForTypeImplBlockPathData {
+    pub fn module_path(self) -> ModulePath {
+        self.module_path
+    }
+
+    pub fn trai_path(self) -> TraitPath {
+        self.trai_path
+    }
+
+    pub fn ty_sketch(self) -> TypeSketch {
+        self.ty_sketch
+    }
+
+    pub fn disambiguator(self) -> u8 {
+        self.disambiguator
+    }
 }
 
 impl From<TraitForTypeImplBlockPath> for ItemPath {
@@ -81,19 +133,23 @@ impl TraitForTypeImplBlockPath {
         trai_path: TraitPath,
         ty_sketch: TypeSketch,
     ) -> Self {
-        TraitForTypeImplBlockPath::new_inner(
+        TraitForTypeImplBlockPath(ItemPathId::new(
             db,
-            module_path,
-            trai_path,
-            ty_sketch,
-            registry.issue_disambiguitor(
-                module_path,
-                ImplBlockKind::TraitForType {
-                    ty_sketch,
+            ItemPathData::ImplBlock(ImplBlockPathData::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPathData {
+                    module_path,
                     trai_path,
+                    ty_sketch,
+                    disambiguator: registry.issue_disambiguitor(
+                        module_path,
+                        ImplBlockKind::TraitForType {
+                            ty_sketch,
+                            trai_path,
+                        },
+                    ),
                 },
-            ),
-        )
+            )),
+        ))
     }
 
     pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
@@ -102,10 +158,12 @@ impl TraitForTypeImplBlockPath {
 }
 
 #[deprecated]
-#[salsa::interned(db = EntityPathDb, jar = EntityPathJar, constructor = new_inner)]
-pub struct IllFormedImplBlockPath {
-    pub module_path: ModulePath,
-    pub disambiguator: u8,
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct IllFormedImplBlockPath(ItemPathId);
+
+pub struct IllFormedImplBlockPathData {
+    module_path: ModulePath,
+    disambiguator: u8,
 }
 
 impl IllFormedImplBlockPath {
@@ -114,11 +172,12 @@ impl IllFormedImplBlockPath {
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
     ) -> Self {
-        IllFormedImplBlockPath::new_inner(
-            db,
-            module_path,
-            registry.issue_disambiguitor(module_path, ImplBlockKind::Err),
-        )
+        todo!()
+        // IllFormedImplBlockPath::new_inner(
+        //     db,
+        //     module_path,
+        //     registry.issue_disambiguitor(module_path, ImplBlockKind::Err),
+        // )
     }
 }
 

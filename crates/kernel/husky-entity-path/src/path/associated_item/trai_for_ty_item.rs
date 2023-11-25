@@ -1,10 +1,13 @@
 use super::*;
 
-#[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
-pub struct TraitForTypeItemPath {
-    pub impl_block: TraitForTypeImplBlockPath,
-    pub ident: Ident,
-    pub item_kind: TraitItemKind,
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct TraitForTypeItemPath(ItemPathId);
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct TraitForTypeItemPathData {
+    impl_block: TraitForTypeImplBlockPath,
+    ident: Ident,
+    item_kind: TraitItemKind,
 }
 
 impl From<TraitForTypeItemPath> for ItemPath {
@@ -36,12 +39,14 @@ impl TraitForTypeItemPath {
     ) -> std::fmt::Result {
         todo!()
     }
+}
 
+impl TraitForTypeItemPathData {
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
-        self.impl_block(db).module_path(db)
+        self.impl_block.module_path(db)
     }
 
     pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
-        self.impl_block(db).toolchain(db)
+        self.impl_block.toolchain(db)
     }
 }

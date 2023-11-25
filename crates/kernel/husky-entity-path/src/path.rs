@@ -1,16 +1,74 @@
 mod associated_item;
 mod attr;
 mod impl_block;
-mod module_item;
-mod variant;
+mod major_item;
+mod ty_variant;
+
+use enum_class::Room32;
 
 pub use self::associated_item::*;
 pub use self::attr::*;
 pub use self::impl_block::*;
-pub use self::module_item::*;
-pub use self::variant::*;
+pub use self::major_item::*;
+pub use self::ty_variant::*;
 
 use crate::*;
+
+#[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
+pub struct ItemPathId {
+    pub data: ItemPathData,
+}
+
+impl ItemPathId {
+    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+        todo!()
+    }
+
+    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+        todo!()
+    }
+
+    pub fn ident(self, db: &dyn EntityPathDb) -> Option<Ident> {
+        todo!()
+        // match self {
+        //     ItemPath::Submodule(path) => Some(path.ident(db)),
+        //     ItemPath::MajorItem(path) => Some(path.ident(db)),
+        //     ItemPath::AssociatedItem(path) => Some(path.ident(db)),
+        //     ItemPath::TypeVariant(path) => Some(path.ident(db)),
+        //     ItemPath::ImplBlock(_) => None,
+        //     ItemPath::Attr(_) => None,
+        // }
+    }
+
+    pub(crate) fn item_kind(self, db: &dyn EntityPathDb) -> EntityKind {
+        todo!()
+        // EntityKind::AssociatedItem {
+        //     associated_item_kind: match self {
+        //         AssociatedItemPath::TypeItem(path) => {
+        //             AssociatedItemKind::TypeItem(path.item_kind(db))
+        //         }
+
+        //         AssociatedItemPath::TraitItem(path) => {
+        //             AssociatedItemKind::TraitItem(path.item_kind(db))
+        //         }
+        //         AssociatedItemPath::TraitForTypeItem(path) => {
+        //             AssociatedItemKind::TraitForTypeItem(path.item_kind(db))
+        //         }
+        //     },
+        // }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[enum_class::from_variants]
+pub enum ItemPathData {
+    Submodule(SubmodulePath),
+    MajorItem(MajorItemPathData),
+    AssociatedItem(AssociatedItemPathData),
+    TypeVariant(TypeVariantPathData),
+    ImplBlock(ImplBlockPathData),
+    Attr(AttrPathData),
+}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = EntityPathDb)]
@@ -19,9 +77,9 @@ pub enum EntityPath {
     Module(ModulePath),
     MajorItem(MajorItemPath),
     AssociatedItem(AssociatedItemPath),
-    TypeVariant(TypeVariantPath),
+    TypeVariant(Room32, TypeVariantPath),
     ImplBlock(ImplBlockPath),
-    Attr(AttrPath),
+    Attr(Room32, AttrPath),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -39,10 +97,10 @@ impl EntityPath {
         match self {
             EntityPath::Module(path) => Some(path.ident(db)),
             EntityPath::MajorItem(path) => Some(path.ident(db)),
-            EntityPath::AssociatedItem(path) => Some(path.ident(db)),
-            EntityPath::TypeVariant(path) => Some(path.ident(db)),
+            EntityPath::AssociatedItem(path) => path.ident(db),
+            EntityPath::TypeVariant(_, path) => path.ident(db),
             EntityPath::ImplBlock(_) => None,
-            EntityPath::Attr(_) => None,
+            EntityPath::Attr(_, _) => None,
         }
     }
 
@@ -62,9 +120,9 @@ impl EntityPath {
             EntityPath::Module(path) => path,
             EntityPath::MajorItem(path) => path.module_path(db),
             EntityPath::AssociatedItem(path) => path.module_path(db),
-            EntityPath::TypeVariant(path) => path.module_path(db),
+            EntityPath::TypeVariant(_, path) => path.module_path(db),
             EntityPath::ImplBlock(path) => path.module_path(db),
-            EntityPath::Attr(_) => todo!(),
+            EntityPath::Attr(_, _) => todo!(),
         }
     }
 
@@ -81,9 +139,9 @@ impl EntityPath {
             EntityPath::Module(_path) => EntityKind::Module,
             EntityPath::MajorItem(path) => path.item_kind(db),
             EntityPath::AssociatedItem(path) => path.item_kind(db),
-            EntityPath::TypeVariant(_) => EntityKind::TypeVariant,
+            EntityPath::TypeVariant(_, _) => EntityKind::TypeVariant,
             EntityPath::ImplBlock(_) => EntityKind::ImplBlock,
-            EntityPath::Attr(_) => todo!(),
+            EntityPath::Attr(_, _) => todo!(),
         }
     }
 
@@ -93,7 +151,7 @@ impl EntityPath {
             EntityPath::Module(path) => Some(path.into()),
             EntityPath::MajorItem(path) => Some(path.into()),
             EntityPath::AssociatedItem(_)
-            | EntityPath::TypeVariant(_)
+            | EntityPath::TypeVariant(_, _)
             | EntityPath::ImplBlock(_) => None,
             EntityPath::Attr(_) => todo!(),
         }
@@ -122,12 +180,20 @@ impl From<TraitPath> for EntityPath {
 #[salsa::debug_with_db(db = EntityPathDb)]
 #[enum_class::from_variants]
 pub enum ItemPath {
-    Submodule(SubmodulePath),
+    Submodule(Room32, SubmodulePath),
     MajorItem(MajorItemPath),
     AssociatedItem(AssociatedItemPath),
-    TypeVariant(TypeVariantPath),
+    TypeVariant(Room32, TypeVariantPath),
     ImplBlock(ImplBlockPath),
-    Attr(AttrPath),
+    Attr(Room32, AttrPath),
+}
+
+#[test]
+fn item_path_size_works() {
+    assert_eq!(
+        std::mem::size_of::<ItemPath>(),
+        std::mem::size_of::<[u32; 3]>()
+    )
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -139,17 +205,6 @@ pub enum PatternPath {
 }
 
 impl ItemPath {
-    pub fn ident(self, db: &dyn EntityPathDb) -> Option<Ident> {
-        match self {
-            ItemPath::Submodule(path) => Some(path.ident(db)),
-            ItemPath::MajorItem(path) => Some(path.ident(db)),
-            ItemPath::AssociatedItem(path) => Some(path.ident(db)),
-            ItemPath::TypeVariant(path) => Some(path.ident(db)),
-            ItemPath::ImplBlock(_) => None,
-            ItemPath::Attr(_) => None,
-        }
-    }
-
     pub fn module_item_path(self) -> Option<MajorItemPath> {
         match self {
             ItemPath::MajorItem(module_item_path) => Some(module_item_path),
@@ -166,9 +221,9 @@ impl ItemPath {
             ItemPath::Submodule(path) => path.inner(),
             ItemPath::MajorItem(path) => path.module_path(db),
             ItemPath::AssociatedItem(path) => path.module_path(db),
-            ItemPath::TypeVariant(path) => path.module_path(db),
-            ItemPath::ImplBlock(path) => path.module_path(db),
-            ItemPath::Attr(path) => path.module_path(db),
+            ItemPath::TypeVariant(_, path) => path.module_path(db),
+            ItemPath::ImplBlock(_, path) => path.module_path(db),
+            ItemPath::Attr(_, path) => path.module_path(db),
         }
     }
 
@@ -182,24 +237,24 @@ impl ItemPath {
 
     pub fn item_kind(self, db: &dyn EntityPathDb) -> EntityKind {
         match self {
-            ItemPath::Submodule(_path) => EntityKind::Module,
+            ItemPath::Submodule(_, _path) => EntityKind::Module,
             ItemPath::MajorItem(path) => path.item_kind(db),
             ItemPath::AssociatedItem(path) => path.item_kind(db),
-            ItemPath::TypeVariant(_) => EntityKind::TypeVariant,
-            ItemPath::ImplBlock(_) => EntityKind::ImplBlock,
-            ItemPath::Attr(_) => EntityKind::Attr,
+            ItemPath::TypeVariant(_, _) => EntityKind::TypeVariant,
+            ItemPath::ImplBlock(_, _) => EntityKind::ImplBlock,
+            ItemPath::Attr(_, _) => EntityKind::Attr,
         }
     }
 
     #[inline(always)]
     pub fn major(self) -> Option<MajorEntityPath> {
         match self {
-            ItemPath::Submodule(path) => Some(path.inner().into()),
+            ItemPath::Submodule(_, path) => Some(path.inner().into()),
             ItemPath::MajorItem(path) => Some(path.into()),
             ItemPath::AssociatedItem(_)
-            | ItemPath::TypeVariant(_)
-            | ItemPath::ImplBlock(_)
-            | ItemPath::Attr(_) => None,
+            | ItemPath::TypeVariant(_, _)
+            | ItemPath::ImplBlock(_, _)
+            | ItemPath::Attr(_, _) => None,
         }
     }
 }
@@ -216,12 +271,12 @@ where
     ) -> std::fmt::Result {
         let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
         match self {
-            ItemPath::Submodule(path) => path.display_with_db_fmt(f, db, level),
+            ItemPath::Submodule(_, path) => path.display_with_db_fmt(f, db, level),
             ItemPath::MajorItem(path) => path.display_with_db_fmt(f, db, level),
             ItemPath::AssociatedItem(path) => path.display_with_db_fmt(f, db, level),
-            ItemPath::TypeVariant(path) => path.display_with_db_fmt(f, db, level),
-            ItemPath::ImplBlock(_) => todo!(),
-            ItemPath::Attr(_) => todo!(),
+            ItemPath::TypeVariant(_, path) => path.display_with_db_fmt(f, db, level),
+            ItemPath::ImplBlock(_, path) => todo!(),
+            ItemPath::Attr(_, _) => todo!(),
         }
     }
 }

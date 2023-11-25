@@ -17,39 +17,21 @@ pub enum AssociatedItemPath {
     TraitForTypeItem(TraitForTypeItemPath),
 }
 
-impl AssociatedItemPath {
-    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
-        match self {
-            AssociatedItemPath::TypeItem(path) => path.ident(db),
-            AssociatedItemPath::TraitItem(path) => path.ident(db),
-            AssociatedItemPath::TraitForTypeItem(path) => path.ident(db),
-        }
-    }
+impl std::ops::Deref for AssociatedItemPath {
+    type Target = ItemPathId;
 
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
-        match self {
-            AssociatedItemPath::TypeItem(path) => path.module_path(db),
-            AssociatedItemPath::TraitItem(path) => path.module_path(db),
-            AssociatedItemPath::TraitForTypeItem(path) => path.module_path(db),
-        }
+    fn deref(&self) -> &Self::Target {
+        unsafe { &std::mem::transmute::<_, &(u32, ItemPathId)>(self).1 }
     }
+}
 
-    pub(crate) fn item_kind(self, db: &dyn EntityPathDb) -> EntityKind {
-        EntityKind::AssociatedItem {
-            associated_item_kind: match self {
-                AssociatedItemPath::TypeItem(path) => {
-                    AssociatedItemKind::TypeItem(path.item_kind(db))
-                }
-
-                AssociatedItemPath::TraitItem(path) => {
-                    AssociatedItemKind::TraitItem(path.item_kind(db))
-                }
-                AssociatedItemPath::TraitForTypeItem(path) => {
-                    AssociatedItemKind::TraitForTypeItem(path.item_kind(db))
-                }
-            },
-        }
-    }
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = EntityPathDb)]
+#[enum_class::from_variants]
+pub enum AssociatedItemPathData {
+    TypeItem(TypeItemPathData),
+    TraitItem(TraitItemPathData),
+    TraitForTypeItem(TraitForTypeItemPathData),
 }
 
 impl From<TraitItemPath> for ItemPath {

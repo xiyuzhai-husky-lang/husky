@@ -12,9 +12,8 @@ pub struct TestDb {
 }
 
 impl TestDb {
-    pub fn new(
-        initialize_jars: impl FnOnce(&mut <Self as HasJars>::Jars, &mut Routes<Self>),
-    ) -> Self {
+    /// here we use fn instead of impl FnOnce to save compilation time
+    pub fn new(initialize_jars: fn(&mut <Self as HasJars>::Jars, &mut Routes<Self>)) -> Self {
         Self {
             storage: crate::Storage::new(initialize_jars),
         }
@@ -134,14 +133,6 @@ impl HasJars for TestDb {
         self.storage.jars_mut()
     }
 }
-
-// fn initialize_jars(jars: &mut Self::Jars, routes: &mut crate::routes::Routes<Self>) {
-//     // just fill with zeros
-//     *jars = TestJars {
-//         map: EnumFullMap::new(|_| None),
-//     };
-//     // it's left for wrappers to complete the initialization
-// }
 
 impl HasJarsDyn for TestDb {
     fn runtime(&self) -> &crate::Runtime {
