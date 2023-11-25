@@ -24,6 +24,10 @@ impl ItemPathId {
         todo!()
     }
 
+    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
+        todo!()
+    }
+
     pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
         todo!()
     }
@@ -82,16 +86,6 @@ pub enum EntityPath {
     Attr(Room32, AttrPath),
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
-#[enum_class::from_variants]
-pub enum IdentifiableEntityPath {
-    Module(ModulePath),
-    MajorItem(MajorItemPath),
-    AssociatedItem(AssociatedItemPath),
-    TypeVariant(TypeVariantPath),
-}
-
 impl EntityPath {
     pub fn ident(self, db: &dyn EntityPathDb) -> Option<Ident> {
         match self {
@@ -115,19 +109,15 @@ impl EntityPath {
         self.module_item_path()?.ty_path()
     }
 
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
-        match self {
-            EntityPath::Module(path) => path,
-            EntityPath::MajorItem(path) => path.module_path(db),
-            EntityPath::AssociatedItem(path) => path.module_path(db),
-            EntityPath::TypeVariant(_, path) => path.module_path(db),
-            EntityPath::ImplBlock(path) => path.module_path(db),
-            EntityPath::Attr(_, _) => todo!(),
-        }
-    }
-
     pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
-        self.module_path(db).crate_path(db)
+        match self {
+            EntityPath::Module(path) => path.crate_path(db),
+            EntityPath::MajorItem(path) => path.crate_path(db),
+            EntityPath::AssociatedItem(path) => path.crate_path(db),
+            EntityPath::TypeVariant(_, path) => path.crate_path(db),
+            EntityPath::ImplBlock(path) => path.crate_path(db),
+            EntityPath::Attr(_, path) => path.crate_path(db),
+        }
     }
 
     pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
@@ -179,6 +169,16 @@ impl From<TraitPath> for EntityPath {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = EntityPathDb)]
 #[enum_class::from_variants]
+pub enum IdentifiableEntityPath {
+    Module(ModulePath),
+    MajorItem(MajorItemPath),
+    AssociatedItem(AssociatedItemPath),
+    TypeVariant(TypeVariantPath),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db(db = EntityPathDb)]
+#[enum_class::from_variants]
 pub enum ItemPath {
     Submodule(Room32, SubmodulePath),
     MajorItem(MajorItemPath),
@@ -196,12 +196,12 @@ fn item_path_size_works() {
     )
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
-#[enum_class::from_variants]
-pub enum PatternPath {
-    Type(TypePath),
-    TypeVariant(TypeVariantPath),
+impl std::ops::Deref for ItemPath {
+    type Target = ItemPathId;
+
+    fn deref(&self) -> &Self::Target {
+        unsafe { &std::mem::transmute::<_, &((u32, u32), ItemPathId)>(self).1 }
+    }
 }
 
 impl ItemPath {
@@ -216,36 +216,6 @@ impl ItemPath {
         self.module_item_path()?.ty_path()
     }
 
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
-        match self {
-            ItemPath::Submodule(path) => path.inner(),
-            ItemPath::MajorItem(path) => path.module_path(db),
-            ItemPath::AssociatedItem(path) => path.module_path(db),
-            ItemPath::TypeVariant(_, path) => path.module_path(db),
-            ItemPath::ImplBlock(_, path) => path.module_path(db),
-            ItemPath::Attr(_, path) => path.module_path(db),
-        }
-    }
-
-    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
-        self.module_path(db).crate_path(db)
-    }
-
-    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
-        self.crate_path(db).toolchain(db)
-    }
-
-    pub fn item_kind(self, db: &dyn EntityPathDb) -> EntityKind {
-        match self {
-            ItemPath::Submodule(_, _path) => EntityKind::Module,
-            ItemPath::MajorItem(path) => path.item_kind(db),
-            ItemPath::AssociatedItem(path) => path.item_kind(db),
-            ItemPath::TypeVariant(_, _) => EntityKind::TypeVariant,
-            ItemPath::ImplBlock(_, _) => EntityKind::ImplBlock,
-            ItemPath::Attr(_, _) => EntityKind::Attr,
-        }
-    }
-
     #[inline(always)]
     pub fn major(self) -> Option<MajorEntityPath> {
         match self {
@@ -253,7 +223,7 @@ impl ItemPath {
             ItemPath::MajorItem(path) => Some(path.into()),
             ItemPath::AssociatedItem(_)
             | ItemPath::TypeVariant(_, _)
-            | ItemPath::ImplBlock(_, _)
+            | ItemPath::ImplBlock(_)
             | ItemPath::Attr(_, _) => None,
         }
     }
@@ -275,7 +245,7 @@ where
             ItemPath::MajorItem(path) => path.display_with_db_fmt(f, db, level),
             ItemPath::AssociatedItem(path) => path.display_with_db_fmt(f, db, level),
             ItemPath::TypeVariant(_, path) => path.display_with_db_fmt(f, db, level),
-            ItemPath::ImplBlock(_, path) => todo!(),
+            ItemPath::ImplBlock(path) => todo!(),
             ItemPath::Attr(_, _) => todo!(),
         }
     }
@@ -297,6 +267,14 @@ impl From<TraitPath> for ItemPath {
     fn from(v: TraitPath) -> Self {
         ItemPath::MajorItem(v.into())
     }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db(db = EntityPathDb)]
+#[enum_class::from_variants]
+pub enum PatternPath {
+    Type(TypePath),
+    TypeVariant(TypeVariantPath),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

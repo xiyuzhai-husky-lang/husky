@@ -19,7 +19,6 @@ mod toolchain;
 mod watch;
 
 pub use self::cache::VfsCache;
-pub use self::file::Notebook;
 #[cfg(feature = "lsp_support")]
 pub use self::lsp_support::*;
 pub use self::path::*;

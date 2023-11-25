@@ -9,6 +9,22 @@ pub enum ImplBlockPath {
     TraitForTypeImplBlock(TraitForTypeImplBlockPath),
 }
 
+#[test]
+fn item_path_size_works() {
+    assert_eq!(
+        std::mem::size_of::<ImplBlockPath>(),
+        std::mem::size_of::<[u32; 2]>()
+    )
+}
+
+impl std::ops::Deref for ImplBlockPath {
+    type Target = ItemPathId;
+
+    fn deref(&self) -> &Self::Target {
+        unsafe { &std::mem::transmute::<_, &(u32, ItemPathId)>(self).1 }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 #[salsa::debug_with_db(db = EntityPathDb)]
