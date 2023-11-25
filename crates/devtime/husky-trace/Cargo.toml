@@ -20,8 +20,9 @@ husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 husky-hir-decl = { path = "../../hir/husky-hir-decl" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
 # ide
-husky-semantic-token = { path = "../../ide/husky-semantic-token" }
-husky-token-info = { path = "../../ide/husky-token-info" }
+husky-token-info = { path = "../../ide/husky-token-info", features = [
+    "protocol_support"
+] }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
@@ -48,7 +49,6 @@ husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-sync-utils = { path = "../../utils/husky-sync-utils" }
 
 [dev-dependencies]
 # hir

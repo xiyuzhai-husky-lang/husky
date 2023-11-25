@@ -2,40 +2,20 @@ use husky_hir_lazy_expr::{HirLazyCallListItemGroup, HirLazyExprIdx};
 
 use super::*;
 
-#[salsa::interned(db = TraceDb, jar = TraceJar)]
-pub struct LazyCallInputTracePath {
-    pub biological_parent_path: LazyCallInputTraceBiologicalParentPath,
-    #[return_ref]
-    pub data: LazyCallInputTracePathData,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[enum_class::from_variants]
-pub enum LazyCallInputTraceBiologicalParentPath {
-    LazyExpr(LazyExprTracePath),
-}
-
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum LazyCallInputTracePathData {
-    Haha,
-}
-
-#[salsa::tracked(db = TraceDb, jar = TraceJar, constructor = new_inner)]
-pub struct LazyCallInputTrace {
-    #[id]
-    pub path: LazyCallInputTracePath,
-    pub biological_parent: LazyCallInputTraceBiologicalParent,
-    pub data: LazyCallInputTraceData,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[enum_class::from_variants]
-pub enum LazyCallInputTraceBiologicalParent {
-    LazyExpr(LazyExprTrace),
+pub struct LazyCallInputTracePathData {
+    biological_parent_path: TracePath,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum LazyCallInputTraceData {
+pub struct LazyCallInputTraceData {
+    path: TracePath,
+    biological_parent: Trace,
+    input_sketch: LazyCallInputSketch,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+pub enum LazyCallInputSketch {
     Regular {
         sema_expr_idx: SemaExprIdx,
         hir_lazy_expr_idx: Option<HirLazyExprIdx>,
@@ -44,38 +24,28 @@ pub enum LazyCallInputTraceData {
     Keyed,
 }
 
-impl LazyCallInputTrace {
-    pub(crate) fn new(
-        biological_parent_path: impl Into<LazyCallInputTraceBiologicalParentPath>,
-        biological_parent: impl Into<LazyCallInputTraceBiologicalParent>,
-        data: LazyCallInputTraceData,
+impl Trace {
+    pub(crate) fn new_lazy_call_input(
+        biological_parent_path: TracePath,
+        biological_parent: Trace,
+        input_sketch: LazyCallInputSketch,
         db: &dyn TraceDb,
     ) -> Self {
-        Self::new_inner(
+        let path = TracePath::new(
+            LazyCallInputTracePathData {
+                biological_parent_path: biological_parent_path.into(),
+            },
             db,
-            LazyCallInputTracePath::new(
-                db,
-                biological_parent_path.into(),
-                LazyCallInputTracePathData::Haha,
-            ),
-            biological_parent.into(),
-            data,
+        );
+        Trace::new(
+            path,
+            LazyCallInputTraceData {
+                path,
+                biological_parent: biological_parent.into(),
+                input_sketch,
+            }
+            .into(),
+            db,
         )
-    }
-
-    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
-        todo!()
-    }
-
-    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
-        todo!()
-    }
-
-    pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
-        todo!()
-    }
-
-    pub fn val_repr(self, _db: &dyn TraceDb) -> ValRepr {
-        todo!()
     }
 }

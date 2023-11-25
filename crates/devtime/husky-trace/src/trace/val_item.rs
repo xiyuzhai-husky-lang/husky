@@ -1,104 +1,104 @@
+use super::*;
+use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 use husky_hir_defn::HasHirDefn;
 use husky_sema_expr::{helpers::analysis::sema_expr_region_contains_gn, SemaExprData};
-
 use husky_syn_defn::{FugitiveSynDefn, HasSynDefn};
 
-use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
-
-use super::*;
-
-#[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new)]
-pub struct ValItemTracePath {
-    // todo: make it like submodule trace path??
-    pub val_item_path: FugitivePath,
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub struct ValItemTracePathData {
+    val_item_path: FugitivePath,
 }
 
-#[salsa::tracked(db = TraceDb, jar = TraceJar, constructor = new)]
-pub struct ValItemTrace {
-    #[id]
-    pub path: ValItemTracePath,
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct ValItemTraceData {
+    path: TracePath,
+    val_item_path: FugitivePath,
 }
 
-impl ValItemTrace {
+impl Trace {
     pub fn from_val_item_path(val_item_path: FugitivePath, db: &dyn TraceDb) -> Self {
         debug_assert_eq!(val_item_path.fugitive_kind(db), FugitiveKind::Val);
-        ValItemTrace::new(db, ValItemTracePath::new(db, val_item_path))
+        let path = TracePath::new(ValItemTracePathData { val_item_path }, db);
+        Trace::new(
+            path,
+            ValItemTraceData {
+                path,
+                val_item_path,
+            }
+            .into(),
+            db,
+        )
+    }
+}
+
+impl ValItemTraceData {
+    pub(super) fn view_lines(&self, db: &dyn TraceDb) -> TraceViewLines {
+        use husky_entity_syn_tree::helpers::tokra_region::HasDeclTokraRegion;
+        use husky_entity_syn_tree::HasSynNodePath;
+        let val_item_path = self.val_item_path;
+        let token_idx_range = val_item_path
+            .syn_node_path(db)
+            .decl_tokra_region_token_idx_range(db);
+        TraceViewLines::new(
+            val_item_path.module_path(db),
+            token_idx_range,
+            VoidAssociatedTraceRegistry,
+            db,
+        )
     }
 
-    pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
-        val_item_trace_view_lines(db, self)
-    }
-
-    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
+    pub(super) fn have_subtraces(self, db: &dyn TraceDb) -> bool {
         // ad hoc, incorrect
-        self.path(db).val_item_path(db).hir_defn(db).is_some()
+        self.val_item_path.hir_defn(db).is_some()
     }
 
-    pub fn subtraces(self, db: &dyn TraceDb) -> &[Trace] {
-        val_item_trace_subtraces(db, self)
+    pub(super) fn subtraces(&self, trace: Trace, db: &dyn TraceDb) -> Vec<Trace> {
+        let biological_parent_path = self.path;
+        let biological_parent = trace;
+        let val_item_path = self.val_item_path;
+        let Ok(FugitiveSynDefn::Val(val_item_defn)) = val_item_path.syn_defn(db) else {
+            unreachable!("no error at trace stage")
+        };
+        let Some((body, syn_expr_region)) = val_item_defn.body_with_syn_expr_region(db) else {
+            return vec![];
+        };
+        let sema_expr_region = db.sema_expr_region(syn_expr_region);
+        let sema_expr_region_data = sema_expr_region.data(db);
+        let body: SemaExprIdx = sema_expr_region_data.syn_root_to_sema_expr_idx(body);
+        let sema_expr_arena = sema_expr_region_data.sema_expr_arena();
+        match sema_expr_region_contains_gn(db, sema_expr_region) {
+            true => match body.data(sema_expr_arena) {
+                &SemaExprData::Block { stmts } => Trace::new_lazy_stmts(
+                    biological_parent_path,
+                    biological_parent,
+                    stmts,
+                    sema_expr_region,
+                    db,
+                ),
+                _ => todo!(),
+            },
+            false => match body.data(sema_expr_arena) {
+                &SemaExprData::Block { stmts } => Trace::new_eager_stmts(
+                    biological_parent_path,
+                    biological_parent,
+                    stmts,
+                    sema_expr_region,
+                    db,
+                ),
+                _ => todo!(),
+            },
+        }
     }
 
-    pub fn val_repr(self, db: &dyn TraceDb) -> ValRepr {
-        val_item_trace_val_repr(db, self)
+    pub(super) fn val_repr(&self, db: &dyn TraceDb) -> ValRepr {
+        ValRepr::new_val_item(self.val_item_path, db)
     }
-}
 
-#[salsa::tracked(jar = TraceJar, return_ref)]
-fn val_item_trace_view_lines(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> TraceViewLines {
-    use husky_entity_syn_tree::helpers::tokra_region::HasDeclTokraRegion;
-    use husky_entity_syn_tree::HasSynNodePath;
-    let val_item_trace_path = val_item_trace.path(db);
-    let val_item_path = val_item_trace_path.val_item_path(db);
-    let token_idx_range = val_item_path
-        .syn_node_path(db)
-        .decl_tokra_region_token_idx_range(db);
-    TraceViewLines::new(
-        val_item_path.module_path(db),
-        token_idx_range,
-        VoidAssociatedTraceRegistry,
-        db,
-    )
-}
-
-#[salsa::tracked(jar = TraceJar, return_ref)]
-fn val_item_trace_subtraces(db: &dyn TraceDb, val_item_trace: ValItemTrace) -> Vec<Trace> {
-    let val_item_trace_path = val_item_trace.path(db);
-    let val_item_path = val_item_trace_path.val_item_path(db);
-    let Ok(FugitiveSynDefn::Val(val_item_defn)) = val_item_path.syn_defn(db) else {
-        unreachable!("no error at trace stage")
-    };
-    let Some((body, syn_expr_region)) = val_item_defn.body_with_syn_expr_region(db) else {
-        return vec![];
-    };
-    let sema_expr_region = db.sema_expr_region(syn_expr_region);
-    let sema_expr_region_data = sema_expr_region.data(db);
-    let body: SemaExprIdx = sema_expr_region_data.syn_root_to_sema_expr_idx(body);
-    let sema_expr_arena = sema_expr_region_data.sema_expr_arena();
-    match sema_expr_region_contains_gn(db, sema_expr_region) {
-        true => match body.data(sema_expr_arena) {
-            &SemaExprData::Block { stmts } => LazyStmtTrace::from_stmts(
-                val_item_trace_path,
-                val_item_trace,
-                stmts,
-                sema_expr_region,
-                db,
-            ),
-            _ => todo!(),
-        },
-        false => match body.data(sema_expr_arena) {
-            &SemaExprData::Block { stmts } => EagerStmtTrace::from_stmts(
-                val_item_trace_path,
-                val_item_trace,
-                stmts,
-                sema_expr_region,
-                db,
-            ),
-            _ => todo!(),
-        },
+    pub(super) fn val_repr_expansion(&self, trace_id: Trace, db: &dyn TraceDb) -> ValReprExpansion {
+        trace_id
+            .val_repr(db)
+            .expect("should be some")
+            .expansion(db)
+            .expect("should be some")
     }
-}
-
-#[salsa::tracked(jar = TraceJar)]
-fn val_item_trace_val_repr(db: &dyn TraceDb, trace: ValItemTrace) -> ValRepr {
-    ValRepr::new_val_item(trace.path(db).val_item_path(db), db)
 }

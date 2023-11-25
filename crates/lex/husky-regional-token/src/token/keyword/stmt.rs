@@ -281,7 +281,7 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = TokenDb)]
 pub struct ElifRegionalToken {
     regional_token_idx: RegionalTokenIdx,

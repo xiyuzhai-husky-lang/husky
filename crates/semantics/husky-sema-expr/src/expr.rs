@@ -340,7 +340,7 @@ impl<'a> std::ops::Index<SemaExprIdx> for SemaExprArenaRef<'a> {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct SemaExprIdx(ArenaIdx<SemaExprEntry>);
 
 impl SemaExprIdx {

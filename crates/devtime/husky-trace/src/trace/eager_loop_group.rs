@@ -1,7 +1,7 @@
 use super::*;
 
-#[salsa::interned(db = TraceDb, jar = TraceJar)]
-pub struct EagerLoopGroupTracePath {}
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct EagerLoopGroupTracePath(TracePath);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EagerLoopGroupTraceBiologicalParent {
@@ -15,14 +15,17 @@ impl EagerLoopGroupTracePath {
     }
 }
 
-#[salsa::tracked(db = TraceDb, jar = TraceJar)]
-pub struct EagerLoopGroupTrace {
-    #[id]
-    pub path: EagerLoopGroupTracePath,
-    pub biological_parent: EagerLoopGroupTraceBiologicalParent,
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct EagerLoopGroupTrace(Trace);
+
+#[cfg_attr(debug_assertions, salsa::debug_with_db(db = TraceDb))]
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct EagerLoopGroupTraceData {
+    path: EagerLoopGroupTracePath,
+    biological_parent: EagerLoopGroupTraceBiologicalParent,
 }
 
-impl EagerLoopGroupTrace {
+impl EagerLoopGroupTraceData {
     pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
         todo!()
     }
