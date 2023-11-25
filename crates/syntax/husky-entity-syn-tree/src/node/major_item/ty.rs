@@ -78,7 +78,7 @@ fn ty_node(db: &dyn EntitySynTreeDb, syn_node_path: TypeSynNodePath) -> MajorIte
 }
 
 impl HasAttrPaths for TypePath {
-    type AttrPath = AttrPath;
+    type AttrPath = AttrItemPath;
 
     fn attr_paths(self, db: &dyn EntitySynTreeDb) -> &[Self::AttrPath] {
         ty_attr_paths(db, self)
@@ -109,7 +109,7 @@ fn ty_attrs(
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-fn ty_attr_paths(db: &dyn EntitySynTreeDb, path: TypePath) -> SmallVec<[AttrPath; 2]> {
+fn ty_attr_paths(db: &dyn EntitySynTreeDb, path: TypePath) -> SmallVec<[AttrItemPath; 2]> {
     path.syn_node_path(db)
         .attr_syn_nodes(db)
         .iter()

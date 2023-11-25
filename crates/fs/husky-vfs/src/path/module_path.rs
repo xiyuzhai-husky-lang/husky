@@ -43,7 +43,8 @@ where
 /// wrapper type that guarantees that the inner field is a submodule
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = VfsDb)]
-#[salsa::wrap_id(jar = VfsJar)]
+#[salsa::as_id(jar = VfsJar)]
+#[salsa::deref_id]
 pub struct SubmodulePath(ModulePath);
 
 impl SubmodulePath {
@@ -250,6 +251,21 @@ where
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
         self.show_aux(f, db)
+    }
+}
+
+impl<Db> salsa::DisplayWithDb<Db> for SubmodulePath
+where
+    Db: VfsDb + ?Sized,
+{
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        _level: salsa::DisplayFormatLevel,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+        self.inner().show_aux(f, db)
     }
 }
 

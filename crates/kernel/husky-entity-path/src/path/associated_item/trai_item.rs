@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::as_id(jar = EntityPathJar)]
 pub struct TraitItemPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -8,16 +9,6 @@ pub struct TraitItemPathData {
     trai_path: TraitPath,
     ident: Ident,
     item_kind: TraitItemKind,
-}
-
-impl TraitItemPath {
-    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
-        self.trai_path(db).toolchain(db)
-    }
-
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
-        self.trai_path(db).module_path(db)
-    }
 }
 
 impl<Db> salsa::DisplayWithDb<Db> for TraitItemPath

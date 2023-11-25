@@ -11,7 +11,7 @@ pub enum AttrHirDecl {
 }
 
 impl AttrHirDecl {
-    pub fn path(self, db: &dyn HirDeclDb) -> AttrPath {
+    pub fn path(self, db: &dyn HirDeclDb) -> AttrItemPath {
         match self {
             AttrHirDecl::Derive(hir_decl) => hir_decl.path(db),
         }

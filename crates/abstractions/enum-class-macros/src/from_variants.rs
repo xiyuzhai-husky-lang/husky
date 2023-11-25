@@ -24,9 +24,6 @@ fn enum_from_variant_impls(item: &ItemEnum) -> proc_macro2::TokenStream {
     item.variants
         .iter()
         .filter_map(|variant| -> Option<proc_macro2::TokenStream> {
-            if variant.fields.len() != 1 {
-                return None;
-            }
             match variant.fields {
                 syn::Fields::Unnamed(ref fields) => {
                     enum_from_variant_impl(&item.generics, ty_ident, &variant.ident, fields)
@@ -57,21 +54,26 @@ fn enum_from_variant_impl(
         let Type::Path(ref ty_path) = fields.unnamed[0].ty else {
             return None;
         };
-        if ty_path.path.get_ident()? == "Room32" {
-            let last_field_ty = fields.unnamed.last().unwrap();
-            let defaults: proc_macro2::TokenStream = (0..(fields.unnamed.len() - 1))
-                .into_iter()
-                .map(|_| quote! { Default::default(), })
-                .collect();
-            Some(quote! {
-                impl #generics From<#last_field_ty> for #ty_ident #generics {
-                    fn from(value: #last_field_ty) -> Self {
-                        #ty_ident::#variant_ident(#defaults value)
-                    }
+        match ty_path.path.get_ident() {
+            Some(ty_path_ident) => {
+                if ty_path_ident == "Room32" {
+                    let last_field_ty = fields.unnamed.last().unwrap();
+                    let defaults: proc_macro2::TokenStream = (0..(fields.unnamed.len() - 1))
+                        .into_iter()
+                        .map(|_| quote! { Default::default(), })
+                        .collect();
+                    Some(quote! {
+                        impl #generics From<#last_field_ty> for #ty_ident #generics {
+                            fn from(value: #last_field_ty) -> Self {
+                                #ty_ident::#variant_ident(#defaults value)
+                            }
+                        }
+                    })
+                } else {
+                    None
                 }
-            })
-        } else {
-            None
+            }
+            None => None,
         }
     }
 }

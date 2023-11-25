@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_path::{AttrPath, AttrRegistry};
+use husky_entity_path::{AttrItemPath, AttrRegistry};
 
 impl AstSheet {
     // todo: needs testing
@@ -8,7 +8,7 @@ impl AstSheet {
         &self,
         parent: ItemPath,
         attr_parent_ast_idx: AstIdx,
-        mut f: impl FnMut(AstIdx, TokenGroupIdx, AttrPath) -> D,
+        mut f: impl FnMut(AstIdx, TokenGroupIdx, AttrItemPath) -> D,
         db: &dyn AstDb,
     ) -> smallvec::SmallVec<A> {
         let mut registry = AttrRegistry::new(parent);

@@ -5,13 +5,13 @@ use super::*;
 #[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct AttrSynNodePath {
     pub parent_syn_node_path: ItemSynNodePath,
-    maybe_ambiguous_path: MaybeAmbiguousPath<AttrPath>,
+    maybe_ambiguous_path: MaybeAmbiguousPath<AttrItemPath>,
 }
 
 impl AttrSynNodePath {
     fn new(
         parent_syn_node_path: ItemSynNodePath,
-        path: AttrPath,
+        path: AttrItemPath,
         registry: &mut ItemSynNodePathRegistry,
         db: &dyn EntitySynTreeDb,
     ) -> Self {
@@ -22,7 +22,7 @@ impl AttrSynNodePath {
         )
     }
 
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<AttrPath> {
+    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<AttrItemPath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
@@ -45,7 +45,7 @@ where
     }
 }
 
-impl HasSynNodePath for AttrPath {
+impl HasSynNodePath for AttrItemPath {
     type SynNodePath = AttrSynNodePath;
 
     fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
@@ -77,7 +77,7 @@ pub(crate) struct AttrSynNode {
 impl AttrSynNode {
     pub(crate) fn new(
         parent_path: ItemSynNodePath,
-        path: AttrPath,
+        path: AttrItemPath,
         ast_idx: AstIdx,
         registry: &mut ItemSynNodePathRegistry,
         db: &dyn EntitySynTreeDb,

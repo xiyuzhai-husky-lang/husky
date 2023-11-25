@@ -3,7 +3,9 @@ use vec_like::VecPairMap;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct AttrPath(ItemPathId);
+// #[salsa::as_id(jar =  EntityPathJar)]
+#[salsa::deref_id]
+pub struct AttrItemPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct AttrPathData {
@@ -44,12 +46,19 @@ impl AttrRegistry {
             next_attr_disambiguators: Default::default(),
         }
     }
-    pub fn issue(&mut self, ident: Ident, db: &dyn EntityPathDb) -> AttrPath {
+    pub fn issue(&mut self, ident: Ident, db: &dyn EntityPathDb) -> AttrItemPath {
         let next_disambiguator = self
             .next_attr_disambiguators
             .get_value_mut_or_insert_default(ident);
         let disambiguator = *next_disambiguator;
         *next_disambiguator += 1;
-        AttrPath::new(db, self.parent, ident, disambiguator)
+        AttrItemPath(ItemPathId::new(
+            db,
+            ItemPathData::Attr(AttrPathData {
+                parent: self.parent,
+                ident,
+                disambiguator,
+            }),
+        ))
     }
 }

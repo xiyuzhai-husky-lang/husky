@@ -29,9 +29,11 @@ pub(crate) fn literal(ident: &proc_macro2::Ident) -> proc_macro2::Literal {
 }
 
 mod accumulator;
+mod as_id;
 mod configuration;
 mod db;
 mod debug_with_db;
+mod deref_id;
 mod input;
 mod interned;
 mod jar;
@@ -41,7 +43,6 @@ mod test_db;
 mod tracked;
 mod tracked_fn;
 mod tracked_struct;
-mod wrap_id;
 
 #[proc_macro_attribute]
 pub fn accumulator(args: TokenStream, input: TokenStream) -> TokenStream {
@@ -60,8 +61,14 @@ pub fn debug_with_db(args: TokenStream, input: TokenStream) -> TokenStream {
 
 /// jar = ???
 #[proc_macro_attribute]
-pub fn wrap_id(args: TokenStream, input: TokenStream) -> TokenStream {
-    wrap_id::wrap_id(args, input)
+pub fn as_id(args: TokenStream, input: TokenStream) -> TokenStream {
+    as_id::as_id(args, input)
+}
+
+/// jar = ???
+#[proc_macro_attribute]
+pub fn deref_id(args: TokenStream, input: TokenStream) -> TokenStream {
+    deref_id::deref_id(args, input)
 }
 
 #[proc_macro_attribute]

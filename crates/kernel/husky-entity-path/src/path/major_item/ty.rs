@@ -8,7 +8,8 @@ use super::*;
 use std::fmt::Debug;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::wrap_id(jar = EntityPathJar)]
+#[salsa::as_id(jar = EntityPathJar)]
+#[salsa::deref_id]
 pub struct TypePath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -55,6 +56,10 @@ impl TypePath {
             ItemPathData::MajorItem(MajorItemPathData::Type(data)) => data,
             _ => unreachable!(),
         }
+    }
+
+    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
+        self.data(db).ident
     }
 
     pub fn show_aux(

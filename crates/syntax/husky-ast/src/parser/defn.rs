@@ -44,7 +44,7 @@ impl<'a> AstParser<'a> {
                 match module_item_kind {
                     MajorItemKind::Type(ty_kind) => {
                         let path =
-                            TypePath::new(self.db, self.module_path, ident, connection, ty_kind)
+                            TypePath::new(self.module_path, ident, connection, ty_kind, self.db)
                                 .into();
                         DefnBlock::Type {
                             path,
@@ -61,17 +61,17 @@ impl<'a> AstParser<'a> {
                     }
                     MajorItemKind::Fugitive(form_kind) => DefnBlock::Fugitive {
                         path: FugitivePath::new(
-                            self.db,
                             self.module_path,
                             ident,
                             connection,
                             form_kind,
+                            self.db,
                         )
                         .into(),
                         body: self.try_parse_option()?, // todo: check that this is coherent with decl
                     },
                     MajorItemKind::Trait => DefnBlock::Trait {
-                        path: TraitPath::new(self.db, self.module_path, ident, connection).into(),
+                        path: TraitPath::new(self.module_path, ident, connection, self.db).into(),
                         items: self.try_parse_option()?,
                     },
                 }
@@ -134,7 +134,7 @@ impl<'a> AstParser<'a> {
                 ) {
                     Ok(ident_token) => Ast::TypeVariant {
                         token_group_idx,
-                        variant_path: TypeVariantPath::new(self.db, path, ident_token.ident()),
+                        variant_path: TypeVariantPath::new(path, ident_token.ident(), self.db),
                         vertical_token,
                         ident_token,
                         saved_stream_state: aux_parser.save_state(),

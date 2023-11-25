@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-#[salsa::wrap_id(jar = EntitySynTreeJar)]
+#[salsa::as_id(jar = EntitySynTreeJar)]
 pub struct TraitForTypeImplBlockSynNodePath {
     path: TraitForTypeImplBlockPath,
 }

@@ -48,7 +48,7 @@ impl AttrSynDecl {
     #[inline(always)]
     fn from_node_decl(
         db: &dyn SynDeclDb,
-        path: AttrPath,
+        path: AttrItemPath,
         syn_node_decl: AttrSynNodeDecl,
     ) -> DeclResult<Self> {
         Ok(match syn_node_decl {
@@ -59,7 +59,7 @@ impl AttrSynDecl {
     }
 }
 
-impl HasSynDecl for AttrPath {
+impl HasSynDecl for AttrItemPath {
     type Decl = AttrSynDecl;
 
     fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
@@ -68,7 +68,7 @@ impl HasSynDecl for AttrPath {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn attr_syn_decl(db: &dyn SynDeclDb, path: AttrPath) -> DeclResult<AttrSynDecl> {
+pub(crate) fn attr_syn_decl(db: &dyn SynDeclDb, path: AttrItemPath) -> DeclResult<AttrSynDecl> {
     AttrSynDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
 }
 

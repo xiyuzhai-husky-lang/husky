@@ -83,7 +83,7 @@ pub enum EntityPath {
     AssociatedItem(AssociatedItemPath),
     TypeVariant(Room32, TypeVariantPath),
     ImplBlock(ImplBlockPath),
-    Attr(Room32, AttrPath),
+    Attr(Room32, AttrItemPath),
 }
 
 impl EntityPath {
@@ -92,7 +92,7 @@ impl EntityPath {
             EntityPath::Module(path) => Some(path.ident(db)),
             EntityPath::MajorItem(path) => Some(path.ident(db)),
             EntityPath::AssociatedItem(path) => path.ident(db),
-            EntityPath::TypeVariant(_, path) => path.ident(db),
+            EntityPath::TypeVariant(_, path) => Some(path.ident(db)),
             EntityPath::ImplBlock(_) => None,
             EntityPath::Attr(_, _) => None,
         }
@@ -143,7 +143,7 @@ impl EntityPath {
             EntityPath::AssociatedItem(_)
             | EntityPath::TypeVariant(_, _)
             | EntityPath::ImplBlock(_) => None,
-            EntityPath::Attr(_) => todo!(),
+            EntityPath::Attr(_, _) => todo!(),
         }
     }
 }
@@ -185,7 +185,7 @@ pub enum ItemPath {
     AssociatedItem(AssociatedItemPath),
     TypeVariant(Room32, TypeVariantPath),
     ImplBlock(ImplBlockPath),
-    Attr(Room32, AttrPath),
+    Attr(Room32, AttrItemPath),
 }
 
 #[test]
@@ -352,11 +352,12 @@ impl From<MajorEntityPath> for PrincipalEntityPath {
 
 impl From<PrincipalEntityPath> for EntityPath {
     fn from(path: PrincipalEntityPath) -> Self {
-        match path {
-            PrincipalEntityPath::Module(path) => path.into(),
-            PrincipalEntityPath::MajorItem(path) => path.into(),
-            PrincipalEntityPath::TypeVariant(path) => path.into(),
-        }
+        todo!()
+        // match path {
+        //     PrincipalEntityPath::Module(path) => path.into(),
+        //     PrincipalEntityPath::MajorItem(path) => path.into(),
+        //     PrincipalEntityPath::TypeVariant(path) => path.into(),
+        // }
     }
 }
 

@@ -43,6 +43,7 @@ impl ImplBlockPathData {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::deref_id]
 pub struct TypeImplBlockPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -98,7 +99,8 @@ impl TypeImplBlockPathData {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::wrap_id(jar = EntityPathJar)]
+// #[salsa::as_id(jar = EntityPathJar)]
+#[salsa::deref_id]
 pub struct TraitForTypeImplBlockPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -107,6 +109,23 @@ pub struct TraitForTypeImplBlockPathData {
     trai_path: TraitPath,
     ty_sketch: TypeSketch,
     disambiguator: u8,
+}
+
+impl TraitForTypeImplBlockPath {
+    pub fn data(self, db: &dyn EntityPathDb) -> TraitForTypeImplBlockPathData {
+        match self.0.data(db) {
+            ItemPathData::ImplBlock(ImplBlockPathData::TraitForTypeImplBlock(data)) => data,
+            _ => unreachable!(),
+        }
+    }
+
+    pub fn trai_path(self, db: &dyn EntityPathDb) -> TraitPath {
+        self.data(db).trai_path
+    }
+
+    pub fn ty_sketch(self, db: &dyn EntityPathDb) -> TypeSketch {
+        self.data(db).ty_sketch
+    }
 }
 
 impl TraitForTypeImplBlockPathData {
@@ -166,10 +185,6 @@ impl TraitForTypeImplBlockPath {
                 },
             )),
         ))
-    }
-
-    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
-        self.module_path(db).toolchain(db)
     }
 }
 

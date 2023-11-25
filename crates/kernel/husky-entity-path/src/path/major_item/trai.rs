@@ -2,8 +2,9 @@ use salsa::DisplayWithDb;
 
 use super::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::wrap_id(jar = EntityPathJar)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+// #[salsa::as_id(jar = EntityPathJar)]
+#[salsa::deref_id]
 pub struct TraitPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -41,20 +42,16 @@ impl TraitPath {
         }
     }
 
+    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
+        self.data(db).ident
+    }
+
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn EntityPathDb,
     ) -> std::fmt::Result {
         self.data(db).show_aux(f, db)
-    }
-
-    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
-        self.module_path(db).crate_path(db)
-    }
-
-    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
-        self.crate_path(db).toolchain(db)
     }
 }
 
