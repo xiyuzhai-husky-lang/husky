@@ -65,7 +65,8 @@ impl<DB> Storage<DB>
 where
     DB: HasJars,
 {
-    pub fn new(initialize_jars: impl FnOnce(&mut <DB as HasJars>::Jars, &mut Routes<DB>)) -> Self {
+    /// here we use fn instead of impl FnOnce to save compilation time
+    pub fn new(initialize_jars: fn(&mut <DB as HasJars>::Jars, &mut Routes<DB>)) -> Self {
         let mut routes = Routes::new();
         let shared = unsafe {
             // manually allocate for Shared<DB>

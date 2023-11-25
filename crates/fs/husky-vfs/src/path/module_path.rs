@@ -64,14 +64,6 @@ impl From<SubmodulePath> for ModulePath {
     }
 }
 
-impl std::ops::Deref for SubmodulePath {
-    type Target = ModulePath;
-
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-
 impl ModulePath {
     pub fn starts_with(self, db: &dyn VfsDb, parent: ModulePath) -> bool {
         self.module_ancestry(db).contains(parent)

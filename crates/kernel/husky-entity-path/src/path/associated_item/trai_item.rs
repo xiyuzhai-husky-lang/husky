@@ -1,10 +1,13 @@
 use super::*;
 
-#[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
-pub struct TraitItemPath {
-    pub trai_path: TraitPath,
-    pub ident: Ident,
-    pub item_kind: TraitItemKind,
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct TraitItemPath(ItemPathId);
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct TraitItemPathData {
+    trai_path: TraitPath,
+    ident: Ident,
+    item_kind: TraitItemKind,
 }
 
 impl TraitItemPath {

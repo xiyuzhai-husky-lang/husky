@@ -1,19 +1,21 @@
 use super::*;
 
-#[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
-pub struct TypeItemPath {
-    pub impl_block: TypeImplBlockPath,
-    pub ident: Ident,
-    pub item_kind: TypeItemKind,
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct TypeItemPath(ItemPathId);
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct TypeItemPathData {
+    impl_block: TypeImplBlockPath,
+    ident: Ident,
+    item_kind: TypeItemKind,
 }
 
 impl TypeItemPath {
-    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
-        self.impl_block(db).toolchain(db)
-    }
-
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
-        self.impl_block(db).module_path(db)
+    pub fn data(self, db: &dyn EntityPathDb) -> TypeItemPathData {
+        match self.0.data(db) {
+            ItemPathData::AssociatedItem(AssociatedItemPathData::TypeItem(data)) => data,
+            _ => unreachable!(),
+        }
     }
 
     fn show_aux(

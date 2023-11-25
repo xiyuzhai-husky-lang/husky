@@ -75,6 +75,14 @@ pub(crate) fn wrap_id(
             quote! {
                 #item
 
+                impl std::ops::Deref for #self_ty #where_clause {
+                    type Target = #field_ty;
+
+                    fn deref(&self) -> &#field_ty {
+                        &self.#field_ident
+                    }
+                }
+
                 impl ::salsa::AsId for #self_ty #where_clause {
                     fn as_id(self) -> salsa::Id {
                         self.#field_ident.as_id()
@@ -128,6 +136,14 @@ pub(crate) fn wrap_id(
             }
             quote! {
                 #item
+
+                impl std::ops::Deref for #self_ty #where_clause {
+                    type Target = #field_ty;
+
+                    fn deref(&self) -> &#field_ty {
+                        &self.0
+                    }
+                }
 
                 impl ::salsa::AsId for #self_ty #where_clause {
                     fn as_id(self) -> salsa::Id {

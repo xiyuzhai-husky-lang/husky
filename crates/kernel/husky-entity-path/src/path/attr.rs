@@ -2,13 +2,17 @@ use vec_like::VecPairMap;
 
 use crate::*;
 
-#[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
-pub struct AttrPath {
-    pub parent: ItemPath,
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct AttrPath(ItemPathId);
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct AttrPathData {
+    // todo: change type to AttrParentPath
+    parent: ItemPath,
     // ad hoc
     // todo: change it with OriginalAttrPath
-    pub ident: Ident,
-    pub disambiguator: u8,
+    ident: Ident,
+    disambiguator: u8,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -17,9 +21,9 @@ pub enum AttrParentPath {
     Type(TypePath),
 }
 
-impl AttrPath {
+impl AttrPathData {
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
-        self.parent(db).module_path(db)
+        self.parent.module_path(db)
     }
 
     pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
