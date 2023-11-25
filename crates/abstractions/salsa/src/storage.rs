@@ -53,9 +53,19 @@ struct Shared<DB: HasJars> {
 // ANCHOR: default
 impl<DB> Default for Storage<DB>
 where
-    DB: HasJars,
+    DB: HasJars + InitializeJars,
 {
     fn default() -> Self {
+        Self::new(DB::initialize_jars)
+    }
+}
+// ANCHOR_END: default
+
+impl<DB> Storage<DB>
+where
+    DB: HasJars,
+{
+    pub fn new(initialize_jars: impl FnOnce(&mut <DB as HasJars>::Jars, &mut Routes<DB>)) -> Self {
         let mut routes = Routes::new();
         let shared = unsafe {
             // manually allocate for Shared<DB>
@@ -64,7 +74,7 @@ where
             )
                 as *mut Shared<DB>);
             // initialize jars
-            DB::initialize_jars(&mut pshared_uninitialized.jars, &mut routes);
+            initialize_jars(&mut pshared_uninitialized.jars, &mut routes);
             // initialize cvar
             pshared_uninitialized.cvar = Default::default();
             // convert into Arc through Box
@@ -78,13 +88,7 @@ where
             runtime,
         }
     }
-}
-// ANCHOR_END: default
 
-impl<DB> Storage<DB>
-where
-    DB: HasJars,
-{
     pub fn snapshot(&self) -> Storage<DB>
     where
         DB: ParallelDatabase,
@@ -187,7 +191,9 @@ pub trait HasJars: HasJarsDyn + Sized {
     /// Gets mutable access to the jars. This will trigger a new revision
     /// and it will also cancel any ongoing work in the current revision.
     fn jars_mut(&mut self) -> (&mut Self::Jars, &mut Runtime);
+}
 
+pub trait InitializeJars: HasJars {
     /// jars are allocated directly on the heap in an unsafe way to avoid stack overflow
     fn initialize_jars(jars: &mut Self::Jars, routes: &mut Routes<Self>);
 }

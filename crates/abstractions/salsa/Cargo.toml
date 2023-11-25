@@ -20,6 +20,7 @@ smallvec.workspace = true
 either.workspace = true
 # abstractions
 salsa-macros = { path = "../../abstractions/salsa-macros" }
+enum-index = { path = "../../abstractions/enum-index" }
 vec-like = { path = "../../abstractions/vec-like" }
 maybe-result = { path = "../../abstractions/maybe-result" }
 husky-salsa-log-utils = { path = "../../utils/husky-salsa-log-utils" }

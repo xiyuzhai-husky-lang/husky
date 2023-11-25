@@ -9,6 +9,15 @@ pub(crate) fn test_db(
     let input = syn::parse_macro_input!(input as syn::ItemStruct);
     let ident = &input.ident;
     let vis = &input.vis;
+    let initialization: proc_macro2::TokenStream = args
+        .jar_paths
+        .iter()
+        .map(|jar_path| {
+            quote! {
+                jars.initialize_jar::<#jar_path>(routes);
+            }
+        })
+        .collect();
 
     quote! {
         #[cfg(test)]
@@ -16,7 +25,7 @@ pub(crate) fn test_db(
 
         #[cfg(test)]
         impl std::ops::Deref for #ident {
-            type Target = salsa::test_utils::TestDb;
+            type Target = ::salsa::test_utils::TestDb;
 
             fn deref(&self) -> &Self::Target {
                 &self.0
@@ -33,7 +42,10 @@ pub(crate) fn test_db(
         #[cfg(test)]
         impl Default for #ident {
             fn default() -> Self {
-                todo!()
+                Self(::salsa::test_utils::TestDb::new(|jars, routes| {
+                    *jars = ::salsa::test_utils::TestJars::default();
+                    #initialization
+                }))
             }
         }
     }

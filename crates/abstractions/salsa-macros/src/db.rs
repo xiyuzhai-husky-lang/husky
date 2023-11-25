@@ -30,6 +30,7 @@ pub(crate) fn db(
 
     let as_salsa_database_impl = as_salsa_database_impl(&input);
     let has_jars_impl = has_jars_impl(&args, &input, &storage);
+    let initialize_jars_impl = initialize_jars_impl(&args, &input, &storage);
     let has_jars_dyn_impl = has_jars_dyn_impl(&input, &storage);
     let per_jar_impls = per_jar_impls(&args, &input, &storage);
 
@@ -37,6 +38,7 @@ pub(crate) fn db(
         #input
         #as_salsa_database_impl
         #has_jars_impl
+        #initialize_jars_impl
         #has_jars_dyn_impl
         #(#per_jar_impls)*
     }
@@ -105,7 +107,26 @@ fn has_jars_impl(args: &Args, input: &syn::ItemStruct, storage: &syn::Ident) -> 
             fn jars_mut(&mut self) -> (&mut Self::Jars, &mut salsa::Runtime) {
                 self.#storage.jars_mut()
             }
+        }
+    }
+}
 
+fn initialize_jars_impl(
+    args: &Args,
+    input: &syn::ItemStruct,
+    storage: &syn::Ident,
+) -> syn::ItemImpl {
+    let jar_paths: Vec<&syn::Path> = args.jar_paths.iter().collect();
+    let db = &input.ident;
+    let arguments = jar_paths.iter().enumerate().map(|(index, _jar_path)| {
+        let index: syn::Index = index.into();
+        quote! {
+            jars.#index.initialize(routes);
+        }
+    });
+    parse_quote! {
+        // ANCHOR: InitializeJars
+        impl salsa::storage::InitializeJars for #db {
             // ANCHOR: initialize_jars
             fn initialize_jars(jars: &mut Self::Jars, routes: &mut salsa::routes::Routes<Self>) {
                 use salsa::jar::Jar;

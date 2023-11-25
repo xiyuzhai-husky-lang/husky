@@ -122,7 +122,12 @@ pub(crate) fn jar_impl(
         })
         .collect();
     quote! {
-        impl<'salsa_db> salsa::jar::Jar<'salsa_db> for #jar_struct {
+        #[cfg(debug_assertions)]
+        impl ::salsa::test_utils::HasTestJarIndex for #jar_struct {
+            const TEST_JAR_INDEX: ::salsa::test_utils::TestJarIndex = ::salsa::test_utils::TestJarIndex::#jar_struct;
+        }
+
+        impl<'salsa_db> ::salsa::jar::Jar<'salsa_db> for #jar_struct {
             type DynDb = dyn #jar_trait + 'salsa_db;
 
             fn initialize<DB>(&mut self, routes: &mut salsa::routes::Routes<DB>)

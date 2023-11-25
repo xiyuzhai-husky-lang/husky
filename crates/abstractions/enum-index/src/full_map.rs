@@ -14,6 +14,24 @@ impl<I: IsEnumIndex, T> std::ops::Index<I> for EnumFullMap<I, T> {
     }
 }
 
+impl<I: IsEnumIndex, T> std::ops::IndexMut<I> for EnumFullMap<I, T> {
+    fn index_mut(&mut self, index: I) -> &mut Self::Output {
+        &mut self.0[index.index()]
+    }
+}
+
+impl<I: IsEnumIndex, T> Default for EnumFullMap<I, T>
+where
+    T: Default,
+{
+    fn default() -> Self {
+        Self(
+            (0..I::N).into_iter().map(|_| Default::default()).collect(),
+            Default::default(),
+        )
+    }
+}
+
 impl<I: IsEnumIndex, T> EnumFullMap<I, T> {
     pub fn new(f: impl Fn(I) -> T) -> Self {
         Self(
