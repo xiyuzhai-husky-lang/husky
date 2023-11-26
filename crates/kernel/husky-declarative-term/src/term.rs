@@ -85,20 +85,24 @@ pub enum DeclarativeTerm {
 }
 
 impl salsa::DebugWithDb for DeclarativeTerm {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         use salsa::DisplayWithDb;
         f.write_fmt(format_args!("DeclarativeTerm(`{}`)", self.display_with(db)))
     }
 }
 
 impl DisplayWithDb for DeclarativeTerm {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db(), &mut Default::default())
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
 impl DeclarativeTerm {
-    pub fn curry_parameter_count(self, db: &dyn DeclarativeTermDb) -> u8 {
+    pub fn curry_parameter_count(self, db: &::salsa::Db) -> u8 {
         match self {
             DeclarativeTerm::Curry(term) => curry_parameter_count(db, term),
             _ => 0,
@@ -108,7 +112,7 @@ impl DeclarativeTerm {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         match self {

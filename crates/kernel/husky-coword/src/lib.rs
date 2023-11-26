@@ -19,7 +19,7 @@ pub use self::style::*;
 #[salsa::jar(db = CowordDb)]
 pub struct CowordJar(
     Coword,
-    ident_menu,
+    coword_menu,
     kebab_to_ident,
     is_coword_valid_kebab,
     ident_to_name,
@@ -66,7 +66,7 @@ impl Coword {
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         &ingredients.data(runtime, self).data
     }
-    pub fn new(db: &Db, data: String) -> Self {
+    pub fn new(db: &::salsa::Db, data: String) -> Self {
         let (jar, runtime) = db.jar::<CowordJar>();
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern(runtime, __CowordData { data })
@@ -96,13 +96,13 @@ impl<'a> From<&'a str> for __CowordData {
 }
 
 impl Coword {
-    pub fn from_owned(db: &Db, data: String) -> Self {
+    pub fn from_owned(db: &::salsa::Db, data: String) -> Self {
         let (jar, runtime) = db.jar::<CowordJar>();
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern(runtime, __CowordData { data })
     }
 
-    pub fn from_ref(db: &Db, data: &str) -> Self {
+    pub fn from_ref(db: &::salsa::Db, data: &str) -> Self {
         let (jar, runtime) = db.jar::<CowordJar>();
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern_borrowed(runtime, data)

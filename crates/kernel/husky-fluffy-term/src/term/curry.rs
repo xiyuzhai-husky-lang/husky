@@ -2,7 +2,7 @@ use super::*;
 
 impl FluffyTerm {
     pub(crate) fn new_curry(
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         curry_kind: CurryKind,
         variance: Variance,

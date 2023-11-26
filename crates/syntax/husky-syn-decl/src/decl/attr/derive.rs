@@ -20,7 +20,7 @@ pub struct DeriveAttrSynNodeDecl {
 }
 
 impl DeriveAttrSynNodeDecl {
-    pub(super) fn new(db: &dyn SynDeclDb, syn_node_path: AttrSynNodePath) -> Self {
+    pub(super) fn new(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> Self {
         let parser_factory = DeclParser::new(db, syn_node_path);
         let mut parser = parser_factory.expr_parser(
             syn_node_path
@@ -69,7 +69,7 @@ pub struct DeriveAttrSynDecl {
 impl DeriveAttrSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: AttrItemPath,
         syn_node_decl: DeriveAttrSynNodeDecl,
     ) -> DeclResult<Self> {

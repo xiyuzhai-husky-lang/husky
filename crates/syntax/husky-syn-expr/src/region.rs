@@ -212,7 +212,7 @@ impl std::ops::Index<SynPatternExprIdx> for SynExprRegionData {
 }
 
 impl SynExprRegion {
-    pub fn toolchain(self, db: &dyn SynExprDb) -> Toolchain {
+    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         // ad hoc
         match self.data(db).path {
             SynNodeRegionPath::Snippet(module_path) => module_path.toolchain(db),

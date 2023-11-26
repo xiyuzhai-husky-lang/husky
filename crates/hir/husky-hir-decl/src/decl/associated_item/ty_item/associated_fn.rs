@@ -17,7 +17,7 @@ impl TypeAssociatedFnHirDecl {
     pub(super) fn from_syn(
         path: TypeItemPath,
         _syn_decl: TypeAssociatedFnSynDecl,
-        db: &dyn HirDeclDb,
+        db: &::salsa::Db,
     ) -> Self {
         let TypeItemSynDecl::AssociatedFn(syn_decl) = path.syn_decl(db).expect("ok") else {
             unreachable!()

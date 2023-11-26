@@ -36,7 +36,7 @@ impl Trace {
         input_sketch: EagerCallInputSketch,
         caller_sema_expr_region: SemaExprRegion,
         callee_syn_expr_region: SynExprRegion,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Self {
         let path = TracePath::new(
             EagerCallInputTracePathData {
@@ -58,25 +58,25 @@ impl Trace {
         )
     }
 
-    // pub fn view_lines<'a>(self, db: &'a dyn TraceDb) -> &'a TraceViewLines {
+    // pub fn view_lines<'a>(self, db: &'a ::salsa::Db) -> &'a TraceViewLines {
     //     eager_call_input_trace_view_lines(db, self)
     // }
 
-    // pub fn have_subtraces(self, _db: &dyn TraceDb) -> bool {
+    // pub fn have_subtraces(self, _db: &::salsa::Db,) -> bool {
     //     false
     // }
 
-    // pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
+    // pub fn subtraces(self, _db: &::salsa::Db,) -> &[Trace] {
     //     &[]
     // }
 
-    // pub fn val_repr(self, _db: &dyn TraceDb) -> ValRepr {
+    // pub fn val_repr(self, _db: &::salsa::Db,) -> ValRepr {
     //     todo!()
     // }
 }
 
 impl EagerCallInputTraceData {
-    fn eager_call_input_trace_view_lines(&self, db: &dyn TraceDb) -> TraceViewLines {
+    fn eager_call_input_trace_view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let caller_sema_expr_region = self.caller_sema_expr_region;
         let caller_sema_expr_range_region = sema_expr_range_region(db, caller_sema_expr_region);
         let caller_sema_expr_range_region_data = caller_sema_expr_range_region.data(db);

@@ -25,7 +25,7 @@ pub enum TypeItemHirDecl {
 }
 
 impl TypeItemHirDecl {
-    pub fn path(self, db: &dyn HirDeclDb) -> TypeItemPath {
+    pub fn path(self, db: &::salsa::Db) -> TypeItemPath {
         match self {
             TypeItemHirDecl::AssociatedFn(decl) => decl.path(db),
             TypeItemHirDecl::MethodFn(decl) => decl.path(db),
@@ -35,7 +35,7 @@ impl TypeItemHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
         match self {
             TypeItemHirDecl::AssociatedFn(_) => todo!(),
             TypeItemHirDecl::MethodFn(_) => todo!(),
@@ -45,7 +45,7 @@ impl TypeItemHirDecl {
         }
     }
 
-    // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    // pub fn hir_expr_region(self, db: &::salsa::Db,) -> HirExprRegion {
     //     match self {
     //         TypeItemHirDecl::AssociatedFn(decl) => decl.hir_expr_region(db).into(),
     //         TypeItemHirDecl::MethodFn(decl) => decl.hir_expr_region(db).into(),
@@ -59,13 +59,13 @@ impl TypeItemHirDecl {
 impl HasHirDecl for TypeItemPath {
     type HirDecl = TypeItemHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
         ty_item_hir_decl(db, self)
     }
 }
 
 // #[salsa::tracked(jar = HirDeclJar)]
-pub(crate) fn ty_item_hir_decl(db: &dyn HirDeclDb, path: TypeItemPath) -> Option<TypeItemHirDecl> {
+pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<TypeItemHirDecl> {
     match path.syn_decl(db).expect("ok") {
         TypeItemSynDecl::AssociatedFn(syn_decl) => {
             Some(TypeAssociatedFnHirDecl::from_syn(path, syn_decl, db).into())

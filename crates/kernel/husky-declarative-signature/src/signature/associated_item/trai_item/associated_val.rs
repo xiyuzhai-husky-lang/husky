@@ -5,7 +5,7 @@ pub struct TraitAssociatedValDeclarativeSignatureTemplate {}
 
 impl TraitAssociatedValDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         decl: TraitAssociatedValSynDecl,
     ) -> DeclarativeSignatureResult<TraitAssociatedValDeclarativeSignatureTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);

@@ -20,7 +20,7 @@ pub struct TypeMethodFnDeclarativeSignatureTemplate {
 
 impl TypeMethodFnDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeMethodFnSynDecl,
     ) -> DeclarativeSignatureResult<Self> {

@@ -92,7 +92,7 @@ impl Trace {
         sema_stmt_idx: SemaStmtIdx,
         eager_stmt_data_sketch: EagerStmtDataSketch,
         sema_expr_region: SemaExprRegion,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Self {
         let path = TracePath::new(
             EagerStmtTracePathData {
@@ -127,7 +127,7 @@ impl Trace {
         parent_trace_path: TracePath,
         parent_trace: Trace,
         body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Vec<Trace> {
         let Some((body, syn_expr_region)) = body_with_syn_expr_region else {
             return vec![];
@@ -147,7 +147,7 @@ impl Trace {
         parent_trace: Trace,
         stmts: husky_sema_expr::SemaStmtIdxRange,
         sema_expr_region: husky_sema_expr::SemaExprRegion,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Vec<Trace> {
         let mut registry = TracePathRegistry::<EagerStmtEssence>::default();
         let mut subtraces: Vec<Trace> = vec![];
@@ -396,7 +396,7 @@ impl Trace {
 }
 
 impl EagerStmtTraceData {
-    pub(super) fn view_lines(&self, trace: Trace, db: &dyn TraceDb) -> TraceViewLines {
+    pub(super) fn view_lines(&self, trace: Trace, db: &::salsa::Db) -> TraceViewLines {
         let sema_stmt_idx = self.sema_stmt_idx;
         let sema_expr_region = self.sema_expr_region;
         let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
@@ -450,7 +450,7 @@ impl EagerStmtTraceData {
         TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
     }
 
-    pub(super) fn have_subtraces(&self, db: &dyn TraceDb) -> bool {
+    pub(super) fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         match self.eager_stmt_data_sketch {
             EagerStmtDataSketch::BasicStmt => false,
             EagerStmtDataSketch::IfBranch { .. } => true,
@@ -461,7 +461,7 @@ impl EagerStmtTraceData {
         }
     }
 
-    pub(super) fn eager_stmt_trace_subtraces(&self, trace: Trace, db: &dyn TraceDb) -> Vec<Trace> {
+    pub(super) fn eager_stmt_trace_subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         match self.eager_stmt_data_sketch {
             EagerStmtDataSketch::BasicStmt => vec![],
             EagerStmtDataSketch::IfBranch { stmts, .. }
@@ -489,7 +489,7 @@ struct EagerStmtAssociatedTraceRegistry<'a> {
 }
 
 impl<'a> EagerStmtAssociatedTraceRegistry<'a> {
-    fn new(parent_trace: Trace, sema_expr_region: SemaExprRegion, db: &'a dyn TraceDb) -> Self {
+    fn new(parent_trace: Trace, sema_expr_region: SemaExprRegion, db: &'a ::salsa::Db) -> Self {
         let (hir_eager_expr_region, hir_eager_expr_source_map) =
             hir_eager_expr_region_with_source_map(db, sema_expr_region);
         EagerStmtAssociatedTraceRegistry {
@@ -511,7 +511,7 @@ impl<'a> IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry<'a> {
     fn get_or_issue_associated_trace(
         &mut self,
         source: TokenInfoSource,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Option<Trace> {
         match source {
             TokenInfoSource::UseExpr(_) => None,

@@ -16,7 +16,7 @@ impl From<TraitForTypeImplBlockHirDefn> for HirDefn {
 impl HasHirDefn for TraitForTypeImplBlockPath {
     type HirDefn = TraitForTypeImplBlockHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+    fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
         Some(TraitForTypeImplBlockHirDefn {
             hir_decl: self.hir_decl(db)?,
         })
@@ -24,7 +24,7 @@ impl HasHirDefn for TraitForTypeImplBlockPath {
 }
 
 impl TraitForTypeImplBlockHirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> TraitForTypeImplBlockPath {
+    pub fn path(self, db: &::salsa::Db) -> TraitForTypeImplBlockPath {
         self.hir_decl.path(db)
     }
 
@@ -32,18 +32,18 @@ impl TraitForTypeImplBlockHirDefn {
         self.hir_decl
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         trai_for_ty_impl_block_dependencies(db, self)
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         trai_for_ty_impl_block_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_for_ty_impl_block_dependencies(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: TraitForTypeImplBlockHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
@@ -56,7 +56,7 @@ fn trai_for_ty_impl_block_dependencies(
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_for_ty_impl_block_version_stamp(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: TraitForTypeImplBlockHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)

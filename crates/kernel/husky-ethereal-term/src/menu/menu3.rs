@@ -14,7 +14,7 @@ impl std::ops::Deref for TermMenu3 {
 }
 
 impl TermMenu3 {
-    pub(crate) fn new(db: &dyn EtherealTermDb, toolchain: Toolchain, _menu2: TermMenu2) -> Self {
+    pub(crate) fn new(db: &::salsa::Db, toolchain: Toolchain, _menu2: TermMenu2) -> Self {
         let menu0 = TermMenu0::new(db, toolchain);
         let menu1 = TermMenu1::new(db, toolchain, menu0);
         let menu2 = TermMenu2::new(db, toolchain, menu1);

@@ -14,7 +14,7 @@ impl UnitStructHirDecl {
     pub(super) fn from_syn(
         _path: TypePath,
         syn_decl: UnitStructTypeSynDecl,
-        db: &dyn HirDeclDb,
+        db: &::salsa::Db,
     ) -> Self {
         let _builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         todo!()

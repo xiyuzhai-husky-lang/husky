@@ -34,7 +34,7 @@ impl VfsAdversarial {
         &self,
         db: &mut Db,
         module_path: ModulePath,
-        f: &impl Fn(&Db),
+        f: &impl Fn(&::salsa::Db),
     ) -> Result<(), ()> {
         let original_text = module_path.raw_text(db);
         let original_text = original_text.to_owned();

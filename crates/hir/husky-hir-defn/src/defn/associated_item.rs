@@ -18,7 +18,7 @@ pub enum AssociatedItemHirDefn {
 }
 
 impl AssociatedItemHirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> AssociatedItemPath {
+    pub fn path(self, db: &::salsa::Db) -> AssociatedItemPath {
         match self {
             AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.path(db).into(),
             AssociatedItemHirDefn::TraitItem(_) => todo!(),
@@ -26,7 +26,7 @@ impl AssociatedItemHirDefn {
         }
     }
 
-    pub fn hir_decl(self, db: &dyn HirDefnDb) -> AssociatedItemHirDecl {
+    pub fn hir_decl(self, db: &::salsa::Db) -> AssociatedItemHirDecl {
         match self {
             AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.hir_decl(db).into(),
             AssociatedItemHirDefn::TraitItem(_) => todo!(),
@@ -34,7 +34,7 @@ impl AssociatedItemHirDefn {
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
         match self {
             AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.hir_expr_region(db),
             AssociatedItemHirDefn::TraitItem(_) => todo!(),
@@ -42,7 +42,7 @@ impl AssociatedItemHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
             AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.dependencies(db),
             AssociatedItemHirDefn::TraitItem(hir_defn) => hir_defn.dependencies(db),
@@ -50,7 +50,7 @@ impl AssociatedItemHirDefn {
         }
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         match self {
             AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.version_stamp(db),
             AssociatedItemHirDefn::TraitItem(hir_defn) => hir_defn.version_stamp(db),
@@ -62,7 +62,7 @@ impl AssociatedItemHirDefn {
 impl HasHirDefn for AssociatedItemPath {
     type HirDefn = AssociatedItemHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+    fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
         Some(match self {
             AssociatedItemPath::TypeItem(hir_decl) => hir_decl.hir_defn(db)?.into(),
             AssociatedItemPath::TraitItem(hir_decl) => hir_decl.hir_defn(db)?.into(),

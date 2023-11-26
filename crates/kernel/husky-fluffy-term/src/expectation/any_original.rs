@@ -12,11 +12,7 @@ impl ExpectFluffyTerm for ExpectAnyOriginal {
     }
 
     #[inline(always)]
-    fn final_destination_inner(
-        &self,
-        db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
-    ) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
         FinalDestination::AnyOriginal
     }
 
@@ -27,7 +23,7 @@ impl ExpectFluffyTerm for ExpectAnyOriginal {
 
     fn resolve(
         &self,
-        _db: &dyn FluffyTermDb,
+        _db: &::salsa::Db,
         _terms: &mut FluffyTerms,
         _state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {

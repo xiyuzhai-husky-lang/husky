@@ -14,7 +14,7 @@ impl AttrSynNodeDefn {
 impl HasSynNodeDefn for AttrSynNodePath {
     type SynNodeDefn = AttrSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
+    fn syn_node_defn(self, db: &::salsa::Db) -> Self::SynNodeDefn {
         AttrSynNodeDefn {
             syn_node_decl: self.syn_node_decl(db),
         }

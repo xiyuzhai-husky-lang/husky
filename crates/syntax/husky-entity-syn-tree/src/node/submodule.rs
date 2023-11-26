@@ -7,18 +7,18 @@ pub struct SubmoduleSynNodePath {
 
 impl SubmoduleSynNodePath {
     pub(super) fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         path: SubmodulePath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<SubmodulePath> {
+    pub fn path(self, db: &::salsa::Db) -> Option<SubmodulePath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> SubmoduleSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> SubmoduleSynNode {
         submodule_syn_node(db, self)
     }
 }
@@ -27,7 +27,7 @@ impl SubmoduleSynNodePath {
 // where
 //      + EntitySynTreeDb,
 // {
-//     fn module_path(self, db: &Db) -> ModulePath {
+//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
 //         let db = entity_syn_tree_db(db);
 //         self.maybe_ambiguous_path(db).path.parent(db)
 //     }
@@ -36,7 +36,7 @@ impl SubmoduleSynNodePath {
 impl HasSynNodePath for SubmodulePath {
     type SynNodePath = SubmoduleSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         SubmoduleSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
@@ -52,7 +52,7 @@ pub(crate) struct SubmoduleSynNode {
 
 impl SubmoduleSynNode {
     pub(super) fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         submodule_path: SubmodulePath,
         visibility: Scope,
@@ -68,14 +68,14 @@ impl SubmoduleSynNode {
         )
     }
 
-    pub fn unambiguous_path(self, db: &dyn EntitySynTreeDb) -> Option<SubmodulePath> {
+    pub fn unambiguous_path(self, db: &::salsa::Db) -> Option<SubmodulePath> {
         self.syn_node_path(db).path(db)
     }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn submodule_syn_node(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: SubmoduleSynNodePath,
 ) -> SubmoduleSynNode {
     let module_path: ModulePath = todo!(); //= syn_node_path.module_path(db);

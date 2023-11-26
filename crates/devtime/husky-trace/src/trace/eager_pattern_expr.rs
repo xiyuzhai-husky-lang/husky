@@ -38,7 +38,7 @@ impl Trace {
         hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeSymbolIdx>>,
         sema_expr_region: SemaExprRegion,
         eager_pattern_expr_trace_path_registry: &mut TracePathRegistry<EagerPatternExprEssence>,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Self {
         let essence = EagerPatternExprEssence::Haha;
         let path = TracePath::new(
@@ -65,7 +65,7 @@ impl Trace {
 }
 
 impl EagerPatternExprTraceData {
-    fn eager_pattern_expr_trace_view_lines(&self, db: &dyn TraceDb) -> TraceViewLines {
+    fn eager_pattern_expr_trace_view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sema_expr_region = self.sema_expr_region;
         let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
         let sema_expr_range_region_data = sema_expr_range_region.data(db);
@@ -81,11 +81,11 @@ impl EagerPatternExprTraceData {
         )
     }
 
-    pub fn have_subtraces(&self, _db: &dyn TraceDb) -> bool {
+    pub fn have_subtraces(&self, _db: &::salsa::Db) -> bool {
         false
     }
 
-    pub fn subtraces(&self, _db: &dyn TraceDb) -> &[Trace] {
+    pub fn subtraces(&self, _db: &::salsa::Db) -> &[Trace] {
         &[]
     }
 }

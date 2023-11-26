@@ -17,7 +17,7 @@ pub struct TupleStructFieldDeclarativeSignatureTemplate {
 
 impl TupleStructTypeDeclarativeSignatureTemplate {
     pub fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         path: TypePath,
         decl: TupleStructTypeSynDecl,
     ) -> DeclarativeSignatureResult<Self> {

@@ -13,18 +13,18 @@ impl From<EnumUnitVariantHirDefn> for HirDefn {
 }
 
 impl EnumUnitVariantHirDefn {
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         enum_unit_variant_hir_defn_dependencies(db, self)
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         enum_unit_variant_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn enum_unit_variant_hir_defn_dependencies(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: EnumUnitVariantHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
@@ -35,7 +35,7 @@ fn enum_unit_variant_hir_defn_dependencies(
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn enum_unit_variant_hir_defn_version_stamp(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: EnumUnitVariantHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)

@@ -16,7 +16,7 @@ pub struct TraitForTypeMethodFnDeclarativeSignatureTemplate {
 
 impl TraitForTypeMethodFnDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         decl: TraitForTypeMethodFnSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let self_ty = decl

@@ -6,7 +6,7 @@ use crate::*;
 use vec_like::{VecMap, VecPairMap};
 
 pub(crate) struct EntityTreeCollector<'a> {
-    db: &'a dyn EntitySynTreeDb,
+    db: &'a ::salsa::Db,
     crate_path: CratePath,
     crate_root_path: ModulePath,
     impl_registry: ImplBlockRegistry,
@@ -16,7 +16,7 @@ pub(crate) struct EntityTreeCollector<'a> {
 }
 
 impl<'a> EntityTreeCollector<'a> {
-    pub(crate) fn new(db: &'a dyn EntitySynTreeDb, crate_path: CratePath) -> Self {
+    pub(crate) fn new(db: &'a ::salsa::Db, crate_path: CratePath) -> Self {
         let crate_root = crate_path.root_module_path(db);
         let all_modules = db.all_modules_within_crate(crate_path);
         let presheets = VecMap::from_iter_assuming_no_repetitions(

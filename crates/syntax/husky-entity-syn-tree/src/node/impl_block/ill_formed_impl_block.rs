@@ -9,12 +9,12 @@ pub struct IllFormedImplBlockSynNodePath {
 }
 
 impl IllFormedImplBlockSynNodePath {
-    pub fn item_syn_node_paths(self, _db: &dyn EntitySynTreeDb) -> &[IllFormedItemSynNodePath] {
+    pub fn item_syn_node_paths(self, _db: &::salsa::Db) -> &[IllFormedItemSynNodePath] {
         // ad hoc
         &[]
     }
 
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> IllFormedImplBlockSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> IllFormedImplBlockSynNode {
         ill_formed_impl_block_syn_node(db, self)
     }
 }
@@ -23,7 +23,7 @@ impl IllFormedImplBlockSynNodePath {
 // where
 //      + EntitySynTreeDb,
 // {
-//     fn module_path(self, db: &Db) -> ModulePath {
+//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
 //         let db = entity_syn_tree_db(db);
 //         // self.path.module_path(db)
 //         todo!()
@@ -49,7 +49,7 @@ pub(crate) struct IllFormedImplBlockSynNode {
 
 impl IllFormedImplBlockSynNode {
     pub(super) fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ImplBlockRegistry,
         impl_token: ImplToken,
         module: ModulePath,
@@ -94,7 +94,7 @@ impl OriginalError for ImplBlockIllForm {
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn ill_formed_impl_block_syn_node(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: IllFormedImplBlockSynNodePath,
 ) -> IllFormedImplBlockSynNode {
     let module_path = syn_node_path.module_path(db);

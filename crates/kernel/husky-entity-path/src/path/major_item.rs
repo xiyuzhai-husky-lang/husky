@@ -10,7 +10,7 @@ pub use self::trai::*;
 pub use self::ty::*;
 
 use crate::*;
-use salsa::Database;
+use salsa::Db;
 use utils::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -40,7 +40,7 @@ pub enum MajorItemPathData {
 }
 
 impl MajorItemPath {
-    pub fn data(self, db: &dyn EntityPathDb) -> MajorItemPathData {
+    pub fn data(self, db: &::salsa::Db) -> MajorItemPathData {
         match (*self).data(db) {
             ItemPathData::MajorItem(data) => data,
             _ => unreachable!(),
@@ -54,13 +54,13 @@ impl MajorItemPath {
         }
     }
 
-    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
         self.data(db).ident()
     }
 }
 
 impl MajorItemPathData {
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
             MajorItemPathData::Type(data) => data.module_path(),
             MajorItemPathData::Trait(data) => data.module_path(),
@@ -75,11 +75,11 @@ impl MajorItemPathData {
         }
     }
 
-    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
+    pub fn crate_path(self, db: &::salsa::Db) -> CratePath {
         self.module_path(db).crate_path(db)
     }
 
-    pub(crate) fn item_kind(self, db: &dyn EntityPathDb) -> EntityKind {
+    pub(crate) fn item_kind(self, db: &::salsa::Db) -> EntityKind {
         match self {
             MajorItemPathData::Type(data) => data.item_kind(),
             MajorItemPathData::Trait(data) => EntityKind::MajorItem {
@@ -95,7 +95,11 @@ impl MajorItemPathData {
 }
 
 impl salsa::DisplayWithDb for MajorItemPath {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         match self {
             MajorItemPath::Fugitive(path) => path.display_with_db_fmt(f, db),
             MajorItemPath::Type(path) => path.display_with_db_fmt(f, db),

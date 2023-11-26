@@ -28,7 +28,7 @@ impl std::ops::Deref for EtherealTermMenu {
 }
 
 impl EtherealTermMenu {
-    fn new(db: &dyn EtherealTermDb, toolchain: Toolchain) -> EtherealTermMenu {
+    fn new(db: &::salsa::Db, toolchain: Toolchain) -> EtherealTermMenu {
         let menu0 = TermMenu0::new(db, toolchain);
         let menu1 = TermMenu1::new(db, toolchain, menu0);
         let menu2 = TermMenu2::new(db, toolchain, menu1);
@@ -40,6 +40,6 @@ impl EtherealTermMenu {
 }
 
 #[salsa::tracked(jar = EtherealTermJar,return_ref)]
-pub(crate) fn term_menu(db: &dyn EtherealTermDb, toolchain: Toolchain) -> EtherealTermMenu {
+pub(crate) fn term_menu(db: &::salsa::Db, toolchain: Toolchain) -> EtherealTermMenu {
     EtherealTermMenu::new(db, toolchain)
 }

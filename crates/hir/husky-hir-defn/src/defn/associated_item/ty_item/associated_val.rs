@@ -21,25 +21,25 @@ impl From<TypeAssociatedValHirDefn> for HirDefn {
 
 impl TypeAssociatedValHirDefn {
     pub(super) fn new(
-        _db: &dyn HirDefnDb,
+        _db: &::salsa::Db,
         _path: TypeItemPath,
         _hir_decl: TypeAssociatedValHirDecl,
     ) -> Self {
         todo!()
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         ty_associated_val_hir_defn_dependencies(db, self)
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         ty_associated_val_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn ty_associated_val_hir_defn_dependencies(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: TypeAssociatedValHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
@@ -55,7 +55,7 @@ fn ty_associated_val_hir_defn_dependencies(
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn ty_associated_val_hir_defn_version_stamp(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: TypeAssociatedValHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)

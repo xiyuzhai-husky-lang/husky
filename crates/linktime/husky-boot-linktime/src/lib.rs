@@ -44,7 +44,7 @@ where
 {
     type LinkageImpl = LinkageImpl;
 
-    fn get_linkage(&self, key: Linkage, db: &Db) -> LinkageImpl {
+    fn get_linkage(&self, key: Linkage, db: &::salsa::Db) -> LinkageImpl {
         if let Some(linkage) = self.internal.read().expect("todo").get_linkage(key, db) {
             linkage
         } else {
@@ -55,7 +55,7 @@ where
         }
     }
 
-    fn new_linktime(target_path: LinktimeTargetPath, db: &Db) -> Self {
+    fn new_linktime(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
         Self {
             internal: std::sync::RwLock::new(BootLinkTimeInternal::new(target_path, db)),
         }

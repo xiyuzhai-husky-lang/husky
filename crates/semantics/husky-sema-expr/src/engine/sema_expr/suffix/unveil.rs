@@ -135,11 +135,7 @@ pub(crate) enum Unveiler {
 }
 
 impl Unveiler {
-    pub(crate) fn initialize_if_not(
-        &mut self,
-        return_ty: Option<EtherealTerm>,
-        db: &dyn SemaExprDb,
-    ) {
+    pub(crate) fn initialize_if_not(&mut self, return_ty: Option<EtherealTerm>, db: &::salsa::Db) {
         match self {
             Unveiler::Uninitialized => (),
             _ => return,
@@ -155,7 +151,7 @@ impl Unveiler {
         }
     }
 
-    fn new_aux(db: &dyn SemaExprDb, return_ty: EtherealTerm) -> EtherealSignatureMaybeResult<Self> {
+    fn new_aux(db: &::salsa::Db, return_ty: EtherealTerm) -> EtherealSignatureMaybeResult<Self> {
         let templates = unveil_impl_block_signature_templates(db, return_ty)?;
         match templates.len() {
             0 => todo!(),
@@ -185,7 +181,7 @@ impl Unveiler {
 }
 
 fn unveil_impl_block_signature_templates(
-    db: &dyn SemaExprDb,
+    db: &::salsa::Db,
     term: EtherealTerm,
 ) -> EtherealSignatureMaybeResult<&[TraitForTypeImplBlockEtherealSignatureBuilder]> {
     match term {
@@ -221,7 +217,7 @@ fn unveil_impl_block_signature_templates(
 
 #[salsa::tracked(jar = SemaExprJar, return_ref)]
 fn ty_ontology_path_unveil_impl_block_signature_templates(
-    db: &dyn SemaExprDb,
+    db: &::salsa::Db,
     ty_path: TypePath,
 ) -> EtherealSignatureMaybeResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]>> {
     unveil_impl_block_signature_templates_aux(
@@ -234,7 +230,7 @@ fn ty_ontology_path_unveil_impl_block_signature_templates(
 
 #[salsa::tracked(jar = SemaExprJar, return_ref)]
 fn ty_ontology_application_unveil_impl_block_signature_templates(
-    db: &dyn SemaExprDb,
+    db: &::salsa::Db,
     ty_target: EtherealTermApplication,
 ) -> EtherealSignatureMaybeResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]>> {
     let application_expansion = ty_target.application_expansion(db);
@@ -250,12 +246,12 @@ fn ty_ontology_application_unveil_impl_block_signature_templates(
 }
 
 fn unveil_impl_block_signature_templates_aux(
-    db: &dyn SemaExprDb,
+    db: &::salsa::Db,
     ty_path: TypePath,
     arguments: &[EtherealTerm],
     ty_target: EtherealTerm,
 ) -> EtherealSignatureMaybeResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]>> {
-    let item_path_menu = db.item_path_menu(ty_path.toolchain(db));
+    let item_path_menu = item_path_menu(db, ty_path.toolchain(db));
     let templates = ty_side_trai_for_ty_impl_block_signature_templates(
         db,
         item_path_menu.unveil_trai_path(),

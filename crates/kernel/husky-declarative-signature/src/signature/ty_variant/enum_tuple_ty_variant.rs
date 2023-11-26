@@ -15,7 +15,7 @@ pub struct EnumTupleVariantFieldDeclarativeSignatureTemplate {
 
 impl EnumTupleVariantDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
         decl: TypeTupleVariantSynDecl,
     ) -> DeclarativeSignatureResult<Self> {

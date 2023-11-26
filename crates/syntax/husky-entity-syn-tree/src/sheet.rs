@@ -73,10 +73,7 @@ impl EntitySynTreeSheet {
         self.major_item_node_table.node_paths()
     }
 
-    pub fn major_paths<'a>(
-        &'a self,
-        db: &'a dyn EntitySynTreeDb,
-    ) -> impl Iterator<Item = ItemPath> + 'a {
+    pub fn major_paths<'a>(&'a self, db: &'a ::salsa::Db) -> impl Iterator<Item = ItemPath> + 'a {
         self.major_item_node_table
             .node_paths()
             .filter_map(|syn_node_path| syn_node_path.path(db))
@@ -103,7 +100,7 @@ impl EntitySynTreeSheet {
 
     pub(crate) fn trai_for_ty_impl_block_syn_node(
         &self,
-        _db: &dyn EntitySynTreeDb,
+        _db: &::salsa::Db,
         syn_node_path: TraitForTypeImplBlockSynNodePath,
     ) -> TraitForTypeImplBlockSynNode {
         self.impl_block_syn_node_table
@@ -119,7 +116,7 @@ impl EntitySynTreeSheet {
 
     pub(crate) fn ill_formed_impl_block_syn_node(
         &self,
-        _db: &dyn EntitySynTreeDb,
+        _db: &::salsa::Db,
         syn_node_path: IllFormedImplBlockSynNodePath,
     ) -> IllFormedImplBlockSynNode {
         self.impl_block_syn_node_table
@@ -166,7 +163,7 @@ impl EntitySynTreeSheet {
 
     pub fn all_trai_for_ty_impl_block_paths<'a>(
         &'a self,
-        db: &'a dyn EntitySynTreeDb,
+        db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
         self.impl_block_syn_node_table
             .iter()
@@ -191,7 +188,7 @@ impl EntitySynTreeSheet {
 
     pub fn all_ill_formed_impl_block_syn_nodes<'a>(
         &'a self,
-        db: &'a dyn EntitySynTreeDb,
+        db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = &'a ImplBlockIllForm> + 'a {
         self.impl_block_syn_node_table.iter().copied().filter_map(
             |(_, impl_block)| match impl_block {
@@ -204,19 +201,16 @@ impl EntitySynTreeSheet {
 }
 
 pub trait HasEntityTreeSheet: Copy {
-    fn item_tree_sheet<'a>(self, db: &'a dyn EntitySynTreeDb) -> &'a EntitySynTreeSheet;
+    fn item_tree_sheet<'a>(self, db: &'a ::salsa::Db) -> &'a EntitySynTreeSheet;
 }
 
 impl HasEntityTreeSheet for ModulePath {
-    fn item_tree_sheet<'a>(self, db: &'a dyn EntitySynTreeDb) -> &'a EntitySynTreeSheet {
+    fn item_tree_sheet<'a>(self, db: &'a ::salsa::Db) -> &'a EntitySynTreeSheet {
         item_tree_sheet(db, self)
     }
 }
 
-pub(crate) fn item_tree_sheet(
-    db: &dyn EntitySynTreeDb,
-    module_path: ModulePath,
-) -> &EntitySynTreeSheet {
+pub(crate) fn item_tree_sheet(db: &::salsa::Db, module_path: ModulePath) -> &EntitySynTreeSheet {
     let crate_path = module_path.crate_path(db);
     let item_tree_bundle = item_tree_crate_bundle(db, crate_path);
     item_tree_bundle

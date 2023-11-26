@@ -20,13 +20,13 @@ pub struct Toolchain {
 }
 
 impl Toolchain {
-    pub fn library_path(self, db: &Db) -> &Path {
+    pub fn library_path(self, db: &::salsa::Db) -> &Path {
         match self.data(db) {
             ToolchainData::Published(_) => todo!(),
             ToolchainData::Local { library_path } => library_path.data(db),
         }
     }
-    pub fn registry_path(self, db: &Db) -> &Path {
+    pub fn registry_path(self, db: &::salsa::Db) -> &Path {
         match self.data(db) {
             ToolchainData::Published(_) => todo!(),
             ToolchainData::Local { library_path: _ } => todo!(),
@@ -62,14 +62,14 @@ impl ToolchainChannel {
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
 pub(crate) fn published_toolchain_library_path(
-    _db: &Db,
+    _db: &::salsa::Db,
     _toolchain: PublishedToolchain,
 ) -> PathBuf {
     todo!()
 }
 
 #[salsa::tracked(jar = VfsJar)]
-pub(crate) fn current_toolchain(db: &Db) -> VfsResult<Toolchain> {
+pub(crate) fn current_toolchain(db: &::salsa::Db) -> VfsResult<Toolchain> {
     // ad hoc
     Ok(Toolchain::new(
         db,

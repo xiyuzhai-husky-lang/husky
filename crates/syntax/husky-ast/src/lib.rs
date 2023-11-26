@@ -29,13 +29,10 @@ use husky_entity_kind::EntityKind;
 use husky_entity_path::{ItemPath, TypeVariantPath};
 
 use husky_scope_expr::VisibilityExpr;
-use husky_token::{
-    IdentToken, TokenGroupIdx, TokenStreamState, VerticalToken,
-};
+use husky_token::{IdentToken, TokenGroupIdx, TokenStreamState, VerticalToken};
 use husky_token_data::*;
 use husky_vfs::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
-use salsa::DbWithJar;
 
 #[salsa::jar(db = AstDb)]
 pub struct AstJar(ast_sheet, ast_token_idx_range_sheet);

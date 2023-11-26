@@ -10,11 +10,7 @@ pub struct RecordTypeHirDecl {
 }
 
 impl RecordTypeHirDecl {
-    pub(super) fn from_syn(
-        _path: TypePath,
-        syn_decl: RecordTypeSynDecl,
-        db: &dyn HirDeclDb,
-    ) -> Self {
+    pub(super) fn from_syn(_path: TypePath, syn_decl: RecordTypeSynDecl, db: &::salsa::Db) -> Self {
         let _builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         todo!()
     }

@@ -24,7 +24,7 @@ impl<'a> TraitForTypeImplBlockEtherealSignatureTemplates<'a> {
 }
 
 pub fn trai_for_ty_impl_block_ethereal_signature_templates<'a>(
-    db: &'a dyn EtherealSignatureDb,
+    db: &'a ::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
 ) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplates<'a>> {
@@ -52,7 +52,7 @@ pub fn trai_for_ty_impl_block_ethereal_signature_templates<'a>(
 
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
 fn trai_side_derive_any_ethereal_signature_templates(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     trai_path: TraitPath,
 ) -> EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplate; 2]>> {
     trai_side_derive_any_trai_for_ty_impl_block_paths_map(db, trai_path)
@@ -62,7 +62,7 @@ fn trai_side_derive_any_ethereal_signature_templates(
 }
 
 fn trai_side_path_leading_ethereal_signature_templates(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
 ) -> EtherealSignatureResult<Option<&[TraitForTypeImplBlockEtherealSignatureTemplate]>> {
@@ -79,7 +79,7 @@ fn trai_side_path_leading_ethereal_signature_templates(
 
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
 fn trai_side_path_leading_trai_for_ty_impl_block_ethereal_signature_templates_map(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     trai_path: TraitPath,
 ) -> SmallVecPairMap<
     TypePath,
@@ -97,7 +97,7 @@ fn trai_side_path_leading_trai_for_ty_impl_block_ethereal_signature_templates_ma
 // type side
 
 pub fn ty_side_trai_for_ty_impl_block_signature_templates(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
 ) -> EtherealSignatureMaybeResult<&[TraitForTypeImplBlockEtherealSignatureTemplate]> {
@@ -112,7 +112,7 @@ pub fn ty_side_trai_for_ty_impl_block_signature_templates(
 
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
 fn ty_side_impl_block_signature_templates_map(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     ty_path: TypePath,
 ) -> SmallVecPairMap<TraitPath, EtherealSignatureResult<TraitForTypeImplBlockSignatureTemplates>, 2>
 {

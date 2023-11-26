@@ -19,7 +19,7 @@ pub struct PropsStructFieldDeclarativeSignatureTemplate {
 
 impl PropsStructTypeDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         path: TypePath,
         decl: PropsStructTypeSynDecl,
     ) -> DeclarativeSignatureResult<Self> {

@@ -1,5 +1,3 @@
-
-
 use crate::*;
 
 pub(crate) type ManifestAstTransformer<'a, 'b, A> =
@@ -8,7 +6,6 @@ pub(crate) type ManifestAstTransformer<'a, 'b, A> =
 pub struct ManifestAstTransformContext;
 
 impl TomlDeserializeContext for ManifestAstTransformContext {
-    type Db<'a> = dyn ManifestAstDb + 'a;
     type Menu = ManifestAstMenu;
     type Error = ManifestAstError;
 }

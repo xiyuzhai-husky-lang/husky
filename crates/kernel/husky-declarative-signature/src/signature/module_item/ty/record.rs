@@ -8,7 +8,7 @@ pub struct RecordTypeDeclarativeSignatureTemplate {
 
 impl RecordTypeDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         path: TypePath,
         decl: RecordTypeSynDecl,
     ) -> DeclarativeSignatureResult<Self> {

@@ -12,7 +12,7 @@ pub(crate) struct DeclParser<'a, P>
 where
     P: HasDeclTokraRegion,
 {
-    db: &'a dyn SynDeclDb,
+    db: &'a ::salsa::Db,
     syn_node_path: P,
     module_symbol_context: ModuleSymbolContext<'a>,
     tokra_region_data: DeclTokraRegionData<'a>,
@@ -22,7 +22,7 @@ impl<'a, P> DeclParser<'a, P>
 where
     P: HasDeclTokraRegion,
 {
-    pub(crate) fn new(db: &'a dyn SynDeclDb, syn_node_path: P) -> Self {
+    pub(crate) fn new(db: &'a ::salsa::Db, syn_node_path: P) -> Self {
         let path = todo!(); // syn_node_path.module_path(db);
         let Ok(module_symbol_context) = db.module_symbol_context(path) else {
             use salsa::DebugWithDb;
@@ -57,7 +57,7 @@ where
     }
 
     #[inline(always)]
-    pub(crate) fn db(&self) -> &'a dyn SynDeclDb {
+    pub(crate) fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
 

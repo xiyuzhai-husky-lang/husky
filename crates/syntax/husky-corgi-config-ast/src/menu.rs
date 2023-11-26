@@ -9,7 +9,7 @@ pub struct CorgiConfigAstMenu {
 }
 
 impl CorgiConfigAstMenu {
-    fn new(db: &dyn CorgiConfigAstDb) -> Self {
+    fn new(db: &::salsa::Db) -> Self {
         let registry_coword = Coword::from_ref(db, "registry");
         let path_coword = Coword::from_ref(db, "path");
         Self {
@@ -30,7 +30,7 @@ impl CorgiConfigAstMenu {
 }
 
 #[salsa::tracked(jar = CorgiConfigAstJar, return_ref)]
-pub(crate) fn corgi_config_ast_menu(db: &dyn CorgiConfigAstDb) -> CorgiConfigAstMenu {
+pub(crate) fn corgi_config_ast_menu(db: &::salsa::Db) -> CorgiConfigAstMenu {
     CorgiConfigAstMenu::new(db)
 }
 

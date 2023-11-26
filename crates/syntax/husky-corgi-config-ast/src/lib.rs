@@ -36,7 +36,7 @@ impl CorgiConfigAstSheet {
 
 #[salsa::tracked(jar = CorgiConfigAstJar, return_ref)]
 pub(crate) fn corgi_config_ast_sheet(
-    db: &dyn CorgiConfigAstDb,
+    db: &::salsa::Db,
     path: VirtualPath,
 ) -> VfsResult<Option<CorgiConfigAstSheet>> {
     let mut errors = vec![];

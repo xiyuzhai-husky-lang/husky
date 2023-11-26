@@ -11,7 +11,7 @@ pub struct VirtualPath {
 
 impl VirtualPath {
     #[inline(always)]
-    pub fn data<'a>(self, db: &'a Db) -> &'a Path {
+    pub fn data<'a>(self, db: &'a ::salsa::Db) -> &'a Path {
         self._data(db)
     }
 
@@ -23,12 +23,12 @@ impl VirtualPath {
         db.file_from_virtual_path(self)
     }
 
-    pub fn text<'a>(self, db: &'a Db) -> VfsResult<Option<&'a str>> {
+    pub fn text<'a>(self, db: &'a ::salsa::Db) -> VfsResult<Option<&'a str>> {
         let file = self.file(db)?;
         Ok(file.text(db)?)
     }
 
-    pub fn text_expected<'a>(self, db: &'a Db) -> VfsResult<&'a str> {
+    pub fn text_expected<'a>(self, db: &'a ::salsa::Db) -> VfsResult<&'a str> {
         let file = self.file(db)?;
         file.text(db)?.ok_or(VfsError::FileNotExists(self))
     }

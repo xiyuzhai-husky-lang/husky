@@ -6,7 +6,7 @@ use super::*;
 impl ExpectCoersion {
     pub(super) fn resolve_place_to_prelude_indirection(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {

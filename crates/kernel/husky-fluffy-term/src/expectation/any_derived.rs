@@ -12,11 +12,7 @@ impl ExpectFluffyTerm for ExpectAnyDerived {
     }
 
     #[inline(always)]
-    fn final_destination_inner(
-        &self,
-        db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
-    ) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
         FinalDestination::AnyDerived
     }
 
@@ -27,7 +23,7 @@ impl ExpectFluffyTerm for ExpectAnyDerived {
 
     fn resolve(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         fluffy_terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {

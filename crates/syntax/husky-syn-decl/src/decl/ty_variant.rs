@@ -19,7 +19,7 @@ pub enum TypeVariantSynNodeDecl {
 }
 
 impl TypeVariantSynNodeDecl {
-    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> TypeVariantSynNodePath {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> TypeVariantSynNodePath {
         match self {
             TypeVariantSynNodeDecl::Props(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeVariantSynNodeDecl::Unit(syn_node_decl) => syn_node_decl.syn_node_path(db),
@@ -27,7 +27,7 @@ impl TypeVariantSynNodeDecl {
         }
     }
 
-    pub fn errors(self, _db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, _db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
             TypeVariantSynNodeDecl::Props(_) => todo!(),
             TypeVariantSynNodeDecl::Unit(_) => todo!(),
@@ -39,14 +39,14 @@ impl TypeVariantSynNodeDecl {
 impl HasSynNodeDecl for TypeVariantSynNodePath {
     type NodeDecl = TypeVariantSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         ty_variant_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_variant_syn_node_decl(
-    db: &dyn SynDeclDb,
+    db: &::salsa::Db,
     syn_node_path: TypeVariantSynNodePath,
 ) -> TypeVariantSynNodeDecl {
     DeclParser::new(db, syn_node_path).parse_ty_variant_syn_node_decl()
@@ -102,7 +102,7 @@ pub enum TypeVariantSynDecl {
 
 impl TypeVariantSynDecl {
     fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TypeVariantPath,
         syn_node_decl: TypeVariantSynNodeDecl,
     ) -> DeclResult<Self> {
@@ -119,7 +119,7 @@ impl TypeVariantSynDecl {
         })
     }
 
-    pub fn path(self, _db: &dyn SynDeclDb) -> TypeVariantPath {
+    pub fn path(self, _db: &::salsa::Db) -> TypeVariantPath {
         match self {
             TypeVariantSynDecl::Props(_) => todo!(),
             TypeVariantSynDecl::Unit(_) => todo!(),
@@ -131,14 +131,14 @@ impl TypeVariantSynDecl {
 impl HasSynDecl for TypeVariantPath {
     type Decl = TypeVariantSynDecl;
 
-    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
         ty_variant_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_variant_syn_decl(
-    db: &dyn SynDeclDb,
+    db: &::salsa::Db,
     path: TypeVariantPath,
 ) -> DeclResult<TypeVariantSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);

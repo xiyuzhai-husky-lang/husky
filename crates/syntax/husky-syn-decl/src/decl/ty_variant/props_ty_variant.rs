@@ -59,7 +59,7 @@ pub struct TypePropsVariantSynDecl {
 
 impl TypePropsVariantSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TypeVariantPath,
         syn_node_decl: TypePropsVariantSynNodeDecl,
     ) -> DeclResult<Self> {

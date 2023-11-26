@@ -105,7 +105,7 @@ impl TomlSection {
 
 impl TomlSectionSheet {
     pub(crate) fn parse_collect(
-        db: &dyn TomlAstDb,
+        db: &::salsa::Db,
         toml_token_text: &TomlTokenSheet,
         line_groups: &[TomlLineGroup],
     ) -> Self {

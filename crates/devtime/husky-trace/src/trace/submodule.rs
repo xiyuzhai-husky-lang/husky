@@ -14,7 +14,7 @@ pub struct SubmoduleTracePathData {
 }
 
 impl Trace {
-    pub fn new_submodule(submodule_path: SubmodulePath, db: &dyn TraceDb) -> Option<Self> {
+    pub fn new_submodule(submodule_path: SubmodulePath, db: &::salsa::Db) -> Option<Self> {
         if !submodule_contains_val_item(db, submodule_path) {
             return None;
         }
@@ -36,7 +36,7 @@ pub struct SubmoduleTraceData {
 }
 
 impl SubmoduleTraceData {
-    pub(super) fn view_tokens(self, db: &dyn TraceDb) -> TraceViewLines {
+    pub(super) fn view_tokens(self, db: &::salsa::Db) -> TraceViewLines {
         let submodule_path = self.submodule_path;
         let token_idx_range = submodule_path
             .syn_node_path(db)
@@ -49,7 +49,7 @@ impl SubmoduleTraceData {
         )
     }
 
-    pub(super) fn subtraces(self, db: &dyn TraceDb) -> Vec<Trace> {
+    pub(super) fn subtraces(self, db: &::salsa::Db) -> Vec<Trace> {
         module_item_paths(db, self.submodule_path.inner())
             .iter()
             .filter_map(|&item_path| Trace::from_item_path(item_path, db))
@@ -58,7 +58,7 @@ impl SubmoduleTraceData {
 }
 
 #[salsa::tracked(jar = TraceJar)]
-pub(super) fn submodule_contains_val_item(db: &dyn TraceDb, submodule_path: SubmodulePath) -> bool {
+pub(super) fn submodule_contains_val_item(db: &::salsa::Db, submodule_path: SubmodulePath) -> bool {
     for &subitem_path in module_item_paths(db, submodule_path.module_path(db)) {
         match subitem_path {
             ItemPath::Submodule(subitem_submodule_path) => {

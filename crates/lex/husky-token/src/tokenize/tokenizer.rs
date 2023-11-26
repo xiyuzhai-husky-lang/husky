@@ -1,10 +1,9 @@
 use super::*;
 
-
 use husky_text_protocol::position::TextLine;
 
 pub(crate) struct Tokenizer<'lex> {
-    db: &'lex dyn TokenDb,
+    db: &'lex ::salsa::Db,
     tokens: Vec<TokenData>,
     token_ranges: Vec<TextRange>,
     line: TextLine,
@@ -19,7 +18,7 @@ enum TokenizerAction {
 }
 
 impl<'token> Tokenizer<'token> {
-    pub fn new(db: &'token dyn TokenDb) -> Self {
+    pub fn new(db: &'token ::salsa::Db) -> Self {
         Self {
             db,
             tokens: vec![],

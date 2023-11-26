@@ -9,7 +9,7 @@ pub struct TraitDeclarativeSignatureTemplate {
 impl TraitDeclarativeSignatureTemplate {
     pub fn template_parameters_without_self_ty<'a>(
         self,
-        db: &'a dyn DeclarativeSignatureDb,
+        db: &'a ::salsa::Db,
     ) -> &'a [DeclarativeTemplateParameter] {
         let template_parameters = self.template_parameters(db);
         debug_assert!(matches!(
@@ -30,7 +30,7 @@ impl HasDeclarativeSignatureTemplate for TraitPath {
 
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         trai_syn_declarative_signature_template(db, self)
     }
@@ -38,7 +38,7 @@ impl HasDeclarativeSignatureTemplate for TraitPath {
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn trai_syn_declarative_signature_template(
-    db: &dyn DeclarativeSignatureDb,
+    db: &::salsa::Db,
     path: TraitPath,
 ) -> DeclarativeSignatureResult<TraitDeclarativeSignatureTemplate> {
     let decl = path.syn_decl(db)?;

@@ -1,11 +1,7 @@
 use super::*;
 
 impl FluffyTerm {
-    pub(crate) fn curry_destination(
-        self,
-        db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
-    ) -> FluffyTerm {
+    pub(crate) fn curry_destination(self, db: &::salsa::Db, terms: &FluffyTerms) -> FluffyTerm {
         match self.data_inner(db, terms) {
             FluffyTermData::Literal(_)
             | FluffyTermData::TypeOntology { .. }
@@ -27,7 +23,7 @@ impl FluffyTerm {
     ///
     pub(crate) fn final_destination_inner(
         self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         fluffy_terms: &FluffyTerms,
     ) -> FinalDestination {
         match self.data_inner(db, fluffy_terms) {
@@ -83,7 +79,7 @@ impl FluffyTerm {
     }
 }
 
-fn curry_destination(db: &dyn EtherealTermDb, term: EtherealTerm) -> EtherealTerm {
+fn curry_destination(db: &::salsa::Db, term: EtherealTerm) -> EtherealTerm {
     match term {
         EtherealTerm::Literal(_) => todo!(),
         EtherealTerm::Symbol(_) => todo!(),

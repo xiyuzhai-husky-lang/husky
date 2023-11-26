@@ -16,29 +16,29 @@ impl From<TraitHirDefn> for HirDefn {
 impl HasHirDefn for TraitPath {
     type HirDefn = TraitHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+    fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
         trai_hir_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-pub(crate) fn trai_hir_defn(db: &dyn HirDefnDb, path: TraitPath) -> Option<TraitHirDefn> {
+pub(crate) fn trai_hir_defn(db: &::salsa::Db, path: TraitPath) -> Option<TraitHirDefn> {
     let hir_decl = path.hir_decl(db)?;
     Some(TraitHirDefn::new(db, path, hir_decl))
 }
 
 impl TraitHirDefn {
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         trai_hir_defn_dependencies(db, self)
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         trai_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn trai_hir_defn_dependencies(db: &dyn HirDefnDb, hir_defn: TraitHirDefn) -> HirDefnDependencies {
+fn trai_hir_defn_dependencies(db: &::salsa::Db, hir_defn: TraitHirDefn) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
@@ -51,6 +51,6 @@ fn trai_hir_defn_dependencies(db: &dyn HirDefnDb, hir_defn: TraitHirDefn) -> Hir
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn trai_hir_defn_version_stamp(db: &dyn HirDefnDb, hir_defn: TraitHirDefn) -> HirDefnVersionStamp {
+fn trai_hir_defn_version_stamp(db: &::salsa::Db, hir_defn: TraitHirDefn) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

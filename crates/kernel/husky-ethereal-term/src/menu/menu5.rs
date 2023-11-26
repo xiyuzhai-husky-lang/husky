@@ -14,7 +14,7 @@ impl std::ops::Deref for TermMenu5 {
 }
 
 impl TermMenu5 {
-    pub(super) fn new(_db: &dyn EtherealTermDb, _toolchain: Toolchain, menu4: TermMenu4) -> Self {
+    pub(super) fn new(_db: &::salsa::Db, _toolchain: Toolchain, menu4: TermMenu4) -> Self {
         // let _core_ops = menu4.core_ops();
         Self { parent: menu4 }
     }

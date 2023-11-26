@@ -1,4 +1,4 @@
-use salsa::Database;
+use salsa::Db;
 
 use super::*;
 
@@ -22,7 +22,7 @@ impl EtherealRitchieKeyedParameter {
     }
 
     pub(super) fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         param: DeclarativeRitchieKeyedParameter,
     ) -> EtherealTermResult<Self> {
         let ty = EtherealTerm::ty_from_declarative(db, param.ty())?;
@@ -51,7 +51,7 @@ impl EtherealRitchieKeyedParameter {
         self.has_default
     }
 
-    pub(super) fn reduce(self, db: &dyn EtherealTermDb) -> Self {
+    pub(super) fn reduce(self, db: &::salsa::Db) -> Self {
         Self {
             key: self.key,
             contract: self.contract,
@@ -64,7 +64,7 @@ impl EtherealRitchieKeyedParameter {
     pub(super) fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         // todo!();
@@ -73,7 +73,11 @@ impl EtherealRitchieKeyedParameter {
 }
 
 impl salsa::DisplayWithDb for EtherealRitchieKeyedParameter {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.ty.show_with_db_fmt(f, db(), &mut Default::default())
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.ty.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

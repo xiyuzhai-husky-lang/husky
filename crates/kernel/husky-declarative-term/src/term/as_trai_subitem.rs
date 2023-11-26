@@ -13,7 +13,7 @@ impl DeclarativeTermAsTraitSubitem {
     pub(crate) fn show_with_db_fmt(
         self,
         _f: &mut std::fmt::Formatter<'_>,
-        _db: &dyn DeclarativeTermDb,
+        _db: &::salsa::Db,
         _ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         todo!()
@@ -21,11 +21,7 @@ impl DeclarativeTermAsTraitSubitem {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermAsTraitSubitem {
-    fn substitute(
-        self,
-        db: &dyn DeclarativeTermDb,
-        substituation: &DeclarativeTermSubstitution,
-    ) -> Self
+    fn substitute(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self
     where
         Self: Copy,
     {

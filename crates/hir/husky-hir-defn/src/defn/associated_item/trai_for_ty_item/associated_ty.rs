@@ -20,7 +20,7 @@ impl From<TraitForTypeAssociatedTypeHirDefn> for HirDefn {
 
 impl TraitForTypeAssociatedTypeHirDefn {
     pub(super) fn new(
-        db: &dyn HirDefnDb,
+        db: &::salsa::Db,
         path: TraitForTypeItemPath,
         hir_decl: TraitForTypeAssociatedTypeHirDecl,
     ) -> Self {
@@ -30,18 +30,18 @@ impl TraitForTypeAssociatedTypeHirDefn {
         TraitForTypeAssociatedTypeHirDefn::new_inner(db, path, hir_decl)
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         trai_for_ty_associated_ty_hir_defn_dependencies(db, self)
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         trai_for_ty_associated_ty_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_for_ty_associated_ty_hir_defn_dependencies(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: TraitForTypeAssociatedTypeHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
@@ -54,7 +54,7 @@ fn trai_for_ty_associated_ty_hir_defn_dependencies(
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_for_ty_associated_ty_hir_defn_version_stamp(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: TraitForTypeAssociatedTypeHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)

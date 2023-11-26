@@ -15,7 +15,7 @@ pub enum DeclarativeTermWrapperKind {
 }
 
 impl DeclarativeTerm {
-    pub fn leashed_ty(self, db: &dyn DeclarativeTermDb) -> Self {
+    pub fn leashed_ty(self, db: &::salsa::Db) -> Self {
         DeclarativeTermWrapper::new(db, DeclarativeTermWrapperKind::ValType, self).into()
     }
 }
@@ -25,7 +25,7 @@ impl DeclarativeTermWrapper {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         match self.kind(db) {

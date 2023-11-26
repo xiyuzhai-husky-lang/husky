@@ -33,7 +33,7 @@ impl From<TypeHirDefn> for HirDefn {
 }
 
 impl TypeHirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> TypePath {
+    pub fn path(self, db: &::salsa::Db) -> TypePath {
         match self {
             TypeHirDefn::Enum(hir_defn) => hir_defn.path(db),
             TypeHirDefn::UnitStruct(hir_defn) => hir_defn.path(db),
@@ -44,7 +44,7 @@ impl TypeHirDefn {
         }
     }
 
-    pub fn hir_decl(self, db: &dyn HirDefnDb) -> TypeHirDecl {
+    pub fn hir_decl(self, db: &::salsa::Db) -> TypeHirDecl {
         match self {
             TypeHirDefn::Enum(hir_defn) => hir_defn.hir_decl(db).into(),
             TypeHirDefn::UnitStruct(hir_defn) => hir_defn.hir_decl(db).into(),
@@ -55,7 +55,7 @@ impl TypeHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
             TypeHirDefn::Enum(hir_defn) => hir_defn.dependencies(db),
             TypeHirDefn::PropsStruct(hir_defn) => hir_defn.dependencies(db),
@@ -66,7 +66,7 @@ impl TypeHirDefn {
         }
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         match self {
             TypeHirDefn::Enum(hir_defn) => hir_defn.version_stamp(db),
             TypeHirDefn::PropsStruct(hir_defn) => hir_defn.version_stamp(db),
@@ -81,13 +81,13 @@ impl TypeHirDefn {
 impl HasHirDefn for TypePath {
     type HirDefn = TypeHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+    fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
         ty_hir_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-pub(crate) fn ty_hir_defn(db: &dyn HirDefnDb, path: TypePath) -> Option<TypeHirDefn> {
+pub(crate) fn ty_hir_defn(db: &::salsa::Db, path: TypePath) -> Option<TypeHirDefn> {
     Some(match path.hir_decl(db)? {
         TypeHirDecl::Enum(hir_decl) => EnumHirDefn::new(db, path, hir_decl).into(),
         TypeHirDecl::PropsStruct(hir_decl) => PropsStructHirDefn::new(db, path, hir_decl).into(),

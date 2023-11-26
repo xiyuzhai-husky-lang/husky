@@ -11,7 +11,7 @@ pub struct GnFugitiveDeclarativeSignatureTemplate {
 
 impl GnFugitiveDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         decl: FunctionGnSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);

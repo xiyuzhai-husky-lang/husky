@@ -16,7 +16,7 @@ impl DeclarativeTermExplicitApplicationOrRitchieCall {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         self.function(db).show_with_db_fmt(f, db, ctx);

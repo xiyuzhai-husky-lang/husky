@@ -36,7 +36,7 @@ impl From<&SynVariadicParameterVariant> for HirLazyParenateParameterVariadicVari
 impl HirLazyParenateParameter {
     pub(crate) fn from_self_value_parameter_syndicate(
         _syndicate: Option<SelfValueParameterSyndicate>,
-        _db: &dyn HirDeclDb,
+        _db: &::salsa::Db,
     ) -> Self {
         HirLazyParenateParameter::SelfValue
     }

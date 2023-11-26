@@ -1,7 +1,6 @@
 use crate::*;
 
 use husky_sema_expr::SemaExprDb;
-use salsa::DbWithJar;
 
 pub trait TokenInfoDb: DbWithJar<TokenInfoJar> + SemaExprDb {
     #[deprecated]

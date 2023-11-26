@@ -15,7 +15,7 @@ impl std::ops::Deref for DeclarativeTermMenu3 {
 
 impl DeclarativeTermMenu3 {
     pub(crate) fn new(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         toolchain: Toolchain,
         _menu2: DeclarativeTermMenu2,
     ) -> DeclarativeTermResult<Self> {

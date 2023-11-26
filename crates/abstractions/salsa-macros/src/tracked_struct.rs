@@ -265,7 +265,7 @@ impl TrackedStruct {
         parse_quote! {
             impl salsa::tracked_struct::TrackedStructInDb for #ident
             {
-                fn database_key_index(self, db: &::salsa::Db) -> salsa::DatabaseKeyIndex {
+                fn database_key_index(self, db: &::salsa::Db,) -> salsa::DatabaseKeyIndex {
                     let (jar, _) = db.jar::<#jar_ty>();
                     let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor<#ident>>::ingredient(jar);
                     ingredients.#tracked_struct_index.database_key_index(self)

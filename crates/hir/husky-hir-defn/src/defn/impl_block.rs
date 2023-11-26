@@ -15,7 +15,7 @@ pub enum ImplBlockHirDefn {
 }
 
 impl ImplBlockHirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> ImplBlockPath {
+    pub fn path(self, db: &::salsa::Db) -> ImplBlockPath {
         match self {
             ImplBlockHirDefn::Type(hir_defn) => hir_defn.path(db).into(),
             ImplBlockHirDefn::TraitForType(hir_defn) => hir_defn.path(db).into(),
@@ -29,7 +29,7 @@ impl ImplBlockHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         // ad hoc
         match self {
             ImplBlockHirDefn::Type(hir_defn) => hir_defn.dependencies(db),
@@ -37,7 +37,7 @@ impl ImplBlockHirDefn {
         }
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         match self {
             ImplBlockHirDefn::Type(hir_defn) => hir_defn.version_stamp(db),
             ImplBlockHirDefn::TraitForType(hir_defn) => hir_defn.version_stamp(db),
@@ -48,7 +48,7 @@ impl ImplBlockHirDefn {
 impl HasHirDefn for ImplBlockPath {
     type HirDefn = ImplBlockHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+    fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
         match self {
             ImplBlockPath::TypeImplBlock(path) => path.hir_defn(db).map(Into::into),
             ImplBlockPath::TraitForTypeImplBlock(path) => path.hir_defn(db).map(Into::into),

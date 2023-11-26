@@ -1,7 +1,5 @@
 use super::*;
 
-
-
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeMethodFnSynNodeDefn {
     #[id]
@@ -12,7 +10,7 @@ pub struct TypeMethodFnSynNodeDefn {
 
 impl TypeMethodFnSynNodeDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         syn_node_path: TypeItemSynNodePath,
         syn_node_decl: TypeMethodFnSynNodeDecl,
     ) -> Self {
@@ -41,7 +39,7 @@ pub struct TypeMethodFnSynDefn {
 
 impl TypeMethodFnSynDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeMethodFnSynDecl,
     ) -> SynDefnResult<Self> {

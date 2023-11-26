@@ -65,7 +65,7 @@ impl DeclarativeTermEntityPath {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         _ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         match self {

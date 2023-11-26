@@ -7,7 +7,7 @@ pub use self::error::*;
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn item_tree_crate_bundle(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     crate_path: CratePath,
 ) -> EntitySynTreeCrateBundle {
     EntityTreeCollector::new(db, crate_path).collect_all()
@@ -54,7 +54,7 @@ impl EntitySynTreeCrateBundle {
 
     pub fn all_impl_block_ill_forms<'a>(
         &'a self,
-        db: &'a dyn EntitySynTreeDb,
+        db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = &'a ImplBlockIllForm> + 'a {
         self.sheets
             .iter()
@@ -64,7 +64,7 @@ impl EntitySynTreeCrateBundle {
 
     pub(crate) fn trai_for_ty_impl_block_paths_filtered_by_trai_path<'a>(
         &'a self,
-        db: &'a dyn EntitySynTreeDb,
+        db: &'a ::salsa::Db,
         trai_path: TraitPath,
     ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
         self.sheets
@@ -76,7 +76,7 @@ impl EntitySynTreeCrateBundle {
 
     pub(crate) fn trai_for_ty_impl_block_paths_filtered_by_ty_path<'a>(
         &'a self,
-        db: &'a dyn EntitySynTreeDb,
+        db: &'a ::salsa::Db,
         ty_path: TypePath,
     ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
         self.sheets

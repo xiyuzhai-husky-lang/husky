@@ -18,7 +18,7 @@ fn term_as_trai_subitem_size_works() {
 
 impl EtherealTermAsTraitSubitem {
     pub(crate) fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         valid_term: DeclarativeTermAsTraitSubitem,
         term_ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<Self> {
@@ -29,7 +29,7 @@ impl EtherealTermAsTraitSubitem {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         todo!()
@@ -37,7 +37,7 @@ impl EtherealTermAsTraitSubitem {
 }
 
 impl EtherealTermAsTraitSubitem {
-    fn substitute(self, db: &dyn EtherealTermDb, substituation: &TermSubstitution) -> EtherealTerm
+    fn substitute(self, db: &::salsa::Db, substituation: &TermSubstitution) -> EtherealTerm
     where
         Self: Copy,
     {

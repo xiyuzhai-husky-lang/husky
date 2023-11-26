@@ -1,4 +1,4 @@
-use salsa::Database;
+use salsa::Db;
 
 use super::*;
 
@@ -11,7 +11,7 @@ pub struct EtherealRitchieVariadicParameter {
 
 impl EtherealRitchieVariadicParameter {
     pub(super) fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         param: DeclarativeRitchieVariadicParameter,
     ) -> EtherealTermResult<Self> {
         Ok(EtherealRitchieVariadicParameter {
@@ -20,7 +20,7 @@ impl EtherealRitchieVariadicParameter {
         })
     }
 
-    pub(super) fn reduce(self, db: &dyn EtherealTermDb) -> Self {
+    pub(super) fn reduce(self, db: &::salsa::Db) -> Self {
         Self {
             contract: self.contract,
             ty: self.ty.reduce(db),
@@ -31,7 +31,7 @@ impl EtherealRitchieVariadicParameter {
     pub(super) fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         // todo!();
@@ -40,8 +40,12 @@ impl EtherealRitchieVariadicParameter {
 }
 
 impl salsa::DisplayWithDb for EtherealRitchieVariadicParameter {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.ty.show_with_db_fmt(f, db(), &mut Default::default())
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.ty.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 

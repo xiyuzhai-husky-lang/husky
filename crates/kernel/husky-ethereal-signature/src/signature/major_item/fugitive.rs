@@ -21,7 +21,7 @@ pub enum FugitiveEtherealSignatureTemplate {
 }
 
 impl FugitiveEtherealSignatureTemplate {
-    pub fn template_parameters(self, db: &dyn EtherealSignatureDb) -> &[EtherealTemplateParameter] {
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[EtherealTemplateParameter] {
         match self {
             FugitiveEtherealSignatureTemplate::FunctionFn(template) => {
                 template.template_parameters(db)
@@ -42,7 +42,7 @@ impl HasEtherealSignatureTemplate for FugitivePath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         fugitive_ethereal_signature_template(db, self)
     }
@@ -50,7 +50,7 @@ impl HasEtherealSignatureTemplate for FugitivePath {
 
 // #[salsa::tracked(jar = EtherealSignatureJar)]
 fn fugitive_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     path: FugitivePath,
 ) -> EtherealSignatureResult<FugitiveEtherealSignatureTemplate> {
     Ok(match path.declarative_signature_template(db)? {

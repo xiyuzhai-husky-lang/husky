@@ -3,7 +3,7 @@ use super::*;
 // include submodules, major items, associated items
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub fn module_item_syn_node_paths(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<ItemSynNodePath> {
     let mut node_paths: Vec<ItemSynNodePath> = Default::default();
@@ -58,7 +58,7 @@ pub fn module_item_syn_node_paths(
 // todo: type variants
 // todo: trait item
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-pub fn module_item_paths(db: &dyn EntitySynTreeDb, module_path: ModulePath) -> Vec<ItemPath> {
+pub fn module_item_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<ItemPath> {
     let mut paths: Vec<ItemPath> = Default::default();
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
@@ -90,10 +90,7 @@ pub fn module_item_paths(db: &dyn EntitySynTreeDb, module_path: ModulePath) -> V
     paths
 }
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-pub fn module_submodule_paths(
-    db: &dyn EntitySynTreeDb,
-    module_path: ModulePath,
-) -> Vec<SubmodulePath> {
+pub fn module_submodule_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<SubmodulePath> {
     module_item_paths(db, module_path)
         .iter()
         .copied()
@@ -114,7 +111,7 @@ fn module_item_paths_works() {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-pub fn crate_module_paths(db: &dyn EntitySynTreeDb, crate_path: CratePath) -> Vec<ModulePath> {
+pub fn crate_module_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ModulePath> {
     let root_module_path = crate_path.root_module_path(db);
     let mut module_paths = vec![];
     collect_module_paths(root_module_path, &mut module_paths, db);
@@ -124,7 +121,7 @@ pub fn crate_module_paths(db: &dyn EntitySynTreeDb, crate_path: CratePath) -> Ve
 pub fn collect_module_paths(
     module_path: ModulePath,
     module_paths: &mut Vec<ModulePath>,
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
 ) {
     module_paths.push(module_path);
     for item_path in module_item_paths(db, module_path) {

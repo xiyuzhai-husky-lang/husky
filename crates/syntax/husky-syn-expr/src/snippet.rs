@@ -4,7 +4,7 @@ use husky_vfs::{snippet::Snippet, CratePath};
 
 #[salsa::tracked(jar = SynExprJar, return_ref)]
 pub fn parse_expr_from_snippet(
-    db: &dyn SynExprDb,
+    db: &::salsa::Db,
     crate_path: CratePath,
     snippet: Snippet,
 ) -> PreludeResult<(SynExprRegion, Option<SynExprIdx>)> {

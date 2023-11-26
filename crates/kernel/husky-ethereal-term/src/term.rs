@@ -70,7 +70,7 @@ pub enum EtherealTerm {
 impl EtherealTerm {
     #[track_caller]
     pub fn ty_from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         declarative_term: DeclarativeTerm,
     ) -> EtherealTermResult<Self> {
         let ty_term = Self::from_declarative(
@@ -87,7 +87,7 @@ impl EtherealTerm {
     }
 
     pub fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         declarative_term: DeclarativeTerm,
         ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<Self> {
@@ -292,7 +292,7 @@ impl EtherealTerm {
         })
     }
 
-    pub(crate) fn into_declarative(self, db: &dyn EtherealTermDb) -> DeclarativeTerm {
+    pub(crate) fn into_declarative(self, db: &::salsa::Db) -> DeclarativeTerm {
         match self {
             EtherealTerm::Literal(lit) => DeclarativeTermLiteral::Resolved(lit).into(),
             EtherealTerm::Symbol(s) => DeclarativeTermSymbol::new(
@@ -317,11 +317,11 @@ impl EtherealTerm {
         }
     }
 
-    pub fn from_raw_inner(db: &dyn EtherealTermDb, valid_term: DeclarativeTerm) -> Self {
+    pub fn from_raw_inner(db: &::salsa::Db, valid_term: DeclarativeTerm) -> Self {
         todo!()
     }
 
-    fn reduce(self, db: &dyn EtherealTermDb) -> Self {
+    fn reduce(self, db: &::salsa::Db) -> Self {
         match self {
             EtherealTerm::Literal(_)
             | EtherealTerm::Symbol(_)
@@ -345,11 +345,11 @@ impl EtherealTerm {
         }
     }
 
-    pub(crate) fn is_reduced(self, db: &dyn EtherealTermDb) -> bool {
+    pub(crate) fn is_reduced(self, db: &::salsa::Db) -> bool {
         self.reduce(db) == self
     }
 
-    pub fn substitute(self, db: &dyn EtherealTermDb, substitution: &TermSubstitution) -> Self {
+    pub fn substitute(self, db: &::salsa::Db, substitution: &TermSubstitution) -> Self {
         todo!()
         // match self {
         //     EtherealTerm::Symbol(symbol) => match symbol == substitution.src() {
@@ -370,7 +370,7 @@ impl EtherealTerm {
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     declarative_term: DeclarativeTermExplicitApplicationOrRitchieCall,
     term_ty_expectation: TermTypeExpectation,
 ) -> EtherealTermResult<EtherealTerm> {
@@ -415,7 +415,7 @@ pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchi
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_list(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     declarative_term_list: DeclarativeTermList,
     term_ty_expectation: TermTypeExpectation,
 ) -> EtherealTermResult<EtherealTerm> {
@@ -433,7 +433,7 @@ pub(crate) fn ethereal_term_from_declarative_term_list(
                         db,
                         items[0],
                         TermTypeExpectation::FinalDestinationEqsNonSortTypePath(
-                            db.item_path_menu(toolchain).usize_ty_path(),
+                            item_path_menu(db, toolchain).usize_ty_path(),
                         ),
                     )?,
                     0,
@@ -458,7 +458,7 @@ pub(crate) fn ethereal_term_from_declarative_term_list(
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_wrapper(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     declarative_term_wrapper: DeclarativeTermWrapper,
 ) -> EtherealTermResult<EtherealTerm> {
     let inner_ty = EtherealTerm::ty_from_declarative(db, declarative_term_wrapper.inner_ty(db))?;
@@ -498,14 +498,18 @@ fn term_size_works() {
 }
 
 impl salsa::DebugWithDb for EtherealTerm {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         f.write_fmt(format_args!("EtherealTerm(`{}`)", self.display_with(db,)))
     }
 }
 
 impl salsa::DisplayWithDb for EtherealTerm {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db(), &mut Default::default())
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
@@ -514,7 +518,7 @@ impl EtherealTerm {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         match self {
@@ -538,11 +542,7 @@ impl EtherealTerm {
 impl EtherealTermInstantiate for EtherealTerm {
     type Target = EtherealTerm;
 
-    fn instantiate(
-        self,
-        db: &dyn EtherealTermDb,
-        instantiation: &EtherealInstantiation,
-    ) -> Self::Target {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target {
         match self {
             EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(term) => term.instantiate(db, instantiation),

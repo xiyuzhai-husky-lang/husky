@@ -22,7 +22,7 @@ impl HasEtherealSignatureTemplate for MajorItemPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         Ok(match self {
             MajorItemPath::Type(path) => path.ethereal_signature_template(db)?.into(),

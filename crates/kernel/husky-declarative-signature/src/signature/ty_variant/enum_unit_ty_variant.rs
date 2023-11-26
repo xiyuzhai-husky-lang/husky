@@ -8,7 +8,7 @@ pub struct EnumUnitTypeVariantDeclarativeSignatureTemplate {
 
 impl EnumUnitTypeVariantDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
         decl: UnitTypeVariantSynDecl,
     ) -> DeclarativeSignatureResult<Self> {

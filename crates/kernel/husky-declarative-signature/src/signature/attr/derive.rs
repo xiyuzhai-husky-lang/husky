@@ -15,7 +15,7 @@ pub struct DeriveAttrShardDeclarativeSignatureTemplate {
 impl DeriveAttrDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         decl: DeriveAttrSynDecl,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let declarative_term_region = declarative_term_region(db, syn_expr_region);

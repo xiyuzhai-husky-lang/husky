@@ -7,16 +7,12 @@ pub struct DeclarativeTermSymbols {
 }
 
 impl DeclarativeTermSymbols {
-    pub(crate) fn contains(
-        self,
-        db: &dyn DeclarativeTermDb,
-        symbol: DeclarativeTermSymbol,
-    ) -> bool {
+    pub(crate) fn contains(self, db: &::salsa::Db, symbol: DeclarativeTermSymbol) -> bool {
         self.symbols(db).has(symbol)
     }
 
     fn merge(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         fst: impl Into<Option<Self>>,
         snd: impl Into<Option<Self>>,
     ) -> Option<Self> {
@@ -35,11 +31,7 @@ impl DeclarativeTermSymbols {
     }
 }
 impl DeclarativeTerm {
-    pub fn contains_symbol(
-        self,
-        db: &dyn DeclarativeTermDb,
-        symbol: DeclarativeTermSymbol,
-    ) -> bool {
+    pub fn contains_symbol(self, db: &::salsa::Db, symbol: DeclarativeTermSymbol) -> bool {
         calc_declarative_term_symbols(db, self)
             .map(|declarative_term_symbols| declarative_term_symbols.contains(db, symbol))
             .unwrap_or_default()
@@ -47,7 +39,7 @@ impl DeclarativeTerm {
 }
 
 fn calc_declarative_term_symbols(
-    db: &dyn DeclarativeTermDb,
+    db: &::salsa::Db,
     declarative_term: DeclarativeTerm,
 ) -> Option<DeclarativeTermSymbols> {
     match declarative_term {
@@ -86,7 +78,7 @@ fn calc_declarative_term_symbols(
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
 pub(crate) fn declarative_term_curry_symbols(
-    db: &dyn DeclarativeTermDb,
+    db: &::salsa::Db,
     declarative_term: DeclarativeTermCurry,
 ) -> Option<DeclarativeTermSymbols> {
     let parameter_ty_symbols = calc_declarative_term_symbols(db, declarative_term.parameter_ty(db));
@@ -96,7 +88,7 @@ pub(crate) fn declarative_term_curry_symbols(
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
 pub(crate) fn declarative_term_ritchie_symbols(
-    db: &dyn DeclarativeTermDb,
+    db: &::salsa::Db,
     declarative_term: DeclarativeTermRitchie,
 ) -> Option<DeclarativeTermSymbols> {
     let mut symbols: Option<DeclarativeTermSymbols> = None;
@@ -116,7 +108,7 @@ pub(crate) fn declarative_term_ritchie_symbols(
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
 pub(crate) fn declarative_term_application_symbols(
-    db: &dyn DeclarativeTermDb,
+    db: &::salsa::Db,
     declarative_term: DeclarativeTermExplicitApplication,
 ) -> Option<DeclarativeTermSymbols> {
     DeclarativeTermSymbols::merge(

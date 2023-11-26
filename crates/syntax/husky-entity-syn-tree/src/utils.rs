@@ -1,6 +1,6 @@
 use crate::*;
 
-pub(crate) fn entity_syn_tree_db<Db>(db: &Db) -> &dyn EntitySynTreeDb
+pub(crate) fn entity_syn_tree_db<Db>(db: &::salsa::Db,) -> &::salsa::Db
 where
      + EntitySynTreeDb,
 {

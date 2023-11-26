@@ -10,7 +10,7 @@ pub struct EnumTypeSynNodeDecl {
 }
 
 impl EnumTypeSynNodeDecl {
-    pub fn template_parameters(self, _db: &dyn SynDeclDb) -> &[TemplateSynParameterData] {
+    pub fn template_parameters(self, _db: &::salsa::Db) -> &[TemplateSynParameterData] {
         todo!()
         // self.template_parameter_decl_list(db)
         //     .as_ref()
@@ -18,7 +18,7 @@ impl EnumTypeSynNodeDecl {
         //     .unwrap_or(&[])
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
                 .as_ref()
@@ -54,7 +54,7 @@ pub struct EnumTypeSynDecl {
 impl EnumTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TypePath,
         syn_node_decl: EnumTypeSynNodeDecl,
     ) -> DeclResult<Self> {

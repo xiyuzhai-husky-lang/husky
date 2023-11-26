@@ -24,7 +24,7 @@ impl DeclarativeTermRune {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         _ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         // ad hoc
@@ -33,11 +33,7 @@ impl DeclarativeTermRune {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermRune {
-    fn substitute(
-        self,
-        _db: &dyn DeclarativeTermDb,
-        _substituation: &DeclarativeTermSubstitution,
-    ) -> Self {
+    fn substitute(self, _db: &::salsa::Db, _substituation: &DeclarativeTermSubstitution) -> Self {
         todo!()
     }
 }

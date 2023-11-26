@@ -37,7 +37,7 @@ pub enum TypeSynNodeDecl {
 }
 
 impl TypeSynNodeDecl {
-    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> TypeSynNodePath {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> TypeSynNodePath {
         match self {
             TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeSynNodeDecl::Inductive(syn_node_decl) => syn_node_decl.syn_node_path(db),
@@ -51,7 +51,7 @@ impl TypeSynNodeDecl {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TypeSynNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.syn_expr_region(db),
@@ -65,7 +65,7 @@ impl TypeSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
             TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.errors(db),
             TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.errors(db),
@@ -83,13 +83,13 @@ impl TypeSynNodeDecl {
 impl HasSynNodeDecl for TypeSynNodePath {
     type NodeDecl = TypeSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         ty_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_node_decl(db: &dyn SynDeclDb, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
+pub(crate) fn ty_node_decl(db: &::salsa::Db, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
     DeclParser::new(db, syn_node_path).parse_ty_node_decl()
 }
 
@@ -161,7 +161,7 @@ pub enum TypeSynDecl {
 }
 
 impl TypeSynDecl {
-    pub fn path(self, db: &dyn SynDeclDb) -> TypePath {
+    pub fn path(self, db: &::salsa::Db) -> TypePath {
         match self {
             TypeSynDecl::Enum(decl) => decl.path(db),
             TypeSynDecl::Inductive(decl) => decl.path(db),
@@ -175,7 +175,7 @@ impl TypeSynDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
             TypeSynDecl::Enum(decl) => decl.template_parameters(db),
             TypeSynDecl::UnitStruct(decl) => decl.template_parameters(db),
@@ -189,7 +189,7 @@ impl TypeSynDecl {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             TypeSynDecl::Enum(decl) => decl.syn_expr_region(db),
             TypeSynDecl::UnitStruct(decl) => decl.syn_expr_region(db),
@@ -205,7 +205,7 @@ impl TypeSynDecl {
 
     #[inline(always)]
     fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TypePath,
         syn_node_decl: TypeSynNodeDecl,
     ) -> DeclResult<Self> {
@@ -245,13 +245,13 @@ impl HasSynDecl for TypePath {
     type Decl = TypeSynDecl;
 
     #[inline(always)]
-    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
         ty_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_decl(db: &dyn SynDeclDb, path: TypePath) -> DeclResult<TypeSynDecl> {
+pub(crate) fn ty_decl(db: &::salsa::Db, path: TypePath) -> DeclResult<TypeSynDecl> {
     TypeSynDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
 }
 
@@ -261,6 +261,6 @@ fn ty_decl_works() {
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
-    let menu = db.item_path_menu(toolchain);
+    let menu = item_path_menu(db, toolchain);
     assert!(menu.never_ty_path().syn_decl(db).is_ok());
 }

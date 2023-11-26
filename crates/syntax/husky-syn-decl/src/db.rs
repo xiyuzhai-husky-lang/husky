@@ -3,7 +3,6 @@ use crate::*;
 use husky_entity_syn_tree::EntitySynTreeResult;
 
 use husky_vfs::ModulePath;
-use salsa::DbWithJar;
 
 pub trait SynDeclDb: DbWithJar<SynDeclJar> + SynExprDb {
     fn syn_node_decl_sheet(&self, module_path: ModulePath) -> SynNodeDeclSheet;

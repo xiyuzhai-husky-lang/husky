@@ -19,7 +19,7 @@ impl std::ops::Deref for TermMenu1 {
 }
 
 impl TermMenu1 {
-    pub fn new(db: &dyn EtherealTermDb, _toolchain: Toolchain, menu0: TermMenu0) -> Self {
+    pub fn new(db: &::salsa::Db, _toolchain: Toolchain, menu0: TermMenu0) -> Self {
         // todo!()
         Self {
             static_ref_ty: EtherealTermApplication::new(

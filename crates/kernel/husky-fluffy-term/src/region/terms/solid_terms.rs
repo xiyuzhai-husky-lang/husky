@@ -47,7 +47,7 @@ impl SolidTerm {
     }
 
     #[inline(never)]
-    pub fn show(self, db: &dyn FluffyTermDb, solid_terms: &SolidTerms) -> String {
+    pub fn show(self, db: &::salsa::Db, solid_terms: &SolidTerms) -> String {
         match self.data_inner(solid_terms) {
             SolidTermData::TypeOntology {
                 path,

@@ -1,6 +1,5 @@
 use husky_coword::Coword;
 
-
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -12,12 +11,12 @@ pub struct ManifestAstMenu {
 }
 
 #[salsa::tracked(jar = ManifestAstJar, return_ref)]
-pub(crate) fn manifest_ast_menu(db: &dyn ManifestAstDb) -> ManifestAstMenu {
+pub(crate) fn manifest_ast_menu(db: &::salsa::Db) -> ManifestAstMenu {
     ManifestAstMenu::new(db)
 }
 
 impl ManifestAstMenu {
-    fn new(db: &dyn ManifestAstDb) -> Self {
+    fn new(db: &::salsa::Db) -> Self {
         let package_coword = Coword::from_ref(db, "package");
         let dependencies_coword = Coword::from_ref(db, "dependencies");
         let dev_dependencies_coword = Coword::from_ref(db, "dev-dependencies");

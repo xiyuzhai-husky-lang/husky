@@ -26,7 +26,7 @@ pub enum ItemEtherealSignatureTemplate {
 }
 
 impl ItemEtherealSignatureTemplate {
-    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
             ItemEtherealSignatureTemplate::Submodule => None,
             ItemEtherealSignatureTemplate::MajorItem(_) => None,
@@ -43,7 +43,7 @@ pub trait HasEtherealSignatureTemplate {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate>;
 }
 
@@ -52,7 +52,7 @@ impl HasEtherealSignatureTemplate for ItemPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         Ok(match self {
             ItemPath::Submodule(_, _) => ItemEtherealSignatureTemplate::Submodule,

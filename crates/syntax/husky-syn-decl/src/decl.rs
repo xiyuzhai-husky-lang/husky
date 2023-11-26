@@ -32,7 +32,7 @@ pub enum ItemSynNodeDecl {
 }
 
 impl ItemSynNodeDecl {
-    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> Option<SynExprRegion> {
         match self {
             ItemSynNodeDecl::Submodule(_) => None,
             ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
@@ -45,7 +45,7 @@ impl ItemSynNodeDecl {
         }
     }
 
-    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> ItemSynNodePath {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> ItemSynNodePath {
         match self {
             ItemSynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
             ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
@@ -58,7 +58,7 @@ impl ItemSynNodeDecl {
         }
     }
 
-    pub fn node_decl_errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn node_decl_errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
             ItemSynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.errors(db),
             ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.errors(db),
@@ -84,7 +84,7 @@ pub enum SynDecl {
 }
 
 impl SynDecl {
-    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
             SynDecl::Submodule(_) => todo!(),
             SynDecl::MajorItem(decl) => decl.template_parameters(db),
@@ -95,7 +95,7 @@ impl SynDecl {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> Option<SynExprRegion> {
         match self {
             SynDecl::Submodule(_) => None,
             SynDecl::MajorItem(decl) => decl.syn_expr_region(db).into(),
@@ -106,7 +106,7 @@ impl SynDecl {
         }
     }
 
-    pub fn path(self, db: &dyn SynDeclDb) -> ItemPath {
+    pub fn path(self, db: &::salsa::Db) -> ItemPath {
         match self {
             SynDecl::Submodule(_) => todo!(),
             SynDecl::MajorItem(decl) => decl.path(db).into(),
@@ -121,13 +121,13 @@ impl SynDecl {
 pub trait HasSynNodeDecl: Copy {
     type NodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl;
+    fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl;
 }
 
 impl HasSynNodeDecl for ItemSynNodePath {
     type NodeDecl = ItemSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         match self {
             ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
             ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
@@ -144,13 +144,13 @@ impl HasSynNodeDecl for ItemSynNodePath {
 pub trait HasSynDecl: Copy {
     type Decl;
 
-    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl>;
+    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl>;
 }
 
 impl HasSynDecl for ItemPath {
     type Decl = SynDecl;
 
-    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
         match self {
             ItemPath::Submodule(_, path) => path.syn_decl(db).map(Into::into),
             ItemPath::MajorItem(path) => path.syn_decl(db).map(Into::into),

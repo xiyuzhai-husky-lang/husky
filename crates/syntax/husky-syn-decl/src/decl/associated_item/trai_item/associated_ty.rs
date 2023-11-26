@@ -13,7 +13,7 @@ pub struct TraitAssociatedTypeSynNodeDecl {
 }
 
 impl TraitAssociatedTypeSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.generics(db)
                 .as_ref()

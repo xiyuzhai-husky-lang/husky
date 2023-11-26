@@ -2,7 +2,7 @@ mod keyed;
 mod regular;
 mod variadic;
 
-use salsa::Database;
+use salsa::Db;
 
 pub use self::keyed::*;
 pub use self::regular::*;
@@ -31,7 +31,7 @@ impl EtherealTermRitchie {
     //// this constructor guarantees that the result is reduced and first-order valid
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     pub fn new(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: impl IntoIterator<Item = EtherealRitchieParameter>,
         return_ty: EtherealTerm,
@@ -49,7 +49,7 @@ impl EtherealTermRitchie {
     ///
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     pub(crate) fn new_unchecked(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ritchie_kind: RitchieKind,
         parameter_tys: impl IntoIterator<Item = EtherealRitchieParameter>,
         return_ty: EtherealTerm,
@@ -68,7 +68,7 @@ impl EtherealTermRitchie {
     ///
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     fn new_unchecked2<E>(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ritchie_kind: RitchieKind,
         parameter_tys: impl IntoIterator<Item = Result<EtherealRitchieParameter, E>>,
         return_ty: EtherealTerm,
@@ -87,14 +87,14 @@ impl EtherealTermRitchie {
         ))
     }
 
-    pub(super) fn reduce(self, db: &dyn EtherealTermDb) -> EtherealTermRitchie {
+    pub(super) fn reduce(self, db: &::salsa::Db) -> EtherealTermRitchie {
         // ad hoc
         self
     }
 
     #[inline(always)]
     pub(crate) fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         declarative_term_ritchie: DeclarativeTermRitchie,
     ) -> EtherealTermResult<Self> {
         ethereal_term_ritchie_from_declarative_term_ritchie(db, declarative_term_ritchie)
@@ -104,7 +104,7 @@ impl EtherealTermRitchie {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         f.write_str(self.ritchie_kind(db).code())?;
@@ -122,7 +122,7 @@ impl EtherealTermRitchie {
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     declarative_term_ritchie: DeclarativeTermRitchie,
 ) -> EtherealTermResult<EtherealTermRitchie> {
     EtherealTermRitchie::new_unchecked2(
@@ -140,7 +140,7 @@ pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
 
 impl EtherealRitchieParameter {
     pub fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         param: DeclarativeRitchieParameter,
     ) -> EtherealTermResult<Self> {
         Ok(match param {
@@ -160,17 +160,17 @@ impl EtherealRitchieParameter {
 impl EtherealTermInstantiate for EtherealRitchieParameter {
     type Target = Self;
 
-    fn instantiate(
-        self,
-        db: &dyn EtherealTermDb,
-        instantiation: &EtherealInstantiation,
-    ) -> Self::Target {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target {
         todo!()
     }
 }
 
 impl salsa::DisplayWithDb for EtherealTermRitchie {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         let db = db();
         f.write_str(self.ritchie_kind(db).code())?;
         f.write_str("(")?;
@@ -195,7 +195,7 @@ pub enum EtherealRitchieParameter {
 }
 
 impl EtherealRitchieParameter {
-    fn reduce(self, db: &dyn EtherealTermDb) -> Self {
+    fn reduce(self, db: &::salsa::Db) -> Self {
         match self {
             EtherealRitchieParameter::Regular(param) => param.reduce(db).into(),
             EtherealRitchieParameter::Variadic(param) => param.reduce(db).into(),
@@ -206,7 +206,7 @@ impl EtherealRitchieParameter {
     fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         match self {
@@ -218,7 +218,11 @@ impl EtherealRitchieParameter {
 }
 
 impl salsa::DisplayWithDb for EtherealRitchieParameter {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         match self {
             EtherealRitchieParameter::Regular(param) => param.display_with_db_fmt(f, db),
             EtherealRitchieParameter::Variadic(param) => param.display_with_db_fmt(f, db),
@@ -246,7 +250,7 @@ impl EtherealRitchieParameter {
 }
 
 impl EtherealTermRitchie {
-    fn substitute(self, db: &dyn EtherealTermDb, substituation: &TermSubstitution) -> EtherealTerm {
+    fn substitute(self, db: &::salsa::Db, substituation: &TermSubstitution) -> EtherealTerm {
         todo!()
     }
 }

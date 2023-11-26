@@ -8,10 +8,10 @@ impl<'a> TomlTokenIter<'a> {
             }
             self.next_char();
         }
-        TomlTokenData::Word(
-            self.db
-                .it_coword_borrowed(&self.input[start..self.current()]),
-        )
+        TomlTokenData::Word(Coword::from_ref(
+            self.db,
+            &self.input[start..self.current()],
+        ))
     }
 }
 

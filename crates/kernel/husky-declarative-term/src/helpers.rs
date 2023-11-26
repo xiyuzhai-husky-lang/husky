@@ -4,11 +4,11 @@ use crate::*;
 
 impl DeclarativeTerm {
     #[inline(always)]
-    pub fn apply(self, db: &dyn DeclarativeTermDb, argument: impl Into<DeclarativeTerm>) -> Self {
+    pub fn apply(self, db: &::salsa::Db, argument: impl Into<DeclarativeTerm>) -> Self {
         DeclarativeTermExplicitApplication::new(db, self, argument.into()).into()
     }
 
-    pub fn family(self, db: &dyn DeclarativeTermDb) -> DeclarativeTermFamily {
+    pub fn family(self, db: &::salsa::Db) -> DeclarativeTermFamily {
         match self {
             DeclarativeTerm::Literal(_) => todo!(),
             DeclarativeTerm::Symbol(_) => DeclarativeTermFamily::Other,
@@ -36,10 +36,7 @@ impl DeclarativeTerm {
     }
 
     /// see `self` as the type of another term, return the type expectation for that term
-    pub fn ty_expectation(
-        self,
-        _db: &dyn DeclarativeTermDb,
-    ) -> DeclarativeTermResult<TermTypeExpectation> {
+    pub fn ty_expectation(self, _db: &::salsa::Db) -> DeclarativeTermResult<TermTypeExpectation> {
         Ok(match self {
             DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(path)) => {
                 TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
@@ -66,7 +63,7 @@ pub enum DeclarativeTermFamily {
 }
 
 impl DeclarativeTermSymbol {
-    pub(crate) fn ty_family(self, db: &dyn DeclarativeTermDb) -> DeclarativeTermFamily {
+    pub(crate) fn ty_family(self, db: &::salsa::Db) -> DeclarativeTermFamily {
         self.ty(db)
             .ok()
             .map(|ty| ty.family(db))
@@ -75,7 +72,7 @@ impl DeclarativeTermSymbol {
 }
 
 impl DeclarativeTermRune {
-    pub(crate) fn ty_family(self, db: &dyn DeclarativeTermDb) -> DeclarativeTermFamily {
+    pub(crate) fn ty_family(self, db: &::salsa::Db) -> DeclarativeTermFamily {
         self.ty(db)
             .ok()
             .map(|ty| ty.family(db))

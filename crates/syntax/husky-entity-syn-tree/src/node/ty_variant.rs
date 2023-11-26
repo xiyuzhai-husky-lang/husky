@@ -10,7 +10,7 @@ pub struct TypeVariantSynNodePath {
 
 impl TypeVariantSynNodePath {
     fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         ty_node_path: TypeSynNodePath,
         ty_variant_path: TypeVariantPath,
@@ -22,11 +22,11 @@ impl TypeVariantSynNodePath {
         )
     }
 
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> TypeVariantSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeVariantSynNode {
         ty_variant_syn_node(db, self)
     }
 
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<TypeVariantPath> {
+    pub fn path(self, db: &::salsa::Db) -> Option<TypeVariantPath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 }
@@ -35,7 +35,7 @@ impl TypeVariantSynNodePath {
 // where
 //      + EntitySynTreeDb,
 // {
-//     fn module_path(self, db: &Db) -> ModulePath {
+//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
 //         let db = entity_syn_tree_db(db);
 //         self.maybe_ambiguous_path(db).path.module_path(db)
 //     }
@@ -44,7 +44,7 @@ impl TypeVariantSynNodePath {
 impl TypeSynNodePath {
     fn ty_variant_syn_nodes<'a>(
         self,
-        db: &'a dyn EntitySynTreeDb,
+        db: &'a ::salsa::Db,
     ) -> &'a [(Ident, TypeVariantSynNodePath, TypeVariantSynNode)] {
         ty_variant_syn_nodes(db, self)
     }
@@ -53,7 +53,7 @@ impl TypeSynNodePath {
 impl HasSynNodePath for TypeVariantPath {
     type SynNodePath = TypeVariantSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         TypeVariantSynNodePath::new_inner(
             db,
             self.parent_ty_path(db).syn_node_path(db),
@@ -72,7 +72,7 @@ pub(crate) struct TypeVariantSynNode {
 
 impl TypeVariantSynNode {
     fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         ty_node_path: TypeSynNodePath,
         ty_variant_path: TypeVariantPath,
@@ -90,7 +90,7 @@ impl TypeVariantSynNode {
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn ty_variant_syn_nodes(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     ty_node_path: TypeSynNodePath,
 ) -> Vec<(Ident, TypeVariantSynNodePath, TypeVariantSynNode)> {
     let module_path: ModulePath = todo!(); // = ty_node_path.module_path(db);
@@ -136,7 +136,7 @@ pub(crate) fn ty_variant_syn_nodes(
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn ty_variant_syn_node(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: TypeVariantSynNodePath,
 ) -> TypeVariantSynNode {
     syn_node_path
@@ -148,21 +148,18 @@ pub(crate) fn ty_variant_syn_node(
         .unwrap()
 }
 pub trait HasTypeVariantPaths: Copy {
-    fn ty_variant_paths<'a>(self, db: &'a dyn EntitySynTreeDb) -> &'a [(Ident, TypeVariantPath)];
+    fn ty_variant_paths<'a>(self, db: &'a ::salsa::Db) -> &'a [(Ident, TypeVariantPath)];
 }
 
 impl HasTypeVariantPaths for TypePath {
-    fn ty_variant_paths<'a>(self, db: &'a dyn EntitySynTreeDb) -> &'a [(Ident, TypeVariantPath)] {
+    fn ty_variant_paths<'a>(self, db: &'a ::salsa::Db) -> &'a [(Ident, TypeVariantPath)] {
         ty_variant_paths(db, self)
     }
 }
 
 /// guaranteed that each ident is unique
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-pub(crate) fn ty_variant_paths(
-    db: &dyn EntitySynTreeDb,
-    path: TypePath,
-) -> Vec<(Ident, TypeVariantPath)> {
+pub(crate) fn ty_variant_paths(db: &::salsa::Db, path: TypePath) -> Vec<(Ident, TypeVariantPath)> {
     path.syn_node_path(db)
         .ty_variant_syn_nodes(db)
         .iter()

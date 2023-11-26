@@ -16,7 +16,7 @@ pub enum TraitItemEtherealSignatureTemplate {
 }
 
 impl TraitItemEtherealSignatureTemplate {
-    pub fn self_ty(self, _db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+    pub fn self_ty(self, _db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
             TraitItemEtherealSignatureTemplate::AssociatedFn(_) => None,
         }
@@ -28,7 +28,7 @@ impl HasEtherealSignatureTemplate for TraitItemPath {
 
     fn ethereal_signature_template(
         self,
-        _db: &dyn EtherealSignatureDb,
+        _db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         todo!()
     }

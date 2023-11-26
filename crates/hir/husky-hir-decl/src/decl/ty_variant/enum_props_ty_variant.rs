@@ -21,7 +21,7 @@ impl EnumPropsVariantHirDecl {
     pub(super) fn from_syn(
         path: TypeVariantPath,
         syn_decl: TypePropsVariantSynDecl,
-        db: &dyn HirDeclDb,
+        db: &::salsa::Db,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let fields = syn_decl

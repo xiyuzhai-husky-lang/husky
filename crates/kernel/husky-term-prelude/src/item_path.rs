@@ -35,7 +35,7 @@ impl TermEntityPath {
         }
     }
 
-    pub fn toolchain(self, db: &dyn TermPreludeDb) -> Toolchain {
+    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         match self {
             TermEntityPath::Fugitive(path) => path.toolchain(db),
             TermEntityPath::Trait(path) => path.toolchain(db),
@@ -45,7 +45,7 @@ impl TermEntityPath {
         }
     }
 
-    pub fn ident(self, db: &dyn TermPreludeDb) -> Ident {
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
         match self {
             TermEntityPath::Fugitive(path) => path.ident(db),
             TermEntityPath::Trait(path) => path.ident(db),
@@ -72,14 +72,18 @@ impl TermEntityPath {
     pub fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermPreludeDb,
+        db: &::salsa::Db,
     ) -> std::fmt::Result {
         f.write_str(self.ident(db).data(db))
     }
 }
 
 impl DisplayWithDb for TermEntityPath {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         match self {
             TermEntityPath::Fugitive(path) => {
                 f.write_str("Form(")?;

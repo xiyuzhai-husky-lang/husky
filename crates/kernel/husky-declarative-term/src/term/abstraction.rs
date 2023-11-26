@@ -15,7 +15,7 @@ impl DeclarativeTermAbstraction {
     pub(crate) fn show_with_db_fmt(
         self,
         _f: &mut std::fmt::Formatter<'_>,
-        _db: &Db,
+        _db: &::salsa::Db,
         _ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         todo!()
@@ -23,17 +23,17 @@ impl DeclarativeTermAbstraction {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermAbstraction {
-    fn substitute(
-        self,
-        _db: &dyn DeclarativeTermDb,
-        _substituation: &DeclarativeTermSubstitution,
-    ) -> Self {
+    fn substitute(self, _db: &::salsa::Db, _substituation: &DeclarativeTermSubstitution) -> Self {
         todo!()
     }
 }
 
 impl salsa::DisplayWithDb for DeclarativeTermAbstraction {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         // use std::fmt::Write;
         // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
         // todo!()

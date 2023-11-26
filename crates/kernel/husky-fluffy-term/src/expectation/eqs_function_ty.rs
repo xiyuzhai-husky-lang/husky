@@ -24,11 +24,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
     }
 
     #[inline(always)]
-    fn final_destination_inner(
-        &self,
-        db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
-    ) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
         self.final_destination
     }
 
@@ -39,7 +35,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
 
     fn resolve(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
@@ -136,7 +132,7 @@ pub enum ExpectEqsFunctionTypeOutcomeData {
 impl ExpectEqsFunctionType {
     fn resolve_curry(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         state: &mut ExpectationState,
         terms: &mut FluffyTerms,
         curry_kind: CurryKind,
@@ -187,7 +183,7 @@ impl ExpectEqsFunctionType {
 
     fn resolve_aux(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         state: &mut ExpectationState,
         terms: &mut FluffyTerms,
         expectee: FluffyTerm,

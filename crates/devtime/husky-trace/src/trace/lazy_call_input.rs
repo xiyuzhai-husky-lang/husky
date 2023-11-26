@@ -29,7 +29,7 @@ impl Trace {
         biological_parent_path: TracePath,
         biological_parent: Trace,
         input_sketch: LazyCallInputSketch,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Self {
         let path = TracePath::new(
             LazyCallInputTracePathData {

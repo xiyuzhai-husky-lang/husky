@@ -13,7 +13,7 @@ pub struct LinkageInstantiation {
 impl LinkageInstantiation {
     pub(crate) fn from_hir(
         instantiation: &HirInstantiation,
-        db: &dyn LinkageDb,
+        db: &::salsa::Db,
     ) -> LinkageInstantiation {
         LinkageInstantiation {
             symbol_resolutions: instantiation
@@ -39,7 +39,7 @@ pub enum LinkageTermSymbolResolution {
 }
 
 impl LinkageTermSymbolResolution {
-    fn from_hir(resolution: HirTermSymbolResolution, db: &dyn LinkageDb) -> Self {
+    fn from_hir(resolution: HirTermSymbolResolution, db: &::salsa::Db) -> Self {
         match resolution {
             HirTermSymbolResolution::Explicit(template_argument) => {
                 LinkageTermSymbolResolution::Explicit(LinkageTemplateArgument::from_hir(

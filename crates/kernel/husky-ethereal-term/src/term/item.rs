@@ -18,7 +18,7 @@ fn term_subitem_size_works() {
 impl EtherealTermSubitem {
     #[inline(always)]
     pub(crate) fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         valid_term: DeclarativeTermSubitem,
         term_ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<EtherealTerm> {
@@ -29,17 +29,13 @@ impl EtherealTermSubitem {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 
-    pub fn substitute(
-        self,
-        db: &dyn EtherealTermDb,
-        substituation: &TermSubstitution,
-    ) -> EtherealTerm {
+    pub fn substitute(self, db: &::salsa::Db, substituation: &TermSubstitution) -> EtherealTerm {
         todo!()
         // let old_parent = self.parent(db);
         // let parent = old_parent.substitute(db, substituation);

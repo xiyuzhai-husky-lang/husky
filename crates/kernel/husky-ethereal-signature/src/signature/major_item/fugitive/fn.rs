@@ -9,7 +9,7 @@ pub struct FunctionFnEtherealSignatureTemplate {
 
 impl FunctionFnEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: FugitivePath,
         declarative_signature_template: FnFugitiveDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {

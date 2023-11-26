@@ -21,7 +21,7 @@ pub enum TraitForTypeItemEtherealSignatureTemplate {
 }
 
 impl TraitForTypeItemEtherealSignatureTemplate {
-    pub fn self_value_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+    pub fn self_value_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
             TraitForTypeItemEtherealSignatureTemplate::AssociatedFn(_) => None,
             TraitForTypeItemEtherealSignatureTemplate::AssociatedVal(_) => None,
@@ -35,7 +35,7 @@ impl TraitForTypeItemEtherealSignatureTemplate {
 
     pub(crate) fn inherit_instantiation_builder(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         impl_block_signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
     ) -> TraitForTypeItemEtherealSignatureBuilder {
         match self {
@@ -65,7 +65,7 @@ impl HasEtherealSignatureTemplate for TraitForTypeItemPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         trai_for_ty_item_ethereal_signature_template(db, self)
     }
@@ -73,7 +73,7 @@ impl HasEtherealSignatureTemplate for TraitForTypeItemPath {
 
 // #[salsa::tracked(jar = EtherealSignatureJar)]
 fn trai_for_ty_item_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     path: TraitForTypeItemPath,
 ) -> EtherealSignatureResult<TraitForTypeItemEtherealSignatureTemplate> {
     Ok(match path.declarative_signature_template(db)? {

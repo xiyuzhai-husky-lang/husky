@@ -1,7 +1,5 @@
 use super::*;
 
-
-
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct IllFormedImplBlockSynNodeDecl {
     #[id]
@@ -11,7 +9,7 @@ pub struct IllFormedImplBlockSynNodeDecl {
 }
 
 impl IllFormedImplBlockSynNodeDecl {
-    pub fn errors(self, _db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, _db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         // ad hoc
         SmallVec::default()
     }
@@ -20,14 +18,14 @@ impl IllFormedImplBlockSynNodeDecl {
 impl HasSynNodeDecl for IllFormedImplBlockSynNodePath {
     type NodeDecl = IllFormedImplBlockSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         ill_formed_impl_block_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ill_formed_impl_block_syn_node_decl(
-    db: &dyn SynDeclDb,
+    db: &::salsa::Db,
     syn_node_path: IllFormedImplBlockSynNodePath,
 ) -> IllFormedImplBlockSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path);

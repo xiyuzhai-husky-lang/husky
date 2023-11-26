@@ -26,11 +26,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
     }
 
     #[inline(always)]
-    fn final_destination_inner(
-        &self,
-        db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
-    ) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
         self.expected.final_destination_inner(db, terms)
     }
 
@@ -42,7 +38,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
     // todo: use ty_data instead
     fn resolve(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
@@ -77,16 +73,17 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 }
                 FluffyTermData::Hole(_, hole) => {
                     if Into::<FluffyTerm>::into(hole) != state.expectee() {
-                        state.set_holed(hole, |state| HoleConstraint::CoercibleInto { target: state.expectee() })
+                        state.set_holed(hole, |state| HoleConstraint::CoercibleInto {
+                            target: state.expectee(),
+                        })
                     } else {
-                       state.set_ok(ExpectSubtypeOutcome{}, smallvec![])
+                        state.set_ok(ExpectSubtypeOutcome {}, smallvec![])
                     }
-                },
-                _ => todo!()
-                // Some(FluffyTermExpectationEffect {
-                //     result: Err(todo!()),
-                //     actions: smallvec![],
-                // }),
+                }
+                _ => todo!(), // Some(FluffyTermExpectationEffect {
+                              //     result: Err(todo!()),
+                              //     actions: smallvec![],
+                              // }),
             },
             FluffyTermData::Curry {
                 curry_kind,

@@ -10,7 +10,7 @@ pub struct ValSynNodeDefn {
 
 impl ValSynNodeDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         syn_node_path: FugitiveSynNodePath,
         syn_node_decl: ValFugitiveSynNodeDecl,
     ) -> Self {
@@ -38,7 +38,7 @@ pub struct ValSynDefn {
 }
 
 impl ValSynDefn {
-    pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: ValFugitiveSynDecl) -> Self {
+    pub(super) fn new(db: &::salsa::Db, path: FugitivePath, decl: ValFugitiveSynDecl) -> Self {
         let FugitiveSynNodeDefn::Val(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db)
         else {
             unreachable!()

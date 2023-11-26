@@ -20,7 +20,7 @@ pub enum AssociatedItemEtherealSignatureTemplate {
 }
 
 impl AssociatedItemEtherealSignatureTemplate {
-    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
             AssociatedItemEtherealSignatureTemplate::TraitForType(template) => {
                 template.self_value_ty(db)
@@ -36,7 +36,7 @@ impl HasEtherealSignatureTemplate for AssociatedItemPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         match self {
             AssociatedItemPath::TypeItem(path) => {

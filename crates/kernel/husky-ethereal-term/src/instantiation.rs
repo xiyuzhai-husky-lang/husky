@@ -32,21 +32,13 @@ impl EtherealInstantiation {
 pub trait EtherealTermInstantiate: Copy {
     type Target;
 
-    fn instantiate(
-        self,
-        db: &dyn EtherealTermDb,
-        instantiation: &EtherealInstantiation,
-    ) -> Self::Target;
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target;
 }
 
 pub trait EtherealTermInstantiateRef {
     type Target;
 
-    fn instantiate(
-        &self,
-        db: &dyn EtherealTermDb,
-        instantiation: &EtherealInstantiation,
-    ) -> Self::Target;
+    fn instantiate(&self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target;
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -73,7 +65,7 @@ impl EtherealInstantiationBuilder {
         &mut self,
         src: EtherealTerm,
         dst_arguments: &[EtherealTerm],
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
     ) -> EtherealTermMaybeResult<()> {
         let src_application_expansion = src.application_expansion(db);
         if src_application_expansion.arguments(db).len() != dst_arguments.len() {
@@ -94,7 +86,7 @@ impl EtherealInstantiationBuilder {
         &mut self,
         src: EtherealTerm,
         dst: EtherealTerm,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
     ) -> EtherealTermMaybeResult<()> {
         if src == dst {
             return JustOk(());

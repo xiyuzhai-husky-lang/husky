@@ -14,7 +14,7 @@ pub struct TupleStructTypeEtherealSignatureTemplate {
 
 impl TupleStructTypeEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: TypePath,
         declarative_signature_template: TupleStructTypeDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
@@ -45,7 +45,7 @@ pub struct TupleFieldEtherealSignatureTemplate {
 
 impl TupleFieldEtherealSignatureTemplate {
     fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         declarative_signature_template: TupleStructFieldDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self {

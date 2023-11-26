@@ -8,8 +8,8 @@ pub struct HirTypeMenu {
 }
 
 impl HirTypeMenu {
-    fn new(db: &dyn HirTypeDb, toolchain: Toolchain) -> Self {
-        let item_path_menu = db.item_path_menu(toolchain);
+    fn new(db: &::salsa::Db, toolchain: Toolchain) -> Self {
+        let item_path_menu = item_path_menu(db, toolchain);
         Self {
             unit_ty: HirTypePathLeading::new(db, item_path_menu.unit_ty_path(), smallvec![]),
         }
@@ -21,6 +21,6 @@ impl HirTypeMenu {
 }
 
 #[salsa::tracked(jar = HirTypeJar, return_ref)]
-pub fn hir_ty_menu(db: &dyn HirTypeDb, toolchain: Toolchain) -> HirTypeMenu {
+pub fn hir_ty_menu(db: &::salsa::Db, toolchain: Toolchain) -> HirTypeMenu {
     HirTypeMenu::new(db, toolchain)
 }

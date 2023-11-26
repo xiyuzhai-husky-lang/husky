@@ -27,7 +27,7 @@ impl SemaExprRegion {
         fluffy_term_region: FluffyTermRegion,
         return_ty: Option<EtherealTerm>,
         self_ty: Option<EtherealTerm>,
-        db: &dyn SemaExprDb,
+        db: &::salsa::Db,
     ) -> Self {
         SemaExprRegion::new_inner(
             db,
@@ -121,7 +121,7 @@ impl SemaExprRegionData {
     pub fn syn_pattern_expr_ty(
         &self,
         syn_pattern_expr_idx: idx_arena::ArenaIdx<SynPatternExpr>,
-        db: &dyn SemaExprDb,
+        db: &::salsa::Db,
     ) -> EtherealTerm {
         match self.syn_pattern_expr_ty_infos[syn_pattern_expr_idx].ty {
             Ok(ty_term) => match ty_term.base_resolved_inner(self.fluffy_term_region.terms()) {
@@ -136,10 +136,7 @@ impl SemaExprRegionData {
 }
 
 #[salsa::tracked(jar = SemaExprJar)]
-pub(crate) fn sema_expr_region(
-    db: &dyn SemaExprDb,
-    syn_expr_region: SynExprRegion,
-) -> SemaExprRegion {
+pub(crate) fn sema_expr_region(db: &::salsa::Db, syn_expr_region: SynExprRegion) -> SemaExprRegion {
     let mut engine = SemaExprEngine::new(db, syn_expr_region);
     engine.infer_all();
     engine.finish()

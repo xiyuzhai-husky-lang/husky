@@ -32,7 +32,7 @@ pub enum HirConstant {
 }
 
 impl HirConstant {
-    pub fn from_term(term_lit: TermLiteral, db: &dyn HirTypeDb) -> Self {
+    pub fn from_term(term_lit: TermLiteral, db: &::salsa::Db) -> Self {
         match term_lit {
             TermLiteral::Unit => todo!(),
             TermLiteral::Bool(_) => todo!(),

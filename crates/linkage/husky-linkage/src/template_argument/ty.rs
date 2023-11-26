@@ -22,7 +22,7 @@ pub struct LinkageTypePathLeading {
 pub struct LinkageTypeRitchie {}
 
 impl LinkageType {
-    pub(super) fn from_hir(hir_ty: HirType, db: &dyn LinkageDb) -> Self {
+    pub(super) fn from_hir(hir_ty: HirType, db: &::salsa::Db) -> Self {
         match hir_ty {
             HirType::PathLeading(hir_ty) => LinkageTypePathLeading::new(
                 db,

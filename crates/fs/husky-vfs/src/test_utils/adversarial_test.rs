@@ -39,7 +39,7 @@ pub(super) fn vfs_adversarial_test<U, R>(
     db: &mut Db,
     package_adversarials_dir: &Path,
     unit: U,
-    f: &impl Fn(&Db, U) -> R,
+    f: &impl Fn(&::salsa::Db, U) -> R,
     config: &VfsTestConfig,
 ) where
     U: VfsTestUnit,

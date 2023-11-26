@@ -1,7 +1,7 @@
 use super::*;
 
 impl EtherealTerm {
-    pub fn application_expansion(self, db: &dyn EtherealTermDb) -> ApplicationExpansion {
+    pub fn application_expansion(self, db: &::salsa::Db) -> ApplicationExpansion {
         match self {
             EtherealTerm::Application(term) => term.application_expansion(db),
             EtherealTerm::EntityPath(path) => match path {
@@ -26,14 +26,14 @@ impl EtherealTerm {
 }
 
 impl EtherealTermApplication {
-    pub fn application_expansion(self, db: &dyn EtherealTermDb) -> ApplicationExpansion {
+    pub fn application_expansion(self, db: &::salsa::Db) -> ApplicationExpansion {
         application_expansion_salsa(db, self)
     }
 }
 
 #[salsa::tracked(jar= EtherealTermJar)]
 pub(crate) fn application_expansion_salsa(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     term: EtherealTermApplication,
 ) -> ApplicationExpansion {
     let function = term.function(db);
@@ -67,15 +67,15 @@ impl ApplicationExpansion {
         self.function
     }
 
-    pub fn opt_arguments<'a>(&self, db: &'a dyn EtherealTermDb) -> Option<&'a [EtherealTerm]> {
+    pub fn opt_arguments<'a>(&self, db: &'a ::salsa::Db) -> Option<&'a [EtherealTerm]> {
         self.arguments.map(|arguments| arguments.data(db) as &[_])
     }
 
-    pub fn arguments<'a>(&self, db: &'a dyn EtherealTermDb) -> &'a [EtherealTerm] {
+    pub fn arguments<'a>(&self, db: &'a ::salsa::Db) -> &'a [EtherealTerm] {
         self.opt_arguments(db).unwrap_or_default()
     }
 
-    fn apply(&self, db: &dyn EtherealTermDb, argument: EtherealTerm) -> Self {
+    fn apply(&self, db: &::salsa::Db, argument: EtherealTerm) -> Self {
         let arguments = self.arguments(db);
         let mut arguments = arguments.to_vec();
         arguments.push(argument);

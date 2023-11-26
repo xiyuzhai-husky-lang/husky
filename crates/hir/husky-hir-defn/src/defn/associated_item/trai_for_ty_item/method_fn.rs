@@ -21,7 +21,7 @@ impl From<TraitForTypeMethodFnHirDefn> for HirDefn {
 
 impl TraitForTypeMethodFnHirDefn {
     pub(super) fn new(
-        db: &dyn HirDefnDb,
+        db: &::salsa::Db,
         path: TraitForTypeItemPath,
         hir_decl: TraitForTypeMethodFnHirDecl,
     ) -> TraitForTypeMethodFnHirDefn {
@@ -38,23 +38,23 @@ impl TraitForTypeMethodFnHirDefn {
         )
     }
 
-    pub fn hir_eager_expr_region(self, db: &dyn HirDefnDb) -> Option<HirEagerExprRegion> {
+    pub fn hir_eager_expr_region(self, db: &::salsa::Db) -> Option<HirEagerExprRegion> {
         self.eager_body_with_hir_eager_expr_region(db)
             .map(|(_, region)| region)
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         trai_for_ty_method_fn_hir_defn_dependencies(db, self)
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         trai_for_ty_method_fn_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_for_ty_method_fn_hir_defn_dependencies(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: TraitForTypeMethodFnHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
@@ -77,7 +77,7 @@ fn trai_for_ty_method_fn_hir_defn_dependencies(
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_for_ty_method_fn_hir_defn_version_stamp(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: TraitForTypeMethodFnHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)

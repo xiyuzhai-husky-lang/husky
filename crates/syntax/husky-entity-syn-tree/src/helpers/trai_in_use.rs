@@ -16,7 +16,7 @@ pub struct TraitInUseItemsTable<'a> {
 }
 
 impl<'a> TraitInUseItemsTable<'a> {
-    pub fn query(db: &'a dyn EntitySynTreeDb, module_path: ModulePath) -> Self {
+    pub fn query(db: &'a ::salsa::Db, module_path: ModulePath) -> Self {
         let toolchain = module_path.toolchain(db);
         Self {
             prelude_trait_items_table: if module_path.crate_path(db)
@@ -53,7 +53,7 @@ impl<'a> TraitInUseItemsTable<'a> {
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 fn non_core_crate_prelude_trait_items_table(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     toolchain: Toolchain,
 ) -> TraitInUseItemsTableImpl {
     trait_items_table_impl(
@@ -64,7 +64,7 @@ fn non_core_crate_prelude_trait_items_table(
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 fn module_specific_trait_items_table(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> TraitInUseItemsTableImpl {
     trait_items_table_impl(db, module_path.item_tree_sheet(db).module_symbols())
@@ -73,7 +73,7 @@ fn module_specific_trait_items_table(
 type TraitInUseItemsTableImpl = SmallVecPairMap<Ident, SmallVec<[TraitInUseItemRecord; 2]>, 16>;
 
 fn trait_items_table_impl(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     item_symbol_table_ref: EntitySymbolTableRef,
 ) -> TraitInUseItemsTableImpl {
     let mut table: SmallVecPairMap<Ident, SmallVec<[TraitInUseItemRecord; 2]>, 16> =
@@ -143,9 +143,6 @@ impl<'a> TraitInUseItemsWithGivenIdent<'a> {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-fn trai_item_table(
-    _db: &dyn EntitySynTreeDb,
-    _traits: TraitOrderedSet,
-) -> TraitInUseItemsTableImpl {
+fn trai_item_table(_db: &::salsa::Db, _traits: TraitOrderedSet) -> TraitInUseItemsTableImpl {
     todo!()
 }

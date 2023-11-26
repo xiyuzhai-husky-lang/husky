@@ -31,7 +31,7 @@ impl FluffyTerms {
 
     pub(crate) fn new_hole_from_parameter_symbol(
         &mut self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         hole_source: HoleSource,
         parameter_symbol: FluffyTerm,
     ) -> HollowTerm {

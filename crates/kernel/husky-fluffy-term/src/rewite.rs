@@ -34,7 +34,7 @@ impl FluffyTerm {
 
     pub(crate) fn rewrite_inner(
         self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         src: HoleSource,
         substitution_rules: &[ImplicitParameterSubstitution],
@@ -47,7 +47,7 @@ impl FluffyTerm {
 
     fn rewrite_aux(
         self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         src: HoleSource,
         substitution_rules: &[ImplicitParameterSubstitution],

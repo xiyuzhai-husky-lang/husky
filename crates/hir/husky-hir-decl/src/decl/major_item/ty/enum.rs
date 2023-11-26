@@ -10,7 +10,7 @@ pub struct EnumTypeHirDecl {
 }
 
 impl EnumTypeHirDecl {
-    pub(super) fn from_syn(path: TypePath, syn_decl: EnumTypeSynDecl, db: &dyn HirDeclDb) -> Self {
+    pub(super) fn from_syn(path: TypePath, syn_decl: EnumTypeSynDecl, db: &::salsa::Db) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);

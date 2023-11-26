@@ -19,7 +19,7 @@ pub struct FnSynNodeDecl {
 }
 
 impl FnSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_obelisk_list(db)
                 .as_ref()
@@ -79,7 +79,7 @@ pub struct FunctionFnFugitiveSynDecl {
 
 impl FunctionFnFugitiveSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: FugitivePath,
         syn_node_decl: FnSynNodeDecl,
     ) -> DeclResult<Self> {

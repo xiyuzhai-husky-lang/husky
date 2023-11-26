@@ -7,7 +7,7 @@ pub struct AttrHirDefn {
 }
 
 impl AttrHirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> AttrItemPath {
+    pub fn path(self, db: &::salsa::Db) -> AttrItemPath {
         self.hir_decl.path(db)
     }
 

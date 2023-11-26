@@ -1,6 +1,6 @@
 use crate::*;
 use ordered_float::{NotNan, OrderedFloat};
-use salsa::Database;
+use salsa::Db;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]
@@ -73,7 +73,7 @@ fn term_literal_size_works() {
 
 impl TermLiteral {
     #[inline(always)]
-    pub(crate) fn from_declarative(_db: &dyn TermPreludeDb, _valid_term: TermLiteral) -> Self {
+    pub(crate) fn from_declarative(_db: &::salsa::Db, _valid_term: TermLiteral) -> Self {
         todo!()
     }
 
@@ -112,7 +112,7 @@ impl TermLiteral {
     pub fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermPreludeDb,
+        db: &::salsa::Db,
     ) -> std::fmt::Result {
         use std::fmt::Display;
         match self {
@@ -230,7 +230,11 @@ pub struct TermNatLiteral {
 }
 
 impl salsa::DisplayWithDb for TermLiteral {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db())
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.show_with_db_fmt(f, db)
     }
 }

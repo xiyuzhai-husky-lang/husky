@@ -22,7 +22,7 @@ pub enum TraitItemSynNodeDecl {
 }
 
 impl TraitItemSynNodeDecl {
-    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> TraitItemSynNodePath {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> TraitItemSynNodePath {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(decl) => decl.syn_node_path(db),
             TraitItemSynNodeDecl::MethodFn(decl) => decl.syn_node_path(db),
@@ -31,7 +31,7 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -40,7 +40,7 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TraitItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
@@ -51,7 +51,7 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, _db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, _db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -64,14 +64,14 @@ impl TraitItemSynNodeDecl {
 impl HasSynNodeDecl for TraitItemSynNodePath {
     type NodeDecl = TraitItemSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         trai_item_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 fn trai_item_syn_node_decl(
-    db: &dyn SynDeclDb,
+    db: &::salsa::Db,
     syn_node_path: TraitItemSynNodePath,
 ) -> TraitItemSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path);
@@ -99,7 +99,7 @@ pub enum TraitItemSynDecl {
 }
 
 impl TraitItemSynDecl {
-    pub fn path(self, _db: &dyn SynDeclDb) -> TraitItemPath {
+    pub fn path(self, _db: &::salsa::Db) -> TraitItemPath {
         match self {
             TraitItemSynDecl::AssociatedFn(_) => todo!(),
             TraitItemSynDecl::MethodFn(_) => todo!(),
@@ -108,7 +108,7 @@ impl TraitItemSynDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
             TraitItemSynDecl::AssociatedFn(_) => todo!(),
             TraitItemSynDecl::MethodFn(_) => todo!(),
@@ -119,7 +119,7 @@ impl TraitItemSynDecl {
 
     pub fn parenate_parameters<'a>(
         self,
-        db: &'a dyn SynDeclDb,
+        db: &'a ::salsa::Db,
     ) -> Option<&'a [ParenateSynParameterData]> {
         match self {
             TraitItemSynDecl::AssociatedFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
@@ -129,7 +129,7 @@ impl TraitItemSynDecl {
         }
     }
 
-    pub fn syn_expr_region(self, _db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, _db: &::salsa::Db) -> SynExprRegion {
         match self {
             TraitItemSynDecl::AssociatedFn(_) => todo!(),
             TraitItemSynDecl::MethodFn(_) => todo!(),
@@ -142,7 +142,7 @@ impl TraitItemSynDecl {
 impl HasSynDecl for TraitItemPath {
     type Decl = TraitItemSynDecl;
 
-    fn syn_decl(self, _db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, _db: &::salsa::Db) -> DeclResult<Self::Decl> {
         todo!()
     }
 }

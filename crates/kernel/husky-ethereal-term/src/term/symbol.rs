@@ -5,7 +5,7 @@ pub use self::index::*;
 pub use self::set::*;
 
 use super::*;
-use salsa::Database;
+use salsa::Db;
 use thiserror::Error;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = pub new_inner)]
@@ -28,7 +28,7 @@ fn term_symbol_size_works() {
 impl EtherealTermSymbol {
     #[inline(always)]
     pub fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         declarative_term_symbol: DeclarativeTermSymbol,
     ) -> EtherealTermResult<Self> {
         let ty = declarative_term_symbol.ty(db)?;
@@ -44,7 +44,7 @@ impl EtherealTermSymbol {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         ctx.fmt_symbol(db, self, f)
@@ -61,7 +61,11 @@ pub enum TermSymbolTypeErrorKind {
 pub type TermSymbolTypeResult<T> = Result<T, TermSymbolTypeErrorKind>;
 
 impl salsa::DisplayWithDb for EtherealTermSymbol {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         // ad hoc
         let db = db();
         f.write_fmt(format_args!("${:?}", self.index(db)))
@@ -71,11 +75,7 @@ impl salsa::DisplayWithDb for EtherealTermSymbol {
 impl EtherealTermInstantiate for EtherealTermSymbol {
     type Target = EtherealTerm;
 
-    fn instantiate(
-        self,
-        db: &dyn EtherealTermDb,
-        instantiation: &EtherealInstantiation,
-    ) -> Self::Target {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target {
         /// it's assumed that all symbols will be replaced by its map
         /// otherwise it's illegal
         instantiation.symbol_mapped(self)

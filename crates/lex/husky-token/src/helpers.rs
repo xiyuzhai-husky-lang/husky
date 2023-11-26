@@ -21,7 +21,7 @@ use parsec::*;
 use salsa::test_utils::Db;
 
 #[cfg(test)]
-fn quick_parse<T, Error>(db: &::salsa::Db input: &str) -> Result<Option<T>, Error>
+fn quick_parse<T, Error>(db: &::salsa::Db, input: &str) -> Result<Option<T>, Error>
 where
     T: for<'a> TryParseOptionFromStream<TokenStream<'a>, Error = Error>,
 {

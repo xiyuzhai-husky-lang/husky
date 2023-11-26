@@ -14,7 +14,7 @@ use husky_syn_expr::{
 };
 
 pub(crate) struct HirDeclBuilder<'a> {
-    db: &'a dyn HirDeclDb,
+    db: &'a ::salsa::Db,
     hir_ty_menu: &'a HirTypeMenu,
     sema_expr_region_data: &'a SemaExprRegionData,
     hir_expr_region: HirExprRegion,
@@ -22,7 +22,7 @@ pub(crate) struct HirDeclBuilder<'a> {
 }
 
 impl<'a> HirDeclBuilder<'a> {
-    pub(crate) fn new(syn_expr_region: SynExprRegion, db: &'a dyn HirDeclDb) -> Self {
+    pub(crate) fn new(syn_expr_region: SynExprRegion, db: &'a ::salsa::Db) -> Self {
         let toolchain = syn_expr_region.data(db).path().toolchain(db);
         let hir_ty_menu = db.hir_ty_menu(toolchain);
         let (hir_expr_region, hir_expr_source_map) =
@@ -98,7 +98,7 @@ impl<'a> HirDeclBuilder<'a> {
         }
     }
 
-    pub(crate) fn db(&self) -> &dyn HirDeclDb {
+    pub(crate) fn db(&self) -> &::salsa::Db {
         self.db
     }
 

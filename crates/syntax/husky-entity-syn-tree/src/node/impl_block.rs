@@ -28,7 +28,7 @@ pub enum ImplBlockSynNodePath {
 pub(crate) struct ImplBlockNodePathRegistry {}
 
 impl ImplBlockSynNodePath {
-    pub fn path(self, _db: &dyn EntitySynTreeDb) -> Option<ImplBlockPath> {
+    pub fn path(self, _db: &::salsa::Db) -> Option<ImplBlockPath> {
         match self {
             ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => Some(syn_node_path.path().into()),
             ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
@@ -38,11 +38,11 @@ impl ImplBlockSynNodePath {
         }
     }
 
-    pub(crate) fn syn_node(self, _db: &dyn EntitySynTreeDb) -> ImplBlockSynNode {
+    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> ImplBlockSynNode {
         todo!()
     }
 
-    pub fn item_syn_node_paths(self, _db: &dyn EntitySynTreeDb) -> &[AssociatedItemPath] {
+    pub fn item_syn_node_paths(self, _db: &::salsa::Db) -> &[AssociatedItemPath] {
         todo!()
     }
 }
@@ -51,7 +51,7 @@ impl ImplBlockSynNodePath {
 // where
 //      + EntitySynTreeDb,
 // {
-//     fn module_path(self, db: &Db) -> ModulePath {
+//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
 //         match self {
 //             ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => syn_node_path.module_path(db),
 //             ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
@@ -67,7 +67,7 @@ impl ImplBlockSynNodePath {
 impl HasSynNodePath for ImplBlockPath {
     type SynNodePath = ImplBlockSynNodePath;
 
-    fn syn_node_path(self, _db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, _db: &::salsa::Db) -> Self::SynNodePath {
         todo!()
     }
 }
@@ -82,7 +82,7 @@ pub(crate) enum ImplBlockSynNode {
 }
 
 impl ImplBlockSynNode {
-    pub fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> ImplBlockSynNodePath {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> ImplBlockSynNodePath {
         match self {
             ImplBlockSynNode::TypeImplBlock(impl_block) => impl_block.syn_node_path(db).into(),
             ImplBlockSynNode::TraitForTypeImplBlock(impl_block) => {
@@ -94,7 +94,7 @@ impl ImplBlockSynNode {
 
     pub fn for_each_item(
         self,
-        _db: &dyn EntitySynTreeDb,
+        _db: &::salsa::Db,
         _f: impl FnMut(),
     ) -> &[AssociatedItemSynNodePath] {
         todo!()
@@ -103,7 +103,7 @@ impl ImplBlockSynNode {
 
 impl ImplBlockSynNode {
     pub(crate) fn parse_from_token_group<'a, 'b>(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         crate_root_path: ModulePath,
         registry: &mut ImplBlockRegistry,
         item_tree_context: EntityTreeSymbolContext<'a, 'b>,
@@ -149,7 +149,7 @@ impl ImplBlockSynNode {
     }
 
     pub(crate) fn parse_from_token_group_aux<'a, 'b>(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         _crate_root_path: ModulePath,
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
@@ -244,7 +244,7 @@ impl ImplBlockSynNode {
         })
     }
 
-    pub fn module_path(&self, _db: &dyn EntitySynTreeDb) -> ModulePath {
+    pub fn module_path(&self, _db: &::salsa::Db) -> ModulePath {
         todo!()
         // self.id(db).module_path
     }

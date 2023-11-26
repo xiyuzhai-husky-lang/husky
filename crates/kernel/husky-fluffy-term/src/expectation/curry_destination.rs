@@ -22,7 +22,7 @@ impl ExpectFluffyTerm for ExpectCurryDestination {
     #[inline(always)]
     fn final_destination_inner(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         fluffy_terms: &FluffyTerms,
     ) -> FinalDestination {
         self.curry_destination
@@ -36,7 +36,7 @@ impl ExpectFluffyTerm for ExpectCurryDestination {
 
     fn resolve(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {

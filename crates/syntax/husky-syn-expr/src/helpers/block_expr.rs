@@ -5,7 +5,7 @@ pub fn parse_defn_block_expr<P>(
     decl_expr_region: SynExprRegion,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
-    db: &dyn SynExprDb,
+    db: &::salsa::Db,
 ) -> Option<(SynExprIdx, SynExprRegion)>
 where
     P: HasSynDefnTokraRegion,

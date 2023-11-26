@@ -53,7 +53,7 @@ impl Expectation {
     /// basically enum version of virtual method dispath
     pub(crate) fn resolve(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         meta: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
@@ -93,11 +93,7 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
     ///
     /// final destination of a type path `A` is `FinalDestination::TypePath(A)`
     #[inline(always)]
-    fn final_destination_inner(
-        &self,
-        db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
-    ) -> FinalDestination;
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination;
 
     #[inline(always)]
     fn final_destination(&self, engine: &impl FluffyTermEngine<'_>) -> FinalDestination {
@@ -114,7 +110,7 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
     #[inline(always)]
     fn disambiguate_ty_path_inner(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &FluffyTerms,
     ) -> TypePathDisambiguation {
         match self.final_destination_inner(db, terms) {
@@ -133,7 +129,7 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
 
     fn destination_term_data<'a>(
         &self,
-        db: &'a dyn FluffyTermDb,
+        db: &'a ::salsa::Db,
         fluffy_terms: &'a FluffyTerms,
     ) -> Option<FluffyTermData<'a>> {
         self.destination()
@@ -143,7 +139,7 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
     /// needs to return option to indicate whether something has been changed
     fn resolve(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect>;

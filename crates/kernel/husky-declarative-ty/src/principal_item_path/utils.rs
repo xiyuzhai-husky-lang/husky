@@ -1,9 +1,7 @@
-
-
 use super::*;
 
 pub(super) fn curry_from_template_parameters(
-    db: &dyn DeclarativeSignatureDb,
+    db: &::salsa::Db,
     term_curry_kind: CurryKind,
     variances: &[Variance],
     template_parameters: &[DeclarativeTemplateParameter],

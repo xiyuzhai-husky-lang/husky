@@ -46,7 +46,7 @@ impl<'a> EntitySymbolTableRef<'a> {
     // todo: add token_idx: TokenIdx
     pub fn resolve_ident(
         &self,
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         reference_module_path: ReferenceModulePath,
         ident: Ident,
     ) -> Option<EntitySymbol> {
@@ -74,17 +74,17 @@ pub struct EntitySymbolEntry {
 }
 
 impl EntitySymbolEntry {
-    pub(crate) fn new_crate_root(db: &dyn EntitySynTreeDb, crate_path: CratePath) -> Self {
+    pub(crate) fn new_crate_root(db: &::salsa::Db, crate_path: CratePath) -> Self {
         let root_module_path = crate_path.root_module_path(db);
         Self {
-            ident: db.coword_menu().crate_ident(),
+            ident: coword_menu(db).crate_ident(),
             visibility: Scope::PubUnder(root_module_path),
             symbol: EntitySymbol::CrateRoot { root_module_path },
         }
     }
 
     pub(crate) fn new_package_dependency(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         package_dependency: &ManifestDependency,
     ) -> VfsResult<Self> {
         let package_path = package_dependency.package_path();
@@ -101,7 +101,7 @@ impl EntitySymbolEntry {
     }
 
     pub(crate) fn new_use_symbol_entry(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         original_symbol: EntitySymbol,
         rule: &mut OnceUseRule,
     ) -> Self {
@@ -123,7 +123,7 @@ impl EntitySymbolEntry {
     }
 
     pub(crate) fn new_use_ty_variant_entry(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         parent_rule: &OnceUseRule,
         ident: Ident,
         ty_variant_path: TypeVariantPath,
@@ -146,7 +146,7 @@ impl EntitySymbolEntry {
 
     pub(crate) fn export_via_use_all(
         &self,
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         reference_module_path: ModulePath,
         rule: &UseAllModuleSymbolsRule,
     ) -> Option<Self> {
@@ -168,7 +168,7 @@ impl EntitySymbolEntry {
 
     pub(crate) fn is_visible_from(
         &self,
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         module_path: ReferenceModulePath,
     ) -> bool {
         self.visibility.is_visible_from(db, module_path)
@@ -195,7 +195,7 @@ pub struct MajorEntityNodeTable {
 }
 
 impl MajorEntityNodeTable {
-    pub(crate) fn item_symbol_table(&self, db: &dyn EntitySynTreeDb) -> EntitySymbolTable {
+    pub(crate) fn item_symbol_table(&self, db: &::salsa::Db) -> EntitySymbolTable {
         EntitySymbolTable(
             self.entries
                 .iter()
@@ -206,7 +206,7 @@ impl MajorEntityNodeTable {
 
     pub(crate) fn try_add_new_node(
         &mut self,
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         visibility: Scope,
         ast_idx: AstIdx,
@@ -251,7 +251,7 @@ pub struct ItemNodeEntry {
 }
 
 impl EntitySymbolEntry {
-    fn from_node(db: &dyn EntitySynTreeDb, node_entry: &ItemNodeEntry) -> Option<Self> {
+    fn from_node(db: &::salsa::Db, node_entry: &ItemNodeEntry) -> Option<Self> {
         Some(EntitySymbolEntry {
             ident: node_entry.ident,
             visibility: node_entry.visibility,
@@ -262,7 +262,7 @@ impl EntitySymbolEntry {
 
 impl ItemNodeEntry {
     fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         visibility: Scope,
         ast_idx: AstIdx,

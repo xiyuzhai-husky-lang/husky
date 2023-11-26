@@ -9,7 +9,7 @@ pub use self::level::*;
 use crate::*;
 
 impl FluffyTermRegion {
-    fn next_effect(&mut self, db: &dyn FluffyTermDb) -> AltOption<FluffyTermEffect> {
+    fn next_effect(&mut self, db: &::salsa::Db) -> AltOption<FluffyTermEffect> {
         for expectation in self.expectations.unresolved_expectation_iter_mut() {
             expectation.resolve(db, &mut self.terms)?
         }
@@ -51,7 +51,7 @@ impl FluffyTermRegion {
         AltOption::AltNone
     }
 
-    pub fn resolve_as_much_as_possible(&mut self, db: &dyn FluffyTermDb) {
+    pub fn resolve_as_much_as_possible(&mut self, db: &::salsa::Db) {
         while let AltOption::AltSome(effect) = self.next_effect(db) {
             for action in effect.take_subsequent_actions() {
                 match action {

@@ -3,7 +3,7 @@ use super::*;
 impl ExpectCoersion {
     pub(super) fn resolve_never(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         fluffy_terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {

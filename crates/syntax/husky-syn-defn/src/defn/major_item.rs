@@ -18,7 +18,7 @@ pub enum MajorItemSynNodeDefn {
 }
 
 impl MajorItemSynNodeDefn {
-    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> MajorItemSynNodeDecl {
+    pub fn syn_node_decl(self, db: &::salsa::Db) -> MajorItemSynNodeDecl {
         match self {
             MajorItemSynNodeDefn::Type(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
             MajorItemSynNodeDefn::Trait(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
@@ -28,7 +28,7 @@ impl MajorItemSynNodeDefn {
 
     pub fn body_with_syn_expr_region(
         self,
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             MajorItemSynNodeDefn::Type(_) | MajorItemSynNodeDefn::Trait(_) => None,
@@ -42,7 +42,7 @@ impl MajorItemSynNodeDefn {
 impl HasSynNodeDefn for MajorItemSynNodePath {
     type SynNodeDefn = MajorItemSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
+    fn syn_node_defn(self, db: &::salsa::Db) -> Self::SynNodeDefn {
         match self {
             MajorItemSynNodePath::Trait(syn_node_path) => syn_node_path.syn_node_defn(db).into(),
             MajorItemSynNodePath::Type(syn_node_path) => syn_node_path.syn_node_defn(db).into(),
@@ -61,7 +61,7 @@ pub enum MajorItemSynDefn {
 }
 
 impl MajorItemSynDefn {
-    pub fn syn_decl(self, db: &dyn SynDefnDb) -> MajorItemSynDecl {
+    pub fn syn_decl(self, db: &::salsa::Db) -> MajorItemSynDecl {
         match self {
             MajorItemSynDefn::Type(defn) => defn.decl(db).into(),
             MajorItemSynDefn::Trait(defn) => defn.decl(db).into(),
@@ -69,7 +69,7 @@ impl MajorItemSynDefn {
         }
     }
 
-    pub fn path(self, db: &dyn SynDefnDb) -> MajorItemPath {
+    pub fn path(self, db: &::salsa::Db) -> MajorItemPath {
         match self {
             MajorItemSynDefn::Type(syn_defn) => syn_defn.path(db).into(),
             MajorItemSynDefn::Trait(syn_defn) => syn_defn.path(db).into(),
@@ -79,7 +79,7 @@ impl MajorItemSynDefn {
 
     pub fn body_with_syn_expr_region(
         self,
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             MajorItemSynDefn::Type(_) | MajorItemSynDefn::Trait(_) => None,
@@ -91,7 +91,7 @@ impl MajorItemSynDefn {
 impl HasSynDefn for MajorItemPath {
     type SynDefn = MajorItemSynDefn;
 
-    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
+    fn syn_defn(self, db: &::salsa::Db) -> SynDefnResult<Self::SynDefn> {
         Ok(match self {
             MajorItemPath::Type(path) => path.syn_defn(db)?.into(),
             MajorItemPath::Fugitive(path) => path.syn_defn(db)?.into(),

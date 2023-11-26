@@ -10,7 +10,7 @@ pub struct ExternTypeSynNodeDecl {
 }
 
 impl ExternTypeSynNodeDecl {
-    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         todo!()
         // self.template_parameter_decl_list(db)
         //     .as_ref()
@@ -18,7 +18,7 @@ impl ExternTypeSynNodeDecl {
         //     .unwrap_or(&[])
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
                 .as_ref()
@@ -54,7 +54,7 @@ pub struct ExternTypeSynDecl {
 impl ExternTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TypePath,
         syn_node_decl: ExternTypeSynNodeDecl,
     ) -> DeclResult<Self> {
@@ -75,7 +75,7 @@ fn extern_ty_decl_works() {
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
-    let item_path_menu = db.item_path_menu(toolchain);
+    let item_path_menu = item_path_menu(db, toolchain);
     let array_ty_decl = item_path_menu.array_ty_path().syn_decl(db).unwrap();
     assert_eq!(array_ty_decl.template_parameters(db).len(), 2);
 }

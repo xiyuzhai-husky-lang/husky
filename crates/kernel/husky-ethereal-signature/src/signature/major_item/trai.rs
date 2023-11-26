@@ -12,7 +12,7 @@ impl HasEtherealSignatureTemplate for TraitPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         trai_ethereal_signature_template(db, self)
     }
@@ -20,7 +20,7 @@ impl HasEtherealSignatureTemplate for TraitPath {
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
 fn trai_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     trai_path: TraitPath,
 ) -> EtherealSignatureResult<TraitEtherealSignatureTemplate> {
     let declarative_signature_template = trai_path.declarative_signature_template(db)?;

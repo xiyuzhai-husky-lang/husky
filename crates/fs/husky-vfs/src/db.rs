@@ -60,13 +60,14 @@ impl VfsDbInner for Db {
                 Entry::Vacant(entry) => {
                     let path = abs_path.data(self);
                     //  &path.path(self);
-                    if let Some(watcher) = self.watcher() {
-                        let watcher = &mut watcher.0.lock().unwrap();
-                        watcher
-                            .watcher()
-                            .watch(path, RecursiveMode::NonRecursive)
-                            .unwrap();
-                    }
+                    // ad hoc
+                    // if let Some(watcher) = self.watcher() {
+                    //     let watcher = &mut watcher.0.lock().unwrap();
+                    //     watcher
+                    //         .watcher()
+                    //         .watch(path, RecursiveMode::NonRecursive)
+                    //         .unwrap();
+                    // }
                     let content = read_file_content(path);
                     *entry.insert(File::new(
                         self,
@@ -80,11 +81,11 @@ impl VfsDbInner for Db {
     }
 
     fn vfs_jar(&self) -> &VfsJar {
-        self.jar::<VfsJar>()
+        self.jar::<VfsJar>().0
     }
 
     fn vfs_jar_mut(&mut self) -> &mut VfsJar {
-        self.jar_mut::<VfsJar>()
+        self.jar_mut::<VfsJar>().0
     }
 
     fn vfs_cache(&self) -> &VfsCache {
@@ -115,13 +116,14 @@ impl VfsDbInner for Db {
             Entry::Vacant(entry) => {
                 let path = abs_path.data(self);
                 //  &path.path(self);
-                if let Some(watcher) = self.watcher() {
-                    let watcher = &mut watcher.0.lock().unwrap();
-                    watcher
-                        .watcher()
-                        .watch(path, RecursiveMode::NonRecursive)
-                        .unwrap();
-                }
+                // ad hoc
+                // if let Some(watcher) = self.watcher() {
+                //     let watcher = &mut watcher.0.lock().unwrap();
+                //     watcher
+                //         .watcher()
+                //         .watch(path, RecursiveMode::NonRecursive)
+                //         .unwrap();
+                // }
                 let content = read_file_content(path);
                 *entry.insert(File::new(
                     self,
@@ -215,7 +217,7 @@ impl VfsDb for Db {
                     if let Some(ident) = path
                         .file_name()
                         .and_then(|filename| filename.to_str())
-                        .and_then(|filename| Ident::from_borrowed(db, filename))
+                        .and_then(|filename| Ident::from_ref(db, filename))
                     {
                         if let Ok(child) = ModulePath::new_child(db, parent, ident) {
                             collect_probable_modules(db, child.inner(), &path, modules)?
@@ -232,7 +234,7 @@ impl VfsDb for Db {
                             _ => true,
                         };
                         if push_flag {
-                            if let Some(ident) = Ident::from_borrowed(db, file_stem) {
+                            if let Some(ident) = Ident::from_ref(db, file_stem) {
                                 if let Ok(new_child) = ModulePath::new_child(db, parent, ident) {
                                     modules.push(new_child.into())
                                 }

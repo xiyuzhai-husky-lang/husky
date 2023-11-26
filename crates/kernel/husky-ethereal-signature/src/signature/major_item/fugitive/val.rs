@@ -7,7 +7,7 @@ pub struct ValFugitiveEtherealSignatureTemplate {
 
 impl ValFugitiveEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: FugitivePath,
         _declarative_signature_template: ValFugitiveDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {

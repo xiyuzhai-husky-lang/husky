@@ -20,10 +20,7 @@ pub enum AssociatedItemDeclarativeSignatureTemplate {
 }
 
 impl AssociatedItemDeclarativeSignatureTemplate {
-    pub fn template_parameters(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeTemplateParameter] {
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(decl) => {
                 decl.template_parameters(db)
@@ -41,7 +38,7 @@ impl HasDeclarativeSignatureTemplate for AssociatedItemPath {
 
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         Ok(match self {
             AssociatedItemPath::TypeItem(path) => path.declarative_signature_template(db)?.into(),

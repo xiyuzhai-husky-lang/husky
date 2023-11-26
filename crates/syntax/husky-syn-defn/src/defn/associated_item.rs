@@ -18,7 +18,7 @@ pub enum AssociatedItemSynNodeDefn {
 }
 
 impl AssociatedItemSynNodeDefn {
-    pub fn syn_node_path(self, _db: &dyn SynDefnDb) -> AssociatedItemSynNodePath {
+    pub fn syn_node_path(self, _db: &::salsa::Db) -> AssociatedItemSynNodePath {
         match self {
             AssociatedItemSynNodeDefn::TypeItem(_) => todo!(),
             AssociatedItemSynNodeDefn::TraitItem(_) => todo!(),
@@ -26,7 +26,7 @@ impl AssociatedItemSynNodeDefn {
         }
     }
 
-    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> AssociatedItemSynNodeDecl {
+    pub fn syn_node_decl(self, db: &::salsa::Db) -> AssociatedItemSynNodeDecl {
         match self {
             AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => {
                 syn_node_defn.syn_node_decl(db).into()
@@ -42,7 +42,7 @@ impl AssociatedItemSynNodeDefn {
 
     pub fn body_with_syn_expr_region(
         self,
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => {
@@ -61,7 +61,7 @@ impl AssociatedItemSynNodeDefn {
 impl HasSynNodeDefn for AssociatedItemSynNodePath {
     type SynNodeDefn = AssociatedItemSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
+    fn syn_node_defn(self, db: &::salsa::Db) -> Self::SynNodeDefn {
         match self {
             AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
                 syn_node_path.syn_node_defn(db).into()
@@ -87,7 +87,7 @@ pub enum AssociatedItemSynDefn {
 }
 
 impl AssociatedItemSynDefn {
-    pub fn decl(self, db: &dyn SynDefnDb) -> AssociatedItemSynDecl {
+    pub fn decl(self, db: &::salsa::Db) -> AssociatedItemSynDecl {
         match self {
             AssociatedItemSynDefn::TypeItem(defn) => defn.decl(db).into(),
             AssociatedItemSynDefn::TraitItem(_) => todo!(),
@@ -97,7 +97,7 @@ impl AssociatedItemSynDefn {
 
     pub fn body_with_syn_expr_region(
         self,
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             AssociatedItemSynDefn::TypeItem(defn) => defn.body_with_syn_expr_region(db),
@@ -106,7 +106,7 @@ impl AssociatedItemSynDefn {
         }
     }
 
-    pub fn path(self, db: &dyn SynDefnDb) -> AssociatedItemPath {
+    pub fn path(self, db: &::salsa::Db) -> AssociatedItemPath {
         match self {
             AssociatedItemSynDefn::TypeItem(syn_defn) => syn_defn.path(db).into(),
             AssociatedItemSynDefn::TraitItem(syn_defn) => syn_defn.path(db).into(),
@@ -118,7 +118,7 @@ impl AssociatedItemSynDefn {
 impl HasSynDefn for AssociatedItemPath {
     type SynDefn = AssociatedItemSynDefn;
 
-    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
+    fn syn_defn(self, db: &::salsa::Db) -> SynDefnResult<Self::SynDefn> {
         Ok(match self {
             AssociatedItemPath::TypeItem(decl) => decl.syn_defn(db)?.into(),
             AssociatedItemPath::TraitItem(decl) => decl.syn_defn(db)?.into(),

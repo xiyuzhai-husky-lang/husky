@@ -12,7 +12,7 @@ pub struct UseSymbol {
 }
 
 impl MajorItemSynNode {
-    pub fn ident(&self, db: &dyn EntitySynTreeDb) -> Ident {
+    pub fn ident(&self, db: &::salsa::Db) -> Ident {
         self.syn_node_path(db).ident(db)
     }
 }
@@ -50,7 +50,7 @@ pub enum EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub(crate) fn from_node(db: &dyn EntitySynTreeDb, node: ItemSynNode) -> Option<Self> {
+    pub(crate) fn from_node(db: &::salsa::Db, node: ItemSynNode) -> Option<Self> {
         match node {
             ItemSynNode::Submodule(node) => Some(EntitySymbol::Submodule {
                 submodule_path: node.unambiguous_path(db)?,
@@ -68,7 +68,7 @@ impl EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> PrincipalEntityPath {
+    pub fn path(self, db: &::salsa::Db) -> PrincipalEntityPath {
         match self {
             EntitySymbol::CrateRoot { root_module_path } => root_module_path.into(),
             EntitySymbol::SelfModule { module_path } => module_path.into(),
@@ -110,7 +110,7 @@ impl<'a> ModuleSymbolContext<'a> {
         }
     }
 
-    pub fn new_default(db: &'a dyn EntitySynTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
+    pub fn new_default(db: &'a ::salsa::Db, crate_path: CratePath) -> PreludeResult<Self> {
         Ok(Self {
             crate_prelude: CratePrelude::new(db, crate_path)?,
             module_symbols: Default::default(),
@@ -119,7 +119,7 @@ impl<'a> ModuleSymbolContext<'a> {
 
     pub fn resolve_ident(
         &self,
-        db: &'a dyn EntitySynTreeDb,
+        db: &'a ::salsa::Db,
         reference_module_path: ModulePath,
         _token_idx: RegionalTokenIdx,
         ident: Ident,
@@ -134,7 +134,7 @@ impl<'a> ModuleSymbolContext<'a> {
 }
 
 pub(crate) fn module_symbol_context<'a>(
-    db: &'a dyn EntitySynTreeDb,
+    db: &'a ::salsa::Db,
     module_path: ModulePath,
 ) -> EntitySynTreeResult<ModuleSymbolContext<'a>> {
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);

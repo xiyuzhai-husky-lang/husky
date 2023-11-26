@@ -111,7 +111,7 @@ impl VfsTestUnit for ModulePath {
                 ModulePathData::Root(_) => package_expect_files_dir.join(config.test_name),
                 ModulePathData::Child { parent, ident } => {
                     determine_expect_file_aux_path(db, parent, package_expect_files_dir, config)
-                        .join(db.dt_ident(ident))
+                        .join(ident.data(db))
                 }
             }
         }
@@ -155,7 +155,7 @@ impl VfsTestUnit for ModulePath {
                     package_adversarials_dir,
                     config,
                 )
-                .join(db.dt_ident(ident)),
+                .join(ident.data(db)),
             }
         }
         let aux_path = determine_adversarial_aux_path(

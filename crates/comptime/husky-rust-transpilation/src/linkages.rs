@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
 pub(crate) fn package_linkages_transpilation(
-    db: &dyn RustTranspilationDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> String {
     // ad hoc
@@ -12,6 +12,6 @@ pub(crate) fn package_linkages_transpilation(
     "// todo: linkages".to_string()
 }
 
-fn package_linkages(db: &dyn RustTranspilationDb, package_path: PackagePath) -> Vec<()> {
+fn package_linkages(db: &::salsa::Db, package_path: PackagePath) -> Vec<()> {
     vec![]
 }

@@ -28,10 +28,7 @@ impl std::ops::Deref for DeclarativeTermMenu {
 }
 
 impl DeclarativeTermMenu {
-    fn new(
-        db: &dyn DeclarativeTermDb,
-        toolchain: Toolchain,
-    ) -> DeclarativeTermResult<DeclarativeTermMenu> {
+    fn new(db: &::salsa::Db, toolchain: Toolchain) -> DeclarativeTermResult<DeclarativeTermMenu> {
         let menu0 = DeclarativeTermMenu0::new(db, toolchain);
         let menu1 = DeclarativeTermMenu1::new(db, toolchain, menu0);
         let menu2 = DeclarativeTermMenu2::new(db, toolchain, menu1)?;
@@ -44,7 +41,7 @@ impl DeclarativeTermMenu {
 
 #[salsa::tracked(jar = DeclarativeTermJar, return_ref)]
 pub(crate) fn declarative_term_menu(
-    db: &dyn DeclarativeTermDb,
+    db: &::salsa::Db,
     toolchain: Toolchain,
 ) -> DeclarativeTermResult<DeclarativeTermMenu> {
     DeclarativeTermMenu::new(db, toolchain)

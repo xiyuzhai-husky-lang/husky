@@ -32,7 +32,7 @@ impl FileContent {
 
 impl File {
     pub(crate) fn new(
-        db: &Db,
+        db: &::salsa::Db,
         path: VirtualPath,
         content: FileContent,
         durability: Durability,
@@ -45,7 +45,7 @@ impl File {
         id
     }
 
-    pub(crate) fn path(self, __db: &Db) -> VirtualPath {
+    pub(crate) fn path(self, __db: &::salsa::Db) -> VirtualPath {
         let (__jar, __runtime) = __db.jar::<VfsJar>();
         let __ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(__jar);
         __ingredients.0.fetch(__runtime, self).clone()
@@ -59,7 +59,7 @@ impl File {
 
     pub(crate) fn set_content<'db>(
         self,
-        db: &'db Db,
+        db: &'db mut Db,
     ) -> salsa::setter::Setter<'db, File, FileContent> {
         let (__jar, __runtime) = db.jar_mut();
         let __ingredients =
@@ -168,12 +168,15 @@ impl salsa::salsa_struct::SalsaStructInDb for File {
 }
 
 #[salsa::tracked(jar = VfsJar)]
-pub(crate) fn package_manifest_file(db: &Db, package_path: PackagePath) -> VfsResult<File> {
+pub(crate) fn package_manifest_file(
+    db: &::salsa::Db,
+    package_path: PackagePath,
+) -> VfsResult<File> {
     db.file_from_virtual_path(package_manifest_path(db, package_path)?)
 }
 
 #[salsa::tracked(jar = VfsJar )]
-pub(crate) fn module_file(db: &Db, module_path: ModulePath) -> VfsResult<File> {
+pub(crate) fn module_file(db: &::salsa::Db, module_path: ModulePath) -> VfsResult<File> {
     let abs_path = module_virtual_path(db, module_path)?;
     db.file_from_virtual_path(abs_path)
 }

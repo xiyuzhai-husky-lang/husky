@@ -10,7 +10,7 @@ impl EnumUnitTypeVariantHirDecl {
     pub(super) fn from_syn(
         path: TypeVariantPath,
         _syn_decl: UnitTypeVariantSynDecl,
-        db: &dyn HirDeclDb,
+        db: &::salsa::Db,
     ) -> Self {
         Self::new(db, path)
     }

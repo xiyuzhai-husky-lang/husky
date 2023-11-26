@@ -32,7 +32,7 @@ pub enum ItemSynNodePath {
 // where
 //      + EntitySynTreeDb,
 // {
-//     fn module_path(self, db: &Db) -> ModulePath {
+//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
 //         match self {
 //             ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.module_path(db),
 //             ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.module_path(db),
@@ -45,7 +45,7 @@ pub enum ItemSynNodePath {
 // }
 
 impl ItemSynNodePath {
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<ItemPath> {
+    pub fn path(self, db: &::salsa::Db) -> Option<ItemPath> {
         match self {
             ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.path(db).map(Into::into),
             ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.path(db).map(Into::into),
@@ -58,15 +58,12 @@ impl ItemSynNodePath {
         }
     }
 
-    pub fn toolchain(self, db: &dyn EntitySynTreeDb) -> Toolchain {
+    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         // self.module_path(db).toolchain(db)
         todo!()
     }
 
-    pub(crate) fn attr_syn_nodes(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> &[(AttrSynNodePath, AttrSynNode)] {
+    pub(crate) fn attr_syn_nodes(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNode)] {
         // ad hoc
         match self {
             ItemSynNodePath::Submodule(_) => &[],
@@ -82,13 +79,13 @@ impl ItemSynNodePath {
 pub trait HasSynNodePath: Copy {
     type SynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath;
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath;
 }
 
 impl HasSynNodePath for ItemPath {
     type SynNodePath = ItemSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         match self {
             ItemPath::Submodule(_, path) => path.syn_node_path(db).into(),
             ItemPath::MajorItem(path) => path.syn_node_path(db).into(),
@@ -161,7 +158,7 @@ pub(crate) enum ItemSynNode {
 
 impl ItemSynNode {
     pub(crate) fn try_new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         visibility: Scope,
         ast_idx: AstIdx,
@@ -199,7 +196,7 @@ impl ItemSynNode {
         }
     }
 
-    pub fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> ItemSynNodePath {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> ItemSynNodePath {
         match self {
             ItemSynNode::Submodule(node) => node.syn_node_path(db).into(),
             ItemSynNode::MajorItem(node) => node.syn_node_path(db).into(),
@@ -209,7 +206,7 @@ impl ItemSynNode {
         }
     }
 
-    pub fn ast_idx(self, db: &dyn EntitySynTreeDb) -> AstIdx {
+    pub fn ast_idx(self, db: &::salsa::Db) -> AstIdx {
         match self {
             ItemSynNode::Submodule(node) => node.ast_idx(db),
             ItemSynNode::MajorItem(node) => node.ast_idx(db),
@@ -219,7 +216,7 @@ impl ItemSynNode {
         }
     }
 
-    pub fn ident_token(self, db: &dyn EntitySynTreeDb) -> IdentToken {
+    pub fn ident_token(self, db: &::salsa::Db) -> IdentToken {
         match self {
             ItemSynNode::Submodule(symbol) => symbol.ident_token(db),
             ItemSynNode::MajorItem(symbol) => symbol.ident_token(db),
@@ -233,14 +230,11 @@ impl ItemSynNode {
 pub trait HasAssociatedItemPaths: Copy {
     type AssociatedItemPath;
 
-    fn associated_item_paths(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> &[(Ident, Self::AssociatedItemPath)];
+    fn associated_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssociatedItemPath)];
 }
 
 pub trait HasAttrPaths: Copy {
     type AttrPath;
 
-    fn attr_paths(self, db: &dyn EntitySynTreeDb) -> &[Self::AttrPath];
+    fn attr_paths(self, db: &::salsa::Db) -> &[Self::AttrPath];
 }

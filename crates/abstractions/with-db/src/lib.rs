@@ -49,5 +49,5 @@ where
 }
 
 pub trait PartialOrdWithDb {
-    fn partial_cmp_with_db(&self, db: &Db, other: &Self) -> Option<std::cmp::Ordering>;
+    fn partial_cmp_with_db(&self, db: &::salsa::Db, other: &Self) -> Option<std::cmp::Ordering>;
 }

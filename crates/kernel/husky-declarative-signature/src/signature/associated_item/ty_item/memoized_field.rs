@@ -9,7 +9,7 @@ pub struct TypeMemoizedFieldDeclarativeSignatureTemplate {
 
 impl TypeMemoizedFieldDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeMemoizedFieldSynDecl,
     ) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignatureTemplate> {
@@ -37,7 +37,7 @@ impl TypeMemoizedFieldDeclarativeSignatureTemplate {
 // pub trait HasTypeMemoizedFieldDeclarativeSignatureTemplates: Copy {
 //     fn ty_memoized_field_declarative_signature_templates_map<'a>(
 //         self,
-//         db: &'a dyn DeclarativeSignatureDb,
+//         db: &'a ::salsa::Db,
 //     ) -> DeclarativeSignatureResult<
 //         &'a [(
 //             Ident,
@@ -47,7 +47,7 @@ impl TypeMemoizedFieldDeclarativeSignatureTemplate {
 
 //     fn ty_memoized_field_declarative_signature_templates<'a>(
 //         self,
-//         db: &'a dyn DeclarativeSignatureDb,
+//         db: &'a ::salsa::Db,
 //         ident: Ident,
 //     ) -> DeclarativeSignatureResult<Option<&'a [TypeMemoizedFieldDeclarativeSignatureTemplate]>>
 //     {
@@ -66,7 +66,7 @@ impl TypeMemoizedFieldDeclarativeSignatureTemplate {
 // impl HasTypeMemoizedFieldDeclarativeSignatureTemplates for TypePath {
 //     fn ty_memoized_field_declarative_signature_templates_map<'a>(
 //         self,
-//         db: &'a dyn DeclarativeSignatureDb,
+//         db: &'a ::salsa::Db,
 //     ) -> DeclarativeSignatureResult<
 //         &'a [(
 //             Ident,
@@ -82,7 +82,7 @@ impl TypeMemoizedFieldDeclarativeSignatureTemplate {
 
 // #[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
 // pub(crate) fn ty_memoized_field_declarative_signature_templates_map(
-//     db: &dyn DeclarativeSignatureDb,
+//     db: &::salsa::Db,
 //     ty_path: TypePath,
 // ) -> DeclarativeSignatureResult<
 //     IdentPairMap<

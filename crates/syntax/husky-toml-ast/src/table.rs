@@ -21,7 +21,7 @@ pub enum TomlTableValue {
 }
 
 impl TomlTable {
-    pub(crate) fn new(db: &dyn TomlAstDb, sections: &TomlSectionSheet) -> Self {
+    pub(crate) fn new(db: &::salsa::Db, sections: &TomlSectionSheet) -> Self {
         let mut table = TomlTable {
             data: Default::default(),
         };
@@ -37,7 +37,7 @@ impl TomlTable {
 
     fn insert_section<'a>(
         &mut self,
-        _db: &dyn TomlAstDb,
+        _db: &::salsa::Db,
         idx: TomlSectionIdx,
         section: &TomlSection,
     ) {

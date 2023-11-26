@@ -4,7 +4,7 @@ use super::*;
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub fn trai_side_derive_any_trai_for_ty_impl_block_paths_map(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     trai_path: TraitPath,
 ) -> SmallVec<[TraitForTypeImplBlockPath; 2]> {
     let crate_path = trai_path.crate_path(db);
@@ -21,7 +21,7 @@ pub fn trai_side_derive_any_trai_for_ty_impl_block_paths_map(
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub fn trai_side_path_leading_trai_for_ty_impl_block_paths_map(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     trai_path: TraitPath,
 ) -> SmallVecPairMap<TypePath, SmallVec<[TraitForTypeImplBlockPath; 2]>, 8> {
     let crate_path = trai_path.crate_path(db);
@@ -45,7 +45,7 @@ pub fn trai_side_path_leading_trai_for_ty_impl_block_paths_map(
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub fn ty_side_trai_for_ty_impl_block_paths_map(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     ty_path: TypePath,
 ) -> SmallVecPairMap<TraitPath, SmallVec<[TraitForTypeImplBlockPath; 2]>, 2> {
     let crate_path = ty_path.crate_path(db);

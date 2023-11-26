@@ -111,7 +111,7 @@ impl FluffyInstantiationBuilder {
         env: FluffyInstantiationEnvironment,
         impl_block_template_parameters: &[EtherealTemplateParameter],
         associated_item_template_parameters: &[EtherealTemplateParameter],
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
     ) -> Self {
         Self {
             env,
@@ -191,7 +191,7 @@ impl FluffyInstantiationBuilder {
         }
     }
 
-    pub(crate) fn finish(self, db: &dyn FluffyTermDb) -> FluffyInstantiation {
+    pub(crate) fn finish(self, db: &::salsa::Db) -> FluffyInstantiation {
         FluffyInstantiation {
             env: self.env,
             symbol_map: self

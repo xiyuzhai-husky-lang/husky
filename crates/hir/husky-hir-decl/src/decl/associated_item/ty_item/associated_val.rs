@@ -12,7 +12,7 @@ impl TypeAssociatedValHirDecl {
     pub(super) fn from_syn(
         _path: TypeItemPath,
         syn_decl: TypeAssociatedValSynDecl,
-        db: &dyn HirDeclDb,
+        db: &::salsa::Db,
     ) -> Self {
         let _builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         todo!()

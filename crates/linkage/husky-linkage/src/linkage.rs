@@ -22,30 +22,30 @@ pub enum LinkagePathData {
 }
 
 impl Linkage {
-    pub fn new_suffix(db: &dyn LinkageDb) -> Self {
+    pub fn new_suffix(db: &::salsa::Db) -> Self {
         todo!()
     }
 
-    pub fn new_props_struct_field(db: &dyn LinkageDb) -> Self {
+    pub fn new_props_struct_field(db: &::salsa::Db) -> Self {
         Self::new(db, LinkagePathData::PropsStructField)
     }
 
-    pub fn new_memoized_field(db: &dyn LinkageDb) -> Self {
+    pub fn new_memoized_field(db: &::salsa::Db) -> Self {
         Self::new(db, LinkagePathData::MemoizedField)
     }
 
-    pub fn new_method(db: &dyn LinkageDb) -> Self {
+    pub fn new_method(db: &::salsa::Db) -> Self {
         Self::new(db, LinkagePathData::Method)
     }
 
-    pub fn new_index(db: &dyn LinkageDb) -> Self {
+    pub fn new_index(db: &::salsa::Db) -> Self {
         Self::new(db, LinkagePathData::Index)
     }
 
     pub fn new_item(
         path: impl Into<ItemPath>,
         instantiation: &HirInstantiation,
-        db: &dyn LinkageDb,
+        db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
@@ -63,7 +63,7 @@ where
 {
     type VersionStamp = LinkageVersionStamp;
 
-    fn version_stamp(self, db: &Db) -> LinkageVersionStamp {
+    fn version_stamp(self, db: &::salsa::Db) -> LinkageVersionStamp {
         let db = <Db as salsa::DbWithJar<LinkageJar>>::as_jar_db(db);
         let mut builder = LinkageVersionStampBuilder::new(self, db);
         match self.data(db) {

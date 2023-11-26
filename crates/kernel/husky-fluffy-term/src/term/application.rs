@@ -10,7 +10,10 @@ impl FluffyTerm {
         let db = engine.db();
         let function = function.into();
         let argument = argument.into();
-        match (function.base_resolved(engine), argument.base_resolved(engine)) {
+        match (
+            function.base_resolved(engine),
+            argument.base_resolved(engine),
+        ) {
             (FluffyTermBase::Ethereal(function), FluffyTermBase::Ethereal(argument)) => {
                 Ok(EtherealTermApplication::new(db, function, argument)?.into())
             }
@@ -43,7 +46,7 @@ impl FluffyTerm {
                         parameter_variable,
                         parameter_ty,
                         return_ty,
-                        ty_ethereal_term
+                        ty_ethereal_term,
                     } => todo!(),
                     FluffyTermData::Hole(_, _) => todo!(),
                     FluffyTermData::Category(_) => todo!(),
@@ -58,33 +61,32 @@ impl FluffyTerm {
                     FluffyTermData::TypeVariant { path } => todo!(),
                 };
                 Ok(HollowTerm::new(engine, data).into())
-            }
-            // (FluffyTermBase::Ethereal(function), argument) => {
-            //     let expansion = function.application_expansion(db);
-            //     match expansion.function() {
-            //         TermFunctionReduced::TypeOntology(path) => {
-            //             let mut arguments: SmallVec<[FluffyTerm; 2]> = expansion
-            //                 .arguments(db)
-            //                 .iter()
-            //                 .copied()
-            //                 .map(Into::into)
-            //                 .collect();
-            //             arguments.push(argument.into());
-            //             Ok(engine.fluffy_term_region_mut().intern_unresolved_term(
-            //                 src,
-            //                 FluffyTermData::TypeOntology(FluffyTermTypeOntology {
-            //                     path,
-            //                     arguments,
-            //                 }),
-            //             ))
-            //         }
-            //         TermFunctionReduced::Trait(_) => todo!(),
-            //         TermFunctionReduced::Other(_) => todo!(),
-            //     }
-            // }
-            // (FluffyTerm::Unresolved(_), FluffyTermBase::Ethereal(_)) => todo!(),
-            // (FluffyTerm::Unresolved(_), FluffyTerm::Unresolved(_)) => todo!(),
-            // _ => todo!(),
+            } // (FluffyTermBase::Ethereal(function), argument) => {
+              //     let expansion = function.application_expansion(db);
+              //     match expansion.function() {
+              //         TermFunctionReduced::TypeOntology(path) => {
+              //             let mut arguments: SmallVec<[FluffyTerm; 2]> = expansion
+              //                 .arguments(db)
+              //                 .iter()
+              //                 .copied()
+              //                 .map(Into::into)
+              //                 .collect();
+              //             arguments.push(argument.into());
+              //             Ok(engine.fluffy_term_region_mut().intern_unresolved_term(
+              //                 src,
+              //                 FluffyTermData::TypeOntology(FluffyTermTypeOntology {
+              //                     path,
+              //                     arguments,
+              //                 }),
+              //             ))
+              //         }
+              //         TermFunctionReduced::Trait(_) => todo!(),
+              //         TermFunctionReduced::Other(_) => todo!(),
+              //     }
+              // }
+              // (FluffyTerm::Unresolved(_), FluffyTermBase::Ethereal(_)) => todo!(),
+              // (FluffyTerm::Unresolved(_), FluffyTerm::Unresolved(_)) => todo!(),
+              // _ => todo!(),
         }
     }
 
@@ -97,7 +99,7 @@ impl FluffyTerm {
     }
 
     pub(crate) fn new_ty_ontology(
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         fluffy_terms: &mut FluffyTerms,
         path: TypePath,
         refined_path: Either<PreludeTypePath, CustomTypePath>,

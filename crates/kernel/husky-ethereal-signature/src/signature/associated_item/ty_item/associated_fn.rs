@@ -17,7 +17,7 @@ pub struct TypeAssociatedFnEtherealSignatureTemplate {
 
 impl TypeAssociatedFnEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: TypeItemPath,
         declarative_signature: TypeAssociatedFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {

@@ -137,7 +137,7 @@ impl ValDomainRepr {
 
 #[cfg(test)]
 pub(crate) fn val_item_val_reprs(
-    db: &::salsa::Db
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<(FugitivePath, ValRepr)> {
     use husky_entity_kind::FugitiveKind;

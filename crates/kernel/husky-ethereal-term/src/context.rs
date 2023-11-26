@@ -13,7 +13,7 @@ pub(crate) struct TermShowContext {
 impl TermShowContext {
     pub(crate) fn fmt_symbol(
         &mut self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         symbol: EtherealTermSymbol,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
@@ -29,7 +29,7 @@ impl TermShowContext {
 
     pub(crate) fn fmt_variable(
         &mut self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         rune: EtherealTermRune,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
@@ -39,7 +39,7 @@ impl TermShowContext {
 
     pub(crate) fn fmt_with_symbol(
         &mut self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         symbol: EtherealTermSymbol,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
@@ -51,7 +51,7 @@ impl TermShowContext {
 
     pub(crate) fn fmt_with_variable(
         &mut self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         variable: EtherealTermRune,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {

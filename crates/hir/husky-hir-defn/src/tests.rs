@@ -61,7 +61,7 @@ use husky_toml_token::TomlTokenJar;
 #[derive(Default)]
 pub(crate) struct DB;
 
-pub(crate) fn module_hir_defns(db: &::salsa::Db module_path: ModulePath) -> Vec<HirDefn> {
+pub(crate) fn module_hir_defns(db: &::salsa::Db, module_path: ModulePath) -> Vec<HirDefn> {
     module_item_paths(db, module_path)
         .iter()
         .filter_map(|path| path.hir_defn(db))

@@ -39,7 +39,7 @@ pub type HirTemplateArguments = smallvec::SmallVec<[HirTemplateArgument; 2]>;
 
 // .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db))),
 impl HirTemplateArgument {
-    pub(crate) fn from_ethereal(argument: EtherealTerm, db: &dyn HirTypeDb) -> Option<Self> {
+    pub(crate) fn from_ethereal(argument: EtherealTerm, db: &::salsa::Db) -> Option<Self> {
         Some(match argument {
             EtherealTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
             EtherealTerm::Symbol(symbol) => HirComptimeSymbol::from_ethereal(symbol, db)?.into(),
@@ -71,7 +71,7 @@ impl HirTemplateArgument {
 
     pub(crate) fn from_fluffy(
         fluffy_term: FluffyTerm,
-        db: &dyn HirTypeDb,
+        db: &::salsa::Db,
         fluffy_terms: &FluffyTerms,
     ) -> Option<Self> {
         match fluffy_term.base_resolved_inner(fluffy_terms) {

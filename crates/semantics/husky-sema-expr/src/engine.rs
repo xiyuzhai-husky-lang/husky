@@ -27,7 +27,7 @@ use husky_vfs::VfsPathMenu;
 use vec_like::VecPairMap;
 
 pub(crate) struct SemaExprEngine<'a> {
-    db: &'a dyn SemaExprDb,
+    db: &'a ::salsa::Db,
     toolchain: Toolchain,
     item_path_menu: &'a ItemPathMenu,
     term_menu: &'a EtherealTermMenu,
@@ -55,7 +55,7 @@ pub(crate) struct SemaExprEngine<'a> {
 }
 
 impl<'a> FluffyTermEngine<'a> for SemaExprEngine<'a> {
-    fn db(&self) -> &'a dyn FluffyTermDb {
+    fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
     fn fluffy_term_region(&self) -> &FluffyTermRegion {
@@ -92,7 +92,7 @@ impl<'a> std::ops::Index<SynExprIdx> for SemaExprEngine<'a> {
 }
 
 impl<'a> SemaExprEngine<'a> {
-    pub(crate) fn new(db: &'a dyn SemaExprDb, syn_expr_region: SynExprRegion) -> Self {
+    pub(crate) fn new(db: &'a ::salsa::Db, syn_expr_region: SynExprRegion) -> Self {
         let syn_expr_region_data = syn_expr_region.data(db);
         // todo: improve this
         let parent_expr_region = syn_expr_region_data.parent();
@@ -143,7 +143,7 @@ impl<'a> SemaExprEngine<'a> {
         Self {
             db,
             toolchain,
-            item_path_menu: db.item_path_menu(toolchain),
+            item_path_menu: item_path_menu(db, toolchain),
             term_menu: db.ethereal_term_menu(toolchain),
             syn_expr_region,
             syn_expr_region_data,
@@ -277,7 +277,7 @@ impl<'a> SemaExprEngine<'a> {
         )
     }
 
-    pub(crate) fn db(&self) -> &'a dyn SemaExprDb {
+    pub(crate) fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
 

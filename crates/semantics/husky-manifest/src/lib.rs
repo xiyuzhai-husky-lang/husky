@@ -15,7 +15,6 @@ use husky_corgi_config::HasCorgiConfig;
 use husky_manifest_ast::{HasPackageManifestAstSheet, PackageManifestAstSheet};
 
 use husky_vfs::*;
-use salsa::DbWithJar;
 
 #[salsa::jar(db = ManifestDb)]
 pub struct ManifestJar(

@@ -9,7 +9,7 @@ pub struct EtherealTermParenateParameters {
 
 impl EtherealTermParenateParameters {
     pub(crate) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         params: &DeclarativeParenateParameters,
     ) -> EtherealSignatureResult<Self> {
         Ok(EtherealTermParenateParameters {

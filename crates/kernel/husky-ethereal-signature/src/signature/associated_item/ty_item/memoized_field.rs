@@ -8,14 +8,14 @@ pub struct TypeMemoizedFieldEtherealSignatureTemplate {
 }
 
 impl TypeMemoizedFieldEtherealSignatureTemplate {
-    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> EtherealTerm {
+    pub fn self_ty(self, db: &::salsa::Db) -> EtherealTerm {
         self.impl_block(db).self_ty(db)
     }
 }
 
 impl TypeMemoizedFieldEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: TypeItemPath,
         declarative_signature: TypeMemoizedFieldDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<TypeMemoizedFieldEtherealSignatureTemplate> {
@@ -28,7 +28,7 @@ impl TypeMemoizedFieldEtherealSignatureTemplate {
 
     fn try_instantiate(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         target_self_ty_arguments: &[EtherealTerm],
     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
         let self_ty = self.impl_block(db).self_ty(db);
@@ -75,7 +75,7 @@ impl TypeMemoizedFieldEtherealSignature {
 pub trait HasTypeMemoizedFieldEtherealSignatureTemplates: Copy {
     fn ty_memoized_field_ethereal_signature_templates_map<'a>(
         self,
-        db: &'a dyn EtherealSignatureDb,
+        db: &'a ::salsa::Db,
     ) -> EtherealSignatureResult<
         &'a [(
             Ident,
@@ -85,7 +85,7 @@ pub trait HasTypeMemoizedFieldEtherealSignatureTemplates: Copy {
 
     fn ty_memoized_field_ethereal_signature_templates<'a>(
         self,
-        db: &'a dyn EtherealSignatureDb,
+        db: &'a ::salsa::Db,
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<&'a [TypeMemoizedFieldEtherealSignatureTemplate]> {
         use vec_like::VecMapGetEntry;
@@ -103,7 +103,7 @@ pub trait HasTypeMemoizedFieldEtherealSignatureTemplates: Copy {
 pub trait HasTypeMemoizedFieldEtherealSignature: Copy {
     fn ty_memoized_field_ethereal_signature<'a>(
         self,
-        db: &'a dyn EtherealSignatureDb,
+        db: &'a ::salsa::Db,
         arguments: &[EtherealTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature>;
@@ -112,7 +112,7 @@ pub trait HasTypeMemoizedFieldEtherealSignature: Copy {
 impl HasTypeMemoizedFieldEtherealSignature for TypePath {
     fn ty_memoized_field_ethereal_signature<'a>(
         self,
-        db: &'a dyn EtherealSignatureDb,
+        db: &'a ::salsa::Db,
         arguments: &[EtherealTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {

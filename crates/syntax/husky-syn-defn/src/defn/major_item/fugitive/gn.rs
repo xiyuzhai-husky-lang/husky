@@ -10,7 +10,7 @@ pub struct GnSynNodeDefn {
 
 impl GnSynNodeDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         syn_node_path: FugitiveSynNodePath,
         syn_node_decl: GnSynNodeDecl,
     ) -> Self {
@@ -38,7 +38,7 @@ pub struct GnSynDefn {
 }
 
 impl GnSynDefn {
-    pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: FunctionGnSynDecl) -> Self {
+    pub(super) fn new(db: &::salsa::Db, path: FugitivePath, decl: FunctionGnSynDecl) -> Self {
         let FugitiveSynNodeDefn::Gn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db)
         else {
             unreachable!()

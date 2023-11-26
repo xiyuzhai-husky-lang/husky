@@ -37,7 +37,7 @@ pub struct TomlAstSheet {
     table: TomlTable,
 }
 
-fn toml_ast_sheet(db: &dyn TomlAstDb, path: VirtualPath) -> VfsResult<Option<&TomlAstSheet>> {
+fn toml_ast_sheet(db: &::salsa::Db, path: VirtualPath) -> VfsResult<Option<&TomlAstSheet>> {
     match toml_ast_sheet_aux(db, path) {
         Ok(Some(ast_sheet)) => Ok(Some(ast_sheet)),
         Ok(None) => Ok(None),
@@ -46,7 +46,7 @@ fn toml_ast_sheet(db: &dyn TomlAstDb, path: VirtualPath) -> VfsResult<Option<&To
 }
 
 #[salsa::tracked(jar = TomlAstJar, return_ref)]
-fn toml_ast_sheet_aux(db: &dyn TomlAstDb, path: VirtualPath) -> VfsResult<Option<TomlAstSheet>> {
+fn toml_ast_sheet_aux(db: &::salsa::Db, path: VirtualPath) -> VfsResult<Option<TomlAstSheet>> {
     Ok(db
         .toml_token_sheet(path)
         .as_ref()?
@@ -54,7 +54,7 @@ fn toml_ast_sheet_aux(db: &dyn TomlAstDb, path: VirtualPath) -> VfsResult<Option
 }
 
 impl TomlAstSheet {
-    fn new(db: &dyn TomlAstDb, toml_token_text: &TomlTokenSheet) -> Self {
+    fn new(db: &::salsa::Db, toml_token_text: &TomlTokenSheet) -> Self {
         let mut exprs = TomlExprArena::default();
         let line_groups: Vec<_> = toml_token_text
             .line_groups()

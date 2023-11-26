@@ -41,7 +41,7 @@ use husky_toml_token::TomlTokenJar;
 pub(crate) struct DB;
 
 fn module_declarative_signature_templates(
-    db: &dyn DeclarativeSignatureDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<(ItemPath, DeclarativeSignatureResult<SignatureTemplate>)> {
     syn_decl_sheet(db, module_path)
@@ -65,7 +65,7 @@ fn menu_ty_declarative_signature_templates_works() {
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
-    let item_path_menu = db.item_path_menu(toolchain);
+    let item_path_menu = item_path_menu(db, toolchain);
     let ty_paths = vec![
         item_path_menu.i16_ty_path(),
         item_path_menu.i32_ty_path(),

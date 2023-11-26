@@ -2,7 +2,6 @@ use crate::*;
 
 use husky_term_prelude::TermPreludeDb;
 use husky_vfs::Toolchain;
-use salsa::DbWithJar;
 
 pub trait DeclarativeTermDb: DbWithJar<DeclarativeTermJar> + TermPreludeDb {
     fn declarative_term_menu(

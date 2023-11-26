@@ -8,7 +8,7 @@ pub struct ExternTypeDeclarativeSignatureTemplate {
 
 impl ExternTypeDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         path: TypePath,
         decl: ExternTypeSynDecl,
     ) -> DeclarativeSignatureResult<Self> {

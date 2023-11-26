@@ -14,7 +14,7 @@ pub struct HirDefnVersionStamp {
 }
 
 impl HirDefnVersionStamp {
-    pub(crate) fn new(hir_defn: impl Into<HirDefn>, db: &dyn HirDefnDb) -> Self {
+    pub(crate) fn new(hir_defn: impl Into<HirDefn>, db: &::salsa::Db) -> Self {
         let mut builder = HirDefnVersionStampSimpleBuilder::new(hir_defn.into(), db);
         builder.collect_all();
         builder.finish()
@@ -25,11 +25,11 @@ pub struct HirDefnVersionStampSimpleBuilder<'a> {
     hir_defn: HirDefn,
     item_hir_defns_in_current_crate: VecSet<HirDefn>,
     item_hir_defn_version_stamps_in_other_local_crates: VecSet<HirDefnVersionStamp>,
-    db: &'a dyn HirDefnDb,
+    db: &'a ::salsa::Db,
 }
 
 impl<'a> HirDefnVersionStampSimpleBuilder<'a> {
-    fn new(hir_defn: HirDefn, db: &'a dyn HirDefnDb) -> Self {
+    fn new(hir_defn: HirDefn, db: &'a ::salsa::Db) -> Self {
         Self {
             hir_defn,
             item_hir_defns_in_current_crate: VecSet::new_one_elem_set(hir_defn),
@@ -84,7 +84,7 @@ impl<'a> HirDefnVersionStampSimpleBuilder<'a> {
 
 #[cfg(test)]
 pub(crate) fn module_hir_defn_version_stamps(
-    db: &::salsa::Db
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<(ItemPath, Option<Option<HirDefnVersionStamp>>)> {
     use husky_entity_syn_tree::helpers::paths::module_item_paths;

@@ -9,7 +9,7 @@ impl Kebab {
         self.0
     }
 
-    pub fn ident(self, db: &Db) -> Ident {
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
         kebab_to_ident(db, self.0)
     }
 
@@ -17,11 +17,11 @@ impl Kebab {
         Self(coword)
     }
 
-    pub fn from_coword(db: &Db, coword: Coword) -> Option<Self> {
+    pub fn from_coword(db: &::salsa::Db, coword: Coword) -> Option<Self> {
         is_coword_valid_kebab(db, coword).then_some(Kebab(coword))
     }
 
-    pub fn from_owned(db: &Db, data: String) -> Option<Self> {
+    pub fn from_owned(db: &::salsa::Db, data: String) -> Option<Self> {
         if is_str_valid_kebab(&data) {
             Some(Self(Coword::from_owned(db, data)))
         } else {
@@ -29,7 +29,7 @@ impl Kebab {
         }
     }
 
-    pub fn from_ref(db: &Db, data: &str) -> Option<Self> {
+    pub fn from_ref(db: &::salsa::Db, data: &str) -> Option<Self> {
         if is_str_valid_kebab(data) {
             Some(Self(Coword::from_ref(db, data)))
         } else {
@@ -40,17 +40,17 @@ impl Kebab {
 
 /// only use in this module
 #[salsa::tracked(jar = CowordJar)]
-pub(crate) fn kebab_to_ident(db: &Db, coword: Coword) -> Ident {
+pub(crate) fn kebab_to_ident(db: &::salsa::Db, coword: Coword) -> Ident {
     let kebab = coword.data(db);
     if !kebab.contains("-") {
-        return Ident::from_borrowed(db, kebab).unwrap();
+        return Ident::from_ref(db, kebab).unwrap();
     } else {
         Ident::from_owned(db, kebab.replace("-", "_")).unwrap()
     }
 }
 
 #[salsa::tracked(jar = CowordJar)]
-pub fn is_coword_valid_kebab(db: &Db, coword: Coword) -> bool {
+pub fn is_coword_valid_kebab(db: &::salsa::Db, coword: Coword) -> bool {
     is_str_valid_kebab(coword.data(db))
 }
 

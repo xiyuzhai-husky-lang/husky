@@ -17,7 +17,7 @@ pub struct UnitTypeVariantSynDecl {
 
 impl UnitTypeVariantSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TypeVariantPath,
         syn_node_decl: UnitTypeVariantSynNodeDecl,
     ) -> DeclResult<Self> {

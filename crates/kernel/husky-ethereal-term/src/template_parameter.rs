@@ -19,7 +19,7 @@ impl<'a> IntoIterator for &'a EtherealTermTemplateParameters {
 
 impl EtherealTermTemplateParameters {
     pub fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         template_parameters: &[DeclarativeTemplateParameter],
     ) -> EtherealTermResult<EtherealTermTemplateParameters> {
         Ok(EtherealTermTemplateParameters {
@@ -61,7 +61,7 @@ pub struct EtherealTemplateParameter {
 
 impl EtherealTemplateParameter {
     fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         declarative_generic_paramter: &DeclarativeTemplateParameter,
     ) -> EtherealTermResult<Self> {
         Ok(Self {

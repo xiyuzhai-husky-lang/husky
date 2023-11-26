@@ -43,7 +43,7 @@ impl Trace {
         sema_expr_region: SemaExprRegion,
         hir_lazy_expr_region: HirLazyExprRegion,
         lazy_expr_trace_path_registry: &mut TracePathRegistry<LazyPatternExprEssence>,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Self {
         let essence = LazyPatternExprEssence::AdHoc;
         let path = TracePath::new(
@@ -72,7 +72,7 @@ impl Trace {
 }
 
 impl LazyPatternExprTraceData {
-    fn view_lines(&self, db: &dyn TraceDb) -> TraceViewLines {
+    fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sema_expr_region = self.sema_expr_region;
         let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
         let sema_expr_range_region_data = sema_expr_range_region.data(db);
@@ -88,7 +88,7 @@ impl LazyPatternExprTraceData {
         )
     }
 
-    fn val_repr(&self, trace_id: Trace, db: &dyn TraceDb) -> Option<ValRepr> {
+    fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<ValRepr> {
         let val_repr_expansion = trace_val_repr_expansion(db, trace_id);
         match self.hir_lazy_expr_region.hir_lazy_pattern_expr_arena(db)
             [self.hir_lazy_pattern_expr_idx?]
@@ -109,7 +109,7 @@ impl LazyPatternExprTraceData {
         }
     }
 
-    fn val_repr_expansion(&self, db: &dyn TraceDb, trace: Trace) -> ValReprExpansion {
+    fn val_repr_expansion(&self, db: &::salsa::Db, trace: Trace) -> ValReprExpansion {
         self.biological_parent.val_repr_expansion(db)
     }
 }

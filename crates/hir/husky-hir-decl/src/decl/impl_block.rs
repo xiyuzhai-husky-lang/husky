@@ -17,7 +17,7 @@ pub enum ImplBlockHirDecl {
 impl HasHirDecl for ImplBlockPath {
     type HirDecl = ImplBlockHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
         match self {
             ImplBlockPath::TypeImplBlock(path) => path.hir_decl(db).map(Into::into),
             ImplBlockPath::TraitForTypeImplBlock(path) => path.hir_decl(db).map(Into::into),
@@ -26,14 +26,14 @@ impl HasHirDecl for ImplBlockPath {
 }
 
 impl ImplBlockHirDecl {
-    pub fn path(self, db: &dyn HirDeclDb) -> ImplBlockPath {
+    pub fn path(self, db: &::salsa::Db) -> ImplBlockPath {
         match self {
             ImplBlockHirDecl::Type(decl) => decl.path(db).into(),
             ImplBlockHirDecl::TraitForType(_) => todo!(),
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
         todo!()
     }
 }

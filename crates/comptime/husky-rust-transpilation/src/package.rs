@@ -16,11 +16,7 @@ pub(crate) enum RustTranspilationPackage {
 }
 
 impl RustTranspilationPackage {
-    fn new(
-        package_path: PackagePath,
-        target_path: LinktimeTargetPath,
-        db: &dyn RustTranspilationDb,
-    ) -> Self {
+    fn new(package_path: PackagePath, target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
         match package_path.data(db) {
             PackagePathSource::Library => {
                 RustTranspilationPackage::Library(RustTranspilationLibraryPackage { package_path })
@@ -72,7 +68,7 @@ impl RustTranspilationLocalPackage {
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
 pub(crate) fn rust_transpilation_packages(
-    db: &dyn RustTranspilationDb,
+    db: &::salsa::Db,
     target_path: LinktimeTargetPath,
 ) -> Vec<RustTranspilationPackage> {
     match target_path.data(db) {

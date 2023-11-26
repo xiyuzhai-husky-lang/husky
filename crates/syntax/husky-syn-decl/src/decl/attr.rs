@@ -11,7 +11,7 @@ pub enum AttrSynNodeDecl {
 }
 
 impl AttrSynNodeDecl {
-    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             AttrSynNodeDecl::Derive(syn_node_decl) => syn_node_decl.syn_expr_region(db),
         }
@@ -21,15 +21,15 @@ impl AttrSynNodeDecl {
 impl HasSynNodeDecl for AttrSynNodePath {
     type NodeDecl = AttrSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         attr_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-fn attr_syn_node_decl(db: &dyn SynDeclDb, syn_node_path: AttrSynNodePath) -> AttrSynNodeDecl {
+fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrSynNodeDecl {
     // ad hoc
-    let coword_menu = db.coword_menu();
+    let coword_menu = coword_menu(db);
     let attr_ident = syn_node_path.ident(db);
     if attr_ident == coword_menu.derive_ident() {
         AttrSynNodeDecl::Derive(DeriveAttrSynNodeDecl::new(db, syn_node_path))
@@ -47,7 +47,7 @@ pub enum AttrSynDecl {
 impl AttrSynDecl {
     #[inline(always)]
     fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: AttrItemPath,
         syn_node_decl: AttrSynNodeDecl,
     ) -> DeclResult<Self> {
@@ -62,13 +62,13 @@ impl AttrSynDecl {
 impl HasSynDecl for AttrItemPath {
     type Decl = AttrSynDecl;
 
-    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
         attr_syn_decl(db, self)
     }
 }
 
 // #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn attr_syn_decl(db: &dyn SynDeclDb, path: AttrItemPath) -> DeclResult<AttrSynDecl> {
+pub(crate) fn attr_syn_decl(db: &::salsa::Db, path: AttrItemPath) -> DeclResult<AttrSynDecl> {
     AttrSynDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
 }
 

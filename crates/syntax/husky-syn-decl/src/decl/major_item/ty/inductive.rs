@@ -10,7 +10,7 @@ pub struct InductiveTypeSynNodeDecl {
 }
 
 impl InductiveTypeSynNodeDecl {
-    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         todo!()
         // self.template_parameter_decl_list(db)
         //     .as_ref()
@@ -18,7 +18,7 @@ impl InductiveTypeSynNodeDecl {
         //     .unwrap_or(&[])
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
                 .as_ref()
@@ -53,7 +53,7 @@ pub struct InductiveTypeSynDecl {
 impl InductiveTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TypePath,
         syn_node_decl: InductiveTypeSynNodeDecl,
     ) -> DeclResult<Self> {

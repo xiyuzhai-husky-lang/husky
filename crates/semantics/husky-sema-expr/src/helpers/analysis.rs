@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(jar = SemaExprJar)]
-pub fn sema_expr_region_contains_gn(db: &dyn SemaExprDb, sema_expr_region: SemaExprRegion) -> bool {
+pub fn sema_expr_region_contains_gn(db: &::salsa::Db, sema_expr_region: SemaExprRegion) -> bool {
     for sema_expr_entry in sema_expr_region.data(db).sema_expr_arena().iter() {
         match sema_expr_entry.data() {
             SemaExprData::PrincipalEntityPath {

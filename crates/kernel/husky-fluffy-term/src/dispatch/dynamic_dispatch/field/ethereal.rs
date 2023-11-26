@@ -5,7 +5,7 @@ use husky_ethereal_signature::{
 use super::*;
 
 pub(super) fn ethereal_ty_field_dispatch(
-    db: &dyn FluffyTermDb,
+    db: &::salsa::Db,
     ty_term: EtherealTerm,
     ident: Ident,
     indirections: FluffyIndirections,
@@ -23,7 +23,7 @@ pub(super) fn ethereal_ty_field_dispatch(
 }
 
 pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch(
-    db: &dyn FluffyTermDb,
+    db: &::salsa::Db,
     ty_path: TypePath,
     ident: Ident,
     indirections: FluffyIndirections,
@@ -32,7 +32,7 @@ pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch(
 }
 
 pub(crate) fn ethereal_term_application_ty_field_dispatch(
-    db: &dyn FluffyTermDb,
+    db: &::salsa::Db,
     ty_term: EtherealTermApplication,
     ident: Ident,
     indirections: FluffyIndirections,
@@ -51,7 +51,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch(
 }
 
 fn ethereal_ty_field_dispatch_aux<'a>(
-    db: &'a dyn FluffyTermDb,
+    db: &'a ::salsa::Db,
     ty_path: TypePath,
     arguments: &'a [EtherealTerm],
     ident: Ident,

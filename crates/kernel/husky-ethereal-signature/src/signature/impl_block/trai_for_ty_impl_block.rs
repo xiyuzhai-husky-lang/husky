@@ -14,7 +14,7 @@ pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
 }
 
 impl TraitForTypeImplBlockEtherealSignatureTemplate {
-    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> EtherealTerm {
+    pub fn self_ty(self, db: &::salsa::Db) -> EtherealTerm {
         self.self_ty_refined(db).term()
     }
 }
@@ -37,11 +37,7 @@ impl EtherealSelfTypeInTraitImpl {
 impl EtherealTermInstantiate for EtherealSelfTypeInTraitImpl {
     type Target = EtherealTerm;
 
-    fn instantiate(
-        self,
-        db: &dyn EtherealTermDb,
-        instantiation: &EtherealInstantiation,
-    ) -> Self::Target {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target {
         match self {
             EtherealSelfTypeInTraitImpl::PathLeading(term) => term.instantiate(db, instantiation),
             EtherealSelfTypeInTraitImpl::DeriveAny(term_symbol) => {
@@ -53,7 +49,7 @@ impl EtherealTermInstantiate for EtherealSelfTypeInTraitImpl {
 
 impl EtherealSelfTypeInTraitImpl {
     fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         declarative_self_ty: DeclarativeSelfType,
     ) -> EtherealTermResult<Self> {
         Ok(match declarative_self_ty {
@@ -85,7 +81,7 @@ impl HasEtherealSignatureTemplate for TraitForTypeImplBlockPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         trai_for_ty_impl_block_ethereal_signature_template(db, self)
     }
@@ -93,7 +89,7 @@ impl HasEtherealSignatureTemplate for TraitForTypeImplBlockPath {
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
 fn trai_for_ty_impl_block_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,
 ) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplate> {
     TraitForTypeImplBlockEtherealSignatureTemplate::from_declarative(
@@ -105,7 +101,7 @@ fn trai_for_ty_impl_block_ethereal_signature_template(
 
 impl TraitForTypeImplBlockEtherealSignatureTemplate {
     fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: TraitForTypeImplBlockPath,
         declarative_signature_template: TraitForTypeImplBlockDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
@@ -140,7 +136,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
     #[inline(always)]
     pub fn instantiate_ty(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         target_ty_arguments: &[EtherealTerm],
         target_ty_term: EtherealTerm,
     ) -> EtherealSignatureMaybeResult<TraitForTypeImplBlockEtherealSignatureBuilder> {
@@ -176,7 +172,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
 impl TraitForTypeImplBlockEtherealSignatureBuilder {
     pub fn try_into_signature(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> Option<TraitForTypeImplBlockEtherealSignature> {
         let instantiation = self.instantiation_builder(db).try_into_instantiation()?;
         let template = self.template(db);
@@ -193,7 +189,7 @@ impl TraitForTypeImplBlockEtherealSignatureBuilder {
     pub fn instantiate_trai(
         self,
         target_trai_arguments: &[EtherealTerm],
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureMaybeResult<Self> {
         let mut instantiation_builder = self.instantiation_builder(db);
         let template = self.template(db);
@@ -210,7 +206,7 @@ impl TraitForTypeImplBlockEtherealSignatureBuilder {
     /// named "Output"
     pub fn associated_output_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<TraitForTypeAssociatedTypeEtherealSignatureBuilder> {
         trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_template(
             db, self,
@@ -219,7 +215,7 @@ impl TraitForTypeImplBlockEtherealSignatureBuilder {
 
     pub fn associated_item_ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         ident: Ident,
     ) -> EtherealSignatureResult<TraitForTypeItemEtherealSignatureBuilder> {
         trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template(
@@ -230,13 +226,13 @@ impl TraitForTypeImplBlockEtherealSignatureBuilder {
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
 fn trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     template: TraitForTypeImplBlockEtherealSignatureBuilder,
 ) -> EtherealSignatureResult<TraitForTypeAssociatedTypeEtherealSignatureBuilder> {
     match trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template(
         db,
         template,
-        db.coword_menu().camel_case_output_ident(),
+        coword_menu(db).camel_case_output_ident(),
     )? {
         TraitForTypeItemEtherealSignatureBuilder::AssociatedType(item_template) => {
             Ok(item_template)
@@ -247,7 +243,7 @@ fn trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signat
 
 #[salsa::tracked(jar = EtherealSignatureJar,)]
 fn trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
     ident: Ident,
 ) -> EtherealSignatureResult<TraitForTypeItemEtherealSignatureBuilder> {

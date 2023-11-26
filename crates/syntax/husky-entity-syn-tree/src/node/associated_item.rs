@@ -23,7 +23,7 @@ pub enum AssociatedItemSynNodePath {
 }
 
 impl AssociatedItemSynNodePath {
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<AssociatedItemPath> {
+    pub fn path(self, db: &::salsa::Db) -> Option<AssociatedItemPath> {
         match self {
             AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
                 syn_node_path.path(db).map(Into::into)
@@ -38,7 +38,7 @@ impl AssociatedItemSynNodePath {
         }
     }
 
-    pub(crate) fn syn_node(self, _db: &dyn EntitySynTreeDb) -> AssociatedItemSynNode {
+    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> AssociatedItemSynNode {
         todo!()
     }
 }
@@ -47,7 +47,7 @@ impl AssociatedItemSynNodePath {
 // where
 //      + EntitySynTreeDb,
 // {
-//     fn module_path(self, db: &Db) -> ModulePath {
+//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
 //         match self {
 //             AssociatedItemSynNodePath::TypeItem(syn_node_path) => syn_node_path.module_path(db),
 //             AssociatedItemSynNodePath::TraitItem(syn_node_path) => syn_node_path.module_path(db),
@@ -64,7 +64,7 @@ impl AssociatedItemSynNodePath {
 impl HasSynNodePath for AssociatedItemPath {
     type SynNodePath = AssociatedItemSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         match self {
             AssociatedItemPath::TypeItem(slf) => slf.syn_node_path(db).into(),
             AssociatedItemPath::TraitItem(slf) => slf.syn_node_path(db).into(),
@@ -82,7 +82,7 @@ pub(crate) enum AssociatedItemSynNode {
 }
 
 impl AssociatedItemSynNode {
-    pub fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> AssociatedItemSynNodePath {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> AssociatedItemSynNodePath {
         match self {
             AssociatedItemSynNode::TypeItem(node) => node.syn_node_path(db).into(),
             AssociatedItemSynNode::TraitItem(_) => todo!(),
@@ -90,7 +90,7 @@ impl AssociatedItemSynNode {
         }
     }
 
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
             AssociatedItemSynNode::TypeItem(node) => node.module_path(db),
             AssociatedItemSynNode::TraitItem(_) => todo!(),

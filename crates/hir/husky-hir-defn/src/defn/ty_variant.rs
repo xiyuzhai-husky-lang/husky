@@ -18,7 +18,7 @@ pub enum TypeVariantHirDefn {
 }
 
 impl TypeVariantHirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> TypeVariantPath {
+    pub fn path(self, db: &::salsa::Db) -> TypeVariantPath {
         match self {
             TypeVariantHirDefn::Unit(hir_defn) => hir_defn.path(db),
             TypeVariantHirDefn::Tuple(hir_defn) => hir_defn.path(db),
@@ -26,11 +26,11 @@ impl TypeVariantHirDefn {
         }
     }
 
-    pub fn hir_decl(self, _db: &dyn HirDefnDb) -> HirDecl {
+    pub fn hir_decl(self, _db: &::salsa::Db) -> HirDecl {
         todo!()
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
             TypeVariantHirDefn::Unit(hir_defn) => hir_defn.dependencies(db),
             TypeVariantHirDefn::Tuple(hir_defn) => hir_defn.dependencies(db),
@@ -38,7 +38,7 @@ impl TypeVariantHirDefn {
         }
     }
 
-    pub fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         match self {
             TypeVariantHirDefn::Unit(hir_defn) => hir_defn.version_stamp(db),
             TypeVariantHirDefn::Tuple(hir_defn) => hir_defn.version_stamp(db),
@@ -50,7 +50,7 @@ impl TypeVariantHirDefn {
 impl HasHirDefn for TypeVariantPath {
     type HirDefn = TypeVariantHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+    fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
         Some(match self.hir_decl(db)? {
             TypeVariantHirDecl::Props(hir_decl) => {
                 EnumPropsVariantHirDefn::new(db, self, hir_decl).into()

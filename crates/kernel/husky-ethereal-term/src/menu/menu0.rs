@@ -76,11 +76,11 @@ pub struct TermMenu0 {
 }
 
 impl TermMenu0 {
-    pub fn new(db: &dyn EtherealTermDb, toolchain: Toolchain) -> Self {
+    pub fn new(db: &::salsa::Db, toolchain: Toolchain) -> Self {
         // let sort = db.it_term(TermAtom::new_category(TermCategory::Sort).into());
         // let universe1 = db.it_term(TermAtom::new_universe(1).into());
         let vfs_path_menu = db.vfs_path_menu(toolchain);
-        let item_path_menu = db.item_path_menu(toolchain);
+        let item_path_menu = item_path_menu(db, toolchain);
         let universe0 = TermUniverse::new(0);
         let universe1 = TermUniverse::new(1);
         TermMenu0 {

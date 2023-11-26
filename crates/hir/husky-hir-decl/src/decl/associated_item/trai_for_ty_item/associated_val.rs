@@ -12,7 +12,7 @@ impl TraitForTypeAssociatedValHirDecl {
     pub(super) fn from_syn(
         _path: TraitForTypeItemPath,
         syn_decl: TraitForTypeAssociatedValSynDecl,
-        db: &dyn HirDeclDb,
+        db: &::salsa::Db,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let _template_parameters =

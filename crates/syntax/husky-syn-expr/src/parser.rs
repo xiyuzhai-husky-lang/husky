@@ -33,11 +33,11 @@ where
 pub type SynDeclExprParser<'a> = SynExprParser<'a, SynExprContext<'a>>;
 pub type SynDefnExprParser<'a, 'b> = SynExprParser<'a, &'b mut SynExprContext<'a>>;
 
-impl<'a, C> HasTokenDataDb<'a> for SynExprParser<'a, C>
+impl<'a, C> ::salsa::db::HasDb<'a> for SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    fn token_data_db(&self) -> &'a dyn TokenDataDb {
+    fn db(&self) -> &'a ::salsa::Db {
         self.context().db()
     }
 }
@@ -67,7 +67,7 @@ where
         self.context.borrow_mut()
     }
 
-    pub(crate) fn db(&self) -> &'a dyn SynExprDb {
+    pub(crate) fn db(&self) -> &'a ::salsa::Db {
         self.context().db()
     }
 

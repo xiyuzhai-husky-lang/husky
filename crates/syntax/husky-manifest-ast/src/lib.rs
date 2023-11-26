@@ -58,17 +58,17 @@ pub enum ManifestExprVariant {
 }
 
 pub trait HasPackageManifestAstSheet: Copy {
-    fn manifest_ast_sheet(self, db: &dyn ManifestAstDb) -> VfsResult<&PackageManifestAstSheet>;
+    fn manifest_ast_sheet(self, db: &::salsa::Db) -> VfsResult<&PackageManifestAstSheet>;
 }
 
 impl HasPackageManifestAstSheet for PackagePath {
-    fn manifest_ast_sheet(self, db: &dyn ManifestAstDb) -> VfsResult<&PackageManifestAstSheet> {
+    fn manifest_ast_sheet(self, db: &::salsa::Db) -> VfsResult<&PackageManifestAstSheet> {
         package_manifest_ast_sheet(db, self)
     }
 }
 
 fn package_manifest_ast_sheet(
-    db: &dyn ManifestAstDb,
+    db: &::salsa::Db,
     path: PackagePath,
 ) -> VfsResult<&PackageManifestAstSheet> {
     package_manifest_ast_sheet_aux(db, path)
@@ -78,7 +78,7 @@ fn package_manifest_ast_sheet(
 
 #[salsa::tracked(jar = ManifestAstJar, return_ref)]
 fn package_manifest_ast_sheet_aux(
-    db: &dyn ManifestAstDb,
+    db: &::salsa::Db,
     path: PackagePath,
 ) -> VfsResult<PackageManifestAstSheet> {
     let mut errors = vec![];

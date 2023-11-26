@@ -10,7 +10,7 @@ pub struct TraitAssociatedTypeSynNodeDefn {
 
 impl TraitAssociatedTypeSynNodeDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         syn_node_path: TraitItemSynNodePath,
         syn_node_decl: TraitAssociatedTypeSynNodeDecl,
     ) -> Self {

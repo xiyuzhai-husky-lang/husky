@@ -13,11 +13,7 @@ impl ExpectFluffyTerm for ExpectConditionType {
         &ExpectConditionTypeOutcome
     }
 
-    fn final_destination_inner(
-        &self,
-        db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
-    ) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
         FinalDestination::TypeOntology
     }
 
@@ -27,7 +23,7 @@ impl ExpectFluffyTerm for ExpectConditionType {
 
     fn resolve(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {

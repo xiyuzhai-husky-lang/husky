@@ -29,7 +29,7 @@ pub trait HasDeclarativeSignatureTemplate: Copy {
 
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate>;
 }
 
@@ -38,7 +38,7 @@ impl HasDeclarativeSignatureTemplate for ItemPath {
 
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         Ok(match self {
             ItemPath::Submodule(_, _) => SignatureTemplate::Submodule,

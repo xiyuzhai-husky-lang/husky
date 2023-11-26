@@ -174,7 +174,7 @@ impl FluffyTerm {
     }
 
     #[inline(never)]
-    pub fn show(self, db: &dyn FluffyTermDb, terms: &FluffyTerms) -> String {
+    pub fn show(self, db: &::salsa::Db, terms: &FluffyTerms) -> String {
         self.data_inner(db, terms).show(db, terms)
     }
 

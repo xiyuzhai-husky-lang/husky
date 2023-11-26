@@ -18,7 +18,7 @@ impl TypeMethodFnHirDecl {
     pub(super) fn from_syn(
         path: TypeItemPath,
         syn_decl: TypeMethodFnSynDecl,
-        db: &dyn HirDeclDb,
+        db: &::salsa::Db,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =

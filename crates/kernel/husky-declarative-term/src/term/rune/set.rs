@@ -15,11 +15,7 @@ pub struct DeclarativeTermRunes {
 
 impl DeclarativeTermRunes {
     #[inline(always)]
-    pub(crate) fn contains(
-        self,
-        db: &dyn DeclarativeTermDb,
-        variable: DeclarativeTermRune,
-    ) -> bool {
+    pub(crate) fn contains(self, db: &::salsa::Db, variable: DeclarativeTermRune) -> bool {
         self.unaccounted_variables(db).has(variable)
     }
 
@@ -45,17 +41,13 @@ impl DeclarativeTermRunes {
     }
 }
 impl DeclarativeTerm {
-    pub fn contains_variable(
-        self,
-        db: &dyn DeclarativeTermDb,
-        variable: DeclarativeTermRune,
-    ) -> bool {
+    pub fn contains_variable(self, db: &::salsa::Db, variable: DeclarativeTermRune) -> bool {
         self.variables(db)
             .map(|declarative_term_variables| declarative_term_variables.contains(db, variable))
             .unwrap_or_default()
     }
 
-    pub(crate) fn variables(self, db: &dyn DeclarativeTermDb) -> Option<DeclarativeTermRunes> {
+    pub(crate) fn variables(self, db: &::salsa::Db,) -> Option<DeclarativeTermRunes> {
         match self {
             DeclarativeTerm::Literal(_) => todo!(),
             DeclarativeTerm::Rune(variable) => Some(DeclarativeTermRunes::new(
@@ -93,7 +85,7 @@ impl DeclarativeTerm {
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
 pub(crate) fn declarative_term_curry_placeholders(
-    db: &dyn DeclarativeTermDb,
+    db: &::salsa::Db,
     term: DeclarativeTermCurry,
 ) -> Option<DeclarativeTermRunes> {
     let parameter_ty_variables = term.parameter_ty(db).variables(db);
@@ -106,7 +98,7 @@ pub(crate) fn declarative_term_curry_placeholders(
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
 pub(crate) fn declarative_term_ritchie_variables(
-    db: &dyn DeclarativeTermDb,
+    db: &::salsa::Db,
     term: DeclarativeTermRitchie,
 ) -> Option<DeclarativeTermRunes> {
     let mut variables: Option<DeclarativeTermRunes> = None;
@@ -118,7 +110,7 @@ pub(crate) fn declarative_term_ritchie_variables(
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
 pub(crate) fn declarative_term_application_variables(
-    db: &dyn DeclarativeTermDb,
+    db: &::salsa::Db,
     term: DeclarativeTermExplicitApplication,
 ) -> Option<DeclarativeTermRunes> {
     DeclarativeTermRunes::merge(

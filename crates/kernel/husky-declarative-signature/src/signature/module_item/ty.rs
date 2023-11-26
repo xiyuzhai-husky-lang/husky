@@ -50,10 +50,7 @@ pub enum TypeDeclarativeSignatureTemplate {
 }
 
 impl TypeDeclarativeSignatureTemplate {
-    pub fn template_parameters(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeTemplateParameter] {
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
             TypeDeclarativeSignatureTemplate::Enum(decl) => decl.template_parameters(db),
             TypeDeclarativeSignatureTemplate::UnitStruct(decl) => decl.template_parameters(db),
@@ -74,7 +71,7 @@ impl HasDeclarativeSignatureTemplate for TypePath {
     #[inline(always)]
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         ty_declarative_signature_template(db, self)
     }
@@ -82,7 +79,7 @@ impl HasDeclarativeSignatureTemplate for TypePath {
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn ty_declarative_signature_template(
-    db: &dyn DeclarativeSignatureDb,
+    db: &::salsa::Db,
     path: TypePath,
 ) -> DeclarativeSignatureResult<TypeDeclarativeSignatureTemplate> {
     let decl = path.syn_decl(db)?;
@@ -118,7 +115,7 @@ pub(crate) fn ty_declarative_signature_template(
 }
 
 fn construct_self_ty(
-    db: &dyn DeclarativeSignatureDb,
+    db: &::salsa::Db,
     path: TypePath,
     template_parameters: &[DeclarativeTemplateParameter],
 ) -> DeclarativeTerm {

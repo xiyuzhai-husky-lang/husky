@@ -23,7 +23,7 @@ pub enum AssociatedItemSynNodeDecl {
 }
 
 impl AssociatedItemSynNodeDecl {
-    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> AssociatedItemSynNodePath {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> AssociatedItemSynNodePath {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
                 syn_node_decl.syn_node_path(db).into()
@@ -40,7 +40,7 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
                 syn_node_decl.template_parameters(db)
@@ -53,7 +53,7 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => {
@@ -66,7 +66,7 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.errors(db),
             AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => syn_node_decl.errors(db),
@@ -79,7 +79,7 @@ impl AssociatedItemSynNodeDecl {
 impl HasSynNodeDecl for AssociatedItemSynNodePath {
     type NodeDecl = AssociatedItemSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         match self {
             AssociatedItemSynNodePath::TypeItem(path) => path.syn_node_decl(db).into(),
             AssociatedItemSynNodePath::TraitItem(path) => path.syn_node_decl(db).into(),
@@ -99,7 +99,7 @@ pub enum AssociatedItemSynDecl {
 }
 
 impl AssociatedItemSynDecl {
-    pub fn path(self, db: &dyn SynDeclDb) -> AssociatedItemPath {
+    pub fn path(self, db: &::salsa::Db) -> AssociatedItemPath {
         match self {
             AssociatedItemSynDecl::TypeItem(decl) => decl.path(db).into(),
             AssociatedItemSynDecl::TraitItem(decl) => decl.path(db).into(),
@@ -107,7 +107,7 @@ impl AssociatedItemSynDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
             AssociatedItemSynDecl::TypeItem(decl) => decl.template_parameters(db),
             AssociatedItemSynDecl::TraitItem(decl) => decl.template_parameters(db),
@@ -117,7 +117,7 @@ impl AssociatedItemSynDecl {
 
     pub fn parenate_parameters<'a>(
         self,
-        db: &'a dyn SynDeclDb,
+        db: &'a ::salsa::Db,
     ) -> Option<&'a [ParenateSynParameterData]> {
         match self {
             AssociatedItemSynDecl::TypeItem(syn_decl) => syn_decl.parenate_parameters(db),
@@ -126,7 +126,7 @@ impl AssociatedItemSynDecl {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             AssociatedItemSynDecl::TypeItem(decl) => decl.syn_expr_region(db),
             AssociatedItemSynDecl::TraitItem(decl) => decl.syn_expr_region(db),
@@ -138,7 +138,7 @@ impl AssociatedItemSynDecl {
 impl HasSynDecl for AssociatedItemPath {
     type Decl = AssociatedItemSynDecl;
 
-    fn syn_decl(self, _db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, _db: &::salsa::Db) -> DeclResult<Self::Decl> {
         todo!()
     }
 }
@@ -148,12 +148,12 @@ pub trait HasItemDeclsMap {
 
     fn item_syn_decls_map<'a>(
         self,
-        db: &'a dyn SynDeclDb,
+        db: &'a ::salsa::Db,
     ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<Self::ItemDecls, ()>)]>;
 }
 
 pub trait HasItemDecls {
     type ItemDecls;
 
-    fn item_syn_decls<'a>(self, db: &'a dyn SynDeclDb) -> DeclResult<&'a Self::ItemDecls>;
+    fn item_syn_decls<'a>(self, db: &'a ::salsa::Db) -> DeclResult<&'a Self::ItemDecls>;
 }
