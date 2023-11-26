@@ -1,9 +1,10 @@
 use husky_salsa_log_utils::HasLogger;
 
-use crate::{routes::Routes, Runtime, *};
+use crate::{routes::Routes, test_utils::HasTestJarIndex, Runtime, *};
 
 pub struct Db {
     storage: crate::storage::Storage,
+    logger: husky_salsa_log_utils::Logger,
 }
 
 impl Db {
@@ -11,6 +12,7 @@ impl Db {
     pub fn new(initialize_jars: fn(&mut Jars, &mut Routes)) -> Self {
         Self {
             storage: crate::Storage::new(initialize_jars),
+            logger: Default::default(),
         }
     }
 
@@ -24,12 +26,20 @@ impl Db {
         todo!()
     }
 
-    pub fn jar<Jar>(&self) -> (&Jar, &Runtime) {
-        todo!()
+    pub fn jar<Jar>(&self) -> (&Jar, &Runtime)
+    where
+        Jar: HasTestJarIndex + 'static,
+    {
+        let (jars, runtime) = self.storage.jars();
+        (jars.jar(), runtime)
     }
 
-    pub fn jar_mut<Jar>(&mut self) -> (&mut Jar, &mut Runtime) {
-        todo!()
+    pub fn jar_mut<Jar>(&mut self) -> (&mut Jar, &mut Runtime)
+    where
+        Jar: HasTestJarIndex + 'static,
+    {
+        let (jars, runtime) = self.storage.jars_mut();
+        (jars.jar_mut(), runtime)
     }
 
     pub fn runtime(&self) -> &Runtime {
@@ -122,6 +132,6 @@ impl Db {
 
 impl HasLogger for Db {
     fn logger(&self) -> &husky_salsa_log_utils::Logger {
-        todo!()
+        &self.logger
     }
 }
