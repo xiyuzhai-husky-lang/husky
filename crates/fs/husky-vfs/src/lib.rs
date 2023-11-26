@@ -25,15 +25,13 @@ pub use self::path::*;
 #[cfg(feature = "test-utils")]
 pub use self::test_utils::*;
 pub use self::toolchain::*;
-pub use self::watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
+// pub use self::watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
 
 use self::error::*;
 use self::file::*;
 use dashmap::{mapref::entry::Entry, DashMap};
 use husky_coword::*;
 use notify_debouncer_mini::notify::RecursiveMode;
-
-use salsa::storage::HasJar;
 use std::path::{Path, PathBuf};
 #[cfg(test)]
 use tests::*;

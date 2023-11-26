@@ -3,7 +3,7 @@ pub mod relative_path;
 
 use super::*;
 pub use ancestry::*;
-use salsa::{test_utils::TestDb, Database, DbWithJar, DisplayWithDb};
+use salsa::{test_utils::Db, DisplayWithDb};
 use with_db::PartialOrdWithDb;
 #[cfg(test)]
 use with_db::WithDb;
@@ -78,7 +78,11 @@ impl ModulePath {
         Self::new(db, ModulePathData::Root(crate_path))
     }
 
-    pub fn new_child(db: &::salsa::Db, parent: ModulePath, ident: Ident) -> VfsResult<SubmodulePath> {
+    pub fn new_child(
+        db: &::salsa::Db,
+        parent: ModulePath,
+        ident: Ident,
+    ) -> VfsResult<SubmodulePath> {
         Ok(SubmodulePath(Self::new(
             db,
             ModulePathData::Child { parent, ident },
@@ -90,9 +94,8 @@ impl ModulePath {
     }
 
     #[inline(always)]
-    pub fn virtual_path< + VfsDb>(self, db: &Db) -> VirtualPath {
-        module_virtual_path(<Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db), self)
-            .expect("guaranteed")
+    pub fn virtual_path(self, db: &Db) -> VirtualPath {
+        module_virtual_path(db, self).expect("guaranteed")
     }
 
     pub fn ident(self, db: &::salsa::Db) -> Ident {
@@ -102,8 +105,7 @@ impl ModulePath {
         }
     }
 
-    pub fn raw_text< + VfsDb>(self, db: &Db) -> &str {
-        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+    pub fn raw_text(self, db: &Db) -> &str {
         let diff_path = module_virtual_path(db, self).unwrap();
         db.file_from_virtual_path(diff_path)
             .unwrap()
@@ -113,7 +115,7 @@ impl ModulePath {
     }
 }
 
-impl PartialOrdWithDb<::salsa::Db + '_> for ModulePath {
+impl PartialOrdWithDb for ModulePath {
     fn partial_cmp_with_db(&self, db: &::salsa::Db, other: &Self) -> Option<std::cmp::Ordering> {
         if self == other {
             return Some(std::cmp::Ordering::Equal);
@@ -125,12 +127,6 @@ impl PartialOrdWithDb<::salsa::Db + '_> for ModulePath {
             return Some(std::cmp::Ordering::Greater);
         }
         None
-    }
-}
-
-impl PartialOrdWithDb<Db> for ModulePath {
-    fn partial_cmp_with_db(&self, db: &Db, other: &Self) -> Option<std::cmp::Ordering> {
-        self.partial_cmp_with_db(db as &::salsa::Db, other)
     }
 }
 
@@ -207,37 +203,25 @@ impl ModulePath {
         f: &mut ::std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> ::std::fmt::Result {
-        match self.data(db()) {
-            ModulePathData::Root(crate_path) => f.write_str(
-                crate_path
-                    .package_ident(db())
-                    .data(db()),
-            ),
+        match self.data(db) {
+            ModulePathData::Root(crate_path) => f.write_str(crate_path.package_ident(db).data(db)),
             ModulePathData::Child { parent, ident } => {
                 parent.show_aux(f, db)?;
                 f.write_str("::")?;
-                f.write_str(ident.data(db()))
+                f.write_str(ident.data(db))
             }
         }
     }
 }
 
 impl salsa::DisplayWithDb for ModulePath {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-    ) -> std::fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         self.show_aux(f, db)
     }
 }
 
 impl salsa::DisplayWithDb for SubmodulePath {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-    ) -> std::fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         self.inner().show_aux(f, db)
     }
 }
@@ -245,7 +229,7 @@ impl salsa::DisplayWithDb for SubmodulePath {
 #[test]
 fn module_path_debug_with_db_works() {
     use salsa::DebugWithDb;
-    fn t(db: &::salsa::Db module_path: ModulePath, expect: &str) {
+    fn t(db: &::salsa::Db, module_path: ModulePath, expect: &str) {
         assert_eq!(format!("{:?}", module_path.debug_with(db,)), expect)
     }
     let db = DB::default();

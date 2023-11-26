@@ -1,4 +1,4 @@
-pub use salsa::test_utils::TestDb;
+pub use salsa::test_utils::Db;
 
 use salsa::Storage;
 

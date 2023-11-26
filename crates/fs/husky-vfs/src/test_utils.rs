@@ -11,7 +11,7 @@ pub use self::unit::*;
 use self::expect_test::*;
 use crate::*;
 use husky_path_utils::*;
-use salsa::{database::DatabaseDyn, test_utils::TestDb, Database, DebugWith};
+use salsa::{test_utils::Db, Db, DebugWith};
 use std::path::PathBuf;
 
 pub trait VfsTestUtils {
@@ -22,7 +22,7 @@ pub trait VfsTestUtils {
 
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_plain_test<U>(&mut self, f: impl Fn(&TestDb, U), config: &VfsTestConfig)
+    fn vfs_plain_test<U>(&mut self, f: impl Fn(&Db, U), config: &VfsTestConfig)
     where
         U: VfsTestUnit;
 
@@ -30,7 +30,7 @@ pub trait VfsTestUtils {
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug_with_db<'a, U, R>(
         &mut self,
-        f: impl Fn(&'a TestDb, U) -> R,
+        f: impl Fn(&'a Db, U) -> R,
         config: &VfsTestConfig,
     ) where
         U: VfsTestUnit + salsa::DebugWithDb,
@@ -40,24 +40,21 @@ pub trait VfsTestUtils {
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug<'a, U, R>(
         &'a mut self,
-        f: impl Fn(&'a TestDb, U) -> R,
+        f: impl Fn(&'a Db, U) -> R,
         config: &VfsTestConfig,
     ) where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug;
 
-    fn vfs_expect_test_display<U, R>(
-        &mut self,
-        f: impl Fn(&TestDb, U) -> R,
-        config: &VfsTestConfig,
-    ) where
+    fn vfs_expect_test_display<U, R>(&mut self, f: impl Fn(&Db, U) -> R, config: &VfsTestConfig)
+    where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display;
 }
 
 const ADVERSARIAL_EXTENSION: &'static str = "json";
 
-impl VfsTestUtils for TestDb {
+impl VfsTestUtils for Db {
     // toolchain
     fn dev_toolchain(&self) -> ToolchainResult<Toolchain> {
         let library_path = find_lang_dev_library_path()?;
@@ -77,7 +74,7 @@ impl VfsTestUtils for TestDb {
 
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_plain_test<U>(&mut self, f: impl Fn(&TestDb, U), config: &VfsTestConfig)
+    fn vfs_plain_test<U>(&mut self, f: impl Fn(&Db, U), config: &VfsTestConfig)
     where
         U: VfsTestUnit,
     {
@@ -113,7 +110,7 @@ impl VfsTestUtils for TestDb {
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug_with_db<'a, U, R>(
         &mut self,
-        f: impl Fn(&'a TestDb, U) -> R,
+        f: impl Fn(&'a Db, U) -> R,
         config: &VfsTestConfig,
     ) where
         U: VfsTestUnit + salsa::DebugWithDb,
@@ -130,7 +127,7 @@ impl VfsTestUtils for TestDb {
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug<'a, U, R>(
         &'a mut self,
-        f: impl Fn(&'a TestDb, U) -> R,
+        f: impl Fn(&'a Db, U) -> R,
         config: &VfsTestConfig,
     ) where
         U: VfsTestUnit + salsa::DebugWithDb,
@@ -143,7 +140,7 @@ impl VfsTestUtils for TestDb {
         )
     }
 
-    fn vfs_expect_test_display<U, R>(&mut self, f: impl Fn(&TestDb, U) -> R, config: &VfsTestConfig)
+    fn vfs_expect_test_display<U, R>(&mut self, f: impl Fn(&Db, U) -> R, config: &VfsTestConfig)
     where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display,

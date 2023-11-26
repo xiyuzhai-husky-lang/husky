@@ -1,6 +1,6 @@
 use husky_salsa_log_utils::HasLogger;
 
-use crate::{routes::Routes, test_utils::HasTestJarIndex, Runtime, *};
+use crate::{jar::HasJarIndex, routes::Routes, Runtime, *};
 
 pub struct Db {
     storage: crate::storage::Storage,
@@ -28,7 +28,7 @@ impl Db {
 
     pub fn jar<Jar>(&self) -> (&Jar, &Runtime)
     where
-        Jar: HasTestJarIndex + 'static,
+        Jar: HasJarIndex + 'static,
     {
         let (jars, runtime) = self.storage.jars();
         (jars.jar(), runtime)
@@ -36,7 +36,7 @@ impl Db {
 
     pub fn jar_mut<Jar>(&mut self) -> (&mut Jar, &mut Runtime)
     where
-        Jar: HasTestJarIndex + 'static,
+        Jar: HasJarIndex + 'static,
     {
         let (jars, runtime) = self.storage.jars_mut();
         (jars.jar_mut(), runtime)

@@ -32,9 +32,9 @@ impl VfsAdversarial {
 
     pub(super) fn test(
         &self,
-        db: &mut TestDb,
+        db: &mut Db,
         module_path: ModulePath,
-        f: &impl Fn(&TestDb),
+        f: &impl Fn(&Db),
     ) -> Result<(), ()> {
         let original_text = module_path.raw_text(db);
         let original_text = original_text.to_owned();

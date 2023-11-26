@@ -11,8 +11,8 @@ pub struct VirtualPath {
 
 impl VirtualPath {
     #[inline(always)]
-    pub fn data<'a,  + VfsDb>(self, db: &'a Db) -> &'a Path {
-        self._data(<Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db))
+    pub fn data<'a>(self, db: &'a Db) -> &'a Path {
+        self._data(db)
     }
 
     pub fn abs_path(self, db: &::salsa::Db) -> VfsResult<PathBuf> {
@@ -23,14 +23,12 @@ impl VirtualPath {
         db.file_from_virtual_path(self)
     }
 
-    pub fn text<'a,  + VfsDb>(self, db: &'a Db) -> VfsResult<Option<&'a str>> {
-        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+    pub fn text<'a>(self, db: &'a Db) -> VfsResult<Option<&'a str>> {
         let file = self.file(db)?;
         Ok(file.text(db)?)
     }
 
-    pub fn text_expected<'a,  + VfsDb>(self, db: &'a Db) -> VfsResult<&'a str> {
-        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+    pub fn text_expected<'a>(self, db: &'a Db) -> VfsResult<&'a str> {
         let file = self.file(db)?;
         file.text(db)?.ok_or(VfsError::FileNotExists(self))
     }

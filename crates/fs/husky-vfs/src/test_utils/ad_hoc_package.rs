@@ -13,7 +13,7 @@ pub struct AdHocPackage {
 
 impl AdHocPackage {
     pub fn new_lib(
-        db: &mut TestDb,
+        db: &mut Db,
         lib_content: &'static str,
         non_root_modules: impl IntoIterator<Item = (&'static str, &'static str)>,
     ) -> Self {

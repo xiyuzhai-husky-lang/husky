@@ -41,21 +41,23 @@ use dashmap::DashMap;
     husky_diagnostics::DiagnosticsJar,
 )]
 #[derive(Default)]
+pub struct AnalyzerDb;
+
 pub struct AnalyzerDB {
-    storage: salsa::Storage<AnalyzerDB>,
+    db: AnalyzerDb,
     semantic_tokens_ext_cache: Arc<DashMap<lsp_types::Url, lsp_types::SemanticTokens>>,
 }
 
-impl salsa::Database for AnalyzerDB {}
+// impl salsa::Database for AnalyzerDB {}
 
-impl salsa::ParallelDatabase for AnalyzerDB {
-    fn snapshot(&self) -> salsa::Snapshot<Self> {
-        salsa::Snapshot::new(AnalyzerDB {
-            storage: self.storage.snapshot(),
-            semantic_tokens_ext_cache: self.semantic_tokens_ext_cache.clone(),
-        })
-    }
-}
+// impl salsa::ParallelDatabase for AnalyzerDB {
+//     fn snapshot(&self) -> salsa::Snapshot<Self> {
+//         salsa::Snapshot::new(AnalyzerDB {
+//             storage: self.storage.snapshot(),
+//             semantic_tokens_ext_cache: self.semantic_tokens_ext_cache.clone(),
+//         })
+//     }
+// }
 
 impl AnalyzerDB {
     pub(crate) fn cache_semantic_tokens(

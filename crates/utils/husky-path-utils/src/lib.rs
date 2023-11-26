@@ -224,7 +224,7 @@ fn collect_package_relative_dirs_works() {
 
 #[test]
 fn collect_package_dirs_works() {
-    use salsa::test_utils::TestDb;
+    use salsa::test_utils::Db;
 
     let db = DB::default();
     let db = &*db;

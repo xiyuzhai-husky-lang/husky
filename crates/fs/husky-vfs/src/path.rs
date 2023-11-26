@@ -102,7 +102,7 @@ pub(crate) fn resolve_module_path(
                     ModulePath::new_child(
                         db,
                         resolve_module_path(db, toolchain, lib_path)?,
-                        Ident::from_borrowed(file_stem)
+                        Ident::from_borrowed(db, file_stem)
                             .ok_or(VfsError::ModulePathResolveFailure)?,
                     )?
                     .into()
@@ -112,7 +112,7 @@ pub(crate) fn resolve_module_path(
                         ModulePath::new_child(
                             db,
                             resolve_module_path(db, toolchain, main_path)?,
-                            Ident::from_borrowed(file_stem)
+                            Ident::from_borrowed(db, file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
                         )?
                         .into()
@@ -130,7 +130,7 @@ pub(crate) fn resolve_module_path(
         ModulePath::new_child(
             db,
             resolve_module_path(db, toolchain, parent_module_path)?,
-            Ident::from_borrowed(file_stem).ok_or(VfsError::ModulePathResolveFailure)?,
+            Ident::from_borrowed(db, file_stem).ok_or(VfsError::ModulePathResolveFailure)?,
         )?
         .into()
     })

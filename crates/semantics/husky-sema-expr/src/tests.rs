@@ -1,5 +1,5 @@
 pub(crate) use husky_ast::test_utils::*;
-pub(crate) use salsa::test_utils::TestDb;
+pub(crate) use salsa::test_utils::Db;
 
 use crate::*;
 use husky_ast::AstJar;
