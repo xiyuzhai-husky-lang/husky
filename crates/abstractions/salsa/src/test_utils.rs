@@ -1,20 +1,16 @@
-use std::mem::MaybeUninit;
-
-use crate::{
-    routes::Routes,
-    storage::{HasJarDyn, HasJars, HasJarsDyn, JarFromJars},
-    Database,
-};
+use crate::routes::Routes;
+use crate::*;
 use enum_index::full_map::EnumFullMap;
 use husky_salsa_log_utils::HasLogger;
+use std::mem::MaybeUninit;
 
 pub struct TestDb {
-    storage: crate::Storage<Self>,
+    storage: crate::Storage,
 }
 
 impl TestDb {
     /// here we use fn instead of impl FnOnce to save compilation time
-    pub fn new(initialize_jars: fn(&mut <Self as HasJars>::Jars, &mut Routes<Self>)) -> Self {
+    pub fn new(initialize_jars: fn(&mut Jars, &mut Routes<Self>)) -> Self {
         Self {
             storage: crate::Storage::new(initialize_jars),
         }
@@ -112,144 +108,5 @@ impl TestJars {
         debug_assert!(self.map[index].is_none());
         self.map[index] =
             Some(unsafe { std::mem::transmute::<_, Box<Jar>>(Box::new(jar_maybe_uninitialized)) })
-    }
-}
-
-impl crate::database::AsSalsaDatabase for TestDb {
-    fn as_salsa_database(&self) -> &dyn crate::Database {
-        self
-    }
-}
-
-impl HasJarDyn for TestDb {
-    fn jar_dyn(&self, jar_index: TestJarIndex) -> &dyn std::any::Any {
-        &**self.jars().0.map[jar_index].as_ref().unwrap()
-    }
-
-    fn jar_dyn_mut(&mut self, jar_index: TestJarIndex) -> &mut dyn std::any::Any {
-        &mut **self.jars_mut().0.map[jar_index].as_mut().unwrap()
-    }
-}
-
-impl crate::Database for TestDb {}
-
-impl HasJars for TestDb {
-    type Jars = TestJars;
-
-    fn jars(&self) -> (&Self::Jars, &crate::Runtime) {
-        self.storage.jars()
-    }
-
-    fn jars_mut(&mut self) -> (&mut Self::Jars, &mut crate::Runtime) {
-        self.storage.jars_mut()
-    }
-}
-
-impl HasJarsDyn for TestDb {
-    fn runtime(&self) -> &crate::Runtime {
-        self.storage.runtime()
-    }
-    fn runtime_mut(&mut self) -> &mut crate::Runtime {
-        self.storage.runtime_mut()
-    }
-    fn maybe_changed_after(
-        &self,
-        input: crate::key::DependencyIndex,
-        revision: crate::Revision,
-    ) -> bool {
-        let ingredient = self.storage.ingredient(input.ingredient_index());
-        ingredient.maybe_changed_after(self, input, revision)
-    }
-    fn cycle_recovery_strategy(
-        &self,
-        ingredient_index: crate::IngredientIndex,
-    ) -> crate::cycle::CycleRecoveryStrategy {
-        let ingredient = self.storage.ingredient(ingredient_index);
-        ingredient.cycle_recovery_strategy()
-    }
-    fn origin(
-        &self,
-        index: crate::DatabaseKeyIndex,
-    ) -> Option<crate::runtime::local_state::QueryOrigin> {
-        let ingredient = self.storage.ingredient(index.ingredient_index());
-        ingredient.origin(index.key_index())
-    }
-    fn mark_validated_output(
-        &self,
-        executor: crate::DatabaseKeyIndex,
-        output: crate::key::DependencyIndex,
-    ) {
-        let ingredient = self.storage.ingredient(output.ingredient_index());
-        ingredient.mark_validated_output(self, executor, output.key_index());
-    }
-    fn remove_stale_output(
-        &self,
-        executor: crate::DatabaseKeyIndex,
-        stale_output: crate::key::DependencyIndex,
-    ) {
-        let ingredient = self.storage.ingredient(stale_output.ingredient_index());
-        ingredient.remove_stale_output(self, executor, stale_output.key_index());
-    }
-    fn salsa_struct_deleted(&self, ingredient: crate::IngredientIndex, id: crate::Id) {
-        let ingredient = self.storage.ingredient(ingredient);
-        ingredient.salsa_struct_deleted(self, id);
-    }
-    fn fmt_index(
-        &self,
-        index: crate::key::DependencyIndex,
-        fmt: &mut std::fmt::Formatter<'_>,
-    ) -> std::fmt::Result {
-        let ingredient = self.storage.ingredient(index.ingredient_index());
-        ingredient.fmt_index(index.key_index(), fmt)
-    }
-}
-
-impl<Jar> crate::storage::HasJar<Jar> for TestDb
-where
-    Jar: HasTestJarIndex + Sync + Send + 'static,
-{
-    fn jar(&self) -> (&Jar, &crate::Runtime) {
-        let (jars, runtime) = self.jars();
-        (Self::jar_from_jars(jars), runtime)
-    }
-
-    fn jar_mut(&mut self) -> (&mut Jar, &mut crate::Runtime) {
-        let (jars, runtime) = self.jars_mut();
-        (Self::jar_from_jars_mut(jars), runtime)
-    }
-}
-
-impl<Jar> JarFromJars<Jar> for TestDb
-where
-    Jar: HasTestJarIndex + 'static,
-{
-    fn jar_from_jars(jars: &Self::Jars) -> &Jar {
-        let any: &Box<dyn std::any::Any + Send + Sync + 'static> = jars.map
-            [<Jar as HasTestJarIndex>::TEST_JAR_INDEX]
-            .as_ref()
-            .expect("should be initialized");
-        let any: &(dyn std::any::Any + Send + Sync + 'static) = &**any;
-        any.downcast_ref().expect("should be the right type")
-    }
-
-    fn jar_from_jars_mut(jars: &mut Self::Jars) -> &mut Jar {
-        let any: &mut Box<dyn std::any::Any + Send + Sync + 'static> = jars.map
-            [<Jar as HasTestJarIndex>::TEST_JAR_INDEX]
-            .as_mut()
-            .expect("should be initialized");
-        let any: &mut (dyn std::any::Any + Send + Sync + 'static) = &mut **any;
-        any.downcast_mut().expect("should be the right type")
-    }
-}
-
-impl<Jar> crate::storage::DbWithJar<Jar> for TestDb
-where
-    Jar: crate::test_utils::HasTestJarIndex + Sync + Send + 'static,
-{
-    fn as_jar_db<'db>(&self) -> &<Jar as crate::jar::Jar<'db>>::DynDb
-    where
-        Jar: crate::jar::Jar<'db>,
-    {
-        Jar::cast_test_db(self)
     }
 }

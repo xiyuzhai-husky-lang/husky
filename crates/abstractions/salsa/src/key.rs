@@ -35,7 +35,7 @@ impl DependencyIndex {
 }
 
 impl crate::debug::DebugWithDb for DependencyIndex {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn Database) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         db.fmt_index(*self, f)
     }
 }
@@ -62,7 +62,7 @@ impl DatabaseKeyIndex {
 }
 
 impl crate::debug::DebugWithDb for DatabaseKeyIndex {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn Database) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         let i: DependencyIndex = (*self).into();
         DebugWithDb::fmt(&i, f, db)
     }

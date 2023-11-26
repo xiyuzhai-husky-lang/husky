@@ -195,11 +195,7 @@ impl ModulePath {
     }
 
     #[inline(never)]
-    pub fn show(
-        &self,
-        f: &mut ::std::fmt::Formatter<'_>,
-        db: &dyn ::salsa::Database,
-    ) -> ::std::fmt::Result {
+    pub fn show(&self, f: &mut ::std::fmt::Formatter<'_>, db: &::salsa::Db) -> ::std::fmt::Result {
         f.write_str("`")?;
         self.show_aux(f, db)?;
         f.write_str("`")
@@ -209,7 +205,7 @@ impl ModulePath {
     pub fn show_aux(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
-        db: &dyn ::salsa::Database,
+        db: &::salsa::Db,
     ) -> ::std::fmt::Result {
         match self.data(db.as_jar_db_dyn::<VfsJar>()) {
             ModulePathData::Root(crate_path) => f.write_str(
@@ -230,7 +226,7 @@ impl salsa::DisplayWithDb for ModulePath {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn Database,
+        db: &Db,
     ) -> std::fmt::Result {
         self.show_aux(f, db)
     }
@@ -240,7 +236,7 @@ impl salsa::DisplayWithDb for SubmodulePath {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn Database,
+        db: &Db,
     ) -> std::fmt::Result {
         self.inner().show_aux(f, db)
     }
@@ -249,7 +245,7 @@ impl salsa::DisplayWithDb for SubmodulePath {
 #[test]
 fn module_path_debug_with_db_works() {
     use salsa::DebugWithDb;
-    fn t(db: &TestDb, module_path: ModulePath, expect: &str) {
+    fn t(db: &::salsa::Db module_path: ModulePath, expect: &str) {
         assert_eq!(format!("{:?}", module_path.debug_with(db,)), expect)
     }
     let db = DB::default();

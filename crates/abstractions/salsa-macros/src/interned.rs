@@ -156,7 +156,7 @@ impl InternedStruct {
                 type Ingredients = salsa::interned::InternedIngredient<#id_ident, #data_ident>;
 
                 fn create_ingredients<DB>(
-                    routes: &mut salsa::routes::Routes<DB>,
+                    routes: &mut salsa::routes::Routes,
                 ) -> Self::Ingredients
                 where
                     DB: salsa::storage::JarFromJars<Self::Jar>,

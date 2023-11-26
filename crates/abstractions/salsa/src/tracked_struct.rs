@@ -1,5 +1,3 @@
-use std::fmt;
-
 use crate::{
     cycle::CycleRecoveryStrategy,
     ingredient::{fmt_index, Ingredient, IngredientRequiresReset},
@@ -8,8 +6,9 @@ use crate::{
     key::{DatabaseKeyIndex, DependencyIndex},
     runtime::{local_state::QueryOrigin, Runtime},
     salsa_struct::SalsaStructInDb,
-    Database, Event, IngredientIndex, Revision,
+    Event, IngredientIndex, Revision, *,
 };
+use std::fmt;
 
 pub trait TrackedStructId: InternedId {}
 impl<T: InternedId> TrackedStructId for T {}
@@ -17,9 +16,9 @@ impl<T: InternedId> TrackedStructId for T {}
 pub trait TrackedStructData: InternedData {}
 impl<T: InternedData> TrackedStructData for T {}
 
-pub trait TrackedStructInDb<DB: ?Sized + Database>: SalsaStructInDb<DB> {
+pub trait TrackedStructInDb: SalsaStructInDb {
     /// Converts the identifier for this tracked struct into a `DatabaseKeyIndex`.
-    fn database_key_index(self, db: &DB) -> DatabaseKeyIndex;
+    fn database_key_index(self, db: &Db) -> DatabaseKeyIndex;
 }
 
 /// Created for each tracked struct.
@@ -109,7 +108,7 @@ where
     /// Using this method on an entity id that MAY be used in the current revision will lead to
     /// unspecified results (but not UB). See [`InternedIngredient::delete_index`] for more
     /// discussion and important considerations.
-    pub(crate) fn delete_entity(&self, db: &dyn crate::Database, id: Id) {
+    pub(crate) fn delete_entity(&self, db: &crate::Db, id: Id) {
         db.salsa_event(Event {
             runtime_id: db.runtime().id(),
             kind: crate::EventKind::DidDiscard {
@@ -131,18 +130,17 @@ where
     }
 }
 
-impl<DB: ?Sized, Id, Data> Ingredient<DB> for TrackedStructIngredient<Id, Data>
+impl<Id, Data> Ingredient for TrackedStructIngredient<Id, Data>
 where
     Id: TrackedStructId,
     Data: TrackedStructData,
-    DB: crate::Database,
 {
-    fn maybe_changed_after(&self, db: &DB, input: DependencyIndex, revision: Revision) -> bool {
+    fn maybe_changed_after(&self, db: &Db, input: DependencyIndex, revision: Revision) -> bool {
         self.interned.maybe_changed_after(db, input, revision)
     }
 
     fn cycle_recovery_strategy(&self) -> CycleRecoveryStrategy {
-        <_ as Ingredient<DB>>::cycle_recovery_strategy(&self.interned)
+        <_ as Ingredient>::cycle_recovery_strategy(&self.interned)
     }
 
     fn origin(&self, _key_index: crate::Id) -> Option<QueryOrigin> {
@@ -151,7 +149,7 @@ where
 
     fn mark_validated_output(
         &self,
-        _db: &DB,
+        _db: &Db,
         _executor: DatabaseKeyIndex,
         _output_key: Option<crate::Id>,
     ) {
@@ -160,7 +158,7 @@ where
 
     fn remove_stale_output(
         &self,
-        db: &DB,
+        db: &Db,
         _executor: DatabaseKeyIndex,
         stale_output_key: Option<crate::Id>,
     ) {
@@ -176,7 +174,7 @@ where
         self.interned.clear_deleted_indices();
     }
 
-    fn salsa_struct_deleted(&self, _db: &DB, _id: crate::Id) {
+    fn salsa_struct_deleted(&self, _db: &Db, _id: crate::Id) {
         panic!("unexpected call: interned ingredients do not register for salsa struct deletion events");
     }
 

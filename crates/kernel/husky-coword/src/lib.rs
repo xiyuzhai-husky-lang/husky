@@ -37,7 +37,7 @@ pub struct __CowordData {
 impl salsa::storage::IngredientsFor for Coword {
     type Jar = CowordJar;
     type Ingredients = salsa::interned::InternedIngredient<Coword, __CowordData>;
-    fn create_ingredients<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
+    fn create_ingredients<DB>(routes: &mut salsa::routes::Routes) -> Self::Ingredients
     where
         DB: salsa::storage::JarFromJars<Self::Jar>,
     {
@@ -84,11 +84,7 @@ where
 }
 
 impl ::salsa::DebugWithDb for Coword {
-    fn fmt(
-        &self,
-        f: &mut ::std::fmt::Formatter<'_>,
-        db: &dyn ::salsa::Database,
-    ) -> ::std::fmt::Result {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, db: &::salsa::Db) -> ::std::fmt::Result {
         f.debug_tuple("Word")
             .field(&self.data(db.as_jar_db_dyn::<CowordJar>()))
             .finish()

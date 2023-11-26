@@ -1,7 +1,7 @@
 pub mod accumulator;
 pub mod cancelled;
 pub mod cycle;
-pub mod database;
+// pub mod database;
 pub mod db;
 pub mod debug;
 pub mod display;
@@ -32,9 +32,11 @@ pub mod utils;
 
 pub use self::cancelled::Cancelled;
 pub use self::cycle::Cycle;
-pub use self::database::Database;
-pub use self::database::ParallelDatabase;
-pub use self::database::Snapshot;
+pub use self::db::Db;
+pub use self::jar::Jars;
+// pub use self::database::Database;
+// pub use self::database::ParallelDatabase;
+// pub use self::database::Snapshot;
 pub use self::debug::{DebugWith, DebugWithDb};
 pub use self::display::{DisplayWith, DisplayWithDb};
 pub use self::durability::Durability;

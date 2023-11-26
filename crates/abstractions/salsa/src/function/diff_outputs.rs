@@ -1,9 +1,8 @@
+use super::{memo::Memo, Configuration, FunctionIngredient};
 use crate::{
-    hash::FxHashSet, key::DependencyIndex, runtime::local_state::QueryRevisions,
-    storage::HasJarsDyn, Database, DatabaseKeyIndex, Event, EventKind,
+    hash::FxHashSet, key::DependencyIndex, runtime::local_state::QueryRevisions, DatabaseKeyIndex,
+    Db, Event, EventKind,
 };
-
-use super::{memo::Memo, Configuration, DynDb, FunctionIngredient};
 
 impl<C> FunctionIngredient<C>
 where
@@ -13,7 +12,7 @@ where
     /// for each output that was generated before but is not generated now.
     pub(super) fn diff_outputs(
         &self,
-        db: &DynDb<'_, C>,
+        db: &Db,
         key: DatabaseKeyIndex,
         old_memo: &Memo<C::Value>,
         revisions: &QueryRevisions,
@@ -37,7 +36,7 @@ where
         }
     }
 
-    fn report_stale_output(db: &DynDb<'_, C>, key: DatabaseKeyIndex, output: DependencyIndex) {
+    fn report_stale_output(db: &Db, key: DatabaseKeyIndex, output: DependencyIndex) {
         let runtime_id = db.runtime().id();
         db.salsa_event(Event {
             runtime_id,

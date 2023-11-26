@@ -1,35 +1,34 @@
-use std::{fmt, sync::Arc};
-
-use parking_lot::Condvar;
-
 use crate::jar::Jar;
 use crate::key::DependencyIndex;
 use crate::runtime::local_state::QueryOrigin;
 use crate::runtime::Runtime;
+use crate::*;
 use crate::{cycle::CycleRecoveryStrategy, test_utils::TestJarIndex};
 use crate::{ingredient::Ingredient, test_utils::HasTestJarIndex};
-use crate::{Database, DatabaseKeyIndex, Id, IngredientIndex};
+use crate::{DatabaseKeyIndex, Id, IngredientIndex};
+use parking_lot::Condvar;
+use std::{fmt, sync::Arc};
 
 use super::routes::Routes;
-use super::{ParallelDatabase, Revision};
+use super::Revision;
 
 /// The "storage" struct stores all the data for the jars.
 /// It is shared between the main database and any active snapshots.
-pub struct Storage<DB: HasJars> {
+pub struct Storage {
     /// Data shared across all databases. This contains the ingredients needed by each jar.
     /// See the ["jars and ingredients" chapter](https://salsa-rs.github.io/salsa/plumbing/jars_and_ingredients.html)
     /// for more detailed description.
     ///
     /// Even though this struct is stored in an `Arc`, we sometimes get mutable access to it
     /// by using `Arc::get_mut`. This is only possible when all parallel snapshots have been dropped.
-    shared: Arc<Shared<DB>>,
+    shared: Arc<Shared>,
 
     /// The "ingredients" structure stores the information about how to find each ingredient in the database.
     /// It allows us to take the [`IngredientIndex`] assigned to a particular ingredient
     /// and get back a [`dyn Ingredient`][`Ingredient`] for the struct that stores its data.
     ///
     /// This is kept separate from `shared` so that we can clone it and retain `&`-access even when we have `&mut` access to `shared`.
-    routes: Arc<Routes<DB>>,
+    routes: Arc<Routes>,
 
     /// The runtime for this particular salsa database handle.
     /// Each handle gets its own runtime, but the runtimes have shared state between them.
@@ -39,41 +38,27 @@ pub struct Storage<DB: HasJars> {
 /// Data shared between all threads.
 /// This is where the actual data for tracked functions, structs, inputs, etc lives,
 /// along with some coordination variables between treads.
-struct Shared<DB: HasJars> {
+struct Shared {
     /// Contains the data for each jar in the database.
     /// Each jar stores its own structs in there that ultimately contain ingredients
     /// (types that implement the [`Ingredient`] trait, like [`crate::function::FunctionIngredient`]).
-    jars: DB::Jars,
+    jars: Jars,
 
     /// Conditional variable that is used to coordinate cancellation.
     /// When the main thread writes to the database, it blocks until each of the snapshots can be cancelled.
     cvar: Condvar,
 }
 
-// ANCHOR: default
-impl<DB> Default for Storage<DB>
-where
-    DB: HasJars + InitializeJars,
-{
-    fn default() -> Self {
-        Self::new(DB::initialize_jars)
-    }
-}
-// ANCHOR_END: default
-
-impl<DB> Storage<DB>
-where
-    DB: HasJars,
-{
+impl Storage {
     /// here we use fn instead of impl FnOnce to save compilation time
-    pub fn new(initialize_jars: fn(&mut <DB as HasJars>::Jars, &mut Routes<DB>)) -> Self {
+    pub fn new(initialize_jars: fn(&mut Jars, &mut Routes)) -> Self {
         let mut routes = Routes::new();
         let shared = unsafe {
             // manually allocate for Shared<DB>
-            let mut pshared_uninitialized: Box<Shared<DB>> = Box::from_raw(std::alloc::alloc(
-                std::alloc::Layout::new::<Shared<DB>>(),
+            let mut pshared_uninitialized: Box<Shared> = Box::from_raw(std::alloc::alloc(
+                std::alloc::Layout::new::<Shared>(),
             )
-                as *mut Shared<DB>);
+                as *mut Shared);
             // initialize jars
             initialize_jars(&mut pshared_uninitialized.jars, &mut routes);
             // initialize cvar
@@ -90,10 +75,7 @@ where
         }
     }
 
-    pub fn snapshot(&self) -> Storage<DB>
-    where
-        DB: ParallelDatabase,
-    {
+    pub fn snapshot(&self) -> Storage {
         Self {
             shared: self.shared.clone(),
             routes: self.routes.clone(),
@@ -101,7 +83,7 @@ where
         }
     }
 
-    pub fn jars(&self) -> (&DB::Jars, &Runtime) {
+    pub fn jars(&self) -> (&Jars, &Runtime) {
         (&self.shared.jars, &self.runtime)
     }
 
@@ -118,7 +100,7 @@ where
     /// and it will also cancel any ongoing work in the current revision.
     /// Any actual writes that occur to data in a jar should use
     /// [`Runtime::report_tracked_write`].
-    pub fn jars_mut(&mut self) -> (&mut DB::Jars, &mut Runtime) {
+    pub fn jars_mut(&mut self) -> (&mut Jars, &mut Runtime) {
         // Wait for all snapshots to be dropped.
         self.cancel_other_workers();
 
@@ -169,100 +151,17 @@ where
     }
     // ANCHOR_END: cancel_other_workers
 
-    pub fn ingredient(&self, ingredient_index: IngredientIndex) -> &dyn Ingredient<DB> {
+    pub fn ingredient(&self, ingredient_index: IngredientIndex) -> &dyn Ingredient {
         let route = self.routes.route(ingredient_index);
         route(&self.shared.jars)
     }
 }
 
-impl<DB> Drop for Shared<DB>
-where
-    DB: HasJars,
-{
+impl Drop for Shared {
     fn drop(&mut self) {
         self.cvar.notify_all();
     }
 }
-
-pub trait HasJars: HasJarsDyn + Sized {
-    type Jars;
-
-    fn jars(&self) -> (&Self::Jars, &Runtime);
-
-    /// Gets mutable access to the jars. This will trigger a new revision
-    /// and it will also cancel any ongoing work in the current revision.
-    fn jars_mut(&mut self) -> (&mut Self::Jars, &mut Runtime);
-}
-
-pub trait InitializeJars: HasJars {
-    /// jars are allocated directly on the heap in an unsafe way to avoid stack overflow
-    fn initialize_jars(jars: &mut Self::Jars, routes: &mut Routes<Self>);
-}
-
-pub trait DbWithJar<J>: HasJar<J> + Database {
-    fn as_jar_db<'db>(&self) -> &<J as Jar<'db>>::DynDb
-    where
-        J: Jar<'db>;
-}
-
-impl<'a> dyn Database + 'a {
-    pub fn as_jar_db_dyn<'db, Jar>(&self) -> &<Jar as crate::jar::Jar<'db>>::DynDb
-    where
-        Jar: crate::jar::Jar<'db> + HasTestJarIndex,
-    {
-        todo!()
-    }
-}
-
-pub trait JarFromJars<J>: HasJars {
-    fn jar_from_jars(jars: &Self::Jars) -> &J;
-
-    fn jar_from_jars_mut(jars: &mut Self::Jars) -> &mut J;
-}
-
-pub trait HasJar<J> {
-    fn jar(&self) -> (&J, &Runtime);
-
-    fn jar_mut(&mut self) -> (&mut J, &mut Runtime);
-}
-
-pub trait HasJarDyn {
-    fn jar_dyn(&self, jar_index: TestJarIndex) -> &dyn std::any::Any;
-    fn jar_dyn_mut(&mut self, jar_index: TestJarIndex) -> &mut dyn std::any::Any;
-}
-
-// ANCHOR: HasJarsDyn
-/// Dyn friendly subset of HasJars
-pub trait HasJarsDyn {
-    fn runtime(&self) -> &Runtime;
-
-    fn runtime_mut(&mut self) -> &mut Runtime;
-
-    fn maybe_changed_after(&self, input: DependencyIndex, revision: Revision) -> bool;
-
-    fn cycle_recovery_strategy(&self, input: IngredientIndex) -> CycleRecoveryStrategy;
-
-    fn origin(&self, input: DatabaseKeyIndex) -> Option<QueryOrigin>;
-
-    fn mark_validated_output(&self, executor: DatabaseKeyIndex, output: DependencyIndex);
-
-    /// Invoked when `executor` used to output `stale_output` but no longer does.
-    /// This method routes that into a call to the [`remove_stale_output`](`crate::ingredient::Ingredient::remove_stale_output`)
-    /// method on the ingredient for `stale_output`.
-    fn remove_stale_output(&self, executor: DatabaseKeyIndex, stale_output: DependencyIndex);
-
-    /// Informs `ingredient` that the salsa struct with id `id` has been deleted.
-    /// This means that `id` will not be used in this revision and hence
-    /// any memoized values keyed by that struct can be discarded.
-    ///
-    /// In order to receive this callback, `ingredient` must have registered itself
-    /// as a dependent function using
-    /// [`SalsaStructInDb::register_dependent_fn`](`crate::salsa_struct::SalsaStructInDb::register_dependent_fn`).
-    fn salsa_struct_deleted(&self, ingredient: IngredientIndex, id: Id);
-
-    fn fmt_index(&self, index: DependencyIndex, fmt: &mut fmt::Formatter<'_>) -> fmt::Result;
-}
-// ANCHOR_END: HasJarsDyn
 
 pub trait HasIngredientsFor<I>
 where
@@ -276,7 +175,5 @@ pub trait IngredientsFor {
     type Jar;
     type Ingredients;
 
-    fn create_ingredients<DB>(routes: &mut Routes<DB>) -> Self::Ingredients
-    where
-        DB: Database + DbWithJar<Self::Jar> + JarFromJars<Self::Jar>;
+    fn create_ingredients(routes: &mut Routes) -> Self::Ingredients;
 }

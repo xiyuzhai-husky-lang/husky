@@ -116,7 +116,7 @@ unsafe fn transmute_lifetime<'t, 'u, T, U>(_t: &'t T, u: &'u U) -> &'t U {
     std::mem::transmute(u)
 }
 
-impl<DB: ?Sized, K, V> Ingredient<DB> for InputFieldIngredient<K, V>
+impl<DB: ?Sized, K, V> Ingredient for InputFieldIngredient<K, V>
 where
     K: AsId,
 {

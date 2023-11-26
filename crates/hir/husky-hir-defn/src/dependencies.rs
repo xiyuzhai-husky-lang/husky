@@ -260,7 +260,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
 
 #[cfg(test)]
 pub(crate) fn module_hir_defn_dependencies(
-    db: &TestDb,
+    db: &::salsa::Db
     module_path: ModulePath,
 ) -> Vec<HirDefnDependencies> {
     module_item_paths(db, module_path)

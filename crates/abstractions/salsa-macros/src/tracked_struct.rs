@@ -199,7 +199,7 @@ impl TrackedStruct {
                 );
 
                 fn create_ingredients<DB>(
-                    routes: &mut salsa::routes::Routes<DB>,
+                    routes: &mut salsa::routes::Routes,
                 ) -> Self::Ingredients
                 where
                     DB: salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,

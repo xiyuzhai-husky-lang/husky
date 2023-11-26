@@ -1,29 +1,22 @@
 use arc_swap::Guard;
 
 use crate::{
-    database::{AsSalsaDatabase, DatabaseDyn},
     debug::DebugWithDb,
     key::DatabaseKeyIndex,
     runtime::{
         local_state::{ActiveQueryGuard, EdgeKind, QueryOrigin},
         StampedValue,
     },
-    storage::HasJarsDyn,
-    Database, Revision, Runtime,
+    Revision, Runtime,
 };
 
-use super::{memo::Memo, Configuration, DynDb, FunctionIngredient};
+use super::{memo::Memo, Configuration, Db, FunctionIngredient};
 
 impl<C> FunctionIngredient<C>
 where
     C: Configuration,
 {
-    pub(super) fn maybe_changed_after(
-        &self,
-        db: &DynDb<C>,
-        key: C::Key,
-        revision: Revision,
-    ) -> bool {
+    pub(super) fn maybe_changed_after(&self, db: &Db, key: C::Key, revision: Revision) -> bool {
         let runtime = db.runtime();
         runtime.unwind_if_revision_cancelled(db);
 
@@ -57,7 +50,7 @@ where
 
     fn maybe_changed_after_cold(
         &self,
-        db: &DynDb<C>,
+        db: &Db,
         key_index: C::Key,
         revision: Revision,
     ) -> Option<bool> {
@@ -106,7 +99,7 @@ where
     #[inline]
     pub(super) fn shallow_verify_memo(
         &self,
-        db: &DynDb<C>,
+        db: &Db,
         runtime: &Runtime,
         database_key_index: DatabaseKeyIndex,
         memo: &Memo<C::Value>,
@@ -144,7 +137,7 @@ where
     /// query is on the stack.
     pub(super) fn deep_verify_memo(
         &self,
-        db: &DynDb<C>,
+        db: &Db,
         old_memo: &Memo<C::Value>,
         active_query: &ActiveQueryGuard<'_>,
     ) -> bool {

@@ -1,14 +1,12 @@
 use crossbeam::atomic::AtomicCell;
 
 use crate::{
-    database::{AsSalsaDatabase, DatabaseDyn},
     runtime::local_state::{QueryOrigin, QueryRevisions},
-    storage::HasJarsDyn,
     tracked_struct::TrackedStructInDb,
-    Database, DatabaseKeyIndex, DebugWithDb,
+    DatabaseKeyIndex, DebugWithDb,
 };
 
-use super::{memo::Memo, Configuration, DynDb, FunctionIngredient};
+use super::{memo::Memo, Configuration, Db, FunctionIngredient};
 
 impl<C> FunctionIngredient<C>
 where
@@ -19,12 +17,12 @@ where
     /// It only works if the key is a tracked struct created in the current query.
     pub(crate) fn specify<'db>(
         &self,
-        db: &'db DynDb<'db, C>,
+        db: &Db,
         key: C::Key,
         value: C::Value,
         origin: impl Fn(DatabaseKeyIndex) -> QueryOrigin,
     ) where
-        C::Key: TrackedStructInDb<DynDb<'db, C>>,
+        C::Key: TrackedStructInDb,
     {
         let runtime = db.runtime();
 
@@ -94,9 +92,9 @@ where
 
     /// Specify the value for `key` *and* record that we did so.
     /// Used for explicit calls to `specify`, but not needed for pre-declared tracked struct fields.
-    pub fn specify_and_record<'db>(&self, db: &'db DynDb<'db, C>, key: C::Key, value: C::Value)
+    pub fn specify_and_record<'db>(&self, db: &Db, key: C::Key, value: C::Value)
     where
-        C::Key: TrackedStructInDb<DynDb<'db, C>>,
+        C::Key: TrackedStructInDb,
     {
         self.specify(db, key, value, |database_key_index| {
             QueryOrigin::Assigned(database_key_index)
@@ -113,7 +111,7 @@ where
     /// it would have specified `key` again.
     pub(super) fn validate_specified_value(
         &self,
-        db: &DynDb<'_, C>,
+        db: &Db,
         executor: DatabaseKeyIndex,
         key: C::Key,
     ) {

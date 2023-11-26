@@ -281,11 +281,11 @@ impl<A: AllowedOptions> SalsaStruct<A> {
 
                         #should_backdate_value_fn
 
-                        fn execute(db: &salsa::function::DynDb<Self>, key: Self::Key) -> Self::Value {
+                        fn execute(db: &salsa::function::Db, key: Self::Key) -> Self::Value {
                             panic!(#execute_string)
                         }
 
-                        fn recover_from_cycle(db: &salsa::function::DynDb<Self>, cycle: &salsa::Cycle, key: Self::Key) -> Self::Value {
+                        fn recover_from_cycle(db: &salsa::function::Db, cycle: &salsa::Cycle, key: Self::Key) -> Self::Value {
                             panic!(#recover_from_cycle_string)
                         }
                     }

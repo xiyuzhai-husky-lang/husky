@@ -81,7 +81,7 @@ impl salsa::storage::IngredientsFor for File {
         InputFieldIngredient<File, FileContent>,
         InputIngredient<File>,
     );
-    fn create_ingredients<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
+    fn create_ingredients<DB>(routes: &mut salsa::routes::Routes) -> Self::Ingredients
     where
         DB: salsa::Database + salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
     {
@@ -155,11 +155,7 @@ impl salsa::AsId for File {
     }
 }
 impl ::salsa::DebugWithDb for File {
-    fn fmt(
-        &self,
-        f: &mut ::std::fmt::Formatter<'_>,
-        _db: &dyn ::salsa::Database,
-    ) -> ::std::fmt::Result {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db) -> ::std::fmt::Result {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
         let mut debug_struct = &mut f.debug_struct("HuskyFile");

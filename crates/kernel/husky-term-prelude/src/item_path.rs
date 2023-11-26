@@ -79,11 +79,7 @@ impl TermEntityPath {
 }
 
 impl DisplayWithDb for TermEntityPath {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn Database,
-    ) -> std::fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         match self {
             TermEntityPath::Fugitive(path) => {
                 f.write_str("Form(")?;

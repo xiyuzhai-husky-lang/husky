@@ -484,7 +484,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
 
 #[cfg(test)]
 fn val_item_val_repr_expansions(
-    db: &TestDb,
+    db: &::salsa::Db
     module_path: ModulePath,
 ) -> Vec<(FugitivePath, Option<ValReprExpansion>)> {
     val_item_val_reprs(db, module_path)

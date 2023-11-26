@@ -53,11 +53,7 @@ impl EtherealTermInstantiate for EtherealRitchieRegularParameter {
 }
 
 impl salsa::DisplayWithDb for EtherealRitchieRegularParameter {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn Database,
-    ) -> std::fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         self.ty.show_with_db_fmt(
             f,
             db.as_jar_db_dyn::<EtherealTermJar>(),

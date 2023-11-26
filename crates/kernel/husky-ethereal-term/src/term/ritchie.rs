@@ -170,11 +170,7 @@ impl EtherealTermInstantiate for EtherealRitchieParameter {
 }
 
 impl salsa::DisplayWithDb for EtherealTermRitchie {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn Database,
-    ) -> std::fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         let db = db.as_jar_db_dyn::<EtherealTermJar>();
         f.write_str(self.ritchie_kind(db).code())?;
         f.write_str("(")?;
@@ -222,11 +218,7 @@ impl EtherealRitchieParameter {
 }
 
 impl salsa::DisplayWithDb for EtherealRitchieParameter {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn Database,
-    ) -> std::fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         match self {
             EtherealRitchieParameter::Regular(param) => param.display_with_db_fmt(f, db),
             EtherealRitchieParameter::Variadic(param) => param.display_with_db_fmt(f, db),

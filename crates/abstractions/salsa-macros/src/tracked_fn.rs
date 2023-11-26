@@ -388,7 +388,7 @@ fn fn_configuration(args: &FnArgs, item_fn: &syn::ItemFn) -> Configuration {
         let cycle_strategy = CycleRecoveryStrategy::Fallback;
 
         let cycle_fullback = parse_quote! {
-            fn recover_from_cycle(__db: &salsa::function::DynDb<Self>, __cycle: &salsa::Cycle, __id: Self::Key) -> Self::Value {
+            fn recover_from_cycle(__db: &salsa::function::Db, __cycle: &salsa::Cycle, __id: Self::Key) -> Self::Value {
                 let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
                 let __ingredients =
                     <_ as salsa::storage::HasIngredientsFor<#fn_ty>>::ingredient(__jar);
@@ -419,7 +419,7 @@ fn fn_configuration(args: &FnArgs, item_fn: &syn::ItemFn) -> Configuration {
     // keys and then (b) invokes the function itself (which we embed within).
     let indices = (0..item_fn.sig.inputs.len() - 1).map(Literal::usize_unsuffixed);
     let execute_fn = parse_quote! {
-        fn execute(__db: &salsa::function::DynDb<Self>, __id: Self::Key) -> Self::Value {
+        fn execute(__db: &salsa::function::Db, __id: Self::Key) -> Self::Value {
             #inner_fn
 
             let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
@@ -490,7 +490,7 @@ fn ingredients_for_impl(
             type Ingredients = Self;
             type Jar = #jar_ty;
 
-            fn create_ingredients<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
+            fn create_ingredients<DB>(routes: &mut salsa::routes::Routes) -> Self::Ingredients
             where
                 DB: salsa::Database + salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
             {
@@ -691,7 +691,7 @@ fn set_lru_capacity_fn(
     let jar_ty = args.jar_ty();
     let lru_fn = parse_quote! {
         #[allow(dead_code, clippy::needless_lifetimes)]
-        fn set_lru_capacity(__db: &salsa::function::DynDb<Self>, __value: usize) {
+        fn set_lru_capacity(__db: &salsa::function::Db, __value: usize) {
             let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
             let __ingredients =
                 <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
