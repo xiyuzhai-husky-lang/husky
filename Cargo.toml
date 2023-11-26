@@ -1,28 +1,27 @@
 [workspace]
-members = ["crates/abstractions/*", "crates/utils/*"]
-# members = [
-#     "crates/abstractions/*",
-#     "crates/apps/*",
-#     "crates/archs/*",
-#     "crates/comptime/*",
-#     "crates/devtime/*",
-#     "crates/devtools/*",
-#     "crates/fs/*",
-#     "crates/gui/*",
-#     "crates/ide/*",
-#     "crates/kernel/*",
-#     "crates/lex/*",
-#     "crates/linkage/*",
-#     "crates/linktime/*",
-#     "crates/protocols/*",
-#     "crates/runtime/*",
-#     "crates/semantics/*",
-#     "crates/syntax/*",
-#     "crates/tasks/*",
-#     "crates/utils/*",
-#     "crates/vm/*",
-#     "crates/benchmarks/*"
-# ]
+members = [
+    "crates/abstractions/*",
+    "crates/apps/*",
+    "crates/archs/*",
+    "crates/comptime/*",
+    "crates/devtime/*",
+    "crates/devtools/*",
+    "crates/fs/*",
+    "crates/gui/*",
+    "crates/ide/*",
+    "crates/kernel/*",
+    "crates/lex/*",
+    "crates/linkage/*",
+    "crates/linktime/*",
+    "crates/protocols/*",
+    "crates/runtime/*",
+    "crates/semantics/*",
+    "crates/syntax/*",
+    "crates/tasks/*",
+    "crates/utils/*",
+    "crates/vm/*",
+    "crates/benchmarks/*"
+]
 resolver = "2"
 
 [profile.dev]
