@@ -188,7 +188,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -277,7 +277,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -332,7 +332,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -387,7 +387,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -442,7 +442,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {

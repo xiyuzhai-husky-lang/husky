@@ -18,18 +18,14 @@ pub enum MajorItemSynNodePath {
     Fugitive(FugitiveSynNodePath),
 }
 
-// impl HasModulePath<Db> for MajorItemSynNodePath
-// where
-//      + EntitySynTreeDb,
-// {
-//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
-//         match self {
-//             MajorItemSynNodePath::Trait(node) => node.module_path(db),
-//             MajorItemSynNodePath::Type(node) => node.module_path(db),
-//             MajorItemSynNodePath::Fugitive(node) => node.module_path(db),
-//         }
-//     }
-// }
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[enum_class::from_variants]
+pub enum MajorItemSynNodePathData {
+    Trait(TraitSynNodePathData),
+    Type(TypeSynNodePathData),
+    Fugitive(FugitiveSynNodePathData),
+}
 
 impl MajorItemSynNodePath {
     pub(super) fn new(
@@ -66,11 +62,11 @@ impl MajorItemSynNodePath {
         // self.path(db).ident(db)
     }
 
-    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> MajorItemSynNode {
+    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> MajorItemSynNodeData {
         todo!()
     }
 
-    pub(crate) fn attrs(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNode)] {
+    pub(crate) fn attrs(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNodeData)] {
         // ad hoc
         match self {
             MajorItemSynNodePath::Trait(_) => &[],
@@ -94,7 +90,7 @@ impl HasSynNodePath for MajorItemPath {
 
 // todo: change this to enum and create FugitiveNode etc.
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub(crate) struct MajorItemSynNode {
+pub(crate) struct MajorItemSynNodeData {
     #[id]
     pub syn_node_path: MajorItemSynNodePath,
     pub visibility: Scope,
@@ -103,7 +99,7 @@ pub(crate) struct MajorItemSynNode {
     pub block: DefnBlock,
 }
 
-impl MajorItemSynNode {
+impl MajorItemSynNodeData {
     pub(super) fn new(
         db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
@@ -113,7 +109,7 @@ impl MajorItemSynNode {
         ident_token: IdentToken,
         block: DefnBlock,
     ) -> Self {
-        MajorItemSynNode::new_inner(
+        MajorItemSynNodeData::new_inner(
             db,
             MajorItemSynNodePath::new(db, registry, module_item_path),
             visibility,

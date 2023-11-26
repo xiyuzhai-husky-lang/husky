@@ -148,7 +148,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -203,7 +203,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -522,7 +522,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                            AssociatedItemSynNodeDataPath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
@@ -643,7 +643,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -698,7 +698,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -753,7 +753,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -808,7 +808,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -882,7 +882,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
+                            AssociatedItemSynNodeDataPath::TypeItem(
                                 TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {

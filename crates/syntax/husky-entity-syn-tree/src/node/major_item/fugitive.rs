@@ -2,8 +2,11 @@ use husky_entity_kind::FugitiveKind;
 
 use super::*;
 
-#[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct FugitiveSynNodePath {
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct FugitiveSynNodePath(ItemSynNodePathId);
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct FugitiveSynNodePathData {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<FugitivePath>,
 }
 
@@ -38,7 +41,7 @@ impl FugitiveSynNodePath {
         self.maybe_ambiguous_path(db).path.fugitive_kind(db)
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> MajorItemSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> MajorItemSynNodeData {
         fugitive_syn_node(db, self)
     }
 }
@@ -57,7 +60,7 @@ impl FugitiveSynNodePath {
 pub(crate) fn fugitive_syn_node(
     db: &::salsa::Db,
     syn_node_path: FugitiveSynNodePath,
-) -> MajorItemSynNode {
+) -> MajorItemSynNodeData {
     let module_path: ModulePath = todo!(); //syn_node_path.module_path(db);
     let item_sheet = module_path.item_tree_sheet(db);
     match item_sheet

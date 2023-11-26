@@ -6,7 +6,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNode {
+                            MajorItemSynNodeData {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -50,7 +50,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNode {
+                            MajorItemSynNodeData {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -88,7 +88,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNode {
+                            MajorItemSynNodeData {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -126,7 +126,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNode {
+                            MajorItemSynNodeData {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -220,7 +220,7 @@ EntitySynTreeCrateBundle {
                             },
                         },
                     ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
+                    ImplBlockSynNodeData::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlock {
@@ -271,7 +271,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNode::TypeImplBlock(
+                    ImplBlockSynNodeData::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -312,7 +312,7 @@ EntitySynTreeCrateBundle {
                             },
                         },
                     ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
+                    ImplBlockSynNodeData::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlock {
@@ -366,7 +366,7 @@ EntitySynTreeCrateBundle {
                             },
                         },
                     ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
+                    ImplBlockSynNodeData::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlock {
@@ -417,7 +417,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNode::TypeImplBlock(
+                    ImplBlockSynNodeData::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -458,7 +458,7 @@ EntitySynTreeCrateBundle {
                             },
                         },
                     ),
-                    ImplBlockSynNode::TraitForTypeImplBlock(
+                    ImplBlockSynNodeData::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlock {

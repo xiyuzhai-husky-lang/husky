@@ -2,14 +2,15 @@ use original_error::OriginalError;
 
 use super::*;
 
-#[salsa::interned(db =EntitySynTreeDb, jar = EntitySynTreeJar)]
-pub struct IllFormedImplBlockSynNodePath {
+pub struct IllFormedImplBlockSynNodePath(ItemSynNodePathId);
+
+pub struct IllFormedImplBlockSynNodePathData {
     module_path: ModulePath,
     disambiguator: u8,
 }
 
 impl IllFormedImplBlockSynNodePath {
-    pub fn item_syn_node_paths(self, _db: &::salsa::Db) -> &[IllFormedItemSynNodePath] {
+    pub fn item_syn_node_paths(self, _db: &::salsa::Db) -> &[ItemSynNodePathId] {
         // ad hoc
         &[]
     }
@@ -18,17 +19,6 @@ impl IllFormedImplBlockSynNodePath {
         ill_formed_impl_block_syn_node(db, self)
     }
 }
-
-// impl HasModulePath<Db> for IllFormedImplBlockSynNodePath
-// where
-//      + EntitySynTreeDb,
-// {
-//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
-//         let db = entity_syn_tree_db(db);
-//         // self.path.module_path(db)
-//         todo!()
-//     }
-// }
 
 impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
     fn from(id: IllFormedImplBlockSynNodePath) -> Self {

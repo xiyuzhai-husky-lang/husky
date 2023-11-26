@@ -57,38 +57,21 @@ impl EntitySynTreeDb for ::salsa::Db {
 
 #[salsa::jar(db = EntitySynTreeDb)]
 pub struct EntitySynTreeJar(
-    IllFormedImplBlockSynNodePath,
-    SubmoduleSynNodePath,
-    SubmoduleSynNode,
+    ItemSynNodePathId,
+    ItemSynNodeId,
     submodule_syn_node,
-    MajorItemSynNode,
     UseSymbol,
     // module items
-    TraitSynNodePath,
     trai_node,
     trai_item_paths,
-    TypeSynNodePath,
     ty_node,
     ty_attrs,
     ty_attr_paths,
-    FugitiveSynNodePath,
     fugitive_syn_node,
-    // ty variant
-    TypeVariantSynNodePath,
-    // associated items
-    TypeItemSynNodePath,
-    TypeItemSynNode,
     ty_item_syn_node,
     trai_item_syn_nodes,
     trai_item_syn_node,
-    TraitItemSynNodePath,
-    TraitItemSynNode,
-    TraitForTypeItemSynNodePath,
-    TraitForTypeItemSynNode,
     trai_for_ty_item_syn_node,
-    IllFormedItemSynNodePath,
-    IllFormedItemSynNode,
-    TypeVariantSynNode,
     ty_variant_syn_node,
     // ty_impl_blocks,
     ty_item_syn_node_paths,
@@ -101,19 +84,14 @@ pub struct EntitySynTreeJar(
     ty_variant_paths,
     // impl blocks
     // - type impl block
-    TypeImplBlockSynNode,
     ty_impl_block_syn_node,
     ty_impl_block_items,
     // - trait for type impl block
-    TraitForTypeImplBlockSynNode,
     trai_for_ty_impl_block_syn_node,
     // - ill formed impl block
-    IllFormedImplBlockSynNode,
     ill_formed_impl_block_syn_node,
     // attr
     attr_node,
-    AttrSynNodePath,
-    AttrSynNode,
     // other
     item_tree_presheet,
     item_tree_crate_bundle,

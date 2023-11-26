@@ -239,7 +239,7 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TraitForTypeItem(
+                            AssociatedItemSynNodeDataPath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {

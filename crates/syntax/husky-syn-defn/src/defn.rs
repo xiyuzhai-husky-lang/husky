@@ -24,7 +24,7 @@ pub enum ItemSynNodeDefn {
     MajorItem(MajorItemSynNodeDefn),
     TypeVariant(TypeVariantSynNodeDefn),
     ImplBlock(ImplBlockSynNodeDecl),
-    AssociatedItem(AssociatedItemSynNodeDefn),
+    AssociatedItem(AssociatedItemSynNodeDataDefn),
     Attr(AttrSynNodeDefn),
 }
 

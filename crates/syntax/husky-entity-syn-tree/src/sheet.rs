@@ -9,7 +9,7 @@ pub struct EntitySynTreeSheet {
     major_item_node_table: MajorEntityNodeTable,
     item_symbol_table: EntitySymbolTable,
     // todo: split this into ty impl block and trai for ty impl block
-    impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
+    impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNodeData>,
     once_use_rules: OnceUseRules,
     use_all_rules: UseAllModuleSymbolsRules,
     errors: Vec<EntitySynTreeError>,
@@ -38,7 +38,7 @@ impl EntitySynTreeSheet {
         once_use_rules: OnceUseRules,
         use_all_rules: UseAllModuleSymbolsRules,
         errors: Vec<EntitySynTreeError>,
-        impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
+        impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNodeData>,
     ) -> Self {
         Self {
             module_path,
@@ -91,7 +91,7 @@ impl EntitySynTreeSheet {
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
-                    ImplBlockSynNode::TypeImplBlock(node) => *node,
+                    ImplBlockSynNodeData::TypeImplBlock(node) => *node,
                     _ => unreachable!(),
                 })
             })
@@ -107,7 +107,7 @@ impl EntitySynTreeSheet {
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
-                    ImplBlockSynNode::TraitForTypeImplBlock(node) => *node,
+                    ImplBlockSynNodeData::TraitForTypeImplBlock(node) => *node,
                     _ => unreachable!(),
                 })
             })
@@ -123,7 +123,7 @@ impl EntitySynTreeSheet {
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
-                    ImplBlockSynNode::IllFormedImplBlock(node) => *node,
+                    ImplBlockSynNodeData::IllFormedImplBlock(node) => *node,
                     _ => unreachable!(),
                 })
             })
@@ -155,7 +155,7 @@ impl EntitySynTreeSheet {
     ) -> impl Iterator<Item = TypeImplBlockSynNode> + 'a {
         self.impl_block_syn_node_table.iter().copied().filter_map(
             |(_, impl_block)| match impl_block {
-                ImplBlockSynNode::TypeImplBlock(impl_block) => Some(impl_block),
+                ImplBlockSynNodeData::TypeImplBlock(impl_block) => Some(impl_block),
                 _ => None,
             },
         )
@@ -179,9 +179,9 @@ impl EntitySynTreeSheet {
     ) -> impl Iterator<Item = TraitForTypeImplBlockSynNode> + 'a {
         self.impl_block_syn_node_table.iter().copied().filter_map(
             |(_, impl_block)| match impl_block {
-                ImplBlockSynNode::TypeImplBlock(_) => None,
-                ImplBlockSynNode::TraitForTypeImplBlock(impl_block) => Some(impl_block),
-                ImplBlockSynNode::IllFormedImplBlock(_) => None,
+                ImplBlockSynNodeData::TypeImplBlock(_) => None,
+                ImplBlockSynNodeData::TraitForTypeImplBlock(impl_block) => Some(impl_block),
+                ImplBlockSynNodeData::IllFormedImplBlock(_) => None,
             },
         )
     }
@@ -192,9 +192,11 @@ impl EntitySynTreeSheet {
     ) -> impl Iterator<Item = &'a ImplBlockIllForm> + 'a {
         self.impl_block_syn_node_table.iter().copied().filter_map(
             |(_, impl_block)| match impl_block {
-                ImplBlockSynNode::TypeImplBlock(_) => None,
-                ImplBlockSynNode::TraitForTypeImplBlock(_) => None,
-                ImplBlockSynNode::IllFormedImplBlock(impl_block) => Some(impl_block.ill_form(db)),
+                ImplBlockSynNodeData::TypeImplBlock(_) => None,
+                ImplBlockSynNodeData::TraitForTypeImplBlock(_) => None,
+                ImplBlockSynNodeData::IllFormedImplBlock(impl_block) => {
+                    Some(impl_block.ill_form(db))
+                }
             },
         )
     }

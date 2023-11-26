@@ -5,7 +5,7 @@ Ok(
             entries: [
                 EntityNodeEntry {
                     node: ItemSynNode::MajorItem(
-                        MajorItemSynNode {
+                        MajorItemSynNodeData {
                             syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {

@@ -2,8 +2,11 @@ use super::*;
 
 use vec_like::SmallVecPairMap;
 
-#[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct TraitSynNodePath {
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct TraitSynNodePath(ItemSynNodePathId);
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct TraitSynNodePathData {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<TraitPath>,
 }
 
@@ -32,7 +35,7 @@ impl TraitSynNodePath {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> MajorItemSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> MajorItemSynNodeData {
         trai_node(db, self)
     }
 
@@ -44,7 +47,7 @@ impl TraitSynNodePath {
     pub(crate) fn associated_items<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> &'a [(Ident, TraitItemSynNodePath, TraitItemSynNode)] {
+    ) -> &'a [(Ident, TraitItemSynNodePath, TraitItemSynNodeData)] {
         trai_item_syn_nodes(db, self)
     }
 
@@ -68,7 +71,7 @@ impl HasSynNodePath for TraitPath {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-fn trai_node(db: &::salsa::Db, syn_node_path: TraitSynNodePath) -> MajorItemSynNode {
+fn trai_node(db: &::salsa::Db, syn_node_path: TraitSynNodePath) -> MajorItemSynNodeData {
     let module_path: ModulePath = todo!(); // syn_node_path.module_path(db);
     let item_sheet = module_path.item_tree_sheet(db);
     match item_sheet

@@ -2,8 +2,11 @@ use smallvec::SmallVec;
 
 use super::*;
 
-#[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct TypeItemSynNodePath {
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct TypeItemSynNodePath(ItemSynNodePathId);
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct TypeItemSynNodePathData {
     // no need for intro
     // ```
     // pub impl_block_syn_node_path: TypeImplBlockSynNodePath,
@@ -19,7 +22,14 @@ impl TypeItemSynNodePath {
         registry: &mut ItemSynNodePathRegistry,
         path: TypeItemPath,
     ) -> Self {
-        Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
+        Self(ItemSynNodePathId::new(
+            db,
+            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodeDataPathData::TypeItem(
+                TypeItemSynNodePathData {
+                    maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
+                },
+            )),
+        ))
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<TypeItemPath> {
@@ -37,7 +47,7 @@ impl TypeItemSynNodePath {
         self.maybe_ambiguous_path(db).path.item_kind(db)
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeItemSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeItemSynNodeData {
         ty_item_syn_node(db, self)
     }
 }
@@ -67,7 +77,7 @@ impl HasSynNodePath for TypeItemPath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub(crate) struct TypeItemSynNode {
+pub(crate) struct TypeItemSynNodeData {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     pub ast_idx: AstIdx,
@@ -77,7 +87,7 @@ pub(crate) struct TypeItemSynNode {
     pub is_generic: bool,
 }
 
-impl TypeItemSynNode {
+impl TypeItemSynNodeData {
     #[inline(always)]
     fn new(
         db: &::salsa::Db,
@@ -114,7 +124,7 @@ impl TypeItemSynNode {
 pub(crate) fn ty_item_syn_node(
     db: &::salsa::Db,
     syn_node_path: TypeItemSynNodePath,
-) -> TypeItemSynNode {
+) -> TypeItemSynNodeData {
     syn_node_path
         .impl_block(db)
         .associated_items(db)
@@ -128,7 +138,7 @@ pub(crate) fn ty_item_syn_node(
 pub(crate) fn ty_impl_block_items(
     db: &::salsa::Db,
     syn_node_path: TypeImplBlockSynNodePath,
-) -> Vec<(Ident, TypeItemSynNodePath, TypeItemSynNode)> {
+) -> Vec<(Ident, TypeItemSynNodePath, TypeItemSynNodeData)> {
     let impl_block_syn_node = syn_node_path.syn_node(db);
     let module_path = todo!(); // syn_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path);
@@ -153,7 +163,7 @@ pub(crate) fn ty_impl_block_items(
                         } => *ty_item_kind,
                         _ => unreachable!(),
                     };
-                    let (syn_node_path, node) = TypeItemSynNode::new(
+                    let (syn_node_path, node) = TypeItemSynNodeData::new(
                         db,
                         &mut registry,
                         syn_node_path,
