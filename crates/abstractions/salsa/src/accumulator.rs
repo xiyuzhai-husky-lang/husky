@@ -8,17 +8,14 @@ use crate::{
     ingredient::{fmt_index, Ingredient, IngredientRequiresReset},
     key::DependencyIndex,
     runtime::local_state::QueryOrigin,
-    storage::HasJar,
-    DatabaseKeyIndex, Event, EventKind, IngredientIndex, Revision, Runtime,
+    DatabaseKeyIndex, Db, Event, EventKind, IngredientIndex, Revision, Runtime,
 };
 
 pub trait Accumulator {
     type Data: Clone;
     type Jar;
 
-    fn accumulator_ingredient<Db>(db: &Db) -> &AccumulatorIngredient<Self::Data>
-    where
-        Db: ?Sized + HasJar<Self::Jar>;
+    fn accumulator_ingredient<Db>(db: &Db) -> &AccumulatorIngredient<Self::Data>;
 }
 pub struct AccumulatorIngredient<Data: Clone> {
     index: IngredientIndex,
@@ -98,12 +95,11 @@ impl<Data: Clone> AccumulatorIngredient<Data> {
     }
 }
 
-impl<DB: ?Sized, Data> Ingredient<DB> for AccumulatorIngredient<Data>
+impl<Data> Ingredient for AccumulatorIngredient<Data>
 where
-    DB: crate::Database,
     Data: Clone,
 {
-    fn maybe_changed_after(&self, _db: &DB, _input: DependencyIndex, _revision: Revision) -> bool {
+    fn maybe_changed_after(&self, _db: &Db, _input: DependencyIndex, _revision: Revision) -> bool {
         panic!("nothing should ever depend on an accumulator directly")
     }
 
@@ -117,7 +113,7 @@ where
 
     fn mark_validated_output(
         &self,
-        db: &DB,
+        db: &Db,
         executor: DatabaseKeyIndex,
         output_key: Option<crate::Id>,
     ) {
@@ -131,7 +127,7 @@ where
 
     fn remove_stale_output(
         &self,
-        db: &DB,
+        db: &Db,
         executor: DatabaseKeyIndex,
         stale_output_key: Option<crate::Id>,
     ) {
@@ -151,7 +147,7 @@ where
         panic!("unexpected reset on accumulator")
     }
 
-    fn salsa_struct_deleted(&self, _db: &DB, _id: crate::Id) {
+    fn salsa_struct_deleted(&self, _db: &Db, _id: crate::Id) {
         panic!("unexpected call: accumulator is not registered as a dependent fn");
     }
 

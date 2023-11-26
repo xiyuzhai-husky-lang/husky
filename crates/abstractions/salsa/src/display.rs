@@ -1,8 +1,8 @@
-use crate::Database;
+use crate::Db;
 use std::{convert::Infallible, fmt, rc::Rc, sync::Arc};
 
 pub trait DisplayWithDb {
-    fn display<'me, 'db>(&'me self, db: &'me dyn Database) -> DisplayWith<'me>
+    fn display<'me, 'db>(&'me self, db: &'me Db) -> DisplayWith<'me>
     where
         Self: Sized + 'me,
     {
@@ -12,7 +12,7 @@ pub trait DisplayWithDb {
         }
     }
 
-    fn display_with<'me, 'db>(&'me self, db: &'me dyn Database) -> DisplayWith<'me>
+    fn display_with<'me, 'db>(&'me self, db: &'me Db) -> DisplayWith<'me>
     where
         Self: Sized + 'me,
     {
@@ -26,12 +26,12 @@ pub trait DisplayWithDb {
     ///     - for [#\[salsa::input\]](salsa_macros::input) no fields
     ///     - for [#\[salsa::tracked\]](salsa_macros::tracked) only fields with `#[id]` attribute
     ///     - for [#\[salsa::interned\]](salsa_macros::interned) any field
-    fn display_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &dyn Database) -> fmt::Result;
+    fn display_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result;
 }
 
 pub struct DisplayWith<'me> {
     value: BoxRef<'me, dyn DisplayWithDb + 'me>,
-    db: &'me dyn Database,
+    db: &'me Db,
 }
 
 impl<'me> std::fmt::Debug for DisplayWith<'me> {
@@ -67,7 +67,7 @@ impl<T: ?Sized> DisplayWithDb for &T
 where
     T: DisplayWithDb,
 {
-    fn display_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &dyn Database) -> fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         T::display_with_db_fmt(self, f, db)
     }
 }
@@ -76,7 +76,7 @@ impl<T: ?Sized> DisplayWithDb for Box<T>
 where
     T: DisplayWithDb,
 {
-    fn display_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &dyn Database) -> fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         T::display_with_db_fmt(self, f, db)
     }
 }
@@ -85,7 +85,7 @@ impl<T> DisplayWithDb for Rc<T>
 where
     T: DisplayWithDb,
 {
-    fn display_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &dyn Database) -> fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         T::display_with_db_fmt(self, f, db)
     }
 }
@@ -94,13 +94,13 @@ impl<T: ?Sized> DisplayWithDb for Arc<T>
 where
     T: DisplayWithDb,
 {
-    fn display_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &dyn Database) -> fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         T::display_with_db_fmt(self, f, db)
     }
 }
 
 impl DisplayWithDb for Infallible {
-    fn display_with_db_fmt(&self, _f: &mut fmt::Formatter<'_>, _db: &dyn Database) -> fmt::Result {
+    fn display_with_db_fmt(&self, _f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         unreachable!()
     }
 }
@@ -110,13 +110,11 @@ impl DisplayWithDb for Infallible {
 /// That's the "has impl" trick (https://github.com/nvzqz/impls#how-it-works)
 #[doc(hidden)]
 pub mod helper {
-    use crate::Database;
-
     use super::{DisplayWith, DisplayWithDb};
     use std::{fmt, marker::PhantomData};
 
     pub trait Fallback<T: fmt::Debug, Db: ?Sized> {
-        fn salsa_debug<'a, 'b>(a: &'a T, _db: &'b dyn Database) -> &'a dyn fmt::Debug {
+        fn salsa_debug<'a, 'b>(a: &'a T, _db: &'b Db) -> &'a dyn fmt::Debug {
             a
         }
     }
@@ -125,7 +123,7 @@ pub mod helper {
 
     impl<T: DisplayWithDb, Db: ?Sized> SalsaDebug<T, Db> {
         #[allow(dead_code)]
-        pub fn salsa_debug<'a, 'b: 'a>(a: &'a T, db: &'b dyn Database) -> DisplayWith<'a> {
+        pub fn salsa_debug<'a, 'b: 'a>(a: &'a T, db: &'b Db) -> DisplayWith<'a> {
             a.display_with(db)
         }
     }

@@ -1,14 +1,10 @@
-use std::sync::Arc;
-
+use super::{memo::Memo, Configuration, FunctionIngredient};
 use crate::{
-    database::DatabaseDyn,
     debug::DebugWithDb,
     runtime::{local_state::ActiveQueryGuard, StampedValue},
-    storage::HasJarsDyn,
-    Cycle, Database, Event, EventKind,
+    Cycle, Db, Event, EventKind,
 };
-
-use super::{memo::Memo, Configuration, DynDb, FunctionIngredient};
+use std::sync::Arc;
 
 impl<C> FunctionIngredient<C>
 where
@@ -25,7 +21,7 @@ where
     /// * `opt_old_memo`, the older memo, if any existed. Used for backdated.
     pub(super) fn execute(
         &self,
-        db: &DynDb<C>,
+        db: &Db,
         active_query: ActiveQueryGuard<'_>,
         opt_old_memo: Option<Arc<Memo<C::Value>>>,
     ) -> StampedValue<&C::Value> {

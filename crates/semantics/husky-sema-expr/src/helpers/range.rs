@@ -33,7 +33,7 @@ pub fn sema_expr_range_region(
 }
 
 #[cfg(test)]
-fn decl_sema_expr_range_regions(db: &TestDb, module_path: ModulePath) -> Vec<SemaExprRangeRegion> {
+fn decl_sema_expr_range_regions(db: &::salsa::Db module_path: ModulePath) -> Vec<SemaExprRangeRegion> {
     use husky_syn_decl::SynDeclDb;
     use salsa::test_utils::TestDb;
     db.syn_decl_sheet(module_path)
@@ -59,7 +59,7 @@ fn decl_sema_expr_range_regions_works() {
 }
 
 #[cfg(test)]
-fn defn_sema_expr_range_regions(db: &TestDb, module_path: ModulePath) -> Vec<SemaExprRangeRegion> {
+fn defn_sema_expr_range_regions(db: &::salsa::Db module_path: ModulePath) -> Vec<SemaExprRangeRegion> {
     use husky_syn_defn::{helpers::module_item_syn_defns, SynDefnDb};
     module_item_syn_defns(module_path, db)
         .into_iter()

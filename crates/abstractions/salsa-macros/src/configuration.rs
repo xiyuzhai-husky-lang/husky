@@ -77,7 +77,7 @@ pub(crate) fn should_backdate_value_fn(should_backdate: bool) -> syn::ImplItemMe
 pub(crate) fn panic_cycle_recovery_fn() -> syn::ImplItemMethod {
     parse_quote! {
         fn recover_from_cycle(
-            _db: &salsa::function::DynDb<Self>,
+            _db: &salsa::function::Db,
             _cycle: &salsa::Cycle,
             _key: Self::Key,
         ) -> Self::Value {

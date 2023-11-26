@@ -1,5 +1,5 @@
 use crate::debug::DebugWithDb;
-use crate::{key::DatabaseKeyIndex, Database};
+use crate::{key::DatabaseKeyIndex, Db};
 use std::{panic::AssertUnwindSafe, sync::Arc};
 
 /// Captures the participants of a cycle that occurred when executing a query.
@@ -59,7 +59,7 @@ impl Cycle {
 
     /// Returns a vector with the debug information for
     /// all the participants in the cycle.
-    pub fn all_participants(&self, db: &dyn Database) -> Vec<String> {
+    pub fn all_participants(&self, db: &Db) -> Vec<String> {
         self.participant_keys()
             .map(|d| format!("{:?}", d.debug(db)))
             .collect()
@@ -68,7 +68,7 @@ impl Cycle {
     /// Returns a vector with the debug information for
     /// those participants in the cycle that lacked recovery
     /// information.
-    pub fn unexpected_participants(&self, db: &dyn Database) -> Vec<String> {
+    pub fn unexpected_participants(&self, db: &Db) -> Vec<String> {
         self.participant_keys()
             .filter(|&d| {
                 db.cycle_recovery_strategy(d.ingredient_index) == CycleRecoveryStrategy::Panic
@@ -78,10 +78,10 @@ impl Cycle {
     }
 
     /// Returns a "debug" view onto this strict that can be used to print out information.
-    pub fn debug<'me, DB: ?Sized + Database>(&'me self, db: &'me DB) -> impl std::fmt::Debug + 'me {
+    pub fn debug<'me>(&'me self, db: &'me Db) -> impl std::fmt::Debug + 'me {
         struct UnexpectedCycleDebug<'me> {
             c: &'me Cycle,
-            db: &'me dyn Database,
+            db: &'me Db,
         }
 
         impl<'me> std::fmt::Debug for UnexpectedCycleDebug<'me> {

@@ -65,7 +65,7 @@ where
     }
 }
 
-impl<DB: ?Sized, Id> Ingredient<DB> for InputIngredient<Id>
+impl<DB: ?Sized, Id> Ingredient for InputIngredient<Id>
 where
     Id: InputId,
 {

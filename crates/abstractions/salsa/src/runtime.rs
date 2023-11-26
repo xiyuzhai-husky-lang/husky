@@ -9,7 +9,7 @@ use crate::{
     durability::Durability,
     key::{DatabaseKeyIndex, DependencyIndex},
     runtime::active_query::ActiveQuery,
-    Cancelled, Cycle, Database, Event, EventKind, Revision,
+    Cancelled, Cycle, Db, Event, EventKind, Revision,
 };
 
 use self::{
@@ -205,7 +205,7 @@ impl Runtime {
     /// This method should not be overridden by `Database` implementors. A
     /// `salsa_event` is emitted when this method is called, so that should be
     /// used instead.
-    pub(crate) fn unwind_if_revision_cancelled<DB: ?Sized + Database>(&self, db: &DB) {
+    pub(crate) fn unwind_if_revision_cancelled(&self, db: &Db) {
         db.salsa_event(Event {
             runtime_id: self.id(),
             kind: EventKind::WillCheckCancellation,
@@ -270,7 +270,7 @@ impl Runtime {
     /// * [`CycleRecoveryStrategy::Fallback`]: initiate unwinding with [`CycleParticipant::unwind`].
     pub(crate) fn block_on_or_unwind<QueryMutexGuard>(
         &self,
-        db: &dyn Database,
+        db: &Db,
         database_key: DatabaseKeyIndex,
         other_id: RuntimeId,
         query_mutex_guard: QueryMutexGuard,
@@ -328,7 +328,7 @@ impl Runtime {
     /// is no cycle recovery at all.
     fn unblock_cycle_and_maybe_throw(
         &self,
-        db: &dyn Database,
+        db: &Db,
         dg: &mut DependencyGraph,
         database_key_index: DatabaseKeyIndex,
         to_id: RuntimeId,

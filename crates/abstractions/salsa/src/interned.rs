@@ -224,7 +224,7 @@ unsafe fn transmute_lifetime<'t, 'u, T, U>(_t: &'t T, u: &'u U) -> &'t U {
     std::mem::transmute(u)
 }
 
-impl<DB: ?Sized, Id, Data> Ingredient<DB> for InternedIngredient<Id, Data>
+impl<DB: ?Sized, Id, Data> Ingredient for InternedIngredient<Id, Data>
 where
     Id: InternedId,
     Data: InternedData,

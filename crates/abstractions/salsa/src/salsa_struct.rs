@@ -1,7 +1,7 @@
-use crate::{Database, IngredientIndex};
+use crate::*;
 
-pub trait SalsaStructInDb<DB: ?Sized + Database> {
-    fn register_dependent_fn(db: &DB, index: IngredientIndex);
+pub trait SalsaStructInDb {
+    fn register_dependent_fn(db: &Db, index: IngredientIndex);
 }
 
 /// A ZST that implements [`SalsaStructInDb`]
@@ -10,6 +10,6 @@ pub trait SalsaStructInDb<DB: ?Sized + Database> {
 /// (ones that only take a database as an argument).
 pub struct Singleton;
 
-impl<DB: ?Sized + Database> SalsaStructInDb<DB> for Singleton {
-    fn register_dependent_fn(_db: &DB, _index: IngredientIndex) {}
+impl SalsaStructInDb for Singleton {
+    fn register_dependent_fn(_db: &Db, _index: IngredientIndex) {}
 }

@@ -1,12 +1,6 @@
-use crate::{
-    hash::FxHashSet,
-    runtime::local_state::QueryOrigin,
-    storage::{HasJar, HasJarsDyn},
-    DatabaseKeyIndex,
-};
-
-use super::{Configuration, DynDb, FunctionIngredient};
+use super::{Configuration, FunctionIngredient};
 use crate::accumulator::Accumulator;
+use crate::{hash::FxHashSet, runtime::local_state::QueryOrigin, DatabaseKeyIndex, Db};
 
 impl<C> FunctionIngredient<C>
 where
@@ -14,9 +8,8 @@ where
 {
     /// Returns all the values accumulated into `accumulator` by this query and its
     /// transitive inputs.
-    pub fn accumulated<'db, A>(&self, db: &DynDb<'db, C>, key: C::Key) -> Vec<A::Data>
+    pub fn accumulated<'db, A>(&self, db: &Db, key: C::Key) -> Vec<A::Data>
     where
-        DynDb<'db, C>: HasJar<A::Jar>,
         A: Accumulator,
     {
         // To start, ensure that the value is up to date:

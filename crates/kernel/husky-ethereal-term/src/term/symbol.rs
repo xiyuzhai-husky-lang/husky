@@ -61,11 +61,7 @@ pub enum TermSymbolTypeErrorKind {
 pub type TermSymbolTypeResult<T> = Result<T, TermSymbolTypeErrorKind>;
 
 impl salsa::DisplayWithDb for EtherealTermSymbol {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn Database,
-    ) -> std::fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         // ad hoc
         let db = db.as_jar_db_dyn::<EtherealTermJar>();
         f.write_fmt(format_args!("${:?}", self.index(db)))

@@ -4,7 +4,7 @@ use crate::{
     hash::FxDashMap,
     key::DatabaseKeyIndex,
     runtime::{RuntimeId, WaitResult},
-    Database, Id, Runtime,
+    Db, Id, Runtime,
 };
 
 #[derive(Default)]
@@ -23,7 +23,7 @@ struct SyncState {
 impl SyncMap {
     pub(super) fn claim<'me>(
         &'me self,
-        db: &'me dyn Database,
+        db: &'me Db,
         database_key_index: DatabaseKeyIndex,
     ) -> Option<ClaimGuard<'me>> {
         let runtime = db.runtime();

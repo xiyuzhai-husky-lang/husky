@@ -108,11 +108,7 @@ impl<T> Debug for ArenaIdx<T> {
 }
 
 impl<T> salsa::DebugWithDb for ArenaIdx<T> {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        _db: &dyn ::salsa::Database,
-    ) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, _db: &::salsa::Db) -> std::fmt::Result {
         Debug::fmt(&self.raw, f)
     }
 }

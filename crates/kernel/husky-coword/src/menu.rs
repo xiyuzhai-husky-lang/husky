@@ -235,7 +235,7 @@ impl salsa::function::Configuration for ident_menu {
     fn should_backdate_value(v1: &Self::Value, v2: &Self::Value) -> bool {
         salsa::function::should_backdate_value(v1, v2)
     }
-    fn execute(__db: &salsa::function::DynDb<Self>, __id: Self::Key) -> Self::Value {
+    fn execute(__db: &salsa::function::Db, __id: Self::Key) -> Self::Value {
         pub(crate) fn __fn(db: &dyn CowordDb) -> CowordMenu {
             CowordMenu::new(db)
         }
@@ -245,7 +245,7 @@ impl salsa::function::Configuration for ident_menu {
         __fn(__db)
     }
     fn recover_from_cycle(
-        _db: &salsa::function::DynDb<Self>,
+        _db: &salsa::function::Db,
         _cycle: &salsa::Cycle,
         _key: Self::Key,
     ) -> Self::Value {
@@ -255,7 +255,7 @@ impl salsa::function::Configuration for ident_menu {
 impl salsa::storage::IngredientsFor for ident_menu {
     type Ingredients = Self;
     type Jar = CowordJar;
-    fn create_ingredients<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
+    fn create_ingredients<DB>(routes: &mut salsa::routes::Routes) -> Self::Ingredients
     where
         DB: salsa::Database + salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
     {

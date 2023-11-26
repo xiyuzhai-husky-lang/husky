@@ -102,11 +102,11 @@ fn has_jars_impl(args: &Args, input: &syn::ItemStruct, storage: &syn::Ident) -> 
             type Jars = (#(#jar_paths,)*);
             // ANCHOR_END: HasJars
 
-            fn jars(&self) -> (&Self::Jars, &salsa::Runtime) {
+            fn jars(&self) -> (&Jars, &salsa::Runtime) {
                 self.#storage.jars()
             }
 
-            fn jars_mut(&mut self) -> (&mut Self::Jars, &mut salsa::Runtime) {
+            fn jars_mut(&mut self) -> (&mut Jars, &mut salsa::Runtime) {
                 self.#storage.jars_mut()
             }
         }
@@ -130,7 +130,7 @@ fn initialize_jars_impl(
         // ANCHOR: InitializeJars
         impl salsa::storage::InitializeJars for #db {
             // ANCHOR: initialize_jars
-            fn initialize_jars(jars: &mut Self::Jars, routes: &mut salsa::routes::Routes<Self>) {
+            fn initialize_jars(jars: &mut Jars, routes: &mut salsa::routes::Routes<Self>) {
                 use salsa::jar::Jar;
                 #(#arguments)*
             }
@@ -230,11 +230,11 @@ fn per_jar_impls(args: &Args, input: &syn::ItemStruct, storage: &syn::Ident) -> 
                 },
                 parse_quote! {
                     impl salsa::storage::JarFromJars<#jar_path> for #db {
-                        fn jar_from_jars<'db>(jars: &Self::Jars) -> &#jar_path {
+                        fn jar_from_jars<'db>(jars: &Jars) -> &#jar_path {
                             &jars.#jar_index
                         }
 
-                        fn jar_from_jars_mut<'db>(jars: &mut Self::Jars) -> &mut #jar_path {
+                        fn jar_from_jars_mut<'db>(jars: &mut Jars) -> &mut #jar_path {
                             &mut jars.#jar_index
                         }
                     }

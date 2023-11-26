@@ -10,7 +10,7 @@ use crate::{
     key::{DatabaseKeyIndex, DependencyIndex},
     runtime::local_state::QueryOrigin,
     salsa_struct::SalsaStructInDb,
-    Cycle, Database, DbWithJar, Event, EventKind, Id, Revision,
+    Cycle, Db, DbWithJar, Event, EventKind, Id, Revision,
 };
 
 use super::{ingredient::Ingredient, routes::IngredientIndex, AsId};
@@ -81,7 +81,7 @@ pub trait Configuration {
     /// The "salsa struct type" that this function is associated with.
     /// This can be just `salsa::Id` for functions that intern their arguments
     /// and are not clearly associated with any one salsa struct.
-    type SalsaStruct: for<'db> SalsaStructInDb<DynDb<'db, Self>>;
+    type SalsaStruct: for<'db> SalsaStructInDb;
 
     /// What key is used to index the memo. Typically a salsa struct id,
     /// but if this memoized function has multiple arguments it will be a `salsa::Id`
@@ -107,13 +107,13 @@ pub trait Configuration {
     /// computed it before or because the old one relied on inputs that have changed.
     ///
     /// This invokes the function the user wrote.
-    fn execute(db: &DynDb<Self>, key: Self::Key) -> Self::Value;
+    fn execute(db: &Db, key: Self::Key) -> Self::Value;
 
     /// If the cycle strategy is `Recover`, then invoked when `key` is a participant
     /// in a cycle to find out what value it should have.
     ///
     /// This invokes the recovery function given by the user.
-    fn recover_from_cycle(db: &DynDb<Self>, cycle: &Cycle, key: Self::Key) -> Self::Value;
+    fn recover_from_cycle(db: &Db, cycle: &Cycle, key: Self::Key) -> Self::Value;
 
     /// Given a salsa Id, returns the key. Convenience function to avoid
     /// having to type `<C::Key as AsId>::from_id`.
@@ -128,8 +128,6 @@ pub trait Configuration {
 pub fn should_backdate_value<V: Eq>(old_value: &V, new_value: &V) -> bool {
     old_value == new_value
 }
-
-pub type DynDb<'bound, C> = <<C as Configuration>::Jar as Jar<'bound>>::DynDb;
 
 /// This type is used to make configuration types for the functions in entities;
 /// e.g. you can do `Config<X, 0>` and `Config<X, 1>`.
@@ -177,12 +175,7 @@ where
         std::mem::transmute(memo_value)
     }
 
-    fn insert_memo(
-        &self,
-        db: &DynDb<'_, C>,
-        key: C::Key,
-        memo: memo::Memo<C::Value>,
-    ) -> Option<&C::Value> {
+    fn insert_memo(&self, db: &Db, key: C::Key, memo: memo::Memo<C::Value>) -> Option<&C::Value> {
         self.register(db);
         let memo = Arc::new(memo);
         let value = unsafe {
@@ -201,14 +194,14 @@ where
     /// Register this function as a dependent fn of the given salsa struct.
     /// When instances of that salsa struct are deleted, we'll get a callback
     /// so we can remove any data keyed by them.
-    fn register(&self, db: &DynDb<'_, C>) {
+    fn register(&self, db: &Db) {
         if !self.registered.fetch_or(true) {
             <C::SalsaStruct as SalsaStructInDb<_>>::register_dependent_fn(db, self.index)
         }
     }
 }
 
-impl<DB, C> Ingredient<DB> for FunctionIngredient<C>
+impl<DB, C> Ingredient for FunctionIngredient<C>
 where
     DB: ?Sized + DbWithJar<C::Jar>,
     C: Configuration,

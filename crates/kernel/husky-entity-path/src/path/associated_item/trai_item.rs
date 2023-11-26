@@ -54,11 +54,7 @@ impl TraitItemPath {
 }
 
 impl salsa::DisplayWithDb for TraitItemPath {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn Database,
-    ) -> std::fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         self.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())
     }
 }

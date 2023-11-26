@@ -93,11 +93,7 @@ pub(crate) fn term_curry_from_declarative(
 }
 
 impl salsa::DisplayWithDb for EtherealTermCurry {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn Database,
-    ) -> std::fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         self.show_with_db_fmt(
             f,
             db.as_jar_db_dyn::<EtherealTermJar>(),

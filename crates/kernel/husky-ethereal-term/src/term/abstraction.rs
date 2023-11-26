@@ -47,11 +47,7 @@ impl EtherealTermAbstraction {
 }
 
 impl salsa::DisplayWithDb for EtherealTermAbstraction {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn Database,
-    ) -> std::fmt::Result {
+    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         // use std::fmt::Write;
         // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
         // todo!()

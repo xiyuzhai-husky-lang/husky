@@ -110,7 +110,7 @@ fn collect_rust_package_dirs_aux(dir: impl AsRef<Path>, pack_paths: &mut Vec<Pat
     }
 }
 
-pub fn collect_husky_package_dirs(db: &dyn Database, dir: &Path) -> Vec<(PathBuf, Kebab)> {
+pub fn collect_husky_package_dirs(db: &Db, dir: &Path) -> Vec<(PathBuf, Kebab)> {
     should_satisfy!(&dir, |dir: &Path| dir.is_dir());
     let mut pack_paths = vec![];
     collect_husky_package_dirs_aux(db, dir, &mut pack_paths);
@@ -119,7 +119,7 @@ pub fn collect_husky_package_dirs(db: &dyn Database, dir: &Path) -> Vec<(PathBuf
 }
 
 fn collect_husky_package_dirs_aux(
-    db: &dyn Database,
+    db: &Db,
     dir: &Path,
     pack_paths: &mut Vec<(PathBuf, Kebab)>,
 ) {
@@ -137,7 +137,7 @@ fn collect_husky_package_dirs_aux(
 }
 
 pub fn collect_package_relative_dirs(
-    db: &dyn Database,
+    db: &Db,
     base: &Path,
 ) -> Vec<(RelativePathBuf, Kebab)> {
     should_satisfy!(&base, |dir: &Path| dir.is_dir());
@@ -149,7 +149,7 @@ pub fn collect_package_relative_dirs(
 }
 
 fn collect_package_relative_dirs_aux(
-    db: &dyn Database,
+    db: &Db,
     base: &Path,
     dir: &RelativePath,
     pack_paths: &mut Vec<(RelativePathBuf, Kebab)>,
@@ -235,7 +235,7 @@ fn collect_package_dirs_works() {
 
     let db = DB::default();
     let db = &*db;
-    fn t(db: &TestDb, dir: &Path) {
+    fn t(db: &::salsa::Db dir: &Path) {
         assert_eq!(
             collect_package_relative_dirs(db, dir)
                 .into_iter()

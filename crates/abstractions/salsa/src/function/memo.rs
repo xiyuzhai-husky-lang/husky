@@ -114,7 +114,7 @@ impl<V> Memo<V> {
     /// be the current revision.
     pub(super) fn mark_as_verified(
         &self,
-        db: &dyn crate::Database,
+        db: &crate::Db,
         runtime: &crate::Runtime,
         database_key_index: DatabaseKeyIndex,
     ) {

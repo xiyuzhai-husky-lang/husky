@@ -1,5 +1,5 @@
 use crate::{
-    debug::DebugWithDb, key::DatabaseKeyIndex, key::DependencyIndex, runtime::RuntimeId, Database,
+    debug::DebugWithDb, key::DatabaseKeyIndex, key::DependencyIndex, runtime::RuntimeId, Db,
 };
 use std::fmt;
 
@@ -25,7 +25,7 @@ impl fmt::Debug for Event {
 }
 
 impl DebugWithDb for Event {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn Database) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         f.debug_struct("Event")
             .field("runtime_id", &self.runtime_id)
             .field("kind", &self.kind.debug_with(db))
@@ -143,7 +143,7 @@ impl fmt::Debug for EventKind {
 }
 
 impl DebugWithDb for EventKind {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>, db: &dyn Database) -> std::fmt::Result {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
         match self {
             EventKind::DidValidateMemoizedValue { database_key } => fmt
                 .debug_struct("DidValidateMemoizedValue")

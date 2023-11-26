@@ -53,7 +53,7 @@ use husky_vfs::*;
 #[derive(Default)]
 pub(crate) struct DB;
 
-fn decl_sema_expr_regions(db: &TestDb, module_path: ModulePath) -> Vec<SemaExprRegion> {
+fn decl_sema_expr_regions(db: &::salsa::Db module_path: ModulePath) -> Vec<SemaExprRegion> {
     db.syn_decl_sheet(module_path)
         .decls(db)
         .iter()
@@ -70,7 +70,7 @@ fn decl_sema_expr_sheets_works() {
     )
 }
 
-fn defn_sema_expr_regions(db: &TestDb, module_path: ModulePath) -> Vec<SemaExprRegion> {
+fn defn_sema_expr_regions(db: &::salsa::Db module_path: ModulePath) -> Vec<SemaExprRegion> {
     let Ok(defns) = module_path.defns(db) else {
         return vec![];
     };

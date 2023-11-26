@@ -1,17 +1,34 @@
-use crate::{
-    storage::{HasJar, JarFromJars},
-    Database, DbWithJar,
-};
-
 use super::routes::Routes;
+use crate::{test_utils::HasTestJarIndex, DbWithJar};
 
 pub trait Jar<'db>: Sized {
-    type DynDb: ?Sized + HasJar<Self> + Database + Database + 'db;
+    fn initialize(&mut self, routes: &mut Routes);
+}
 
-    fn initialize<DB>(&mut self, routes: &mut Routes<DB>)
+pub struct Jars;
+
+impl Jars {
+    fn jar<Jar>(&self) -> &Jar
     where
-        DB: JarFromJars<Self> + DbWithJar<Self>;
+        Jar: HasTestJarIndex + 'static,
+    {
+        let any: &Box<dyn std::any::Any + Send + Sync + 'static> = self.map
+            [<Jar as HasTestJarIndex>::TEST_JAR_INDEX]
+            .as_ref()
+            .expect("should be initialized");
+        let any: &(dyn std::any::Any + Send + Sync + 'static) = &**any;
+        any.downcast_ref().expect("should be the right type")
+    }
 
-    #[cfg(debug_assertions)]
-    fn cast_test_db(db: &crate::test_utils::TestDb) -> &Self::DynDb;
+    fn jar_mut<Jar>(&mut self) -> &mut Jar
+    where
+        Jar: HasTestJarIndex + 'static,
+    {
+        let any: &mut Box<dyn std::any::Any + Send + Sync + 'static> = self.map
+            [<Jar as HasTestJarIndex>::TEST_JAR_INDEX]
+            .as_mut()
+            .expect("should be initialized");
+        let any: &mut (dyn std::any::Any + Send + Sync + 'static) = &mut **any;
+        any.downcast_mut().expect("should be the right type")
+    }
 }

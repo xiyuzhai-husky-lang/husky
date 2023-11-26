@@ -9,7 +9,7 @@ macro_rules! assert_eq_with_db {
     };
 }
 
-pub fn assert_eq_with_db_f<T>(db: &dyn Database, left: &T, right: &T) -> Result<(), String>
+pub fn assert_eq_with_db_f<T>(db: &Db, left: &T, right: &T) -> Result<(), String>
 where
     T: PartialEq + DebugWithDb,
 {
