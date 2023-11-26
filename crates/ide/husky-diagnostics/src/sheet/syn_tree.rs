@@ -25,7 +25,7 @@ pub(crate) fn item_tree_diagnostic_sheet(
             EntitySynTreeError::Derived(_) => (),
         }
     }
-    for impl_block_ill_form in item_syn_tree_sheet.all_ill_formed_impl_block_syn_nodes(db) {
+    for impl_block_ill_form in item_syn_tree_sheet.all_impl_block_ill_forms(db) {
         diagnostics.push(impl_block_ill_form.to_diagnostic(&ctx))
     }
     // todo

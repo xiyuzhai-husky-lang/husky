@@ -57,8 +57,7 @@ impl TraitSynNodePath {
     ) -> impl Iterator<Item = TraitItemSynNodePath> + 'a {
         self.associated_items(db)
             .iter()
-            .copied()
-            .map(|(_, syn_node_path, _)| syn_node_path)
+            .map(|&(_, syn_node_path, _)| syn_node_path)
     }
 }
 
@@ -78,7 +77,7 @@ fn trai_node(db: &::salsa::Db, syn_node_path: TraitSynNodePath) -> MajorItemSynN
         .major_item_node(syn_node_path.into())
         .expect("should be some")
     {
-        ItemSynNode::MajorItem(node) => node,
+        ItemSynNodeData::MajorItem(node) => node,
         _ => unreachable!(),
     }
 }

@@ -4,6 +4,7 @@ use husky_print_utils::p;
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::as_id(jar = EntitySynTreeJar)]
 pub struct TypeSynNodePath(ItemSynNodePathId);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -75,7 +76,7 @@ fn ty_node(db: &::salsa::Db, syn_node_path: TypeSynNodePath) -> MajorItemSynNode
         unreachable!("should be some, must be some erros in library")
     };
     match major_item_node {
-        ItemSynNode::MajorItem(node) => node,
+        ItemSynNodeData::MajorItem(node) => node,
         _ => unreachable!(),
     }
 }
@@ -88,7 +89,6 @@ impl HasAttrPaths for TypePath {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 fn ty_attrs(
     db: &::salsa::Db,
     ty_syn_node_path: TypeSynNodePath,

@@ -30,7 +30,7 @@ impl TypeImplBlockSynNodePath {
     }
 
     #[inline(always)]
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeImplBlockSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeImplBlockSynNodeData {
         ty_impl_block_syn_node(db, self)
     }
 
@@ -68,7 +68,7 @@ impl HasSynNodePath for TypeImplBlockPath {
     }
 }
 
-pub(crate) struct TypeImplBlockSynNode {
+pub(crate) struct TypeImplBlockSynNodeData {
     syn_node_path: TypeImplBlockSynNodePath,
     ast_idx: AstIdx,
     impl_regional_token: ImplToken,
@@ -76,7 +76,7 @@ pub(crate) struct TypeImplBlockSynNode {
     items: TypeItems,
 }
 
-impl TypeImplBlockSynNode {
+impl TypeImplBlockSynNodeData {
     pub(super) fn new(
         db: &::salsa::Db,
         impl_token: ImplToken,
@@ -113,11 +113,10 @@ impl TypeImplBlockSynNode {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn ty_impl_block_syn_node(
     db: &::salsa::Db,
     syn_node_path: TypeImplBlockSynNodePath,
-) -> TypeImplBlockSynNode {
+) -> TypeImplBlockSynNodeData {
     let module_path = todo!(); //syn_node_path.module_path(db);
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     item_tree_sheet.ty_impl_block_syn_node(syn_node_path)

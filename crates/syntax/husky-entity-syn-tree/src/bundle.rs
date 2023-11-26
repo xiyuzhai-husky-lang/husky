@@ -58,7 +58,7 @@ impl EntitySynTreeCrateBundle {
     ) -> impl Iterator<Item = &'a ImplBlockIllForm> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_ill_formed_impl_block_syn_nodes(db))
+            .map(|sheet| sheet.all_impl_block_ill_forms(db))
             .flatten()
     }
 

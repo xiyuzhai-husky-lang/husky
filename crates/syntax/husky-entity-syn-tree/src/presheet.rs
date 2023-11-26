@@ -60,7 +60,10 @@ impl EntitySynTreePresheet {
         }
     }
 
-    pub(crate) fn major_item_node(&self, syn_node_path: ItemSynNodePath) -> Option<ItemSynNode> {
+    pub(crate) fn major_item_node(
+        &self,
+        syn_node_path: ItemSynNodePath,
+    ) -> Option<ItemSynNodeData> {
         self.major_item_node_table.node(syn_node_path)
     }
 }

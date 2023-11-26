@@ -3,6 +3,7 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct SubmoduleSynNodePath(ItemSynNodePathId);
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct SubmoduleSynNodePathData {
     maybe_ambiguous_path: MaybeAmbiguousPath<SubmodulePath>,
 }
@@ -21,8 +22,8 @@ impl SubmoduleSynNodePath {
     }
 
     pub(crate) fn syn_node_data(self, db: &::salsa::Db) -> SubmoduleSynNodeData {
-        match self.0.syn_node(db) {
-            ItemSynNode::Submodule(data) => data,
+        match self.0.syn_node_data(db) {
+            ItemSynNodeData::Submodule(data) => data,
             _ => unreachable!(),
         }
     }
@@ -36,7 +37,7 @@ impl SubmoduleSynNodePathData {
         let module_path: ModulePath = todo!(); //= syn_node_path.module_path(db);
         let item_tree_sheet = db.item_syn_tree_sheet(module_path);
         match item_tree_sheet.major_item_node(syn_node_path.into()) {
-            Some(ItemSynNode::Submodule(node)) => node,
+            Some(ItemSynNodeData::Submodule(node)) => node,
             _ => unreachable!(),
         }
     }

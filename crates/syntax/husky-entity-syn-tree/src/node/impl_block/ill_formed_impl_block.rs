@@ -59,6 +59,10 @@ impl IllFormedImplBlockSynNodeData {
         //     ill_form,
         // )
     }
+
+    pub(crate) fn ill_form(&self) -> &ImplBlockIllForm {
+        &self.ill_form
+    }
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -82,7 +86,6 @@ impl OriginalError for ImplBlockIllForm {
     type Error = Self;
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn ill_formed_impl_block_syn_node(
     db: &::salsa::Db,
     syn_node_path: IllFormedImplBlockSynNodePath,

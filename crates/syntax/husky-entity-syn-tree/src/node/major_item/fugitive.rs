@@ -46,7 +46,6 @@ impl FugitiveSynNodePath {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn fugitive_syn_node(
     db: &::salsa::Db,
     syn_node_path: FugitiveSynNodePath,
@@ -57,7 +56,7 @@ pub(crate) fn fugitive_syn_node(
         .major_item_node(syn_node_path.into())
         .expect("should be some")
     {
-        ItemSynNode::MajorItem(node) => node,
+        ItemSynNodeData::MajorItem(node) => node,
         _ => unreachable!(),
     }
 }
