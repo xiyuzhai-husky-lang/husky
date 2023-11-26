@@ -104,7 +104,7 @@ fn enum_struct_variant_debug_with_db(
                     &::salsa::debug::helper::SalsaDebug::<#field_ty>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         #field_ident,
-                        _db.as_jar_db_dyn::<#jar_ty>()
+                        _db
                     )
                 );
             };
@@ -160,7 +160,7 @@ fn enum_tuple_variant_debug_with_db(
                     &::salsa::debug::helper::SalsaDebug::<#field_ty>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         &#field_ident,
-                        _db.as_jar_db_dyn::<#jar_ty>()
+                        _db
                     )
                 );
             };

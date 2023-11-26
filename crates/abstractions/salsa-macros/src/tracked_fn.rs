@@ -389,7 +389,7 @@ fn fn_configuration(args: &FnArgs, item_fn: &syn::ItemFn) -> Configuration {
 
         let cycle_fullback = parse_quote! {
             fn recover_from_cycle(__db: &Db, __cycle: &salsa::Cycle, __id: Self::Key) -> Self::Value {
-                let (__jar, __runtime) = __db.jar();
+                let (__jar, __runtime) = __db.jar::<#jar_ty>();
                 let __ingredients =
                     <_ as salsa::storage::HasIngredientsFor<#fn_ty>>::ingredient(__jar);
                 let __key = __ingredients.intern_map.data(__runtime, __id).clone();
@@ -419,10 +419,10 @@ fn fn_configuration(args: &FnArgs, item_fn: &syn::ItemFn) -> Configuration {
     // keys and then (b) invokes the function itself (which we embed within).
     let indices = (0..item_fn.sig.inputs.len() - 1).map(Literal::usize_unsuffixed);
     let execute_fn = parse_quote! {
-        fn execute(__db: &Db, __id: Self::Key) -> Self::Value {
+        fn execute(__db: &::salsa::Db, __id: Self::Key) -> Self::Value {
             #inner_fn
 
-            let (__jar, __runtime) = __db.jar();
+            let (__jar, __runtime) = __db.jar::<#jar_ty>();
             let __ingredients =
                 <_ as salsa::storage::HasIngredientsFor<#fn_ty>>::ingredient(__jar);
             let __key = __ingredients.intern_map.data(__runtime, __id).clone();
@@ -461,13 +461,13 @@ fn ingredients_for_impl(
                 {
                     let index = routes.push(
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                            let jar = jars.jar::<Self::Jar>();
                             let ingredients =
                                 <_ as salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient(jar);
                             &ingredients.intern_map
                         },
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                            let jar = jars.jar_mut::<Self::Jar>();
                             let ingredients =
                                 <_ as salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient_mut(jar);
                             &mut ingredients.intern_map
@@ -498,13 +498,13 @@ fn ingredients_for_impl(
                     function: {
                         let index = routes.push(
                             |jars| {
-                                let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                                let jar = jars.jar::<Self::Jar>();
                                 let ingredients =
                                     <_ as salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient(jar);
                                 &ingredients.function
                             },
                             |jars| {
-                                let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                                let jar = jars.jar_mut::<Self::Jar>();
                                 let ingredients =
                                     <_ as salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient_mut(jar);
                                 &mut ingredients.function
@@ -690,7 +690,7 @@ fn set_lru_capacity_fn(
     let lru_fn = parse_quote! {
         #[allow(dead_code, clippy::needless_lifetimes)]
         fn set_lru_capacity(__db: &Db, __value: usize) {
-            let (__jar, __runtime) = __db.jar();
+            let (__jar, __runtime) = __db.jar::<#jar_ty>();
             let __ingredients =
                 <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
             __ingredients.function.set_capacity(__value);
@@ -737,7 +737,7 @@ fn specify_fn(
 /// it returns an `&Value` instead of `Value`. May introduce a name for the
 /// database lifetime if required.
 fn make_fn_return_ref(fn_sig: &mut syn::Signature) -> syn::Result<()> {
-    // An input should be a `&dyn Db`.
+    // An input should be a `&Db`.
     // We need to ensure it has a named lifetime parameter.
     let (db_lifetime, _) = db_lifetime_and_ty(fn_sig)?;
 
@@ -758,7 +758,7 @@ fn make_fn_return_ref(fn_sig: &mut syn::Signature) -> syn::Result<()> {
     Ok(())
 }
 
-/// Given a function signature, identifies the name given to the `&dyn Db` reference
+/// Given a function signature, identifies the name given to the `&Db` reference
 /// and returns it, along with the type of the database.
 /// If the database lifetime did not have a name, then modifies the item function
 /// so that it is called `'__db` and returns that.

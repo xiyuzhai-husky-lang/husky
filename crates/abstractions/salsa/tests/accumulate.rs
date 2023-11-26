@@ -2,9 +2,9 @@
 //!
 //! * entities not created in a revision are deleted, as is any memoized data keyed on them.
 
-use husky_salsa_log_utils::{HasLogger, Logger};
-
 use expect_test::expect;
+use husky_salsa_log_utils::{HasLogger, Logger};
+use salsa::*;
 use test_log::test;
 
 #[salsa::jar(db = Db)]
@@ -21,7 +21,7 @@ struct Logs(String);
 
 #[salsa::tracked]
 #[allow(dead_code)]
-fn push_logs(db: &dyn Db, input: MyInput) {
+fn push_logs(db: &Db, input: MyInput) {
     db.push_log(format!(
         "push_logs(a = {}, b = {})",
         input.field_a(db),
@@ -40,7 +40,7 @@ fn push_logs(db: &dyn Db, input: MyInput) {
 }
 
 #[salsa::tracked]
-fn push_a_logs(db: &dyn Db, input: MyInput) {
+fn push_a_logs(db: &Db, input: MyInput) {
     let field_a = input.field_a(db);
     db.push_log(format!("push_a_logs({})", field_a));
 
@@ -50,7 +50,7 @@ fn push_a_logs(db: &dyn Db, input: MyInput) {
 }
 
 #[salsa::tracked]
-fn push_b_logs(db: &dyn Db, input: MyInput) {
+fn push_b_logs(db: &Db, input: MyInput) {
     let field_a = input.field_b(db);
     db.push_log(format!("push_b_logs({})", field_a));
 
@@ -132,9 +132,10 @@ fn change_a_and_reaccumulate() {
 #[test]
 fn get_a_logs_after_changing_b() {
     let mut db = Database::default();
+    let db = &mut *db;
 
     // Invoke `push_a_logs` with `a = 2` and `b = 3` (but `b` doesn't matter)
-    let input = MyInput::new(&db, 2, 3);
+    let input = MyInput::new(db, 2, 3);
     let logs = push_a_logs::accumulated::<Logs>(&db, input);
     expect![[r#"
         [
@@ -149,7 +150,7 @@ fn get_a_logs_after_changing_b() {
 
     // Changing `b` does not cause `push_a_logs` to re-execute
     // and we still get the same result
-    input.set_field_b(&mut db).to(5);
+    input.set_field_b(db).to(5);
     let logs = push_a_logs::accumulated::<Logs>(&db, input);
     expect![[r#"
         [

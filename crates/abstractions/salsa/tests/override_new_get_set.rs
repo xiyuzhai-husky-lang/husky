@@ -2,7 +2,7 @@
 //! the `new` method's name and `get` and `set`
 //! change the name of the getter and setter of the fields.
 #![allow(warnings)]
-
+use salsa::*;
 use std::fmt::Display;
 
 #[salsa::jar(db = Db)]
@@ -20,7 +20,7 @@ impl MyInput {
         MyInput::from_string(db, s.to_string())
     }
 
-    pub fn field(self, db: &dyn Db) -> String {
+    pub fn field(self, db: &Db) -> String {
         self.text(db)
     }
 
@@ -37,11 +37,11 @@ struct MyInterned {
 }
 
 impl MyInterned {
-    pub fn new(db: &dyn Db, s: impl Display) -> MyInterned {
+    pub fn new(db: &Db, s: impl Display) -> MyInterned {
         MyInterned::from_string(db, s.to_string())
     }
 
-    pub fn field(self, db: &dyn Db) -> &str {
+    pub fn field(self, db: &Db) -> &str {
         &self.text(db)
     }
 }
@@ -53,11 +53,11 @@ struct MyTracked {
 }
 
 impl MyTracked {
-    pub fn new(db: &dyn Db, s: impl Display) -> MyTracked {
+    pub fn new(db: &Db, s: impl Display) -> MyTracked {
         MyTracked::from_string(db, s.to_string())
     }
 
-    pub fn field(self, db: &dyn Db) -> String {
+    pub fn field(self, db: &Db) -> String {
         self.text(db)
     }
 }

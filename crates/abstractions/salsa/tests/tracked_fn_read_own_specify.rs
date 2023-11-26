@@ -1,6 +1,6 @@
 use expect_test::expect;
 use husky_salsa_log_utils::{HasLogger, Logger};
-use salsa::{Database as SalsaDatabase, DebugWithDb};
+use salsa::{Database as SalsaDatabase, Db, DebugWithDb};
 
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, MyTracked, tracked_fn, tracked_fn_extra);
@@ -16,7 +16,7 @@ struct MyTracked {
 }
 
 #[salsa::tracked(jar = Jar)]
-fn tracked_fn(db: &dyn Db, input: MyInput) -> u32 {
+fn tracked_fn(db: &Db, input: MyInput) -> u32 {
     db.push_log(format!("tracked_fn({:?})", input.debug(db)));
     let t = MyTracked::new(db, input.field(db) * 2);
     tracked_fn_extra::specify(db, t, 2222);
@@ -24,25 +24,13 @@ fn tracked_fn(db: &dyn Db, input: MyInput) -> u32 {
 }
 
 #[salsa::tracked(jar = Jar, specify)]
-fn tracked_fn_extra(db: &dyn Db, input: MyTracked) -> u32 {
+fn tracked_fn_extra(db: &Db, input: MyTracked) -> u32 {
     db.push_log(format!("tracked_fn_extra({:?})", input.debug(db)));
     0
 }
 
 #[salsa::db(Jar)]
-#[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-    logger: Logger,
-}
-
-impl salsa::Database for Database {}
-
-impl HasLogger for Database {
-    fn logger(&self) -> &Logger {
-        &self.logger
-    }
-}
+struct Database;
 
 #[test]
 fn execute() {

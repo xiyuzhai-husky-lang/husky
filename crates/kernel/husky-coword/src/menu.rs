@@ -237,7 +237,7 @@ impl salsa::function::Configuration for ident_menu {
     fn should_backdate_value(v1: &Self::Value, v2: &Self::Value) -> bool {
         salsa::function::should_backdate_value(v1, v2)
     }
-    fn execute(__db: &Db, __id: Self::Key) -> Self::Value {
+    fn execute(__db: &::salsa::Db, __id: Self::Key) -> Self::Value {
         pub(crate) fn __fn(db: &Db) -> CowordMenu {
             CowordMenu::new(db)
         }
@@ -253,25 +253,20 @@ impl salsa::function::Configuration for ident_menu {
 impl salsa::storage::IngredientsFor for ident_menu {
     type Ingredients = Self;
     type Jar = CowordJar;
-    fn create_ingredients<DB>(routes: &mut salsa::routes::Routes) -> Self::Ingredients
-    where
-        DB: salsa::Database + salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
-    {
+    fn create_ingredients(routes: &mut salsa::routes::Routes) -> Self::Ingredients {
         Self {
             intern_map: salsa::interned::IdentityInterner::new(),
             function: {
                 let index = routes.push(
                     |jars| {
-                        let jar =
-                            <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                        let jar = jars.jar::<Self::Jar>();
                         let ingredients = <_ as salsa::storage::HasIngredientsFor<
                             Self::Ingredients,
                         >>::ingredient(jar);
                         &ingredients.function
                     },
                     |jars| {
-                        let jar =
-                            <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                        let jar = jars.jar_mut::<Self::Jar>();
                         let ingredients = <_ as salsa::storage::HasIngredientsFor<
                             Self::Ingredients,
                         >>::ingredient_mut(jar);

@@ -2,7 +2,7 @@
 //! overwrites and returns the old value.
 
 use husky_salsa_log_utils::{HasLogger, Logger};
-
+use salsa::*;
 use test_log::test;
 
 #[salsa::jar(db = Db)]
@@ -14,19 +14,7 @@ struct MyInput {
 }
 
 #[salsa::db(Jar)]
-#[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-    logger: Logger,
-}
-
-impl salsa::Database for Database {}
-
-impl HasLogger for Database {
-    fn logger(&self) -> &Logger {
-        &self.logger
-    }
-}
+struct Database;
 
 #[test]
 fn execute() {

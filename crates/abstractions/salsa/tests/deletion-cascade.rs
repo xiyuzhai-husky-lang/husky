@@ -3,7 +3,7 @@
 //! * when we delete memoized data, also delete outputs from that data
 
 use husky_salsa_log_utils::{HasLogger, Logger};
-use salsa::DebugWithDb;
+use salsa::{Db, DebugWithDb};
 
 use expect_test::expect;
 use test_log::test;
@@ -24,7 +24,7 @@ struct MyInput {
 }
 
 #[salsa::tracked]
-fn final_result(db: &dyn Db, input: MyInput) -> u32 {
+fn final_result(db: &Db, input: MyInput) -> u32 {
     db.push_log(format!("final_result({:?})", input));
     let mut sum = 0;
     for tracked_struct in create_tracked_structs(db, input) {
@@ -39,7 +39,7 @@ struct MyTracked {
 }
 
 #[salsa::tracked]
-fn create_tracked_structs(db: &dyn Db, input: MyInput) -> Vec<MyTracked> {
+fn create_tracked_structs(db: &Db, input: MyInput) -> Vec<MyTracked> {
     db.push_log(format!("intermediate_result({:?})", input));
     (0..input.field(db))
         .map(|i| MyTracked::new(db, i))
@@ -47,22 +47,19 @@ fn create_tracked_structs(db: &dyn Db, input: MyInput) -> Vec<MyTracked> {
 }
 
 #[salsa::tracked]
-fn contribution_from_struct(db: &dyn Db, tracked: MyTracked) -> u32 {
+fn contribution_from_struct(db: &Db, tracked: MyTracked) -> u32 {
     let m = MyTracked::new(db, tracked.field(db));
     copy_field(db, m) * 2
 }
 
 #[salsa::tracked]
-fn copy_field(db: &dyn Db, tracked: MyTracked) -> u32 {
+fn copy_field(db: &Db, tracked: MyTracked) -> u32 {
     tracked.field(db)
 }
 
 #[salsa::db(Jar)]
 #[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-    logger: Logger,
-}
+struct Database;
 
 #[test]
 fn basic() {

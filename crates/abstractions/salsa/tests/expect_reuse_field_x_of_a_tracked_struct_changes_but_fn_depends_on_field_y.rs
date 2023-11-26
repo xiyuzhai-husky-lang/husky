@@ -6,6 +6,7 @@
 use husky_salsa_log_utils::{HasLogger, Logger};
 
 use expect_test::expect;
+use salsa::Db;
 
 #[salsa::jar(db = Db)]
 struct Jar(
@@ -22,13 +23,13 @@ struct MyInput {
 }
 
 #[salsa::tracked(jar = Jar)]
-fn final_result_depends_on_x(db: &dyn Db, input: MyInput) -> u32 {
+fn final_result_depends_on_x(db: &Db, input: MyInput) -> u32 {
     db.push_log(format!("final_result_depends_on_x({:?})", input));
     intermediate_result(db, input).x(db) * 2
 }
 
 #[salsa::tracked(jar = Jar)]
-fn final_result_depends_on_y(db: &dyn Db, input: MyInput) -> u32 {
+fn final_result_depends_on_y(db: &Db, input: MyInput) -> u32 {
     db.push_log(format!("final_result_depends_on_y({:?})", input));
     intermediate_result(db, input).y(db) * 2
 }
@@ -40,24 +41,12 @@ struct MyTracked {
 }
 
 #[salsa::tracked(jar = Jar)]
-fn intermediate_result(db: &dyn Db, input: MyInput) -> MyTracked {
+fn intermediate_result(db: &Db, input: MyInput) -> MyTracked {
     MyTracked::new(db, (input.field(db) + 1) / 2, input.field(db) / 2)
 }
 
 #[salsa::db(Jar)]
-#[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-    logger: Logger,
-}
-
-impl salsa::Database for Database {}
-
-impl HasLogger for Database {
-    fn logger(&self) -> &Logger {
-        &self.logger
-    }
-}
+struct Database;
 
 #[test]
 fn execute() {

@@ -20,7 +20,7 @@ struct MyTracked {
 }
 
 #[salsa::tracked(singleton)]
-fn create_tracked_structs(db: &dyn Db, input: MyInput) -> Vec<MyTracked> {
+fn create_tracked_structs(db: &Db, input: MyInput) -> Vec<MyTracked> {
     (0..input.field(db))
         .map(|i| MyTracked::new(db, i))
         .collect()

@@ -75,23 +75,21 @@ impl salsa::storage::IngredientsFor for File {
         InputFieldIngredient<File, FileContent>,
         InputIngredient<File>,
     );
-    fn create_ingredients<DB>(routes: &mut salsa::routes::Routes) -> Self::Ingredients
-    where
-        DB: salsa::Database + salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
+    fn create_ingredients(routes: &mut salsa::routes::Routes) -> Self::Ingredients 
     {
         (
             {
                 let index = routes.push(
                     |jars| {
                         let jar =
-                            <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                            jars.jar::<Self::Jar>();
                         let ingredients =
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar);
                         &ingredients.0
                     },
                     |jars| {
                         let jar =
-                            <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                            jars.jar_mut::<Self::Jar>();
                         let ingredients =
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar);
                         &mut ingredients.0
@@ -103,14 +101,14 @@ impl salsa::storage::IngredientsFor for File {
                 let index = routes.push(
                     |jars| {
                         let jar =
-                            <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                            jars.jar::<Self::Jar>();
                         let ingredients =
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar);
                         &ingredients.1
                     },
                     |jars| {
                         let jar =
-                            <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                            jars.jar_mut::<Self::Jar>();
                         let ingredients =
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar);
                         &mut ingredients.1
@@ -122,14 +120,14 @@ impl salsa::storage::IngredientsFor for File {
                 let index = routes.push(
                     |jars| {
                         let jar =
-                            <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                            jars.jar::<Self::Jar>();
                         let ingredients =
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar);
                         &ingredients.2
                     },
                     |jars| {
                         let jar =
-                            <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                            jars.jar_mut::<Self::Jar>();
                         let ingredients =
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar);
                         &mut ingredients.2
@@ -157,7 +155,7 @@ impl ::salsa::DebugWithDb for File {
             "path",
             &::salsa::debug::helper::SalsaDebug::<VirtualPath>::salsa_debug(
                 #[allow(clippy::needless_borrow)]
-                &self.path(_db.as_jar_db_dyn::<VfsJar>()),
+                &self.path(_db),
                 _db,
             ),
         );
@@ -165,7 +163,7 @@ impl ::salsa::DebugWithDb for File {
             "content",
             &::salsa::debug::helper::SalsaDebug::<FileContent>::salsa_debug(
                 #[allow(clippy::needless_borrow)]
-                &self.content(_db.as_jar_db_dyn::<VfsJar>()),
+                &self.content(_db),
                 _db,
             ),
         );

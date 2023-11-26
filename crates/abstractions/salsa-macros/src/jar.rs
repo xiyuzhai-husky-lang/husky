@@ -128,9 +128,7 @@ pub(crate) fn jar_impl(
         }
 
         impl<'salsa_db> ::salsa::jar::Jar<'salsa_db> for #jar_struct {
-            fn initialize<DB>(&mut self, routes: &mut salsa::routes::Routes)
-            where
-                DB: salsa::storage::JarFromJars<Self> + salsa::storage::DbWithJar<Self>,
+            fn initialize(&mut self, routes: &mut salsa::routes::Routes)
             {
                 #(#field_initializations)*
             }

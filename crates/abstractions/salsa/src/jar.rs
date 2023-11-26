@@ -1,3 +1,5 @@
+use std::mem::MaybeUninit;
+
 use enum_index::full_map::EnumFullVecMap;
 
 use super::routes::Routes;
@@ -7,12 +9,26 @@ pub trait Jar<'db>: Sized {
     fn initialize(&mut self, routes: &mut Routes);
 }
 
+#[derive(Default)]
 pub struct Jars {
     map: EnumFullVecMap<TestJarIndex, Option<Box<dyn std::any::Any + Sync + Send>>>,
 }
 
 impl Jars {
-    fn jar<Jar>(&self) -> &Jar
+    pub fn initialize_jar<Jar>(&mut self, routes: &mut Routes)
+    where
+        Jar: for<'db> crate::jar::Jar<'db> + HasTestJarIndex + Send + Sync + 'static,
+    {
+        let mut jar_maybe_uninitialized: MaybeUninit<Jar> = MaybeUninit::uninit();
+        let jar: &mut Jar = unsafe { std::mem::transmute(&mut jar_maybe_uninitialized) };
+        Jar::initialize(jar, routes);
+        let index = <Jar as HasTestJarIndex>::TEST_JAR_INDEX;
+        debug_assert!(self.map[index].is_none());
+        self.map[index] =
+            Some(unsafe { std::mem::transmute::<_, Box<Jar>>(Box::new(jar_maybe_uninitialized)) })
+    }
+
+    pub fn jar<Jar>(&self) -> &Jar
     where
         Jar: HasTestJarIndex + 'static,
     {
@@ -24,7 +40,7 @@ impl Jars {
         any.downcast_ref().expect("should be the right type")
     }
 
-    fn jar_mut<Jar>(&mut self) -> &mut Jar
+    pub fn jar_mut<Jar>(&mut self) -> &mut Jar
     where
         Jar: HasTestJarIndex + 'static,
     {

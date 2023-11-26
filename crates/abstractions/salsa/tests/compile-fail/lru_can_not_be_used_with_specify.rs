@@ -7,7 +7,7 @@ struct MyInput {
 }
 
 #[salsa::tracked(jar = Jar, lru = 3, specify)]
-fn lru_can_not_be_used_with_specify(db: &dyn Db, input: MyInput) -> u32 {
+fn lru_can_not_be_used_with_specify(db: &Db, input: MyInput) -> u32 {
     input.field(db)
 }
 

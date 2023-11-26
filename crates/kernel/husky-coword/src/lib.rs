@@ -37,17 +37,14 @@ pub struct __CowordData {
 impl salsa::storage::IngredientsFor for Coword {
     type Jar = CowordJar;
     type Ingredients = salsa::interned::InternedIngredient<Coword, __CowordData>;
-    fn create_ingredients<DB>(routes: &mut salsa::routes::Routes) -> Self::Ingredients
-    where
-        DB: salsa::storage::JarFromJars<Self::Jar>,
-    {
+    fn create_ingredients(routes: &mut salsa::routes::Routes) -> Self::Ingredients {
         let index = routes.push(
             |jars| {
-                let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                let jar = jars.jar::<Self::Jar>();
                 <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar)
             },
             |jars| {
-                let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                let jar = jars.jar_mut::<Self::Jar>();
                 <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar)
             },
         );
@@ -76,7 +73,7 @@ impl Coword {
     }
 }
 
-implsalsa::salsa_struct::SalsaStructInDb for Coword
+impl salsa::salsa_struct::SalsaStructInDb for Coword
 where
     DB: ?Sized + salsa::DbWithJar<CowordJar>,
 {

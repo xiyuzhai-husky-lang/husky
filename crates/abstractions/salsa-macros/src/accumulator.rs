@@ -124,11 +124,11 @@ fn ingredients_for_impl(
             {
                     let index = routes.push(
                         |jars| {
-                            let jar = jars.jar::<Self::Jar>>();
+                            let jar = jars.jar::<Self::Jar>();
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar)
                         },
                         |jars| {
-                            let jar = jars.jar_mut::<Self::Jar>>();
+                            let jar = jars.jar_mut::<Self::Jar>();
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar)
                         },
                     );

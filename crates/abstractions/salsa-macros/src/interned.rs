@@ -154,19 +154,17 @@ impl InternedStruct {
                 type Jar = #jar_ty;
                 type Ingredients = salsa::interned::InternedIngredient<#id_ident, #data_ident>;
 
-                fn create_ingredients<DB>(
+                fn create_ingredients(
                     routes: &mut salsa::routes::Routes,
                 ) -> Self::Ingredients
-                where
-                    DB: salsa::storage::JarFromJars<Self::Jar>,
                 {
                     let index = routes.push(
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                            let jar = jars.jar::<Self::Jar>();
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar)
                         },
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                            let jar = jars.jar_mut::<Self::Jar>();
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar)
                         },
                     );

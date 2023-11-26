@@ -1,6 +1,8 @@
 //! Test that a `tracked` fn on a `salsa::input`
 //! compiles and executes successfully.
 
+use salsa::Db;
+
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, MyTracked, tracked_fn);
 
@@ -15,7 +17,7 @@ struct MyTracked {
 }
 
 #[salsa::tracked(jar = Jar)]
-fn tracked_fn(db: &dyn Db, input: MyInput) -> MyTracked {
+fn tracked_fn(db: &Db, input: MyInput) -> MyTracked {
     MyTracked::new(db, input.field(db) * 2)
 }
 

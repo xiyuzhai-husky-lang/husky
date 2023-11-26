@@ -2,6 +2,8 @@
 //! compiles and executes successfully.
 #![allow(warnings)]
 
+use salsa::Db;
+
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, MyTracked, tracked_fn, tracked_fn_extra);
 
@@ -16,7 +18,7 @@ struct MyTracked {
 }
 
 #[salsa::tracked(jar = Jar)]
-fn tracked_fn(db: &dyn Db, input: MyInput) -> MyTracked {
+fn tracked_fn(db: &Db, input: MyInput) -> MyTracked {
     let t = MyTracked::new(db, input.field(db) * 2);
     if input.field(db) != 0 {
         tracked_fn_extra::specify(db, t, 2222);
@@ -25,17 +27,13 @@ fn tracked_fn(db: &dyn Db, input: MyInput) -> MyTracked {
 }
 
 #[salsa::tracked(jar = Jar, specify)]
-fn tracked_fn_extra(_db: &dyn Db, _input: MyTracked) -> u32 {
+fn tracked_fn_extra(_db: &Db, _input: MyTracked) -> u32 {
     0
 }
 
 #[salsa::db(Jar)]
 #[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for Database {}
+struct Database;
 
 #[test]
 fn execute_when_specified() {

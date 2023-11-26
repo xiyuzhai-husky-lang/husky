@@ -1,10 +1,19 @@
-use crate::{Runtime, *};
+use husky_salsa_log_utils::HasLogger;
+
+use crate::{routes::Routes, Runtime, *};
 
 pub struct Db {
     storage: crate::storage::Storage,
 }
 
 impl Db {
+    /// here we use fn instead of impl FnOnce to avoid inlining to save compilation time
+    pub fn new(initialize_jars: fn(&mut Jars, &mut Routes)) -> Self {
+        Self {
+            storage: crate::Storage::new(initialize_jars),
+        }
+    }
+
     pub fn jars(&self) -> (&Jars, &Runtime) {
         todo!()
     }
@@ -19,7 +28,7 @@ impl Db {
         todo!()
     }
 
-    pub fn jar_mut<Jar>(&mut self) -> (&mut Jar, &Runtime) {
+    pub fn jar_mut<Jar>(&mut self) -> (&mut Jar, &mut Runtime) {
         todo!()
     }
 
@@ -108,5 +117,11 @@ impl Db {
     /// revision.
     pub fn report_untracked_read(&self) {
         self.runtime().report_untracked_read();
+    }
+}
+
+impl HasLogger for Db {
+    fn logger(&self) -> &husky_salsa_log_utils::Logger {
+        todo!()
     }
 }

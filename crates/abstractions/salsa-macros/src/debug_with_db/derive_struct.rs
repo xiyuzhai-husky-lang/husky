@@ -76,7 +76,7 @@ fn struct_regular_fields_debug_with_db(
                     &::salsa::debug::helper::SalsaDebug::<#field_ty>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         &self.#field_ident,
-                        _db.as_jar_db_dyn::<#jar_ty>()
+                        _db
                     )
                 );
             };
@@ -119,7 +119,7 @@ fn struct_tuple_fields_debug_with_db(
                     &::salsa::debug::helper::SalsaDebug::<#field_ty>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         &self.#field_idx,
-                        _db.as_jar_db_dyn::<#jar_ty>()
+                        _db
                     )
                 );
             };

@@ -4,7 +4,7 @@
 
 use crate::setup::Database;
 use crate::setup::Knobs;
-use salsa::ParallelDatabase;
+use salsa::{Db, ParallelDatabase};
 
 #[salsa::jar(db = Db)]
 pub(crate) struct Jar(MyInput, a1, a2, b1, b2);
@@ -15,7 +15,7 @@ pub(crate) struct MyInput {
 }
 
 #[salsa::tracked(jar = Jar, recovery_fn=recover_a1)]
-pub(crate) fn a1(db: &dyn Db, input: MyInput) -> i32 {
+pub(crate) fn a1(db: &Db, input: MyInput) -> i32 {
     // Wait to create the cycle until both threads have entered
     db.signal(1);
     db.wait_for(2);
@@ -23,23 +23,23 @@ pub(crate) fn a1(db: &dyn Db, input: MyInput) -> i32 {
     a2(db, input)
 }
 
-fn recover_a1(db: &dyn Db, _cycle: &salsa::Cycle, key: MyInput) -> i32 {
+fn recover_a1(db: &Db, _cycle: &salsa::Cycle, key: MyInput) -> i32 {
     dbg!("recover_a1");
     key.field(db) * 10 + 1
 }
 
 #[salsa::tracked(jar = Jar, recovery_fn=recover_a2)]
-pub(crate) fn a2(db: &dyn Db, input: MyInput) -> i32 {
+pub(crate) fn a2(db: &Db, input: MyInput) -> i32 {
     b1(db, input)
 }
 
-fn recover_a2(db: &dyn Db, _cycle: &salsa::Cycle, key: MyInput) -> i32 {
+fn recover_a2(db: &Db, _cycle: &salsa::Cycle, key: MyInput) -> i32 {
     dbg!("recover_a2");
     key.field(db) * 10 + 2
 }
 
 #[salsa::tracked(jar = Jar, recovery_fn=recover_b1)]
-pub(crate) fn b1(db: &dyn Db, input: MyInput) -> i32 {
+pub(crate) fn b1(db: &Db, input: MyInput) -> i32 {
     // Wait to create the cycle until both threads have entered
     db.wait_for(1);
     db.signal(2);
@@ -49,17 +49,17 @@ pub(crate) fn b1(db: &dyn Db, input: MyInput) -> i32 {
     b2(db, input)
 }
 
-fn recover_b1(db: &dyn Db, _cycle: &salsa::Cycle, key: MyInput) -> i32 {
+fn recover_b1(db: &Db, _cycle: &salsa::Cycle, key: MyInput) -> i32 {
     dbg!("recover_b1");
     key.field(db) * 20 + 1
 }
 
 #[salsa::tracked(jar = Jar, recovery_fn=recover_b2)]
-pub(crate) fn b2(db: &dyn Db, input: MyInput) -> i32 {
+pub(crate) fn b2(db: &Db, input: MyInput) -> i32 {
     a1(db, input)
 }
 
-fn recover_b2(db: &dyn Db, _cycle: &salsa::Cycle, key: MyInput) -> i32 {
+fn recover_b2(db: &Db, _cycle: &salsa::Cycle, key: MyInput) -> i32 {
     dbg!("recover_b2");
     key.field(db) * 20 + 2
 }

@@ -270,11 +270,11 @@ impl<A: AllowedOptions> SalsaStruct<A> {
 
                         #should_backdate_value_fn
 
-                        fn execute(db: &Db, key: Self::Key) -> Self::Value {
+                        fn execute(db: &::salsa::Db, key: Self::Key) -> Self::Value {
                             panic!(#execute_string)
                         }
 
-                        fn recover_from_cycle(db: &Db, cycle: &salsa::Cycle, key: Self::Key) -> Self::Value {
+                        fn recover_from_cycle(db: &::salsa::Db, cycle: &salsa::Cycle, key: Self::Key) -> Self::Value {
                             panic!(#recover_from_cycle_string)
                         }
                     }
@@ -325,7 +325,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
                         #field_name_string,
                         &::salsa::debug::helper::SalsaDebug::<#field_ty>::salsa_debug(
                             #[allow(clippy::needless_borrow)]
-                            &self.#field_getter(_db.as_jar_db_dyn::<#jar_ty>()),
+                            &self.#field_getter(_db),
                             _db
                         )
                     );

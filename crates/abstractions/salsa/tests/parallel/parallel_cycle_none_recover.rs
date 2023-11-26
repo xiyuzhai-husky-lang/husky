@@ -5,7 +5,7 @@
 use crate::setup::Database;
 use crate::setup::Knobs;
 use expect_test::expect;
-use salsa::ParallelDatabase;
+use salsa::{Db, ParallelDatabase};
 
 #[salsa::jar(db = Db)]
 pub(crate) struct Jar(MyInput, a, b);
@@ -16,7 +16,7 @@ pub(crate) struct MyInput {
 }
 
 #[salsa::tracked(jar = Jar)]
-pub(crate) fn a(db: &dyn Db, input: MyInput) -> i32 {
+pub(crate) fn a(db: &Db, input: MyInput) -> i32 {
     // Wait to create the cycle until both threads have entered
     db.signal(1);
     db.wait_for(2);
@@ -25,7 +25,7 @@ pub(crate) fn a(db: &dyn Db, input: MyInput) -> i32 {
 }
 
 #[salsa::tracked(jar = Jar)]
-pub(crate) fn b(db: &dyn Db, input: MyInput) -> i32 {
+pub(crate) fn b(db: &Db, input: MyInput) -> i32 {
     // Wait to create the cycle until both threads have entered
     db.wait_for(1);
     db.signal(2);

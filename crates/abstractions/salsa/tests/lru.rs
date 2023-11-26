@@ -7,7 +7,7 @@ use std::sync::{
 };
 
 use husky_salsa_log_utils::{HasLogger, Logger};
-use salsa::Database;
+use salsa::Db;
 use test_log::test;
 
 #[salsa::jar(db = Db)]
@@ -39,19 +39,19 @@ struct MyInput {
 }
 
 #[salsa::tracked(jar = Jar, lru = 32)]
-fn get_hot_potato(db: &dyn Db, input: MyInput) -> Arc<HotPotato> {
+fn get_hot_potato(db: &Db, input: MyInput) -> Arc<HotPotato> {
     db.push_log(format!("get_hot_potato({:?})", input.field(db)));
     Arc::new(HotPotato::new(input.field(db)))
 }
 
 #[salsa::tracked(jar = Jar)]
-fn get_hot_potato2(db: &dyn Db, input: MyInput) -> u32 {
+fn get_hot_potato2(db: &Db, input: MyInput) -> u32 {
     db.push_log(format!("get_hot_potato2({:?})", input.field(db)));
     get_hot_potato(db, input).0
 }
 
 #[salsa::tracked(jar = Jar, lru = 32)]
-fn get_volatile(db: &dyn Db, _input: MyInput) -> usize {
+fn get_volatile(db: &Db, _input: MyInput) -> usize {
     static COUNTER: AtomicUsize = AtomicUsize::new(0);
     db.report_untracked_read();
     COUNTER.fetch_add(1, Ordering::SeqCst)

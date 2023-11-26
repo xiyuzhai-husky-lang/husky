@@ -11,7 +11,7 @@ struct Jar(
 );
 
 trait TrackedTrait {
-    fn tracked_trait_fn(self, db: &dyn Db) -> u32;
+    fn tracked_trait_fn(self, db: &Db) -> u32;
 }
 
 #[salsa::input]
@@ -22,12 +22,12 @@ struct MyInput {
 #[salsa::tracked]
 impl MyInput {
     #[salsa::tracked]
-    fn tracked_fn(self, db: &dyn Db) -> u32 {
+    fn tracked_fn(self, db: &Db) -> u32 {
         self.field(db) * 2
     }
 
     #[salsa::tracked(return_ref)]
-    fn tracked_fn_ref(self, db: &dyn Db) -> u32 {
+    fn tracked_fn_ref(self, db: &Db) -> u32 {
         self.field(db) * 3
     }
 }
@@ -35,7 +35,7 @@ impl MyInput {
 #[salsa::tracked]
 impl TrackedTrait for MyInput {
     #[salsa::tracked]
-    fn tracked_trait_fn(self, db: &dyn Db) -> u32 {
+    fn tracked_trait_fn(self, db: &Db) -> u32 {
         self.field(db) * 4
     }
 }
