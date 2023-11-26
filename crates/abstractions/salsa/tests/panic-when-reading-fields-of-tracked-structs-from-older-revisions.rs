@@ -21,11 +21,7 @@ fn tracked_fn(db: &Db, input: MyInput) -> MyTracked {
 
 #[salsa::db(Jar)]
 #[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for Database {}
+struct Database;
 
 #[test]
 #[should_panic(expected = "`execute` method for field")]

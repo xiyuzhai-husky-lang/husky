@@ -1,6 +1,6 @@
 use expect_test::expect;
 use husky_salsa_log_utils::{HasLogger, Logger};
-use salsa::{Database as SalsaDatabase, Db, DebugWithDb};
+use salsa::{Db, DebugWithDb};
 
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, MyTracked, tracked_fn, tracked_fn_extra);
