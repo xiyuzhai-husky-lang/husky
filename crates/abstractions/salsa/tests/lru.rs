@@ -64,14 +64,6 @@ struct DatabaseImpl {
     logger: Logger,
 }
 
-impl salsa::Database for DatabaseImpl {}
-
-impl HasLogger for DatabaseImpl {
-    fn logger(&self) -> &Logger {
-        &self.logger
-    }
-}
-
 fn load_n_potatoes() -> usize {
     N_POTATOES.with(|n| n.load(Ordering::SeqCst))
 }

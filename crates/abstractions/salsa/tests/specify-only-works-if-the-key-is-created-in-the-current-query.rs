@@ -44,11 +44,7 @@ fn tracked_fn_extra(_db: &Db, _input: MyTracked) -> u32 {
 
 #[salsa::db(Jar)]
 #[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for Database {}
+struct Database;
 
 #[test]
 #[should_panic]

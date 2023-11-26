@@ -16,7 +16,7 @@ struct MyInput {
 }
 
 impl MyInput {
-    pub fn new(db: &mut dyn Db, s: impl Display) -> MyInput {
+    pub fn new(db: &mut Db, s: impl Display) -> MyInput {
         MyInput::from_string(db, s.to_string())
     }
 
@@ -24,7 +24,7 @@ impl MyInput {
         self.text(db)
     }
 
-    pub fn set_field(self, db: &mut dyn Db, id: String) {
+    pub fn set_field(self, db: &mut Db, id: String) {
         self.set_text(db).to(id);
     }
 }
@@ -66,11 +66,7 @@ impl MyTracked {
 fn execute() {
     #[salsa::db(Jar)]
     #[derive(Default)]
-    struct Database {
-        storage: salsa::Storage<Self>,
-    }
-
-    impl salsa::Database for Database {}
+    struct Database;
 
     let mut db = Database::default();
 }
