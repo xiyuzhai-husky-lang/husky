@@ -1,10 +1,9 @@
 //! Demonstrates the workaround of wrapping calls to
 //! `accumulated` in a tracked function to get better
 //! reuse.
-
-use husky_salsa_log_utils::{HasLogger, Logger};
-
 use expect_test::expect;
+use husky_salsa_log_utils::{HasLogger, Logger};
+use salsa::*;
 use test_log::test;
 
 #[salsa::jar(db = Db)]
@@ -20,7 +19,7 @@ struct List {
 struct Integers(u32);
 
 #[salsa::tracked]
-fn compute(db: &dyn Db, input: List) -> u32 {
+fn compute(db: &Db, input: List) -> u32 {
     db.push_log(format!("compute({:?})", input,));
 
     // always pushes 0
@@ -39,25 +38,13 @@ fn compute(db: &dyn Db, input: List) -> u32 {
 }
 
 #[salsa::tracked(return_ref)]
-fn accumulated(db: &dyn Db, input: List) -> Vec<u32> {
+fn accumulated(db: &Db, input: List) -> Vec<u32> {
     db.push_log(format!("accumulated({:?})", input,));
     compute::accumulated::<Integers>(db, input)
 }
 
 #[salsa::db(Jar)]
-#[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-    logger: Logger,
-}
-
-impl salsa::Database for Database {}
-
-impl HasLogger for Database {
-    fn logger(&self) -> &Logger {
-        &self.logger
-    }
-}
+struct Database;
 
 #[test]
 fn test1() {

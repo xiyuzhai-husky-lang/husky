@@ -2,6 +2,8 @@
 //! compilation succeeds but execution panics
 #![allow(warnings)]
 
+use salsa::Db;
+
 #[salsa::jar(db = Db)]
 struct Jar(
     MyInput,
@@ -22,12 +24,12 @@ struct MyTracked {
 }
 
 #[salsa::tracked(jar = Jar)]
-fn tracked_struct_created_in_another_query(db: &dyn Db, input: MyInput) -> MyTracked {
+fn tracked_struct_created_in_another_query(db: &Db, input: MyInput) -> MyTracked {
     MyTracked::new(db, input.field(db) * 2)
 }
 
 #[salsa::tracked(jar = Jar)]
-fn tracked_fn(db: &dyn Db, input: MyInput) -> MyTracked {
+fn tracked_fn(db: &Db, input: MyInput) -> MyTracked {
     let t = tracked_struct_created_in_another_query(db, input);
     if input.field(db) != 0 {
         tracked_fn_extra::specify(db, t, 2222);
@@ -36,7 +38,7 @@ fn tracked_fn(db: &dyn Db, input: MyInput) -> MyTracked {
 }
 
 #[salsa::tracked(jar = Jar, specify)]
-fn tracked_fn_extra(_db: &dyn Db, _input: MyTracked) -> u32 {
+fn tracked_fn_extra(_db: &Db, _input: MyTracked) -> u32 {
     0
 }
 

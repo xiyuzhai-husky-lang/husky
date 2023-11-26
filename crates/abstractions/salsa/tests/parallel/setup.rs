@@ -53,33 +53,16 @@ pub(crate) struct Database {
     knobs: KnobsStruct,
 }
 
-// impl salsa::Database for Database {
-//     fn salsa_event(&self, event: salsa::Event) {
-//         if let salsa::EventKind::WillBlockOn { .. } = event.kind {
-//             self.signal(self.knobs().signal_on_will_block.get());
-//         }
+// impl Knobs for Database {
+//     fn knobs(&self) -> &KnobsStruct {
+//         &self.knobs
+//     }
+
+//     fn signal(&self, stage: usize) {
+//         self.knobs.signal.signal(stage);
+//     }
+
+//     fn wait_for(&self, stage: usize) {
+//         self.knobs.signal.wait_for(stage);
 //     }
 // }
-
-impl salsa::ParallelDatabase for Database {
-    fn snapshot(&self) -> salsa::Snapshot<Self> {
-        salsa::Snapshot::new(Database {
-            storage: self.storage.snapshot(),
-            knobs: self.knobs.clone(),
-        })
-    }
-}
-
-impl Knobs for Database {
-    fn knobs(&self) -> &KnobsStruct {
-        &self.knobs
-    }
-
-    fn signal(&self, stage: usize) {
-        self.knobs.signal.signal(stage);
-    }
-
-    fn wait_for(&self, stage: usize) {
-        self.knobs.signal.wait_for(stage);
-    }
-}

@@ -3,6 +3,7 @@
 
 use expect_test::expect;
 use husky_salsa_log_utils::{HasLogger, Logger};
+use salsa::Db;
 use test_log::test;
 
 #[salsa::jar(db = Db)]
@@ -14,7 +15,7 @@ struct MyInput {
 }
 
 #[salsa::tracked(jar = Jar)]
-fn final_result(db: &dyn Db, input: MyInput) -> u32 {
+fn final_result(db: &Db, input: MyInput) -> u32 {
     db.push_log(format!("final_result({:?})", input));
     intermediate_result(db, input).field(db) * 2
 }
@@ -25,7 +26,7 @@ struct MyTracked {
 }
 
 #[salsa::tracked(jar = Jar)]
-fn intermediate_result(db: &dyn Db, input: MyInput) -> MyTracked {
+fn intermediate_result(db: &Db, input: MyInput) -> MyTracked {
     db.push_log(format!("intermediate_result({:?})", input));
     let tracked = MyTracked::new(db, input.field(db) / 2);
     let _ = tracked.field(db); // read the field of an entity we created
@@ -33,19 +34,7 @@ fn intermediate_result(db: &dyn Db, input: MyInput) -> MyTracked {
 }
 
 #[salsa::db(Jar)]
-#[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-    logger: Logger,
-}
-
-impl salsa::Database for Database {}
-
-impl HasLogger for Database {
-    fn logger(&self) -> &Logger {
-        &self.logger
-    }
-}
+struct Database;
 
 #[test]
 fn one_entity() {

@@ -2,23 +2,20 @@
 //! compiles and executes successfully.
 #![allow(warnings)]
 
+use salsa::Db;
+
 #[salsa::jar(db = Db)]
 struct Jar(tracked_fn);
 
 #[salsa::tracked]
-fn tracked_fn(db: &dyn Db) -> u32 {
+fn tracked_fn(db: &Db) -> u32 {
     44
 }
 
 #[test]
 fn execute() {
     #[salsa::db(Jar)]
-    #[derive(Default)]
-    struct Database {
-        storage: salsa::Storage<Self>,
-    }
-
-    impl salsa::Database for Database {}
+    struct Database;
 
     let mut db = Database::default();
     assert_eq!(tracked_fn(&db), 44);

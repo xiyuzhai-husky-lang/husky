@@ -16,7 +16,7 @@ struct MyTracked {
 }
 
 #[salsa::tracked(jar = Jar, specify)]
-fn tracked_fn(db: &dyn Db, input: MyInterned) -> MyTracked {
+fn tracked_fn(db: &Db, input: MyInterned) -> MyTracked {
     MyTracked::new(db, input.field(db) * 2)
 }
 

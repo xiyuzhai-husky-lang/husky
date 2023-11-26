@@ -31,6 +31,7 @@ pub(crate) fn literal(ident: &proc_macro2::Ident) -> proc_macro2::Literal {
 mod accumulator;
 mod as_id;
 mod configuration;
+mod db;
 mod debug_with_db;
 mod deref_id;
 mod input;
@@ -38,7 +39,6 @@ mod interned;
 mod jar;
 mod options;
 mod salsa_struct;
-mod test_db;
 mod tracked;
 mod tracked_fn;
 mod tracked_struct;
@@ -72,12 +72,12 @@ pub fn deref_id(args: TokenStream, input: TokenStream) -> TokenStream {
 
 #[proc_macro_attribute]
 pub fn db(args: TokenStream, input: TokenStream) -> TokenStream {
-    test_db::test_db(args, input)
+    db::test_db(args, input)
 }
 
 #[proc_macro_attribute]
 pub fn test_db(args: TokenStream, input: TokenStream) -> TokenStream {
-    test_db::test_db(args, input)
+    db::test_db(args, input)
 }
 
 #[proc_macro_attribute]

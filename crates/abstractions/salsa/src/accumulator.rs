@@ -15,7 +15,7 @@ pub trait Accumulator {
     type Data: Clone;
     type Jar;
 
-    fn accumulator_ingredient<Db>(db: &Db) -> &AccumulatorIngredient<Self::Data>;
+    fn accumulator_ingredient(db: &Db) -> &AccumulatorIngredient<Self::Data>;
 }
 pub struct AccumulatorIngredient<Data: Clone> {
     index: IngredientIndex,

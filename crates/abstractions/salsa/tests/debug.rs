@@ -1,7 +1,7 @@
 //! Test that `DeriveWithDb` is correctly derived.
 
 use expect_test::expect;
-use salsa::DebugWithDb;
+use salsa::*;
 
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, ComplexStruct);

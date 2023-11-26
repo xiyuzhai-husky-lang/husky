@@ -1,6 +1,7 @@
 //! Test that a `tracked` fn on a `salsa::input`
 //! compiles and executes successfully.
 #![allow(warnings)]
+use salsa::Db;
 
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, tracked_fn);
@@ -11,19 +12,14 @@ struct MyInput {
 }
 
 #[salsa::tracked(jar = Jar)]
-fn tracked_fn(db: &dyn Db, input: MyInput) -> u32 {
+fn tracked_fn(db: &Db, input: MyInput) -> u32 {
     input.field(db) * 2
 }
 
 #[test]
 fn execute() {
     #[salsa::db(Jar)]
-    #[derive(Default)]
-    struct Database {
-        storage: salsa::Storage<Self>,
-    }
-
-    impl salsa::Database for Database {}
+    struct Database;
 
     let mut db = Database::default();
     let input = MyInput::new(&db, 22);

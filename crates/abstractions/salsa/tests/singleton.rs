@@ -19,19 +19,7 @@ struct MyInput {
 }
 
 #[salsa::db(Jar)]
-#[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-    logger: Logger,
-}
-
-impl salsa::Database for Database {}
-
-impl HasLogger for Database {
-    fn logger(&self) -> &Logger {
-        &self.logger
-    }
-}
+struct Database;
 
 #[test]
 fn basic() {

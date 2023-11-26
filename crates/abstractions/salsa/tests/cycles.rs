@@ -3,7 +3,7 @@
 use std::panic::{RefUnwindSafe, UnwindSafe};
 
 use expect_test::expect;
-use salsa::Durability;
+use salsa::{Db, Durability};
 
 // Axes:
 //
@@ -83,23 +83,23 @@ impl RefUnwindSafe for Database {}
 struct MyInput {}
 
 #[salsa::tracked(jar = Jar)]
-fn memoized_a(db: &dyn Db, input: MyInput) {
+fn memoized_a(db: &Db, input: MyInput) {
     memoized_b(db, input)
 }
 
 #[salsa::tracked(jar = Jar)]
-fn memoized_b(db: &dyn Db, input: MyInput) {
+fn memoized_b(db: &Db, input: MyInput) {
     memoized_a(db, input)
 }
 
 #[salsa::tracked(jar = Jar)]
-fn volatile_a(db: &dyn Db, input: MyInput) {
+fn volatile_a(db: &Db, input: MyInput) {
     db.report_untracked_read();
     volatile_b(db, input)
 }
 
 #[salsa::tracked(jar = Jar)]
-fn volatile_b(db: &dyn Db, input: MyInput) {
+fn volatile_b(db: &Db, input: MyInput) {
     db.report_untracked_read();
     volatile_a(db, input)
 }
@@ -124,7 +124,7 @@ struct ABC {
 }
 
 impl CycleQuery {
-    fn invoke(self, db: &dyn Db, abc: ABC) -> Result<(), Error> {
+    fn invoke(self, db: &Db, abc: ABC) -> Result<(), Error> {
         match self {
             CycleQuery::A => cycle_a(db, abc),
             CycleQuery::B => cycle_b(db, abc),
@@ -139,29 +139,29 @@ impl CycleQuery {
 }
 
 #[salsa::tracked(jar = Jar, recovery_fn=recover_a)]
-fn cycle_a(db: &dyn Db, abc: ABC) -> Result<(), Error> {
+fn cycle_a(db: &Db, abc: ABC) -> Result<(), Error> {
     abc.a(db).invoke(db, abc)
 }
 
-fn recover_a(db: &dyn Db, cycle: &salsa::Cycle, abc: ABC) -> Result<(), Error> {
+fn recover_a(db: &Db, cycle: &salsa::Cycle, abc: ABC) -> Result<(), Error> {
     Err(Error {
         cycle: cycle.all_participants(db),
     })
 }
 
 #[salsa::tracked(jar = Jar, recovery_fn=recover_b)]
-fn cycle_b(db: &dyn Db, abc: ABC) -> Result<(), Error> {
+fn cycle_b(db: &Db, abc: ABC) -> Result<(), Error> {
     abc.b(db).invoke(db, abc)
 }
 
-fn recover_b(db: &dyn Db, cycle: &salsa::Cycle, abc: ABC) -> Result<(), Error> {
+fn recover_b(db: &Db, cycle: &salsa::Cycle, abc: ABC) -> Result<(), Error> {
     Err(Error {
         cycle: cycle.all_participants(db),
     })
 }
 
 #[salsa::tracked(jar = Jar)]
-fn cycle_c(db: &dyn Db, abc: ABC) -> Result<(), Error> {
+fn cycle_c(db: &Db, abc: ABC) -> Result<(), Error> {
     abc.c(db).invoke(db, abc)
 }
 

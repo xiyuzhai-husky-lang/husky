@@ -8,7 +8,7 @@ struct MyInput {
 
 impl MyInput {
     #[salsa::tracked]
-    fn tracked_method_on_untracked_impl(self, db: &dyn Db) -> u32 {
+    fn tracked_method_on_untracked_impl(self, db: &Db) -> u32 {
         input.field(db)
     }
 }

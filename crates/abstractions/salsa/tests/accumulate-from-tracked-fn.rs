@@ -2,13 +2,16 @@
 //! Then mutate the values so that the tracked function re-executes.
 //! Check that we accumulate the appropriate, new values.
 
-use husky_salsa_log_utils::{HasLogger, Logger};
-
 use expect_test::expect;
+use husky_salsa_log_utils::{HasLogger, Logger};
+use salsa::*;
 use test_log::test;
 
 #[salsa::jar(db = Db)]
 struct Jar(List, Integers, compute);
+
+#[salsa::db(Jar)]
+struct Database;
 
 #[salsa::input(db = Db)]
 struct List {
@@ -20,7 +23,7 @@ struct List {
 struct Integers(u32);
 
 #[salsa::tracked]
-fn compute(db: &dyn Db, input: List) {
+fn compute(db: &Db, input: List) {
     eprintln!(
         "{:?}(value={:?}, next={:?})",
         input,

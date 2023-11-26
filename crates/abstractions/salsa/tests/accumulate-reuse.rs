@@ -21,7 +21,7 @@ struct List {
 struct Integers(u32);
 
 #[salsa::tracked]
-fn compute(db: &dyn Db, input: List) -> u32 {
+fn compute(db: &Db, input: List) -> u32 {
     db.push_log(format!("compute({:?})", input,));
 
     // always pushes 0

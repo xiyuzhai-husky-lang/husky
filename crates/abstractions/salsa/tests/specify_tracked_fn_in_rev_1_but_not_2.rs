@@ -3,7 +3,7 @@
 
 use expect_test::expect;
 use husky_salsa_log_utils::{HasLogger, Logger};
-use salsa::DebugWithDb;
+use salsa::{Db, DebugWithDb};
 use test_log::test;
 
 #[salsa::jar(db = Db)]
@@ -29,7 +29,7 @@ struct MyTracked {
 /// If the input is in the range 0..10, this is specified to return 10.
 /// Otherwise, the default occurs, and it returns the input.
 #[salsa::tracked(specify)]
-fn maybe_specified(db: &dyn Db, tracked: MyTracked) -> u32 {
+fn maybe_specified(db: &Db, tracked: MyTracked) -> u32 {
     db.push_log(format!("maybe_specified({:?})", tracked));
     tracked.input(db).field(db)
 }
@@ -38,7 +38,7 @@ fn maybe_specified(db: &dyn Db, tracked: MyTracked) -> u32 {
 /// This is here to show whether we can detect when `maybe_specified` has changed
 /// and control down-stream work accordingly.
 #[salsa::tracked]
-fn read_maybe_specified(db: &dyn Db, tracked: MyTracked) -> u32 {
+fn read_maybe_specified(db: &Db, tracked: MyTracked) -> u32 {
     db.push_log(format!("read_maybe_specified({:?})", tracked));
     maybe_specified(db, tracked) * 10
 }
@@ -46,7 +46,7 @@ fn read_maybe_specified(db: &dyn Db, tracked: MyTracked) -> u32 {
 /// Create a tracked value and *maybe* specify a value for
 /// `maybe_specified`
 #[salsa::tracked(jar = Jar)]
-fn create_tracked(db: &dyn Db, input: MyInput) -> MyTracked {
+fn create_tracked(db: &Db, input: MyInput) -> MyTracked {
     db.push_log(format!("create_tracked({:?})", input));
     let tracked = MyTracked::new(db, input);
     if input.field(db) < 10 {
@@ -56,7 +56,7 @@ fn create_tracked(db: &dyn Db, input: MyInput) -> MyTracked {
 }
 
 #[salsa::tracked]
-fn final_result(db: &dyn Db, input: MyInput) -> u32 {
+fn final_result(db: &Db, input: MyInput) -> u32 {
     db.push_log(format!("final_result({:?})", input));
     let tracked = create_tracked(db, input);
     read_maybe_specified(db, tracked)
@@ -69,6 +69,7 @@ struct Database;
 #[test]
 fn test_run_0() {
     let mut db = Database::default();
+    let db = &mut *db;
 
     let input = MyInput::new(&db, 0);
     assert_eq!(final_result(&db, input), 100);
@@ -327,9 +328,10 @@ fn test_run_0_then_5_then_10_then_20() {
 #[test]
 fn test_run_5_then_20() {
     let mut db = Database::default();
+    let db = &mut *db;
 
-    let input = MyInput::new(&db, 5);
-    assert_eq!(final_result(&db, input), 100);
+    let input = MyInput::new(db, 5);
+    assert_eq!(final_result(db, input), 100);
     db.assert_logs(expect![[r#"
         [
             "Event { runtime_id: RuntimeId { counter: 0 }, kind: WillCheckCancellation }",
@@ -344,8 +346,8 @@ fn test_run_5_then_20() {
             "Event { runtime_id: RuntimeId { counter: 0 }, kind: WillCheckCancellation }",
         ]"#]]);
 
-    input.set_field(&mut db).to(20);
-    assert_eq!(final_result(&db, input), 200);
+    input.set_field(db).to(20);
+    assert_eq!(final_result(db, input), 200);
     db.assert_logs(expect![[r#"
         [
             "Event { runtime_id: RuntimeId { counter: 0 }, kind: WillCheckCancellation }",

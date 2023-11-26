@@ -16,12 +16,7 @@ struct MyInput {
 }
 
 #[salsa::db(Jar)]
-#[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for Database {}
+struct Database;
 
 #[test]
 fn test_debug() {

@@ -6,6 +6,7 @@
 use husky_salsa_log_utils::{HasLogger, Logger};
 
 use expect_test::expect;
+use salsa::Db;
 
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, result_depends_on_x, result_depends_on_y);
@@ -17,31 +18,19 @@ struct MyInput {
 }
 
 #[salsa::tracked(jar = Jar)]
-fn result_depends_on_x(db: &dyn Db, input: MyInput) -> u32 {
+fn result_depends_on_x(db: &Db, input: MyInput) -> u32 {
     db.push_log(format!("result_depends_on_x({:?})", input));
     input.x(db) + 1
 }
 
 #[salsa::tracked(jar = Jar)]
-fn result_depends_on_y(db: &dyn Db, input: MyInput) -> u32 {
+fn result_depends_on_y(db: &Db, input: MyInput) -> u32 {
     db.push_log(format!("result_depends_on_y({:?})", input));
     input.y(db) - 1
 }
 
 #[salsa::db(Jar)]
-#[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-    logger: Logger,
-}
-
-impl salsa::Database for Database {}
-
-impl HasLogger for Database {
-    fn logger(&self) -> &Logger {
-        &self.logger
-    }
-}
+struct Database;
 
 #[test]
 fn execute() {

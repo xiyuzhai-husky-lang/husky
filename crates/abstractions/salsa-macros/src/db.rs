@@ -21,11 +21,11 @@ pub(crate) fn test_db(
 
     quote! {
         #[cfg(test)]
-        #vis struct #ident(salsa::test_utils::TestDb);
+        #vis struct #ident(::salsa::Db);
 
         #[cfg(test)]
         impl std::ops::Deref for #ident {
-            type Target = ::salsa::test_utils::TestDb;
+            type Target = ::salsa::Db;
 
             fn deref(&self) -> &Self::Target {
                 &self.0
@@ -42,8 +42,8 @@ pub(crate) fn test_db(
         #[cfg(test)]
         impl Default for #ident {
             fn default() -> Self {
-                Self(::salsa::test_utils::TestDb::new(|jars, routes| {
-                    *jars = ::salsa::test_utils::TestJars::default();
+                Self(::salsa::Db::new(|jars, routes| {
+                    *jars = ::salsa::jar::Jars::default();
                     #initialization
                 }))
             }
