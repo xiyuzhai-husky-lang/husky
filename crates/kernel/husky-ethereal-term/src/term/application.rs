@@ -320,11 +320,7 @@ impl EtherealTerm {
 
 impl salsa::DisplayWithDb for EtherealTermApplication {
     fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_with_db_fmt(
-            f,
-            db.as_jar_db_dyn::<EtherealTermJar>(),
-            &mut Default::default(),
-        )
+        self.show_with_db_fmt(f, db(), &mut Default::default())
     }
 }
 

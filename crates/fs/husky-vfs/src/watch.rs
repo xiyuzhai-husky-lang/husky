@@ -44,19 +44,12 @@ const DEBOUNCE_TIMEOUT: Duration = Duration::from_millis(DEBOUNCE_TIMEOUT_RAW);
 pub(crate) const DEBOUNCE_TEST_SLEEP_TIME: Duration =
     Duration::from_millis(DEBOUNCE_TIMEOUT_RAW * 4);
 
-pub struct WatchedVfs<DB: WatchableVfsDb>
-where
-    DB: ParallelDatabase,
-{
+pub struct WatchedVfs {
     event_tx: Sender<VfsWatcherEvent>,
-    snapshot_rx: Receiver<Snapshot<DB>>,
-    phantom: PhantomData<DB>,
+    snapshot_rx: Receiver<Snapshot>,
 }
 
-implDefault for WatchedVfs<DB>
-where
-    DB: Default + WatchableVfsDb + ParallelDatabase + 'static,
-{
+impl Default for WatchedVfs {
     fn default() -> Self {
         Self::new(Default::default())
     }
@@ -66,7 +59,7 @@ impl<DB: WatchableVfsDb> WatchedVfs<DB>
 where
     DB: ParallelDatabase,
 {
-    pub fn query<S>(&self, f: impl FnOnce(salsa::Snapshot<DB>) -> S) -> S {
+    pub fn query<S>(&self, f: impl FnOnce(salsa::Snapshot) -> S) -> S {
         match self.event_tx.send(VfsWatcherEvent::Snapshot) {
             Ok(_) => (),
             Err(_) => todo!(),

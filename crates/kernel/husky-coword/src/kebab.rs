@@ -1,8 +1,7 @@
-use salsa::Database;
-
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash, PartialOrd, Ord, Clone, Copy)]
+#[salsa::deref_id]
 pub struct Kebab(Coword);
 
 impl Kebab {
@@ -24,7 +23,7 @@ impl Kebab {
 
     pub fn from_owned(db: &Db, data: String) -> Option<Self> {
         if is_str_valid_kebab(&data) {
-            Some(Self(db.it_coword_owned(data)))
+            Some(Self(Coword::from_owned(db, data)))
         } else {
             None
         }
@@ -32,14 +31,10 @@ impl Kebab {
 
     pub fn from_ref(db: &Db, data: &str) -> Option<Self> {
         if is_str_valid_kebab(data) {
-            Some(Self(db.it_coword_borrowed(data)))
+            Some(Self(Coword::from_ref(db, data)))
         } else {
             None
         }
-    }
-
-    pub fn data(self, db: &Db) -> &str {
-        db.dt_coword(self.0)
     }
 }
 
@@ -86,9 +81,6 @@ pub fn is_char_valid_kebab_nonfirst_char(c: char) -> bool {
 
 impl salsa::DebugWithDb for Kebab {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
-        f.write_fmt(format_args!(
-            "`{}`",
-            self.data(db.as_jar_db_dyn::<CowordJar>())
-        ))
+        f.write_fmt(format_args!("`{}`", self.data(db)))
     }
 }

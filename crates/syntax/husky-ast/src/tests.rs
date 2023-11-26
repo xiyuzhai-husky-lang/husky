@@ -6,7 +6,7 @@ use husky_entity_path::EntityPathJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_vfs::*;
-use salsa::{Database, ParallelDatabase, Snapshot};
+use salsa::{ParallelDatabase, Snapshot};
 
 #[salsa::test_db(
     CowordJar,

@@ -12,14 +12,14 @@ impl CratePath {
     pub fn new(
         package_path: PackagePath,
         crate_kind: CrateKind,
-        db: &dyn VfsDb,
+        db: &::salsa::Db,
     ) -> VfsResult<Self> {
         let slf = Self::new_inner(db, package_path, crate_kind);
         ModulePath::new_root(db, slf)?;
         Ok(slf)
     }
 
-    pub fn relative_path(&self, db: &dyn VfsDb) -> std::borrow::Cow<'static, str> {
+    pub fn relative_path(&self, db: &::salsa::Db) -> std::borrow::Cow<'static, str> {
         match self.crate_kind(db) {
             CrateKind::Lib => "src/lib.hsy".into(),
             CrateKind::Main => "src/main.hsy".into(),
@@ -29,15 +29,15 @@ impl CratePath {
         }
     }
 
-    pub fn toolchain(self, db: &dyn VfsDb) -> Toolchain {
+    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         self.package_path(db).toolchain(db)
     }
 
-    pub fn package_ident(self, db: &dyn VfsDb) -> Ident {
+    pub fn package_ident(self, db: &::salsa::Db) -> Ident {
         self.package_path(db).ident(db)
     }
 
-    pub fn root_module_path(self, db: &dyn VfsDb) -> ModulePath {
+    pub fn root_module_path(self, db: &::salsa::Db) -> ModulePath {
         ModulePath::new_root(db, self).expect("guaranteed to be valid")
     }
 }
@@ -52,29 +52,29 @@ pub enum CrateKind {
 }
 
 impl PackagePath {
-    pub fn crate_paths<'a>(self, db: &'a dyn VfsDb) -> &'a [CratePath] {
+    pub fn crate_paths<'a>(self, db: &'a ::salsa::Db) -> &'a [CratePath] {
         package_crate_paths(db, self)
     }
 
-    pub fn lib_crate_path(self, db: &dyn VfsDb) -> Option<CratePath> {
+    pub fn lib_crate_path(self, db: &::salsa::Db) -> Option<CratePath> {
         CratePath::new(self, CrateKind::Lib, db).ok()
     }
 
-    pub fn lib_root_module_path(self, db: &dyn VfsDb) -> Option<ModulePath> {
+    pub fn lib_root_module_path(self, db: &::salsa::Db) -> Option<ModulePath> {
         Some(self.lib_crate_path(db)?.root_module_path(db))
     }
 
-    pub fn main_crate_path(self, db: &dyn VfsDb) -> Option<CratePath> {
+    pub fn main_crate_path(self, db: &::salsa::Db) -> Option<CratePath> {
         CratePath::new(self, CrateKind::Main, db).ok()
     }
 
-    pub fn main_root_module_path(self, db: &dyn VfsDb) -> Option<ModulePath> {
+    pub fn main_root_module_path(self, db: &::salsa::Db) -> Option<ModulePath> {
         Some(self.main_crate_path(db)?.root_module_path(db))
     }
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
-fn package_crate_paths(db: &dyn VfsDb, package_path: PackagePath) -> Vec<CratePath> {
+fn package_crate_paths(db: &::salsa::Db, package_path: PackagePath) -> Vec<CratePath> {
     let mut crate_paths = vec![];
     if let Some(crate_path) = package_path.lib_crate_path(db) {
         crate_paths.push(crate_path)

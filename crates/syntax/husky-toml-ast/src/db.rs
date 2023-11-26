@@ -8,7 +8,7 @@ pub trait TomlAstDb: DbWithJar<TomlAstJar> + TomlTokenDb {
     fn toml_ast_sheet(&self, path: VirtualPath) -> VfsResult<Option<&TomlAstSheet>>;
 }
 
-impl<Db> TomlAstDb for Db
+impl TomlAstDb for Db
 where
     Db: DbWithJar<TomlAstJar> + TomlTokenDb,
 {

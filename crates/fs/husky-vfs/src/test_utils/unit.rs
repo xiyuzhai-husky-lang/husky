@@ -1,17 +1,17 @@
 use super::*;
 
 pub trait VfsTestUnit: Copy {
-    fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self>;
+    fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self>;
     fn determine_expect_file_path(
         &self,
-        db: &dyn VfsDb,
+        db: &::salsa::Db,
         package_expect_files_dir: &Path,
         config: &VfsTestConfig,
     ) -> PathBuf;
 
     fn determine_adversarial_path(
         self,
-        db: &dyn VfsDb,
+        db: &::salsa::Db,
         adversarial_kind: AdversarialKind,
         package_adversarials_dir: &Path,
         config: &VfsTestConfig,
@@ -20,13 +20,13 @@ pub trait VfsTestUnit: Copy {
 }
 
 impl VfsTestUnit for PackagePath {
-    fn collect_from_package_path(_db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
+    fn collect_from_package_path(_db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
         vec![package_path]
     }
 
     fn determine_expect_file_path(
         &self,
-        _db: &dyn VfsDb,
+        _db: &::salsa::Db,
         package_expect_files_dir: &Path,
         config: &VfsTestConfig,
     ) -> PathBuf {
@@ -37,7 +37,7 @@ impl VfsTestUnit for PackagePath {
 
     fn determine_adversarial_path(
         self,
-        _db: &dyn VfsDb,
+        _db: &::salsa::Db,
         _adversarial_kind: AdversarialKind,
         _package_adversarials_dir: &Path,
         _config: &VfsTestConfig,
@@ -51,13 +51,13 @@ impl VfsTestUnit for PackagePath {
 }
 
 impl VfsTestUnit for CratePath {
-    fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
+    fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
         db.collect_crates(package_path).unwrap_or_default()
     }
 
     fn determine_expect_file_path(
         &self,
-        db: &dyn VfsDb,
+        db: &::salsa::Db,
         package_expect_files_dir: &Path,
         config: &VfsTestConfig,
     ) -> PathBuf {
@@ -77,7 +77,7 @@ impl VfsTestUnit for CratePath {
 
     fn determine_adversarial_path(
         self,
-        _db: &dyn VfsDb,
+        _db: &::salsa::Db,
         _adversarial_kind: AdversarialKind,
         _package_adversarials_dir: &Path,
         _config: &VfsTestConfig,
@@ -91,18 +91,18 @@ impl VfsTestUnit for CratePath {
 }
 
 impl VfsTestUnit for ModulePath {
-    fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
+    fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
         db.collect_probable_modules(package_path)
     }
 
     fn determine_expect_file_path(
         &self,
-        db: &dyn VfsDb,
+        db: &::salsa::Db,
         package_expect_files_dir: &Path,
         config: &VfsTestConfig,
     ) -> PathBuf {
         fn determine_expect_file_aux_path(
-            db: &dyn VfsDb,
+            db: &::salsa::Db,
             module_path: ModulePath,
             package_expect_files_dir: &Path,
             config: &VfsTestConfig,
@@ -134,13 +134,13 @@ impl VfsTestUnit for ModulePath {
 
     fn determine_adversarial_path(
         self,
-        db: &dyn VfsDb,
+        db: &::salsa::Db,
         adversarial_kind: AdversarialKind,
         package_adversarials_dir: &Path,
         config: &VfsTestConfig,
     ) -> Option<PathBuf> {
         fn determine_adversarial_aux_path(
-            db: &dyn VfsDb,
+            db: &::salsa::Db,
             adversarial_kind: AdversarialKind,
             module_path: ModulePath,
             package_adversarials_dir: &Path,

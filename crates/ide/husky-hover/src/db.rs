@@ -19,7 +19,7 @@ pub trait HoverDb: salsa::DbWithJar<HoverJar> + TokenInfoDb {
     fn hover_config(&self) -> HoverConfig;
 }
 
-impl<Db> HoverDb for Db
+impl HoverDb for Db
 where
     Db: salsa::DbWithJar<HoverJar> + TokenInfoDb,
 {

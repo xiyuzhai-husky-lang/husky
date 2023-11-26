@@ -109,7 +109,7 @@ fn keylike() {
         let token = t.next().unwrap();
         assert_eq!(
             token.data(),
-            &TomlTokenData::Word(db.it_coword_borrowed(input))
+            &TomlTokenData::Word(Coword::from_ref(db, input))
         );
         assert!(t.next().is_none());
     }
@@ -146,14 +146,14 @@ fn all() {
     t(
         db,
         " a ",
-        &[((1, 2), TomlTokenData::Word(db.it_coword_borrowed("a")), "a")],
+        &[((1, 2), TomlTokenData::Word(Coword::from_ref(db, "a")), "a")],
     );
 
     t(
         db,
         " a\t [[]] \t [] {} , . =\n# foo \r\n#foo \n ",
         &[
-            ((1, 2), TomlTokenData::Word(db.it_coword_borrowed("a")), "a"),
+            ((1, 2), TomlTokenData::Word(Coword::from_ref(db, "a")), "a"),
             ((4, 5), TomlSpecialToken::LeftBox.into(), "["),
             ((5, 6), TomlSpecialToken::LeftBox.into(), "["),
             ((6, 7), TomlSpecialToken::RightBox.into(), "]"),

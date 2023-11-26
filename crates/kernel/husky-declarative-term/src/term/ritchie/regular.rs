@@ -40,7 +40,7 @@ impl DeclarativeRitchieRegularParameter {
 
 impl salsa::DisplayWithDb for DeclarativeRitchieRegularParameter {
     fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        let db = db.as_jar_db_dyn::<DeclarativeTermJar>();
+        let db = db();
         self.ty.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

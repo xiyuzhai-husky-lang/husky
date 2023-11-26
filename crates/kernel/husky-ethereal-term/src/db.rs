@@ -9,7 +9,7 @@ pub trait EtherealTermDb: DbWithJar<EtherealTermJar> + DeclarativeTypeDb {
     fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EtherealTermMenu;
 }
 
-impl<Db> EtherealTermDb for Db
+impl EtherealTermDb for Db
 where
     Db: DbWithJar<EtherealTermJar> + DeclarativeTypeDb,
 {

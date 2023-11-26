@@ -2,25 +2,30 @@ use crate::*;
 
 use husky_fs_specs::FsSpecsError;
 use husky_path_utils::collect_husky_package_dirs;
+use salsa::Db;
 use vec_like::VecSet;
-
-pub fn vfs_path_menu(&Db, toolchain: Toolchain) -> &VfsPathMenu;
-pub fn current_toolchain(&Db) -> VfsResult<Toolchain>;
-pub fn live_packages(
-    &Db,
-) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
-pub fn collect_local_packages(&Db, toolchain: Toolchain, dir: &Path) -> VfsResult<Vec<PackagePath>>;
-pub fn collect_crates(&Db, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
-pub fn collect_probable_modules(&Db, package_path: PackagePath) -> Vec<ModulePath>;
-pub fn resolve_module_path(&Db, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
-pub fn published_toolchain_library_path(&Db, toolchain: PublishedToolchain) -> &Path;
-
+pub trait VfsDb {
+    fn vfs_path_menu(&self, toolchain: Toolchain) -> &VfsPathMenu;
+    fn current_toolchain(&self) -> VfsResult<Toolchain>;
+    fn live_packages(
+        &self,
+    ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
+    fn collect_local_packages(
+        &self,
+        toolchain: Toolchain,
+        dir: &Path,
+    ) -> VfsResult<Vec<PackagePath>>;
+    fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
+    fn collect_probable_modules(&self, package_path: PackagePath) -> Vec<ModulePath>;
+    fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
+    fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
+}
 // don't leak this outside the crate
 pub trait VfsDbInner {
     fn file_from_virtual_path(&self, path: VirtualPath) -> VfsResult<File>;
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
-    fn vfs_db_mut(&mut self) -> &mut dyn VfsDb;
+    fn vfs_db_mut(&mut self) -> &mut ::salsa::Db;
     fn vfs_cache(&self) -> &VfsCache;
     fn set_content(&mut self, path: &Path, content: FileContent) -> VfsResult<()>;
     fn refresh_file_from_disk(&mut self, path: &Path) -> VfsResult<()>
@@ -39,10 +44,7 @@ pub trait VfsDbInner {
     fn calc_durability(&self, path: &Path) -> VfsResult<salsa::Durability>;
 }
 
-impl<Db> VfsDbInner for Db
-where
-    Db: Sized + salsa::DbWithJar<VfsJar> + CowordDb + Send + 'static,
-{
+impl VfsDbInner for Db {
     fn file_from_virtual_path(&self, abs_path: VirtualPath) -> VfsResult<File> {
         Ok(
             match self
@@ -141,15 +143,12 @@ where
         })
     }
 
-    fn vfs_db_mut(&mut self) -> &mut dyn VfsDb {
+    fn vfs_db_mut(&mut self) -> &mut ::salsa::Db {
         self
     }
 }
 
-impl<Db> VfsDb for Db
-where
-    Db: salsa::DbWithJar<VfsJar> + CowordDb + Send + 'static,
-{
+impl VfsDb for Db {
     fn vfs_path_menu(&self, toolchain: Toolchain) -> &VfsPathMenu {
         vfs_path_menu(self, toolchain)
     }
@@ -196,7 +195,7 @@ where
     /// so the type should be ProbableModulePath maybe
     fn collect_probable_modules(&self, package: PackagePath) -> Vec<ModulePath> {
         fn collect_probable_modules(
-            db: &dyn VfsDb,
+            db: &::salsa::Db,
             parent: ModulePath,
             dir: &Path,
             modules: &mut Vec<ModulePath>,
@@ -216,7 +215,7 @@ where
                     if let Some(ident) = path
                         .file_name()
                         .and_then(|filename| filename.to_str())
-                        .and_then(|filename| db.it_ident_borrowed(filename))
+                        .and_then(|filename| Ident::from_borrowed(db, filename))
                     {
                         if let Ok(child) = ModulePath::new_child(db, parent, ident) {
                             collect_probable_modules(db, child.inner(), &path, modules)?
@@ -233,7 +232,7 @@ where
                             _ => true,
                         };
                         if push_flag {
-                            if let Some(ident) = db.it_ident_borrowed(file_stem) {
+                            if let Some(ident) = Ident::from_borrowed(file_stem) {
                                 if let Ok(new_child) = ModulePath::new_child(db, parent, ident) {
                                     modules.push(new_child.into())
                                 }
@@ -345,8 +344,7 @@ impl salsa::storage::IngredientsFor for VfsCache {
 
     type Ingredients = Self;
 
-    fn create_ingredients(_routes: &mut salsa::routes::Routes) -> Self::Ingredients 
-    {
+    fn create_ingredients(_routes: &mut salsa::routes::Routes) -> Self::Ingredients {
         Default::default()
     }
 }

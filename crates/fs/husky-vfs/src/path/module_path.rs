@@ -14,7 +14,7 @@ pub struct ModulePath {
 }
 
 impl ModulePath {
-    pub fn new(db: &dyn VfsDb, data: ModulePathData) -> VfsResult<Self> {
+    pub fn new(db: &::salsa::Db, data: ModulePathData) -> VfsResult<Self> {
         let slf = Self::new_inner(db, data);
         let diff_path = module_virtual_path(db, slf)?;
         db.file_from_virtual_path(diff_path)?
@@ -38,7 +38,7 @@ impl SubmodulePath {
         self.0
     }
 
-    pub fn parent(self, db: &dyn VfsDb) -> ModulePath {
+    pub fn parent(self, db: &::salsa::Db) -> ModulePath {
         self.0.parent(db).unwrap()
     }
 }
@@ -50,23 +50,23 @@ impl From<SubmodulePath> for ModulePath {
 }
 
 impl ModulePath {
-    pub fn starts_with(self, db: &dyn VfsDb, parent: ModulePath) -> bool {
+    pub fn starts_with(self, db: &::salsa::Db, parent: ModulePath) -> bool {
         self.module_ancestry(db).contains(parent)
     }
 
-    pub fn module_ancestry(self, db: &dyn VfsDb) -> &ModuleAncestry {
+    pub fn module_ancestry(self, db: &::salsa::Db) -> &ModuleAncestry {
         module_ancestry(db, self)
     }
 
-    pub fn crate_path(self, db: &dyn VfsDb) -> CratePath {
+    pub fn crate_path(self, db: &::salsa::Db) -> CratePath {
         self.module_ancestry(db).crate_path()
     }
 
-    pub fn package_path(self, db: &dyn VfsDb) -> PackagePath {
+    pub fn package_path(self, db: &::salsa::Db) -> PackagePath {
         self.crate_path(db).package_path(db)
     }
 
-    pub fn parent(self, db: &dyn VfsDb) -> Option<Self> {
+    pub fn parent(self, db: &::salsa::Db) -> Option<Self> {
         match self.data(db) {
             ModulePathData::Root(_) => None,
             ModulePathData::Child { parent, .. } => Some(parent),
@@ -74,18 +74,18 @@ impl ModulePath {
     }
 
     /// use CratePath::root_module_path instead in other crates
-    pub(crate) fn new_root(db: &dyn VfsDb, crate_path: CratePath) -> VfsResult<Self> {
+    pub(crate) fn new_root(db: &::salsa::Db, crate_path: CratePath) -> VfsResult<Self> {
         Self::new(db, ModulePathData::Root(crate_path))
     }
 
-    pub fn new_child(db: &dyn VfsDb, parent: ModulePath, ident: Ident) -> VfsResult<SubmodulePath> {
+    pub fn new_child(db: &::salsa::Db, parent: ModulePath, ident: Ident) -> VfsResult<SubmodulePath> {
         Ok(SubmodulePath(Self::new(
             db,
             ModulePathData::Child { parent, ident },
         )?))
     }
 
-    pub fn toolchain(self, db: &dyn VfsDb) -> Toolchain {
+    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         self.crate_path(db).toolchain(db)
     }
 
@@ -95,7 +95,7 @@ impl ModulePath {
             .expect("guaranteed")
     }
 
-    pub fn ident(self, db: &dyn VfsDb) -> Ident {
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
         match self.data(db) {
             ModulePathData::Root(crate_path) => crate_path.package_ident(db),
             ModulePathData::Child { parent: _, ident } => ident,
@@ -113,8 +113,8 @@ impl ModulePath {
     }
 }
 
-impl PartialOrdWithDb<dyn VfsDb + '_> for ModulePath {
-    fn partial_cmp_with_db(&self, db: &dyn VfsDb, other: &Self) -> Option<std::cmp::Ordering> {
+impl PartialOrdWithDb<::salsa::Db + '_> for ModulePath {
+    fn partial_cmp_with_db(&self, db: &::salsa::Db, other: &Self) -> Option<std::cmp::Ordering> {
         if self == other {
             return Some(std::cmp::Ordering::Equal);
         }
@@ -128,9 +128,9 @@ impl PartialOrdWithDb<dyn VfsDb + '_> for ModulePath {
     }
 }
 
-impl<Db: VfsDb> PartialOrdWithDb<Db> for ModulePath {
+impl PartialOrdWithDb<Db> for ModulePath {
     fn partial_cmp_with_db(&self, db: &Db, other: &Self) -> Option<std::cmp::Ordering> {
-        self.partial_cmp_with_db(db as &dyn VfsDb, other)
+        self.partial_cmp_with_db(db as &::salsa::Db, other)
     }
 }
 
@@ -177,7 +177,7 @@ pub enum ModulePathData {
 }
 
 impl ModulePathData {
-    fn display(self, db: &dyn VfsDb, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn display(self, db: &::salsa::Db, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             ModulePathData::Root(_crate_path) => f.write_str("crate"),
             ModulePathData::Child { parent, ident } => {
@@ -190,7 +190,7 @@ impl ModulePathData {
 }
 
 impl ModulePath {
-    pub fn to_string_with_db(&self, db: &dyn VfsDb) -> String {
+    pub fn to_string_with_db(&self, db: &::salsa::Db) -> String {
         self.display(db).to_string()
     }
 
@@ -207,16 +207,16 @@ impl ModulePath {
         f: &mut ::std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> ::std::fmt::Result {
-        match self.data(db.as_jar_db_dyn::<VfsJar>()) {
+        match self.data(db()) {
             ModulePathData::Root(crate_path) => f.write_str(
                 crate_path
-                    .package_ident(db.as_jar_db_dyn::<VfsJar>())
-                    .data(db.as_jar_db_dyn::<VfsJar>()),
+                    .package_ident(db())
+                    .data(db()),
             ),
             ModulePathData::Child { parent, ident } => {
                 parent.show_aux(f, db)?;
                 f.write_str("::")?;
-                f.write_str(ident.data(db.as_jar_db_dyn::<VfsJar>()))
+                f.write_str(ident.data(db()))
             }
         }
     }

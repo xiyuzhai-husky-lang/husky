@@ -18,7 +18,7 @@ impl ModuleAncestry {
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
-pub(crate) fn module_ancestry(db: &dyn VfsDb, module_path: ModulePath) -> ModuleAncestry {
+pub(crate) fn module_ancestry(db: &::salsa::Db, module_path: ModulePath) -> ModuleAncestry {
     match module_path.data(db) {
         ModulePathData::Root(crate_path) => ModuleAncestry {
             crate_path,

@@ -107,14 +107,14 @@ impl ItemPathMenu {
         let core_visual = path_menu.core_visual().inner();
         let option_ty_path = TypePath::new(
             core_option,
-            db.it_ident_borrowed("Option").unwrap(),
+            Ident::from_borrowed(db, "Option").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Enum,
             db,
         );
         let result_ty_path = TypePath::new(
             core_result,
-            db.it_ident_borrowed("Result").unwrap(),
+            Ident::from_borrowed(db, "Result").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Enum,
             db,
@@ -303,7 +303,7 @@ impl ItemPathMenu {
         );
         let html_ty_path = TypePath::new(
             core_visual,
-            db.it_ident_borrowed("Html").unwrap(),
+            Ident::from_borrowed(db, "Html").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
@@ -317,185 +317,185 @@ impl ItemPathMenu {
         );
         let ref_ty_path = TypePath::new(
             core_mem,
-            db.it_ident_borrowed("Ref").unwrap(),
+            Ident::from_borrowed(db, "Ref").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
         );
         let ref_mut_ty_path = TypePath::new(
             core_mem,
-            db.it_ident_borrowed("RefMut").unwrap(),
+            Ident::from_borrowed(db, "RefMut").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
         );
         let leash_ty_path = TypePath::new(
             core_mem,
-            db.it_ident_borrowed("Leash").unwrap(),
+            Ident::from_borrowed(db, "Leash").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
         );
         let at_ty_path = TypePath::new(
             core_mem,
-            db.it_ident_borrowed("At").unwrap(),
+            Ident::from_borrowed(db, "At").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
         );
         let vec_ty_path = TypePath::new(
             core_vec,
-            db.it_ident_borrowed("Vec").unwrap(),
+            Ident::from_borrowed(db, "Vec").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
         );
         let array_ty_path = TypePath::new(
             core_array,
-            db.it_ident_borrowed("Array").unwrap(),
+            Ident::from_borrowed(db, "Array").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
         );
         let slice_ty_path = TypePath::new(
             core_slice,
-            db.it_ident_borrowed("Slice").unwrap(),
+            Ident::from_borrowed(db, "Slice").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
         );
         let cyclic_slice_leashed_ty_path = TypePath::new(
             core_slice,
-            db.it_ident_borrowed("CyclicSlice").unwrap(),
+            Ident::from_borrowed(db, "CyclicSlice").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
         );
         let string_literal_ty_path = TypePath::new(
             core_str,
-            db.it_ident_borrowed("StringLiteral").unwrap(),
+            Ident::from_borrowed(db, "StringLiteral").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
         );
         let str_ty_path = TypePath::new(
             core_str,
-            db.it_ident_borrowed("str").unwrap(),
+            Ident::from_borrowed(db, "str").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
         );
         let core_ops_add_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("Add").unwrap(),
+            Ident::from_borrowed(db, "Add").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let add_assign_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("AddAssign").unwrap(),
+            Ident::from_borrowed(db, "AddAssign").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let bit_and_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("BitAnd").unwrap(),
+            Ident::from_borrowed(db, "BitAnd").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let bit_and_assign_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("BitAndAssign").unwrap(),
+            Ident::from_borrowed(db, "BitAndAssign").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let bit_or_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("BitOr").unwrap(),
+            Ident::from_borrowed(db, "BitOr").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let core_ops_bit_or_assign_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("BitOrAssign").unwrap(),
+            Ident::from_borrowed(db, "BitOrAssign").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let bit_xor_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("BitXor").unwrap(),
+            Ident::from_borrowed(db, "BitXor").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let bit_xor_assign_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("BitXorAssign").unwrap(),
+            Ident::from_borrowed(db, "BitXorAssign").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let div_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("Div").unwrap(),
+            Ident::from_borrowed(db, "Div").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let div_assign_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("DivAssign").unwrap(),
+            Ident::from_borrowed(db, "DivAssign").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let int_index_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("IntIndex").unwrap(),
+            Ident::from_borrowed(db, "IntIndex").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let mul_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("Mul").unwrap(),
+            Ident::from_borrowed(db, "Mul").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let mul_assign_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("MulAssign").unwrap(),
+            Ident::from_borrowed(db, "MulAssign").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let neg_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("Neg").unwrap(),
+            Ident::from_borrowed(db, "Neg").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let not_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("Not").unwrap(),
+            Ident::from_borrowed(db, "Not").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let unveil_trai_path = TraitPath::new(
             core_ops,
-            db.it_ident_borrowed("Unveil").unwrap(),
+            Ident::from_borrowed(db, "Unveil").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let clone_trai_path = TraitPath::new(
             core_clone,
-            db.it_ident_borrowed("Clone").unwrap(),
+            Ident::from_borrowed(db, "Clone").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let copy_trai_path = TraitPath::new(
             core_marker,
-            db.it_ident_borrowed("Copy").unwrap(),
+            Ident::from_borrowed(db, "Copy").unwrap(),
             MajorItemConnection::Connected,
             db,
         );
         let default_trai_path = TraitPath::new(
             core_default,
-            db.it_ident_borrowed("Default").unwrap(),
+            Ident::from_borrowed(db, "Default").unwrap(),
             MajorItemConnection::Connected,
             db,
         );

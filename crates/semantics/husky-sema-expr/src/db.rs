@@ -5,7 +5,7 @@ pub trait SemaExprDb: salsa::DbWithJar<SemaExprJar> + FluffyTermDb + SynDefnDb {
     fn sema_expr_region(&self, syn_expr_region: SynExprRegion) -> SemaExprRegion;
 }
 
-impl<Db> SemaExprDb for Db
+impl SemaExprDb for Db
 where
     Db: salsa::DbWithJar<SemaExprJar> + FluffyTermDb + SynDefnDb,
 {

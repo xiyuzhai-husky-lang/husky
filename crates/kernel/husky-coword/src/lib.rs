@@ -7,7 +7,7 @@ mod style;
 #[cfg(test)]
 mod tests;
 
-use salsa::Database;
+use salsa::Db;
 
 pub use self::db::*;
 pub use self::ident::*;
@@ -62,29 +62,24 @@ impl salsa::AsId for Coword {
 
 impl Coword {
     pub fn data<'db>(self, db: &'db Db) -> &'db str {
-        let (jar, runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar(db);
+        let (jar, runtime) = db.jar::<CowordJar>();
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         &ingredients.data(runtime, self).data
     }
     pub fn new(db: &Db, data: String) -> Self {
-        let (jar, runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar(db);
+        let (jar, runtime) = db.jar::<CowordJar>();
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern(runtime, __CowordData { data })
     }
 }
 
-impl salsa::salsa_struct::SalsaStructInDb for Coword
-where
-    DB: ?Sized + salsa::DbWithJar<CowordJar>,
-{
+impl salsa::salsa_struct::SalsaStructInDb for Coword {
     fn register_dependent_fn(_db: &::salsa::Db, _index: salsa::routes::IngredientIndex) {}
 }
 
 impl ::salsa::DebugWithDb for Coword {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, db: &::salsa::Db) -> ::std::fmt::Result {
-        f.debug_tuple("Word")
-            .field(&self.data(db.as_jar_db_dyn::<CowordJar>()))
-            .finish()
+        f.debug_tuple("Word").field(&self.data(db)).finish()
     }
 }
 
@@ -102,13 +97,13 @@ impl<'a> From<&'a str> for __CowordData {
 
 impl Coword {
     pub fn from_owned(db: &Db, data: String) -> Self {
-        let (jar, runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar(db);
+        let (jar, runtime) = db.jar::<CowordJar>();
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern(runtime, __CowordData { data })
     }
 
     pub fn from_ref(db: &Db, data: &str) -> Self {
-        let (jar, runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar(db);
+        let (jar, runtime) = db.jar::<CowordJar>();
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern_borrowed(runtime, data)
     }

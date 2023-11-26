@@ -11,7 +11,7 @@ pub trait DeclarativeTermDb: DbWithJar<DeclarativeTermJar> + TermPreludeDb {
     ) -> DeclarativeTermResultRef<&DeclarativeTermMenu>;
 }
 
-impl<Db> DeclarativeTermDb for Db
+impl DeclarativeTermDb for Db
 where
     Db: DbWithJar<DeclarativeTermJar> + TermPreludeDb,
 {

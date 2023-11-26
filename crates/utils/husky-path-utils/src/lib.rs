@@ -10,14 +10,14 @@ pub use self::error::*;
 pub use self::rel::*;
 use husky_minimal_toml_utils::read_package_name_from_manifest;
 pub use module_tree::*;
-use salsa::Database;
+use salsa::Db;
 
 pub use std::path::{Path, PathBuf};
 
 #[cfg(test)]
 use self::tests::*;
 use husky_check_utils::should_satisfy;
-use husky_coword::{CowordDb, Kebab};
+use husky_coword::Kebab;
 use relative_path::{RelativePath, RelativePathBuf};
 
 pub fn path_has_file_name(path: &Path, name: &str) -> bool {
@@ -118,11 +118,7 @@ pub fn collect_husky_package_dirs(db: &Db, dir: &Path) -> Vec<(PathBuf, Kebab)> 
     pack_paths
 }
 
-fn collect_husky_package_dirs_aux(
-    db: &Db,
-    dir: &Path,
-    pack_paths: &mut Vec<(PathBuf, Kebab)>,
-) {
+fn collect_husky_package_dirs_aux(db: &Db, dir: &Path, pack_paths: &mut Vec<(PathBuf, Kebab)>) {
     let manifest_path = dir.join("Corgi.toml");
     for entry in std::fs::read_dir(&dir).unwrap() {
         let entry = entry.unwrap();
@@ -136,10 +132,7 @@ fn collect_husky_package_dirs_aux(
     }
 }
 
-pub fn collect_package_relative_dirs(
-    db: &Db,
-    base: &Path,
-) -> Vec<(RelativePathBuf, Kebab)> {
+pub fn collect_package_relative_dirs(db: &Db, base: &Path) -> Vec<(RelativePathBuf, Kebab)> {
     should_satisfy!(&base, |dir: &Path| dir.is_dir());
     let mut pack_paths = vec![];
     let dir = RelativePathBuf::from(".");
@@ -235,7 +228,7 @@ fn collect_package_dirs_works() {
 
     let db = DB::default();
     let db = &*db;
-    fn t(db: &::salsa::Db dir: &Path) {
+    fn t(db: &::salsa::Db, dir: &Path) {
         assert_eq!(
             collect_package_relative_dirs(db, dir)
                 .into_iter()

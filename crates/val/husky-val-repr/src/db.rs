@@ -5,7 +5,7 @@ use husky_val::ValDb;
 
 pub trait ValReprDb: salsa::DbWithJar<ValReprJar> + ValDb + HirDefnDb + LinkageDb {}
 
-impl<Db> ValReprDb for Db where Db: salsa::DbWithJar<ValReprJar> + ValDb + HirDefnDb + LinkageDb {}
+impl ValReprDb for Db where Db: salsa::DbWithJar<ValReprJar> + ValDb + HirDefnDb + LinkageDb {}
 
 #[salsa::jar(db = ValReprDb)]
 pub struct ValReprJar(

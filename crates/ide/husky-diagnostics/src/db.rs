@@ -6,7 +6,7 @@ pub trait DiagnosticsDb: DbWithJar<DiagnosticsJar> + SemaExprDb {
     fn diagnostic_sheet(&self, module_path: ModulePath) -> DiagnosticSheet;
 }
 
-impl<Db> DiagnosticsDb for Db
+impl DiagnosticsDb for Db
 where
     Db: DbWithJar<DiagnosticsJar> + SemaExprDb,
 {
