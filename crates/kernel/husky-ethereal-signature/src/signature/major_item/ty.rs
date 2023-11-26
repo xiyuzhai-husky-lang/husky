@@ -25,10 +25,9 @@ use husky_declarative_signature::{
 };
 use husky_entity_path::TypePath;
 
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-#[salsa::debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub enum TypeEtherealSignatureTemplate {
     Enum(EnumTypeEtherealSignatureTemplate),
     PropsStruct(PropsStructTypeEtherealSignatureTemplate),
@@ -154,7 +153,7 @@ fn ty_ethereal_signature_template(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 #[enum_class::from_variants]
 pub enum PropsFieldEtherealSignature {
     PropsStruct(PropsStructFieldEtherealSignature),

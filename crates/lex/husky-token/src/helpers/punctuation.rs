@@ -1,11 +1,9 @@
 use super::*;
 
-
-
 // punctuation in general
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct PunctuationToken {
     punc: Punctuation,
     token_idx: TokenIdx,
@@ -39,7 +37,7 @@ where
 macro_rules! define_specific_punctuation_token {
     ($ty: ident, $punc: ident, $test_name: ident, $s: literal) => {
         #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-        #[salsa::debug_with_db(db = TokenDb)]
+        #[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
         pub struct $ty(pub(super) TokenIdx);
 
         impl $ty {
@@ -172,20 +170,20 @@ define_specific_punctuation_token!(ColonEqToken, COLON_EQ, colon_eq_token_works,
 
 /// `:` at the end of line
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub enum EolToken {
     Colon(EolColonToken),
     Semicolon(EolSemicolonToken),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct EolColonToken {
     token_idx: TokenIdx,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct EolSemicolonToken {
     token_idx: TokenIdx,
 }

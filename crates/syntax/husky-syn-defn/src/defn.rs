@@ -17,7 +17,7 @@ use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_item_syn_n
 use husky_syn_expr::helpers::block_expr::parse_defn_block_expr;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 #[enum_class::from_variants]
 pub enum ItemSynNodeDefn {
     Submodule(SubmoduleSynNodeDefn),
@@ -115,7 +115,7 @@ fn module_node_defns_works() {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 #[enum_class::from_variants]
 pub enum SynDefn {
     Submodule(SubmoduleSynDefn),
@@ -186,12 +186,12 @@ impl HasSynDefn for ItemPath {
 
     fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         Ok(match self {
-            ItemPath::Submodule(path) => path.syn_defn(db)?.into(),
+            ItemPath::Submodule(_, path) => path.syn_defn(db)?.into(),
             ItemPath::MajorItem(path) => path.syn_defn(db)?.into(),
             ItemPath::ImplBlock(path) => path.syn_defn(db)?.into(),
             ItemPath::AssociatedItem(path) => path.syn_defn(db)?.into(),
-            ItemPath::TypeVariant(_) => todo!(),
-            ItemPath::Attr(_) => todo!(),
+            ItemPath::TypeVariant(_, _) => todo!(),
+            ItemPath::Attr(_, _) => todo!(),
         })
     }
 }

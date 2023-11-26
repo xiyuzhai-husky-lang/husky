@@ -1,12 +1,10 @@
-
-
 use husky_text_protocol::range::TextRange;
 use husky_token_data::TokenData;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenInfoDb)]
+#[salsa::debug_with_db(db = TokenInfoDb, jar = TokenInfoJar)]
 pub struct TokenInfoSheet {
     token_infos: Vec<Option<TokenInfo>>,
 }

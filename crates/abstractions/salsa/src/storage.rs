@@ -200,7 +200,7 @@ pub trait InitializeJars: HasJars {
 }
 
 pub trait DbWithJar<J>: HasJar<J> + Database {
-    fn as_jar_db<'db>(&'db self) -> &<J as Jar<'db>>::DynDb
+    fn as_jar_db<'db>(&self) -> &<J as Jar<'db>>::DynDb
     where
         J: Jar<'db>;
 }

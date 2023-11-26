@@ -3,7 +3,7 @@ use husky_ethereal_term::instantiation::EtherealInstantiation;
 use vec_like::SmallVecPairMap;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-// #[salsa::debug_with_db(db = FluffyTermDb)]
+// #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct FluffyInstantiation {
     env: FluffyInstantiationEnvironment,
     symbol_map: SmallVecPairMap<EtherealTermSymbol, FluffyTermSymbolResolution, 4>,

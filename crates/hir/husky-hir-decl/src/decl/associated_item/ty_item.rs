@@ -64,9 +64,8 @@ impl HasHirDecl for TypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = HirDeclJar)]
+// #[salsa::tracked(jar = HirDeclJar)]
 pub(crate) fn ty_item_hir_decl(db: &dyn HirDeclDb, path: TypeItemPath) -> Option<TypeItemHirDecl> {
-    
     match path.syn_decl(db).expect("ok") {
         TypeItemSynDecl::AssociatedFn(syn_decl) => {
             Some(TypeAssociatedFnHirDecl::from_syn(path, syn_decl, db).into())

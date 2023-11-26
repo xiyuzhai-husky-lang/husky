@@ -35,7 +35,7 @@ pub fn item_path_declarative_ty(
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match path {
-        ItemPath::Submodule(_) => Ok(declarative_term_menu.module()),
+        ItemPath::Submodule(_, _) => Ok(declarative_term_menu.module()),
         ItemPath::MajorItem(path) => match path {
             MajorItemPath::Type(path) => match disambiguation {
                 TypePathDisambiguation::OntologyConstructor => {
@@ -49,9 +49,9 @@ pub fn item_path_declarative_ty(
             MajorItemPath::Fugitive(path) => fugitive_path_declarative_ty(db, path),
         },
         ItemPath::AssociatedItem(_) => todo!(),
-        ItemPath::TypeVariant(_) => todo!(),
+        ItemPath::TypeVariant(_, _) => todo!(),
         ItemPath::ImplBlock(_) => todo!(),
-        ItemPath::Attr(_) => todo!(),
+        ItemPath::Attr(_, _) => todo!(),
     }
 }
 

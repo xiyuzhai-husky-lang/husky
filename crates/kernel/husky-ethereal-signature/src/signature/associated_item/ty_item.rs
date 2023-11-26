@@ -50,7 +50,7 @@ impl HasEtherealSignatureTemplate for TypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar)]
+// #[salsa::tracked(jar = EtherealSignatureJar)]
 pub(crate) fn ty_item_ethereal_signature_template(
     db: &dyn EtherealSignatureDb,
     path: TypeItemPath,

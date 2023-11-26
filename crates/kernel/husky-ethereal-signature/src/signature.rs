@@ -14,7 +14,7 @@ use crate::*;
 use husky_declarative_signature::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 #[enum_class::from_variants]
 pub enum ItemEtherealSignatureTemplate {
     Submodule,
@@ -55,12 +55,12 @@ impl HasEtherealSignatureTemplate for ItemPath {
         db: &dyn EtherealSignatureDb,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         Ok(match self {
-            ItemPath::Submodule(_) => ItemEtherealSignatureTemplate::Submodule,
+            ItemPath::Submodule(_, _) => ItemEtherealSignatureTemplate::Submodule,
             ItemPath::MajorItem(path) => path.ethereal_signature_template(db)?.into(),
             ItemPath::AssociatedItem(path) => path.ethereal_signature_template(db)?.into(),
-            ItemPath::TypeVariant(path) => path.ethereal_signature_template(db)?.into(),
+            ItemPath::TypeVariant(_, path) => path.ethereal_signature_template(db)?.into(),
             ItemPath::ImplBlock(path) => path.ethereal_signature_template(db)?.into(),
-            ItemPath::Attr(path) => path.ethereal_signature_template(db)?.into(),
+            ItemPath::Attr(_, path) => path.ethereal_signature_template(db)?.into(),
         })
     }
 }

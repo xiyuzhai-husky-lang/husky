@@ -8,7 +8,7 @@ pub struct LinktimeTargetPath {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
-#[salsa::debug_with_db(db = VfsDb)]
+#[salsa::debug_with_db(db = VfsDb, jar = VfsJar)]
 pub enum LinktimeTargetPathData {
     Package(PackagePath),
     Workspace(WorkspacePath),

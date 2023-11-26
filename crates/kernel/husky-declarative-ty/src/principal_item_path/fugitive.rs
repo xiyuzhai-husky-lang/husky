@@ -2,7 +2,7 @@ use smallvec::ToSmallVec;
 
 use super::*;
 
-#[salsa::tracked(jar = DeclarativeTypeJar)]
+// #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn fugitive_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: FugitivePath,
@@ -14,6 +14,8 @@ pub fn fugitive_path_declarative_ty(
     let Ok(variances) = form_item_variances(db, path) else {
         todo!()
     };
+    // ad hoc
+    let variances = &variances;
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match signature {
         FugitiveDeclarativeSignatureTemplate::FunctionFn(signature) => {

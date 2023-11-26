@@ -12,7 +12,7 @@ use crate::*;
 use husky_coword::Label;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 #[enum_class::from_variants]
 pub enum TokenData {
     Keyword(Keyword),

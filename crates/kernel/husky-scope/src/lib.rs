@@ -5,13 +5,13 @@ mod visibility;
 pub use self::visibility::*;
 
 use husky_regional_token::RegionalTokenIdxRange;
-use husky_vfs::{ModulePath, VfsDb};
+use husky_vfs::{ModulePath, VfsDb, VfsJar};
 use std::cmp::Ordering;
 use with_db::PartialOrdWithDb;
 
 /// Visibility is greater if it can be accessed from more places
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = VfsDb)]
+#[salsa::debug_with_db(db = VfsDb, jar = VfsJar)]
 pub enum Scope {
     Pub,                  // everyone can access it
     PubUnder(ModulePath), // everyone under a path can access it

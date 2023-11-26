@@ -4,7 +4,7 @@ use husky_entity_kind::TypeKind;
 use husky_token::PathNameToken;
 
 #[derive(Debug)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub(crate) enum PresheetAction {
     ResolveUseExpr {
         module_path: ModulePath,

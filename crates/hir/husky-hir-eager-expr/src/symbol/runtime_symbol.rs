@@ -6,14 +6,14 @@ use husky_syn_expr::{
 use idx_arena::ArenaIdx;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirEagerExprDb)]
+#[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
 pub struct HirEagerRuntimeSymbolRegionData {
     arena: HirEagerRuntimeSymbolArena,
     self_value_variable: Option<HirEagerRuntimeSymbolIdx>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirEagerExprDb)]
+#[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
 pub struct HirEagerRuntimeSymbolEntry {
     name: HirEagerRuntimeSymbolName,
     data: HirEagerRuntimeSymbolData,
@@ -23,14 +23,14 @@ pub type HirEagerRuntimeSymbolArena = Arena<HirEagerRuntimeSymbolEntry>;
 pub type HirEagerRuntimeSymbolIdx = ArenaIdx<HirEagerRuntimeSymbolEntry>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirEagerExprDb)]
+#[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
 pub enum HirEagerRuntimeSymbolName {
     SelfValue,
     Ident(Ident),
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirEagerExprDb)]
+#[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
 pub enum HirEagerRuntimeSymbolData {
     SelfValue,
     ParenateParameter,

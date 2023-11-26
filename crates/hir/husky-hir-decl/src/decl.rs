@@ -28,18 +28,18 @@ impl HasHirDecl for ItemPath {
 
     fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         Some(match self {
-            ItemPath::Submodule(path) => path.hir_decl(db)?.into(),
+            ItemPath::Submodule(_, path) => path.hir_decl(db)?.into(),
             ItemPath::MajorItem(path) => path.hir_decl(db)?.into(),
             ItemPath::AssociatedItem(path) => path.hir_decl(db)?.into(),
-            ItemPath::TypeVariant(path) => path.hir_decl(db)?.into(),
+            ItemPath::TypeVariant(_, path) => path.hir_decl(db)?.into(),
             ItemPath::ImplBlock(path) => path.hir_decl(db)?.into(),
-            ItemPath::Attr(_) => todo!(),
+            ItemPath::Attr(_, _) => todo!(),
         })
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = HirDeclDb)]
+#[salsa::debug_with_db(db = HirDeclDb, jar = HirDeclJar)]
 #[enum_class::from_variants]
 pub enum HirDecl {
     Submodule(SubmoduleHirDecl),

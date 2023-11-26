@@ -4,7 +4,7 @@ use husky_vfs::{error::VfsError, *};
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum PreludeError {
     #[error("{0}")]
     Toolchain(#[from] ToolchainError),

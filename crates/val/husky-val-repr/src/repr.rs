@@ -48,7 +48,7 @@ impl ValRepr {
     }
 }
 
-#[salsa::tracked(jar = ValReprJar)]
+// #[salsa::tracked(jar = ValReprJar)]
 fn val_item_val_repr(db: &dyn ValReprDb, path: FugitivePath) -> ValRepr {
     let domain = ValDomainRepr::Omni;
     let opr = ValOpn::ValItem(path);

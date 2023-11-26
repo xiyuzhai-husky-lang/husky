@@ -15,7 +15,7 @@ pub struct EtherealSignatureJar(
     TypeMemoizedFieldEtherealSignatureTemplate,
     TypeAssociatedFnEtherealSignatureTemplate,
     TypeAssociatedTypeEtherealSignatureTemplate,
-    ty_item_ethereal_signature_template,
+    // ty_item_ethereal_signature_template,
     // - trait items
     TraitAssociatedFnEtherealSignatureTemplate,
     TraitMethodFnEtherealSignatureTemplate,
@@ -24,7 +24,7 @@ pub struct EtherealSignatureJar(
     TraitForTypeAssociatedValEtherealSignatureTemplate,
     TraitForTypeAssociatedTypeEtherealSignatureTemplate,
     TraitForTypeAssociatedTypeEtherealSignatureBuilder,
-    trai_for_ty_item_ethereal_signature_template,
+    // trai_for_ty_item_ethereal_signature_template,
     trai_for_ty_associated_ty_ethereal_signature_signature_builder_try_into_signature,
     TraitForTypeMethodFnEtherealSignatureTemplate,
     TraitForTypeMethodFnEtherealSignatureBuilder,
@@ -33,7 +33,7 @@ pub struct EtherealSignatureJar(
     TraitEtherealSignatureTemplate,
     trai_ethereal_signature_template,
     // fugitive
-    fugitive_ethereal_signature_template,
+    // fugitive_ethereal_signature_template,
     FunctionFnEtherealSignatureTemplate,
     GnFugitiveEtherealSignatureTemplate,
     TypeAliasEtherealSignatureTemplate,
@@ -69,7 +69,7 @@ pub struct EtherealSignatureJar(
     trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template,
     // attr
     signature::ty_path_derive_attr_ethereal_signature_templates_map,
-    attr_ethereal_signature_template,
+    // attr_ethereal_signature_template,
     DeriveAttrEtherealSignatureTemplate,
     DeriveAttrShardEtherealSignatureTemplate
 );

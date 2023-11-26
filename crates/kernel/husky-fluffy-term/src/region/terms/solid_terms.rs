@@ -4,7 +4,7 @@ use vec_like::{AsVecMapEntry, VecMap, VecSet};
 
 // `Default` is not implemented because we might need to initialize it from the parent
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct SolidTerms {
     entries: VecSet<SolidTermData>,
 }
@@ -30,7 +30,7 @@ impl SolidTerms {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct SolidTerm(u32);
 
 impl SolidTerm {

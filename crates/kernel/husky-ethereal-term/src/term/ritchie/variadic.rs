@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EtherealTermDb)]
+#[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealRitchieVariadicParameter {
     contract: Contract,
     ty: EtherealTerm,

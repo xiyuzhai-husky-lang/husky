@@ -5,7 +5,7 @@ use husky_opr::BinaryComparisonOpr;
 use husky_regional_token::RegionalTokenIdx;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SemaExprDb)]
+#[salsa::debug_with_db(db = SemaExprDb, jar = SemaExprJar)]
 pub struct SemaForBetweenParticulars {
     for_between_loop_var_regional_token_idx: RegionalTokenIdx,
     for_between_loop_var_ident: Ident,
@@ -109,7 +109,7 @@ impl<'a> SemaExprEngine<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SemaExprDb)]
+#[salsa::debug_with_db(db = SemaExprDb, jar = SemaExprJar)]
 pub struct SemaForBetweenRange {
     pub initial_boundary: SemaForBetweenLoopBoundary,
     pub final_boundary: SemaForBetweenLoopBoundary,

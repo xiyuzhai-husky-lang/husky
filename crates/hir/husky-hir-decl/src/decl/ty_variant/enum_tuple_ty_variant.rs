@@ -11,7 +11,7 @@ pub struct EnumTupleVariantHirDecl {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDeclDb)]
+#[salsa::debug_with_db(db = HirDeclDb, jar = HirDeclJar)]
 pub struct EnumTupleVariantField {
     ty: HirType,
 }

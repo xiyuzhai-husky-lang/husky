@@ -9,7 +9,7 @@ use std::sync::Arc;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EtherealTermDb)]
+#[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
 pub enum EtherealTermError {
     #[error("EtherealTerm Error: term is not reduced")]
     TermIsNotReduced,

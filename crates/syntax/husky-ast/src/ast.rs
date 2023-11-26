@@ -2,7 +2,7 @@ use crate::*;
 
 /// syntax tree down to TokenGroup level
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb, jar = AstJar)]
 pub enum Ast {
     Err {
         token_group_idx: TokenGroupIdx,

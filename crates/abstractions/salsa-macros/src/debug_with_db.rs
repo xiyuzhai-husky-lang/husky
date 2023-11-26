@@ -17,14 +17,16 @@ pub(crate) fn debug_with_db(
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let options = syn::parse_macro_input!(args as Args);
-    let db_path = match options.db_trai {
-        Some(db_path) => db_path,
-        None => panic!("no `db` specified"),
+    let Some(ref db_path) = options.db_trai else {
+        panic!("no `db` specified")
+    };
+    let Some(ref jar_ty) = options.jar_ty else {
+        panic!("no `jar` specified")
     };
     let item = syn::parse_macro_input!(input as Item);
     let impl_debug_with_db = match item {
-        Item::Enum(ref item) => enum_debug_with_db_impl(&db_path, item),
-        Item::Struct(ref item) => struct_debug_with_db_impl(&db_path, item),
+        Item::Enum(ref item) => enum_debug_with_db_impl(db_path, jar_ty, item),
+        Item::Struct(ref item) => struct_debug_with_db_impl(db_path, jar_ty, item),
         _ => panic!("expect enum or struct for `derive_debug_with_db`"),
     };
     quote! {

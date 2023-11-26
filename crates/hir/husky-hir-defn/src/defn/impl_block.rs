@@ -8,7 +8,7 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
-#[salsa::debug_with_db(db = HirDefnDb)]
+#[salsa::debug_with_db(db = HirDefnDb, jar = HirDefnJar)]
 pub enum ImplBlockHirDefn {
     Type(TypeImplBlockHirDefn),
     TraitForType(TraitForTypeImplBlockHirDefn),

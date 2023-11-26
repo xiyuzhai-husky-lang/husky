@@ -42,7 +42,7 @@ where
 
 /// wrapper type that guarantees that the inner field is a submodule
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = VfsDb)]
+#[salsa::debug_with_db(db = VfsDb, jar = VfsJar)]
 #[salsa::as_id(jar = VfsJar)]
 #[salsa::deref_id]
 pub struct SubmodulePath(ModulePath);

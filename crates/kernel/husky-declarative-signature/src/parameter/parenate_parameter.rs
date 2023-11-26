@@ -2,7 +2,7 @@ use super::*;
 use either::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct DeclarativeParenateParameters {
     data: SmallVec<[DeclarativeRitchieParameter; 4]>,
 }

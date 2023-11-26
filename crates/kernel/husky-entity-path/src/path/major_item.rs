@@ -13,7 +13,7 @@ use crate::*;
 use utils::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 #[enum_class::from_variants]
 pub enum MajorItemPath {
     Type(TypePath),
@@ -30,7 +30,7 @@ impl std::ops::Deref for MajorItemPath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 #[enum_class::from_variants]
 pub enum MajorItemPathData {
     Type(TypePathData),

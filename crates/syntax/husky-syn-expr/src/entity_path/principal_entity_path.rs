@@ -2,7 +2,7 @@ use super::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx};
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub enum SynPrincipalEntityPathExpr {
     Root {
         path_name_token: PathNameRegionalToken,

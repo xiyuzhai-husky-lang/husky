@@ -5,7 +5,7 @@ use husky_term_prelude::TermEntityPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
-#[salsa::debug_with_db(db = HirTypeDb)]
+#[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
 pub enum HirTemplateArgument {
     /// `Vacant` is used to repr abstract types
     ///

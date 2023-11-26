@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-// #[salsa::debug_with_db(db = EntitySynTreeDb)]
+// #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct SelfValueParameterSyndicate {
     ephem_symbol_modifier_token_group: Option<EphemSymbolModifierRegionalTokens>,
     self_value_token: SelfValueRegionalToken,

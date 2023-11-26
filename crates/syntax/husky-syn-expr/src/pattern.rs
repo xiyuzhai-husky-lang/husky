@@ -15,7 +15,7 @@ use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, Ar
 use parsec::{IsStreamParser, PunctuatedSmallList, TryParseOptionFromStream};
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub enum SynPatternExpr {
     /// example: `1`
     Literal {

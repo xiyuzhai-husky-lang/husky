@@ -19,7 +19,7 @@ use husky_hir_decl::parameter::template::HirTemplateParameter;
 use husky_hir_eager_expr::helpers::hir_eager_body_with_expr_region;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDefnDb)]
+#[salsa::debug_with_db(db = HirDefnDb, jar = HirDefnJar)]
 #[enum_class::from_variants]
 pub enum HirDefn {
     Submodule(SubmoduleHirDefn),
@@ -115,12 +115,12 @@ impl HasHirDefn for ItemPath {
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
         Some(match self {
-            ItemPath::Submodule(path) => path.hir_defn(db)?.into(),
+            ItemPath::Submodule(_, path) => path.hir_defn(db)?.into(),
             ItemPath::MajorItem(path) => path.hir_defn(db)?.into(),
             ItemPath::ImplBlock(path) => path.hir_defn(db)?.into(),
             ItemPath::AssociatedItem(path) => path.hir_defn(db)?.into(),
-            ItemPath::TypeVariant(path) => path.hir_defn(db)?.into(),
-            ItemPath::Attr(_) => todo!(),
+            ItemPath::TypeVariant(_, path) => path.hir_defn(db)?.into(),
+            ItemPath::Attr(_, _) => todo!(),
         })
     }
 }

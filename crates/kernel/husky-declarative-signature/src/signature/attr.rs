@@ -22,7 +22,7 @@ impl HasDeclarativeSignatureTemplate for AttrItemPath {
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
+// #[salsa::tracked(jar = DeclarativeSignatureJar)]
 fn attr_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: AttrItemPath,

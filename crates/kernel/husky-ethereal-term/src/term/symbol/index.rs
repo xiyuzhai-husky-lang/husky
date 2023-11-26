@@ -30,7 +30,7 @@ pub enum EtherealTemplateSymbolAttr {
 
 /// wrapper so such the construction is private
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EtherealTermDb)]
+#[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealTermSymbolIndex(EtherealTermSymbolIndexInner);
 
 impl EtherealTermSymbolIndex {
@@ -165,7 +165,7 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EtherealTermDb)]
+#[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
 #[repr(u8)]
 pub enum EtherealTermSymbolIndexInner {
     ExplicitLifetime {

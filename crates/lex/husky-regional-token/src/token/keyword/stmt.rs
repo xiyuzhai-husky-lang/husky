@@ -3,7 +3,7 @@ use super::*;
 // let
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct LetRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -15,7 +15,7 @@ impl LetRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct ReturnRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -27,7 +27,7 @@ impl ReturnRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct RequireRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -39,7 +39,7 @@ impl RequireRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct AssertRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -51,7 +51,7 @@ impl AssertRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct BreakRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -63,7 +63,7 @@ impl BreakRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct StmtForRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -75,7 +75,7 @@ impl StmtForRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct ForextRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -87,7 +87,7 @@ impl ForextRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct WhileRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -99,7 +99,7 @@ impl WhileRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct DoRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -111,7 +111,7 @@ impl DoRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 #[enum_class::from_variants]
 pub enum BasicStmtKeywordRegionalToken {
     Let(LetRegionalToken),
@@ -208,7 +208,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct MatchRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -242,7 +242,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct IfRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -282,7 +282,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct ElifRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -322,7 +322,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct ElseRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }

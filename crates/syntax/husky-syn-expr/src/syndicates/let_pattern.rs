@@ -3,7 +3,7 @@ use parsec::HasStreamState;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-// #[salsa::debug_with_db(db = EntitySynTreeDb)]
+// #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct LetPatternSynSyndicate {
     syn_pattern_expr_root: LetSynPatternExprRoot,
     variables: CurrentSynSymbolIdxRange,

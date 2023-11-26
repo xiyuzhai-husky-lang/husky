@@ -38,7 +38,7 @@ pub struct DeclarativeSignatureJar(
     trai_syn_declarative_signature_template,
     // fugitive
     // fugitive_signature,
-    fugitive_syn_declarative_signature_template,
+    // fugitive_syn_declarative_signature_template,
     ValFugitiveDeclarativeSignatureTemplate,
     FnFugitiveDeclarativeSignatureTemplate,
     GnFugitiveDeclarativeSignatureTemplate,
@@ -57,7 +57,7 @@ pub struct DeclarativeSignatureJar(
     // associated items
     // associated_item_syn_declarative_signature_from_decl,
     // type item
-    ty_item_syn_declarative_signature_template,
+    // ty_item_syn_declarative_signature_template,
     TypeAssociatedFnDeclarativeSignatureTemplate,
     TypeMethodFnDeclarativeSignatureTemplate,
     TypeMethodFunctionDeclarativeSignatureTemplate,
@@ -65,19 +65,19 @@ pub struct DeclarativeSignatureJar(
     TypeAssociatedValDeclarativeSignatureTemplate,
     TypeMemoizedFieldDeclarativeSignatureTemplate,
     // trait item
-    trai_item_syn_declarative_signature_template,
+    // trai_item_syn_declarative_signature_template,
     TraitAssociatedFnDeclarativeSignatureTemplate,
     TraitMethodFnDeclarativeSignatureTemplate,
     TraitAssociatedTypeDeclarativeSignatureTemplate,
     TraitAssociatedValDeclarativeSignatureTemplate,
     // type as trait item
-    trai_for_ty_item_syn_declarative_signature_from_decl,
+    // trai_for_ty_item_syn_declarative_signature_from_decl,
     TraitForTypeAssociatedFnDeclarativeSignatureTemplate,
     TraitForTypeMethodFnDeclarativeSignatureTemplate,
     TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
     TraitForTypeAssociatedValDeclarativeSignatureTemplate,
     // attr
-    attr_declarative_signature_template,
+    // attr_declarative_signature_template,
     DeriveAttrDeclarativeSignatureTemplate,
     DeriveAttrShardDeclarativeSignatureTemplate,
 );

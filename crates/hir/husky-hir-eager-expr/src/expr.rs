@@ -19,7 +19,7 @@ pub type HirEagerExprIdxRange = ArenaIdxRange<HirEagerExprData>;
 pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprData, V>;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = HirEagerExprDb)]
+#[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
 pub enum HirEagerExprData {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),

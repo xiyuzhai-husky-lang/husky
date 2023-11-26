@@ -38,7 +38,7 @@ impl TupleStructTypeEtherealSignatureTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TupleFieldEtherealSignatureTemplate {
     ty: EtherealTerm,
 }
@@ -75,7 +75,7 @@ impl TupleFieldEtherealSignatureTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TupleStructFieldEtherealSignature {
     ty: EtherealTerm,
 }

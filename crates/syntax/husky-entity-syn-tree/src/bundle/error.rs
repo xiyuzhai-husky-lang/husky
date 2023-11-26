@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum EntityTreeBundleError {
     #[error("from toolchain error")]
     Toolchain(#[from] ToolchainError),

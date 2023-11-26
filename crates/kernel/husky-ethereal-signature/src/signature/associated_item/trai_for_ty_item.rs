@@ -71,7 +71,7 @@ impl HasEtherealSignatureTemplate for TraitForTypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar)]
+// #[salsa::tracked(jar = EtherealSignatureJar)]
 fn trai_for_ty_item_ethereal_signature_template(
     db: &dyn EtherealSignatureDb,
     path: TraitForTypeItemPath,

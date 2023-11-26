@@ -9,7 +9,7 @@ pub use self::branch_stmt::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = HirLazyExprDb)]
+#[salsa::debug_with_db(db = HirLazyExprDb, jar = HirLazyExprJar)]
 pub enum HirLazyStmt {
     Let {
         pattern: HirLazyLetVariablesPattern,
@@ -101,7 +101,7 @@ impl ToHirLazy for SemaStmtIdx {
                     .as_ref()
                     .map(|else_branch| else_branch.to_hir_lazy(builder)),
             },
-            SemaStmtData::Match {  .. } => todo!(),
+            SemaStmtData::Match { .. } => todo!(),
         })
     }
 }

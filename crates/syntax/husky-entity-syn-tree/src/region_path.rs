@@ -5,7 +5,7 @@ use husky_vfs::error::VfsResult;
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum SynNodeRegionPath {
     Snippet(ModulePath),
     Decl(ItemSynNodePath),

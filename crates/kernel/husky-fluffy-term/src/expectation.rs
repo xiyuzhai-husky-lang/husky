@@ -31,7 +31,7 @@ use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
 #[non_exhaustive]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 #[enum_class::from_variants]
 pub enum Expectation {
     ExplicitlyConvertible(ExpectCasting),
@@ -152,7 +152,7 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
 pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 #[enum_class::from_variants]
 pub enum FluffyTermExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
@@ -181,7 +181,7 @@ impl FluffyTermExpectationOutcome {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum ExpectationProgress {
     Intact,
     Holed,
@@ -199,7 +199,7 @@ impl ExpectationProgress {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum FluffyTermExpectationError {
     #[error("original {0}")]
     Original(#[from] OriginalFluffyTermExpectationError),
@@ -210,7 +210,7 @@ pub enum FluffyTermExpectationError {
 pub type FluffyTermExpectationResult<T> = Result<T, FluffyTermExpectationError>;
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum OriginalFluffyTermExpectationError {
     #[error("type path mismatch for subtyping")]
     TypePathMismatchForSubtyping {
@@ -244,7 +244,7 @@ pub enum OriginalFluffyTermExpectationError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum DerivedFluffyTermExpectationError {
     #[error("{term:?} {error}")]
     TermTypeError {

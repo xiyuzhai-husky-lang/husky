@@ -235,7 +235,7 @@ impl<Jar> crate::storage::DbWithJar<Jar> for TestDb
 where
     Jar: crate::test_utils::HasTestJarIndex + Sync + Send + 'static,
 {
-    fn as_jar_db<'db>(&'db self) -> &'db <Jar as crate::jar::Jar<'db>>::DynDb
+    fn as_jar_db<'db>(&self) -> &<Jar as crate::jar::Jar<'db>>::DynDb
     where
         Jar: crate::jar::Jar<'db>,
     {

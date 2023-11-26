@@ -9,7 +9,7 @@ pub use ty_item::*;
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 #[enum_class::from_variants]
 pub enum AssociatedItemPath {
     TypeItem(TypeItemPath),
@@ -26,7 +26,7 @@ impl std::ops::Deref for AssociatedItemPath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 #[enum_class::from_variants]
 pub enum AssociatedItemPathData {
     TypeItem(TypeItemPathData),

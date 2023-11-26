@@ -30,20 +30,21 @@ pub(crate) fn item_variance_reprs(
 ) -> VarianceResultRef<&[VarianceRepr]> {
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match path {
-        ItemPath::Submodule(_) => todo!(),
+        ItemPath::Submodule(_, _) => todo!(),
         ItemPath::MajorItem(path) => match path {
             MajorItemPath::Type(path) => ty_template_parameter_variance_reprs(db, path),
             MajorItemPath::Trait(path) => trai_item_variance_reprs(db, path),
-            MajorItemPath::Fugitive(path) => form_item_variance_reprs(db, path),
+            MajorItemPath::Fugitive(path) => todo!(), // form_item_variance_reprs(db, path),
         },
-        ItemPath::AssociatedItem(path) => match path {
-            AssociatedItemPath::TypeItem(path) => ty_item_item_variance_reprs(db, path),
-            AssociatedItemPath::TraitItem(_) => todo!(),
-            AssociatedItemPath::TraitForTypeItem(_) => todo!(),
-        },
-        ItemPath::TypeVariant(_) => todo!(),
+        ItemPath::AssociatedItem(path) => todo!(),
+        // match path {
+        //     AssociatedItemPath::TypeItem(path) => ty_item_item_variance_reprs(db, path),
+        //     AssociatedItemPath::TraitItem(_) => todo!(),
+        //     AssociatedItemPath::TraitForTypeItem(_) => todo!(),
+        // },
+        ItemPath::TypeVariant(_, _) => todo!(),
         ItemPath::ImplBlock(_) => todo!(),
-        ItemPath::Attr(_) => todo!(),
+        ItemPath::Attr(_, _) => todo!(),
     }
     .as_ref()
     .map(|t| t.as_ref())
@@ -130,7 +131,7 @@ pub(crate) fn trai_item_variance_reprs(
     Ok(reprs)
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+// #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: FugitivePath,
@@ -156,7 +157,7 @@ pub(crate) fn form_item_variance_reprs(
     Ok(reprs)
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+// #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn ty_item_item_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: TypeItemPath,

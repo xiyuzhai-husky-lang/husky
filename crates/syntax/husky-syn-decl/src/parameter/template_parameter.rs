@@ -4,7 +4,7 @@ use parsec::parse_separated_small2_list_expected;
 pub(crate) type TemplateSynParametersData = SmallVec<[TemplateSynParameterData; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb, jar = SynDeclJar)]
 pub struct SynTemplateParameterSyndicateList {
     langle: LaOrLtRegionalToken,
     template_parameters: TemplateSynParametersData,

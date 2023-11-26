@@ -9,7 +9,7 @@ pub struct SynExprRegion {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub struct SynExprRegionData {
     parent: Option<SynExprRegion>,
     path: SynNodeRegionPath,

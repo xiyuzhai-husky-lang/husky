@@ -3,7 +3,7 @@ use husky_token_data::db::HasTokenDataDb;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct IdentToken {
     pub(in crate::helpers) ident: Ident,
     pub(in crate::helpers) token_idx: TokenIdx,
@@ -96,7 +96,7 @@ fn underscore_token_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub enum AttrIdentToken {
     Derive(DeriveToken),
 }

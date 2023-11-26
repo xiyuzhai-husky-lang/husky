@@ -9,7 +9,7 @@ use original_error::OriginalError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb, jar = SynDeclJar)]
 pub enum SynNodeDeclError {
     #[error("{0}")]
     Original(#[from] OriginalSynNodeDeclError),
@@ -42,7 +42,7 @@ impl From<SynExprError> for SynNodeDeclError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb, jar = SynDeclJar)]
 pub enum OriginalSynNodeDeclError {
     #[error("derived {0}")]
     Expr(#[from] OriginalSynExprError),
@@ -86,7 +86,7 @@ impl OriginalError for OriginalSynNodeDeclError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb, jar = SynDeclJar)]
 pub enum DerivedSynNodeDeclError {
     #[error("{0}")]
     ExprError(#[from] DerivedSynExprError),
@@ -95,7 +95,7 @@ pub enum DerivedSynNodeDeclError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb, jar = SynDeclJar)]
 pub enum DeclError {
     #[error("declaration expression error")]
     NodeDecl,

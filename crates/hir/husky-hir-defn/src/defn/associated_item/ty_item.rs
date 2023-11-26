@@ -13,7 +13,7 @@ pub use self::method_fn::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDefnDb)]
+#[salsa::debug_with_db(db = HirDefnDb, jar = HirDefnJar)]
 #[enum_class::from_variants]
 pub enum TypeItemHirDefn {
     AssociatedFn(TypeAssociatedFnHirDefn),
@@ -97,7 +97,7 @@ impl HasHirDefn for TypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+// #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn ty_item_hir_defn(db: &dyn HirDefnDb, path: TypeItemPath) -> Option<TypeItemHirDefn> {
     match path.hir_decl(db)? {
         TypeItemHirDecl::AssociatedFn(hir_decl) => {
