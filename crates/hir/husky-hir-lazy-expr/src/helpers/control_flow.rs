@@ -28,10 +28,7 @@ impl std::ops::Index<HirLazyStmtIdx> for HirLazyExprRegionControlFlowChart {
 }
 
 impl HirLazyExprRegion {
-    pub fn control_flow<'a>(
-        self,
-        db: &'a dyn HirLazyExprDb,
-    ) -> &'a HirLazyExprRegionControlFlowChart {
+    pub fn control_flow<'a>(self, db: &'a ::salsa::Db) -> &'a HirLazyExprRegionControlFlowChart {
         hir_lazy_expr_region_control_flow(db, self)
     }
 }
@@ -75,7 +72,7 @@ impl FromResidual<HasControlFlowR> for HasControlFlow {
 
 #[salsa::tracked(jar = HirLazyExprJar, return_ref)]
 fn hir_lazy_expr_region_control_flow(
-    db: &dyn HirLazyExprDb,
+    db: &::salsa::Db,
     hir_lazy_expr_region: HirLazyExprRegion,
 ) -> HirLazyExprRegionControlFlowChart {
     let mut builder = HirLazyExprControlFlowRegionBuilder::new(hir_lazy_expr_region, db);
@@ -92,7 +89,7 @@ struct HirLazyExprControlFlowRegionBuilder<'a> {
 }
 
 impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
-    fn new(hir_lazy_expr_region: HirLazyExprRegion, db: &'a dyn HirLazyExprDb) -> Self {
+    fn new(hir_lazy_expr_region: HirLazyExprRegion, db: &'a ::salsa::Db) -> Self {
         let hir_lazy_expr_region_data = hir_lazy_expr_region.data(db);
         Self {
             hir_lazy_expr_region_data,

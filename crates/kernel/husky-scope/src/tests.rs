@@ -5,7 +5,7 @@ use husky_vfs::VfsJar;
 use crate::*;
 use with_db::WithDb;
 
-#[salsa::test_db(CowordJar, VfsJar)]
+#[salsa::db(CowordJar, VfsJar)]
 #[derive(Default)]
 pub(crate) struct DB;
 

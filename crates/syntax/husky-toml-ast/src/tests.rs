@@ -5,7 +5,7 @@ use husky_coword::CowordJar;
 use husky_toml_token::TomlTokenJar;
 use husky_vfs::*;
 
-#[salsa::test_db(CowordJar, VfsJar, TomlTokenJar, TomlAstJar)]
+#[salsa::db(CowordJar, VfsJar, TomlTokenJar, TomlAstJar)]
 struct DB;
 
 #[test]

@@ -1,13 +1,13 @@
 pub mod control_flow;
 
 use crate::*;
-use husky_sema_expr::SemaExprRegion;
+use husky_sema_expr::{SemaExprDb, SemaExprRegion};
 use husky_syn_expr::{SynExprIdx, SynExprRegion};
 
 #[inline(always)]
 pub fn hir_lazy_body_with_expr_region(
     body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
-    db: &dyn HirLazyExprDb,
+    db: &::salsa::Db,
 ) -> Option<(HirLazyExprIdx, HirLazyExprRegion)> {
     let (body, syn_expr_region) = body_with_syn_expr_region?;
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
@@ -23,7 +23,7 @@ pub fn hir_lazy_body_with_expr_region(
 
 pub fn hir_lazy_expr_region_from_syn(
     syn_expr_region: SynExprRegion,
-    db: &dyn HirLazyExprDb,
+    db: &::salsa::Db,
 ) -> HirLazyExprRegion {
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
     hir_lazy_expr_region_from_sema(sema_expr_region, db)
@@ -31,7 +31,7 @@ pub fn hir_lazy_expr_region_from_syn(
 
 pub fn hir_lazy_expr_region_from_sema(
     sema_expr_region: SemaExprRegion,
-    db: &dyn HirLazyExprDb,
+    db: &::salsa::Db,
 ) -> HirLazyExprRegion {
     hir_lazy_expr_region_with_source_map(db, sema_expr_region).0
 }

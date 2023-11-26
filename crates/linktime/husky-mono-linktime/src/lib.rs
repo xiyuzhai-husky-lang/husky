@@ -5,25 +5,22 @@ mod tests;
 use self::internal::MonoLinkTimeInternal;
 #[cfg(test)]
 use self::tests::*;
-use husky_linkage::{db::LinkageDb, linkage::Linkage};
-use husky_rust_transpilation::db::RustTranspilationDb;
+use husky_linkage::linkage::Linkage;
 use husky_task::link::{IsLinkageImpl, IsLinktime};
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use std::{collections::HashMap, marker::PhantomData};
 
 // this will transpile everything compilable to Rust
 // then use rustc to obtain a single dylib
-pub struct MonoLinkTime<Db, LinkageImpl>
+pub struct MonoLinkTime<LinkageImpl>
 where
-    Db: RustTranspilationDb,
     LinkageImpl: IsLinkageImpl,
 {
-    internal: std::sync::RwLock<MonoLinkTimeInternal<Db, LinkageImpl>>,
+    internal: std::sync::RwLock<MonoLinkTimeInternal<LinkageImpl>>,
 }
 
-impl<Db, LinkageImpl> IsLinktime<Db> for MonoLinkTime<Db, LinkageImpl>
+impl<LinkageImpl> IsLinktime for MonoLinkTime<LinkageImpl>
 where
-    Db: RustTranspilationDb,
     LinkageImpl: IsLinkageImpl,
 {
     type LinkageImpl = LinkageImpl;

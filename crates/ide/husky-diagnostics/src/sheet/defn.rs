@@ -9,7 +9,7 @@ pub struct DefnDiagnosticSheet {
 
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn defn_diagnostic_sheet(
-    db: &dyn DiagnosticsDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> DefnDiagnosticSheet {
     let mut sheet_collector = ModuleDiagnosticsCollector::new(db, module_path);

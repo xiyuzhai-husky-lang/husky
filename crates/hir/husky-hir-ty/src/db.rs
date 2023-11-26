@@ -3,17 +3,13 @@ use crate::{
     trai::HirTrait,
     *,
 };
-use husky_ethereal_signature::EtherealSignatureDb;
 use husky_vfs::Toolchain;
 
-pub trait HirTypeDb: salsa::DbWithJar<HirTypeJar> + EtherealSignatureDb {
+pub trait HirTypeDb {
     fn hir_ty_menu(&self, toolchain: Toolchain) -> &HirTypeMenu;
 }
 
-impl HirTypeDb for Db
-where
-    Db: salsa::DbWithJar<HirTypeJar> + EtherealSignatureDb,
-{
+impl HirTypeDb for ::salsa::Db {
     fn hir_ty_menu(&self, toolchain: Toolchain) -> &HirTypeMenu {
         hir_ty_menu(self, toolchain)
     }

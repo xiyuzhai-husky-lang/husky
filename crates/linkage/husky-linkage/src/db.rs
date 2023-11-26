@@ -1,10 +1,4 @@
 use crate::*;
-use husky_entity_path::EntityPathDb;
-use husky_hir_defn::db::HirDefnDb;
-
-pub trait LinkageDb: salsa::DbWithJar<LinkageJar> + EntityPathDb + HirDefnDb {}
-
-impl LinkageDb for Db where Db: salsa::DbWithJar<LinkageJar> + EntityPathDb + HirDefnDb {}
 
 #[salsa::jar(db = LinkageDb)]
 pub struct LinkageJar(

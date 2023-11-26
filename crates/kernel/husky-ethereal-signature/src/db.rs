@@ -1,9 +1,5 @@
 use crate::*;
 
-pub trait EtherealSignatureDb: salsa::DbWithJar<EtherealSignatureJar> + EtherealTermDb {}
-
-impl EtherealSignatureDb for Db where Db: salsa::DbWithJar<EtherealSignatureJar> + EtherealTermDb {}
-
 #[salsa::jar(db = EtherealSignatureDb)]
 pub struct EtherealSignatureJar(
     // associated_items

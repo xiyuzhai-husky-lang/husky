@@ -171,7 +171,6 @@ impl salsa::DisplayWithDb for EtherealTermRitchie {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        let db = db();
         f.write_str(self.ritchie_kind(db).code())?;
         f.write_str("(")?;
         for (i, parameter_ty) in self.parameter_contracted_tys(db).iter().enumerate() {

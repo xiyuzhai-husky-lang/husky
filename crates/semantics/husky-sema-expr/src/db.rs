@@ -1,14 +1,11 @@
 use crate::*;
 
-pub trait SemaExprDb: salsa::DbWithJar<SemaExprJar> + FluffyTermDb + SynDefnDb {
+pub trait SemaExprDb {
     // todo: move this somewhere else
     fn sema_expr_region(&self, syn_expr_region: SynExprRegion) -> SemaExprRegion;
 }
 
-impl SemaExprDb for Db
-where
-    Db: salsa::DbWithJar<SemaExprJar> + FluffyTermDb + SynDefnDb,
-{
+impl SemaExprDb for ::salsa::Db {
     fn sema_expr_region(&self, syn_expr_region: SynExprRegion) -> SemaExprRegion {
         sema_expr_region(self, syn_expr_region)
     }

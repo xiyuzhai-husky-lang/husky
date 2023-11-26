@@ -67,7 +67,6 @@ impl salsa::DisplayWithDb for EtherealTermSymbol {
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         // ad hoc
-        let db = db();
         f.write_fmt(format_args!("${:?}", self.index(db)))
     }
 }

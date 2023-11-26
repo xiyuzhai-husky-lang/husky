@@ -18,7 +18,7 @@ use husky_syn_expr::{
 use salsa::DebugWithDb;
 
 pub(crate) struct HirEagerExprBuilder<'a> {
-    db: &'a dyn HirEagerExprDb,
+    db: &'a ::salsa::Db,
     syn_expr_region_data: &'a SynExprRegionData,
     sema_expr_region_data: &'a SemaExprRegionData,
     hir_eager_expr_arena: HirEagerExprArena,
@@ -33,7 +33,7 @@ pub(crate) struct HirEagerExprBuilder<'a> {
 }
 
 impl<'a> HirEagerExprBuilder<'a> {
-    fn new(db: &'a dyn HirEagerExprDb, sema_expr_region: SemaExprRegion) -> Self {
+    fn new(db: &'a ::salsa::Db, sema_expr_region: SemaExprRegion) -> Self {
         let syn_expr_region_data = sema_expr_region.syn_expr_region(db).data(db);
         let sema_expr_region_data = sema_expr_region.data(db);
         let syn_to_hir_eager_pattern_expr_idx_map =
@@ -164,7 +164,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         format!("{:?}", self.syn_expr_region_data.path().debug(self.db))
     }
 
-    pub fn db(&self) -> &'a dyn HirEagerExprDb {
+    pub fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
 
@@ -246,7 +246,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 
 #[salsa::tracked(jar = HirEagerExprJar)]
 pub fn hir_eager_expr_region_with_source_map(
-    db: &dyn HirEagerExprDb,
+    db: &::salsa::Db,
     sema_expr_region: SemaExprRegion,
 ) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
     let builder = HirEagerExprBuilder::new(db, sema_expr_region);
@@ -255,7 +255,7 @@ pub fn hir_eager_expr_region_with_source_map(
 
 // #[salsa::tracked(jar = HirEagerExprJar)]
 // pub fn hir_eager_expr_region(
-//     db: &dyn HirEagerExprDb,
+//     db: &::salsa::Db,
 //     sema_expr_region: SemaExprRegion,
 // ) -> HirEagerExprRegion {
 //     hir_eager_expr_region_with_source_map(db, sema_expr_region).0

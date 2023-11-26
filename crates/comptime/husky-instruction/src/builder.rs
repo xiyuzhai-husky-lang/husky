@@ -6,7 +6,7 @@
 use crate::*;
 
 // pub fn new_visual_instruction_sheet(
-//     db: &dyn InstructionDb,
+//     db: &::salsa::Db,
 //     stmts: &[HirEagerStmtIdx],
 // ) -> InstructionRegion {
 //     let mut builder = InstructionSheetBuilder::new(db, [].into_iter(), true);
@@ -15,7 +15,7 @@ use crate::*;
 // }
 
 // pub fn new_func_instruction_sheet(
-//     db: &dyn InstructionDb,
+//     db: &::salsa::Db,
 //     inputs: impl Iterator<Item = Ident>,
 //     stmts: &[HirEagerStmtIdx],
 //     has_this: bool,
@@ -26,7 +26,7 @@ use crate::*;
 // }
 
 // pub fn new_proc_instruction_sheet(
-//     db: &dyn InstructionDb,
+//     db: &::salsa::Db,
 //     inputs: impl Iterator<Item = Ident>,
 //     stmts: &[HirEagerStmtIdx],
 //     has_this: bool,
@@ -37,13 +37,13 @@ use crate::*;
 // }
 
 pub(crate) struct InstructionBuilder<'a> {
-    db: &'a dyn InstructionDb,
+    db: &'a ::salsa::Db,
     // sheet: Instructions,
     // context: LocalValue<InstructionGenContext>,
 }
 
 impl<'a> InstructionBuilder<'a> {
-    fn new(db: &'a dyn InstructionDb, inputs: impl Iterator<Item = Ident>, has_this: bool) -> Self {
+    fn new(db: &'a ::salsa::Db, inputs: impl Iterator<Item = Ident>, has_this: bool) -> Self {
         Self {
             db,
             // sheet: Instructions::new(inputs, has_this),

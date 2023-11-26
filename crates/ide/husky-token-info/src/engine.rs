@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{Ast, AstSheet};
+use husky_ast::{Ast, AstDb, AstSheet};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxBase};
 use husky_sema_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::HasSynNodeDecl;
@@ -12,11 +12,13 @@ use husky_entity_syn_tree::{
     },
     ParentUseExpr,
 };
-use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr};
+use husky_sema_expr::{
+    SemaExprData, SemaExprDb, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr,
+};
 use husky_syn_expr::*;
 
 pub(crate) struct TokenInfoEngine<'a> {
-    db: &'a dyn TokenInfoDb,
+    db: &'a ::salsa::Db,
     module_path: ModulePath,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
@@ -27,10 +29,7 @@ pub(crate) struct TokenInfoEngine<'a> {
 }
 
 impl<'a> TokenInfoEngine<'a> {
-    pub(crate) fn new(
-        db: &'a dyn TokenInfoDb,
-        module_path: ModulePath,
-    ) -> EntitySynTreeResult<Self> {
+    pub(crate) fn new(db: &'a ::salsa::Db, module_path: ModulePath) -> EntitySynTreeResult<Self> {
         let token_sheet_data = &db.token_sheet_data(module_path);
         Ok(Self {
             db,
@@ -246,7 +245,7 @@ impl<'a> TokenInfoEngine<'a> {
 }
 
 struct DeclTokenInfoEngine<'a, 'b> {
-    db: &'a dyn TokenInfoDb,
+    db: &'a ::salsa::Db,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     syn_expr_region_data: &'a SynExprRegionData,
@@ -274,7 +273,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             regional_token_idx_base: match syn_expr_region_data.path() {
                 SynNodeRegionPath::Snippet(_) => todo!(),
                 SynNodeRegionPath::Decl(path) => path.decl_regional_token_idx_base(db),
-                SynNodeRegionPath::Defn(path) => path.defn_regional_token_idx_base(db).expect("todo"),
+                SynNodeRegionPath::Defn(path) => {
+                    path.defn_regional_token_idx_base(db).expect("todo")
+                }
             },
         }
     }

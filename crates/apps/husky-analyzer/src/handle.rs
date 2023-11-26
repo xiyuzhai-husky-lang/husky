@@ -2,10 +2,11 @@ mod semantic_tokens;
 
 pub(crate) use semantic_tokens::*;
 
-type AnalyzerDBSnapshot = salsa::Snapshot<AnalyzerDB>;
-
-use crate::lsp_ext::{self, InlayHint, InlayHintsParams, WorkspaceSymbolParams};
 use crate::{convert::from_lsp_types, *};
+use crate::{
+    db::AnalyzerDBSnapshot,
+    lsp_ext::{self, InlayHint, InlayHintsParams, WorkspaceSymbolParams},
+};
 use husky_folding_range::FoldingRangeDb;
 use husky_hover::{HoverDb, HoverResult};
 use husky_semantic_token::SemanticTokenDb;

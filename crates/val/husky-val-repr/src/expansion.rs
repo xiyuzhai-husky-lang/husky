@@ -1,4 +1,4 @@
-use crate::{db::ValReprDb, *};
+use crate::*;
 use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{FugitivePath, MajorItemPath, PrincipalEntityPath};
 
@@ -31,13 +31,13 @@ pub struct ValReprExpansion {
 }
 
 impl ValRepr {
-    pub fn expansion(self, db: &dyn ValReprDb) -> Option<ValReprExpansion> {
+    pub fn expansion(self, db: &::salsa::Db) -> Option<ValReprExpansion> {
         val_repr_expansion(db, self)
     }
 }
 
 #[salsa::tracked(jar = ValReprJar)]
-fn val_repr_expansion(db: &dyn ValReprDb, val_repr: ValRepr) -> Option<ValReprExpansion> {
+fn val_repr_expansion(db: &::salsa::Db, val_repr: ValRepr) -> Option<ValReprExpansion> {
     match val_repr.opn(db) {
         ValOpn::ValItem(fugitive_path) => {
             let FugitiveHirDefn::Val(hir_defn) = fugitive_path.hir_defn(db)? else {
@@ -67,7 +67,7 @@ fn build_val_repr_expansion(
     body: HirLazyExprIdx,
     hir_lazy_expr_region: HirLazyExprRegion,
     argument_val_reprs: &[ValRepr],
-    db: &dyn ValReprDb,
+    db: &::salsa::Db,
 ) -> ValReprExpansion {
     let mut builder = ValReprExpansionBuilder::new(
         val_domain_repr,
@@ -90,7 +90,7 @@ struct ValReprExpansionBuilder<'a> {
     hir_lazy_stmt_val_repr_map: HirLazyStmtMap<ValRepr>,
     root_hir_lazy_stmt_val_reprs: SmallVec<[ValRepr; 4]>,
     hir_lazy_expr_control_flow_region: &'a HirLazyExprRegionControlFlowChart,
-    db: &'a dyn ValReprDb,
+    db: &'a ::salsa::Db,
 }
 
 impl<'a> ValReprExpansionBuilder<'a> {
@@ -99,7 +99,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
         body: HirLazyExprIdx,
         hir_lazy_expr_region: HirLazyExprRegion,
         argument_val_reprs: &[ValRepr],
-        db: &'a dyn ValReprDb,
+        db: &'a ::salsa::Db,
     ) -> Self {
         let hir_lazy_expr_region_data = hir_lazy_expr_region.data(db);
         let mut variable_val_repr_map =

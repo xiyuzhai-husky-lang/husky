@@ -9,7 +9,6 @@ pub use self::config::*;
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 
 use husky_task::{
-    helpers::TaskDevComptimeDb,
     helpers::{DevRuntimeStorage, TaskDevLinkTime},
     IsTask,
 };
@@ -38,7 +37,7 @@ impl<Task: IsTask> DevRuntime<Task> {
         })
     }
 
-    pub fn db(&self) -> &TaskDevComptimeDb<Task> {
+    pub fn db(&self) -> &::salsa::Db {
         self.comptime.db()
     }
 

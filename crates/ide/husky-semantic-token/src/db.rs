@@ -1,6 +1,6 @@
 use crate::*;
 
-pub trait SemanticTokenDb: DbWithJar<SemanticTokenJar> + TokenInfoDb {
+pub trait SemanticTokenDb {
     fn semantic_tokens_ext(
         &self,
         module_path: ModulePath,
@@ -8,10 +8,7 @@ pub trait SemanticTokenDb: DbWithJar<SemanticTokenJar> + TokenInfoDb {
     ) -> EntitySynTreeResult<&[ext::SemanticToken]>;
 }
 
-impl SemanticTokenDb for Db
-where
-    Db: DbWithJar<SemanticTokenJar> + TokenInfoDb,
-{
+impl SemanticTokenDb for ::salsa::Db {
     fn semantic_tokens_ext(
         &self,
         module_path: ModulePath,

@@ -1,7 +1,6 @@
 use crate::{
-    db::{HirEagerExprDb, HirEagerExprJar},
-    symbol::runtime_symbol::HirEagerRuntimeSymbolIdx,
-    HirEagerExprIdx, HirEagerPatternExprIdx, HirEagerStmtIdx,
+    db::HirEagerExprJar, symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, HirEagerExprIdx,
+    HirEagerPatternExprIdx, HirEagerStmtIdx,
 };
 use husky_sema_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
 use husky_syn_expr::{CurrentSynSymbolIdx, SynPatternExprMap, SynPatternExprRoot, SynSymbolMap};
@@ -22,7 +21,7 @@ pub struct HirEagerExprSourceMapData {
 
 impl HirEagerExprSourceMap {
     pub fn new(
-        db: &dyn HirEagerExprDb,
+        db: &::salsa::Db,
         syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,
         sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
         sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,

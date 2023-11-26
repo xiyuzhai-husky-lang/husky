@@ -57,14 +57,10 @@ impl Linkage {
     }
 }
 
-impl HasVersionStamp<Db> for Linkage
-where
-    Db: LinkageDb,
-{
+impl HasVersionStamp for Linkage {
     type VersionStamp = LinkageVersionStamp;
 
     fn version_stamp(self, db: &::salsa::Db) -> LinkageVersionStamp {
-        let db = <Db as salsa::DbWithJar<LinkageJar>>::as_jar_db(db);
         let mut builder = LinkageVersionStampBuilder::new(self, db);
         match self.data(db) {
             LinkagePathData::Coersion {} => (),

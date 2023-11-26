@@ -31,7 +31,7 @@ pub enum HirDefn {
 }
 
 impl HirDefn {
-    pub fn hir_decl(self, db: &::salsa::Db,) -> HirDecl {
+    pub fn hir_decl(self, db: &::salsa::Db) -> HirDecl {
         match self {
             HirDefn::Submodule(hir_defn) => HirDecl::Submodule(hir_defn.hir_decl()),
             HirDefn::MajorItem(hir_defn) => hir_defn.hir_decl(db).into(),
@@ -46,7 +46,7 @@ impl HirDefn {
         self.hir_decl(db).template_parameters(db)
     }
 
-    pub fn hir_expr_region(self, db: &::salsa::Db,) -> Option<HirExprRegion> {
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
         match self {
             HirDefn::Submodule(_) => None,
             HirDefn::MajorItem(hir_defn) => hir_defn.hir_expr_region(db),
@@ -57,7 +57,7 @@ impl HirDefn {
         }
     }
 
-    pub fn path(self, db: &::salsa::Db,) -> ItemPath {
+    pub fn path(self, db: &::salsa::Db) -> ItemPath {
         match self {
             HirDefn::MajorItem(hir_defn) => hir_defn.path(db).into(),
             HirDefn::AssociatedItem(hir_defn) => hir_defn.path(db).into(),
@@ -68,7 +68,7 @@ impl HirDefn {
         }
     }
 
-    pub(crate) fn dependencies(self, db: &::salsa::Db,) -> Option<HirDefnDependencies> {
+    pub(crate) fn dependencies(self, db: &::salsa::Db) -> Option<HirDefnDependencies> {
         match self {
             HirDefn::Submodule(_) => None,
             HirDefn::MajorItem(hir_defn) => Some(hir_defn.dependencies(db)),
@@ -80,7 +80,7 @@ impl HirDefn {
         }
     }
 
-    pub fn opt_version_stamp(self, db: &::salsa::Db,) -> Option<HirDefnVersionStamp> {
+    pub fn opt_version_stamp(self, db: &::salsa::Db) -> Option<HirDefnVersionStamp> {
         match self {
             HirDefn::Submodule(_) => None,
             HirDefn::MajorItem(hir_defn) => Some(hir_defn.version_stamp(db)),
@@ -92,14 +92,10 @@ impl HirDefn {
     }
 }
 
-impl  HasVersionStamp<Db> for HirDefn
-where
-     + HirDefnDb,
-{
+impl HasVersionStamp for HirDefn {
     type VersionStamp = HirDefnVersionStamp;
 
-    fn version_stamp(self, db: &::salsa::Db,) -> Self::VersionStamp {
-        let db = <Db as salsa::DbWithJar<HirDefnJar>>::as_jar_db(db);
+    fn version_stamp(self, db: &::salsa::Db) -> Self::VersionStamp {
         self.opt_version_stamp(db).unwrap()
     }
 }
@@ -107,13 +103,13 @@ where
 pub trait HasHirDefn: Copy {
     type HirDefn;
 
-    fn hir_defn(self, db: &::salsa::Db,) -> Option<Self::HirDefn>;
+    fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn>;
 }
 
 impl HasHirDefn for ItemPath {
     type HirDefn = HirDefn;
 
-    fn hir_defn(self, db: &::salsa::Db,) -> Option<Self::HirDefn> {
+    fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
         Some(match self {
             ItemPath::Submodule(_, path) => path.hir_defn(db)?.into(),
             ItemPath::MajorItem(path) => path.hir_defn(db)?.into(),

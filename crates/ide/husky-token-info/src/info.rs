@@ -90,7 +90,7 @@ pub enum TokenInfoData {
 
 #[cfg(feature = "protocol_support")]
 impl TokenInfoData {
-    pub fn token_class(&self, db: &dyn TokenInfoDb) -> TokenClass {
+    pub fn token_class(&self, db: &::salsa::Db) -> TokenClass {
         match self {
             TokenInfoData::Entity(path) => path.item_kind(db).class().into(),
             TokenInfoData::EntityNode(_path, item_kind) => item_kind.class().into(),

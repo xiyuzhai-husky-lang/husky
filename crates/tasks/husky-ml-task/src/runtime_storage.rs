@@ -1,13 +1,9 @@
 use crate::DevInput;
-use dashmap::{
-    DashMap,
-};
+use dashmap::DashMap;
 
 use husky_regular_value::RegularValue;
-use husky_val::{deps::ValDeps, Val, ValDb};
-use std::{
-    sync::{Arc, Mutex},
-};
+use husky_val::{deps::ValDeps, Val};
+use std::sync::{Arc, Mutex};
 
 #[derive(Debug, Default)]
 pub struct MlDevRuntimeStorage {
@@ -30,7 +26,7 @@ impl MlDevRuntimeStorage {
         &self,
         key: MlDevRuntimeStorageKey,
         f: impl FnOnce() -> VMResult<RegularValue>,
-        db: &dyn ValDb,
+        db: &::salsa::Db,
     ) -> VMResult<RegularValue> {
         fn share(result: &VMResult<RegularValue>) -> VMResult<RegularValue> {
             match result {

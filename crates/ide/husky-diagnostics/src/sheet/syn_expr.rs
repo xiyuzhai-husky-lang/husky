@@ -5,7 +5,6 @@ use husky_syn_expr::{
     SynPrincipalEntityPathExpr, SynStmtData,
 };
 
-
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct ExprDiagnosticSheet {
     #[return_ref]
@@ -14,7 +13,7 @@ pub struct ExprDiagnosticSheet {
 
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn expr_diagnostic_sheet(
-    db: &dyn DiagnosticsDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> ExprDiagnosticSheet {
     let mut sheet_collector = ModuleDiagnosticsCollector::new(db, module_path);
@@ -76,12 +75,10 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                     condition: _,
                 } => {}
                 SynStmtData::Break { break_token: _ } => {}
-                SynStmtData::Eval {  .. } => {}
+                SynStmtData::Eval { .. } => {}
                 SynStmtData::ForBetween {
-                    
                     particulars,
                     eol_colon,
-                    
                     ..
                 } => {
                     self.visit_syn_expr_result(&particulars.range);
@@ -315,7 +312,9 @@ impl Diagnose for OriginalSynExprError {
                 format!("Syntax Error: UnexpectedLeftCurlyBrace")
             }
             OriginalSynExprError::ExpectedTraits(_) => todo!(),
-            OriginalSynExprError::ExpectedTypeAfterLightArrow { light_arrow_token: _ } => todo!(),
+            OriginalSynExprError::ExpectedTypeAfterLightArrow {
+                light_arrow_token: _,
+            } => todo!(),
             OriginalSynExprError::ExpectedExplicitParameterDefaultValue(_) => todo!(),
             OriginalSynExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
             OriginalSynExprError::ExpectIdentAfterScopeResolution(_) => todo!(),

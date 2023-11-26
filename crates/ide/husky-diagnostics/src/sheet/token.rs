@@ -1,3 +1,4 @@
+use husky_token::TokenDb;
 use husky_token_data::{TokenData, TokenDataError};
 
 use super::*;
@@ -10,7 +11,7 @@ pub struct TokenDiagnosticSheet {
 
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn token_diagnostic_sheet(
-    db: &dyn DiagnosticsDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> TokenDiagnosticSheet {
     let ctx = SheetDiagnosticsContext::new(db, module_path);

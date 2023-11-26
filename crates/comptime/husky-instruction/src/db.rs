@@ -12,10 +12,7 @@ pub struct InstructionJar(Instructions);
 // fn dataset_config_instruction_sheet(&self, target_entrance: ItemPath) -> InstructionRegion;
 // fn enum_literal_to_i32(&self, item_path: ItemPath) -> i32;
 
-fn item_instruction_sheet(
-    db: &dyn InstructionDb,
-    _item_path: ItemPath,
-) -> Option<InstructionRegion> {
+fn item_instruction_sheet(db: &::salsa::Db, _item_path: ItemPath) -> Option<InstructionRegion> {
     todo!()
     // let item_defn = db.item_defn(route).unwrap();
     // match item_defn.variant {
@@ -78,7 +75,7 @@ fn item_instruction_sheet(
 }
 
 fn method_opt_instruction_sheet(
-    _db: &dyn InstructionDb,
+    _db: &::salsa::Db,
     _member_route: EtherealTerm,
 ) -> Option<InstructionRegion> {
     todo!()
@@ -115,7 +112,7 @@ fn method_opt_instruction_sheet(
 }
 
 fn dataset_config_instruction_sheet(
-    _db: &dyn InstructionDb,
+    _db: &::salsa::Db,
     _target_entrance: ItemPath,
 ) -> InstructionRegion {
     todo!()
@@ -123,7 +120,7 @@ fn dataset_config_instruction_sheet(
     // new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
 }
 
-fn enum_literal_to_i32(_db: &dyn InstructionDb, _item_path: ItemPath) -> i32 {
+fn enum_literal_to_i32(_db: &::salsa::Db, _item_path: ItemPath) -> i32 {
     todo!()
     // let ty_decl = db.ty_decl(route.parent()).unwrap();
     // ty_decl

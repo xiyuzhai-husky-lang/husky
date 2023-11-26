@@ -4,8 +4,8 @@ use husky_sema_expr::{
     OriginalExprTermError, OriginalSemaExprDataError, OriginalSemaExprTypeError, SemaExprTermError,
 };
 use husky_syn_defn::HasDefns;
-use husky_syn_expr::{SynExprRegion};
-use salsa::{DisplayWithDb};
+use husky_syn_expr::SynExprRegion;
+use salsa::DisplayWithDb;
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct ExprTypeDiagnosticSheet {
@@ -15,7 +15,7 @@ pub struct ExprTypeDiagnosticSheet {
 
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn expr_ty_diagnostic_sheet(
-    db: &dyn DiagnosticsDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> ExprTypeDiagnosticSheet {
     let mut diagnostics = vec![];
@@ -35,7 +35,7 @@ pub(crate) fn expr_ty_diagnostic_sheet(
 }
 
 fn collect_expr_ty_diagnostics(
-    db: &dyn DiagnosticsDb,
+    db: &::salsa::Db,
     syn_expr_region: SynExprRegion,
     diagnostics: &mut Vec<Diagnostic>,
 ) {

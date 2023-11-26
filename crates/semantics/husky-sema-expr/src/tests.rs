@@ -1,5 +1,4 @@
 pub(crate) use husky_ast::test_utils::*;
-pub(crate) use salsa::test_utils::Db;
 
 use crate::*;
 use husky_ast::AstJar;
@@ -24,7 +23,7 @@ use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 use husky_vfs::*;
 
-#[salsa::test_db(
+#[salsa::db(
     CowordJar,
     VfsJar,
     EntityPathJar,

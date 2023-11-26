@@ -1,14 +1,14 @@
 use husky_entity_syn_tree::EntitySynTreeResult;
 use husky_text_protocol::range::TextRange;
 
-use husky_token::TokenGroupIdx;
+use husky_token::{TokenDb, TokenGroupIdx};
 use husky_token_data::{Keyword, TokenData};
-use husky_token_info::{TokenInfo, TokenInfoData};
+use husky_token_info::{TokenInfo, TokenInfoData, TokenInfoDb};
 
 use crate::*;
 
 pub(crate) fn calc_hover_result(
-    db: &dyn HoverDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
     token_idx: TokenIdx,
 ) -> Option<HoverResult> {
@@ -18,7 +18,7 @@ pub(crate) fn calc_hover_result(
 }
 
 struct HoverResultCalculator<'a> {
-    db: &'a dyn HoverDb,
+    db: &'a ::salsa::Db,
     module_path: ModulePath,
     token_idx: TokenIdx,
     token: &'a TokenData,
@@ -32,7 +32,7 @@ struct HoverResultCalculator<'a> {
 
 impl<'a> HoverResultCalculator<'a> {
     fn new(
-        db: &'a dyn HoverDb,
+        db: &'a ::salsa::Db,
         module_path: ModulePath,
         token_idx: TokenIdx,
     ) -> EntitySynTreeResult<Self> {

@@ -40,12 +40,41 @@ use dashmap::DashMap;
     husky_syn_fmt::SyntaxFormatJar,
     husky_diagnostics::DiagnosticsJar,
 )]
-#[derive(Default)]
 pub struct AnalyzerDb;
 
 pub struct AnalyzerDB {
     db: AnalyzerDb,
     semantic_tokens_ext_cache: Arc<DashMap<lsp_types::Url, lsp_types::SemanticTokens>>,
+}
+
+impl AnalyzerDB {
+    pub(crate) fn snapshot(&self) -> AnalyzerDBSnapshot {
+        todo!()
+    }
+}
+
+pub struct AnalyzerDBSnapshot {}
+
+impl std::ops::Deref for AnalyzerDB {
+    type Target = AnalyzerDb;
+
+    fn deref(&self) -> &Self::Target {
+        &self.db
+    }
+}
+
+impl std::ops::DerefMut for AnalyzerDB {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        todo!()
+    }
+}
+
+impl std::ops::Deref for AnalyzerDBSnapshot {
+    type Target = AnalyzerDb;
+
+    fn deref(&self) -> &Self::Target {
+        todo!()
+    }
 }
 
 // impl salsa::Database for AnalyzerDB {}
@@ -73,6 +102,25 @@ impl AnalyzerDB {
         uri: lsp_types::Url,
     ) -> dashmap::mapref::entry::Entry<lsp_types::Url, lsp_types::SemanticTokens> {
         self.semantic_tokens_ext_cache.entry(uri)
+    }
+}
+
+impl AnalyzerDBSnapshot {
+    pub(crate) fn cache_semantic_tokens(
+        &self,
+        uri: lsp_types::Url,
+        semantic_tokens: lsp_types::SemanticTokens,
+    ) {
+        todo!()
+        // self.semantic_tokens_ext_cache.insert(uri, semantic_tokens);
+    }
+
+    pub(crate) fn cached_semantic_tokens_entry(
+        &self,
+        uri: lsp_types::Url,
+    ) -> dashmap::mapref::entry::Entry<lsp_types::Url, lsp_types::SemanticTokens> {
+        todo!()
+        // self.semantic_tokens_ext_cache.entry(uri)
     }
 }
 

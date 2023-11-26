@@ -1,18 +1,11 @@
 use super::*;
-use husky_rust_transpilation::{
-    db::{RustTranspilationDb, RustTranspilationJar},
-    transpile::TranspileToFsFull,
-};
+use husky_rust_transpilation::{db::RustTranspilationJar, transpile::TranspileToFsFull};
 use husky_vfs::PackagePath;
 
 pub struct MonoLinkageStorage {}
 
 impl MonoLinkageStorage {
-    pub(super) fn generate(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self
-    where
-        Db: RustTranspilationDb,
-    {
-        let db = <Db as salsa::DbWithJar<RustTranspilationJar>>::as_jar_db(db);
+    pub(super) fn generate(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
         let _ = target_path.transpile_to_fs_full(db);
         Self {}
     }

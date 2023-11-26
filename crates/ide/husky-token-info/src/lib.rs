@@ -17,7 +17,7 @@ use husky_vfs::*;
 
 #[salsa::tracked(jar = TokenInfoJar, return_ref)]
 fn token_info_sheet(
-    db: &dyn TokenInfoDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> EntitySynTreeResult<TokenInfoSheet> {
     TokenInfoEngine::new(db, module_path)?.visit_all()

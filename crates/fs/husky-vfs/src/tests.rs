@@ -6,7 +6,7 @@ use crate::{
 use husky_coword::CowordJar;
 use std::ops::Deref;
 
-#[salsa::test_db(VfsJar, CowordJar)]
+#[salsa::db(VfsJar, CowordJar)]
 #[derive(Default)]
 pub(crate) struct DB;
 
