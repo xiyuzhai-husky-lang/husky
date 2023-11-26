@@ -2,11 +2,10 @@ mod error;
 
 pub use self::error::*;
 
-
 use husky_scope::Scope;
 use husky_token::*;
 use husky_vfs::{ModulePath, VfsDb};
-use parsec::{IsStreamParser};
+use parsec::IsStreamParser;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VisibilityExpr {
@@ -28,7 +27,7 @@ impl VisibilityExpr {
     }
 
     pub fn parse_from_token_stream(
-        db: &dyn VfsDb,
+        db: &::salsa::Db,
         module_path: ModulePath,
         token_stream: &mut TokenStream<'_>,
     ) -> VisibilityExprResult<Self> {

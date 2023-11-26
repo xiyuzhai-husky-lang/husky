@@ -15,17 +15,20 @@ pub enum LinktimeTargetPathData {
 }
 
 impl LinktimeTargetPath {
-    pub fn new_package(package_path: PackagePath, db: &dyn VfsDb) -> Self {
+    pub fn new_package(package_path: PackagePath, db: &::salsa::Db) -> Self {
         Self::new_inner(db, LinktimeTargetPathData::Package(package_path))
     }
 
-    pub fn rust_dir<'a>(self, db: &'a dyn VfsDb) -> &'a std::path::Path {
+    pub fn rust_dir<'a>(self, db: &'a ::salsa::Db) -> &'a std::path::Path {
         linktime_target_rust_dir(db, self)
     }
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
-fn linktime_target_rust_dir(db: &dyn VfsDb, target_path: LinktimeTargetPath) -> std::path::PathBuf {
+fn linktime_target_rust_dir(
+    db: &::salsa::Db,
+    target_path: LinktimeTargetPath,
+) -> std::path::PathBuf {
     match target_path.data(db) {
         LinktimeTargetPathData::Package(package_path) => package_path
             .dir(db)

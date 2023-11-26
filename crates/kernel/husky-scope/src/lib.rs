@@ -75,7 +75,7 @@ pub enum ReferenceModulePath {
 impl Scope {
     pub fn is_visible_from(
         self,
-        db: &dyn VfsDb,
+        db: &::salsa::Db,
         reference_module_path: ReferenceModulePath,
     ) -> bool {
         match reference_module_path {

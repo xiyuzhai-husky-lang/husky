@@ -11,7 +11,7 @@ pub trait SynDeclDb: DbWithJar<SynDeclJar> + SynExprDb {
     fn syn_decl_sheet(&self, module_path: ModulePath) -> SynDeclSheet;
 }
 
-impl<Db> SynDeclDb for Db
+impl SynDeclDb for Db
 where
     Db: DbWithJar<SynDeclJar> + SynExprDb,
 {

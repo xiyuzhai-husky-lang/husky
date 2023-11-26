@@ -8,7 +8,7 @@ pub trait DeclarativeSignatureDb:
     fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DeclarativeTermRegion;
 }
 
-impl<Db> DeclarativeSignatureDb for Db
+impl DeclarativeSignatureDb for Db
 where
     Db: salsa::DbWithJar<DeclarativeSignatureJar> + SynDeclDb + DeclarativeTermDb,
 {

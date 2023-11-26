@@ -15,11 +15,11 @@ impl VirtualPath {
         self._data(<Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db))
     }
 
-    pub fn abs_path(self, db: &dyn VfsDb) -> VfsResult<PathBuf> {
+    pub fn abs_path(self, db: &::salsa::Db) -> VfsResult<PathBuf> {
         std::path::absolute(db.vfs_cache().current_dir().join(&self.data(db))).map_err(|_e| todo!())
     }
 
-    pub fn file(self, db: &dyn VfsDb) -> VfsResult<File> {
+    pub fn file(self, db: &::salsa::Db) -> VfsResult<File> {
         db.file_from_virtual_path(self)
     }
 
@@ -38,7 +38,7 @@ impl VirtualPath {
 
 impl VirtualPath {
     // todo: room for optimization when path is owned
-    pub fn try_new(db: &dyn VfsDb, path: impl AsRef<Path>) -> VfsResult<Self> {
+    pub fn try_new(db: &::salsa::Db, path: impl AsRef<Path>) -> VfsResult<Self> {
         Ok(Self::new(db, RelPathBuf::try_new(db, path.as_ref())?))
     }
 }
@@ -53,7 +53,7 @@ fn test_absolute_path_debug() {
 }
 
 impl RelPathBuf {
-    pub fn try_new(db: &dyn VfsDb, path: &Path) -> VfsResult<Self> {
+    pub fn try_new(db: &::salsa::Db, path: &Path) -> VfsResult<Self> {
         let diff = |path: &Path| -> VfsResult<_> {
             pathdiff::diff_paths(path, db.vfs_cache().current_dir()).ok_or(VfsError::FailToDiff)
         };

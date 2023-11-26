@@ -1,13 +1,14 @@
 use crate::*;
+use salsa::Db;
 
-pub fn set_live_file<Db: VfsDb>(db: &mut Db, path: &Path, text: String) -> VfsResult<()> {
+pub fn set_live_file(db: &mut Db, path: &Path, text: String) -> VfsResult<()> {
     update_live_packages(db, path);
     db.set_content(path, FileContent::LiveDoc(text))
 }
 
 /// If range are omitted
 /// the new text is considered to be the full content of the document.
-pub fn apply_live_file_changes<Db: VfsDb>(
+pub fn apply_live_file_changes(
     db: &mut Db,
     path: &Path,
     changes: Vec<lsp_types::TextDocumentContentChangeEvent>,
@@ -19,7 +20,7 @@ pub fn apply_live_file_changes<Db: VfsDb>(
     Ok(())
 }
 
-fn update_live_packages(db: &dyn VfsDb, path: &Path) {
+fn update_live_packages(db: &::salsa::Db, path: &Path) {
     if let Ok(toolchain) = db.current_toolchain() {
         match db.resolve_module_path(toolchain, path) {
             Ok(_) => todo!(),
@@ -28,7 +29,7 @@ fn update_live_packages(db: &dyn VfsDb, path: &Path) {
     }
 }
 
-fn update_content<T: VfsDb>(db: &mut T, path: &Path, f: impl FnOnce(&mut String)) -> VfsResult<()> {
+fn update_content(db: &mut Db, path: &Path, f: impl FnOnce(&mut String)) -> VfsResult<()> {
     let abs_path = VirtualPath::try_new(db, path)?;
     let file = match db
         .vfs_jar()

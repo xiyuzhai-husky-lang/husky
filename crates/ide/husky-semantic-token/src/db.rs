@@ -9,7 +9,7 @@ pub trait SemanticTokenDb: DbWithJar<SemanticTokenJar> + TokenInfoDb {
     ) -> EntitySynTreeResult<&[ext::SemanticToken]>;
 }
 
-impl<Db> SemanticTokenDb for Db
+impl SemanticTokenDb for Db
 where
     Db: DbWithJar<SemanticTokenJar> + TokenInfoDb,
 {

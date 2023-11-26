@@ -6,7 +6,7 @@ pub trait RustTranspilationDb:
 {
 }
 
-impl<Db> RustTranspilationDb for Db where
+impl RustTranspilationDb for Db where
     Db: salsa::DbWithJar<RustTranspilationJar> + HirDefnDb + LinkageDb
 {
 }

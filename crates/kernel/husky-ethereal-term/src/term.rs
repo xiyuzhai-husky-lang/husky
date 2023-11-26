@@ -24,7 +24,7 @@ use crate::instantiation::*;
 use crate::*;
 use husky_coword::Ident;
 use husky_declarative_term::DeclarativeTerm;
-use salsa::{Database, DebugWithDb, DisplayWithDb};
+use salsa::{DebugWithDb, DisplayWithDb};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -505,11 +505,7 @@ impl salsa::DebugWithDb for EtherealTerm {
 
 impl salsa::DisplayWithDb for EtherealTerm {
     fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_with_db_fmt(
-            f,
-            db.as_jar_db_dyn::<EtherealTermJar>(),
-            &mut Default::default(),
-        )
+        self.show_with_db_fmt(f, db(), &mut Default::default())
     }
 }
 

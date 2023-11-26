@@ -44,7 +44,7 @@ pub struct PackagePath {
 impl PackagePath {
     /// if name is `core` or `std` make sure that the package is the toolchain one
     pub fn new_local_or_toolchain_package(
-        db: &dyn VfsDb,
+        db: &::salsa::Db,
         toolchain: Toolchain,
         name: Kebab,
         path: &Path,
@@ -68,12 +68,12 @@ impl PackagePath {
         }
     }
 
-    pub fn new_toolchain_package(db: &dyn VfsDb, toolchain: Toolchain, name: Kebab) -> Self {
+    pub fn new_toolchain_package(db: &::salsa::Db, toolchain: Toolchain, name: Kebab) -> Self {
         PackagePath::new_inner(db, toolchain, name, PackagePathSource::Library)
     }
 
     pub fn new_registry_package(
-        db: &dyn VfsDb,
+        db: &::salsa::Db,
         toolchain: Toolchain,
         name: Kebab,
         registry_path: RegistryPath,
@@ -90,15 +90,15 @@ impl PackagePath {
         )
     }
 
-    pub fn ident(self, db: &dyn VfsDb) -> Ident {
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
         self.name(db).ident(db)
     }
 
-    pub fn dir(self, db: &dyn VfsDb) -> VfsResult<VirtualPath> {
+    pub fn dir(self, db: &::salsa::Db) -> VfsResult<VirtualPath> {
         package_dir(db, self)
     }
 
-    pub fn manifest_path(self, db: &dyn VfsDb) -> VfsResult<ManifestPath> {
+    pub fn manifest_path(self, db: &::salsa::Db) -> VfsResult<ManifestPath> {
         package_manifest_path(db, self)
     }
 }
@@ -117,7 +117,7 @@ impl RegistryPath {
 }
 
 #[salsa::tracked(jar = VfsJar)]
-pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<VirtualPath> {
+pub(crate) fn package_dir(db: &::salsa::Db, package: PackagePath) -> VfsResult<VirtualPath> {
     match package.data(db) {
         PackagePathSource::Library => VirtualPath::try_new(
             db,
@@ -156,7 +156,7 @@ impl ManifestPath {
 
 #[salsa::tracked(jar = VfsJar)]
 pub(crate) fn package_manifest_path(
-    db: &dyn VfsDb,
+    db: &::salsa::Db,
     package: PackagePath,
 ) -> VfsResult<ManifestPath> {
     Ok(ManifestPath(VirtualPath::try_new(

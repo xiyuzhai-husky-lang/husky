@@ -1,7 +1,7 @@
 use std::path::Path;
 
-use husky_coword::{CowordDb, CowordJar, Kebab};
-use salsa::Database;
+use husky_coword::{CowordJar, Kebab};
+use salsa::Db;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
@@ -19,7 +19,7 @@ pub type MinimalTomlResult<T> = Result<T, MinimalTomlError>;
 pub fn read_package_name_from_manifest(db: &Db, path: &Path) -> Option<Kebab> {
     find_package_name_in_manifest_toml(&std::fs::read_to_string(path).ok()?)
         .ok()
-        .map(|s| Kebab::from_ref(db.as_jar_db_dyn::<CowordJar>(), s))
+        .map(|s| Kebab::from_ref(db, s))
         .flatten()
 }
 

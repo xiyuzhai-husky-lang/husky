@@ -1,6 +1,6 @@
 pub use salsa::test_utils::TestDb;
 
-use salsa::{Database, Storage};
+use salsa::Storage;
 
 #[salsa::test_db(
     husky_coword::CowordJar,

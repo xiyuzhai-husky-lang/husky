@@ -171,7 +171,7 @@ pub type DeclarativeTermSymbolTypeResult<T> = Result<T, DeclarativeTermSymbolTyp
 
 impl salsa::DisplayWithDb for DeclarativeTermSymbol {
     fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        let db = db.as_jar_db_dyn::<DeclarativeTermJar>();
+        let db = db();
         // ad hoc
         f.write_fmt(format_args!("${:?}", self.index(db)))
     }

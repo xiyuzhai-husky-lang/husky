@@ -98,9 +98,9 @@ impl FugitivePathData {
 
 impl salsa::DebugWithDb for FugitivePath {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
-        let data = self.data(db.as_jar_db_dyn::<EntityPathJar>());
+        let data = self.data(db());
         f.write_str("FugitivePath(`")?;
-        data.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())?;
+        data.show_aux(f, db())?;
         f.write_str("`, `")?;
         data.fugitive_kind.fmt(f)?;
         f.write_str("`)")
@@ -109,6 +109,6 @@ impl salsa::DebugWithDb for FugitivePath {
 
 impl salsa::DisplayWithDb for FugitivePath {
     fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())
+        self.show_aux(f, db())
     }
 }

@@ -37,7 +37,7 @@ impl salsa::DisplayWithDb for DeclarativeTermAbstraction {
         // use std::fmt::Write;
         // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
         // todo!()
-        let db = db.as_jar_db_dyn::<DeclarativeTermJar>();
+        let db = db();
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

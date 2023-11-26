@@ -171,7 +171,7 @@ impl EtherealTermInstantiate for EtherealRitchieParameter {
 
 impl salsa::DisplayWithDb for EtherealTermRitchie {
     fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        let db = db.as_jar_db_dyn::<EtherealTermJar>();
+        let db = db();
         f.write_str(self.ritchie_kind(db).code())?;
         f.write_str("(")?;
         for (i, parameter_ty) in self.parameter_contracted_tys(db).iter().enumerate() {

@@ -10,7 +10,7 @@ pub trait HirTypeDb: salsa::DbWithJar<HirTypeJar> + EtherealSignatureDb {
     fn hir_ty_menu(&self, toolchain: Toolchain) -> &HirTypeMenu;
 }
 
-impl<Db> HirTypeDb for Db
+impl HirTypeDb for Db
 where
     Db: salsa::DbWithJar<HirTypeJar> + EtherealSignatureDb,
 {

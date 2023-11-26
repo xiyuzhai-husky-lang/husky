@@ -11,14 +11,12 @@ pub use self::menu::*;
 pub use self::module_path::*;
 pub use self::package_path::*;
 pub use self::virtual_path::*;
+use ::salsa::Db;
 use husky_minimal_toml_utils::read_package_name_from_manifest;
 
 use crate::*;
 
-pub(crate) fn package_manifest_path(
-    db: &dyn VfsDb,
-    package: PackagePath,
-) -> VfsResult<VirtualPath> {
+pub(crate) fn package_manifest_path(db: &Db, package: PackagePath) -> VfsResult<VirtualPath> {
     VirtualPath::try_new(
         db,
         &package_dir(db, package)
@@ -29,10 +27,7 @@ pub(crate) fn package_manifest_path(
 }
 
 #[salsa::tracked(jar = VfsJar)]
-pub(crate) fn module_virtual_path(
-    db: &dyn VfsDb,
-    module_path: ModulePath,
-) -> VfsResult<VirtualPath> {
+pub(crate) fn module_virtual_path(db: &Db, module_path: ModulePath) -> VfsResult<VirtualPath> {
     match module_path.data(db) {
         ModulePathData::Root(crate_path) => VirtualPath::try_new(
             db,
@@ -58,7 +53,7 @@ pub(crate) fn module_virtual_path(
 
 // this shouldn't be tracked
 pub(crate) fn resolve_module_path(
-    db: &dyn VfsDb,
+    db: &Db,
     toolchain: Toolchain,
     path: impl AsRef<Path>,
 ) -> VfsResult<ModulePath> {
@@ -107,7 +102,7 @@ pub(crate) fn resolve_module_path(
                     ModulePath::new_child(
                         db,
                         resolve_module_path(db, toolchain, lib_path)?,
-                        db.it_ident_borrowed(file_stem)
+                        Ident::from_borrowed(file_stem)
                             .ok_or(VfsError::ModulePathResolveFailure)?,
                     )?
                     .into()
@@ -117,7 +112,7 @@ pub(crate) fn resolve_module_path(
                         ModulePath::new_child(
                             db,
                             resolve_module_path(db, toolchain, main_path)?,
-                            db.it_ident_borrowed(file_stem)
+                            Ident::from_borrowed(file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
                         )?
                         .into()
@@ -135,8 +130,7 @@ pub(crate) fn resolve_module_path(
         ModulePath::new_child(
             db,
             resolve_module_path(db, toolchain, parent_module_path)?,
-            db.it_ident_borrowed(file_stem)
-                .ok_or(VfsError::ModulePathResolveFailure)?,
+            Ident::from_borrowed(file_stem).ok_or(VfsError::ModulePathResolveFailure)?,
         )?
         .into()
     })

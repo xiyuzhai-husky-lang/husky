@@ -1,6 +1,5 @@
 use super::*;
 
-
 use husky_text_protocol::{char_iter::TextCharIter, range::TextRange};
 
 use husky_coword::{is_char_valid_ident_first_char, CowordDb};
@@ -255,7 +254,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         let pretoken = if let Some(pretoken) = new_reserved_coword(self.db, word) {
             pretoken
         } else {
-            match self.db.it_ident_borrowed(word) {
+            match Ident::from_borrowed(self, word) {
                 Some(identifier) => TokenData::Ident(identifier).into(),
                 None => Pretoken::Err(TokenDataError::InvalidIdent),
             }

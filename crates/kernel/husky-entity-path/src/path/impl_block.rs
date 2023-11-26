@@ -218,7 +218,7 @@ impl TraitForTypeImplBlockPath {
 
 impl salsa::DebugWithDb for TraitForTypeImplBlockPath {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
-        self.show(f, db.as_jar_db_dyn::<EntityPathJar>())
+        self.show(f, db())
     }
 }
 

@@ -40,7 +40,7 @@ pub trait TokenTestUtils: VfsTestUtils {
         R: std::fmt::Display;
 }
 
-impl<Db> TokenTestUtils for Db
+impl TokenTestUtils for Db
 where
     Db: VfsTestUtils,
 {

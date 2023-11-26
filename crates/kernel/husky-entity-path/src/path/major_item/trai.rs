@@ -1,4 +1,4 @@
-use salsa::{Database, DisplayWithDb};
+use salsa::DisplayWithDb;
 
 use super::*;
 
@@ -83,13 +83,13 @@ impl TraitPathData {
 impl salsa::DebugWithDb for TraitPath {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         f.write_str("TraitPath(`")?;
-        self.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())?;
+        self.show_aux(f, db())?;
         f.write_str("`)")
     }
 }
 
 impl salsa::DisplayWithDb for TraitPath {
     fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())
+        self.show_aux(f, db())
     }
 }

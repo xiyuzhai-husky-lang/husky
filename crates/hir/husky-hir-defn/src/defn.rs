@@ -92,7 +92,7 @@ impl HirDefn {
     }
 }
 
-impl<Db> HasVersionStamp<Db> for HirDefn
+impl  HasVersionStamp<Db> for HirDefn
 where
      + HirDefnDb,
 {

@@ -12,7 +12,7 @@ pub trait TokenInfoDb: DbWithJar<TokenInfoJar> + SemaExprDb {
     ) -> EntitySynTreeResult<TokenInfoSheetRef>;
 }
 
-impl<Db> TokenInfoDb for Db
+impl TokenInfoDb for Db
 where
     Db: DbWithJar<TokenInfoJar> + SemaExprDb,
 {

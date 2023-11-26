@@ -13,7 +13,7 @@ mod subitem;
 mod symbol;
 mod wrapper;
 
-use salsa::{Database, DisplayWithDb};
+use salsa::DisplayWithDb;
 
 pub use self::abstraction::*;
 pub use self::as_trai_subitem::*;
@@ -93,11 +93,7 @@ impl salsa::DebugWithDb for DeclarativeTerm {
 
 impl DisplayWithDb for DeclarativeTerm {
     fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_with_db_fmt(
-            f,
-            db.as_jar_db_dyn::<DeclarativeTermJar>(),
-            &mut Default::default(),
-        )
+        self.show_with_db_fmt(f, db(), &mut Default::default())
     }
 }
 
