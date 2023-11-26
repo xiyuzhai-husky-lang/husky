@@ -54,17 +54,12 @@ impl Storage {
     pub fn new(initialize_jars: fn(&mut Jars, &mut Routes)) -> Self {
         let mut routes = Routes::new();
         let shared = unsafe {
-            // manually allocate for Shared<DB>
-            let mut pshared_uninitialized: Box<Shared> = Box::from_raw(std::alloc::alloc(
-                std::alloc::Layout::new::<Shared>(),
-            )
-                as *mut Shared);
-            // initialize jars
-            initialize_jars(&mut pshared_uninitialized.jars, &mut routes);
-            // initialize cvar
-            pshared_uninitialized.cvar = Default::default();
-            // convert into Arc through Box
-            pshared_uninitialized
+            let mut jars = Default::default();
+            initialize_jars(&mut jars, &mut routes);
+            Shared {
+                jars,
+                cvar: Default::default(),
+            }
         }
         .into();
         let runtime = Runtime::default();
