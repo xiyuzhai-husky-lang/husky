@@ -39,7 +39,7 @@ impl TypeSynNodePath {
 
 // impl HasModulePath<Db> for TypeSynNodePath
 // where
-//     Db: ?Sized + EntitySynTreeDb,
+//      + EntitySynTreeDb,
 // {
 //     fn module_path(self, db: &Db) -> ModulePath {
 //         let db = entity_syn_tree_db(db);

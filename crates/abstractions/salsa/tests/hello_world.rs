@@ -9,10 +9,6 @@ use test_log::test;
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, MyTracked, final_result, intermediate_result);
 
-trait Db: salsa::DbWithJar<Jar> + HasLogger {}
-
-impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
-
 #[salsa::input(db = Db, jar = Jar)]
 struct MyInput {
     field: u32,

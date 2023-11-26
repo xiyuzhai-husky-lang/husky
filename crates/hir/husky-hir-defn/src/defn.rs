@@ -94,7 +94,7 @@ impl HirDefn {
 
 impl<Db> HasVersionStamp<Db> for HirDefn
 where
-    Db: ?Sized + HirDefnDb,
+     + HirDefnDb,
 {
     type VersionStamp = HirDefnVersionStamp;
 

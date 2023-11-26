@@ -167,7 +167,7 @@ where
         // but it did not in the current revision.
         // In that case, we can delete `stale_output_key` and any data associated with it.
         let stale_output_key: Id = Id::from_id(stale_output_key.unwrap());
-        self.delete_entity(db.as_salsa_database(), stale_output_key);
+        self.delete_entity(db, stale_output_key);
     }
 
     fn reset_for_new_revision(&mut self) {

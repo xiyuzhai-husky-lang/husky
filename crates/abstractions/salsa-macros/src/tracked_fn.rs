@@ -388,8 +388,8 @@ fn fn_configuration(args: &FnArgs, item_fn: &syn::ItemFn) -> Configuration {
         let cycle_strategy = CycleRecoveryStrategy::Fallback;
 
         let cycle_fullback = parse_quote! {
-            fn recover_from_cycle(__db: &salsa::function::Db, __cycle: &salsa::Cycle, __id: Self::Key) -> Self::Value {
-                let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+            fn recover_from_cycle(__db: &Db, __cycle: &salsa::Cycle, __id: Self::Key) -> Self::Value {
+                let (__jar, __runtime) = __db.jar();
                 let __ingredients =
                     <_ as salsa::storage::HasIngredientsFor<#fn_ty>>::ingredient(__jar);
                 let __key = __ingredients.intern_map.data(__runtime, __id).clone();
@@ -419,10 +419,10 @@ fn fn_configuration(args: &FnArgs, item_fn: &syn::ItemFn) -> Configuration {
     // keys and then (b) invokes the function itself (which we embed within).
     let indices = (0..item_fn.sig.inputs.len() - 1).map(Literal::usize_unsuffixed);
     let execute_fn = parse_quote! {
-        fn execute(__db: &salsa::function::Db, __id: Self::Key) -> Self::Value {
+        fn execute(__db: &Db, __id: Self::Key) -> Self::Value {
             #inner_fn
 
-            let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+            let (__jar, __runtime) = __db.jar();
             let __ingredients =
                 <_ as salsa::storage::HasIngredientsFor<#fn_ty>>::ingredient(__jar);
             let __key = __ingredients.intern_map.data(__runtime, __id).clone();
@@ -490,9 +490,7 @@ fn ingredients_for_impl(
             type Ingredients = Self;
             type Jar = #jar_ty;
 
-            fn create_ingredients<DB>(routes: &mut salsa::routes::Routes) -> Self::Ingredients
-            where
-                DB: salsa::Database + salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
+            fn create_ingredients(routes: &mut salsa::routes::Routes) -> Self::Ingredients
             {
                 Self {
                     intern_map: #intern_map,
@@ -615,7 +613,7 @@ fn ref_getter_fn(
     let (db_var, arg_names) = fn_args(item_fn)?;
     ref_getter_fn.block = parse_quote! {
         {
-            let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(#db_var);
+            let (__jar, __runtime) = #db_var.jar::<#jar_ty>();
             let __ingredients = <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
             let __key = __ingredients.intern_map.intern(__runtime, (#(#arg_names),*));
             __ingredients.function.fetch(#db_var, __key)
@@ -659,7 +657,7 @@ fn setter_fn(
         sig: setter_sig,
         block: parse_quote! {
             {
-                let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar_mut(#db_var);
+                let (__jar, __runtime) = #db_var.jar_mut::<#jar_ty>();
                 let __ingredients = <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient_mut(__jar);
                 let __key = __ingredients.intern_map.intern(__runtime, (#(#arg_names),*));
                 __ingredients.function.store(__runtime, __key, #value_arg, salsa::Durability::LOW)
@@ -691,8 +689,8 @@ fn set_lru_capacity_fn(
     let jar_ty = args.jar_ty();
     let lru_fn = parse_quote! {
         #[allow(dead_code, clippy::needless_lifetimes)]
-        fn set_lru_capacity(__db: &salsa::function::Db, __value: usize) {
-            let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+        fn set_lru_capacity(__db: &Db, __value: usize) {
+            let (__jar, __runtime) = __db.jar();
             let __ingredients =
                 <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
             __ingredients.function.set_capacity(__value);
@@ -728,7 +726,7 @@ fn specify_fn(
         block: parse_quote! {
             {
 
-                let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(#db_var);
+                let (__jar, __runtime) = #db_var.jar::<#jar_ty>();
                 let __ingredients = <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
                 __ingredients.function.specify_and_record(#db_var, #(#arg_names,)* #value_arg)
             }
@@ -828,18 +826,11 @@ fn accumulated_fn(
     };
 
     let (db_lifetime, _) = db_lifetime_and_ty(&mut accumulated_fn.sig)?;
-    let predicate: syn::WherePredicate = parse_quote!(<#jar_ty as salsa::jar::Jar<#db_lifetime>>::DynDb: salsa::storage::HasJar<<__A as salsa::accumulator::Accumulator>::Jar>);
-
-    if let Some(where_clause) = &mut accumulated_fn.sig.generics.where_clause {
-        where_clause.predicates.push(predicate);
-    } else {
-        accumulated_fn.sig.generics.where_clause = parse_quote!(where #predicate);
-    }
 
     let (db_var, arg_names) = fn_args(item_fn)?;
     accumulated_fn.block = parse_quote! {
         {
-            let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(#db_var);
+            let (__jar, __runtime) = #db_var.jar::<#jar_ty>();
             let __ingredients = <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
             let __key = __ingredients.intern_map.intern(__runtime, (#(#arg_names),*));
             __ingredients.function.accumulated::<__A>(#db_var, __key)

@@ -13,6 +13,4 @@ struct InputWithBannedName2 {
     new: u32,
 }
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 fn main() {}

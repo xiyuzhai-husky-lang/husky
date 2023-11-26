@@ -10,8 +10,6 @@ mod a {
     }
 }
 
-pub trait Db: salsa::DbWithJar<Jar> {}
-
 #[salsa::db(Jar)]
 #[derive(Default)]
 struct Database {

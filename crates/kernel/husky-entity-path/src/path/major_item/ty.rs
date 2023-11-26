@@ -114,7 +114,7 @@ impl TypePathData {
 }
 
 impl salsa::DebugWithDb for TypePath {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         let data = self.data(db.as_jar_db_dyn::<EntityPathJar>());
         f.write_str("TypePath(`")?;
         data.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())?;

@@ -3,7 +3,7 @@ use husky_text_protocol::{char_iter::TextCharIter, position::TextPosition};
 
 #[derive(Clone)]
 pub(crate) struct TomlTokenIter<'a> {
-    pub(crate) db: &'a dyn CowordDb,
+    pub(crate) db: &'a Db,
     pub(crate) input: &'a str,
     chars: TextCharIter<'a>,
 }
@@ -39,7 +39,7 @@ impl<'a> Iterator for TomlTokenIter<'a> {
 }
 
 impl<'a> TomlTokenIter<'a> {
-    pub(crate) fn new(db: &'a dyn CowordDb, input: &'a str) -> Self {
+    pub(crate) fn new(db: &'a Db, input: &'a str) -> Self {
         let mut t = TomlTokenIter {
             db,
             input,

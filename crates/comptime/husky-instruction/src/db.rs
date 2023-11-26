@@ -1,10 +1,6 @@
 use crate::*;
 use husky_entity_path::ItemPath;
 
-pub trait InstructionDb: salsa::DbWithJar<InstructionJar> {}
-
-impl<DB> InstructionDb for DB where DB: salsa::DbWithJar<InstructionJar> {}
-
 #[salsa::jar (db = InstructionDb)]
 pub struct InstructionJar(Instructions);
 

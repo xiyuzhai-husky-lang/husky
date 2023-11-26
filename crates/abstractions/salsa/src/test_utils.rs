@@ -1,6 +1,6 @@
 use crate::routes::Routes;
 use crate::*;
-use enum_index::full_map::EnumFullMap;
+use enum_index::full_map::EnumFullVecMap;
 use husky_salsa_log_utils::HasLogger;
 use std::mem::MaybeUninit;
 
@@ -10,7 +10,7 @@ pub struct TestDb {
 
 impl TestDb {
     /// here we use fn instead of impl FnOnce to save compilation time
-    pub fn new(initialize_jars: fn(&mut Jars, &mut Routes<Self>)) -> Self {
+    pub fn new(initialize_jars: fn(&mut Jars, &mut Routes)) -> Self {
         Self {
             storage: crate::Storage::new(initialize_jars),
         }
@@ -93,11 +93,11 @@ pub trait HasTestJarIndex {
 
 #[derive(Default)]
 pub struct TestJars {
-    map: EnumFullMap<TestJarIndex, Option<Box<dyn std::any::Any + Sync + Send>>>,
+    map: EnumFullVecMap<TestJarIndex, Option<Box<dyn std::any::Any + Sync + Send>>>,
 }
 
 impl TestJars {
-    pub fn initialize_jar<Jar>(&mut self, routes: &mut Routes<TestDb>)
+    pub fn initialize_jar<Jar>(&mut self, routes: &mut Routes)
     where
         Jar: for<'db> crate::jar::Jar<'db> + HasTestJarIndex + Send + Sync + 'static,
     {

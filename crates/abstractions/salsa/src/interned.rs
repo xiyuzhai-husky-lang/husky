@@ -4,13 +4,13 @@ use std::hash::Hash;
 use std::marker::PhantomData;
 use std::{borrow::Borrow, fmt};
 
-use crate::durability::Durability;
 use crate::id::AsId;
 use crate::ingredient::{fmt_index, IngredientRequiresReset};
 use crate::key::DependencyIndex;
 use crate::runtime::local_state::QueryOrigin;
 use crate::runtime::Runtime;
 use crate::DatabaseKeyIndex;
+use crate::{durability::Durability, Db};
 
 use super::hash::FxDashMap;
 use super::ingredient::Ingredient;
@@ -224,12 +224,12 @@ unsafe fn transmute_lifetime<'t, 'u, T, U>(_t: &'t T, u: &'u U) -> &'t U {
     std::mem::transmute(u)
 }
 
-impl<DB: ?Sized, Id, Data> Ingredient for InternedIngredient<Id, Data>
+impl<Id, Data> Ingredient for InternedIngredient<Id, Data>
 where
     Id: InternedId,
     Data: InternedData,
 {
-    fn maybe_changed_after(&self, _db: &DB, _input: DependencyIndex, revision: Revision) -> bool {
+    fn maybe_changed_after(&self, _db: &Db, _input: DependencyIndex, revision: Revision) -> bool {
         revision < self.reset_at
     }
 
@@ -243,7 +243,7 @@ where
 
     fn mark_validated_output(
         &self,
-        _db: &DB,
+        _db: &Db,
         executor: DatabaseKeyIndex,
         output_key: Option<crate::Id>,
     ) {
@@ -255,7 +255,7 @@ where
 
     fn remove_stale_output(
         &self,
-        _db: &DB,
+        _db: &Db,
         executor: DatabaseKeyIndex,
         stale_output_key: Option<crate::Id>,
     ) {
@@ -272,7 +272,7 @@ where
         panic!("unexpected call to `reset_for_new_revision`")
     }
 
-    fn salsa_struct_deleted(&self, _db: &DB, _id: crate::Id) {
+    fn salsa_struct_deleted(&self, _db: &Db, _id: crate::Id) {
         panic!("unexpected call: interned ingredients do not register for salsa struct deletion events");
     }
 

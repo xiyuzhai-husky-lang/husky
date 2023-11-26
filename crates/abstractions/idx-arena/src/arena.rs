@@ -1,5 +1,3 @@
-use salsa::Database;
-
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -19,7 +17,7 @@ impl<T> salsa::DebugWithDb for Arena<T>
 where
     T: salsa::DebugWithDb,
 {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         f.debug_struct("Arena")
             .field("data", &self.data.debug_with(db))
             .finish()

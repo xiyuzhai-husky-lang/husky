@@ -31,7 +31,6 @@ pub(crate) fn literal(ident: &proc_macro2::Ident) -> proc_macro2::Literal {
 mod accumulator;
 mod as_id;
 mod configuration;
-mod db;
 mod debug_with_db;
 mod deref_id;
 mod input;
@@ -73,7 +72,7 @@ pub fn deref_id(args: TokenStream, input: TokenStream) -> TokenStream {
 
 #[proc_macro_attribute]
 pub fn db(args: TokenStream, input: TokenStream) -> TokenStream {
-    db::db(args, input)
+    test_db::test_db(args, input)
 }
 
 #[proc_macro_attribute]

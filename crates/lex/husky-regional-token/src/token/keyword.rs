@@ -137,7 +137,7 @@ where
 
 #[test]
 fn use_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<UseRegionalToken>> {
+    fn t(db: &::salsa::Db, input: &str) -> TokenDataResult<Option<UseRegionalToken>> {
         quick_parse(db, input)
     }
 
@@ -194,7 +194,7 @@ where
 
 #[test]
 fn self_value_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<SelfValueRegionalToken>> {
+    fn t(db: &::salsa::Db, input: &str) -> TokenDataResult<Option<SelfValueRegionalToken>> {
         quick_parse(db, input)
     }
 
@@ -250,7 +250,7 @@ where
 
 #[test]
 fn self_type_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<SelfTypeRegionalToken>> {
+    fn t(db: &::salsa::Db, input: &str) -> TokenDataResult<Option<SelfTypeRegionalToken>> {
         quick_parse(db, input)
     }
 
@@ -318,7 +318,7 @@ where
 
 #[test]
 fn variance_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<VarianceRegionalToken>> {
+    fn t(db: &::salsa::Db, input: &str) -> TokenDataResult<Option<VarianceRegionalToken>> {
         quick_parse(db, input)
     }
 

@@ -64,9 +64,7 @@ where
         let database_key_index = self.database_key_index(key);
 
         // Try to claim this query: if someone else has claimed it already, go back and start again.
-        let _claim_guard = self
-            .sync_map
-            .claim(db.as_salsa_database(), database_key_index)?;
+        let _claim_guard = self.sync_map.claim(db, database_key_index)?;
 
         // Push the query on the stack.
         let active_query = runtime.push_query(database_key_index);

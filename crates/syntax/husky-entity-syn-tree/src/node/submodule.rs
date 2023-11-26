@@ -25,7 +25,7 @@ impl SubmoduleSynNodePath {
 
 // impl HasModulePath<Db> for SubmoduleSynNodePath
 // where
-//     Db: ?Sized + EntitySynTreeDb,
+//      + EntitySynTreeDb,
 // {
 //     fn module_path(self, db: &Db) -> ModulePath {
 //         let db = entity_syn_tree_db(db);

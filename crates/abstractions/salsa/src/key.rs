@@ -1,6 +1,6 @@
 use std::fmt::Debug;
 
-use crate::{Database, DebugWithDb, Id, IngredientIndex};
+use crate::{Db, DebugWithDb, Id, IngredientIndex};
 
 /// An integer that uniquely identifies a particular query instance within the
 /// database. Used to track dependencies between queries. Fully ordered and

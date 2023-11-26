@@ -17,10 +17,6 @@ struct Jar(
     contribution_from_struct,
 );
 
-trait Db: salsa::DbWithJar<Jar> + HasLogger {}
-
-impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
-
 #[salsa::input(db = Db)]
 struct MyInput {
     field: u32,
@@ -59,24 +55,6 @@ fn contribution_from_struct(db: &dyn Db, tracked: MyTracked) -> u32 {
 struct Database {
     storage: salsa::Storage<Self>,
     logger: Logger,
-}
-
-impl salsa::Database for Database {
-    fn salsa_event(&self, event: salsa::Event) {
-        match event.kind {
-            salsa::EventKind::WillDiscardStaleOutput { .. }
-            | salsa::EventKind::DidDiscard { .. } => {
-                self.push_log(format!("salsa_event({:?})", event.kind.debug(self)));
-            }
-            _ => {}
-        }
-    }
-}
-
-impl HasLogger for Database {
-    fn logger(&self) -> &Logger {
-        &self.logger
-    }
 }
 
 #[test]

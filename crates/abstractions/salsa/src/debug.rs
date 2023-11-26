@@ -13,7 +13,7 @@ use vec_like::{
     error::InsertEntryRepeatError, AsVecMapEntry, SmallVecMap, SmallVecSet, VecMap, VecSet,
 };
 
-use crate::{test_utils::HasTestJarIndex, Db, DbWithJar};
+use crate::{test_utils::HasTestJarIndex, Db};
 
 pub trait DebugWithDb {
     fn debug<'me, 'db>(&'me self, db: &'me Db) -> DebugWith<'me>
@@ -416,7 +416,7 @@ pub mod helper {
     use crate::Db;
     use std::{fmt, marker::PhantomData};
 
-    pub trait Fallback<T: fmt::Debug, Db: ?Sized> {
+    pub trait Fallback<T: fmt::Debug> {
         fn salsa_debug<'a, 'b>(a: &'a T, _db: &'b Db) -> &'a dyn fmt::Debug {
             a
         }
@@ -431,5 +431,5 @@ pub mod helper {
         }
     }
 
-    impl<Everything, Db: ?Sized, T: fmt::Debug> Fallback<T, Db> for Everything {}
+    impl<Everything, T: fmt::Debug> Fallback<T> for Everything {}
 }

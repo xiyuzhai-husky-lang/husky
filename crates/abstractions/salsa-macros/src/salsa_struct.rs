@@ -147,17 +147,6 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         self.args.singleton.is_some()
     }
 
-    pub(crate) fn db_trai(&self) -> Option<&syn::Path> {
-        self.args.db_trai.as_ref()
-    }
-
-    pub(crate) fn db_dyn_ty(&self) -> syn::Type {
-        let jar_ty = self.jar_ty();
-        parse_quote! {
-            <#jar_ty as salsa::jar::Jar<'_>>::DynDb
-        }
-    }
-
     /// The name of the "data" struct (this comes from the `data = Foo` option or,
     /// if that is not provided, by concatenating `Data` to the name of the struct).
     pub(crate) fn data_ident(&self) -> syn::Ident {
@@ -281,11 +270,11 @@ impl<A: AllowedOptions> SalsaStruct<A> {
 
                         #should_backdate_value_fn
 
-                        fn execute(db: &salsa::function::Db, key: Self::Key) -> Self::Value {
+                        fn execute(db: &Db, key: Self::Key) -> Self::Value {
                             panic!(#execute_string)
                         }
 
-                        fn recover_from_cycle(db: &salsa::function::Db, cycle: &salsa::Cycle, key: Self::Key) -> Self::Value {
+                        fn recover_from_cycle(db: &Db, cycle: &salsa::Cycle, key: Self::Key) -> Self::Value {
                             panic!(#recover_from_cycle_string)
                         }
                     }
@@ -317,11 +306,6 @@ impl<A: AllowedOptions> SalsaStruct<A> {
     pub(crate) fn as_debug_with_db_impl(&self) -> TokenStream {
         let ident = self.id_ident();
         let jar_ty = self.jar_ty();
-        let db_trai = self.db_trai().expect("expect db argument");
-        let db_trai: TokenStream = quote! {
-            #db_trai
-        };
-        let db_dyn_ty = self.db_dyn_ty();
         let ident_string = ident.to_string();
 
         // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
@@ -356,7 +340,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         // `use ::salsa::debug::helper::Fallback` is needed for the fallback to `Debug` impl
         quote_spanned! {ident.span()=>
             impl ::salsa::DebugWithDb for #ident {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &dyn ::salsa::Database) -> ::std::fmt::Result {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db) -> ::std::fmt::Result {
                     #[allow(unused_imports)]
                     use ::salsa::debug::helper::Fallback;
                     let mut debug_struct = &mut f.debug_struct(#ident_string);

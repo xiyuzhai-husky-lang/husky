@@ -10,8 +10,6 @@ struct Jar(
     AccWithConstructor,
 );
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 #[salsa::accumulator(jar = Jar, return_ref)]
 struct AccWithRetRef(u32);
 

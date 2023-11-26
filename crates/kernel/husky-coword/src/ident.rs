@@ -11,7 +11,7 @@ impl Ident {
         self.0
     }
 
-    pub fn from_owned(db: &dyn CowordDb, data: String) -> Option<Self> {
+    pub fn from_owned(db: &Db, data: String) -> Option<Self> {
         if is_str_valid_ident(&data) {
             Some(Self(db.it_coword_owned(data)))
         } else {
@@ -19,7 +19,7 @@ impl Ident {
         }
     }
 
-    pub fn from_borrowed(db: &dyn CowordDb, data: &str) -> Option<Self> {
+    pub fn from_borrowed(db: &Db, data: &str) -> Option<Self> {
         if is_str_valid_ident(data) {
             Some(Self(db.it_coword_borrowed(data)))
         } else {
@@ -27,11 +27,11 @@ impl Ident {
         }
     }
 
-    pub fn data(self, db: &dyn CowordDb) -> &str {
+    pub fn data(self, db: &Db) -> &str {
         db.dt_coword(self.0)
     }
 
-    pub fn case(self, db: &dyn CowordDb) -> IdentCase {
+    pub fn case(self, db: &Db) -> IdentCase {
         let data = self.data(db);
         let mut chars = data.chars();
         let is_first_char_uppercase = chars.next().unwrap().is_uppercase();
@@ -117,7 +117,7 @@ pub fn is_char_valid_ident_nonfirst_char(c: char) -> bool {
 }
 
 impl DebugWithDb for Ident {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         f.write_fmt(format_args!(
             "`{}`",
             self.data(db.as_jar_db_dyn::<CowordJar>())
@@ -127,7 +127,7 @@ impl DebugWithDb for Ident {
 
 /// only use in this module
 #[salsa::tracked(jar = CowordJar)]
-pub(crate) fn ident_to_name(db: &dyn CowordDb, ident: Ident) -> Kebab {
+pub(crate) fn ident_to_name(db: &Db, ident: Ident) -> Kebab {
     let ident_data = ident.data(db);
     if !ident_data.contains("_") {
         return unsafe { Kebab::from_coword_unchecked(ident.0) };

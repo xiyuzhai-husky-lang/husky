@@ -10,10 +10,6 @@ use test_log::test;
 #[salsa::jar(db = Db)]
 struct Jar(List, Integers, compute, accumulated);
 
-trait Db: salsa::DbWithJar<Jar> + HasLogger {}
-
-impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
-
 #[salsa::input(db = Db, jar = Jar)]
 struct List {
     value: u32,
@@ -55,9 +51,7 @@ struct Database {
     logger: Logger,
 }
 
-impl salsa::Database for Database {
-    fn salsa_event(&self, _event: salsa::Event) {}
-}
+impl salsa::Database for Database {}
 
 impl HasLogger for Database {
     fn logger(&self) -> &Logger {

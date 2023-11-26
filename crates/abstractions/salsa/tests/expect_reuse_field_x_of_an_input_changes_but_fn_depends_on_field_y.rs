@@ -10,10 +10,6 @@ use expect_test::expect;
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, result_depends_on_x, result_depends_on_y);
 
-trait Db: salsa::DbWithJar<Jar> + HasLogger {}
-
-impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
-
 #[salsa::input(db = Db, jar = Jar)]
 struct MyInput {
     x: u32,

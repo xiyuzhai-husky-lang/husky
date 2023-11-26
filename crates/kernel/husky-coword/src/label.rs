@@ -40,14 +40,14 @@ impl Label {
         self.ident.coword()
     }
 
-    pub fn from_owned(db: &dyn CowordDb, data: String) -> Option<Self> {
+    pub fn from_owned(db: &Db, data: String) -> Option<Self> {
         Some(Self {
             kind: LabelKind::new(&data),
             ident: Ident::from_owned(db, data)?,
         })
     }
 
-    pub fn from_borrowed(db: &dyn CowordDb, data: &str) -> Option<Self> {
+    pub fn from_borrowed(db: &Db, data: &str) -> Option<Self> {
         Some(Self {
             kind: LabelKind::new(&data),
             ident: Ident::from_borrowed(db, data)?,
@@ -68,7 +68,7 @@ impl Label {
 }
 
 impl salsa::DebugWithDb for Label {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         f.write_fmt(format_args!(
             "`'{}`",
             &self.ident.data(db.as_jar_db_dyn::<CowordJar>())

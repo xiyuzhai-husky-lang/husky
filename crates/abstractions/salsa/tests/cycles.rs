@@ -69,10 +69,6 @@ struct Jar(
     cycle_c,
 );
 
-trait Db: salsa::DbWithJar<Jar> {}
-
-impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> {}
-
 #[salsa::db(Jar)]
 #[derive(Default)]
 struct Database {

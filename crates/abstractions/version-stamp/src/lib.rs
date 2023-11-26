@@ -1,4 +1,4 @@
-pub trait HasVersionStamp<Db: ?Sized>: Copy {
+pub trait HasVersionStamp: Copy {
     type VersionStamp;
 
     fn version_stamp(self, db: &Db) -> Self::VersionStamp;

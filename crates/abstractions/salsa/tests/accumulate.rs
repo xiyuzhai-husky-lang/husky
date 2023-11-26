@@ -10,10 +10,6 @@ use test_log::test;
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, Logs, push_logs, push_a_logs, push_b_logs);
 
-trait Db: salsa::DbWithJar<Jar> + HasLogger {}
-
-impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
-
 #[salsa::input(db = Db)]
 struct MyInput {
     field_a: u32,
@@ -68,16 +64,6 @@ fn push_b_logs(db: &dyn Db, input: MyInput) {
 struct Database {
     storage: salsa::Storage<Self>,
     logger: Logger,
-}
-
-impl salsa::Database for Database {
-    fn salsa_event(&self, _event: salsa::Event) {}
-}
-
-impl HasLogger for Database {
-    fn logger(&self) -> &Logger {
-        &self.logger
-    }
 }
 
 #[test]

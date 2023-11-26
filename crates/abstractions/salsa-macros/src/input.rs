@@ -74,7 +74,6 @@ impl InputStruct {
     fn input_inherent_impl(&self) -> syn::ItemImpl {
         let ident = self.id_ident();
         let jar_ty = self.jar_ty();
-        let db_dyn_ty = self.db_dyn_ty();
         let input_index = self.input_index();
 
         let field_indices = self.all_field_indices();
@@ -86,18 +85,18 @@ impl InputStruct {
         let field_getters: Vec<syn::ImplItemMethod> = field_indices.iter().zip(&get_field_names).zip(&field_vises).zip(&field_tys).zip(&field_clones).map(|((((field_index, get_field_name), field_vis), field_ty), is_clone_field)|
             if !*is_clone_field {
                 parse_quote! {
-                    #field_vis fn #get_field_name<'db>(self, __db: &'db #db_dyn_ty) -> &'db #field_ty
+                    #field_vis fn #get_field_name<'db>(self, __db: &'db ::salsa::Db) -> &'db #field_ty
                     {
-                        let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+                        let (__jar, __runtime) = __db.jar();
                         let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                         __ingredients.#field_index.fetch(__runtime, self)
                     }
                 }
             } else {
                 parse_quote! {
-                    #field_vis fn #get_field_name<'db>(self, __db: &'db #db_dyn_ty) -> #field_ty
+                    #field_vis fn #get_field_name<'db>(self, __db: &'db ::salsa::Db) -> #field_ty
                     {
-                        let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+                        let (__jar, __runtime) = __db.jar();
                         let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                         __ingredients.#field_index.fetch(__runtime, self).clone()
                     }
@@ -114,9 +113,9 @@ impl InputStruct {
             .zip(&field_tys)
             .map(|(((field_index, set_field_name), field_vis), field_ty)| {
             parse_quote! {
-                #field_vis fn #set_field_name<'db>(self, __db: &'db mut #db_dyn_ty) -> salsa::setter::Setter<'db, #ident, #field_ty>
+                #field_vis fn #set_field_name<'db>(self, __db: &'db mut ::salsa::Db) -> salsa::setter::Setter<'db, #ident, #field_ty>
                 {
-                    let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar_mut(__db);
+                    let (__jar, __runtime) = __db.jar_mut();
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient_mut(__jar);
                     salsa::setter::Setter::new(__runtime, self, &mut __ingredients.#field_index)
                 }
@@ -134,9 +133,9 @@ impl InputStruct {
                 /// # Panics
                 ///
                 /// If called when an instance already exists
-                pub fn #constructor_name(__db: &#db_dyn_ty, #(#field_names: #field_tys,)*) -> Self
+                pub fn #constructor_name(__db: &::salsa::Db, #(#field_names: #field_tys,)*) -> Self
                 {
-                    let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+                    let (__jar, __runtime) = db.jar();
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     let __id = __ingredients.#input_index.new_singleton_input(__runtime);
                     #(
@@ -147,9 +146,9 @@ impl InputStruct {
             }
         } else {
             parse_quote! {
-                pub fn #constructor_name(__db: &#db_dyn_ty, #(#field_names: #field_tys,)*) -> Self
+                pub fn #constructor_name(__db: &::salsa::Db, #(#field_names: #field_tys,)*) -> Self
                 {
-                    let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+                    let (__jar, __runtime) = __db.jar();
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     let __id = __ingredients.#input_index.new_input(__runtime);
                     #(
@@ -163,8 +162,8 @@ impl InputStruct {
         if singleton {
             let get: syn::ImplItemMethod = parse_quote! {
                 #[track_caller]
-                pub fn get(__db: &#db_dyn_ty) -> Self {
-                    let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+                pub fn get(__db: &::salsa::Db) -> Self {
+                    let (__jar, __runtime) = __db.jar();
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     __ingredients.#input_index.get_singleton_input(__runtime).expect("singleton input struct not yet initialized")
                 }
@@ -172,8 +171,8 @@ impl InputStruct {
 
             let try_get: syn::ImplItemMethod = parse_quote! {
                 #[track_caller]
-                pub fn try_get(__db: &#db_dyn_ty) -> Option<Self> {
-                    let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+                pub fn try_get(__db: &::salsa::Db) -> Option<Self> {
+                    let (__jar, __runtime) = __db.jar();
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     __ingredients.#input_index.get_singleton_input(__runtime)
                 }
@@ -231,23 +230,21 @@ impl InputStruct {
                     salsa::input::InputIngredient<#ident>,
                 );
 
-                fn create_ingredients<DB>(
+                fn create_ingredients(
                     routes: &mut salsa::routes::Routes,
                 ) -> Self::Ingredients
-                where
-                    DB: salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
                 {
                     (
                         #(
                             {
                                 let index = routes.push(
                                     |jars| {
-                                        let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                                        let jar = jars.jar::<Self::Jar>();
                                         let ingredients = <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar);
                                         &ingredients.#all_field_indices
                                     },
                                     |jars| {
-                                        let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                                        let jar = jars.jar_mut::<Self::Jar>();
                                         let ingredients = <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar);
                                         &mut ingredients.#all_field_indices
                                     },
@@ -258,12 +255,12 @@ impl InputStruct {
                         {
                             let index = routes.push(
                                 |jars| {
-                                    let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                                    let jar = jars.jar::<Self::Jar>();
                                     let ingredients = <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar);
                                     &ingredients.#input_index
                                 },
                                 |jars| {
-                                    let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                                    let jar = jars.jar_mut::<Self::Jar>();
                                     let ingredients = <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar);
                                     &mut ingredients.#input_index
                                 },
@@ -307,11 +304,9 @@ impl InputStruct {
         let ident = self.id_ident();
         let jar_ty = self.jar_ty();
         parse_quote! {
-            impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for #ident
-            where
-                DB: ?Sized + salsa::DbWithJar<#jar_ty>,
+            impl salsa::salsa_struct::SalsaStructInDb for #ident
             {
-                fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {
+                fn register_dependent_fn(_db: &::salsa::Db, _index: salsa::routes::IngredientIndex) {
                     // Do nothing here, at least for now.
                     // If/when we add ability to delete inputs, this would become relevant.
                 }

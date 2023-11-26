@@ -1,12 +1,12 @@
 mod atom_one_dark;
 
 use ecolor::Color32;
-use enum_index::full_map::{EnumFullMap, EnumFullMapRef};
+use enum_index::full_map::{EnumFullMapRef, EnumFullVecMap};
 use husky_token_protocol::TokenClass;
 
 #[derive(PartialEq, Eq)]
 pub struct CodeEditorSettings {
-    token_foreground_colors: EnumFullMap<TokenClass, Color32>,
+    token_foreground_colors: EnumFullVecMap<TokenClass, Color32>,
 }
 
 impl CodeEditorSettings {
@@ -18,7 +18,7 @@ impl CodeEditorSettings {
 impl Default for CodeEditorSettings {
     fn default() -> Self {
         Self {
-            token_foreground_colors: EnumFullMap::new(atom_one_dark::atom_one_theme_map),
+            token_foreground_colors: EnumFullVecMap::new(atom_one_dark::atom_one_theme_map),
         }
     }
 }

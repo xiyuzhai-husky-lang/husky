@@ -90,7 +90,7 @@ impl ModulePath {
     }
 
     #[inline(always)]
-    pub fn virtual_path<Db: ?Sized + VfsDb>(self, db: &Db) -> VirtualPath {
+    pub fn virtual_path< + VfsDb>(self, db: &Db) -> VirtualPath {
         module_virtual_path(<Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db), self)
             .expect("guaranteed")
     }
@@ -102,7 +102,7 @@ impl ModulePath {
         }
     }
 
-    pub fn raw_text<Db: ?Sized + VfsDb>(self, db: &Db) -> &str {
+    pub fn raw_text< + VfsDb>(self, db: &Db) -> &str {
         let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
         let diff_path = module_virtual_path(db, self).unwrap();
         db.file_from_virtual_path(diff_path)
@@ -271,7 +271,7 @@ fn module_path_debug_with_db_works() {
 }
 
 impl salsa::DebugWithDb for ModulePath {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
         self.show(f, db)

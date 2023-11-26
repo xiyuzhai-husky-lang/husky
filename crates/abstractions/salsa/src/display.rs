@@ -104,29 +104,3 @@ impl DisplayWithDb for Infallible {
         unreachable!()
     }
 }
-
-/// This is used by the macro generated code.
-/// If the field type implements `DebugWithDb`, uses that, otherwise, uses `Debug`.
-/// That's the "has impl" trick (https://github.com/nvzqz/impls#how-it-works)
-#[doc(hidden)]
-pub mod helper {
-    use super::{DisplayWith, DisplayWithDb};
-    use std::{fmt, marker::PhantomData};
-
-    pub trait Fallback<T: fmt::Debug, Db: ?Sized> {
-        fn salsa_debug<'a, 'b>(a: &'a T, _db: &'b Db) -> &'a dyn fmt::Debug {
-            a
-        }
-    }
-
-    pub struct SalsaDebug<T, Db: ?Sized>(PhantomData<T>, PhantomData<Db>);
-
-    impl<T: DisplayWithDb, Db: ?Sized> SalsaDebug<T, Db> {
-        #[allow(dead_code)]
-        pub fn salsa_debug<'a, 'b: 'a>(a: &'a T, db: &'b Db) -> DisplayWith<'a> {
-            a.display_with(db)
-        }
-    }
-
-    impl<Everything, Db: ?Sized, T: fmt::Debug> Fallback<T, Db> for Everything {}
-}

@@ -10,7 +10,7 @@ use crate::{
     key::{DatabaseKeyIndex, DependencyIndex},
     runtime::local_state::QueryOrigin,
     salsa_struct::SalsaStructInDb,
-    Cycle, Db, DbWithJar, Event, EventKind, Id, Revision,
+    Cycle, Db, Event, EventKind, Id, Revision,
 };
 
 use super::{ingredient::Ingredient, routes::IngredientIndex, AsId};
@@ -196,19 +196,17 @@ where
     /// so we can remove any data keyed by them.
     fn register(&self, db: &Db) {
         if !self.registered.fetch_or(true) {
-            <C::SalsaStruct as SalsaStructInDb<_>>::register_dependent_fn(db, self.index)
+            <C::SalsaStruct as SalsaStructInDb>::register_dependent_fn(db, self.index)
         }
     }
 }
 
-impl<DB, C> Ingredient for FunctionIngredient<C>
+impl<C> Ingredient for FunctionIngredient<C>
 where
-    DB: ?Sized + DbWithJar<C::Jar>,
     C: Configuration,
 {
-    fn maybe_changed_after(&self, db: &DB, input: DependencyIndex, revision: Revision) -> bool {
+    fn maybe_changed_after(&self, db: &Db, input: DependencyIndex, revision: Revision) -> bool {
         let key = C::key_from_id(input.key_index.unwrap());
-        let db = db.as_jar_db();
         self.maybe_changed_after(db, key, revision)
     }
 
@@ -223,17 +221,17 @@ where
 
     fn mark_validated_output(
         &self,
-        db: &DB,
+        db: &Db,
         executor: DatabaseKeyIndex,
         output_key: Option<crate::Id>,
     ) {
         let output_key = C::key_from_id(output_key.unwrap());
-        self.validate_specified_value(db.as_jar_db(), executor, output_key);
+        self.validate_specified_value(db, executor, output_key);
     }
 
     fn remove_stale_output(
         &self,
-        _db: &DB,
+        _db: &Db,
         _executor: DatabaseKeyIndex,
         _stale_output_key: Option<crate::Id>,
     ) {
@@ -246,7 +244,7 @@ where
         std::mem::take(&mut self.deleted_entries);
     }
 
-    fn salsa_struct_deleted(&self, db: &DB, id: crate::Id) {
+    fn salsa_struct_deleted(&self, db: &Db, id: crate::Id) {
         // Remove any data keyed by `id`, since `id` no longer
         // exists in this revision.
 

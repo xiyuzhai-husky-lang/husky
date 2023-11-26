@@ -49,17 +49,17 @@ pub(crate) struct KnobsStruct {
 )]
 #[derive(Default)]
 pub(crate) struct Database {
-    storage: salsa::Storage<Self>,
+    storage: salsa::Storage,
     knobs: KnobsStruct,
 }
 
-impl salsa::Database for Database {
-    fn salsa_event(&self, event: salsa::Event) {
-        if let salsa::EventKind::WillBlockOn { .. } = event.kind {
-            self.signal(self.knobs().signal_on_will_block.get());
-        }
-    }
-}
+// impl salsa::Database for Database {
+//     fn salsa_event(&self, event: salsa::Event) {
+//         if let salsa::EventKind::WillBlockOn { .. } = event.kind {
+//             self.signal(self.knobs().signal_on_will_block.get());
+//         }
+//     }
+// }
 
 impl salsa::ParallelDatabase for Database {
     fn snapshot(&self) -> salsa::Snapshot<Self> {

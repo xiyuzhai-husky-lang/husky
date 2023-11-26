@@ -20,7 +20,7 @@ fn err(input: &str, err: TomlTokenError) {
 
 #[test]
 fn literal_strings() {
-    fn t(db: &dyn CowordDb, input: &str, val: &str, multiline: bool) {
+    fn t(db: &Db, input: &str, val: &str, multiline: bool) {
         let mut t = TomlTokenIter::new(db, input);
         let token = t.next().unwrap().data().clone();
         assert_eq!(
@@ -47,7 +47,7 @@ fn literal_strings() {
 
 #[test]
 fn basic_strings() {
-    fn t(db: &dyn CowordDb, input: &str, val: &str, multiline: bool) {
+    fn t(db: &Db, input: &str, val: &str, multiline: bool) {
         let mut t = TomlTokenIter::new(db, input);
         let token = t.next().unwrap();
         assert_eq!(
@@ -104,7 +104,7 @@ fn basic_strings() {
 
 #[test]
 fn keylike() {
-    fn t(db: &dyn CowordDb, input: &str) {
+    fn t(db: &Db, input: &str) {
         let mut t = TomlTokenIter::new(db, input);
         let token = t.next().unwrap();
         assert_eq!(
@@ -128,7 +128,7 @@ fn keylike() {
 
 #[test]
 fn all() {
-    fn t(db: &dyn CowordDb, input: &str, expected: &[((usize, usize), TomlTokenData, &str)]) {
+    fn t(db: &Db, input: &str, expected: &[((usize, usize), TomlTokenData, &str)]) {
         let mut tokens = TomlTokenIter::new(db, input);
         let mut actual: Vec<(TomlToken, &str)> = Vec::new();
         while let Some(token) = tokens.next() {

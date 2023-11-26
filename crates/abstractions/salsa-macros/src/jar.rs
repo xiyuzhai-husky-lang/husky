@@ -128,18 +128,11 @@ pub(crate) fn jar_impl(
         }
 
         impl<'salsa_db> ::salsa::jar::Jar<'salsa_db> for #jar_struct {
-            type DynDb = dyn #jar_trait + 'salsa_db;
-
             fn initialize<DB>(&mut self, routes: &mut salsa::routes::Routes)
             where
                 DB: salsa::storage::JarFromJars<Self> + salsa::storage::DbWithJar<Self>,
             {
                 #(#field_initializations)*
-            }
-
-            #[cfg(debug_assertions)]
-            fn cast_test_db(db: &salsa::test_utils::TestDb) -> &Self::DynDb {
-                db
             }
         }
     }

@@ -32,7 +32,7 @@ impl FileContent {
 
 impl File {
     pub(crate) fn new(
-        db: &<crate::VfsJar as salsa::jar::Jar<'_>>::DynDb,
+        db: &Db,
         path: VirtualPath,
         content: FileContent,
         durability: Durability,
@@ -45,19 +45,13 @@ impl File {
         id
     }
 
-    pub(crate) fn path<'db>(
-        self,
-        __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-    ) -> VirtualPath {
+    pub(crate) fn path(self, __db: &Db) -> VirtualPath {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(__db);
         let __ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(__jar);
         __ingredients.0.fetch(__runtime, self).clone()
     }
 
-    pub(crate) fn content<'db>(
-        self,
-        __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-    ) -> &'db FileContent {
+    pub(crate) fn content<'db>(self, __db: &'db Db) -> &'db FileContent {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(__db);
         let __ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(__jar);
         __ingredients.1.fetch(__runtime, self)
@@ -65,7 +59,7 @@ impl File {
 
     pub(crate) fn set_content<'db>(
         self,
-        db: &'db mut <VfsJar as salsa::jar::Jar<'_>>::DynDb,
+        db: &'db Db,
     ) -> salsa::setter::Setter<'db, File, FileContent> {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar_mut(db);
         let __ingredients =
@@ -157,7 +151,7 @@ impl salsa::AsId for File {
 impl ::salsa::DebugWithDb for File {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db) -> ::std::fmt::Result {
         #[allow(unused_imports)]
-        use ::salsa::debug::helper::Fallback;
+        use salsa::debug::helper::Fallback;
         let mut debug_struct = &mut f.debug_struct("HuskyFile");
         debug_struct = debug_struct.field(
             "path",
@@ -178,20 +172,20 @@ impl ::salsa::DebugWithDb for File {
         debug_struct.finish()
     }
 }
-impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for File
+implsalsa::salsa_struct::SalsaStructInDb for File
 where
     DB: ?Sized + salsa::DbWithJar<VfsJar>,
 {
-    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
+    fn register_dependent_fn(_db: &::salsa::Db, _index: salsa::routes::IngredientIndex) {}
 }
 
 #[salsa::tracked(jar = VfsJar)]
-pub(crate) fn package_manifest_file(db: &dyn VfsDb, package_path: PackagePath) -> VfsResult<File> {
+pub(crate) fn package_manifest_file(db: &Db, package_path: PackagePath) -> VfsResult<File> {
     db.file_from_virtual_path(package_manifest_path(db, package_path)?)
 }
 
 #[salsa::tracked(jar = VfsJar )]
-pub(crate) fn module_file(db: &dyn VfsDb, module_path: ModulePath) -> VfsResult<File> {
+pub(crate) fn module_file(db: &Db, module_path: ModulePath) -> VfsResult<File> {
     let abs_path = module_virtual_path(db, module_path)?;
     db.file_from_virtual_path(abs_path)
 }

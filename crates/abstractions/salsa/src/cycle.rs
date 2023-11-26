@@ -96,10 +96,7 @@ impl Cycle {
             }
         }
 
-        UnexpectedCycleDebug {
-            c: self,
-            db: db.as_salsa_database(),
-        }
+        UnexpectedCycleDebug { c: self, db: db }
     }
 }
 
