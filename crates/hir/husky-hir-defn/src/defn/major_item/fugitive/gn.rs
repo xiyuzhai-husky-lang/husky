@@ -24,7 +24,7 @@ impl From<FunctionGnHirDefn> for HirDefn {
 
 impl FunctionGnHirDefn {
     pub(super) fn new(
-        db: &dyn HirDefnDb,
+        db: &::salsa::Db,
         path: FugitivePath,
         hir_decl: FunctionGnFugitiveHirDecl,
     ) -> Self {
@@ -39,22 +39,22 @@ impl FunctionGnHirDefn {
         )
     }
 
-    pub fn hir_lazy_expr_region(self, db: &dyn HirDefnDb) -> Option<HirLazyExprRegion> {
+    pub fn hir_lazy_expr_region(self, db: &::salsa::Db) -> Option<HirLazyExprRegion> {
         Some(self.lazy_body_with_hir_lazy_expr_region(db)?.1)
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         function_gn_hir_defn_dependencies(db, self)
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         function_gn_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn function_gn_hir_defn_dependencies(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: FunctionGnHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
@@ -77,7 +77,7 @@ fn function_gn_hir_defn_dependencies(
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn function_gn_hir_defn_version_stamp(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: FunctionGnHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)

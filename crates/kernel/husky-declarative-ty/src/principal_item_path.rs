@@ -60,7 +60,7 @@ fn item_path_declarative_ty_works() {
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
-    let item_path_menu = db.item_path_menu(toolchain);
+    let item_path_menu = item_path_menu(db, toolchain);
     let declarative_term_menu = db.declarative_term_menu(toolchain).unwrap();
     let invariant_ty0_to_trai_ty: DeclarativeTerm =
         declarative_term_menu.invariant_ty0_to_trai_ty().into();
@@ -240,7 +240,7 @@ fn ty_ontology_path_declarative_ty_works() {
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
-    let item_path_menu = db.item_path_menu(toolchain);
+    let item_path_menu = item_path_menu(db, toolchain);
     let _array_ty_ontology_path_declarative_ty =
         ty_ontology_path_declarative_ty(db, item_path_menu.array_ty_path());
     // use husky_print_utils::*;

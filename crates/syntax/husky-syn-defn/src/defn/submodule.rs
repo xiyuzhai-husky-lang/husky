@@ -15,7 +15,7 @@ impl SubmoduleSynNodeDefn {
 impl HasSynNodeDefn for SubmoduleSynNodePath {
     type SynNodeDefn = SubmoduleSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
+    fn syn_node_defn(self, db: &::salsa::Db) -> Self::SynNodeDefn {
         SubmoduleSynNodeDefn {
             syn_node_decl: self.syn_node_decl(db),
         }
@@ -33,7 +33,7 @@ impl SubmoduleSynDefn {
         self.decl
     }
 
-    pub fn path(self, db: &dyn SynDefnDb) -> SubmodulePath {
+    pub fn path(self, db: &::salsa::Db) -> SubmodulePath {
         self.decl.path(db)
     }
 }
@@ -41,7 +41,7 @@ impl SubmoduleSynDefn {
 impl HasSynDefn for SubmodulePath {
     type SynDefn = SubmoduleSynDefn;
 
-    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
+    fn syn_defn(self, db: &::salsa::Db) -> SynDefnResult<Self::SynDefn> {
         Ok(SubmoduleSynDefn {
             decl: self.syn_decl(db)?,
         })

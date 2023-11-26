@@ -11,7 +11,7 @@ impl TermCategory {
         Self { universe }
     }
 
-    pub fn from_(db: &dyn TermPreludeDb, _term: TermCategory) -> Self {
+    pub fn from_(db: &::salsa::Db, _term: TermCategory) -> Self {
         TermCategory::new(TermUniverse::from_(db, _term.universe()))
     }
 
@@ -28,7 +28,7 @@ impl TermCategory {
     pub(crate) fn show_with_db_fmt(
         self,
         _f: &mut std::fmt::Formatter<'_>,
-        _db: &dyn TermPreludeDb,
+        _db: &::salsa::Db,
     ) -> std::fmt::Result {
         todo!()
     }

@@ -47,7 +47,7 @@ pub enum FluffyTermData<'a> {
 
 impl<'a> FluffyTermData<'a> {
     #[inline(never)]
-    pub fn show(&self, db: &dyn FluffyTermDb, terms: &FluffyTerms) -> String {
+    pub fn show(&self, db: &::salsa::Db, terms: &FluffyTerms) -> String {
         use salsa::DisplayWithDb;
         match self {
             FluffyTermData::Literal(_) => todo!(),
@@ -132,11 +132,7 @@ impl FluffyTerm {
         self.data_inner(engine.db(), engine.fluffy_terms())
     }
 
-    pub fn data_inner<'a>(
-        self,
-        db: &'a dyn FluffyTermDb,
-        terms: &'a FluffyTerms,
-    ) -> FluffyTermData<'a> {
+    pub fn data_inner<'a>(self, db: &'a ::salsa::Db, terms: &'a FluffyTerms) -> FluffyTermData<'a> {
         match self.base_resolved_inner(terms) {
             FluffyTermBase::Ethereal(term) => ethereal_term_data(db, term),
             FluffyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
@@ -157,7 +153,7 @@ impl FluffyTerm {
 
     pub fn base_ty_data_inner<'a>(
         self,
-        db: &'a dyn FluffyTermDb,
+        db: &'a ::salsa::Db,
         terms: &'a FluffyTerms,
     ) -> FluffyBaseTypeData<'a> {
         match self.base_resolved_inner(terms) {

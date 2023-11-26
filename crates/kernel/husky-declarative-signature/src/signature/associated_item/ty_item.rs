@@ -42,10 +42,7 @@ pub enum TypeItemDeclarativeSignatureTemplates {
 }
 
 impl TypeItemDeclarativeSignatureTemplate {
-    pub fn template_parameters(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeTemplateParameter] {
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
             TypeItemDeclarativeSignatureTemplate::AssociatedFn(signature) => {
                 signature.template_parameters(db)
@@ -65,7 +62,7 @@ impl HasDeclarativeSignatureTemplate for TypeItemPath {
 
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
         ty_item_syn_declarative_signature_template(db, self)
     }
@@ -73,7 +70,7 @@ impl HasDeclarativeSignatureTemplate for TypeItemPath {
 
 // #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn ty_item_syn_declarative_signature_template(
-    db: &dyn DeclarativeSignatureDb,
+    db: &::salsa::Db,
     path: TypeItemPath,
 ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
     let decl = path.syn_decl(db)?;
@@ -106,7 +103,7 @@ pub enum TypeMethodDeclarativeSignatureTemplates {
 pub trait HasTypeMethodDeclarativeSignatureTemplates: Copy {
     fn ty_method_declarative_signature_templates_map<'a>(
         self,
-        db: &'a dyn DeclarativeSignatureDb,
+        db: &'a ::salsa::Db,
     ) -> DeclarativeSignatureResult<
         &'a [(
             Ident,
@@ -116,7 +113,7 @@ pub trait HasTypeMethodDeclarativeSignatureTemplates: Copy {
 
     fn ty_method_declarative_signature_templates<'a>(
         self,
-        db: &'a dyn DeclarativeSignatureDb,
+        db: &'a ::salsa::Db,
         ident: Ident,
     ) -> DeclarativeSignatureResult<Option<&'a TypeMethodDeclarativeSignatureTemplates>> {
         use vec_like::VecMapGetEntry;
@@ -134,7 +131,7 @@ pub trait HasTypeMethodDeclarativeSignatureTemplates: Copy {
 // impl HasTypeMethodDeclarativeSignatureTemplates for TypePath {
 //     fn ty_method_declarative_signature_templates_map<'a>(
 //         self,
-//         db: &'a dyn DeclarativeSignatureDb,
+//         db: &'a ::salsa::Db,
 //     ) -> DeclarativeSignatureResult<
 //         &'a [(
 //             Ident,
@@ -150,7 +147,7 @@ pub trait HasTypeMethodDeclarativeSignatureTemplates: Copy {
 
 // #[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
 // pub(crate) fn ty_method_declarative_signature_templates_map(
-//     db: &dyn DeclarativeSignatureDb,
+//     db: &::salsa::Db,
 //     ty_path: TypePath,
 // ) -> DeclarativeSignatureResult<
 //     IdentPairMap<DeclarativeSignatureResult<TypeMethodDeclarativeSignatureTemplates>>,

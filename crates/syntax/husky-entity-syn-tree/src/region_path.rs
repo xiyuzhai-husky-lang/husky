@@ -13,7 +13,7 @@ pub enum SynNodeRegionPath {
 }
 
 impl SynNodeRegionPath {
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         todo!()
         // match self {
         //     SynNodeRegionPath::Snippet(module_path) => module_path,
@@ -22,15 +22,15 @@ impl SynNodeRegionPath {
         // }
     }
 
-    pub fn toolchain(self, db: &dyn EntitySynTreeDb) -> Toolchain {
+    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         self.module_path(db).toolchain(db)
     }
 
-    pub fn token_sheet_data<'a>(self, db: &'a dyn EntitySynTreeDb) -> &'a TokenSheetData {
+    pub fn token_sheet_data<'a>(self, db: &'a ::salsa::Db) -> &'a TokenSheetData {
         db.token_sheet_data(self.module_path(db))
     }
 
-    pub fn region_path(self, db: &dyn EntitySynTreeDb) -> Option<RegionPath> {
+    pub fn region_path(self, db: &::salsa::Db) -> Option<RegionPath> {
         Some(match self {
             SynNodeRegionPath::Snippet(path) => RegionPath::Snippet(path),
             SynNodeRegionPath::Decl(path) => RegionPath::Decl(path.path(db)?),

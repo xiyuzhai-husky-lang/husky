@@ -23,7 +23,7 @@ pub enum FugitiveHirDecl {
 }
 
 impl FugitiveHirDecl {
-    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
         match self {
             FugitiveHirDecl::FunctionFn(decl) => decl.template_parameters(db),
             FugitiveHirDecl::Val(_decl) => &[],
@@ -32,7 +32,7 @@ impl FugitiveHirDecl {
         }
     }
 
-    // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    // pub fn hir_expr_region(self, db: &::salsa::Db,) -> HirExprRegion {
     //     match self {
     //         FugitiveHirDecl::Fn(decl) => decl.hir_expr_region(db).into(),
     //         FugitiveHirDecl::Val(decl) => decl.hir_expr_region(db).into(),
@@ -40,7 +40,7 @@ impl FugitiveHirDecl {
     //     }
     // }
 
-    pub fn path(self, db: &dyn HirDeclDb) -> FugitivePath {
+    pub fn path(self, db: &::salsa::Db) -> FugitivePath {
         match self {
             FugitiveHirDecl::FunctionFn(decl) => decl.path(db),
             FugitiveHirDecl::Val(decl) => decl.path(db),
@@ -53,13 +53,13 @@ impl FugitiveHirDecl {
 impl HasHirDecl for FugitivePath {
     type HirDecl = FugitiveHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
         fugitive_hir_decl(db, self)
     }
 }
 
 // #[salsa::tracked(jar = HirDeclJar)]
-fn fugitive_hir_decl(db: &dyn HirDeclDb, path: FugitivePath) -> Option<FugitiveHirDecl> {
+fn fugitive_hir_decl(db: &::salsa::Db, path: FugitivePath) -> Option<FugitiveHirDecl> {
     match path.syn_decl(db).expect("no errors for hir stage") {
         FugitiveSynDecl::FunctionFn(syn_decl) => {
             Some(FunctionFnFugitiveHirDecl::from_syn(path, syn_decl, db).into())

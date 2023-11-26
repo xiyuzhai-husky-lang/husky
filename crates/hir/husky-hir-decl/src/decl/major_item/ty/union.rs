@@ -10,11 +10,7 @@ pub struct UnionHirDecl {
 }
 
 impl UnionHirDecl {
-    pub(super) fn from_syn(
-        _path: TypePath,
-        syn_decl: UnionTypeSynDecl,
-        db: &dyn HirDeclDb,
-    ) -> Self {
+    pub(super) fn from_syn(_path: TypePath, syn_decl: UnionTypeSynDecl, db: &::salsa::Db) -> Self {
         let _builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         todo!()
     }

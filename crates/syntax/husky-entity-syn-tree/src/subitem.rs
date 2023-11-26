@@ -4,7 +4,7 @@ use vec_like::VecMapGetEntry;
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn module_subitem_path(
-    _db: &dyn EntitySynTreeDb,
+    _db: &::salsa::Db,
     _parent: ModulePath,
     _identifier: Ident,
 ) -> EntitySynTreeResult<ItemPath> {
@@ -20,7 +20,7 @@ pub enum SubitemPath {
 }
 
 pub(crate) fn subitem_path(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     parent: MajorEntityPath,
     ident: Ident,
 ) -> EntitySynTreeResult<SubitemPath> {

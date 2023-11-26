@@ -1,6 +1,5 @@
 use super::*;
 
-
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct ValFugitiveSynNodeDecl {
     #[id]
@@ -15,7 +14,7 @@ pub struct ValFugitiveSynNodeDecl {
 }
 
 impl ValFugitiveSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.return_ty(db)
                 .as_ref()
@@ -63,7 +62,7 @@ pub struct ValFugitiveSynDecl {
 
 impl ValFugitiveSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: FugitivePath,
         syn_node_decl: ValFugitiveSynNodeDecl,
     ) -> DeclResult<Self> {

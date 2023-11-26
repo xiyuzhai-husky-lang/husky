@@ -11,7 +11,7 @@ impl From<CustomTypePath> for TypePath {
 }
 
 impl TypePath {
-    pub fn refine(self, db: &dyn EntityPathDb) -> Either<PreludeTypePath, CustomTypePath> {
+    pub fn refine(self, db: &::salsa::Db) -> Either<PreludeTypePath, CustomTypePath> {
         match self.prelude_ty_path(db) {
             Some(path) => Left(path),
             None => Right(CustomTypePath(self)),

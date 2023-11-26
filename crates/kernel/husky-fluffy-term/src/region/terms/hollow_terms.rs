@@ -79,7 +79,7 @@ impl HollowTerms {
             })
     }
 
-    fn update_entries(&mut self, db: &dyn FluffyTermDb, solid_terms: &mut SolidTerms) {
+    fn update_entries(&mut self, db: &::salsa::Db, solid_terms: &mut SolidTerms) {
         let first_unresolved_idx = self.get_first_unresolved_term_idx();
         for idx in first_unresolved_idx..self.entries.len() {
             self.try_update_entry(db, solid_terms, idx)
@@ -100,12 +100,7 @@ impl HollowTerms {
         idx
     }
 
-    fn try_update_entry(
-        &mut self,
-        db: &dyn FluffyTermDb,
-        solid_terms: &mut SolidTerms,
-        idx: usize,
-    ) {
+    fn try_update_entry(&mut self, db: &::salsa::Db, solid_terms: &mut SolidTerms, idx: usize) {
         if self.entries[idx].is_resolved() {
             return;
         }
@@ -236,11 +231,11 @@ impl HollowTerms {
 }
 
 impl FluffyTerms {
-    pub(crate) fn fill_hole(&mut self, db: &dyn FluffyTermDb, hole: Hole, term: FluffyTerm) {
+    pub(crate) fn fill_hole(&mut self, db: &::salsa::Db, hole: Hole, term: FluffyTerm) {
         self.fill_hole_aux(hole.idx(), term, db)
     }
 
-    fn fill_hole_aux(&mut self, hole_idx: usize, term: FluffyTerm, db: &dyn FluffyTermDb) {
+    fn fill_hole_aux(&mut self, hole_idx: usize, term: FluffyTerm, db: &::salsa::Db) {
         let mut hole_entry = &mut self.hollow_terms.entries[hole_idx];
         match hole_entry.data {
             HollowTermData::Hole { fill: Some(_), .. } => unreachable!(),
@@ -264,7 +259,7 @@ impl FluffyTerms {
     pub(crate) fn fill_hole_by_force(
         &mut self,
         hole: Hole,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         term_menu: &EtherealTermMenu,
     ) {
         let mut hole_entry = &mut self.hollow_terms.entries[hole.idx()];
@@ -290,7 +285,7 @@ impl FluffyTerms {
 
     pub(in crate::region) fn fill_all_holes(
         &mut self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         term_menu: &EtherealTermMenu,
     ) {
         // we know that no new holes are generated

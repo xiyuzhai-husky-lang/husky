@@ -43,7 +43,7 @@ impl Trace {
         hir_lazy_expr_region: HirLazyExprRegion,
         hir_lazy_expr_source_map: HirLazyExprSourceMap,
         lazy_expr_trace_path_registry: &mut TracePathRegistry<LazyExprEssence>,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Self {
         let essence = LazyExprEssence::Haha;
         let path = TracePath::new(
@@ -72,7 +72,7 @@ impl Trace {
 }
 
 impl LazyExprTraceData {
-    fn view_lines(&self, db: &dyn TraceDb, trace: Trace) -> TraceViewLines {
+    fn view_lines(&self, db: &::salsa::Db, trace: Trace) -> TraceViewLines {
         let sema_expr_region = self.sema_expr_region;
         let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
         let sema_expr_range_region_data = sema_expr_range_region.data(db);
@@ -88,7 +88,7 @@ impl LazyExprTraceData {
         )
     }
 
-    fn have_subtraces(&self, db: &dyn TraceDb) -> bool {
+    fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         use husky_hir_defn::defn::HasHirDefn;
         let Some(hir_eager_expr_idx) = self.hir_lazy_expr_idx else {
             return false;
@@ -104,7 +104,7 @@ impl LazyExprTraceData {
         }
     }
 
-    fn subtraces(&self, trace: Trace, db: &dyn TraceDb) -> Vec<Trace> {
+    fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         let biological_parent_path = self.path;
         let biological_parent = trace;
         let sema_expr_idx = self.sema_expr_idx;
@@ -223,7 +223,7 @@ impl LazyExprTraceData {
         }
     }
 
-    fn lazy_expr_trace_val_repr(&self, trace_id: Trace, db: &dyn TraceDb) -> Option<ValRepr> {
+    fn lazy_expr_trace_val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<ValRepr> {
         let val_repr_expansion = trace_val_repr_expansion(db, trace_id);
         val_repr_expansion
             .hir_lazy_expr_val_repr_map(db)
@@ -231,7 +231,7 @@ impl LazyExprTraceData {
             .copied()
     }
 
-    fn lazy_expr_trace_val_repr_expansion(&self, db: &dyn TraceDb) -> ValReprExpansion {
+    fn lazy_expr_trace_val_repr_expansion(&self, db: &::salsa::Db) -> ValReprExpansion {
         self.biological_parent.val_repr_expansion(db)
     }
 }
@@ -241,7 +241,7 @@ fn fn_call_lazy_expr_trace_input_traces(
     trace: Trace,
     ritchie_parameter_argument_matches: &[SemaRitchieParameterArgumentMatch],
     hir_lazy_expr_source_map_data: &HirLazyExprSourceMapData,
-    db: &dyn TraceDb,
+    db: &::salsa::Db,
 ) -> Vec<Trace> {
     ritchie_parameter_argument_matches
         .iter()

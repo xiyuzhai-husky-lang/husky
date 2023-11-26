@@ -1,7 +1,7 @@
 use super::*;
 
 pub(super) fn ethereal_term_data<'a>(
-    db: &'a dyn FluffyTermDb,
+    db: &'a ::salsa::Db,
     term: EtherealTerm,
 ) -> FluffyTermData<'a> {
     match term {
@@ -73,7 +73,7 @@ impl TermRitchieFluffyData {
 
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn term_ritchie_fluffy_data(
-    db: &dyn FluffyTermDb,
+    db: &::salsa::Db,
     term: EtherealTermRitchie,
 ) -> TermRitchieFluffyData {
     TermRitchieFluffyData {
@@ -103,7 +103,7 @@ pub(crate) enum TermApplicationFluffyData {
 /// can't directly return FluffyTermData<'_> because of lifetime
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn term_application_fluffy_data(
-    db: &dyn FluffyTermDb,
+    db: &::salsa::Db,
     term: EtherealTermApplication,
 ) -> TermApplicationFluffyData {
     let expansion = term.application_expansion(db);
@@ -159,7 +159,7 @@ impl TermApplicationFluffyData {
 }
 
 pub(super) fn ethereal_term_data2<'a>(
-    db: &'a dyn FluffyTermDb,
+    db: &'a ::salsa::Db,
     term: EtherealTerm,
 ) -> FluffyBaseTypeData<'a> {
     match term {

@@ -9,12 +9,12 @@ pub struct SubmoduleHirDecl {
 impl HasHirDecl for SubmodulePath {
     type HirDecl = SubmoduleHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
         Some(submodule_hir_decl(db, self))
     }
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn submodule_hir_decl(db: &dyn HirDeclDb, path: SubmodulePath) -> SubmoduleHirDecl {
+fn submodule_hir_decl(db: &::salsa::Db, path: SubmodulePath) -> SubmoduleHirDecl {
     SubmoduleHirDecl::new(db, path)
 }

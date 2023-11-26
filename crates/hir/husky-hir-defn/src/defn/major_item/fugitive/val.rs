@@ -21,11 +21,7 @@ impl From<ValHirDefn> for HirDefn {
 }
 
 impl ValHirDefn {
-    pub(super) fn new(
-        db: &dyn HirDefnDb,
-        path: FugitivePath,
-        hir_decl: ValFugitiveHirDecl,
-    ) -> Self {
+    pub(super) fn new(db: &::salsa::Db, path: FugitivePath, hir_decl: ValFugitiveHirDecl) -> Self {
         let Ok(FugitiveSynDefn::Val(syn_defn)) = path.syn_defn(db) else {
             unreachable!()
         };
@@ -37,21 +33,21 @@ impl ValHirDefn {
         )
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
         self.body_with_hir_expr_region(db).map(|v| v.1)
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         val_hir_defn_dependencies(db, self)
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         val_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn val_hir_defn_dependencies(db: &dyn HirDefnDb, hir_defn: ValHirDefn) -> HirDefnDependencies {
+fn val_hir_defn_dependencies(db: &::salsa::Db, hir_defn: ValHirDefn) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
@@ -63,6 +59,6 @@ fn val_hir_defn_dependencies(db: &dyn HirDefnDb, hir_defn: ValHirDefn) -> HirDef
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn val_hir_defn_version_stamp(db: &dyn HirDefnDb, hir_defn: ValHirDefn) -> HirDefnVersionStamp {
+fn val_hir_defn_version_stamp(db: &::salsa::Db, hir_defn: ValHirDefn) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

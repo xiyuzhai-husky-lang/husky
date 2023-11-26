@@ -22,7 +22,7 @@ pub enum MajorItemSynNodePath {
 // where
 //      + EntitySynTreeDb,
 // {
-//     fn module_path(self, db: &Db) -> ModulePath {
+//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
 //         match self {
 //             MajorItemSynNodePath::Trait(node) => node.module_path(db),
 //             MajorItemSynNodePath::Type(node) => node.module_path(db),
@@ -33,7 +33,7 @@ pub enum MajorItemSynNodePath {
 
 impl MajorItemSynNodePath {
     pub(super) fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         path: MajorItemPath,
     ) -> Self {
@@ -44,7 +44,7 @@ impl MajorItemSynNodePath {
         }
     }
 
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<MajorItemPath> {
+    pub fn path(self, db: &::salsa::Db) -> Option<MajorItemPath> {
         match self {
             MajorItemSynNodePath::Trait(syn_node_path) => syn_node_path
                 .maybe_ambiguous_path(db)
@@ -61,16 +61,16 @@ impl MajorItemSynNodePath {
         }
     }
 
-    pub fn ident(self, _db: &dyn EntitySynTreeDb) -> Ident {
+    pub fn ident(self, _db: &::salsa::Db) -> Ident {
         todo!("")
         // self.path(db).ident(db)
     }
 
-    pub(crate) fn syn_node(self, _db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
+    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> MajorItemSynNode {
         todo!()
     }
 
-    pub(crate) fn attrs(self, db: &dyn EntitySynTreeDb) -> &[(AttrSynNodePath, AttrSynNode)] {
+    pub(crate) fn attrs(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNode)] {
         // ad hoc
         match self {
             MajorItemSynNodePath::Trait(_) => &[],
@@ -83,7 +83,7 @@ impl MajorItemSynNodePath {
 impl HasSynNodePath for MajorItemPath {
     type SynNodePath = MajorItemSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         match self {
             MajorItemPath::Type(path) => path.syn_node_path(db).into(),
             MajorItemPath::Trait(path) => path.syn_node_path(db).into(),
@@ -105,7 +105,7 @@ pub(crate) struct MajorItemSynNode {
 
 impl MajorItemSynNode {
     pub(super) fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         module_item_path: MajorItemPath,
         visibility: Scope,
@@ -124,7 +124,7 @@ impl MajorItemSynNode {
     }
 
     /// only gives a path when valid
-    pub fn unambiguous_path(self, db: &dyn EntitySynTreeDb) -> Option<MajorItemPath> {
+    pub fn unambiguous_path(self, db: &::salsa::Db) -> Option<MajorItemPath> {
         self.syn_node_path(db).path(db)
     }
 }

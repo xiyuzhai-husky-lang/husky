@@ -10,7 +10,7 @@ pub struct UnionTypeSynNodeDecl {
 }
 
 impl UnionTypeSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
                 .as_ref()
@@ -32,7 +32,7 @@ pub struct UnionTypeSynDecl {
 impl UnionTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
-        _db: &dyn SynDeclDb,
+        _db: &::salsa::Db,
         _path: TypePath,
         _syn_node_decl: UnionTypeSynNodeDecl,
     ) -> DeclResult<Self> {

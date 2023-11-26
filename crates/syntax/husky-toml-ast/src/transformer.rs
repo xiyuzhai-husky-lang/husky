@@ -28,7 +28,7 @@ where
 pub type TomlVisitor<'a, A> = <A as TomlAst>::Visitor<'a>;
 
 pub struct TomlTransformer<'a, 'b, Context: TomlDeserializeContext, A: TomlAst> {
-    db: &'a Context::Db<'a>,
+    db: &'a ::salsa::Db,
     visitor: TomlVisitor<'a, A>,
     menu: &'a Context::Menu,
     path: &'a Path,
@@ -46,7 +46,7 @@ impl<'a, 'b, Context: TomlDeserializeContext, A: TomlAst> Drop
 // impl general case
 
 impl<'a, 'b, Context: TomlDeserializeContext, Ast: TomlAst> TomlTransformer<'a, 'b, Context, Ast> {
-    pub fn db(&self) -> &'a Context::Db<'a> {
+    pub fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
 
@@ -65,7 +65,7 @@ impl<'a, 'b, Context: TomlDeserializeContext, Ast: TomlAst> TomlTransformer<'a, 
 // impl table transformer
 impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, TomlTable> {
     pub fn new_root(
-        db: &'a Context::Db<'a>,
+        db: &'a ::salsa::Db,
         path: VirtualPath,
         menu: &'a Context::Menu,
         errors: &'b mut Vec<Context::Error>,
@@ -87,7 +87,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
     }
 
     pub fn new_root_expected(
-        db: &'a Context::Db<'a>,
+        db: &'a ::salsa::Db,
         path: VirtualPath,
         menu: &'a Context::Menu,
         errors: &'b mut Vec<Context::Error>,
@@ -263,7 +263,6 @@ where
 }
 
 pub trait TomlDeserializeContext {
-    type Db<'a>: ?Sized + TomlAstDb;
     type Menu;
     type Error;
 }

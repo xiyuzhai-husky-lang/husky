@@ -16,7 +16,7 @@ impl HasDeclarativeSignatureTemplate for AttrItemPath {
 
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         attr_declarative_signature_template(db, self)
     }
@@ -24,7 +24,7 @@ impl HasDeclarativeSignatureTemplate for AttrItemPath {
 
 // #[salsa::tracked(jar = DeclarativeSignatureJar)]
 fn attr_declarative_signature_template(
-    db: &dyn DeclarativeSignatureDb,
+    db: &::salsa::Db,
     path: AttrItemPath,
 ) -> DeclarativeSignatureResult<AttrDeclarativeSignatureTemplate> {
     match path.syn_decl(db)? {

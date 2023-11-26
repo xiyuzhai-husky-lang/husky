@@ -2,7 +2,7 @@ use super::*;
 
 use husky_text_protocol::{char_iter::TextCharIter, range::TextRange};
 
-use husky_coword::{is_char_valid_ident_first_char, CowordDb};
+use husky_coword::{is_char_valid_ident_first_char, Label};
 use std::str::FromStr;
 
 pub(crate) struct RangedPretoken {
@@ -135,13 +135,13 @@ impl From<BoolLiteralData> for Pretoken {
 }
 
 pub(crate) struct PretokenStream<'a, 'b> {
-    db: &'a dyn TokenDb,
+    db: &'a ::salsa::Db,
     buffer: String,
     char_iter: TextCharIter<'b>,
 }
 
 impl<'a, 'b> PretokenStream<'a, 'b> {
-    pub fn new(db: &'a dyn TokenDb, char_iter: TextCharIter<'b>) -> Self {
+    pub fn new(db: &'a ::salsa::Db, char_iter: TextCharIter<'b>) -> Self {
         let mut buffer = String::new();
         buffer.reserve_exact(100);
         Self {
@@ -227,8 +227,8 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         }
         assert!(self.buffer.len() > 0);
         let word = &self.buffer;
-        let pretoken = match self.db.it_auxiliary_ident_borrowed(word) {
-            Some(identifier) => TokenData::Label(identifier).into(),
+        let pretoken = match Label::from_ref(self.db, word) {
+            Some(ident) => TokenData::Label(ident).into(),
             None => Pretoken::Err(TokenDataError::InvalidIdent),
         };
         self.buffer.clear();
@@ -254,7 +254,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         let pretoken = if let Some(pretoken) = new_reserved_coword(self.db, word) {
             pretoken
         } else {
-            match Ident::from_borrowed(self, word) {
+            match Ident::from_ref(self.db, word) {
                 Some(identifier) => TokenData::Ident(identifier).into(),
                 None => Pretoken::Err(TokenDataError::InvalidIdent),
             }

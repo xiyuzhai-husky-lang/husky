@@ -15,7 +15,7 @@ pub struct PropsStructTypeEtherealSignatureTemplate {
 impl HasPropsFieldEtherealSignature for PropsStructTypeEtherealSignatureTemplate {
     fn regular_field_ethereal_signature(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         arguments: &[EtherealTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
@@ -34,7 +34,7 @@ impl HasPropsFieldEtherealSignature for PropsStructTypeEtherealSignatureTemplate
 
 impl PropsStructTypeEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: TypePath,
         declarative_signature_template: PropsStructTypeDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
@@ -66,7 +66,7 @@ pub struct PropsFieldEtherealSignatureTemplate {
 
 impl PropsFieldEtherealSignatureTemplate {
     fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         declarative_signature_template: PropsStructFieldDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self {

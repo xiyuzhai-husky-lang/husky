@@ -17,7 +17,7 @@ pub struct TypeAssociatedFnDeclarativeSignatureTemplate {
 
 impl TypeAssociatedFnDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeAssociatedFnSynDecl,
     ) -> DeclarativeSignatureResult<Self> {

@@ -24,10 +24,7 @@ use husky_coword::Ident;
 use husky_opr::Bracket;
 use husky_token::TokenGroupStart;
 use husky_token::*;
-use husky_token_data::{
-    db::{TokenDataDb, TokenDataJar},
-    *,
-};
+use husky_token_data::{db::TokenDataJar, *};
 #[cfg(test)]
 use parsec::TryParseOptionFromStream;
 use parsec::{HasStreamState, IsStreamParser};
@@ -309,7 +306,7 @@ impl<'a, T> RegionalTokenStreamParser<'a> for T where
 }
 
 #[cfg(test)]
-fn quick_parse<T, Error>(db: &::salsa::Db input: &str) -> Result<Option<T>, Error>
+fn quick_parse<T, Error>(db: &::salsa::Db, input: &str) -> Result<Option<T>, Error>
 where
     T: for<'a> TryParseOptionFromStream<RegionalTokenStream<'a>, Error = Error>,
 {

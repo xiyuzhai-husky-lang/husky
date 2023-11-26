@@ -7,18 +7,18 @@ pub struct SynNodeDeclSheet {
 }
 
 pub trait HasSynNodeDeclSheet: Copy {
-    fn syn_node_decl_sheet(self, db: &dyn SynDeclDb) -> SynNodeDeclSheet;
+    fn syn_node_decl_sheet(self, db: &::salsa::Db) -> SynNodeDeclSheet;
 }
 
 impl HasSynNodeDeclSheet for ModulePath {
-    fn syn_node_decl_sheet(self, db: &dyn SynDeclDb) -> SynNodeDeclSheet {
+    fn syn_node_decl_sheet(self, db: &::salsa::Db) -> SynNodeDeclSheet {
         syn_node_decl_sheet(db, self)
     }
 }
 
 // useful for diagnostics and testing
 #[salsa::tracked(jar = SynDeclJar)]
-pub fn syn_node_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> SynNodeDeclSheet {
+pub fn syn_node_decl_sheet(db: &::salsa::Db, path: ModulePath) -> SynNodeDeclSheet {
     let item_tree_sheet = db.item_syn_tree_sheet(path);
     let mut decls: Vec<(ItemSynNodePath, ItemSynNodeDecl)> = Default::default();
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
@@ -82,7 +82,7 @@ pub struct SynDeclSheet {
 
 // only useful for testing purposes
 #[salsa::tracked(jar = SynDeclJar)]
-pub fn syn_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> SynDeclSheet {
+pub fn syn_decl_sheet(db: &::salsa::Db, path: ModulePath) -> SynDeclSheet {
     // get decls through item paths
     let item_tree_sheet = db.item_syn_tree_sheet(path);
     let mut decls: Vec<(ItemPath, SynDecl)> = Default::default();

@@ -21,11 +21,7 @@ impl std::ops::Deref for DeclarativeTermMenu1 {
 }
 
 impl DeclarativeTermMenu1 {
-    pub fn new(
-        db: &dyn DeclarativeTermDb,
-        _toolchain: Toolchain,
-        menu0: DeclarativeTermMenu0,
-    ) -> Self {
+    pub fn new(db: &::salsa::Db, _toolchain: Toolchain, menu0: DeclarativeTermMenu0) -> Self {
         Self {
             static_ref_ty: DeclarativeTermExplicitApplication::new(
                 db,

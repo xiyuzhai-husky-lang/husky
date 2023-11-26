@@ -1,5 +1,3 @@
-use husky_token_data::db::HasTokenDataDb;
-
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -70,7 +68,7 @@ pub struct UnderscoreRegionalToken {
 
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for UnderscoreRegionalToken
 where
-    Context: RegionalTokenStreamParser<'a> + HasTokenDataDb<'a>,
+    Context: RegionalTokenStreamParser<'a> + ::salsa::db::HasDb<'a>,
 {
     type Error = TokenDataError;
 
@@ -79,7 +77,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                TokenData::Ident(ident) => match ident.data(ctx.token_data_db()) {
+                TokenData::Ident(ident) => match ident.data(ctx.db()) {
                     "_" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
@@ -116,7 +114,7 @@ pub struct DeriveRegionalToken {
 
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for DeriveRegionalToken
 where
-    Context: RegionalTokenStreamParser<'a> + HasTokenDataDb<'a>,
+    Context: RegionalTokenStreamParser<'a> + ::salsa::db::HasDb<'a>,
 {
     type Error = TokenDataError;
 
@@ -125,7 +123,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                TokenData::Ident(ident) => match ident.data(ctx.token_data_db()) {
+                TokenData::Ident(ident) => match ident.data(ctx.db()) {
                     "derive" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
@@ -154,7 +152,7 @@ pub struct PhantomRegionalToken {
 
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PhantomRegionalToken
 where
-    Context: RegionalTokenStreamParser<'a> + HasTokenDataDb<'a>,
+    Context: RegionalTokenStreamParser<'a> + ::salsa::db::HasDb<'a>,
 {
     type Error = TokenDataError;
 
@@ -163,7 +161,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                TokenData::Ident(ident) => match ident.data(ctx.token_data_db()) {
+                TokenData::Ident(ident) => match ident.data(ctx.db()) {
                     "phantom" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },

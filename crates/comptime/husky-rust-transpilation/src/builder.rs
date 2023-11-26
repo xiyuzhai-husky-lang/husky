@@ -32,7 +32,7 @@ use husky_term_prelude::TermLiteral;
 const INDENT_UNIT: u32 = 4;
 
 pub(crate) struct RustTranspilationBuilderBase<'a> {
-    db: &'a dyn RustTranspilationDb,
+    db: &'a ::salsa::Db,
     result: String,
     current_indent: u32,
     is_list_start: Option<bool>,
@@ -40,7 +40,7 @@ pub(crate) struct RustTranspilationBuilderBase<'a> {
 }
 
 impl<'a> RustTranspilationBuilderBase<'a> {
-    pub(crate) fn new(db: &'a dyn RustTranspilationDb, result: Option<&'static str>) -> Self {
+    pub(crate) fn new(db: &'a ::salsa::Db, result: Option<&'static str>) -> Self {
         Self {
             db,
             result: Default::default(),
@@ -58,7 +58,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         &self.result
     }
 
-    pub(crate) fn db(&self) -> &'a dyn RustTranspilationDb {
+    pub(crate) fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
 

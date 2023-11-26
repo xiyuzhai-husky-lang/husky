@@ -1,4 +1,4 @@
-use salsa::Database;
+use salsa::Db;
 
 use super::*;
 
@@ -18,7 +18,7 @@ fn term_abstraction_size_works() {
 
 impl EtherealTermAbstraction {
     pub(crate) fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         precise_term: DeclarativeTermAbstraction,
         term_ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<Self> {
@@ -33,7 +33,7 @@ impl EtherealTermAbstraction {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         todo!()
@@ -41,16 +41,20 @@ impl EtherealTermAbstraction {
 }
 
 impl EtherealTermAbstraction {
-    fn substitute(self, db: &dyn EtherealTermDb, substituation: &TermSubstitution) -> EtherealTerm {
+    fn substitute(self, db: &::salsa::Db, substituation: &TermSubstitution) -> EtherealTerm {
         todo!()
     }
 }
 
 impl salsa::DisplayWithDb for EtherealTermAbstraction {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         // use std::fmt::Write;
         // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
         // todo!()
-        self.show_with_db_fmt(f, db(), &mut Default::default())
+        self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

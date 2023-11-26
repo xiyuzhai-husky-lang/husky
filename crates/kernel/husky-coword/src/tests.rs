@@ -21,7 +21,7 @@ fn word_debug_works() {
 fn ident_debug_works() {
     let db = DB::default();
     let db = &*db;
-    let haha = Ident::from_borrowed(db, "haha").unwrap();
+    let haha = Ident::from_ref(db, "haha").unwrap();
     expect_test::expect![[r#"
         Ident(
             "haha",

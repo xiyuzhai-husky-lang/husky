@@ -41,42 +41,42 @@ pub struct CowordMenu {
 }
 
 impl CowordMenu {
-    pub(crate) fn new(db: &Db) -> Self {
+    pub(crate) fn new(db: &::salsa::Db) -> Self {
         Self {
             core_name: Kebab::from_ref(db, "core").unwrap(),
-            core_ident: Ident::from_borrowed(db, "core").unwrap(),
+            core_ident: Ident::from_ref(db, "core").unwrap(),
             std_name: Kebab::from_ref(db, "std").unwrap(),
-            std_ident: Ident::from_borrowed(db, "std").unwrap(),
-            unit_ident: Ident::from_borrowed(db, "unit").unwrap(),
-            never_ident: Ident::from_borrowed(db, "never").unwrap(),
-            bool_ident: Ident::from_borrowed(db, "bool").unwrap(),
-            derive_ident: Ident::from_borrowed(db, "derive").unwrap(),
-            i8_ident: Ident::from_borrowed(db, "i8").unwrap(),
-            i16_ident: Ident::from_borrowed(db, "i16").unwrap(),
-            i32_ident: Ident::from_borrowed(db, "i32").unwrap(),
-            i64_ident: Ident::from_borrowed(db, "i64").unwrap(),
-            i128_ident: Ident::from_borrowed(db, "i128").unwrap(),
-            isize_ident: Ident::from_borrowed(db, "isize").unwrap(),
-            u8_ident: Ident::from_borrowed(db, "u8").unwrap(),
-            u16_ident: Ident::from_borrowed(db, "u16").unwrap(),
-            u32_ident: Ident::from_borrowed(db, "u32").unwrap(),
-            u64_ident: Ident::from_borrowed(db, "u64").unwrap(),
-            u128_ident: Ident::from_borrowed(db, "u128").unwrap(),
-            usize_ident: Ident::from_borrowed(db, "usize").unwrap(),
-            r8_ident: Ident::from_borrowed(db, "r8").unwrap(),
-            r16_ident: Ident::from_borrowed(db, "r16").unwrap(),
-            r32_ident: Ident::from_borrowed(db, "r32").unwrap(),
-            r64_ident: Ident::from_borrowed(db, "r64").unwrap(),
-            r128_ident: Ident::from_borrowed(db, "r128").unwrap(),
-            rsize_ident: Ident::from_borrowed(db, "rsize").unwrap(),
-            f32_ident: Ident::from_borrowed(db, "f32").unwrap(),
-            f64_ident: Ident::from_borrowed(db, "f64").unwrap(),
-            trai_ty_ident: Ident::from_borrowed(db, "Trait").unwrap(),
-            module_ident: Ident::from_borrowed(db, "Module").unwrap(),
-            crate_ident: Ident::from_borrowed(db, "crate").unwrap(),
-            lifetime_ty_ident: Ident::from_borrowed(db, "Lifetime").unwrap(),
-            place_ty_ident: Ident::from_borrowed(db, "Place").unwrap(),
-            camel_case_output_ident: Ident::from_borrowed(db, "Output").unwrap(),
+            std_ident: Ident::from_ref(db, "std").unwrap(),
+            unit_ident: Ident::from_ref(db, "unit").unwrap(),
+            never_ident: Ident::from_ref(db, "never").unwrap(),
+            bool_ident: Ident::from_ref(db, "bool").unwrap(),
+            derive_ident: Ident::from_ref(db, "derive").unwrap(),
+            i8_ident: Ident::from_ref(db, "i8").unwrap(),
+            i16_ident: Ident::from_ref(db, "i16").unwrap(),
+            i32_ident: Ident::from_ref(db, "i32").unwrap(),
+            i64_ident: Ident::from_ref(db, "i64").unwrap(),
+            i128_ident: Ident::from_ref(db, "i128").unwrap(),
+            isize_ident: Ident::from_ref(db, "isize").unwrap(),
+            u8_ident: Ident::from_ref(db, "u8").unwrap(),
+            u16_ident: Ident::from_ref(db, "u16").unwrap(),
+            u32_ident: Ident::from_ref(db, "u32").unwrap(),
+            u64_ident: Ident::from_ref(db, "u64").unwrap(),
+            u128_ident: Ident::from_ref(db, "u128").unwrap(),
+            usize_ident: Ident::from_ref(db, "usize").unwrap(),
+            r8_ident: Ident::from_ref(db, "r8").unwrap(),
+            r16_ident: Ident::from_ref(db, "r16").unwrap(),
+            r32_ident: Ident::from_ref(db, "r32").unwrap(),
+            r64_ident: Ident::from_ref(db, "r64").unwrap(),
+            r128_ident: Ident::from_ref(db, "r128").unwrap(),
+            rsize_ident: Ident::from_ref(db, "rsize").unwrap(),
+            f32_ident: Ident::from_ref(db, "f32").unwrap(),
+            f64_ident: Ident::from_ref(db, "f64").unwrap(),
+            trai_ty_ident: Ident::from_ref(db, "Trait").unwrap(),
+            module_ident: Ident::from_ref(db, "Module").unwrap(),
+            crate_ident: Ident::from_ref(db, "crate").unwrap(),
+            lifetime_ty_ident: Ident::from_ref(db, "Lifetime").unwrap(),
+            place_ty_ident: Ident::from_ref(db, "Place").unwrap(),
+            camel_case_output_ident: Ident::from_ref(db, "Output").unwrap(),
         }
     }
 
@@ -218,16 +218,16 @@ impl CowordMenu {
 }
 
 // #[salsa::tracked(jar = CowordJar, return_ref)]
-// pub(crate) fn ident_menu(db: &Db) -> CowordMenu {
+// pub(crate) fn coword_menu(db: &::salsa::Db,) -> CowordMenu {
 //     CowordMenu::new(db)
 // }
 
 #[allow(non_camel_case_types)]
-pub(crate) struct ident_menu {
+pub(crate) struct coword_menu {
     intern_map: salsa::interned::IdentityInterner<()>,
     function: salsa::function::FunctionIngredient<Self>,
 }
-impl salsa::function::Configuration for ident_menu {
+impl salsa::function::Configuration for coword_menu {
     type Jar = CowordJar;
     type SalsaStruct = salsa::salsa_struct::Singleton;
     type Key = ();
@@ -238,19 +238,24 @@ impl salsa::function::Configuration for ident_menu {
         salsa::function::should_backdate_value(v1, v2)
     }
     fn execute(__db: &::salsa::Db, __id: Self::Key) -> Self::Value {
-        pub(crate) fn __fn(db: &Db) -> CowordMenu {
+        pub(crate) fn __fn(db: &::salsa::Db) -> CowordMenu {
             CowordMenu::new(db)
         }
         let (__jar, __runtime) = __db.jar::<CowordJar>();
-        let __ingredients = <_ as salsa::storage::HasIngredientsFor<ident_menu>>::ingredient(__jar);
+        let __ingredients =
+            <_ as salsa::storage::HasIngredientsFor<coword_menu>>::ingredient(__jar);
         let __key = __ingredients.intern_map.data(__runtime, __id).clone();
         __fn(__db)
     }
-    fn recover_from_cycle(_db: &Db, _cycle: &salsa::Cycle, _key: Self::Key) -> Self::Value {
+    fn recover_from_cycle(
+        _db: &::salsa::Db,
+        _cycle: &salsa::Cycle,
+        _key: Self::Key,
+    ) -> Self::Value {
         panic!()
     }
 }
-impl salsa::storage::IngredientsFor for ident_menu {
+impl salsa::storage::IngredientsFor for coword_menu {
     type Ingredients = Self;
     type Jar = CowordJar;
     fn create_ingredients(routes: &mut salsa::routes::Routes) -> Self::Ingredients {
@@ -273,18 +278,19 @@ impl salsa::storage::IngredientsFor for ident_menu {
                         &mut ingredients.function
                     },
                 );
-                let ingredient = salsa::function::FunctionIngredient::new(index, "ident_menu");
+                let ingredient = salsa::function::FunctionIngredient::new(index, "coword_menu");
                 ingredient.set_capacity(0usize);
                 ingredient
             },
         }
     }
 }
-impl ident_menu {
+impl coword_menu {
     #[allow(dead_code, clippy::needless_lifetimes)]
     pub(crate) fn get<'__db>(db: &'__db Db) -> &'__db CowordMenu {
         let (__jar, __runtime) = db.jar::<CowordJar>();
-        let __ingredients = <_ as salsa::storage::HasIngredientsFor<ident_menu>>::ingredient(__jar);
+        let __ingredients =
+            <_ as salsa::storage::HasIngredientsFor<coword_menu>>::ingredient(__jar);
         let __key = __ingredients.intern_map.intern(__runtime, ());
         __ingredients.function.fetch(db, __key)
     }
@@ -292,7 +298,7 @@ impl ident_menu {
     pub(crate) fn set(db: &mut Db, __value: CowordMenu) {
         let (__jar, __runtime) = db.jar_mut::<CowordJar>();
         let __ingredients =
-            <_ as salsa::storage::HasIngredientsFor<ident_menu>>::ingredient_mut(__jar);
+            <_ as salsa::storage::HasIngredientsFor<coword_menu>>::ingredient_mut(__jar);
         let __key = __ingredients.intern_map.intern(__runtime, ());
         __ingredients
             .function
@@ -303,12 +309,13 @@ impl ident_menu {
         db: &'__db Db,
     ) -> Vec<<__A as salsa::accumulator::Accumulator>::Data> {
         let (__jar, __runtime) = db.jar::<CowordJar>();
-        let __ingredients = <_ as salsa::storage::HasIngredientsFor<ident_menu>>::ingredient(__jar);
+        let __ingredients =
+            <_ as salsa::storage::HasIngredientsFor<coword_menu>>::ingredient(__jar);
         let __key = __ingredients.intern_map.intern(__runtime, ());
         __ingredients.function.accumulated::<__A>(db, __key)
     }
 }
 #[allow(clippy::needless_lifetimes)]
-pub(crate) fn ident_menu<'__db>(db: &'__db Db) -> &'__db CowordMenu {
-    ident_menu::get(db)
+pub fn coword_menu<'__db>(db: &'__db Db) -> &'__db CowordMenu {
+    coword_menu::get(db)
 }

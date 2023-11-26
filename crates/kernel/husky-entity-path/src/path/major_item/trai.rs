@@ -19,7 +19,7 @@ impl TraitPath {
         module_path: ModulePath,
         ident: Ident,
         connection: MajorItemConnection,
-        db: &dyn EntityPathDb,
+        db: &::salsa::Db,
     ) -> Self {
         Self(ItemPathId::new(
             db,
@@ -32,36 +32,28 @@ impl TraitPath {
     }
 
     #[inline(never)]
-    pub fn show(self, db: &dyn EntityPathDb) -> String {
+    pub fn show(self, db: &::salsa::Db) -> String {
         self.display(db).to_string()
     }
 
-    pub fn data(self, db: &dyn EntityPathDb) -> TraitPathData {
+    pub fn data(self, db: &::salsa::Db) -> TraitPathData {
         match self.0.data(db) {
             ItemPathData::MajorItem(MajorItemPathData::Trait(data)) => data,
             _ => unreachable!(),
         }
     }
 
-    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
         self.data(db).ident
     }
 
-    pub fn show_aux(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityPathDb,
-    ) -> std::fmt::Result {
+    pub fn show_aux(self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         self.data(db).show_aux(f, db)
     }
 }
 
 impl TraitPathData {
-    pub fn show_aux(
-        self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityPathDb,
-    ) -> std::fmt::Result {
+    pub fn show_aux(self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         self.module_path.show_aux(f, db)?;
         f.write_str(show_connection(self.connection))?;
         f.write_str(self.ident.data(db))
@@ -83,13 +75,17 @@ impl TraitPathData {
 impl salsa::DebugWithDb for TraitPath {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         f.write_str("TraitPath(`")?;
-        self.show_aux(f, db())?;
+        self.show_aux(f, db)?;
         f.write_str("`)")
     }
 }
 
 impl salsa::DisplayWithDb for TraitPath {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_aux(f, db())
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.show_aux(f, db)
     }
 }

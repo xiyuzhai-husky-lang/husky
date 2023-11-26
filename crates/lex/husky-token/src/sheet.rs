@@ -75,13 +75,13 @@ impl RangedTokenSheet {
         self.token_ranges.len()
     }
 
-    pub fn tokens<'a>(&self, db: &'a dyn TokenDb) -> &'a [TokenData] {
+    pub fn tokens<'a>(&self, db: &'a ::salsa::Db) -> &'a [TokenData] {
         &self.token_sheet.data(db).tokens
     }
 
     pub fn ranged_token_iter<'a>(
         &'a self,
-        db: &'a dyn TokenDb,
+        db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = (&'a TextRange, &'a TokenData)> + 'a {
         let tokens = self.tokens(db);
         (0..tokens.len())
@@ -91,7 +91,7 @@ impl RangedTokenSheet {
 
     pub fn indexed_ranged_token_iter<'a>(
         &'a self,
-        db: &'a dyn TokenDb,
+        db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = (TokenIdx, &'a TextRange, &'a TokenData)> + 'a {
         let tokens = self.tokens(db);
         (0..tokens.len())
@@ -126,7 +126,7 @@ impl RangedTokenSheet {
     //     self.token_ranges[start].join(self.token_ranges[end - 1])
     // }
 
-    pub fn token_sheet_data<'a>(&self, db: &'a dyn TokenDb) -> &'a TokenSheetData {
+    pub fn token_sheet_data<'a>(&self, db: &'a ::salsa::Db) -> &'a TokenSheetData {
         self.token_sheet.data(db)
     }
 
@@ -144,12 +144,12 @@ impl RangedTokenSheet {
 }
 
 #[salsa::tracked(jar = TokenJar, return_ref)]
-pub(crate) fn ranged_token_sheet(db: &dyn TokenDb, module_path: ModulePath) -> RangedTokenSheet {
+pub(crate) fn ranged_token_sheet(db: &::salsa::Db, module_path: ModulePath) -> RangedTokenSheet {
     tokenize::tokenize(db, module_path.raw_text(db))
 }
 
 #[salsa::tracked(jar = TokenJar)]
-pub(crate) fn token_sheet(db: &dyn TokenDb, module_path: ModulePath) -> TokenSheet {
+pub(crate) fn token_sheet(db: &::salsa::Db, module_path: ModulePath) -> TokenSheet {
     ranged_token_sheet(db, module_path).token_sheet
 }
 
@@ -282,7 +282,7 @@ impl<'a> TokenGroup<'a> {
 
 impl RangedTokenSheet {
     pub fn new(
-        db: &dyn TokenDb,
+        db: &::salsa::Db,
         tokens: Vec<TokenData>,
         token_ranges: Vec<TextRange>,
         comments: Vec<Comment>,

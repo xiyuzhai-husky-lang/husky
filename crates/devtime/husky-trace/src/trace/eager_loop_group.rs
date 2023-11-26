@@ -10,7 +10,7 @@ pub enum EagerLoopGroupTraceBiologicalParent {
 }
 
 impl EagerLoopGroupTracePath {
-    pub fn view_data(self, _db: &dyn TraceDb) -> TraceViewData {
+    pub fn view_data(self, _db: &::salsa::Db) -> TraceViewData {
         todo!()
     }
 }
@@ -26,7 +26,7 @@ pub struct EagerLoopGroupTraceData {
 }
 
 impl EagerLoopGroupTraceData {
-    pub fn subtraces(self, _db: &dyn TraceDb) -> &[Trace] {
+    pub fn subtraces(self, _db: &::salsa::Db) -> &[Trace] {
         todo!()
     }
 }

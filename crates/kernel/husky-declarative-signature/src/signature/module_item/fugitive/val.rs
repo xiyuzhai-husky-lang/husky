@@ -7,7 +7,7 @@ pub struct ValFugitiveDeclarativeSignatureTemplate {
 
 impl ValFugitiveDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         decl: ValFugitiveSynDecl,
     ) -> DeclarativeSignatureResult<ValFugitiveDeclarativeSignatureTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
@@ -23,10 +23,7 @@ impl ValFugitiveDeclarativeSignatureTemplate {
     }
 
     #[inline(always)]
-    pub fn template_parameters(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeTemplateParameter] {
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         &[]
     }
 }

@@ -48,7 +48,7 @@ impl AsVecMapEntry for ManifestDependencyAst {
 }
 
 // pub(crate) fn from_toml_section_entry<'a>(
-//     db: &dyn ManifestAstDb,
+//     db: &::salsa::Db,
 //     entry: &'a TomlSectionEntry,
 //     builder: &mut ManifestAstTransformer<'a, TomlExpr>,
 //     errors: &mut Vec<ManifestAstError>,

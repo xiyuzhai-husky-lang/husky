@@ -5,7 +5,7 @@ use husky_linkage::version_stamp::LinkageVersionStamp;
 pub(super) fn generate_map<LinkageImpl: IsLinkageImpl>(
     _target_crate: CratePath,
     _library: &BootLibraryStorage,
-    _db: &dyn LinkageDb,
+    _db: &::salsa::Db,
 ) -> HashMap<Linkage, (LinkageVersionStamp, LinkageImpl)> {
     todo!()
 }

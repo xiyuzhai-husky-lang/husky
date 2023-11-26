@@ -20,13 +20,13 @@ use husky_syn_decl::HasSynDecl;
 pub trait HasHirDecl {
     type HirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl>;
+    fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl>;
 }
 
 impl HasHirDecl for ItemPath {
     type HirDecl = HirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
         Some(match self {
             ItemPath::Submodule(_, path) => path.hir_decl(db)?.into(),
             ItemPath::MajorItem(path) => path.hir_decl(db)?.into(),
@@ -51,7 +51,7 @@ pub enum HirDecl {
 }
 
 impl HirDecl {
-    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
         match self {
             HirDecl::Submodule(_) => todo!(),
             HirDecl::MajorItem(decl) => decl.template_parameters(db),
@@ -62,7 +62,7 @@ impl HirDecl {
         }
     }
 
-    // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> Option<HirExprRegion> {
+    // pub fn hir_expr_region(self, db: &::salsa::Db,) -> Option<HirExprRegion> {
     //     match self {
     //         HirDecl::Submodule(_) => None,
     //         HirDecl::MajorItem(decl) => decl.hir_expr_region(db).into(),
@@ -72,7 +72,7 @@ impl HirDecl {
     //     }
     // }
 
-    pub fn path(self, db: &dyn HirDeclDb) -> ItemPath {
+    pub fn path(self, db: &::salsa::Db) -> ItemPath {
         match self {
             HirDecl::Submodule(_) => todo!(),
             HirDecl::MajorItem(decl) => decl.path(db).into(),

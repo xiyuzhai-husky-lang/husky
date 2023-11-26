@@ -16,7 +16,7 @@ impl HasEtherealSignatureTemplate for AttrItemPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         attr_ethereal_signature_template(db, self)
     }
@@ -24,7 +24,7 @@ impl HasEtherealSignatureTemplate for AttrItemPath {
 
 // #[salsa::tracked(jar = EtherealSignatureJar)]
 fn attr_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     path: AttrItemPath,
 ) -> EtherealSignatureResult<AttrEtherealSignatureTemplate> {
     match path.declarative_signature_template(db)? {

@@ -17,7 +17,7 @@ pub struct TypeMethodFnSynNodeDecl {
 }
 
 impl TypeMethodFnSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameters(db)
                 .as_ref()
@@ -80,7 +80,7 @@ pub struct TypeMethodFnSynDecl {
 
 impl TypeMethodFnSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TypeItemPath,
         syn_node_decl: TypeMethodFnSynNodeDecl,
     ) -> DeclResult<Self> {
@@ -110,7 +110,7 @@ impl TypeMethodFnSynDecl {
         ))
     }
 
-    pub fn impl_block_path(self, db: &dyn SynDeclDb) -> TypeImplBlockPath {
+    pub fn impl_block_path(self, db: &::salsa::Db) -> TypeImplBlockPath {
         self.path(db).impl_block(db)
     }
 }

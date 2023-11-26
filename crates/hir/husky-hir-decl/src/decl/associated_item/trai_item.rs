@@ -22,14 +22,14 @@ pub enum TraitItemHirDecl {
 impl HasHirDecl for TraitItemPath {
     type HirDecl = TraitItemHirDecl;
 
-    fn hir_decl(self, _db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, _db: &::salsa::Db) -> Option<Self::HirDecl> {
         // ad hoc
         None
     }
 }
 
 impl TraitItemHirDecl {
-    pub fn path(self, _db: &dyn HirDeclDb) -> TraitItemPath {
+    pub fn path(self, _db: &::salsa::Db) -> TraitItemPath {
         match self {
             TraitItemHirDecl::AssociatedFn(_) => todo!(),
             TraitItemHirDecl::MethodFn(_) => todo!(),
@@ -38,7 +38,7 @@ impl TraitItemHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
         match self {
             TraitItemHirDecl::AssociatedFn(_) => todo!(),
             TraitItemHirDecl::MethodFn(_) => todo!(),
@@ -47,7 +47,7 @@ impl TraitItemHirDecl {
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
         match self {
             TraitItemHirDecl::AssociatedFn(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),
             TraitItemHirDecl::MethodFn(hir_decl) => hir_decl.hir_eager_expr_region(db).into(),

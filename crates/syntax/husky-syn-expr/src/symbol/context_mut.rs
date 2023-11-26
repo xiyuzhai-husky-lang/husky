@@ -26,7 +26,7 @@ impl<'a> SynSymbolContextMut<'a> {
 
     pub(crate) fn resolve_ident(
         &self,
-        db: &dyn SynExprDb,
+        db: &::salsa::Db,
         reference_module_path: ModulePath,
         token_idx: RegionalTokenIdx,
         ident: Ident,
@@ -39,7 +39,7 @@ impl<'a> SynSymbolContextMut<'a> {
 
     pub(crate) fn into_expr_region(
         self,
-        db: &dyn SynExprDb,
+        db: &::salsa::Db,
         parent: Option<SynExprRegion>,
         path: SynNodeRegionPath,
         expr_arena: SynExprArena,

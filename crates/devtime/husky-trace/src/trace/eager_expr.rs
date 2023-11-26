@@ -47,7 +47,7 @@ impl Trace {
         hir_eager_expr_region: HirEagerExprRegion,
         hir_eager_expr_source_map: HirEagerExprSourceMap,
         eager_expr_trace_path_registry: &mut TracePathRegistry<EagerExprEssence>,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Self {
         let essence = EagerExprEssence::Haha;
         let path = TracePath::new(
@@ -76,7 +76,7 @@ impl Trace {
 }
 
 impl EagerExprTraceData {
-    pub(super) fn view_lines(&self, db: &dyn TraceDb) -> TraceViewLines {
+    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sema_expr_region = self.sema_expr_region;
         let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
         let sema_expr_range_region_data = sema_expr_range_region.data(db);
@@ -92,7 +92,7 @@ impl EagerExprTraceData {
         )
     }
 
-    pub(super) fn have_subtraces(&self, db: &dyn TraceDb) -> bool {
+    pub(super) fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         use husky_hir_defn::defn::HasHirDefn;
         let Some(hir_eager_expr_idx) = self.hir_eager_expr_idx else {
             return false;
@@ -109,7 +109,7 @@ impl EagerExprTraceData {
         }
     }
 
-    fn eager_expr_trace_subtraces(&self, trace: Trace, db: &dyn TraceDb) -> Vec<Trace> {
+    fn eager_expr_trace_subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         use husky_syn_defn::HasSynDefn;
         let biological_parent_path = self.path;
         let biological_parent = trace;
@@ -243,7 +243,7 @@ fn fn_call_eager_expr_trace_input_traces(
     caller_sema_expr_region: SemaExprRegion,
     caller_hir_eager_expr_source_map_data: &HirEagerExprSourceMapData,
     callee_syn_expr_region: SynExprRegion,
-    db: &dyn TraceDb,
+    db: &::salsa::Db,
 ) -> Vec<Trace> {
     ritchie_parameter_argument_matches
         .iter()

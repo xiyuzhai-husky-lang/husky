@@ -36,7 +36,7 @@
 //         let mut jar_maybe_uninitialized: MaybeUninit<Jar> = MaybeUninit::uninit();
 //         let jar: &mut Jar = unsafe { std::mem::transmute(&mut jar_maybe_uninitialized) };
 //         Jar::initialize(jar, routes);
-//         let index = <Jar as HasJarIndex>::TEST_JAR_INDEX;
+//         let index = <Jar as HasJarIndex>::JAR_INDEX;
 //         debug_assert!(self.map[index].is_none());
 //         self.map[index] =
 //             Some(unsafe { std::mem::transmute::<_, Box<Jar>>(Box::new(jar_maybe_uninitialized)) })

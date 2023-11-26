@@ -117,7 +117,7 @@ impl FluffyTermRitchieParameter {
 
 impl FluffyTerm {
     pub(crate) fn new_richie(
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: Vec<FluffyTermRitchieParameter>,

@@ -7,7 +7,7 @@ pub struct EnumTupleVariantEtherealSignatureTemplate {
 
 impl EnumTupleVariantEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: TypeVariantPath,
         _declarative_signature_template: EnumTupleVariantDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {

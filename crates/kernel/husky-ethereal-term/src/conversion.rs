@@ -4,7 +4,7 @@ impl EtherealTerm {
     /// whether two types are trivially convertible
     pub fn is_ty_trivially_convertible_from(
         self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         other_ty: Either<Self, PreludeTypePath>,
     ) -> EtherealTermResult<bool> {
         match other_ty {

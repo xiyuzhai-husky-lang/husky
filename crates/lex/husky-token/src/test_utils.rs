@@ -1,5 +1,5 @@
 pub use husky_vfs::{VfsTestConfig, VfsTestDomainsConfig, VfsTestUnit, VfsTestUtils};
-use salsa::{test_utils::Db, Database};
+use salsa::Db;
 
 use crate::*;
 
@@ -7,7 +7,7 @@ use crate::*;
 pub trait TokenTestUtils: VfsTestUtils {
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn token_plain_test<U>(&mut self, f: impl Fn(&Db, U), config: &VfsTestConfig)
+    fn token_plain_test<U>(&mut self, f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
         U: VfsTestUnit;
 
@@ -15,7 +15,7 @@ pub trait TokenTestUtils: VfsTestUtils {
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn token_expect_test_debug_with_db<'a, U, R>(
         &'a mut self,
-        f: impl Fn(&'a Db, U) -> R,
+        f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &TokenTestConfig<'a>,
     ) where
         U: VfsTestUnit + salsa::DebugWithDb,
@@ -25,7 +25,7 @@ pub trait TokenTestUtils: VfsTestUtils {
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn token_expect_test_debug<'a, U, R>(
         &'a mut self,
-        f: impl Fn(&'a Db, U) -> R,
+        f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &TokenTestConfig,
     ) where
         U: VfsTestUnit + salsa::DebugWithDb,
@@ -33,7 +33,7 @@ pub trait TokenTestUtils: VfsTestUtils {
 
     fn token_expect_test_display<U, R>(
         &mut self,
-        f: impl Fn(&Db, U) -> R,
+        f: impl Fn(&::salsa::Db, U) -> R,
         config: &TokenTestConfig,
     ) where
         U: VfsTestUnit + salsa::DebugWithDb,
@@ -44,7 +44,7 @@ impl TokenTestUtils for Db
 where
     Db: VfsTestUtils,
 {
-    fn token_plain_test<U>(&mut self, f: impl Fn(&Db, U), config: &VfsTestConfig)
+    fn token_plain_test<U>(&mut self, f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
         U: VfsTestUnit,
     {
@@ -54,7 +54,7 @@ where
 
     fn token_expect_test_debug_with_db<'a, U, R>(
         &'a mut self,
-        f: impl Fn(&'a Db, U) -> R,
+        f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &TokenTestConfig<'a>,
     ) where
         U: VfsTestUnit + salsa::DebugWithDb,
@@ -66,7 +66,7 @@ where
 
     fn token_expect_test_debug<'a, U, R>(
         &'a mut self,
-        f: impl Fn(&'a Db, U) -> R,
+        f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &TokenTestConfig,
     ) where
         U: VfsTestUnit + salsa::DebugWithDb,
@@ -76,8 +76,11 @@ where
         self.vfs_expect_test_debug(&f, &config.vfs)
     }
 
-    fn token_expect_test_display<U, R>(&mut self, f: impl Fn(&Db, U) -> R, config: &TokenTestConfig)
-    where
+    fn token_expect_test_display<U, R>(
+        &mut self,
+        f: impl Fn(&::salsa::Db, U) -> R,
+        config: &TokenTestConfig,
+    ) where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display,
     {

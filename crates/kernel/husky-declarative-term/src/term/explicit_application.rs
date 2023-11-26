@@ -25,7 +25,7 @@ impl DeclarativeTermExplicitApplication {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         self.function(db).show_with_db_fmt(f, db, ctx)?;
@@ -35,18 +35,18 @@ impl DeclarativeTermExplicitApplication {
 }
 
 impl salsa::DisplayWithDb for DeclarativeTermExplicitApplication {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         let db = db();
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermExplicitApplication {
-    fn substitute(
-        self,
-        db: &dyn DeclarativeTermDb,
-        substituation: &DeclarativeTermSubstitution,
-    ) -> Self
+    fn substitute(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self
     where
         Self: Copy,
     {

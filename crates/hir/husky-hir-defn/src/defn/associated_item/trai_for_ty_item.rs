@@ -27,7 +27,7 @@ impl From<TraitForTypeItemHirDefn> for HirDefn {
 }
 
 impl TraitForTypeItemHirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> TraitForTypeItemPath {
+    pub fn path(self, db: &::salsa::Db) -> TraitForTypeItemPath {
         match self {
             TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.path(db),
             TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.path(db),
@@ -36,7 +36,7 @@ impl TraitForTypeItemHirDefn {
         }
     }
 
-    pub fn hir_decl(self, db: &dyn HirDefnDb) -> TraitForTypeItemHirDecl {
+    pub fn hir_decl(self, db: &::salsa::Db) -> TraitForTypeItemHirDecl {
         match self {
             TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.hir_decl(db).into(),
             TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.hir_decl(db).into(),
@@ -45,7 +45,7 @@ impl TraitForTypeItemHirDefn {
         }
     }
 
-    pub fn hir_expr_region(self, _db: &dyn HirDefnDb) -> Option<HirExprRegion> {
+    pub fn hir_expr_region(self, _db: &::salsa::Db) -> Option<HirExprRegion> {
         todo!()
         // match self {
         //     TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => {
@@ -59,7 +59,7 @@ impl TraitForTypeItemHirDefn {
         // }
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
             TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.dependencies(db),
             TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.dependencies(db),
@@ -68,7 +68,7 @@ impl TraitForTypeItemHirDefn {
         }
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         match self {
             TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.version_stamp(db),
             TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.version_stamp(db),
@@ -81,14 +81,14 @@ impl TraitForTypeItemHirDefn {
 impl HasHirDefn for TraitForTypeItemPath {
     type HirDefn = TraitForTypeItemHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+    fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
         trai_for_ty_item_hir_defn(db, self)
     }
 }
 
 // #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn trai_for_ty_item_hir_defn(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     path: TraitForTypeItemPath,
 ) -> Option<TraitForTypeItemHirDefn> {
     match path.hir_decl(db)? {

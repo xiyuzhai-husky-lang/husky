@@ -8,7 +8,6 @@ mod whitespace;
 pub(crate) use iter::*;
 
 use crate::*;
-use husky_coword::CowordDb;
 use husky_text_span::DocumentSpan;
 use keylike::is_keylike;
 use std::sync::Arc;

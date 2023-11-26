@@ -23,7 +23,7 @@ impl VfsAdversarialGenerator {
         mut self,
         db: &mut Db,
         module_path: ModulePath,
-        f: &impl Fn(&Db),
+        f: &impl Fn(&::salsa::Db),
     ) -> Result<(), VfsAdversarial> {
         use indicatif::ProgressBar;
 
@@ -39,7 +39,7 @@ impl VfsAdversarialGenerator {
         &mut self,
         db: &mut Db,
         module_path: ModulePath,
-        f: &impl Fn(&Db),
+        f: &impl Fn(&::salsa::Db),
     ) -> Result<(), VfsAdversarial> {
         let text = module_path.raw_text(db);
         let Some(adversarial) = self.generate_adversarial(text) else {

@@ -44,7 +44,7 @@ pub struct TypeTupleVariantSynDecl {
 
 impl TypeTupleVariantSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TypeVariantPath,
         syn_node_decl: TypeTupleVariantSynNodeDecl,
     ) -> DeclResult<Self> {

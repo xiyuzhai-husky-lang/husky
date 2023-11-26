@@ -17,7 +17,7 @@ pub struct DeriveAttrShardEtherealSignatureTemplate {
 
 impl DeriveAttrEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         declarative_template: DeriveAttrDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         let trai_term = declarative_template
@@ -32,7 +32,7 @@ impl DeriveAttrEtherealSignatureTemplate {
 impl DeriveAttrShardEtherealSignatureTemplate {
     fn from_declarative(
         declarative_template: DeriveAttrShardDeclarativeSignatureTemplate,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self::new(
             db,
@@ -48,7 +48,7 @@ impl DeriveAttrShardEtherealSignatureTemplate {
 pub trait HasDeriveAttrShardEtherealSignatureTemplates: Copy {
     fn derive_attr_shard_ethereal_signature_templates_map(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<
         &[(
             TraitPath,
@@ -58,7 +58,7 @@ pub trait HasDeriveAttrShardEtherealSignatureTemplates: Copy {
 
     fn derive_attr_ethereal_signature_templates(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         trai_path: TraitPath,
     ) -> EtherealSignatureResult<Option<&[DeriveAttrShardEtherealSignatureTemplate]>> {
         match self
@@ -74,7 +74,7 @@ pub trait HasDeriveAttrShardEtherealSignatureTemplates: Copy {
 impl HasDeriveAttrShardEtherealSignatureTemplates for TypePath {
     fn derive_attr_shard_ethereal_signature_templates_map(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<
         &[(
             TraitPath,
@@ -89,7 +89,7 @@ impl HasDeriveAttrShardEtherealSignatureTemplates for TypePath {
 // todo: use trait HasEtherealSignatureTemplate?
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
 fn ty_path_derive_attr_ethereal_signature_templates_map(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     ty_path: TypePath,
 ) -> EtherealSignatureResult<
     SmallVecPairMap<TraitPath, OrderedSmallVecSet<DeriveAttrShardEtherealSignatureTemplate, 1>, 8>,

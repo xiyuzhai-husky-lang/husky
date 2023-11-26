@@ -22,7 +22,7 @@ pub enum TraitForTypeItemHirDecl {
 }
 
 impl TraitForTypeItemHirDecl {
-    pub fn path(self, db: &dyn HirDeclDb) -> TraitForTypeItemPath {
+    pub fn path(self, db: &::salsa::Db) -> TraitForTypeItemPath {
         match self {
             TraitForTypeItemHirDecl::AssociatedFn(decl) => decl.path(db),
             TraitForTypeItemHirDecl::MethodFn(decl) => decl.path(db),
@@ -31,7 +31,7 @@ impl TraitForTypeItemHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
         match self {
             TraitForTypeItemHirDecl::AssociatedFn(decl) => decl.template_parameters(db),
             TraitForTypeItemHirDecl::MethodFn(decl) => decl.template_parameters(db),
@@ -40,7 +40,7 @@ impl TraitForTypeItemHirDecl {
         }
     }
 
-    // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    // pub fn hir_expr_region(self, db: &::salsa::Db,) -> HirExprRegion {
     //     match self {
     //         TraitForTypeItemHirDecl::AssociatedFn(decl) => decl.hir_expr_region(db).into(),
     //         TraitForTypeItemHirDecl::MethodFn(decl) => decl.hir_expr_region(db).into(),
@@ -53,14 +53,14 @@ impl TraitForTypeItemHirDecl {
 impl HasHirDecl for TraitForTypeItemPath {
     type HirDecl = TraitForTypeItemHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
         trai_for_ty_item_hir_decl(db, self)
     }
 }
 
 // #[salsa::tracked(jar = HirDeclJar)]
 fn trai_for_ty_item_hir_decl(
-    db: &dyn HirDeclDb,
+    db: &::salsa::Db,
     path: TraitForTypeItemPath,
 ) -> Option<TraitForTypeItemHirDecl> {
     match path.syn_decl(db).expect("ok") {

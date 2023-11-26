@@ -14,7 +14,7 @@ pub struct TraitForTypeMethodFnEtherealSignatureTemplate {
 
 impl TraitForTypeMethodFnEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: TraitForTypeItemPath,
         dec_sig_tmpl: TraitForTypeMethodFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
@@ -45,7 +45,7 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
 
     pub(super) fn inherit_instantiation_builder(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         impl_block_signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
     ) -> TraitForTypeMethodFnEtherealSignatureBuilder {
         let instantiation_builder = impl_block_signature_builder
@@ -63,10 +63,7 @@ pub struct TraitForTypeMethodFnEtherealSignatureBuilder {
 }
 
 impl TraitForTypeMethodFnEtherealSignatureBuilder {
-    pub fn try_finish(
-        self,
-        db: &dyn EtherealSignatureDb,
-    ) -> Option<&TraitForTypeMethodFnEtherealSignature> {
+    pub fn try_finish(self, db: &::salsa::Db) -> Option<&TraitForTypeMethodFnEtherealSignature> {
         trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature(db, self)
             .as_ref()
     }
@@ -74,7 +71,7 @@ impl TraitForTypeMethodFnEtherealSignatureBuilder {
 
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
 fn trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     signature_builder: TraitForTypeMethodFnEtherealSignatureBuilder,
 ) -> Option<TraitForTypeMethodFnEtherealSignature> {
     // todo: deal with dependent type

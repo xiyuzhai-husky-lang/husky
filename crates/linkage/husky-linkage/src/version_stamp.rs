@@ -24,11 +24,11 @@ pub enum LinkageVersionStampDependency {
 pub struct LinkageVersionStampBuilder<'a> {
     data: LinkageVersionStampData,
     substamps: Vec<LinkageVersionStampDependency>,
-    db: &'a dyn LinkageDb,
+    db: &'a ::salsa::Db,
 }
 
 impl<'a> LinkageVersionStampBuilder<'a> {
-    pub(crate) fn new(data: impl Into<LinkageVersionStampData>, db: &'a dyn LinkageDb) -> Self {
+    pub(crate) fn new(data: impl Into<LinkageVersionStampData>, db: &'a ::salsa::Db) -> Self {
         Self {
             data: data.into(),
             substamps: vec![],
@@ -38,10 +38,7 @@ impl<'a> LinkageVersionStampBuilder<'a> {
 
     pub(crate) fn add(
         &mut self,
-        item: impl HasVersionStamp<
-            dyn LinkageDb + 'a,
-            VersionStamp: Into<LinkageVersionStampDependency>,
-        >,
+        item: impl HasVersionStamp<::salsa::Db + 'a, VersionStamp: Into<LinkageVersionStampDependency>>,
     ) {
         self.substamps.push(item.version_stamp(self.db).into())
     }

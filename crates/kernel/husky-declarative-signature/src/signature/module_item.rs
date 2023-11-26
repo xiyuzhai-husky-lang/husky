@@ -23,7 +23,7 @@ impl HasDeclarativeSignatureTemplate for MajorItemPath {
     #[inline(always)]
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         match self {
             MajorItemPath::Type(path) => path.declarative_signature_template(db).map(Into::into),

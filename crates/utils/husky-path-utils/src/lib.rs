@@ -110,7 +110,7 @@ fn collect_rust_package_dirs_aux(dir: impl AsRef<Path>, pack_paths: &mut Vec<Pat
     }
 }
 
-pub fn collect_husky_package_dirs(db: &Db, dir: &Path) -> Vec<(PathBuf, Kebab)> {
+pub fn collect_husky_package_dirs(db: &::salsa::Db, dir: &Path) -> Vec<(PathBuf, Kebab)> {
     should_satisfy!(&dir, |dir: &Path| dir.is_dir());
     let mut pack_paths = vec![];
     collect_husky_package_dirs_aux(db, dir, &mut pack_paths);
@@ -118,7 +118,11 @@ pub fn collect_husky_package_dirs(db: &Db, dir: &Path) -> Vec<(PathBuf, Kebab)> 
     pack_paths
 }
 
-fn collect_husky_package_dirs_aux(db: &Db, dir: &Path, pack_paths: &mut Vec<(PathBuf, Kebab)>) {
+fn collect_husky_package_dirs_aux(
+    db: &::salsa::Db,
+    dir: &Path,
+    pack_paths: &mut Vec<(PathBuf, Kebab)>,
+) {
     let manifest_path = dir.join("Corgi.toml");
     for entry in std::fs::read_dir(&dir).unwrap() {
         let entry = entry.unwrap();
@@ -132,7 +136,10 @@ fn collect_husky_package_dirs_aux(db: &Db, dir: &Path, pack_paths: &mut Vec<(Pat
     }
 }
 
-pub fn collect_package_relative_dirs(db: &Db, base: &Path) -> Vec<(RelativePathBuf, Kebab)> {
+pub fn collect_package_relative_dirs(
+    db: &::salsa::Db,
+    base: &Path,
+) -> Vec<(RelativePathBuf, Kebab)> {
     should_satisfy!(&base, |dir: &Path| dir.is_dir());
     let mut pack_paths = vec![];
     let dir = RelativePathBuf::from(".");
@@ -142,7 +149,7 @@ pub fn collect_package_relative_dirs(db: &Db, base: &Path) -> Vec<(RelativePathB
 }
 
 fn collect_package_relative_dirs_aux(
-    db: &Db,
+    db: &::salsa::Db,
     base: &Path,
     dir: &RelativePath,
     pack_paths: &mut Vec<(RelativePathBuf, Kebab)>,

@@ -17,7 +17,7 @@ impl FunctionGnFugitiveHirDecl {
     pub(super) fn from_syn(
         path: FugitivePath,
         syn_decl: FunctionGnSynDecl,
-        db: &dyn HirDeclDb,
+        db: &::salsa::Db,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =

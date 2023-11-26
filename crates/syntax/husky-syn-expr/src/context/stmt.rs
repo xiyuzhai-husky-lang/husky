@@ -27,7 +27,7 @@ impl<'a> SynStmtContext<'a> {
         decl_expr_region: SynExprRegion,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
-        db: &'a dyn SynExprDb,
+        db: &'a ::salsa::Db,
     ) -> Option<Self>
     where
         P: HasSynDefnTokraRegion,

@@ -15,7 +15,7 @@ impl From<TraitItemSynNodePath> for ItemSynNodePath {
 
 impl TraitItemSynNodePath {
     fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         parent_trai_syn_node_path: TraitSynNodePath,
         path: TraitItemPath,
@@ -27,15 +27,15 @@ impl TraitItemSynNodePath {
         )
     }
 
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<TraitItemPath> {
+    pub fn path(self, db: &::salsa::Db) -> Option<TraitItemPath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub fn item_kind(self, db: &dyn EntitySynTreeDb) -> TraitItemKind {
+    pub fn item_kind(self, db: &::salsa::Db) -> TraitItemKind {
         self.maybe_ambiguous_path(db).path.item_kind(db)
     }
 
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> TraitItemSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TraitItemSynNode {
         trai_item_syn_node(db, self)
     }
 }
@@ -44,7 +44,7 @@ impl TraitItemSynNodePath {
 // where
 //      + EntitySynTreeDb,
 // {
-//     fn module_path(self, db: &Db) -> ModulePath {
+//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
 //         let db = entity_syn_tree_db(db);
 //         self.maybe_ambiguous_path(db).path.module_path(db)
 //     }
@@ -53,7 +53,7 @@ impl TraitItemSynNodePath {
 impl HasSynNodePath for TraitItemPath {
     type SynNodePath = TraitItemSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         TraitItemSynNodePath::new_inner(
             db,
             self.trai_path(db).syn_node_path(db),
@@ -76,7 +76,7 @@ pub(crate) struct TraitItemSynNode {
 impl TraitItemSynNode {
     #[inline(always)]
     fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         trai_syn_node_path: TraitSynNodePath,
         ast_idx: AstIdx,
@@ -102,14 +102,14 @@ impl TraitItemSynNode {
         )
     }
 
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         todo!(); // self.syn_node_path(db).module_path(db)
     }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn trai_item_syn_nodes(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     trai_node_path: TraitSynNodePath,
 ) -> SmallVec<
     [(Ident, TraitItemSynNodePath, TraitItemSynNode);
@@ -165,7 +165,7 @@ pub(crate) fn trai_item_syn_nodes(
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn trai_item_syn_node(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: TraitItemSynNodePath,
 ) -> TraitItemSynNode {
     syn_node_path

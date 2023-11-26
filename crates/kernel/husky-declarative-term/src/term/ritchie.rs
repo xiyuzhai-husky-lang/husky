@@ -24,7 +24,7 @@ impl DeclarativeTermRitchie {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         f.write_str(self.ritchie_kind(db).code())?;
@@ -41,7 +41,11 @@ impl DeclarativeTermRitchie {
 }
 
 impl salsa::DisplayWithDb for DeclarativeTermRitchie {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         let db = db();
         f.write_str(self.ritchie_kind(db).code())?;
         f.write_str("(")?;
@@ -85,7 +89,7 @@ impl DeclarativeRitchieParameter {
     fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         match self {
@@ -97,7 +101,11 @@ impl DeclarativeRitchieParameter {
 }
 
 impl salsa::DisplayWithDb for DeclarativeRitchieParameter {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         match self {
             DeclarativeRitchieParameter::Regular(parameter) => parameter.display_with_db_fmt(f, db),
             DeclarativeRitchieParameter::Variadic(_) => todo!(),
@@ -107,11 +115,7 @@ impl salsa::DisplayWithDb for DeclarativeRitchieParameter {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermRitchie {
-    fn substitute(
-        self,
-        _db: &dyn DeclarativeTermDb,
-        _substituation: &DeclarativeTermSubstitution,
-    ) -> Self {
+    fn substitute(self, _db: &::salsa::Db, _substituation: &DeclarativeTermSubstitution) -> Self {
         todo!()
     }
 }

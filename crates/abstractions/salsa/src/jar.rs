@@ -21,7 +21,7 @@ impl Jars {
         let mut jar_maybe_uninitialized: MaybeUninit<Jar> = MaybeUninit::uninit();
         let jar: &mut Jar = unsafe { std::mem::transmute(&mut jar_maybe_uninitialized) };
         Jar::initialize(jar, routes);
-        let index = <Jar as HasJarIndex>::TEST_JAR_INDEX;
+        let index = <Jar as HasJarIndex>::JAR_INDEX;
         debug_assert!(self.map[index].is_none());
         self.map[index] =
             Some(unsafe { std::mem::transmute::<_, Box<Jar>>(Box::new(jar_maybe_uninitialized)) })
@@ -32,7 +32,7 @@ impl Jars {
         Jar: HasJarIndex + 'static,
     {
         let any: &Box<dyn std::any::Any + Send + Sync + 'static> = self.map
-            [<Jar as HasJarIndex>::TEST_JAR_INDEX]
+            [<Jar as HasJarIndex>::JAR_INDEX]
             .as_ref()
             .expect("should be initialized");
         let any: &(dyn std::any::Any + Send + Sync + 'static) = &**any;
@@ -44,7 +44,7 @@ impl Jars {
         Jar: HasJarIndex + 'static,
     {
         let any: &mut Box<dyn std::any::Any + Send + Sync + 'static> = self.map
-            [<Jar as HasJarIndex>::TEST_JAR_INDEX]
+            [<Jar as HasJarIndex>::JAR_INDEX]
             .as_mut()
             .expect("should be initialized");
         let any: &mut (dyn std::any::Any + Send + Sync + 'static) = &mut **any;
@@ -117,5 +117,5 @@ pub enum JarIndex {
 
 #[cfg(debug_assertions)]
 pub trait HasJarIndex {
-    const TEST_JAR_INDEX: JarIndex;
+    const JAR_INDEX: JarIndex;
 }

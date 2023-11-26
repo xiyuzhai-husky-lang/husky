@@ -19,11 +19,11 @@ impl std::ops::Deref for DeclarativeTermMenu2 {
 
 impl DeclarativeTermMenu2 {
     pub(crate) fn new(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         _toolchain: Toolchain,
         menu1: DeclarativeTermMenu1,
     ) -> DeclarativeTermResult<Self> {
-        // db.it_item_path_term(db.item_path_menu(toolchain).as_ref()?.r32());
+        // db.it_item_path_term(item_path_menu(db,toolchain).as_ref()?.r32());
         Ok(DeclarativeTermMenu2 {
             static_str_ref: DeclarativeTermExplicitApplication::new(
                 db,

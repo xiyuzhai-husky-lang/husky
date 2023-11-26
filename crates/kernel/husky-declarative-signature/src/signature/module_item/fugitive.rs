@@ -21,10 +21,7 @@ pub enum FugitiveDeclarativeSignatureTemplate {
 }
 
 impl FugitiveDeclarativeSignatureTemplate {
-    pub fn template_parameters(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeTemplateParameter] {
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
             FugitiveDeclarativeSignatureTemplate::FunctionFn(decl) => decl.template_parameters(db),
             FugitiveDeclarativeSignatureTemplate::Val(decl) => decl.template_parameters(db),
@@ -39,7 +36,7 @@ impl HasDeclarativeSignatureTemplate for FugitivePath {
 
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         fugitive_syn_declarative_signature_template(db, self)
     }
@@ -47,7 +44,7 @@ impl HasDeclarativeSignatureTemplate for FugitivePath {
 
 // #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn fugitive_syn_declarative_signature_template(
-    db: &dyn DeclarativeSignatureDb,
+    db: &::salsa::Db,
     path: FugitivePath,
 ) -> DeclarativeSignatureResult<FugitiveDeclarativeSignatureTemplate> {
     let decl = path.syn_decl(db)?;

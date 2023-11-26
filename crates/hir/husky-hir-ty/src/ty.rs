@@ -36,7 +36,7 @@ pub struct HirTypeTypeAssociatedType {}
 pub struct HirTypeTraitAssociatedType {}
 
 impl HirType {
-    pub fn from_ethereal(term: EtherealTerm, db: &dyn HirTypeDb) -> Self {
+    pub fn from_ethereal(term: EtherealTerm, db: &::salsa::Db) -> Self {
         match term {
             EtherealTerm::Symbol(symbol) => HirTypeSymbol::from_ethereal(symbol, db).into(),
             EtherealTerm::EntityPath(path) => match path {
@@ -60,14 +60,14 @@ impl HirType {
         }
     }
 
-    pub fn prelude_ty_path(self, db: &dyn HirTypeDb) -> Option<PreludeTypePath> {
+    pub fn prelude_ty_path(self, db: &::salsa::Db) -> Option<PreludeTypePath> {
         match self {
             HirType::PathLeading(hir_ty) => hir_ty.ty_path(db).prelude_ty_path(db),
             _ => None,
         }
     }
 
-    pub fn is_equal_to_unit_obviously(self, db: &dyn HirTypeDb) -> bool {
+    pub fn is_equal_to_unit_obviously(self, db: &::salsa::Db) -> bool {
         match self.prelude_ty_path(db) {
             Some(PreludeTypePath::UNIT) => true,
             _ => false,
@@ -77,7 +77,7 @@ impl HirType {
 
 #[salsa::tracked(jar = HirTypeJar)]
 pub(crate) fn hir_ty_from_ethereal_term_application(
-    db: &dyn HirTypeDb,
+    db: &::salsa::Db,
     term_application: EtherealTermApplication,
 ) -> HirType {
     let application_expansion = term_application.application_expansion(db);

@@ -18,7 +18,7 @@ pub struct TypeAssociatedTypeSynDefn {
 
 impl TypeAssociatedTypeSynDefn {
     pub(super) fn new(
-        _db: &dyn SynDefnDb,
+        _db: &::salsa::Db,
         _path: TypeItemPath,
         _decl: TypeAssociatedTypeSynDecl,
     ) -> SynDefnResult<Self> {

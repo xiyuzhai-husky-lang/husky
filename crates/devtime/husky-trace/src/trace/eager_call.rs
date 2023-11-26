@@ -22,7 +22,7 @@ impl Trace {
         biological_parent_path: TracePath,
         biological_parent: Trace,
         callee_path: ItemPath,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Self {
         let path = TracePath::new(
             EagerCallTracePathData {
@@ -45,7 +45,7 @@ impl Trace {
 }
 
 impl EagerCallTraceData {
-    fn eager_call_trace_view_lines(&self, db: &dyn TraceDb) -> TraceViewLines {
+    fn eager_call_trace_view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let callee_path = self.callee_path;
         TraceViewLines::new(
             callee_path.module_path(db),
@@ -57,7 +57,7 @@ impl EagerCallTraceData {
         )
     }
 
-    fn eager_call_trace_have_subtraces(&self, db: &dyn TraceDb) -> bool {
+    fn eager_call_trace_have_subtraces(&self, db: &::salsa::Db) -> bool {
         self.callee_path
             .syn_defn(db)
             .expect("no syn error at trace time")
@@ -65,7 +65,7 @@ impl EagerCallTraceData {
             .is_some()
     }
 
-    fn eager_call_trace_subtraces(&self, trace: Trace, db: &dyn TraceDb) -> Vec<Trace> {
+    fn eager_call_trace_subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         let biological_parent_path = self.path;
         let biological_parent = trace;
         Trace::new_eager_stmts_from_syn_body_with_syn_expr_region(

@@ -12,14 +12,14 @@ pub struct HirRitchieType {
 }
 
 impl HirRitchieType {
-    pub fn from_ethereal(term: EtherealTermRitchie, db: &dyn HirTypeDb) -> Self {
+    pub fn from_ethereal(term: EtherealTermRitchie, db: &::salsa::Db) -> Self {
         hir_ty_from_ethereal_term_ritchie(db, term)
     }
 }
 
 #[salsa::tracked(jar = HirTypeJar)]
 fn hir_ty_from_ethereal_term_ritchie(
-    db: &dyn HirTypeDb,
+    db: &::salsa::Db,
     term_ritchie: EtherealTermRitchie,
 ) -> HirRitchieType {
     HirRitchieType::new(
@@ -40,7 +40,7 @@ pub struct HirRitchieParameters {
 }
 
 impl HirRitchieParameters {
-    pub(crate) fn from_ethereal(params: &[EtherealRitchieParameter], db: &dyn HirTypeDb) -> Self {
+    pub(crate) fn from_ethereal(params: &[EtherealRitchieParameter], db: &::salsa::Db) -> Self {
         HirRitchieParameters {
             data: params
                 .iter()
@@ -69,7 +69,7 @@ pub enum HirRitchieParameter {
 }
 
 impl HirRitchieParameter {
-    pub fn from_ethereal(param: EtherealRitchieParameter, db: &dyn HirTypeDb) -> Self {
+    pub fn from_ethereal(param: EtherealRitchieParameter, db: &::salsa::Db) -> Self {
         match param {
             EtherealRitchieParameter::Regular(param) => Self::from_ethereal_regular(param, db),
             EtherealRitchieParameter::Variadic(_) => todo!(),
@@ -77,10 +77,7 @@ impl HirRitchieParameter {
         }
     }
 
-    pub fn from_ethereal_regular(
-        param: EtherealRitchieRegularParameter,
-        db: &dyn HirTypeDb,
-    ) -> Self {
+    pub fn from_ethereal_regular(param: EtherealRitchieRegularParameter, db: &::salsa::Db) -> Self {
         HirRitchieRegularParameter {
             contract: param.contract(),
             ty: HirType::from_ethereal(param.ty(), db),

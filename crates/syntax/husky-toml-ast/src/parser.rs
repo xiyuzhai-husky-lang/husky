@@ -5,14 +5,14 @@ use husky_toml_token::{TomlSpecialToken, TomlToken, TomlTokenData};
 use smallvec::SmallVec;
 
 pub(crate) struct TomlAstParser<'a> {
-    db: &'a dyn TomlAstDb,
+    db: &'a ::salsa::Db,
     tokens: TomlTokenStream<'a>,
     exprs: &'a mut TomlExprArena,
 }
 
 impl<'a> TomlAstParser<'a> {
     pub(crate) fn new(
-        db: &'a dyn TomlAstDb,
+        db: &'a ::salsa::Db,
         tokens: &'a [TomlToken],
         exprs: &'a mut TomlExprArena,
     ) -> Self {
@@ -94,7 +94,7 @@ impl<'a> TomlAstParser<'a> {
         Some(self.exprs.alloc_one(match self.tokens.next()?.data() {
             TomlTokenData::Comment => todo!(),
             TomlTokenData::Special(_) => todo!(),
-            TomlTokenData::Word(word) => match self.db.word_db().dt_coword(*word) {
+            TomlTokenData::Word(word) => match word.data(self.db) {
                 "true" => TomlExpr::Boolean(true),
                 "false" => TomlExpr::Boolean(false),
                 _ => todo!(),

@@ -20,7 +20,7 @@ pub enum AssociatedItemHirDecl {
 }
 
 impl AssociatedItemHirDecl {
-    pub fn path(self, db: &dyn HirDeclDb) -> AssociatedItemPath {
+    pub fn path(self, db: &::salsa::Db) -> AssociatedItemPath {
         match self {
             AssociatedItemHirDecl::TypeItem(decl) => decl.path(db).into(),
             AssociatedItemHirDecl::TraitItem(decl) => decl.path(db).into(),
@@ -28,7 +28,7 @@ impl AssociatedItemHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
         match self {
             AssociatedItemHirDecl::TypeItem(decl) => decl.template_parameters(db),
             AssociatedItemHirDecl::TraitItem(decl) => decl.template_parameters(db),
@@ -36,7 +36,7 @@ impl AssociatedItemHirDecl {
         }
     }
 
-    // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    // pub fn hir_expr_region(self, db: &::salsa::Db,) -> HirExprRegion {
     //     match self {
     //         AssociatedItemHirDecl::TypeItem(decl) => decl.hir_expr_region(db),
     //         AssociatedItemHirDecl::TraitItem(decl) => decl.hir_expr_region(db),
@@ -48,7 +48,7 @@ impl AssociatedItemHirDecl {
 impl HasHirDecl for AssociatedItemPath {
     type HirDecl = AssociatedItemHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
         match self {
             AssociatedItemPath::TypeItem(path) => path.hir_decl(db).map(Into::into),
             AssociatedItemPath::TraitItem(path) => path.hir_decl(db).map(Into::into),

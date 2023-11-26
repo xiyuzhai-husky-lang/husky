@@ -11,13 +11,13 @@ pub struct TraitHirDecl {
 impl HasHirDecl for TraitPath {
     type HirDecl = TraitHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
         Some(trai_hir_decl(db, self))
     }
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn trai_hir_decl(db: &dyn HirDeclDb, path: TraitPath) -> TraitHirDecl {
+fn trai_hir_decl(db: &::salsa::Db, path: TraitPath) -> TraitHirDecl {
     let syn_decl = path.syn_decl(db).expect("ok");
     let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
     TraitHirDecl::new(

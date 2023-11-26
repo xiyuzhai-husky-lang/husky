@@ -60,7 +60,7 @@ use husky_toml_token::TomlTokenJar;
 )]
 pub(crate) struct DB;
 
-fn module_hir_decls(db: &::salsa::Db module_path: ModulePath) -> Vec<HirDecl> {
+fn module_hir_decls(db: &::salsa::Db, module_path: ModulePath) -> Vec<HirDecl> {
     module_item_paths(db, module_path)
         .iter()
         .filter_map(|path| path.hir_decl(db))

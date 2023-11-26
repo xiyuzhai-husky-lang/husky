@@ -18,7 +18,7 @@ pub enum LinkageTemplateArgument {
 impl LinkageTemplateArgument {
     pub(crate) fn from_hir_template_arguments(
         template_arguments: &[HirTemplateArgument],
-        db: &dyn LinkageDb,
+        db: &::salsa::Db,
     ) -> LinkageTemplateArguments {
         template_arguments
             .iter()
@@ -26,7 +26,7 @@ impl LinkageTemplateArgument {
             .collect()
     }
 
-    pub(crate) fn from_hir(template_argument: HirTemplateArgument, db: &dyn LinkageDb) -> Self {
+    pub(crate) fn from_hir(template_argument: HirTemplateArgument, db: &::salsa::Db) -> Self {
         match template_argument {
             HirTemplateArgument::Vacant => LinkageTemplateArgument::Vacant,
             HirTemplateArgument::Type(hir_ty) => {

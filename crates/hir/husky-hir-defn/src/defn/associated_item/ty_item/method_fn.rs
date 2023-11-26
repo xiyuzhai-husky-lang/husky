@@ -20,11 +20,7 @@ impl From<TypeMethodFnHirDefn> for HirDefn {
 }
 
 impl TypeMethodFnHirDefn {
-    pub(super) fn new(
-        db: &dyn HirDefnDb,
-        path: TypeItemPath,
-        hir_decl: TypeMethodFnHirDecl,
-    ) -> Self {
+    pub(super) fn new(db: &::salsa::Db, path: TypeItemPath, hir_decl: TypeMethodFnHirDecl) -> Self {
         let Ok(TypeItemSynDefn::MethodFn(syn_defn)) = path.syn_defn(db) else {
             unreachable!("hir stage no error")
         };
@@ -36,22 +32,22 @@ impl TypeMethodFnHirDefn {
         )
     }
 
-    pub fn hir_eager_expr_region(self, db: &dyn HirDefnDb) -> Option<HirEagerExprRegion> {
+    pub fn hir_eager_expr_region(self, db: &::salsa::Db) -> Option<HirEagerExprRegion> {
         Some(self.eager_body_with_hir_eager_expr_region(db)?.1)
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         ty_method_fn_hir_defn_dependencies(db, self)
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         ty_method_fn_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn ty_method_fn_hir_defn_dependencies(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: TypeMethodFnHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
@@ -74,7 +70,7 @@ fn ty_method_fn_hir_defn_dependencies(
 
 #[salsa::tracked(jar = HirDefnJar)]
 fn ty_method_fn_hir_defn_version_stamp(
-    db: &dyn HirDefnDb,
+    db: &::salsa::Db,
     hir_defn: TypeMethodFnHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)

@@ -19,7 +19,7 @@ impl std::ops::Deref for HirTemplateParameters {
 impl HirTemplateParameters {
     pub fn from_ethereal(
         template_parameters: &[EtherealTermTemplateParameter],
-        db: &dyn HirTypeDb,
+        db: &::salsa::Db,
     ) -> Self {
         Self {
             data: template_parameters
@@ -39,7 +39,7 @@ pub struct HirTemplateParameter {
 impl HirTemplateParameter {
     fn from_ethereal(
         template_parameter: &EtherealTermTemplateParameter,
-        db: &dyn HirTypeDb,
+        db: &::salsa::Db,
     ) -> Option<Self> {
         Some(HirTemplateParameter {
             symbol: HirTemplateSymbol::from_ethereal(template_parameter.symbol(), db)?,

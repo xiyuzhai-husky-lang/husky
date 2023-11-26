@@ -14,7 +14,7 @@ pub struct TypeMethodFnEtherealSignatureTemplate {
 
 impl TypeMethodFnEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: TypeItemPath,
         tmpl: TypeMethodFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {

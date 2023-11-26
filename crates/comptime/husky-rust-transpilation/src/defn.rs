@@ -19,10 +19,7 @@ use husky_print_utils::p;
 use husky_vfs::ModulePathData;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
-pub(crate) fn module_defn_rust_transpilation(
-    db: &dyn RustTranspilationDb,
-    module_path: ModulePath,
-) -> String {
+pub(crate) fn module_defn_rust_transpilation(db: &::salsa::Db, module_path: ModulePath) -> String {
     let mut builder_base = RustTranspilationBuilderBase::new(
         db,
         match module_path.data(db) {

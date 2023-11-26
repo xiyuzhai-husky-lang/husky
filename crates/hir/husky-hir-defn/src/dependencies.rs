@@ -23,11 +23,11 @@ pub(crate) struct HirDefnDependenciesBuilder<'a> {
     crate_path: CratePath,
     item_paths_in_current_crate: VecSet<ItemPath>,
     item_paths_in_other_local_crates: VecSet<ItemPath>,
-    db: &'a dyn HirDefnDb,
+    db: &'a ::salsa::Db,
 }
 
 impl<'a> HirDefnDependenciesBuilder<'a> {
-    pub(crate) fn new(item_path: impl Into<ItemPath>, db: &'a dyn HirDefnDb) -> Self {
+    pub(crate) fn new(item_path: impl Into<ItemPath>, db: &'a ::salsa::Db) -> Self {
         let item_path = item_path.into();
         Self {
             item_path,
@@ -260,7 +260,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
 
 #[cfg(test)]
 pub(crate) fn module_hir_defn_dependencies(
-    db: &::salsa::Db
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<HirDefnDependencies> {
     module_item_paths(db, module_path)

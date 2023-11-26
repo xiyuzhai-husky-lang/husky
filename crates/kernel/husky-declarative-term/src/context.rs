@@ -13,7 +13,7 @@ pub(crate) struct DeclarativeTermShowContext {
 impl DeclarativeTermShowContext {
     pub(crate) fn fmt_symbol(
         &mut self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
@@ -29,7 +29,7 @@ impl DeclarativeTermShowContext {
 
     pub(crate) fn fmt_with_symbol(
         &mut self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
@@ -41,7 +41,7 @@ impl DeclarativeTermShowContext {
 
     pub(crate) fn fmt_variable(
         &mut self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         variable: DeclarativeTermRune,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
@@ -51,7 +51,7 @@ impl DeclarativeTermShowContext {
 
     pub(crate) fn fmt_with_variable(
         &mut self,
-        _db: &dyn DeclarativeTermDb,
+        _db: &::salsa::Db,
         _variable: DeclarativeTermRune,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {

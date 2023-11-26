@@ -67,22 +67,22 @@ pub type MajorItemPathExprResult<T> = Result<T, MajorPathExprError>;
 pub type MajorItemPathExprMaybeResult<T> = MaybeResult<T, MajorPathExprError>;
 
 pub(crate) struct MajorItemPathExprParser<'a, 'b> {
-    db: &'a dyn EntitySynTreeDb,
+    db: &'a ::salsa::Db,
     crate_root_path: ModulePath,
     token_stream: TokenStream<'a>,
     major_path_expr_arena: &'b mut MajorPathExprArena,
     item_tree_symbol_context: EntityTreeSymbolContext<'a, 'b>,
 }
 
-impl<'a, 'b> HasTokenDataDb<'a> for MajorItemPathExprParser<'a, 'b> {
-    fn token_data_db(&self) -> &'a dyn TokenDataDb {
+impl<'a, 'b> ::salsa::db::HasDb<'a> for MajorItemPathExprParser<'a, 'b> {
+    fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
 }
 
 impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
     pub(crate) fn new(
-        db: &'a dyn EntitySynTreeDb,
+        db: &'a ::salsa::Db,
         crate_root_path: ModulePath,
         token_stream: TokenStream<'a>,
         major_path_expr_arena: &'b mut MajorPathExprArena,

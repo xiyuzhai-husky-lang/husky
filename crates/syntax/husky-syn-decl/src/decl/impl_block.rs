@@ -19,7 +19,7 @@ pub enum ImplBlockSynNodeDecl {
 }
 
 impl ImplBlockSynNodeDecl {
-    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> ImplBlockSynNodePath {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> ImplBlockSynNodePath {
         match self {
             ImplBlockSynNodeDecl::Type(decl) => decl.syn_node_path(db).into(),
             ImplBlockSynNodeDecl::TraitForType(decl) => decl.syn_node_path(db).into(),
@@ -27,11 +27,11 @@ impl ImplBlockSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         todo!()
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             ImplBlockSynNodeDecl::Type(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             ImplBlockSynNodeDecl::TraitForType(syn_node_decl) => syn_node_decl.syn_expr_region(db),
@@ -39,7 +39,7 @@ impl ImplBlockSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
             ImplBlockSynNodeDecl::Type(syn_node_decl) => syn_node_decl.errors(db),
             ImplBlockSynNodeDecl::TraitForType(syn_node_decl) => syn_node_decl.errors(db),
@@ -51,7 +51,7 @@ impl ImplBlockSynNodeDecl {
 impl HasSynNodeDecl for ImplBlockSynNodePath {
     type NodeDecl = ImplBlockSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         match self {
             ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {
                 syn_node_path.syn_node_decl(db).into()
@@ -75,18 +75,18 @@ pub enum ImplBlockSynDecl {
 }
 
 impl ImplBlockSynDecl {
-    pub fn path(self, db: &dyn SynDeclDb) -> ImplBlockPath {
+    pub fn path(self, db: &::salsa::Db) -> ImplBlockPath {
         match self {
             ImplBlockSynDecl::Type(decl) => decl.path(db).into(),
             ImplBlockSynDecl::TraitForType(decl) => decl.path(db).into(),
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         todo!()
     }
 
-    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             ImplBlockSynDecl::Type(decl) => decl.syn_expr_region(db),
             ImplBlockSynDecl::TraitForType(decl) => decl.syn_expr_region(db),
@@ -97,7 +97,7 @@ impl ImplBlockSynDecl {
 impl HasSynDecl for ImplBlockPath {
     type Decl = ImplBlockSynDecl;
 
-    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
         match self {
             ImplBlockPath::TypeImplBlock(path) => path.syn_decl(db).map(Into::into),
             ImplBlockPath::TraitForTypeImplBlock(path) => path.syn_decl(db).map(Into::into),
@@ -106,7 +106,7 @@ impl HasSynDecl for ImplBlockPath {
 }
 
 pub(crate) fn impl_block_syn_decl(
-    _db: &dyn SynDeclDb,
+    _db: &::salsa::Db,
     _impl_block: ImplBlockPath,
 ) -> DeclResult<ImplBlockSynDecl> {
     todo!()

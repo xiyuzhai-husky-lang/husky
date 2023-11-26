@@ -97,7 +97,7 @@ impl InternedStruct {
                 let field_get_name = field.get_name();
                 if field.is_clone_field() {
                     parse_quote! {
-                        #field_vis fn #field_get_name(self, db: &::salsa::Db) -> #field_ty {
+                        #field_vis fn #field_get_name(self, db: &::salsa::Db,) -> #field_ty {
                             let (jar, runtime) = db.jar::<#jar_ty>();
                             let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #id_ident >>::ingredient(jar);
                             std::clone::Clone::clone(&ingredients.data(runtime, self).#field_name)

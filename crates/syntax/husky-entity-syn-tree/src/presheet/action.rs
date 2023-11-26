@@ -159,7 +159,7 @@ impl<'a> EntityTreePresheetMut<'a> {
 
     pub(crate) fn resolve_use_expr(
         &mut self,
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         rule_idx: OnceUseRuleIdx,
         _name_token: PathNameToken,
         original_symbol: EntitySymbol,

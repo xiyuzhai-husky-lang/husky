@@ -17,7 +17,7 @@ pub struct GnSynNodeDecl {
 }
 
 impl GnSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
                 .as_ref()
@@ -78,7 +78,7 @@ pub struct FunctionGnSynDecl {
 
 impl FunctionGnSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: FugitivePath,
         syn_node_decl: GnSynNodeDecl,
     ) -> DeclResult<Self> {

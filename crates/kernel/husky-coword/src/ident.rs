@@ -12,7 +12,7 @@ impl Ident {
         self.0
     }
 
-    pub fn from_owned(db: &Db, data: String) -> Option<Self> {
+    pub fn from_owned(db: &::salsa::Db, data: String) -> Option<Self> {
         if is_str_valid_ident(&data) {
             Some(Self(Coword::from_owned(db, data)))
         } else {
@@ -20,7 +20,7 @@ impl Ident {
         }
     }
 
-    pub fn from_borrowed(db: &Db, data: &str) -> Option<Self> {
+    pub fn from_ref(db: &::salsa::Db, data: &str) -> Option<Self> {
         if is_str_valid_ident(data) {
             Some(Self(Coword::from_ref(db, data)))
         } else {
@@ -28,7 +28,7 @@ impl Ident {
         }
     }
 
-    pub fn case(self, db: &Db) -> IdentCase {
+    pub fn case(self, db: &::salsa::Db) -> IdentCase {
         let data = self.data(db);
         let mut chars = data.chars();
         let is_first_char_uppercase = chars.next().unwrap().is_uppercase();
@@ -121,7 +121,7 @@ impl DebugWithDb for Ident {
 
 /// only use in this module
 #[salsa::tracked(jar = CowordJar)]
-pub(crate) fn ident_to_name(db: &Db, ident: Ident) -> Kebab {
+pub(crate) fn ident_to_name(db: &::salsa::Db, ident: Ident) -> Kebab {
     let ident_data = ident.data(db);
     if !ident_data.contains("_") {
         return unsafe { Kebab::from_coword_unchecked(ident.0) };

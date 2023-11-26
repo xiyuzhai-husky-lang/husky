@@ -19,7 +19,7 @@ impl TraceViewLines {
         module_path: ModulePath,
         token_idx_range: TokenIdxRange,
         registry: AssociatedTraceRegistry,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Self
     where
         AssociatedTraceRegistry: IsAssociatedTraceRegistry,
@@ -34,7 +34,7 @@ struct TraceViewTokensBuilder<'a, AssociatedTraceRegistry>
 where
     AssociatedTraceRegistry: IsAssociatedTraceRegistry,
 {
-    db: &'a dyn TraceDb,
+    db: &'a ::salsa::Db,
     text: Text<'a>,
     ranged_token_sheet: &'a RangedTokenSheet,
     token_info_sheet: TokenInfoSheetRef<'a>,
@@ -48,7 +48,7 @@ where
     AssociatedTraceRegistry: IsAssociatedTraceRegistry,
 {
     fn new(
-        db: &'a dyn TraceDb,
+        db: &'a ::salsa::Db,
         module_path: ModulePath,
         associated_trace_registry: AssociatedTraceRegistry,
     ) -> Self {

@@ -5,8 +5,6 @@ use husky_ast::AstDb;
 use husky_manifest::ManifestDb;
 use husky_vfs::{error::VfsResult, *};
 
-use salsa::DbWithJar;
-
 pub trait EntitySynTreeDb: DbWithJar<EntitySynTreeJar> + AstDb + EntityPathDb + ManifestDb {
     fn submodules(&self, module_path: ModulePath) -> &[SubmodulePath];
     fn all_modules_within_crate(&self, crate_path: CratePath) -> &[ModulePath];

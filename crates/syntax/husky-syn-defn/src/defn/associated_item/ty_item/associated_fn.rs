@@ -10,7 +10,7 @@ pub struct TypeAssociatedFnSynNodeDefn {
 
 impl TypeAssociatedFnSynNodeDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         syn_node_path: TypeItemSynNodePath,
         syn_node_decl: TypeAssociatedFnSynNodeDecl,
     ) -> Self {
@@ -39,7 +39,7 @@ pub struct TypeAssociatedFnSynDefn {
 
 impl TypeAssociatedFnSynDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeAssociatedFnSynDecl,
     ) -> DeclResult<TypeAssociatedFnSynDefn> {

@@ -21,7 +21,7 @@ pub struct UseAllModuleSymbolsRule {
 
 impl UseAllModuleSymbolsRule {
     pub(crate) fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         sheet: &EntityTreePresheetMut,
         parent_module_path: ModulePath,
         ast_idx: AstIdx,
@@ -62,7 +62,7 @@ impl UseAllModuleSymbolsRule {
 
     pub(crate) fn parent_module_specific_symbols<'a>(
         &self,
-        db: &'a dyn EntitySynTreeDb,
+        db: &'a ::salsa::Db,
         presheets: &'a [EntityTreePresheetMut],
     ) -> EntitySymbolTableRef<'a> {
         if self.is_same_crate {

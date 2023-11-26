@@ -10,7 +10,7 @@ pub struct TypeMemoizedFieldSynNodeDefn {
 
 impl TypeMemoizedFieldSynNodeDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         syn_node_path: TypeItemSynNodePath,
         syn_node_decl: TypeMemoizedFieldSynNodeDecl,
     ) -> TypeMemoizedFieldSynNodeDefn {
@@ -39,7 +39,7 @@ pub struct TypeMemoizedFieldSynDefn {
 
 impl TypeMemoizedFieldSynDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         path: TypeItemPath,
         decl: TypeMemoizedFieldSynDecl,
     ) -> DeclResult<TypeMemoizedFieldSynDefn> {

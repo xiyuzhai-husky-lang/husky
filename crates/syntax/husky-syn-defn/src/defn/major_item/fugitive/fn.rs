@@ -10,7 +10,7 @@ pub struct FnSynNodeDefn {
 
 impl FnSynNodeDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         syn_node_path: FugitiveSynNodePath,
         syn_node_decl: FnSynNodeDecl,
     ) -> Self {
@@ -39,7 +39,7 @@ pub struct FnSynDefn {
 
 impl FnSynDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         path: FugitivePath,
         decl: FunctionFnFugitiveSynDecl,
     ) -> Self {

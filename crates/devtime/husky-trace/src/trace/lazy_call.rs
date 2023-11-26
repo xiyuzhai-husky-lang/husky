@@ -23,7 +23,7 @@ impl Trace {
         biological_parent_path: TracePath,
         biological_parent: Trace,
         callee_path: ItemPath,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Self {
         let path = TracePath::new(
             LazyCallTracePathData {
@@ -46,7 +46,7 @@ impl Trace {
 }
 
 impl LazyCallTraceData {
-    fn view_lines(&self, db: &dyn TraceDb) -> TraceViewLines {
+    fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let callee_path = self.callee_path;
         TraceViewLines::new(
             callee_path.module_path(db),
@@ -58,7 +58,7 @@ impl LazyCallTraceData {
         )
     }
 
-    fn have_subtraces(&self, db: &dyn TraceDb) -> bool {
+    fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         self.callee_path
             .syn_defn(db)
             .expect("no syn error at trace time")
@@ -66,7 +66,7 @@ impl LazyCallTraceData {
             .is_some()
     }
 
-    fn subtraces(&self, trace: Trace, db: &dyn TraceDb) -> Vec<Trace> {
+    fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         Trace::new_lazy_stmts_from_syn_body_with_syn_expr_region(
             self.path,
             trace,
@@ -78,7 +78,7 @@ impl LazyCallTraceData {
         )
     }
 
-    pub fn val_repr(self, db: &dyn TraceDb) -> ValRepr {
+    pub fn val_repr(self, db: &::salsa::Db) -> ValRepr {
         self.biological_parent.val_repr(db).expect("should be some")
     }
 }

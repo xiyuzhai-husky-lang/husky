@@ -22,7 +22,7 @@ pub enum FugitiveSynNodeDefn {
 }
 
 impl FugitiveSynNodeDefn {
-    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> FugitiveSynNodeDecl {
+    pub fn syn_node_decl(self, db: &::salsa::Db) -> FugitiveSynNodeDecl {
         match self {
             FugitiveSynNodeDefn::FunctionFn(syn_node_defn) => {
                 syn_node_defn.syn_node_decl(db).into()
@@ -32,7 +32,7 @@ impl FugitiveSynNodeDefn {
         }
     }
 
-    pub fn syn_node_path(self, _db: &dyn SynDefnDb) -> FugitiveSynNodePath {
+    pub fn syn_node_path(self, _db: &::salsa::Db) -> FugitiveSynNodePath {
         todo!()
         // match self {
         //     FugitiveDefn::Fn(defn) => defn.path(db),
@@ -43,7 +43,7 @@ impl FugitiveSynNodeDefn {
 
     pub fn body_with_syn_expr_region(
         self,
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             FugitiveSynNodeDefn::FunctionFn(defn) => defn.body_with_syn_expr_region(db),
@@ -56,14 +56,14 @@ impl FugitiveSynNodeDefn {
 impl HasSynNodeDefn for FugitiveSynNodePath {
     type SynNodeDefn = FugitiveSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
+    fn syn_node_defn(self, db: &::salsa::Db) -> Self::SynNodeDefn {
         fugitive_syn_node_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn fugitive_syn_node_defn(
-    db: &dyn SynDefnDb,
+    db: &::salsa::Db,
     syn_node_path: FugitiveSynNodePath,
 ) -> FugitiveSynNodeDefn {
     match syn_node_path.syn_node_decl(db) {
@@ -91,7 +91,7 @@ pub enum FugitiveSynDefn {
 }
 
 impl FugitiveSynDefn {
-    pub fn decl(self, db: &dyn SynDefnDb) -> FugitiveSynDecl {
+    pub fn decl(self, db: &::salsa::Db) -> FugitiveSynDecl {
         match self {
             FugitiveSynDefn::FunctionFn(defn) => defn.decl(db).into(),
             FugitiveSynDefn::Val(defn) => defn.decl(db).into(),
@@ -99,7 +99,7 @@ impl FugitiveSynDefn {
         }
     }
 
-    pub fn path(self, db: &dyn SynDefnDb) -> FugitivePath {
+    pub fn path(self, db: &::salsa::Db) -> FugitivePath {
         match self {
             FugitiveSynDefn::FunctionFn(defn) => defn.path(db),
             FugitiveSynDefn::Val(defn) => defn.path(db),
@@ -109,7 +109,7 @@ impl FugitiveSynDefn {
 
     pub fn body_with_syn_expr_region(
         self,
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             FugitiveSynDefn::FunctionFn(defn) => defn.body_with_syn_expr_region(db),
@@ -122,14 +122,14 @@ impl FugitiveSynDefn {
 impl HasSynDefn for FugitivePath {
     type SynDefn = FugitiveSynDefn;
 
-    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
+    fn syn_defn(self, db: &::salsa::Db) -> SynDefnResult<Self::SynDefn> {
         fugitive_syn_defn(db, self)
     }
 }
 
 // #[salsa::tracked(jar= SynDefnJar)]
 pub(crate) fn fugitive_syn_defn(
-    db: &dyn SynDefnDb,
+    db: &::salsa::Db,
     path: FugitivePath,
 ) -> SynDefnResult<FugitiveSynDefn> {
     Ok(match path.syn_decl(db)? {

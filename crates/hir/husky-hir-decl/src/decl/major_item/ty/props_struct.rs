@@ -23,7 +23,7 @@ impl PropsStructTypeHirDecl {
     pub(super) fn from_syn(
         path: TypePath,
         _syn_decl: PropsStructTypeSynDecl,
-        db: &dyn HirDeclDb,
+        db: &::salsa::Db,
     ) -> Self {
         let TypeSynDecl::PropsStruct(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()

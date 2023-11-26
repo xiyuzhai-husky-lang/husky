@@ -12,7 +12,7 @@ impl HasEtherealSignatureTemplate for TypeImplBlockPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         ty_impl_block_ethereal_signature_template(db, self)
     }
@@ -20,7 +20,7 @@ impl HasEtherealSignatureTemplate for TypeImplBlockPath {
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
 pub(crate) fn ty_impl_block_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     path: TypeImplBlockPath,
 ) -> EtherealSignatureResult<TypeImplBlockEtherealSignatureTemplate> {
     let declarative_signature_template = path.declarative_signature_template(db)?;

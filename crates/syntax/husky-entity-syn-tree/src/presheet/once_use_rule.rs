@@ -36,7 +36,7 @@ impl OnceUseRules {
     }
 
     #[cfg(test)]
-    pub(crate) fn check_done(&self, db: &dyn EntitySynTreeDb) {
+    pub(crate) fn check_done(&self, db: &::salsa::Db) {
         use husky_print_utils::p;
 
         for tracker in self.0.iter() {

@@ -40,7 +40,7 @@ impl HirInstantiation {
 
     pub fn from_fluffy(
         fluffy_instantiation: &FluffyInstantiation,
-        db: &dyn HirTypeDb,
+        db: &::salsa::Db,
         fluffy_terms: &FluffyTerms,
     ) -> Self {
         Self {

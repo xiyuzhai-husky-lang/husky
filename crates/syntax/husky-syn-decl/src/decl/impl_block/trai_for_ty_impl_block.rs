@@ -26,7 +26,7 @@ pub enum SelfTypeDecl {
 }
 
 impl TraitForTypeImplBlockSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
                 .as_ref()
@@ -40,14 +40,14 @@ impl TraitForTypeImplBlockSynNodeDecl {
 impl HasSynNodeDecl for TraitForTypeImplBlockSynNodePath {
     type NodeDecl = TraitForTypeImplBlockSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         trai_for_ty_impl_block_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_impl_block_syn_node_decl(
-    db: &dyn SynDeclDb,
+    db: &::salsa::Db,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path);
@@ -121,14 +121,14 @@ pub struct TraitForTypeImplBlockSynDecl {
 impl HasSynDecl for TraitForTypeImplBlockPath {
     type Decl = TraitForTypeImplBlockSynDecl;
 
-    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
         trai_for_ty_impl_block_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_impl_block_syn_decl(
-    db: &dyn SynDeclDb,
+    db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,
 ) -> DeclResult<TraitForTypeImplBlockSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
@@ -137,7 +137,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_decl(
 
 impl TraitForTypeImplBlockSynDecl {
     fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TraitForTypeImplBlockPath,
         syn_node_decl: TraitForTypeImplBlockSynNodeDecl,
     ) -> DeclResult<Self> {

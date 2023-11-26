@@ -388,7 +388,7 @@ fn fn_configuration(args: &FnArgs, item_fn: &syn::ItemFn) -> Configuration {
         let cycle_strategy = CycleRecoveryStrategy::Fallback;
 
         let cycle_fullback = parse_quote! {
-            fn recover_from_cycle(__db: &Db, __cycle: &salsa::Cycle, __id: Self::Key) -> Self::Value {
+            fn recover_from_cycle(__db: &::salsa::Db, __cycle: &salsa::Cycle, __id: Self::Key) -> Self::Value {
                 let (__jar, __runtime) = __db.jar::<#jar_ty>();
                 let __ingredients =
                     <_ as salsa::storage::HasIngredientsFor<#fn_ty>>::ingredient(__jar);
@@ -689,7 +689,7 @@ fn set_lru_capacity_fn(
     let jar_ty = args.jar_ty();
     let lru_fn = parse_quote! {
         #[allow(dead_code, clippy::needless_lifetimes)]
-        fn set_lru_capacity(__db: &Db, __value: usize) {
+        fn set_lru_capacity(__db: &::salsa::Db, __value: usize) {
             let (__jar, __runtime) = __db.jar::<#jar_ty>();
             let __ingredients =
                 <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
@@ -737,7 +737,7 @@ fn specify_fn(
 /// it returns an `&Value` instead of `Value`. May introduce a name for the
 /// database lifetime if required.
 fn make_fn_return_ref(fn_sig: &mut syn::Signature) -> syn::Result<()> {
-    // An input should be a `&Db`.
+    // An input should be a `&::salsa::Db`.
     // We need to ensure it has a named lifetime parameter.
     let (db_lifetime, _) = db_lifetime_and_ty(fn_sig)?;
 
@@ -758,7 +758,7 @@ fn make_fn_return_ref(fn_sig: &mut syn::Signature) -> syn::Result<()> {
     Ok(())
 }
 
-/// Given a function signature, identifies the name given to the `&Db` reference
+/// Given a function signature, identifies the name given to the `&::salsa::Db` reference
 /// and returns it, along with the type of the database.
 /// If the database lifetime did not have a name, then modifies the item function
 /// so that it is called `'__db` and returns that.

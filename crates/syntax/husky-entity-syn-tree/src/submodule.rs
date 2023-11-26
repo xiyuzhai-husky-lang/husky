@@ -5,7 +5,7 @@ use salsa::test_utils::Db;
 use vec_like::VecSet;
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-pub(crate) fn submodules(db: &dyn EntitySynTreeDb, module_path: ModulePath) -> Vec<SubmodulePath> {
+pub(crate) fn submodules(db: &::salsa::Db, module_path: ModulePath) -> Vec<SubmodulePath> {
     let ast_sheet = db.ast_sheet(module_path);
     ast_sheet
         .top_level_asts_iter()
@@ -22,7 +22,7 @@ pub(crate) fn submodules(db: &dyn EntitySynTreeDb, module_path: ModulePath) -> V
 /// all modules, must be included in module tree
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn all_modules_within_crate(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     crate_path: CratePath,
 ) -> VecSet<ModulePath> {
     let root = crate_path.root_module_path(db);
@@ -32,11 +32,7 @@ pub(crate) fn all_modules_within_crate(
     all_modules
 }
 
-fn collect_all_modules(
-    db: &dyn EntitySynTreeDb,
-    root: ModulePath,
-    all_modules: &mut VecSet<ModulePath>,
-) {
+fn collect_all_modules(db: &::salsa::Db, root: ModulePath, all_modules: &mut VecSet<ModulePath>) {
     for submodule in submodules(db, root) {
         all_modules.insert(**submodule);
         collect_all_modules(db, **submodule, all_modules)

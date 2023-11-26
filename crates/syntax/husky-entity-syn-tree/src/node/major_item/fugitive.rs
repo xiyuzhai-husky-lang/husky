@@ -16,29 +16,29 @@ impl From<FugitiveSynNodePath> for ItemSynNodePath {
 impl HasSynNodePath for FugitivePath {
     type SynNodePath = FugitiveSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         FugitiveSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
 impl FugitiveSynNodePath {
     pub(super) fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         path: FugitivePath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
-    pub fn ident(self, db: &dyn EntitySynTreeDb) -> Ident {
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
         self.maybe_ambiguous_path(db).path.ident(db)
     }
 
-    pub fn fugitive_kind(self, db: &dyn EntitySynTreeDb) -> FugitiveKind {
+    pub fn fugitive_kind(self, db: &::salsa::Db) -> FugitiveKind {
         self.maybe_ambiguous_path(db).path.fugitive_kind(db)
     }
 
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> MajorItemSynNode {
         fugitive_syn_node(db, self)
     }
 }
@@ -47,7 +47,7 @@ impl FugitiveSynNodePath {
 // where
 //      + EntitySynTreeDb,
 // {
-//     fn module_path(self, db: &Db) -> ModulePath {
+//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
 //         let db = entity_syn_tree_db(db);
 //         self.maybe_ambiguous_path(db).path.module_path(db)
 //     }
@@ -55,7 +55,7 @@ impl FugitiveSynNodePath {
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn fugitive_syn_node(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: FugitiveSynNodePath,
 ) -> MajorItemSynNode {
     let module_path: ModulePath = todo!(); //syn_node_path.module_path(db);

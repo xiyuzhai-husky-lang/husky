@@ -4,7 +4,7 @@ use super::*;
 pub(super) fn generate_map<LinkageImpl: IsLinkageImpl>(
     target_path: LinktimeTargetPath,
     _library: &MonoLinkageStorage,
-    _db: &dyn LinkageDb,
+    _db: &::salsa::Db,
 ) -> HashMap<Linkage, (LinkageVersionStamp, LinkageImpl)> {
     // todo!()
     // ad hoc

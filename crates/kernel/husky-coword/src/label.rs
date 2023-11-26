@@ -40,17 +40,17 @@ impl Label {
         self.ident.coword()
     }
 
-    pub fn from_owned(db: &Db, data: String) -> Option<Self> {
+    pub fn from_owned(db: &::salsa::Db, data: String) -> Option<Self> {
         Some(Self {
             kind: LabelKind::new(&data),
             ident: Ident::from_owned(db, data)?,
         })
     }
 
-    pub fn from_borrowed(db: &Db, data: &str) -> Option<Self> {
+    pub fn from_ref(db: &::salsa::Db, data: &str) -> Option<Self> {
         Some(Self {
             kind: LabelKind::new(&data),
-            ident: Ident::from_borrowed(db, data)?,
+            ident: Ident::from_ref(db, data)?,
         })
     }
 

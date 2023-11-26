@@ -7,7 +7,7 @@ pub struct HirLazySelfValueParameter {}
 impl HirLazySelfValueParameter {
     pub(crate) fn from_syn(
         _syndicate: Option<SelfValueParameterSyndicate>,
-        _db: &dyn HirDeclDb,
+        _db: &::salsa::Db,
     ) -> Self {
         HirLazySelfValueParameter {}
     }

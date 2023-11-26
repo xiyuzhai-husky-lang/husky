@@ -27,7 +27,7 @@ pub enum TypeItemEtherealSignatureTemplate {
 }
 
 impl TypeItemEtherealSignatureTemplate {
-    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &::salsa::Db) -> Option<EtherealTerm> {
         match self {
             TypeItemEtherealSignatureTemplate::AssociatedFn(_) => None,
             TypeItemEtherealSignatureTemplate::MethodFn(template) => Some(template.self_ty(db)),
@@ -44,7 +44,7 @@ impl HasEtherealSignatureTemplate for TypeItemPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         ty_item_ethereal_signature_template(db, self)
     }
@@ -52,7 +52,7 @@ impl HasEtherealSignatureTemplate for TypeItemPath {
 
 // #[salsa::tracked(jar = EtherealSignatureJar)]
 pub(crate) fn ty_item_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     path: TypeItemPath,
 ) -> EtherealSignatureResult<TypeItemEtherealSignatureTemplate> {
     Ok(match path.declarative_signature_template(db)? {
@@ -73,7 +73,7 @@ pub(crate) fn ty_item_ethereal_signature_template(
 pub trait HasTypeItemTemplates: Copy {
     fn ty_item_templates_map<'a>(
         self,
-        db: &'a dyn EtherealSignatureDb,
+        db: &'a ::salsa::Db,
     ) -> EtherealSignatureResult<
         &'a [(
             Ident,
@@ -83,7 +83,7 @@ pub trait HasTypeItemTemplates: Copy {
 
     fn ty_item_ethereal_signature_templates<'a>(
         self,
-        db: &'a dyn EtherealSignatureDb,
+        db: &'a ::salsa::Db,
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<&'a TypeItemEtherealSignatureTemplates> {
         use vec_like::VecMapGetEntry;
@@ -106,7 +106,7 @@ pub enum TypeItemEtherealSignatureTemplates {
 impl HasTypeItemTemplates for TypePath {
     fn ty_item_templates_map<'a>(
         self,
-        db: &'a dyn EtherealSignatureDb,
+        db: &'a ::salsa::Db,
     ) -> EtherealSignatureResult<
         &'a [(
             Ident,
@@ -122,7 +122,7 @@ impl HasTypeItemTemplates for TypePath {
 
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
 pub(crate) fn ty_item_ethereal_signature_templates_map(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     ty_path: TypePath,
 ) -> EtherealSignatureResult<
     IdentPairMap<EtherealSignatureResult<TypeItemEtherealSignatureTemplates>>,

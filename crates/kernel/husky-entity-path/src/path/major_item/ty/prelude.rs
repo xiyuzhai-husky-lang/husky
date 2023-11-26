@@ -108,14 +108,14 @@ fn prelude_ty_path_size_works() {
 }
 
 impl TypePath {
-    pub fn prelude_ty_path(self, db: &dyn EntityPathDb) -> Option<PreludeTypePath> {
+    pub fn prelude_ty_path(self, db: &::salsa::Db) -> Option<PreludeTypePath> {
         prelude_ty_path(db, self)
     }
 }
 
 #[salsa::tracked(jar = EntityPathJar)]
-pub(crate) fn prelude_ty_path(db: &dyn EntityPathDb, path: TypePath) -> Option<PreludeTypePath> {
-    let menu: &ItemPathMenu = db.item_path_menu(path.toolchain(db));
+pub(crate) fn prelude_ty_path(db: &::salsa::Db, path: TypePath) -> Option<PreludeTypePath> {
+    let menu: &ItemPathMenu = item_path_menu(db, path.toolchain(db));
     let vfs_path_menu: &VfsPathMenu = db.vfs_path_menu(path.toolchain(db));
     if path.crate_path(db) != vfs_path_menu.core_library() {
         return None;

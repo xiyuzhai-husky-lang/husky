@@ -7,29 +7,29 @@ pub struct TraitForTypeItemSynNodePath {
 
 impl TraitForTypeItemSynNodePath {
     fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         path: TraitForTypeItemPath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<TraitForTypeItemPath> {
+    pub fn path(self, db: &::salsa::Db) -> Option<TraitForTypeItemPath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub fn impl_block(self, db: &dyn EntitySynTreeDb) -> TraitForTypeImplBlockSynNodePath {
+    pub fn impl_block(self, db: &::salsa::Db) -> TraitForTypeImplBlockSynNodePath {
         self.maybe_ambiguous_path(db)
             .path
             .impl_block(db)
             .syn_node_path(db)
     }
 
-    pub fn item_kind(self, db: &dyn EntitySynTreeDb) -> TraitItemKind {
+    pub fn item_kind(self, db: &::salsa::Db) -> TraitItemKind {
         self.maybe_ambiguous_path(db).path.item_kind(db)
     }
 
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> TraitForTypeItemSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TraitForTypeItemSynNode {
         trai_for_ty_item_syn_node(db, self)
     }
 }
@@ -38,7 +38,7 @@ impl TraitForTypeItemSynNodePath {
 // where
 //      + EntitySynTreeDb,
 // {
-//     fn module_path(self, db: &Db) -> ModulePath {
+//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
 //         let db = entity_syn_tree_db(db);
 //         self.maybe_ambiguous_path(db).path.module_path(db)
 //     }
@@ -53,7 +53,7 @@ impl From<TraitForTypeItemSynNodePath> for ItemSynNodePath {
 impl HasSynNodePath for TraitForTypeItemPath {
     type SynNodePath = TraitForTypeItemSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         TraitForTypeItemSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
@@ -72,7 +72,7 @@ pub(crate) struct TraitForTypeItemSynNode {
 impl TraitForTypeItemSynNode {
     #[inline(always)]
     fn new(
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         impl_block_syn_node_path: TraitForTypeImplBlockSynNodePath,
         ast_idx: AstIdx,
@@ -100,7 +100,7 @@ impl TraitForTypeItemSynNode {
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn trai_for_ty_item_syn_node(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: TraitForTypeItemSynNodePath,
 ) -> TraitForTypeItemSynNode {
     syn_node_path
@@ -114,7 +114,7 @@ pub(crate) fn trai_for_ty_item_syn_node(
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn trai_for_ty_impl_block_items(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     impl_block_syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> Vec<(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemSynNode)> {
     let impl_block_syn_node = impl_block_syn_node_path.syn_node(db);

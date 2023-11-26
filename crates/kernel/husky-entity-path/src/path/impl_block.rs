@@ -1,5 +1,5 @@
 use super::*;
-use salsa::Database;
+use salsa::Db;
 use vec_like::VecPairMap;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -35,7 +35,7 @@ pub enum ImplBlockPathData {
 }
 
 impl ImplBlockPathData {
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
             ImplBlockPathData::TypeImplBlock(data) => data.module_path(),
             ImplBlockPathData::TraitForTypeImplBlock(data) => data.module_path(),
@@ -56,14 +56,14 @@ pub struct TypeImplBlockPathData {
 }
 
 impl TypeImplBlockPath {
-    pub fn data(self, db: &dyn EntityPathDb) -> TypeImplBlockPathData {
+    pub fn data(self, db: &::salsa::Db) -> TypeImplBlockPathData {
         match self.0.data(db) {
             ItemPathData::ImplBlock(ImplBlockPathData::TypeImplBlock(data)) => data,
             _ => unreachable!(),
         }
     }
 
-    pub fn ty_path(self, db: &dyn EntityPathDb) -> TypePath {
+    pub fn ty_path(self, db: &::salsa::Db) -> TypePath {
         self.data(db).ty_path
     }
 }
@@ -90,7 +90,7 @@ impl From<TypeImplBlockPath> for ItemPath {
 
 impl TypeImplBlockPath {
     pub fn new(
-        db: &dyn EntityPathDb,
+        db: &::salsa::Db,
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
         ty_path: TypePath,
@@ -108,7 +108,7 @@ impl TypeImplBlockPath {
 }
 
 impl TypeImplBlockPathData {
-    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         self.module_path.toolchain(db)
     }
 }
@@ -134,18 +134,18 @@ impl From<TraitForTypeImplBlockPath> for ItemPath {
 }
 
 impl TraitForTypeImplBlockPath {
-    pub fn data(self, db: &dyn EntityPathDb) -> TraitForTypeImplBlockPathData {
+    pub fn data(self, db: &::salsa::Db) -> TraitForTypeImplBlockPathData {
         match self.0.data(db) {
             ItemPathData::ImplBlock(ImplBlockPathData::TraitForTypeImplBlock(data)) => data,
             _ => unreachable!(),
         }
     }
 
-    pub fn trai_path(self, db: &dyn EntityPathDb) -> TraitPath {
+    pub fn trai_path(self, db: &::salsa::Db) -> TraitPath {
         self.data(db).trai_path
     }
 
-    pub fn ty_sketch(self, db: &dyn EntityPathDb) -> TypeSketch {
+    pub fn ty_sketch(self, db: &::salsa::Db) -> TypeSketch {
         self.data(db).ty_sketch
     }
 
@@ -153,7 +153,7 @@ impl TraitForTypeImplBlockPath {
     fn show(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityPathDb,
+        db: &::salsa::Db,
     ) -> Result<(), std::fmt::Error> {
         use salsa::DebugWithDb;
         f.debug_struct("TraitForTypeImplBlock")
@@ -190,7 +190,7 @@ pub enum TypeSketch {
 
 impl TraitForTypeImplBlockPath {
     pub fn new(
-        db: &dyn EntityPathDb,
+        db: &::salsa::Db,
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
         trai_path: TraitPath,
@@ -218,7 +218,7 @@ impl TraitForTypeImplBlockPath {
 
 impl salsa::DebugWithDb for TraitForTypeImplBlockPath {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
-        self.show(f, db())
+        self.show(f, db)
     }
 }
 

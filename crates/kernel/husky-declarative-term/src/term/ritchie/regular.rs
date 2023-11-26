@@ -31,7 +31,7 @@ impl DeclarativeRitchieRegularParameter {
     pub(super) fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         self.ty.show_with_db_fmt(f, db, ctx)
@@ -39,7 +39,11 @@ impl DeclarativeRitchieRegularParameter {
 }
 
 impl salsa::DisplayWithDb for DeclarativeRitchieRegularParameter {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         let db = db();
         self.ty.show_with_db_fmt(f, db, &mut Default::default())
     }

@@ -8,7 +8,7 @@ pub struct InductiveTypeDeclarativeSignatureTemplate {
 
 impl InductiveTypeDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         path: TypePath,
         decl: InductiveTypeSynDecl,
     ) -> DeclarativeSignatureResult<Self> {

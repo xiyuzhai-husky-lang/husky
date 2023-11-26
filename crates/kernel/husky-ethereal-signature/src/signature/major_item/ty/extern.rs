@@ -10,7 +10,7 @@ pub struct ExternTypeEtherealSignatureTemplate {
 
 impl ExternTypeEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: TypePath,
         declarative_signature_template: ExternTypeDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {

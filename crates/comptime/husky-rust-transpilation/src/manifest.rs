@@ -8,10 +8,7 @@ pub(crate) struct RustManifest(Manifest);
 impl Eq for RustManifest {}
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
-pub(crate) fn package_rust_manifest(
-    db: &dyn RustTranspilationDb,
-    package_path: PackagePath,
-) -> String {
+pub(crate) fn package_rust_manifest(db: &::salsa::Db, package_path: PackagePath) -> String {
     toml::to_string(&Manifest {
         package: Some(Package::<toml::Value> {
             name: package_path.name(db).data(db).to_owned(),

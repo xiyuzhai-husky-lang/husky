@@ -7,6 +7,10 @@ pub struct Db {
     logger: husky_salsa_log_utils::Logger,
 }
 
+pub trait HasDb<'a> {
+    fn db(&self) -> &'a Db;
+}
+
 impl Db {
     /// here we use fn instead of impl FnOnce to avoid inlining to save compilation time
     pub fn new(initialize_jars: fn(&mut Jars, &mut Routes)) -> Self {

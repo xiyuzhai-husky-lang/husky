@@ -3,7 +3,7 @@ pub mod relative_path;
 
 use super::*;
 pub use ancestry::*;
-use salsa::{test_utils::Db, DisplayWithDb};
+use salsa::DisplayWithDb;
 use with_db::PartialOrdWithDb;
 #[cfg(test)]
 use with_db::WithDb;
@@ -94,7 +94,7 @@ impl ModulePath {
     }
 
     #[inline(always)]
-    pub fn virtual_path(self, db: &Db) -> VirtualPath {
+    pub fn virtual_path(self, db: &::salsa::Db) -> VirtualPath {
         module_virtual_path(db, self).expect("guaranteed")
     }
 
@@ -105,7 +105,7 @@ impl ModulePath {
         }
     }
 
-    pub fn raw_text(self, db: &Db) -> &str {
+    pub fn raw_text(self, db: &::salsa::Db) -> &str {
         let diff_path = module_virtual_path(db, self).unwrap();
         db.file_from_virtual_path(diff_path)
             .unwrap()
@@ -215,13 +215,21 @@ impl ModulePath {
 }
 
 impl salsa::DisplayWithDb for ModulePath {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         self.show_aux(f, db)
     }
 }
 
 impl salsa::DisplayWithDb for SubmodulePath {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         self.inner().show_aux(f, db)
     }
 }

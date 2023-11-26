@@ -18,7 +18,7 @@ pub enum TypeVariantDeclarativeSignatureTemplate {
 }
 
 pub(crate) fn variant_signature_template_from_decl(
-    _db: &dyn DeclarativeSignatureDb,
+    _db: &::salsa::Db,
     decl: TypeVariantSynDecl,
 ) -> DeclarativeSignatureResult<TypeVariantDeclarativeSignatureTemplate> {
     match decl {
@@ -36,7 +36,7 @@ impl HasDeclarativeSignatureTemplate for TypeVariantPath {
 
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         ty_variant_syn_declarative_signature_template(db, self)
     }
@@ -44,7 +44,7 @@ impl HasDeclarativeSignatureTemplate for TypeVariantPath {
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn ty_variant_syn_declarative_signature_template(
-    db: &dyn DeclarativeSignatureDb,
+    db: &::salsa::Db,
     path: TypeVariantPath,
 ) -> DeclarativeSignatureResult<TypeVariantDeclarativeSignatureTemplate> {
     Ok(

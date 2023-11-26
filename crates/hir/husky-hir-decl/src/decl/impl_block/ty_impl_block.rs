@@ -12,13 +12,13 @@ pub struct TypeImplBlockHirDecl {
 impl HasHirDecl for TypeImplBlockPath {
     type HirDecl = TypeImplBlockHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
         Some(ty_impl_block_hir_decl(db, self))
     }
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn ty_impl_block_hir_decl(db: &dyn HirDeclDb, path: TypeImplBlockPath) -> TypeImplBlockHirDecl {
+fn ty_impl_block_hir_decl(db: &::salsa::Db, path: TypeImplBlockPath) -> TypeImplBlockHirDecl {
     let ethereal_signature_template = path.ethereal_signature_template(db).expect("ok");
     let syn_decl = path.syn_decl(db).expect("ok");
     let self_ty = HirType::from_ethereal(ethereal_signature_template.self_ty(db), db);

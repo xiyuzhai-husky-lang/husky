@@ -36,7 +36,7 @@ impl TransformFromTomlParentKeyed<ManifestAstTransformContext> for ManifestDepen
 // impl<'a> ManifestAstTransformer<'a, TomlTable> {
 //     pub(crate) fn parse_dependencies_section(
 //         &mut self,
-//         db: &dyn ManifestAstDb,
+//         db: &::salsa::Db,
 //         errors: &mut Vec<ManifestAstError>,
 //     ) -> ManifestAstResult<Option<ManifestDependenciesSectionAst>> {
 //         let Some(normal_section_parser)= self.normal_section_parser(

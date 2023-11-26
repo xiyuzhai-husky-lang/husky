@@ -13,7 +13,7 @@ pub enum RuneIndex {}
 impl EtherealTermRune {
     #[inline(always)]
     pub(crate) fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         variable: DeclarativeTermRune,
     ) -> EtherealTermResult<Self> {
         let ty = variable.ty(db)?;
@@ -25,7 +25,7 @@ impl EtherealTermRune {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         ctx.fmt_variable(db, self, f)

@@ -1,7 +1,7 @@
 use super::*;
 
 pub(super) struct TomlSectionParseIter<'a> {
-    db: &'a dyn TomlAstDb,
+    db: &'a ::salsa::Db,
     toml_token_text: &'a TomlTokenSheet,
     line_groups: &'a [TomlLineGroup],
     current: usize,
@@ -39,7 +39,7 @@ enum TomlSectionIterState {
 
 impl<'a> TomlSectionParseIter<'a> {
     pub(super) fn new(
-        db: &'a dyn TomlAstDb,
+        db: &'a ::salsa::Db,
         toml_token_text: &'a TomlTokenSheet,
         line_groups: &'a [TomlLineGroup],
         section_errors: &'a mut Vec<TomlAstError>,

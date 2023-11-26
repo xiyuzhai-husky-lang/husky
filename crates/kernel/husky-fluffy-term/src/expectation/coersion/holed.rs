@@ -3,7 +3,7 @@ use super::*;
 impl ExpectCoersion {
     pub(super) fn resolve_holed(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {

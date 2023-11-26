@@ -9,7 +9,7 @@ pub struct TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
 
 impl TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
     pub(crate) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         decl: TraitForTypeAssociatedTypeSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);

@@ -45,7 +45,7 @@ use husky_vfs::ModulePath;
 pub(crate) struct DB;
 
 fn major_item_declarative_tys(
-    db: &::salsa::Db
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<(ItemPath, DeclarativeTypeResult<DeclarativeTerm>)> {
     db.item_syn_tree_sheet(module_path)

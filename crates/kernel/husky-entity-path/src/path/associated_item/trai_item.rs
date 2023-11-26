@@ -16,7 +16,7 @@ impl TraitItemPath {
         trai_path: TraitPath,
         ident: Ident,
         item_kind: TraitItemKind,
-        db: &dyn EntityPathDb,
+        db: &::salsa::Db,
     ) -> Self {
         Self(ItemPathId::new(
             db,
@@ -28,34 +28,34 @@ impl TraitItemPath {
         ))
     }
 
-    pub fn data(self, db: &dyn EntityPathDb) -> TraitItemPathData {
+    pub fn data(self, db: &::salsa::Db) -> TraitItemPathData {
         match self.0.data(db) {
             ItemPathData::AssociatedItem(AssociatedItemPathData::TraitItem(data)) => data,
             _ => unreachable!(),
         }
     }
 
-    pub fn trai_path(self, db: &dyn EntityPathDb) -> TraitPath {
+    pub fn trai_path(self, db: &::salsa::Db) -> TraitPath {
         self.data(db).trai_path
     }
 
-    pub fn item_kind(self, db: &dyn EntityPathDb) -> TraitItemKind {
+    pub fn item_kind(self, db: &::salsa::Db) -> TraitItemKind {
         self.data(db).item_kind
     }
 
     #[inline(never)]
-    fn show_aux(
-        self,
-        _f: &mut std::fmt::Formatter<'_>,
-        _db: &dyn EntityPathDb,
-    ) -> std::fmt::Result {
+    fn show_aux(self, _f: &mut std::fmt::Formatter<'_>, _db: &::salsa::Db) -> std::fmt::Result {
         todo!()
     }
 }
 
 impl salsa::DisplayWithDb for TraitItemPath {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_aux(f, db())
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.show_aux(f, db)
     }
 }
 
@@ -72,7 +72,7 @@ impl TraitItemPathData {
         self.item_kind
     }
 
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         self.trai_path.module_path(db)
     }
 }

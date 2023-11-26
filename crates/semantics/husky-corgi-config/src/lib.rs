@@ -29,7 +29,7 @@ pub struct CorgiConfig {
 
 #[salsa::tracked(jar = CorgiConfigJar, return_ref)]
 pub(crate) fn package_registry_path(
-    db: &dyn CorgiConfigDb,
+    db: &::salsa::Db,
     package: PackagePath,
 ) -> CorgiConfigResult<RegistryPath> {
     let corgi_config = package.corgi_config(db)?;
@@ -37,24 +37,24 @@ pub(crate) fn package_registry_path(
 }
 
 pub trait HasCorgiConfig: Copy {
-    fn corgi_config(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<&CorgiConfig>;
+    fn corgi_config(self, db: &::salsa::Db) -> CorgiConfigResultRef<&CorgiConfig>;
 
-    fn registry_path(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<RegistryPath>;
+    fn registry_path(self, db: &::salsa::Db) -> CorgiConfigResultRef<RegistryPath>;
 }
 
 impl HasCorgiConfig for PackagePath {
-    fn corgi_config(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<&CorgiConfig> {
+    fn corgi_config(self, db: &::salsa::Db) -> CorgiConfigResultRef<&CorgiConfig> {
         package_corgi_config(db, self).as_ref().map_err(|e| e)
     }
 
-    fn registry_path(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<RegistryPath> {
+    fn registry_path(self, db: &::salsa::Db) -> CorgiConfigResultRef<RegistryPath> {
         package_registry_path(db, self).as_ref().copied()
     }
 }
 
 #[salsa::tracked(jar = CorgiConfigJar, return_ref)]
 fn package_corgi_config(
-    db: &dyn CorgiConfigDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> CorgiConfigResult<CorgiConfig> {
     let corgi_config_paths = package_corgi_config_paths(db, package_path)?;
@@ -66,7 +66,7 @@ fn package_corgi_config(
 }
 
 fn package_corgi_config_paths(
-    db: &dyn CorgiConfigDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> VfsResult<&[VirtualPath]> {
     package_corgi_config_paths_aux(db, package_path)
@@ -77,7 +77,7 @@ fn package_corgi_config_paths(
 
 #[salsa::tracked(jar = CorgiConfigJar, return_ref)]
 fn package_corgi_config_paths_aux(
-    db: &dyn CorgiConfigDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> VfsResult<Vec<VirtualPath>> {
     let dir = package_path.dir(db)?;
@@ -85,7 +85,7 @@ fn package_corgi_config_paths_aux(
 }
 
 fn collect_corgi_config_paths_starting_from_dir(
-    db: &dyn CorgiConfigDb,
+    db: &::salsa::Db,
     dir: VirtualPath,
 ) -> VfsResult<Vec<VirtualPath>> {
     let mut paths = dir
@@ -98,6 +98,6 @@ fn collect_corgi_config_paths_starting_from_dir(
 }
 
 #[salsa::tracked(jar = CorgiConfigJar)]
-fn root_corgi_config_path(db: &dyn CorgiConfigDb) -> VfsResult<VirtualPath> {
+fn root_corgi_config_path(db: &::salsa::Db) -> VfsResult<VirtualPath> {
     VirtualPath::try_new(db, husky_fs_specs::root_corgi_config_path()?)
 }

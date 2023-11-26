@@ -1,5 +1,3 @@
-
-
 use crate::helpers::DeclarativeTermFamily;
 
 use super::*;
@@ -14,7 +12,7 @@ impl DeclarativeTerm {
     #[deprecated]
     pub(in crate::term) fn r#abstract(
         self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
     ) -> (Self, Option<DeclarativeTermRune>) {
         let Some(idx) = self.new_variable_idx(db, symbol) else {
@@ -34,11 +32,7 @@ impl DeclarativeTerm {
     /// returns the variable idx if turning this symbol into variable
     /// returns None if symbol is not present
     #[inline(always)]
-    fn new_variable_idx(
-        self,
-        db: &dyn DeclarativeTermDb,
-        symbol: DeclarativeTermSymbol,
-    ) -> Option<u8> {
+    fn new_variable_idx(self, db: &::salsa::Db, symbol: DeclarativeTermSymbol) -> Option<u8> {
         self.new_variable_idx_aux(db, symbol, symbol.ty_family(db))
     }
 
@@ -46,7 +40,7 @@ impl DeclarativeTerm {
     #[inline(always)]
     fn new_variable_idx_aux(
         self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
         symbol_ty_family: DeclarativeTermFamily,
     ) -> Option<u8> {
@@ -57,7 +51,7 @@ impl DeclarativeTerm {
     // todo: needs thorough testing
     fn new_variable_idx_if_symbol_is_present(
         self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
         symbol_ty_family: DeclarativeTermFamily,
     ) -> u8 {
@@ -116,7 +110,7 @@ impl DeclarativeTerm {
     /// not cached on purpose
     pub(in crate::term) fn substitute_symbol_with_variable(
         self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
         variable: DeclarativeTermRune,
     ) -> Self {
@@ -176,7 +170,7 @@ impl DeclarativeTerm {
 }
 
 fn variable_registry(
-    _db: &dyn DeclarativeTermDb,
+    _db: &::salsa::Db,
     _declarative_term: DeclarativeTerm,
     _symbol: DeclarativeTermSymbol,
 ) -> VariableRegistry {
@@ -190,7 +184,7 @@ pub struct VariableRegistry {
 
 impl VariableRegistry {
     fn new(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         variables: Option<DeclarativeTermRunes>,
         ty_family: DeclarativeTermFamily,
     ) -> Self {

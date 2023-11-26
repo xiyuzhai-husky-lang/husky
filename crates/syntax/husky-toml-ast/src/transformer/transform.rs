@@ -12,10 +12,7 @@ where
     ) -> Result<Self, <Context as TomlDeserializeContext>::Error> {
         match transformer.visitor.expr() {
             TomlExpr::String(s) => {
-                match VirtualPath::try_new(
-                    <Context::Db<'a> as salsa::DbWithJar<VfsJar>>::as_jar_db(transformer.db),
-                    transformer.path.join(s as &str),
-                ) {
+                match VirtualPath::try_new(transformer.db, transformer.path.join(s as &str)) {
                     Ok(path) => Ok(path),
                     Err(_) => todo!(),
                 }

@@ -14,7 +14,7 @@ pub struct HirTrait {
 }
 
 impl HirTrait {
-    pub fn from_ethereal(trai_term: EtherealTerm, db: &dyn HirTypeDb) -> Self {
+    pub fn from_ethereal(trai_term: EtherealTerm, db: &::salsa::Db) -> Self {
         match trai_term {
             EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(_) => todo!(),
@@ -43,7 +43,7 @@ impl HirTrait {
 
 #[salsa::tracked(jar = HirTypeJar)]
 fn hir_trai_from_ethereal_term_application(
-    db: &dyn HirTypeDb,
+    db: &::salsa::Db,
     trai_term: EtherealTermApplication,
 ) -> HirTrait {
     let application_expansion = trai_term.application_expansion(db);

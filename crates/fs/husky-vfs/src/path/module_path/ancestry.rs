@@ -36,7 +36,7 @@ pub(crate) fn module_ancestry(db: &::salsa::Db, module_path: ModulePath) -> Modu
 fn module_ancestry_works() {
     use crate::tests::*;
     use salsa::DebugWithDb;
-    fn t<'a>(db: &'a Db, item_path: ModulePath) -> salsa::DebugWith<'a> {
+    fn t<'a>(db: &'a ::salsa::Db, item_path: ModulePath) -> salsa::DebugWith<'a> {
         module_ancestry(db, item_path).debug(db)
     }
 

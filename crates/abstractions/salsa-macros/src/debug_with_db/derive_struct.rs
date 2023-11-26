@@ -44,7 +44,7 @@ pub(super) fn struct_debug_with_db_impl(
     let where_clause = &item.generics.where_clause;
     quote! {
         impl #generics_without_db ::salsa::DebugWithDb for #self_ty #where_clause {
-            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db) -> ::std::fmt::Result {
+            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;
                 #body

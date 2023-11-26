@@ -9,7 +9,7 @@ pub struct CratePrelude<'a> {
 }
 
 impl<'a> CratePrelude<'a> {
-    pub(crate) fn new(db: &'a dyn EntitySynTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
+    pub(crate) fn new(db: &'a ::salsa::Db, crate_path: CratePath) -> PreludeResult<Self> {
         let crate_specific_symbol_context = crate_specific_prelude(db, crate_path)
             .as_ref()
             .map(|table| table.as_ref())
@@ -28,7 +28,7 @@ impl<'a> CratePrelude<'a> {
 
     pub(crate) fn resolve_ident(
         &self,
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
         reference_module_path: ModulePath,
         ident: Ident,
     ) -> Option<EntitySymbol> {
@@ -45,12 +45,12 @@ pub struct UniversalPrelude {}
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn none_core_crate_universal_prelude(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     toolchain: Toolchain,
 ) -> EntitySymbolTable {
     let vfs_path_menu = db.vfs_path_menu(toolchain);
-    let _item_path_menu = db.item_path_menu(toolchain);
-    let coword_menu = db.coword_menu();
+    let _item_path_menu = item_path_menu(db, toolchain);
+    let coword_menu = coword_menu(db);
     let core_prelude_module = vfs_path_menu.core_prelude().inner();
     let mut table = EntitySymbolTable::default();
     table.push(EntitySymbolEntry {
@@ -78,7 +78,7 @@ pub(crate) fn none_core_crate_universal_prelude(
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 fn crate_specific_prelude(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     crate_path: CratePath,
 ) -> PreludeResult<EntitySymbolTable> {
     let package_path = crate_path.package_path(db);

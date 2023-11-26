@@ -5,40 +5,24 @@ pub use self::substitution::*;
 use crate::*;
 
 pub trait DeclarativeTermRewrite: Sized {
-    fn substitute(
-        &self,
-        db: &dyn DeclarativeTermDb,
-        substituation: &DeclarativeTermSubstitution,
-    ) -> Self;
+    fn substitute(&self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self;
 }
 
 pub trait DeclarativeTermRewriteCopy: Copy {
-    fn substitute(
-        self,
-        db: &dyn DeclarativeTermDb,
-        substituation: &DeclarativeTermSubstitution,
-    ) -> Self;
+    fn substitute(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self;
 }
 
 impl<T> DeclarativeTermRewrite for T
 where
     T: DeclarativeTermRewriteCopy,
 {
-    fn substitute(
-        &self,
-        db: &dyn DeclarativeTermDb,
-        substituation: &DeclarativeTermSubstitution,
-    ) -> Self {
+    fn substitute(&self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self {
         self.substitute(db, substituation)
     }
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTerm {
-    fn substitute(
-        self,
-        db: &dyn DeclarativeTermDb,
-        substitution: &DeclarativeTermSubstitution,
-    ) -> Self {
+    fn substitute(self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self {
         match self {
             DeclarativeTerm::Rune(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),

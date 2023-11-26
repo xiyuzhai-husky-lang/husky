@@ -1,6 +1,6 @@
 mod utils;
 
-use salsa::Database;
+use salsa::Db;
 
 pub(crate) use self::utils::*;
 
@@ -29,7 +29,7 @@ fn term_curry_size_works() {
 
 impl EtherealTermCurry {
     pub(crate) fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         declarative_term_curry: DeclarativeTermCurry,
     ) -> EtherealTermResult<Self> {
         term_curry_from_declarative(db, declarative_term_curry)
@@ -39,7 +39,7 @@ impl EtherealTermCurry {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         let parameter_variable = self.parameter_variable(db);
@@ -62,18 +62,14 @@ impl EtherealTermCurry {
         }
     }
 
-    pub fn substitute(
-        self,
-        db: &dyn EtherealTermDb,
-        substituation: &TermSubstitution,
-    ) -> EtherealTerm {
+    pub fn substitute(self, db: &::salsa::Db, substituation: &TermSubstitution) -> EtherealTerm {
         todo!()
     }
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_curry_from_declarative(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     declarative_term_curry: DeclarativeTermCurry,
 ) -> EtherealTermResult<EtherealTermCurry> {
     let t = |declarative_ty| EtherealTerm::ty_from_declarative(db, declarative_ty);
@@ -93,7 +89,11 @@ pub(crate) fn term_curry_from_declarative(
 }
 
 impl salsa::DisplayWithDb for EtherealTermCurry {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db(), &mut Default::default())
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

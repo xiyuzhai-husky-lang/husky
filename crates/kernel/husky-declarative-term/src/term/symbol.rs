@@ -25,7 +25,7 @@ impl DeclarativeTermSymbol {
     pub(crate) const AD_HOD_IDX_START: u8 = u8::MAX / 2;
 
     #[inline(always)]
-    pub fn new_self_ty(db: &dyn DeclarativeTermDb, registry: &mut TermSymbolRegistry) -> Self {
+    pub fn new_self_ty(db: &::salsa::Db, registry: &mut TermSymbolRegistry) -> Self {
         // todo: general universe??? or ignore universes totally
         DeclarativeTermSymbol::new(
             db,
@@ -36,7 +36,7 @@ impl DeclarativeTermSymbol {
 
     #[inline(always)]
     pub fn new_self_value(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         registry: &mut TermSymbolRegistry,
         _self_ty_term: DeclarativeTerm,
     ) -> Self {
@@ -50,7 +50,7 @@ impl DeclarativeTermSymbol {
 
     #[inline(always)]
     pub fn new_lifetime(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         menu: &DeclarativeTermMenu,
         registry: &mut TermSymbolRegistry,
         attrs: DeclarativeTemplateSymbolAttrs,
@@ -69,7 +69,7 @@ impl DeclarativeTermSymbol {
 
     #[inline(always)]
     pub fn new_place(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         menu: &DeclarativeTermMenu,
         registry: &mut TermSymbolRegistry,
         attrs: DeclarativeTemplateSymbolAttrs,
@@ -84,7 +84,7 @@ impl DeclarativeTermSymbol {
 
     #[inline(always)]
     pub fn new_ty(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         menu: &DeclarativeTermMenu,
         registry: &mut TermSymbolRegistry,
         attrs: DeclarativeTemplateSymbolAttrs,
@@ -98,7 +98,7 @@ impl DeclarativeTermSymbol {
     }
 
     pub fn new_const(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         attrs: DeclarativeTemplateSymbolAttrs,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
         registry: &mut TermSymbolRegistry,
@@ -118,7 +118,7 @@ impl DeclarativeTermSymbol {
 
     /// ephem is short for `ephemeral`
     pub fn new_ephem(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
         registry: &mut TermSymbolRegistry,
     ) -> Self {
@@ -135,11 +135,7 @@ impl DeclarativeTermSymbol {
         Self::new(db, ty, idx)
     }
 
-    pub unsafe fn new_ad_hoc(
-        db: &dyn DeclarativeTermDb,
-        ty: DeclarativeTerm,
-        disambiguator: u8,
-    ) -> Self {
+    pub unsafe fn new_ad_hoc(db: &::salsa::Db, ty: DeclarativeTerm, disambiguator: u8) -> Self {
         Self::new(
             db,
             Ok(ty),
@@ -150,7 +146,7 @@ impl DeclarativeTermSymbol {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         ctx.fmt_symbol(db, self, f)
@@ -170,7 +166,11 @@ pub enum DeclarativeTermSymbolTypeErrorKind {
 pub type DeclarativeTermSymbolTypeResult<T> = Result<T, DeclarativeTermSymbolTypeErrorKind>;
 
 impl salsa::DisplayWithDb for DeclarativeTermSymbol {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         let db = db();
         // ad hoc
         f.write_fmt(format_args!("${:?}", self.index(db)))

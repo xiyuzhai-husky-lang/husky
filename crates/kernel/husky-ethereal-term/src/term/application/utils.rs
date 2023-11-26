@@ -4,7 +4,7 @@ impl EtherealTerm {
     #[inline(always)]
     pub(crate) fn apply_unchecked(
         self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         argument: impl Into<EtherealTerm>,
         shift: u8,
     ) -> Self {

@@ -93,7 +93,7 @@ pub struct ExpectationState {
 impl FluffyTermExpectationEntry {
     pub(crate) fn resolve(
         &mut self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
     ) -> AltOption<FluffyTermEffect> {
         self.expectation.resolve(db, terms, &mut self.meta)

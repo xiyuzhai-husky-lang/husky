@@ -1,4 +1,3 @@
-
 use vec_like::AsVecMapEntry;
 
 use super::*;
@@ -17,69 +16,59 @@ pub(crate) struct DeclarativeTermSymbolShowEntry {
 impl DeclarativeTermSymbolShowEntry {
     pub(crate) fn show(
         &self,
-        _db: &dyn DeclarativeTermDb,
+        _db: &::salsa::Db,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
-        if let Some(_external_symbol_ident) = self.external_symbol_ident && self.level == 0 {
+        if let Some(_external_symbol_ident) = self.external_symbol_ident
+            && self.level == 0
+        {
             todo!()
         } else {
             match self.show_kind {
-                DeclarativeTermSymbolShowKind::Lifetime => {
-                    match self.idx {
-                        0 => f.write_str("'a"),
-                        1 => f.write_str("'b"),
-                        2 => f.write_str("'c"),
-                        3 => f.write_str("'d"),
-                        4 => f.write_str("'e"),
-                        5 => f.write_str("'f"),
-                        idx => f.write_fmt(format_args!("'a{}", idx))
-                    }
+                DeclarativeTermSymbolShowKind::Lifetime => match self.idx {
+                    0 => f.write_str("'a"),
+                    1 => f.write_str("'b"),
+                    2 => f.write_str("'c"),
+                    3 => f.write_str("'d"),
+                    4 => f.write_str("'e"),
+                    5 => f.write_str("'f"),
+                    idx => f.write_fmt(format_args!("'a{}", idx)),
                 },
-                DeclarativeTermSymbolShowKind::Binding => {
-                    match self.idx {
-                        0 => f.write_str("'α"),
-                        1 => f.write_str("'β"),
-                        2 => f.write_str("'γ"),
-                        3 => f.write_str("'δ"),
-                        4 => f.write_str("'ϵ"),
-                        5 => f.write_str("'ζ"),
-                        6 => f.write_str("'η"),
-                        idx => f.write_fmt(format_args!("'α{}", idx))
-                    }
+                DeclarativeTermSymbolShowKind::Binding => match self.idx {
+                    0 => f.write_str("'α"),
+                    1 => f.write_str("'β"),
+                    2 => f.write_str("'γ"),
+                    3 => f.write_str("'δ"),
+                    4 => f.write_str("'ϵ"),
+                    5 => f.write_str("'ζ"),
+                    6 => f.write_str("'η"),
+                    idx => f.write_fmt(format_args!("'α{}", idx)),
                 },
-                DeclarativeTermSymbolShowKind::Prop => {
-                    match self.idx {
-                        0 => f.write_str("p"),
-                        1 => f.write_str("q"),
-                        idx => f.write_fmt(format_args!("p{}", idx))
-                    }
+                DeclarativeTermSymbolShowKind::Prop => match self.idx {
+                    0 => f.write_str("p"),
+                    1 => f.write_str("q"),
+                    idx => f.write_fmt(format_args!("p{}", idx)),
                 },
-                DeclarativeTermSymbolShowKind::Type => {
-                    match self.idx {
-                        0 => f.write_str("t"),
-                        1 => f.write_str("s"),
-                        idx => f.write_fmt(format_args!("t{}", idx))
-                    }
+                DeclarativeTermSymbolShowKind::Type => match self.idx {
+                    0 => f.write_str("t"),
+                    1 => f.write_str("s"),
+                    idx => f.write_fmt(format_args!("t{}", idx)),
                 },
-                DeclarativeTermSymbolShowKind::Kind => {
-                    match self.idx {
-                        0 => f.write_str("α"),
-                        1 => f.write_str("β"),
-                        2 => f.write_str("γ"),
-                        3 => f.write_str("δ"),
-                        4 => f.write_str("ϵ"),
-                        5 => f.write_str("ζ"),
-                        6 => f.write_str("η"),
-                        idx => f.write_fmt(format_args!("α{}", idx))
-                    }
+                DeclarativeTermSymbolShowKind::Kind => match self.idx {
+                    0 => f.write_str("α"),
+                    1 => f.write_str("β"),
+                    2 => f.write_str("γ"),
+                    3 => f.write_str("δ"),
+                    4 => f.write_str("ϵ"),
+                    5 => f.write_str("ζ"),
+                    6 => f.write_str("η"),
+                    idx => f.write_fmt(format_args!("α{}", idx)),
                 },
-                DeclarativeTermSymbolShowKind::Other => {
-                    match self.idx {
-                        0 => f.write_str("a"),
-                        1 => f.write_str("b"),
-                        idx => f.write_fmt(format_args!("a{}", idx))
-                    }
-                }
+                DeclarativeTermSymbolShowKind::Other => match self.idx {
+                    0 => f.write_str("a"),
+                    1 => f.write_str("b"),
+                    idx => f.write_fmt(format_args!("a{}", idx)),
+                },
             }
         }
     }
@@ -113,7 +102,7 @@ pub(crate) enum DeclarativeTermSymbolShowKind {
 impl DeclarativeTermShowContext {
     pub(super) fn new_external_entry(
         &self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
         external_symbol_ident: Option<Ident>,
     ) -> DeclarativeTermSymbolShowEntry {
@@ -122,7 +111,7 @@ impl DeclarativeTermShowContext {
 
     pub(super) fn new_internal_entry(
         &self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
     ) -> DeclarativeTermSymbolShowEntry {
         self.new_entry(db, symbol, 1, None)
@@ -130,7 +119,7 @@ impl DeclarativeTermShowContext {
 
     fn new_entry(
         &self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
         level: u8,
         external_symbol_ident: Option<Ident>,
@@ -161,11 +150,7 @@ impl DeclarativeTermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn with_symbol(
-        &mut self,
-        db: &dyn DeclarativeTermDb,
-        symbol: DeclarativeTermSymbol,
-    ) {
+    pub(super) fn with_symbol(&mut self, db: &::salsa::Db, symbol: DeclarativeTermSymbol) {
         if let Some(entry) = self.entries.get_entry_mut(symbol) {
             entry.level += 1
         } else {
@@ -181,7 +166,7 @@ impl DeclarativeTermShowContext {
 
 fn symbol_show_kind(
     symbol: DeclarativeTermSymbol,
-    db: &dyn DeclarativeTermDb,
+    db: &::salsa::Db,
 ) -> DeclarativeTermSymbolShowKind {
     let Ok(ty) = symbol.ty(db) else {
         return DeclarativeTermSymbolShowKind::Other;

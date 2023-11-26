@@ -1,6 +1,5 @@
 use crate::*;
 use husky_sema_expr::SemaExprDb;
-use salsa::DbWithJar;
 
 pub trait DiagnosticsDb: DbWithJar<DiagnosticsJar> + SemaExprDb {
     fn diagnostic_sheet(&self, module_path: ModulePath) -> DiagnosticSheet;

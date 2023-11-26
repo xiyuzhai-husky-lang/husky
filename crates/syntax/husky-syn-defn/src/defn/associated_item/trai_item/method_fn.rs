@@ -10,7 +10,7 @@ pub struct TraitMethodFnSynNodeDefn {
 
 impl TraitMethodFnSynNodeDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         syn_node_path: TraitItemSynNodePath,
         syn_node_decl: TraitMethodFnSynNodeDecl,
     ) -> Self {
@@ -39,7 +39,7 @@ pub struct TraitMethodFnSynDefn {
 
 impl TraitMethodFnSynDefn {
     pub(super) fn new(
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
         path: TraitItemPath,
         decl: TraitMethodFnSynDecl,
     ) -> SynDefnResult<Self> {

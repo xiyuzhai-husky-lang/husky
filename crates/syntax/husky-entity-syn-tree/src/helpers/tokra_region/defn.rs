@@ -17,7 +17,7 @@ pub struct DefnTokraRegion {
 }
 
 impl DefnTokraRegion {
-    pub fn data<'a>(self, db: &'a dyn EntitySynTreeDb) -> DefnTokraRegionData<'a> {
+    pub fn data<'a>(self, db: &'a ::salsa::Db) -> DefnTokraRegionData<'a> {
         DefnTokraRegionData {
             tokens_data: self._tokens_data(db),
             ast_arena: self.ast_arena(db).to_ref(),
@@ -27,7 +27,7 @@ impl DefnTokraRegion {
         }
     }
 
-    pub fn tokens_data<'a>(self, db: &'a dyn EntitySynTreeDb) -> RegionalTokensData<'a> {
+    pub fn tokens_data<'a>(self, db: &'a ::salsa::Db) -> RegionalTokensData<'a> {
         RegionalTokensData::new(self._tokens_data(db))
     }
 }
@@ -108,7 +108,7 @@ impl<'a> std::ops::Index<DefnAstIdx> for DefnTokraRegionData<'a> {
 
 pub(super) fn defn_token_region(
     syn_node_path: ItemSynNodePath,
-    _db: &dyn EntitySynTreeDb,
+    _db: &::salsa::Db,
 ) -> Option<DefnTokraRegion> {
     match syn_node_path {
         ItemSynNodePath::Submodule(_) => None,
@@ -129,7 +129,7 @@ pub struct SynDefnTokraRegionSourceMap {
 }
 
 struct SynDefnTokraRegionBuilder<'a> {
-    db: &'a dyn EntitySynTreeDb,
+    db: &'a ::salsa::Db,
     ast_sheet: &'a AstSheet,
     ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
     defn_ast_arena: DefnAstArena,
@@ -143,7 +143,7 @@ struct SynDefnTokraRegionBuilder<'a> {
 }
 
 impl<'a> SynDefnTokraRegionBuilder<'a> {
-    fn new(module_path: ModulePath, db: &'a dyn EntitySynTreeDb, ast_idx: AstIdx) -> Option<Self> {
+    fn new(module_path: ModulePath, db: &'a ::salsa::Db, ast_idx: AstIdx) -> Option<Self> {
         // let
         let ast_sheet = module_path.ast_sheet(db);
         let root_body = match ast_sheet[ast_idx] {
@@ -330,24 +330,18 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
 fn build_defn_tokra_region(
     module_path: ModulePath,
     ast_idx: AstIdx,
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     let builder = SynDefnTokraRegionBuilder::new(module_path, db, ast_idx)?;
     Some(builder.build())
 }
 
 pub trait HasSynDefnTokraRegion: Copy + Into<ItemSynNodePath> {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion>;
+    fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion>;
     // use this only when necessary
-    fn defn_tokra_region_source_map(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> Option<SynDefnTokraRegionSourceMap>;
+    fn defn_tokra_region_source_map(self, db: &::salsa::Db) -> Option<SynDefnTokraRegionSourceMap>;
 
-    fn defn_regional_token_idx_base(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> Option<RegionalTokenIdxBase> {
+    fn defn_regional_token_idx_base(self, db: &::salsa::Db) -> Option<RegionalTokenIdxBase> {
         Some(
             self.defn_tokra_region_source_map(db)?
                 .regional_token_idx_base(db),
@@ -356,7 +350,7 @@ pub trait HasSynDefnTokraRegion: Copy + Into<ItemSynNodePath> {
 }
 
 impl HasSynDefnTokraRegion for ItemSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
         match self {
             ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.defn_tokra_region(db),
             ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.defn_tokra_region(db),
@@ -367,10 +361,7 @@ impl HasSynDefnTokraRegion for ItemSynNodePath {
         }
     }
 
-    fn defn_tokra_region_source_map(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> Option<SynDefnTokraRegionSourceMap> {
+    fn defn_tokra_region_source_map(self, db: &::salsa::Db) -> Option<SynDefnTokraRegionSourceMap> {
         match self {
             ItemSynNodePath::Submodule(syn_node_path) => {
                 syn_node_path.defn_tokra_region_source_map(db)
@@ -393,20 +384,20 @@ impl HasSynDefnTokraRegion for ItemSynNodePath {
 }
 
 impl HasSynDefnTokraRegion for SubmoduleSynNodePath {
-    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &::salsa::Db) -> Option<DefnTokraRegion> {
         todo!()
     }
 
     fn defn_tokra_region_source_map(
         self,
-        _db: &dyn EntitySynTreeDb,
+        _db: &::salsa::Db,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         todo!()
     }
 }
 
 impl HasSynDefnTokraRegion for MajorItemSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
         match self {
             MajorItemSynNodePath::Trait(syn_node_path) => syn_node_path.defn_tokra_region(db),
             MajorItemSynNodePath::Type(syn_node_path) => syn_node_path.defn_tokra_region(db),
@@ -414,10 +405,7 @@ impl HasSynDefnTokraRegion for MajorItemSynNodePath {
         }
     }
 
-    fn defn_tokra_region_source_map(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> Option<SynDefnTokraRegionSourceMap> {
+    fn defn_tokra_region_source_map(self, db: &::salsa::Db) -> Option<SynDefnTokraRegionSourceMap> {
         match self {
             MajorItemSynNodePath::Trait(syn_node_path) => {
                 syn_node_path.defn_tokra_region_source_map(db)
@@ -433,47 +421,44 @@ impl HasSynDefnTokraRegion for MajorItemSynNodePath {
 }
 
 impl HasSynDefnTokraRegion for TraitSynNodePath {
-    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &::salsa::Db) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        _db: &dyn EntitySynTreeDb,
+        _db: &::salsa::Db,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
 }
 
 impl HasSynDefnTokraRegion for TypeSynNodePath {
-    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &::salsa::Db) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        _db: &dyn EntitySynTreeDb,
+        _db: &::salsa::Db,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
 }
 
 impl HasSynDefnTokraRegion for FugitiveSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
         fugitive_defn_tokra_region(db, self)
     }
 
-    fn defn_tokra_region_source_map(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> Option<SynDefnTokraRegionSourceMap> {
+    fn defn_tokra_region_source_map(self, db: &::salsa::Db) -> Option<SynDefnTokraRegionSourceMap> {
         fugitive_defn_tokra_region_with_source_map(db, self).map(|v| v.1)
     }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn fugitive_defn_tokra_region(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: FugitiveSynNodePath,
 ) -> Option<DefnTokraRegion> {
     fugitive_defn_tokra_region_with_source_map(db, syn_node_path).map(|v| v.0)
@@ -481,7 +466,7 @@ fn fugitive_defn_tokra_region(
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn fugitive_defn_tokra_region_with_source_map(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: FugitiveSynNodePath,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     build_defn_tokra_region(
@@ -492,20 +477,20 @@ fn fugitive_defn_tokra_region_with_source_map(
 }
 
 impl HasSynDefnTokraRegion for TypeVariantSynNodePath {
-    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &::salsa::Db) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        _db: &dyn EntitySynTreeDb,
+        _db: &::salsa::Db,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
 }
 
 impl HasSynDefnTokraRegion for ImplBlockSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
         match self {
             ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {
                 syn_node_path.defn_tokra_region(db)
@@ -519,10 +504,7 @@ impl HasSynDefnTokraRegion for ImplBlockSynNodePath {
         }
     }
 
-    fn defn_tokra_region_source_map(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> Option<SynDefnTokraRegionSourceMap> {
+    fn defn_tokra_region_source_map(self, db: &::salsa::Db) -> Option<SynDefnTokraRegionSourceMap> {
         match self {
             ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {
                 syn_node_path.defn_tokra_region_source_map(db)
@@ -538,46 +520,46 @@ impl HasSynDefnTokraRegion for ImplBlockSynNodePath {
 }
 
 impl HasSynDefnTokraRegion for TypeImplBlockSynNodePath {
-    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &::salsa::Db) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        _db: &dyn EntitySynTreeDb,
+        _db: &::salsa::Db,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
 }
 
 impl HasSynDefnTokraRegion for TraitForTypeImplBlockSynNodePath {
-    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &::salsa::Db) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        _db: &dyn EntitySynTreeDb,
+        _db: &::salsa::Db,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
 }
 
 impl HasSynDefnTokraRegion for IllFormedImplBlockSynNodePath {
-    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &::salsa::Db) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        _db: &dyn EntitySynTreeDb,
+        _db: &::salsa::Db,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }
 }
 
 impl HasSynDefnTokraRegion for AssociatedItemSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
         match self {
             AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
                 syn_node_path.defn_tokra_region(db)
@@ -594,10 +576,7 @@ impl HasSynDefnTokraRegion for AssociatedItemSynNodePath {
         }
     }
 
-    fn defn_tokra_region_source_map(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> Option<SynDefnTokraRegionSourceMap> {
+    fn defn_tokra_region_source_map(self, db: &::salsa::Db) -> Option<SynDefnTokraRegionSourceMap> {
         match self {
             AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
                 syn_node_path.defn_tokra_region_source_map(db)
@@ -616,21 +595,18 @@ impl HasSynDefnTokraRegion for AssociatedItemSynNodePath {
 }
 
 impl HasSynDefnTokraRegion for TypeItemSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
         ty_item_defn_tokra_region(db, self)
     }
 
-    fn defn_tokra_region_source_map(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> Option<SynDefnTokraRegionSourceMap> {
+    fn defn_tokra_region_source_map(self, db: &::salsa::Db) -> Option<SynDefnTokraRegionSourceMap> {
         ty_item_defn_tokra_region_with_source_map(db, self).map(|v| v.1)
     }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn ty_item_defn_tokra_region_with_source_map(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: TypeItemSynNodePath,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     build_defn_tokra_region(
@@ -643,28 +619,25 @@ fn ty_item_defn_tokra_region_with_source_map(
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn ty_item_defn_tokra_region(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: TypeItemSynNodePath,
 ) -> Option<DefnTokraRegion> {
     ty_item_defn_tokra_region_with_source_map(db, syn_node_path).map(|v| v.0)
 }
 
 impl HasSynDefnTokraRegion for TraitItemSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
         trai_item_defn_tokra_region(db, self)
     }
 
-    fn defn_tokra_region_source_map(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> Option<SynDefnTokraRegionSourceMap> {
+    fn defn_tokra_region_source_map(self, db: &::salsa::Db) -> Option<SynDefnTokraRegionSourceMap> {
         trai_item_defn_tokra_region_with_source_map(db, self).map(|v| v.1)
     }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn trai_item_defn_tokra_region_with_source_map(
-    _db: &dyn EntitySynTreeDb,
+    _db: &::salsa::Db,
     _syn_node_path: TraitItemSynNodePath,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     todo!()
@@ -677,28 +650,25 @@ fn trai_item_defn_tokra_region_with_source_map(
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn trai_item_defn_tokra_region(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: TraitItemSynNodePath,
 ) -> Option<DefnTokraRegion> {
     trai_item_defn_tokra_region_with_source_map(db, syn_node_path).map(|v| v.0)
 }
 
 impl HasSynDefnTokraRegion for TraitForTypeItemSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
         trai_for_ty_item_defn_tokra_region(db, self)
     }
 
-    fn defn_tokra_region_source_map(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> Option<SynDefnTokraRegionSourceMap> {
+    fn defn_tokra_region_source_map(self, db: &::salsa::Db) -> Option<SynDefnTokraRegionSourceMap> {
         trai_for_ty_item_defn_tokra_region_with_source_map(db, self).map(|v| v.1)
     }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn trai_for_ty_item_defn_tokra_region_with_source_map(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: TraitForTypeItemSynNodePath,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     build_defn_tokra_region(
@@ -711,28 +681,25 @@ fn trai_for_ty_item_defn_tokra_region_with_source_map(
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn trai_for_ty_item_defn_tokra_region(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: TraitForTypeItemSynNodePath,
 ) -> Option<DefnTokraRegion> {
     trai_for_ty_item_defn_tokra_region_with_source_map(db, syn_node_path).map(|v| v.0)
 }
 
 impl HasSynDefnTokraRegion for IllFormedItemSynNodePath {
-    fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
         ill_formed_item_defn_tokra_region(db, self)
     }
 
-    fn defn_tokra_region_source_map(
-        self,
-        db: &dyn EntitySynTreeDb,
-    ) -> Option<SynDefnTokraRegionSourceMap> {
+    fn defn_tokra_region_source_map(self, db: &::salsa::Db) -> Option<SynDefnTokraRegionSourceMap> {
         ill_formed_item_defn_tokra_region_with_source_map(db, self).map(|v| v.1)
     }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn ill_formed_item_defn_tokra_region_with_source_map(
-    _db: &dyn EntitySynTreeDb,
+    _db: &::salsa::Db,
     _syn_node_path: IllFormedItemSynNodePath,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     todo!()
@@ -745,20 +712,20 @@ fn ill_formed_item_defn_tokra_region_with_source_map(
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn ill_formed_item_defn_tokra_region(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     syn_node_path: IllFormedItemSynNodePath,
 ) -> Option<DefnTokraRegion> {
     ill_formed_item_defn_tokra_region_with_source_map(db, syn_node_path).map(|v| v.0)
 }
 
 impl HasSynDefnTokraRegion for AttrSynNodePath {
-    fn defn_tokra_region(self, _db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion> {
+    fn defn_tokra_region(self, _db: &::salsa::Db) -> Option<DefnTokraRegion> {
         None
     }
 
     fn defn_tokra_region_source_map(
         self,
-        _db: &dyn EntitySynTreeDb,
+        _db: &::salsa::Db,
     ) -> Option<SynDefnTokraRegionSourceMap> {
         None
     }

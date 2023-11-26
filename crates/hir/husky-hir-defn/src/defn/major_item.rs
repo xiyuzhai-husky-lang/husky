@@ -18,7 +18,7 @@ pub enum MajorItemHirDefn {
 }
 
 impl MajorItemHirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> MajorItemPath {
+    pub fn path(self, db: &::salsa::Db) -> MajorItemPath {
         match self {
             MajorItemHirDefn::Type(hir_defn) => hir_defn.path(db).into(),
             MajorItemHirDefn::Trait(hir_defn) => hir_defn.path(db).into(),
@@ -26,7 +26,7 @@ impl MajorItemHirDefn {
         }
     }
 
-    pub fn hir_decl(self, db: &dyn HirDefnDb) -> MajorItemHirDecl {
+    pub fn hir_decl(self, db: &::salsa::Db) -> MajorItemHirDecl {
         match self {
             MajorItemHirDefn::Type(hir_defn) => hir_defn.hir_decl(db).into(),
             MajorItemHirDefn::Trait(hir_defn) => hir_defn.hir_decl(db).into(),
@@ -34,14 +34,14 @@ impl MajorItemHirDefn {
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
         match self {
             MajorItemHirDefn::Type(_) | MajorItemHirDefn::Trait(_) => None,
             MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.hir_expr_region(db),
         }
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
             MajorItemHirDefn::Type(hir_defn) => hir_defn.dependencies(db),
             MajorItemHirDefn::Trait(hir_defn) => hir_defn.dependencies(db),
@@ -49,7 +49,7 @@ impl MajorItemHirDefn {
         }
     }
 
-    pub fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         match self {
             MajorItemHirDefn::Type(hir_defn) => hir_defn.version_stamp(db),
             MajorItemHirDefn::Trait(hir_defn) => hir_defn.version_stamp(db),
@@ -61,7 +61,7 @@ impl MajorItemHirDefn {
 impl HasHirDefn for MajorItemPath {
     type HirDefn = MajorItemHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+    fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
         Some(match self {
             MajorItemPath::Type(path) => path.hir_defn(db)?.into(),
             MajorItemPath::Fugitive(path) => path.hir_defn(db)?.into(),

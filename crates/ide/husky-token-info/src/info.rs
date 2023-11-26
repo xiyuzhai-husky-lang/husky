@@ -11,7 +11,7 @@ use husky_syn_expr::{
 };
 #[cfg(feature = "protocol_support")]
 use husky_token_protocol::*;
-use salsa::Database;
+use salsa::Db;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenInfoDb, jar = TokenInfoJar)]
@@ -178,7 +178,7 @@ impl std::fmt::Debug for ExprRegionLeash {
 }
 
 impl salsa::DebugWithDb for ExprRegionLeash {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, _db: &Db) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, _db: &::salsa::Db) -> std::fmt::Result {
         f.write_str("ExprRegionLeash(_)")
     }
 }

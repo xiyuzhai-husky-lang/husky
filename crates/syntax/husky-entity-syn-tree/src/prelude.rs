@@ -56,7 +56,7 @@ impl From<&ManifestError> for PreludeError {
 //         };
 //         let toolchain = crate_path.toolchain(db);
 //         let _vfs_path_menu = db.vfs_path_menu(toolchain);
-//         let item_path_menu = db.item_path_menu(toolchain);
+//         let item_path_menu = item_path_menu(db,toolchain);
 //         t(item_path_menu.bool_ty_path().into());
 //         t(item_path_menu.i32_ty_path().into());
 //         t(item_path_menu.i64_ty_path().into());

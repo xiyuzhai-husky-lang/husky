@@ -33,14 +33,14 @@ impl HirSymbolAttrs {
 }
 
 impl HirComptimeSymbol {
-    pub fn from_ethereal(symbol: EtherealTermSymbol, db: &dyn HirTypeDb) -> Option<Self> {
+    pub fn from_ethereal(symbol: EtherealTermSymbol, db: &::salsa::Db) -> Option<Self> {
         hir_template_symbol_from_ethereal(db, symbol)
     }
 }
 
 #[salsa::tracked(jar = HirTypeJar)]
 fn hir_template_symbol_from_ethereal(
-    db: &dyn HirTypeDb,
+    db: &::salsa::Db,
     symbol: EtherealTermSymbol,
 ) -> Option<HirComptimeSymbol> {
     match symbol.index(db).inner() {

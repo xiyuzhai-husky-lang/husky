@@ -26,11 +26,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
     }
 
     #[inline(always)]
-    fn final_destination_inner(
-        &self,
-        db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
-    ) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
         self.final_destination
     }
 
@@ -41,7 +37,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
 
     fn resolve(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         meta: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
@@ -120,7 +116,7 @@ impl ExpectEqsRitchieTypeOutcome {
 impl ExpectEqsRitchieType {
     fn resolve_curry(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         meta: &mut ExpectationState,
         curry_kind: CurryKind,
@@ -144,7 +140,7 @@ impl ExpectEqsRitchieType {
 
     fn resolve_aux(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
         expectee: FluffyTerm,
@@ -199,7 +195,7 @@ impl ExpectEqsRitchieType {
 
     fn resolve_curry_aux(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         meta: &mut ExpectationState,
         curry_kind: CurryKind,

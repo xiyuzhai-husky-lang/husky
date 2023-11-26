@@ -24,7 +24,7 @@ pub enum TraitItemSynNodeDefn {
 impl TraitItemSynNodeDefn {
     pub fn body_with_syn_expr_region(
         self,
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             TraitItemSynNodeDefn::AssociatedFn(syn_node_defn) => {
@@ -46,13 +46,13 @@ impl TraitItemSynNodeDefn {
 impl HasSynNodeDefn for TraitItemSynNodePath {
     type SynNodeDefn = TraitItemSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
+    fn syn_node_defn(self, db: &::salsa::Db) -> Self::SynNodeDefn {
         trai_item_syn_node_defn(db, self)
     }
 }
 
 impl TraitItemSynNodeDefn {
-    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> TraitItemSynNodeDecl {
+    pub fn syn_node_decl(self, db: &::salsa::Db) -> TraitItemSynNodeDecl {
         match self {
             TraitItemSynNodeDefn::AssociatedFn(syn_node_defn) => {
                 syn_node_defn.syn_node_decl(db).into()
@@ -70,7 +70,7 @@ impl TraitItemSynNodeDefn {
 
 #[salsa::tracked(jar = SynDefnJar)]
 fn trai_item_syn_node_defn(
-    db: &dyn SynDefnDb,
+    db: &::salsa::Db,
     syn_node_path: TraitItemSynNodePath,
 ) -> TraitItemSynNodeDefn {
     match syn_node_path.syn_node_decl(db) {
@@ -97,13 +97,13 @@ pub enum TraitItemSynDefn {
 }
 
 impl TraitItemSynDefn {
-    pub fn decl(self, _db: &dyn SynDefnDb) -> TraitItemSynDecl {
+    pub fn decl(self, _db: &::salsa::Db) -> TraitItemSynDecl {
         todo!()
     }
 
     pub fn body_with_syn_expr_region(
         self,
-        db: &dyn SynDefnDb,
+        db: &::salsa::Db,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
             TraitItemSynDefn::AssociatedFn(defn) => defn.body_with_syn_expr_region(db).into(),
@@ -114,11 +114,11 @@ impl TraitItemSynDefn {
         }
     }
 
-    pub fn path(self, _db: &dyn SynDefnDb) -> AssociatedItemPath {
+    pub fn path(self, _db: &::salsa::Db) -> AssociatedItemPath {
         todo!()
     }
 
-    pub fn syn_expr_region(self, _db: &dyn SynDefnDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, _db: &::salsa::Db) -> SynExprRegion {
         todo!()
     }
 }
@@ -126,14 +126,14 @@ impl TraitItemSynDefn {
 impl HasSynDefn for TraitItemPath {
     type SynDefn = TraitItemSynDefn;
 
-    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
+    fn syn_defn(self, db: &::salsa::Db) -> SynDefnResult<Self::SynDefn> {
         trai_item_syn_defn(db, self)
     }
 }
 
 // #[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn trai_item_syn_defn(
-    db: &dyn SynDefnDb,
+    db: &::salsa::Db,
     path: TraitItemPath,
 ) -> SynDefnResult<TraitItemSynDefn> {
     let decl = path.syn_decl(db)?;

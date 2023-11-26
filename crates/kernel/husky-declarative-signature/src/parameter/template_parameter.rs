@@ -83,10 +83,7 @@ impl DeclarativeTemplateParameter {
         self.symbol
     }
 
-    pub fn ty(
-        &self,
-        db: &dyn DeclarativeTermDb,
-    ) -> DeclarativeTermSymbolTypeResult<DeclarativeTerm> {
+    pub fn ty(&self, db: &::salsa::Db) -> DeclarativeTermSymbolTypeResult<DeclarativeTerm> {
         self.symbol().ty(db)
     }
 

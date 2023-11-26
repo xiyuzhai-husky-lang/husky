@@ -15,11 +15,11 @@ use is::Is;
 
 pub trait TranspileToFsFull: Is<LinktimeTargetPath> {
     /// transpile the target crate and its dependencies
-    fn transpile_to_fs_full(self, db: &dyn RustTranspilationDb) -> IOResult<()>;
+    fn transpile_to_fs_full(self, db: &::salsa::Db) -> IOResult<()>;
 }
 
 impl TranspileToFsFull for LinktimeTargetPath {
-    fn transpile_to_fs_full(self, db: &dyn RustTranspilationDb) -> IOResult<()> {
+    fn transpile_to_fs_full(self, db: &::salsa::Db) -> IOResult<()> {
         for dep in rust_transpilation_packages(db, self) {
             dep.transpile_to_fs(db)?
         }
@@ -28,7 +28,7 @@ impl TranspileToFsFull for LinktimeTargetPath {
 }
 
 impl RustTranspilationPackage {
-    pub(crate) fn transpile_to_fs(&self, db: &dyn RustTranspilationDb) -> IOResult<()> {
+    pub(crate) fn transpile_to_fs(&self, db: &::salsa::Db) -> IOResult<()> {
         match self {
             RustTranspilationPackage::Library(slf) => slf.transpile_to_fs(db),
             RustTranspilationPackage::Registry(slf) => slf.transpile_to_fs(db),
@@ -38,21 +38,21 @@ impl RustTranspilationPackage {
 }
 
 impl RustTranspilationLibraryPackage {
-    pub(crate) fn transpile_to_fs(&self, db: &dyn RustTranspilationDb) -> IOResult<()> {
+    pub(crate) fn transpile_to_fs(&self, db: &::salsa::Db) -> IOResult<()> {
         // ad hoc
         Ok(())
     }
 }
 
 impl RustTranspilationRegistryPackage {
-    pub(crate) fn transpile_to_fs(&self, db: &dyn RustTranspilationDb) -> IOResult<()> {
+    pub(crate) fn transpile_to_fs(&self, db: &::salsa::Db) -> IOResult<()> {
         // ad hoc
         Ok(())
     }
 }
 
 impl RustTranspilationLocalPackage {
-    pub(crate) fn transpile_to_fs(&self, db: &dyn RustTranspilationDb) -> IOResult<()> {
+    pub(crate) fn transpile_to_fs(&self, db: &::salsa::Db) -> IOResult<()> {
         let rust_dir = self.target_path().rust_dir(db);
         transpile_package_to_fs(rust_dir, self.package_path(), db)
     }
@@ -61,7 +61,7 @@ impl RustTranspilationLocalPackage {
 fn transpile_package_to_fs(
     rust_dir: &std::path::Path,
     package_path: PackagePath,
-    db: &dyn RustTranspilationDb,
+    db: &::salsa::Db,
 ) -> IOResult<()> {
     let package_dir = rust_dir.join(package_path.name(db).data(db));
     let src_dir = package_dir.join("src");

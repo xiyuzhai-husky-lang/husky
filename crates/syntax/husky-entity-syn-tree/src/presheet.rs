@@ -14,7 +14,7 @@ use vec_like::{AsVecMapEntry, VecPairMap};
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn item_tree_presheet(
-    db: &dyn EntitySynTreeDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> EntitySynTreePresheet {
     EntityTreePresheetBuilder::new(db, module_path).build()
@@ -48,10 +48,7 @@ impl std::ops::Index<UseExprIdx> for EntitySynTreePresheet {
 }
 
 impl EntitySynTreePresheet {
-    pub(crate) fn presheet_mut<'a>(
-        &'a self,
-        db: &'a dyn EntitySynTreeDb,
-    ) -> EntityTreePresheetMut<'a> {
+    pub(crate) fn presheet_mut<'a>(&'a self, db: &'a ::salsa::Db) -> EntityTreePresheetMut<'a> {
         EntityTreePresheetMut {
             module_path: self.module_path,
             node_table: self.major_item_node_table.clone(),
@@ -105,7 +102,7 @@ impl<'a> EntityTreePresheetMut<'a> {
     }
 
     #[cfg(test)]
-    pub(crate) fn check_done(&self, db: &dyn EntitySynTreeDb) {
+    pub(crate) fn check_done(&self, db: &::salsa::Db) {
         self.once_use_rules.check_done(db)
     }
 
@@ -127,7 +124,7 @@ impl<'a> AsVecMapEntry for EntityTreePresheetMut<'a> {
 }
 
 struct EntityTreePresheetBuilder<'a> {
-    db: &'a dyn EntitySynTreeDb,
+    db: &'a ::salsa::Db,
     module_path: ModulePath,
     ast_sheet: &'a AstSheet,
     token_sheet_data: &'a TokenSheetData,
@@ -138,7 +135,7 @@ struct EntityTreePresheetBuilder<'a> {
 }
 
 impl<'a> EntityTreePresheetBuilder<'a> {
-    fn new(db: &'a dyn EntitySynTreeDb, module_path: ModulePath) -> Self {
+    fn new(db: &'a ::salsa::Db, module_path: ModulePath) -> Self {
         Self {
             db,
             module_path,

@@ -41,7 +41,7 @@ fn menu_item_decl_works() {
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
-    let item_path_menu = db.item_path_menu(toolchain);
+    let item_path_menu = item_path_menu(db, toolchain);
     let i32_ty_path_decl = item_path_menu.i32_ty_path().syn_decl(db).unwrap();
     salsa::assert_eq_with_db!(db, i32_ty_path_decl.template_parameters(db).len(), 0);
 }

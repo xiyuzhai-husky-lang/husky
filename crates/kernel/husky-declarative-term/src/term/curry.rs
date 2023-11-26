@@ -20,7 +20,7 @@ impl DeclarativeTermCurry {
     /// this is the only to crate a new term curry
     /// so that cache hit is maximized
     pub fn new_dependent(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         curry_kind: CurryKind,
         variance: Variance,
         // to be converted to variable
@@ -40,7 +40,7 @@ impl DeclarativeTermCurry {
     }
 
     pub fn new_nondependent(
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         curry_kind: CurryKind,
         variance: Variance,
         parameter_ty: DeclarativeTerm,
@@ -51,7 +51,7 @@ impl DeclarativeTermCurry {
 
     pub(super) fn substitute_symbol_with_variable(
         self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         symbol: DeclarativeTermSymbol,
         variable: DeclarativeTermRune,
     ) -> Self {
@@ -69,7 +69,7 @@ impl DeclarativeTermCurry {
 
     pub fn return_ty_with_variable_substituted(
         self,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         substitute: DeclarativeTerm,
     ) -> DeclarativeTerm {
         match self.parameter_variable(db) {
@@ -85,7 +85,7 @@ impl DeclarativeTermCurry {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn DeclarativeTermDb,
+        db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         let parameter_variable = self.parameter_variable(db);
@@ -110,23 +110,23 @@ impl DeclarativeTermCurry {
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
-pub(crate) fn curry_parameter_count(db: &dyn DeclarativeTermDb, term: DeclarativeTermCurry) -> u8 {
+pub(crate) fn curry_parameter_count(db: &::salsa::Db, term: DeclarativeTermCurry) -> u8 {
     term.return_ty(db).curry_parameter_count(db) + 1
 }
 
 impl salsa::DisplayWithDb for DeclarativeTermCurry {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         let db = db();
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermCurry {
-    fn substitute(
-        self,
-        db: &dyn DeclarativeTermDb,
-        substituation: &DeclarativeTermSubstitution,
-    ) -> Self {
+    fn substitute(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self {
         let old_parameter_variable = self.parameter_variable(db);
         let parameter_variable = old_parameter_variable.map(|v| v.substitute(db, substituation));
         let old_parameter_ty = self.parameter_ty(db);

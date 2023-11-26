@@ -3,17 +3,17 @@ use husky_declarative_ty::*;
 use husky_vfs::Toolchain;
 
 pub trait HasType: Copy {
-    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm>;
+    fn ty(self, db: &::salsa::Db) -> EtherealTermResult<EtherealTerm>;
 }
 
 pub trait HasTypeGivenToolchain: Copy {
-    fn ty(self, db: &dyn EtherealTermDb, toolchain: Toolchain) -> EtherealTermResult<EtherealTerm>;
+    fn ty(self, db: &::salsa::Db, toolchain: Toolchain) -> EtherealTermResult<EtherealTerm>;
 }
 
 pub trait HasTypeGivenDisambiguation: Copy {
     fn ty(
         self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         disambiguation: TypePathDisambiguation,
     ) -> EtherealTermResult<EtherealTerm>;
 }
@@ -21,7 +21,7 @@ pub trait HasTypeGivenDisambiguation: Copy {
 impl HasTypeGivenDisambiguation for PrincipalEntityPath {
     fn ty(
         self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         disambiguation: TypePathDisambiguation,
     ) -> EtherealTermResult<EtherealTerm> {
         match self {
@@ -37,7 +37,7 @@ impl HasTypeGivenDisambiguation for PrincipalEntityPath {
 impl HasTypeGivenDisambiguation for MajorItemPath {
     fn ty(
         self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         disambiguation: TypePathDisambiguation,
     ) -> EtherealTermResult<EtherealTerm> {
         match self {
@@ -49,13 +49,13 @@ impl HasTypeGivenDisambiguation for MajorItemPath {
 }
 
 impl HasType for TraitPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
+    fn ty(self, db: &::salsa::Db) -> EtherealTermResult<EtherealTerm> {
         EtherealTerm::ty_from_declarative(db, trai_path_declarative_ty(db, self)?)
     }
 }
 
 impl HasType for FugitivePath {
-    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
+    fn ty(self, db: &::salsa::Db) -> EtherealTermResult<EtherealTerm> {
         EtherealTerm::ty_from_declarative(db, fugitive_path_declarative_ty(db, self)?)
     }
 }
@@ -63,7 +63,7 @@ impl HasType for FugitivePath {
 impl HasTypeGivenDisambiguation for TypePath {
     fn ty(
         self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         disambiguation: TypePathDisambiguation,
     ) -> EtherealTermResult<EtherealTerm> {
         match disambiguation {
@@ -79,13 +79,13 @@ impl HasTypeGivenDisambiguation for TypePath {
 }
 
 impl HasType for TypeVariantPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
+    fn ty(self, db: &::salsa::Db) -> EtherealTermResult<EtherealTerm> {
         EtherealTerm::ty_from_declarative(db, ty_variant_path_declarative_ty(db, self)?)
     }
 }
 
 impl HasTypeGivenToolchain for EtherealTerm {
-    fn ty(self, db: &dyn EtherealTermDb, toolchain: Toolchain) -> EtherealTermResult<EtherealTerm> {
+    fn ty(self, db: &::salsa::Db, toolchain: Toolchain) -> EtherealTermResult<EtherealTerm> {
         todo!()
         // self.ty_unchecked(db)?.checked(db)
     }
@@ -102,7 +102,7 @@ pub enum RawType {
 impl EtherealTerm {
     pub fn ty_unchecked(
         self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
     ) -> EtherealTermResult<Either<EtherealTerm, PreludeTypePath>> {
         Ok(match self.raw_ty(db)? {
             RawType::Declarative(declarative_ty) => Left(EtherealTerm::from_declarative(
@@ -114,7 +114,7 @@ impl EtherealTerm {
         })
     }
 
-    pub fn raw_ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<RawType> {
+    pub fn raw_ty(self, db: &::salsa::Db) -> EtherealTermResult<RawType> {
         Ok(match self {
             EtherealTerm::Literal(literal) => RawType::Prelude(literal.ty()),
             EtherealTerm::Symbol(symbol) => {

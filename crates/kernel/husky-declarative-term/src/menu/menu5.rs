@@ -15,7 +15,7 @@ impl std::ops::Deref for DeclarativeTermMenu5 {
 
 impl DeclarativeTermMenu5 {
     pub(super) fn new(
-        _db: &dyn DeclarativeTermDb,
+        _db: &::salsa::Db,
         _toolchain: Toolchain,
         menu4: DeclarativeTermMenu4,
     ) -> Self {

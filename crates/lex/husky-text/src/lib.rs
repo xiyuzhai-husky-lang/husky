@@ -15,11 +15,11 @@ pub struct Text<'a> {
 }
 
 pub trait HasText: Copy {
-    fn text<'a>(self, db: &'a dyn TextDb) -> Text<'a>;
+    fn text<'a>(self, db: &'a ::salsa::Db) -> Text<'a>;
 }
 
 impl HasText for ModulePath {
-    fn text<'a>(self, db: &'a dyn TextDb) -> Text<'a> {
+    fn text<'a>(self, db: &'a ::salsa::Db) -> Text<'a> {
         Text {
             raw_text: self.raw_text(db),
             line_map: module_text_line_map(db, self),

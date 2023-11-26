@@ -5,7 +5,7 @@ mod major_item;
 mod ty_variant;
 
 use enum_class::Room32;
-use salsa::Database;
+use salsa::Db;
 
 pub use self::associated_item::*;
 pub use self::attr::*;
@@ -21,19 +21,19 @@ pub struct ItemPathId {
 }
 
 impl ItemPathId {
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         self.data(db).module_path(db)
     }
 
-    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
+    pub fn crate_path(self, db: &::salsa::Db) -> CratePath {
         todo!()
     }
 
-    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         todo!()
     }
 
-    pub fn ident(self, db: &dyn EntityPathDb) -> Option<Ident> {
+    pub fn ident(self, db: &::salsa::Db) -> Option<Ident> {
         todo!()
         // match self {
         //     ItemPath::Submodule(path) => Some(path.ident(db)),
@@ -45,7 +45,7 @@ impl ItemPathId {
         // }
     }
 
-    pub fn item_kind(self, db: &dyn EntityPathDb) -> EntityKind {
+    pub fn item_kind(self, db: &::salsa::Db) -> EntityKind {
         todo!()
         // EntityKind::AssociatedItem {
         //     associated_item_kind: match self {
@@ -76,7 +76,7 @@ pub enum ItemPathData {
 }
 
 impl ItemPathData {
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
             ItemPathData::Submodule(data) => data.parent(db),
             ItemPathData::MajorItem(data) => data.module_path(db),
@@ -101,7 +101,7 @@ pub enum EntityPath {
 }
 
 impl EntityPath {
-    pub fn ident(self, db: &dyn EntityPathDb) -> Option<Ident> {
+    pub fn ident(self, db: &::salsa::Db) -> Option<Ident> {
         match self {
             EntityPath::Module(path) => Some(path.ident(db)),
             EntityPath::MajorItem(path) => Some(path.ident(db)),
@@ -123,7 +123,7 @@ impl EntityPath {
         self.module_item_path()?.ty_path()
     }
 
-    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
+    pub fn crate_path(self, db: &::salsa::Db) -> CratePath {
         match self {
             EntityPath::Module(path) => path.crate_path(db),
             EntityPath::MajorItem(path) => path.crate_path(db),
@@ -134,11 +134,11 @@ impl EntityPath {
         }
     }
 
-    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         self.crate_path(db).toolchain(db)
     }
 
-    pub fn item_kind(self, db: &dyn EntityPathDb) -> EntityKind {
+    pub fn item_kind(self, db: &::salsa::Db) -> EntityKind {
         match self {
             EntityPath::Module(_path) => EntityKind::Module,
             EntityPath::MajorItem(path) => path.item_kind(db),
@@ -244,7 +244,11 @@ impl ItemPath {
 }
 
 impl salsa::DisplayWithDb for ItemPath {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         match self {
             ItemPath::Submodule(_, path) => path.display_with_db_fmt(f, db),
             ItemPath::MajorItem(path) => path.display_with_db_fmt(f, db),
@@ -309,7 +313,7 @@ impl From<TraitPath> for MajorEntityPath {
 }
 
 impl MajorEntityPath {
-    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
+    pub fn crate_path(self, db: &::salsa::Db) -> CratePath {
         match self {
             MajorEntityPath::Module(path) => path.crate_path(db),
             MajorEntityPath::MajorItem(path) => path.crate_path(db),
@@ -336,7 +340,7 @@ impl PrincipalEntityPath {
         }
     }
 
-    pub fn item_kind(self, db: &dyn EntityPathDb) -> EntityKind {
+    pub fn item_kind(self, db: &::salsa::Db) -> EntityKind {
         match self {
             PrincipalEntityPath::Module(_path) => EntityKind::Module,
             PrincipalEntityPath::MajorItem(path) => path.item_kind(db),

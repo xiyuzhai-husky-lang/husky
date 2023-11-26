@@ -1,17 +1,13 @@
 use crate::*;
 use husky_vfs::{error::VfsResult, *};
-use salsa::DbWithJar;
 
-pub trait TomlTokenDb: DbWithJar<TomlTokenJar> + VfsDb {
+pub trait TomlTokenDb {
     fn toml_tokenize(&self, input: &str) -> Vec<TomlToken>;
 
     fn toml_token_sheet(&self, path: VirtualPath) -> VfsResult<Option<&TomlTokenSheet>>;
 }
 
-impl<T> TomlTokenDb for T
-where
-    T: DbWithJar<TomlTokenJar> + VfsDb + VfsDb,
-{
+impl TomlTokenDb for ::salsa::Db {
     fn toml_tokenize(&self, input: &str) -> Vec<TomlToken> {
         TomlTokenIter::new(self, input).collect()
     }
@@ -27,7 +23,7 @@ where
 
 #[salsa::tracked(jar = TomlTokenJar, return_ref)]
 pub(crate) fn toml_token_sheet(
-    db: &dyn TomlTokenDb,
+    db: &::salsa::Db,
     path: VirtualPath,
 ) -> VfsResult<Option<TomlTokenSheet>> {
     Ok(path

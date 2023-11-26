@@ -3,7 +3,7 @@
 mod ancestry;
 mod db;
 mod error;
-mod menu;
+pub mod menu;
 mod path;
 pub mod region;
 #[cfg(test)]
@@ -20,7 +20,6 @@ use either::*;
 use husky_coword::Ident;
 use husky_entity_kind::*;
 use husky_vfs::*;
-use salsa::DbWithJar;
 #[cfg(test)]
 use tests::*;
 

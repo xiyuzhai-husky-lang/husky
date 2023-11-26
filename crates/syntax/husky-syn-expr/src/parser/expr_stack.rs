@@ -52,7 +52,7 @@ impl ExprStack {
 }
 
 impl SynExprData {
-    pub fn base_item_path(&self, db: &dyn SynExprDb, arena: &SynExprArena) -> BaseEntityPath {
+    pub fn base_item_path(&self, db: &::salsa::Db, arena: &SynExprArena) -> BaseEntityPath {
         match self {
             SynExprData::Literal(_, _) => BaseEntityPath::None,
             SynExprData::PrincipalEntityPath {

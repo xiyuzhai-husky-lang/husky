@@ -8,7 +8,7 @@ pub enum PlaceCoersion {
 impl ExpectCoersion {
     pub(super) fn resolve_trivial(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {

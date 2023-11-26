@@ -19,7 +19,7 @@ impl HasDeclarativeSignatureTemplate for ImplBlockPath {
 
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         Ok(match self {
             ImplBlockPath::TypeImplBlock(path) => path.declarative_signature_template(db)?.into(),
@@ -31,10 +31,7 @@ impl HasDeclarativeSignatureTemplate for ImplBlockPath {
 }
 
 impl ImplBlockDeclarativeSignatureTemplate {
-    pub fn template_parameters(
-        self,
-        _db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeTemplateParameter] {
+    pub fn template_parameters(self, _db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         todo!()
     }
 }

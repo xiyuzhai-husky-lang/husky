@@ -14,7 +14,7 @@ pub struct TypeMemoizedFieldSynNodeDecl {
 }
 
 impl TypeMemoizedFieldSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.return_ty(db)
                 .as_ref()
@@ -69,7 +69,7 @@ pub struct TypeMemoizedFieldSynDecl {
 
 impl TypeMemoizedFieldSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TypeItemPath,
         syn_node_decl: TypeMemoizedFieldSynNodeDecl,
     ) -> DeclResult<Self> {
@@ -79,7 +79,7 @@ impl TypeMemoizedFieldSynDecl {
         Ok(Self::new(db, path, return_ty, expr, syn_expr_region))
     }
 
-    pub fn impl_block_path(self, db: &dyn SynDeclDb) -> TypeImplBlockPath {
+    pub fn impl_block_path(self, db: &::salsa::Db) -> TypeImplBlockPath {
         self.path(db).impl_block(db)
     }
 }

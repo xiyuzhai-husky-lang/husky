@@ -8,7 +8,7 @@ pub struct EtherealTermSymbols {
 }
 
 impl EtherealTermSymbols {
-    pub(crate) fn contains(self, db: &dyn EtherealTermDb, symbol: EtherealTermSymbol) -> bool {
+    pub(crate) fn contains(self, db: &::salsa::Db, symbol: EtherealTermSymbol) -> bool {
         self.data(db).has(symbol)
     }
 
@@ -33,7 +33,7 @@ impl EtherealTermSymbols {
 }
 
 impl EtherealTerm {
-    pub(crate) fn symbols(self, db: &dyn EtherealTermDb) -> Option<EtherealTermSymbols> {
+    pub(crate) fn symbols(self, db: &::salsa::Db) -> Option<EtherealTermSymbols> {
         match self {
             EtherealTerm::Literal(_)
             | EtherealTerm::Variable(_)
@@ -57,7 +57,7 @@ impl EtherealTerm {
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_curry_symbols(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     term: EtherealTermCurry,
 ) -> Option<EtherealTermSymbols> {
     let parameter_ty_symbols = term.parameter_ty(db).symbols(db);
@@ -67,7 +67,7 @@ pub(crate) fn term_curry_symbols(
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_ritchie_symbols(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     term: EtherealTermRitchie,
 ) -> Option<EtherealTermSymbols> {
     let mut symbols: Option<EtherealTermSymbols> = None;
@@ -79,7 +79,7 @@ pub(crate) fn term_ritchie_symbols(
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_application_symbols(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     term: EtherealTermApplication,
 ) -> Option<EtherealTermSymbols> {
     EtherealTermSymbols::merge(term.function(db).symbols(db), term.argument(db).symbols(db))

@@ -18,7 +18,7 @@ pub use self::term::*;
 use husky_coword::*;
 use husky_term_prelude::*;
 use husky_vfs::Toolchain;
-use salsa::Database;
+use salsa::Db;
 
 #[salsa::jar(db =  DeclarativeTermDb)]
 pub struct DeclarativeTermJar(

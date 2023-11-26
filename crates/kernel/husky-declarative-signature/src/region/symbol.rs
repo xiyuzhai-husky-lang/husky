@@ -68,7 +68,7 @@ impl SymbolDeclarativeTermRegion {
     #[inline(always)]
     pub(crate) fn add_new_template_parameter_symbol_signature(
         &mut self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         idx: CurrentSynSymbolIdx,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
         term_symbol: DeclarativeTermSymbol,
@@ -88,7 +88,7 @@ impl SymbolDeclarativeTermRegion {
     #[inline(always)]
     pub(crate) fn add_new_parenate_parameter_symbol_signature(
         &mut self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         current_syn_symbol: CurrentSynSymbolIdx,
         modifier: SymbolModifier,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
@@ -116,7 +116,7 @@ impl SymbolDeclarativeTermRegion {
     #[inline(always)]
     pub(crate) fn add_new_field_variable_symbol_signature(
         &mut self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         current_syn_symbol: CurrentSynSymbolIdx,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     ) {
@@ -136,7 +136,7 @@ impl SymbolDeclarativeTermRegion {
     #[inline(always)]
     fn add_new_current_syn_symbol_signature(
         &mut self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         idx: CurrentSynSymbolIdx,
         signature: SymbolSignature,
     ) {
@@ -179,7 +179,7 @@ impl SymbolDeclarativeTermRegion {
 
     pub(crate) fn infer_self_ty_parameter_and_self_value_parameter(
         &mut self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         region_path: SynNodeRegionPath,
         symbol_region: &SynSymbolRegionData,
     ) {
@@ -222,7 +222,7 @@ impl SymbolDeclarativeTermRegion {
             )
         }
     }
-    fn new_self_ty_symbol(&mut self, db: &dyn DeclarativeSignatureDb) -> DeclarativeTermSymbol {
+    fn new_self_ty_symbol(&mut self, db: &::salsa::Db) -> DeclarativeTermSymbol {
         let symbol = DeclarativeTermSymbol::new_self_ty(db, &mut self.symbol_registry);
         self.implicit_template_parameter_symbols.push(symbol);
         symbol
@@ -238,11 +238,7 @@ impl SymbolDeclarativeTermRegion {
     /// ```
     ///
     /// then self type term is `Animal T`
-    fn ty_defn_self_ty_term(
-        &self,
-        db: &dyn DeclarativeSignatureDb,
-        ty_path: TypePath,
-    ) -> DeclarativeTerm {
+    fn ty_defn_self_ty_term(&self, db: &::salsa::Db, ty_path: TypePath) -> DeclarativeTerm {
         let mut self_ty: DeclarativeTerm = DeclarativeTermEntityPath::Type(ty_path.into()).into();
         for current_syn_symbol_signature in self
             .symbol_signatures

@@ -68,7 +68,7 @@ where
         todo!()
     }
 
-    fn reload(&mut self, _db: &dyn LinkageDb) {
+    fn reload(&mut self, _db: &::salsa::Db) {
         todo!()
         // self.library_storage = generate_library(self.target_crate, db);
         // self.map = generate_map(self.target_crate, &self.library_storage, db)

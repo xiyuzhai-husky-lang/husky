@@ -18,7 +18,7 @@ pub struct TraitForTypeMethodFnSynNodeDecl {
 }
 
 impl TraitForTypeMethodFnSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
                 .as_ref()
@@ -86,7 +86,7 @@ pub struct TraitForTypeMethodFnSynDecl {
 
 impl TraitForTypeMethodFnSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TraitForTypeItemPath,
         syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
     ) -> DeclResult<Self> {
@@ -117,7 +117,7 @@ impl TraitForTypeMethodFnSynDecl {
         ))
     }
 
-    pub fn impl_block_path(self, db: &dyn SynDeclDb) -> TraitForTypeImplBlockPath {
+    pub fn impl_block_path(self, db: &::salsa::Db) -> TraitForTypeImplBlockPath {
         self.path(db).impl_block(db)
     }
 }

@@ -128,11 +128,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
     }
 
     #[inline(always)]
-    fn final_destination_inner(
-        &self,
-        db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
-    ) -> FinalDestination {
+    fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination {
         self.ty_expected().final_destination_inner(db, terms)
     }
 
@@ -142,7 +138,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
 
     fn resolve(
         &self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
@@ -172,7 +168,7 @@ fn resolve_aux(
     src: FluffyTerm,
     dst: FluffyTerm,
     coersion: impl Fn(Option<FluffyPlace>, Option<FluffyPlace>) -> Option<Coersion>,
-    db: &dyn FluffyTermDb,
+    db: &::salsa::Db,
     terms: &FluffyTerms,
     state: &mut ExpectationState,
 ) -> AltOption<FluffyTermEffect> {

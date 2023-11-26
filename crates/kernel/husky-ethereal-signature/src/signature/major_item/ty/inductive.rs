@@ -10,7 +10,7 @@ pub struct InductiveTypeEtherealSignatureTemplate {
 
 impl InductiveTypeEtherealSignatureTemplate {
     pub(super) fn from_declarative(
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         path: TypePath,
         declarative_signature_template: InductiveTypeDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {

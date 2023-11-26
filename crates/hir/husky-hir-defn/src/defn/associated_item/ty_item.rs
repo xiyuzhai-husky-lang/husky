@@ -30,7 +30,7 @@ impl From<TypeItemHirDefn> for HirDefn {
 }
 
 impl TypeItemHirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> TypeItemPath {
+    pub fn path(self, db: &::salsa::Db) -> TypeItemPath {
         match self {
             TypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.path(db),
             TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.path(db),
@@ -40,7 +40,7 @@ impl TypeItemHirDefn {
         }
     }
 
-    pub fn hir_decl(self, db: &dyn HirDefnDb) -> TypeItemHirDecl {
+    pub fn hir_decl(self, db: &::salsa::Db) -> TypeItemHirDecl {
         match self {
             TypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.hir_decl(db).into(),
             TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.hir_decl(db).into(),
@@ -50,7 +50,7 @@ impl TypeItemHirDefn {
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
         match self {
             TypeItemHirDefn::AssociatedFn(hir_defn) => {
                 hir_defn.hir_eager_expr_region(db).map(Into::into)
@@ -68,7 +68,7 @@ impl TypeItemHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &dyn HirDefnDb) -> HirDefnDependencies {
+    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
             TypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.dependencies(db),
             TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.dependencies(db),
@@ -78,7 +78,7 @@ impl TypeItemHirDefn {
         }
     }
 
-    pub(super) fn version_stamp(self, db: &dyn HirDefnDb) -> HirDefnVersionStamp {
+    pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         match self {
             TypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.version_stamp(db),
             TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.version_stamp(db),
@@ -92,13 +92,13 @@ impl TypeItemHirDefn {
 impl HasHirDefn for TypeItemPath {
     type HirDefn = TypeItemHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+    fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {
         ty_item_hir_defn(db, self)
     }
 }
 
 // #[salsa::tracked(jar = HirDefnJar)]
-pub(crate) fn ty_item_hir_defn(db: &dyn HirDefnDb, path: TypeItemPath) -> Option<TypeItemHirDefn> {
+pub(crate) fn ty_item_hir_defn(db: &::salsa::Db, path: TypeItemPath) -> Option<TypeItemHirDefn> {
     match path.hir_decl(db)? {
         TypeItemHirDecl::AssociatedFn(hir_decl) => {
             Some(TypeAssociatedFnHirDefn::new(db, path, hir_decl).into())

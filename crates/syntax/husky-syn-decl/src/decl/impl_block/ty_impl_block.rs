@@ -15,7 +15,7 @@ pub struct TypeImplBlockSynNodeDecl {
 }
 
 impl TypeImplBlockSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
                 .as_ref()
@@ -28,7 +28,7 @@ impl TypeImplBlockSynNodeDecl {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_impl_block_syn_node_decl(
-    db: &dyn SynDeclDb,
+    db: &::salsa::Db,
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path);
@@ -58,7 +58,7 @@ impl<'a> DeclParser<'a, TypeImplBlockSynNodePath> {
 impl HasSynNodeDecl for TypeImplBlockSynNodePath {
     type NodeDecl = TypeImplBlockSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         ty_impl_block_syn_node_decl(db, self)
     }
 }
@@ -81,7 +81,7 @@ impl From<TypeImplBlockSynDecl> for SynDecl {
 
 impl TypeImplBlockSynDecl {
     fn from_node_decl(
-        db: &dyn SynDeclDb,
+        db: &::salsa::Db,
         path: TypeImplBlockPath,
         syn_node_decl: TypeImplBlockSynNodeDecl,
     ) -> DeclResult<Self> {
@@ -107,14 +107,14 @@ impl TypeImplBlockSynDecl {
 impl HasSynDecl for TypeImplBlockPath {
     type Decl = TypeImplBlockSynDecl;
 
-    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
         ty_impl_block_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_impl_block_syn_decl(
-    db: &dyn SynDeclDb,
+    db: &::salsa::Db,
     // here use path instead of syn_node_path because salsa doesn't support use wrapper type by default
     // maybe add AsId carefully
     path: TypeImplBlockPath,

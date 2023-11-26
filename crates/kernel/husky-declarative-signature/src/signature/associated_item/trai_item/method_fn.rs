@@ -7,7 +7,7 @@ pub struct TraitMethodFnDeclarativeSignatureTemplate {
 
 impl TraitMethodFnDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         decl: TraitMethodFnSynDecl,
     ) -> DeclarativeSignatureResult<TraitMethodFnDeclarativeSignatureTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);

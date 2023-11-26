@@ -162,7 +162,7 @@ impl InputStruct {
         if singleton {
             let get: syn::ImplItemMethod = parse_quote! {
                 #[track_caller]
-                pub fn get(__db: &::salsa::Db) -> Self {
+                pub fn get(__db: &::salsa::Db,) -> Self {
                     let (__jar, __runtime) = __db.jar::<#jar_ty>();
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     __ingredients.#input_index.get_singleton_input(__runtime).expect("singleton input struct not yet initialized")
@@ -171,7 +171,7 @@ impl InputStruct {
 
             let try_get: syn::ImplItemMethod = parse_quote! {
                 #[track_caller]
-                pub fn try_get(__db: &::salsa::Db) -> Option<Self> {
+                pub fn try_get(__db: &::salsa::Db,) -> Option<Self> {
                     let (__jar, __runtime) = __db.jar::<#jar_ty>();
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     __ingredients.#input_index.get_singleton_input(__runtime)

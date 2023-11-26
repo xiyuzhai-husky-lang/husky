@@ -10,7 +10,7 @@ use husky_token_data::{IntegerLikeLiteralData, LiteralData};
 use salsa::DebugWithDb;
 
 pub(super) struct DeclarativeTermEngine<'a> {
-    db: &'a dyn DeclarativeSignatureDb,
+    db: &'a ::salsa::Db,
     syn_expr_region_data: &'a SynExprRegionData,
     declarative_term_menu: &'a DeclarativeTermMenu,
     symbol_declarative_term_region: SymbolDeclarativeTermRegion,
@@ -22,7 +22,7 @@ pub(super) struct DeclarativeTermEngine<'a> {
 
 #[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
 pub(crate) fn declarative_term_region(
-    db: &dyn DeclarativeSignatureDb,
+    db: &::salsa::Db,
     syn_expr_region: SynExprRegion,
 ) -> DeclarativeTermRegion {
     let expr_region_data = syn_expr_region.data(db);
@@ -35,13 +35,13 @@ pub(crate) fn declarative_term_region(
 
 impl<'a> DeclarativeTermEngine<'a> {
     fn new(
-        db: &'a dyn DeclarativeSignatureDb,
+        db: &'a ::salsa::Db,
         syn_expr_region: SynExprRegion,
         parent_term_symbol_region: Option<&'a SymbolDeclarativeTermRegion>,
     ) -> Self {
         let toolchain = syn_expr_region.toolchain(db);
         // ad hoc
-        let _item_path_menu = db.item_path_menu(toolchain);
+        let _item_path_menu = item_path_menu(db, toolchain);
         let declarative_term_menu = db.declarative_term_menu(toolchain).unwrap();
         let syn_expr_region_data = &syn_expr_region.data(db);
         Self {

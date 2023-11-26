@@ -2,7 +2,7 @@ mod trai_for_ty_item;
 mod trai_item;
 mod ty_item;
 
-use salsa::Database;
+use salsa::Db;
 pub use trai_for_ty_item::*;
 pub use trai_item::*;
 pub use ty_item::*;
@@ -48,7 +48,7 @@ impl From<TypeItemPath> for ItemPath {
 }
 
 impl AssociatedItemPathData {
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
             AssociatedItemPathData::TypeItem(data) => data.module_path(db),
             AssociatedItemPathData::TraitItem(data) => data.module_path(db),
@@ -58,7 +58,11 @@ impl AssociatedItemPathData {
 }
 
 impl salsa::DisplayWithDb for AssociatedItemPath {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         match self {
             AssociatedItemPath::TypeItem(path) => path.display_with_db_fmt(f, db),
             AssociatedItemPath::TraitItem(path) => path.display_with_db_fmt(f, db),

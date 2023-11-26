@@ -18,7 +18,7 @@ impl TermSymbolShowEntry {
     #[inline(never)]
     pub(crate) fn show(
         &self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if let Some(external_symbol_ident) = self.external_symbol_ident
@@ -104,7 +104,7 @@ pub(crate) enum TermSymbolShowKind {
 impl TermShowContext {
     pub(super) fn new_external_entry(
         &self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         symbol: EtherealTermSymbol,
         external_symbol_ident: Option<Ident>,
     ) -> TermSymbolShowEntry {
@@ -113,7 +113,7 @@ impl TermShowContext {
 
     pub(super) fn new_internal_entry(
         &self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         symbol: EtherealTermSymbol,
     ) -> TermSymbolShowEntry {
         self.new_entry(db, symbol, 1, None)
@@ -121,7 +121,7 @@ impl TermShowContext {
 
     fn new_entry(
         &self,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         symbol: EtherealTermSymbol,
         level: u8,
         external_symbol_ident: Option<Ident>,
@@ -152,7 +152,7 @@ impl TermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn enter_block(&mut self, db: &dyn EtherealTermDb, symbol: EtherealTermSymbol) {
+    pub(super) fn enter_block(&mut self, db: &::salsa::Db, symbol: EtherealTermSymbol) {
         if let Some(entry) = self.entries.get_entry_mut(symbol) {
             entry.level += 1
         } else {
@@ -166,7 +166,7 @@ impl TermShowContext {
     }
 }
 
-fn symbol_show_kind(symbol: EtherealTermSymbol, db: &dyn EtherealTermDb) -> TermSymbolShowKind {
+fn symbol_show_kind(symbol: EtherealTermSymbol, db: &::salsa::Db) -> TermSymbolShowKind {
     match symbol.ty(db) {
         EtherealTerm::EntityPath(TermEntityPath::TypeOntology(path))
             if path.eqs_lifetime_ty_path(db) =>

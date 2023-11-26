@@ -41,7 +41,7 @@ pub enum TypeEtherealSignatureTemplate {
 }
 
 impl TypeEtherealSignatureTemplate {
-    pub fn template_parameters(self, db: &dyn EtherealSignatureDb) -> &[EtherealTemplateParameter] {
+    pub fn template_parameters(self, db: &::salsa::Db,) -> &[EtherealTemplateParameter] {
         match self {
             TypeEtherealSignatureTemplate::Enum(template) => template.template_parameters(db),
             TypeEtherealSignatureTemplate::PropsStruct(template) => {
@@ -65,7 +65,7 @@ impl HasEtherealSignatureTemplate for TypePath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         ty_ethereal_signature_template(db, self)
     }
@@ -73,7 +73,7 @@ impl HasEtherealSignatureTemplate for TypePath {
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
 fn ty_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     path: TypePath,
 ) -> EtherealSignatureResult<TypeEtherealSignatureTemplate> {
     Ok(match path.declarative_signature_template(db)? {
@@ -162,7 +162,7 @@ pub enum PropsFieldEtherealSignature {
 pub trait HasPropsFieldEtherealSignature: Copy {
     fn regular_field_ethereal_signature(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         arguments: &[EtherealTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature>;
@@ -171,7 +171,7 @@ pub trait HasPropsFieldEtherealSignature: Copy {
 impl HasPropsFieldEtherealSignature for TypePath {
     fn regular_field_ethereal_signature(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         arguments: &[EtherealTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
@@ -183,7 +183,7 @@ impl HasPropsFieldEtherealSignature for TypePath {
 impl HasPropsFieldEtherealSignature for TypeEtherealSignatureTemplate {
     fn regular_field_ethereal_signature(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
         arguments: &[EtherealTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {

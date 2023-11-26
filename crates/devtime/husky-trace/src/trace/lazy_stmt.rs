@@ -83,7 +83,7 @@ impl Trace {
         sema_stmt_idx: SemaStmtIdx,
         lazy_stmt_sketch: LazyStmtSketch,
         sema_expr_region: SemaExprRegion,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Self {
         let path = TracePath::new(
             LazyStmtTracePathData {
@@ -116,7 +116,7 @@ impl Trace {
 }
 
 impl LazyStmtTraceData {
-    fn view_lines(&self, trace: Trace, db: &dyn TraceDb) -> TraceViewLines {
+    fn view_lines(&self, trace: Trace, db: &::salsa::Db) -> TraceViewLines {
         let sema_stmt_idx = self.sema_stmt_idx;
         let sema_expr_region = self.sema_expr_region;
         let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
@@ -154,7 +154,7 @@ impl LazyStmtTraceData {
         TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
     }
 
-    pub fn have_subtraces(self, db: &dyn TraceDb) -> bool {
+    pub fn have_subtraces(self, db: &::salsa::Db) -> bool {
         match self.lazy_stmt_sketch {
             LazyStmtSketch::BasicStmt => false,
             LazyStmtSketch::IfBranch { .. } => true,
@@ -163,7 +163,7 @@ impl LazyStmtTraceData {
         }
     }
 
-    fn subtraces(&self, trace_id: Trace, db: &dyn TraceDb) -> Vec<Trace> {
+    fn subtraces(&self, trace_id: Trace, db: &::salsa::Db) -> Vec<Trace> {
         let biological_parent_path = self.path;
         let biological_parent = trace_id;
         match self.lazy_stmt_sketch {
@@ -180,7 +180,7 @@ impl LazyStmtTraceData {
         }
     }
 
-    pub(super) fn val_repr(&self, trace_id: Trace, db: &dyn TraceDb) -> Option<ValRepr> {
+    pub(super) fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<ValRepr> {
         let val_repr_expansion = trace_val_repr_expansion(db, trace_id);
         val_repr_expansion
             .hir_lazy_stmt_val_repr_map(db)
@@ -188,7 +188,7 @@ impl LazyStmtTraceData {
             .copied()
     }
 
-    pub(super) fn val_repr_expansion(&self, db: &dyn TraceDb) -> ValReprExpansion {
+    pub(super) fn val_repr_expansion(&self, db: &::salsa::Db) -> ValReprExpansion {
         // todo: handle loops
         self.biological_parent.val_repr_expansion(db)
     }
@@ -213,7 +213,7 @@ impl<'a> LazyStmtAssociatedTraceRegistry<'a> {
         parent_trace_path: TracePath,
         parent_trace: Trace,
         sema_expr_region: SemaExprRegion,
-        db: &'a dyn TraceDb,
+        db: &'a ::salsa::Db,
     ) -> Self {
         let (hir_lazy_expr_region, hir_lazy_expr_source_map) =
             hir_lazy_expr_region_with_source_map(db, sema_expr_region);
@@ -237,7 +237,7 @@ impl<'a> IsAssociatedTraceRegistry for LazyStmtAssociatedTraceRegistry<'a> {
     fn get_or_issue_associated_trace(
         &mut self,
         source: TokenInfoSource,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Option<Trace> {
         match source {
             TokenInfoSource::UseExpr(_) => None,
@@ -309,7 +309,7 @@ impl Trace {
         parent_trace_path: TracePath,
         parent_trace: Trace,
         body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Vec<Trace> {
         let Some((body, syn_expr_region)) = body_with_syn_expr_region else {
             return vec![];
@@ -329,7 +329,7 @@ impl Trace {
         parent_trace: Trace,
         stmts: husky_sema_expr::SemaStmtIdxRange,
         sema_expr_region: husky_sema_expr::SemaExprRegion,
-        db: &dyn TraceDb,
+        db: &::salsa::Db,
     ) -> Vec<Trace> {
         let mut registry = TracePathRegistry::<LazyStmtEssence>::default();
         let mut subtraces: Vec<Trace> = vec![];

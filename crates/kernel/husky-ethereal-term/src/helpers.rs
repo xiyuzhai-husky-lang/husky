@@ -4,7 +4,7 @@ use crate::*;
 
 impl EtherealTerm {
     /// returns a toolchain except for universe, literals and categories
-    pub(crate) fn toolchain(self, db: &dyn EtherealTermDb) -> Option<Toolchain> {
+    pub(crate) fn toolchain(self, db: &::salsa::Db) -> Option<Toolchain> {
         match self {
             EtherealTerm::Literal(_) => None,
             EtherealTerm::Symbol(term) => term.toolchain(db),
@@ -22,18 +22,18 @@ impl EtherealTerm {
         }
     }
 
-    pub(crate) fn term_menu(self, db: &dyn EtherealTermDb) -> Option<&EtherealTermMenu> {
+    pub(crate) fn term_menu(self, db: &::salsa::Db) -> Option<&EtherealTermMenu> {
         Some(db.ethereal_term_menu(self.toolchain(db)?))
     }
 
-    pub fn leading_ty_path(self, db: &dyn EtherealTermDb) -> Option<TypePath> {
+    pub fn leading_ty_path(self, db: &::salsa::Db) -> Option<TypePath> {
         match self.application_expansion(db).function() {
             TermFunctionReduced::TypeOntology(path) => Some(path),
             _ => None,
         }
     }
 
-    pub fn leading_trai_path(self, db: &dyn EtherealTermDb) -> Option<TraitPath> {
+    pub fn leading_trai_path(self, db: &::salsa::Db) -> Option<TraitPath> {
         match self.application_expansion(db).function() {
             TermFunctionReduced::Trait(path) => Some(path),
             _ => None,
@@ -41,10 +41,7 @@ impl EtherealTerm {
     }
 
     /// see `self` as the type of another term, return the type expectation for that term
-    pub fn ty_expectation(
-        self,
-        db: &dyn EtherealTermDb,
-    ) -> EtherealTermResult<TermTypeExpectation> {
+    pub fn ty_expectation(self, db: &::salsa::Db) -> EtherealTermResult<TermTypeExpectation> {
         Ok(match self.application_expansion(db).function() {
             TermFunctionReduced::TypeOntology(path) => {
                 TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
@@ -54,7 +51,7 @@ impl EtherealTerm {
     }
 
     pub fn synthesize_function_application_expr_ty(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         variance: Variance,
         parameter_symbol: Option<EtherealTerm>,
         parameter_ty: EtherealTerm,
@@ -97,7 +94,7 @@ impl EtherealTerm {
     }
 
     pub fn new_ty_ontology(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         path: TypePath,
         arguments: impl Iterator<Item = EtherealTerm>,
     ) -> EtherealTermResult<Self> {
@@ -110,20 +107,20 @@ impl EtherealTerm {
 }
 
 impl EtherealTermSymbol {
-    fn toolchain(self, db: &dyn EtherealTermDb) -> Option<Toolchain> {
+    fn toolchain(self, db: &::salsa::Db) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }
 }
 
 impl EtherealTermRune {
-    fn toolchain(self, db: &dyn EtherealTermDb) -> Option<Toolchain> {
+    fn toolchain(self, db: &::salsa::Db) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_curry_toolchain(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     term: EtherealTermCurry,
 ) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
@@ -137,7 +134,7 @@ pub(crate) fn ethereal_term_curry_toolchain(
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_application_toolchain(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     term: EtherealTermApplication,
 ) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
@@ -148,7 +145,7 @@ pub(crate) fn ethereal_term_application_toolchain(
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_ritchie_toolchain(
-    db: &dyn EtherealTermDb,
+    db: &::salsa::Db,
     term: EtherealTermRitchie,
 ) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();

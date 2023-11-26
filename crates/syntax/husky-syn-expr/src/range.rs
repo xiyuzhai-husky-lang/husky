@@ -11,7 +11,7 @@ pub struct SynExprRangeRegion {
 
 #[salsa::tracked(jar = SynExprJar, return_ref)]
 pub(crate) fn syn_expr_range_region(
-    db: &dyn SynExprDb,
+    db: &::salsa::Db,
     expr_region: SynExprRegion,
 ) -> SynExprRangeRegion {
     SynExprRangeCalculator::new(db, expr_region).calc_all()
@@ -104,7 +104,7 @@ impl<'a> std::ops::Index<SynStmtIdx> for SynExprRangeCalculator<'a> {
 }
 
 impl<'a> SynExprRangeCalculator<'a> {
-    fn new(db: &'a dyn SynExprDb, syn_expr_region: SynExprRegion) -> Self {
+    fn new(db: &'a ::salsa::Db, syn_expr_region: SynExprRegion) -> Self {
         let syn_expr_region_data = syn_expr_region.data(db);
         SynExprRangeCalculator {
             syn_expr_region_data,

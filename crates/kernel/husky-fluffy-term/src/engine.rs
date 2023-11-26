@@ -3,7 +3,7 @@ use husky_entity_syn_tree::{helpers::TraitInUseItemsTable, EntityTreeResultRef};
 use husky_vfs::VfsPathMenu;
 
 pub trait FluffyTermEngine<'a>: Sized {
-    fn db(&self) -> &'a dyn FluffyTermDb;
+    fn db(&self) -> &'a ::salsa::Db;
     fn trai_in_use_items_table(&self) -> TraitInUseItemsTable<'a>;
     fn fluffy_term_region(&self) -> &FluffyTermRegion;
     fn fluffy_term_region_mut(&mut self) -> &mut FluffyTermRegion;

@@ -9,7 +9,7 @@ pub struct EnumTypeDeclarativeSignatureTemplate {
 
 impl EnumTypeDeclarativeSignatureTemplate {
     pub fn from_decl(
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
         path: TypePath,
         decl: EnumTypeSynDecl,
     ) -> DeclarativeSignatureResult<Self> {

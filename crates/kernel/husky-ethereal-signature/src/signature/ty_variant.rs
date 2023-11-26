@@ -18,7 +18,7 @@ pub enum TypeVariantEtherealSignatureTemplate {
 }
 
 impl TypeVariantEtherealSignatureTemplate {
-    pub fn self_ty(self, _db: &dyn EtherealSignatureDb) -> EtherealTerm {
+    pub fn self_ty(self, _db: &::salsa::Db) -> EtherealTerm {
         match self {
             TypeVariantEtherealSignatureTemplate::Props(_) => todo!(),
             TypeVariantEtherealSignatureTemplate::Unit(_) => todo!(),
@@ -32,7 +32,7 @@ impl HasEtherealSignatureTemplate for TypeVariantPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         ty_variant_ethereal_signature_template(db, self)
     }
@@ -40,7 +40,7 @@ impl HasEtherealSignatureTemplate for TypeVariantPath {
 
 #[salsa::tracked(jar = EtherealSignatureJar)]
 fn ty_variant_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
+    db: &::salsa::Db,
     path: TypeVariantPath,
 ) -> EtherealSignatureResult<TypeVariantEtherealSignatureTemplate> {
     Ok(match path.declarative_signature_template(db)? {

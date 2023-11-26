@@ -36,7 +36,7 @@ pub enum TypeSynNodeDefn {
 }
 
 impl TypeSynNodeDefn {
-    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> TypeSynNodeDecl {
+    pub fn syn_node_decl(self, db: &::salsa::Db) -> TypeSynNodeDecl {
         match self {
             TypeSynNodeDefn::Enum(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
             TypeSynNodeDefn::Inductive(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
@@ -50,7 +50,7 @@ impl TypeSynNodeDefn {
         }
     }
 
-    pub fn syn_node_path(self, db: &dyn SynDefnDb) -> TypeSynNodePath {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> TypeSynNodePath {
         match self {
             TypeSynNodeDefn::Enum(defn) => defn.syn_node_path(db),
             TypeSynNodeDefn::Inductive(defn) => defn.syn_node_path(db),
@@ -68,14 +68,14 @@ impl TypeSynNodeDefn {
 impl HasSynNodeDefn for TypeSynNodePath {
     type SynNodeDefn = TypeSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
+    fn syn_node_defn(self, db: &::salsa::Db) -> Self::SynNodeDefn {
         ty_syn_node_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn ty_syn_node_defn(
-    db: &dyn SynDefnDb,
+    db: &::salsa::Db,
     syn_node_path: TypeSynNodePath,
 ) -> TypeSynNodeDefn {
     match syn_node_path.syn_node_decl(db) {
@@ -125,7 +125,7 @@ pub enum TypeSynDefn {
 }
 
 impl TypeSynDefn {
-    pub fn decl(self, db: &dyn SynDefnDb) -> TypeSynDecl {
+    pub fn decl(self, db: &::salsa::Db) -> TypeSynDecl {
         match self {
             TypeSynDefn::Enum(defn) => defn.decl(db).into(),
             TypeSynDefn::Inductive(defn) => defn.decl(db).into(),
@@ -139,7 +139,7 @@ impl TypeSynDefn {
         }
     }
 
-    pub fn path(self, db: &dyn SynDefnDb) -> TypePath {
+    pub fn path(self, db: &::salsa::Db) -> TypePath {
         match self {
             TypeSynDefn::Enum(defn) => defn.path(db),
             TypeSynDefn::Inductive(defn) => defn.path(db),
@@ -157,13 +157,13 @@ impl TypeSynDefn {
 impl HasSynDefn for TypePath {
     type SynDefn = TypeSynDefn;
 
-    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
+    fn syn_defn(self, db: &::salsa::Db) -> SynDefnResult<Self::SynDefn> {
         ty_syn_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn ty_syn_defn(db: &dyn SynDefnDb, path: TypePath) -> SynDefnResult<TypeSynDefn> {
+pub(crate) fn ty_syn_defn(db: &::salsa::Db, path: TypePath) -> SynDefnResult<TypeSynDefn> {
     Ok(match path.syn_decl(db)? {
         TypeSynDecl::Enum(decl) => EnumTypeSynDefn::new(db, path, decl).into(),
         TypeSynDecl::PropsStruct(decl) => PropsStructTypeSynDefn::new(db, path, decl).into(),

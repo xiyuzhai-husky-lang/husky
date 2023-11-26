@@ -15,7 +15,7 @@ pub enum ImplBlockEtherealSignatureTemplate {
 }
 
 impl ImplBlockEtherealSignatureTemplate {
-    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> EtherealTerm {
+    pub fn self_ty(self, db: &::salsa::Db) -> EtherealTerm {
         match self {
             ImplBlockEtherealSignatureTemplate::TypeImpl(template) => template.self_ty(db),
             ImplBlockEtherealSignatureTemplate::TraitForTypeImpl(template) => template.self_ty(db),
@@ -28,7 +28,7 @@ impl HasEtherealSignatureTemplate for ImplBlockPath {
 
     fn ethereal_signature_template(
         self,
-        db: &dyn EtherealSignatureDb,
+        db: &::salsa::Db,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         Ok(match self {
             ImplBlockPath::TypeImplBlock(path) => path.ethereal_signature_template(db)?.into(),

@@ -1,4 +1,4 @@
-use salsa::Database;
+use salsa::Db;
 
 use super::*;
 
@@ -11,7 +11,7 @@ pub struct EtherealRitchieRegularParameter {
 
 impl EtherealRitchieRegularParameter {
     pub fn from_declarative(
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         param: DeclarativeRitchieRegularParameter,
     ) -> EtherealTermResult<Self> {
         Ok(EtherealRitchieRegularParameter {
@@ -20,7 +20,7 @@ impl EtherealRitchieRegularParameter {
         })
     }
 
-    pub(super) fn reduce(self, db: &dyn EtherealTermDb) -> Self {
+    pub(super) fn reduce(self, db: &::salsa::Db) -> Self {
         Self {
             contract: self.contract,
             ty: self.ty.reduce(db),
@@ -31,7 +31,7 @@ impl EtherealRitchieRegularParameter {
     pub(super) fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EtherealTermDb,
+        db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         // ad hoc
@@ -44,7 +44,7 @@ impl EtherealRitchieRegularParameter {
 impl EtherealTermInstantiate for EtherealRitchieRegularParameter {
     type Target = Self;
 
-    fn instantiate(self, db: &dyn EtherealTermDb, instantiation: &EtherealInstantiation) -> Self {
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self {
         Self {
             contract: self.contract,
             ty: self.ty.instantiate(db, instantiation),
@@ -53,8 +53,12 @@ impl EtherealTermInstantiate for EtherealRitchieRegularParameter {
 }
 
 impl salsa::DisplayWithDb for EtherealRitchieRegularParameter {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.ty.show_with_db_fmt(f, db(), &mut Default::default())
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.ty.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 

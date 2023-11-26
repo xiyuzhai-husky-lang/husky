@@ -23,7 +23,7 @@ impl VfsAdversarialManager {
         }
     }
 
-    pub(super) fn run(mut self, db: &mut Db, f: &impl Fn(&Db)) {
+    pub(super) fn run(mut self, db: &mut Db, f: &impl Fn(&::salsa::Db)) {
         for adversarial in &self.adversarials {
             if adversarial.test(db, self.module, f).is_err() {
                 println!(

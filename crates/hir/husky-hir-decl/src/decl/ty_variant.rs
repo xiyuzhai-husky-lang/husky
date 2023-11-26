@@ -21,7 +21,7 @@ pub enum TypeVariantHirDecl {
 }
 
 impl TypeVariantHirDecl {
-    pub fn path(self, _db: &dyn HirDeclDb) -> TypeVariantPath {
+    pub fn path(self, _db: &::salsa::Db) -> TypeVariantPath {
         match self {
             TypeVariantHirDecl::Props(_) => todo!(),
             TypeVariantHirDecl::Unit(_) => todo!(),
@@ -29,7 +29,7 @@ impl TypeVariantHirDecl {
         }
     }
 
-    pub fn hir_expr_region(self, _db: &dyn HirDeclDb) -> HirExprRegion {
+    pub fn hir_expr_region(self, _db: &::salsa::Db) -> HirExprRegion {
         match self {
             TypeVariantHirDecl::Props(_) => todo!(),
             TypeVariantHirDecl::Unit(_) => todo!(),
@@ -41,13 +41,13 @@ impl TypeVariantHirDecl {
 impl HasHirDecl for TypeVariantPath {
     type HirDecl = TypeVariantHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+    fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
         ty_variant_hir_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn ty_variant_hir_decl(db: &dyn HirDeclDb, path: TypeVariantPath) -> Option<TypeVariantHirDecl> {
+fn ty_variant_hir_decl(db: &::salsa::Db, path: TypeVariantPath) -> Option<TypeVariantHirDecl> {
     match path.parent_ty_path(db).ty_kind(db) {
         TypeKind::Enum => (),
         TypeKind::Inductive => return None,

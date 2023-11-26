@@ -8,7 +8,7 @@ use crate::*;
 use husky_vfs::ModulePath;
 
 pub struct SynExprContext<'a> {
-    db: &'a dyn SynExprDb,
+    db: &'a ::salsa::Db,
     path: SynNodeRegionPath,
     module_path: ModulePath,
     crate_root_path: ModulePath,
@@ -35,7 +35,7 @@ impl<'a, 'b> IsSynExprContext<'a> for &'b mut SynExprContext<'a> {}
 
 impl<'a> SynExprContext<'a> {
     pub fn new(
-        db: &'a dyn SynExprDb,
+        db: &'a ::salsa::Db,
         path: SynNodeRegionPath,
         module_symbol_context: ModuleSymbolContext<'a>,
         parent_expr_region: Option<SynExprRegion>,
@@ -114,7 +114,7 @@ impl<'a> SynExprContext<'a> {
             .define_symbols(variables, ty_constraint)
     }
 
-    pub fn db(&self) -> &'a dyn SynExprDb {
+    pub fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
 

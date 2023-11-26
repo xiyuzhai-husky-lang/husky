@@ -1,13 +1,13 @@
 use crate::*;
 
 pub(crate) struct CorgiConfigBuilder<'a> {
-    db: &'a dyn CorgiConfigDb,
+    db: &'a ::salsa::Db,
     registry_path: Option<RegistryPath>,
     errors: Vec<CorgiConfigError>,
 }
 
 impl<'a> CorgiConfigBuilder<'a> {
-    pub(crate) fn new(db: &'a dyn CorgiConfigDb) -> Self {
+    pub(crate) fn new(db: &'a ::salsa::Db) -> Self {
         Self {
             db,
             registry_path: Default::default(),

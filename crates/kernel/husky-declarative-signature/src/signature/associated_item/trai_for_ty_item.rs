@@ -25,7 +25,7 @@ impl HasDeclarativeSignatureTemplate for TraitForTypeItemPath {
 
     fn declarative_signature_template(
         self,
-        db: &dyn DeclarativeSignatureDb,
+        db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         trai_for_ty_item_syn_declarative_signature_from_decl(db, self)
     }
@@ -33,7 +33,7 @@ impl HasDeclarativeSignatureTemplate for TraitForTypeItemPath {
 
 // #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
-    db: &dyn DeclarativeSignatureDb,
+    db: &::salsa::Db,
     path: TraitForTypeItemPath,
 ) -> DeclarativeSignatureResult<TraitForTypeItemDeclarativeSignatureTemplate> {
     let decl = path.syn_decl(db)?;
@@ -57,10 +57,7 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
 }
 
 impl TraitForTypeItemDeclarativeSignatureTemplate {
-    pub fn template_parameters(
-        self,
-        _db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeTemplateParameter] {
+    pub fn template_parameters(self, _db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
             TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(_) => todo!(),
             TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),

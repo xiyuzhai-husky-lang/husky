@@ -59,7 +59,7 @@ impl Into<FluffyTerm> for Hole {
 impl HollowTerm {
     pub(crate) fn fluffy_data<'a>(
         self,
-        db: &'a dyn FluffyTermDb,
+        db: &'a ::salsa::Db,
         fluffy_terms: &'a FluffyTerms,
     ) -> FluffyTermData<'a> {
         match self.resolve_progress(fluffy_terms) {
@@ -73,7 +73,7 @@ impl HollowTerm {
     }
     pub(crate) fn fluffy_data_aux<'a>(
         self,
-        db: &'a dyn FluffyTermDb,
+        db: &'a ::salsa::Db,
         fluffy_terms: &'a FluffyTerms,
     ) -> FluffyTermData<'a> {
         match fluffy_terms.hollow_terms().hollow_term_data(self) {
@@ -123,7 +123,7 @@ impl HollowTerm {
 
     pub(crate) fn fluffy_base_ty_data<'a>(
         self,
-        db: &'a dyn FluffyTermDb,
+        db: &'a ::salsa::Db,
         fluffy_terms: &'a FluffyTerms,
     ) -> FluffyBaseTypeData<'a> {
         match self.resolve_progress(fluffy_terms) {
@@ -138,7 +138,7 @@ impl HollowTerm {
 
     pub(crate) fn fluffy_base_ty_data_aux<'a>(
         self,
-        db: &'a dyn FluffyTermDb,
+        db: &'a ::salsa::Db,
         fluffy_terms: &'a FluffyTerms,
     ) -> FluffyBaseTypeData<'a> {
         match fluffy_terms.hollow_terms().hollow_term_data(self) {

@@ -58,7 +58,7 @@ impl FluffyTermRegion {
 
     pub fn finalize_unresolved_term_table(
         &mut self,
-        db: &dyn FluffyTermDb,
+        db: &::salsa::Db,
         term_menu: &EtherealTermMenu,
     ) {
         self.resolve_as_much_as_possible(db);

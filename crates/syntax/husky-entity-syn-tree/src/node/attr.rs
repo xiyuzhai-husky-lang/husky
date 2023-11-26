@@ -13,7 +13,7 @@ impl AttrSynNodePath {
         parent_syn_node_path: ItemSynNodePath,
         path: AttrItemPath,
         registry: &mut ItemSynNodePathRegistry,
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
     ) -> Self {
         Self::new_inner(
             db,
@@ -22,15 +22,15 @@ impl AttrSynNodePath {
         )
     }
 
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<AttrItemPath> {
+    pub fn path(self, db: &::salsa::Db) -> Option<AttrItemPath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub(crate) fn syn_node(self, db: &dyn EntitySynTreeDb) -> AttrSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> AttrSynNode {
         attr_node(db, self)
     }
 
-    pub fn ident(self, db: &dyn EntitySynTreeDb) -> Ident {
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
         self.maybe_ambiguous_path(db).path.ident(db)
     }
 }
@@ -39,7 +39,7 @@ impl AttrSynNodePath {
 // where
 //      + EntitySynTreeDb,
 // {
-//     fn module_path(self, db: &Db) -> ModulePath {
+//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
 //         let db = entity_syn_tree_db(db);
 //         self.maybe_ambiguous_path(db).path.module_path(db)
 //     }
@@ -48,7 +48,7 @@ impl AttrSynNodePath {
 impl HasSynNodePath for AttrItemPath {
     type SynNodePath = AttrSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         AttrSynNodePath::new_inner(
             db,
             self.parent(db).syn_node_path(db),
@@ -58,7 +58,7 @@ impl HasSynNodePath for AttrItemPath {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-fn attr_node(db: &dyn EntitySynTreeDb, syn_node_path: AttrSynNodePath) -> AttrSynNode {
+fn attr_node(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrSynNode {
     syn_node_path
         .parent_syn_node_path(db)
         .attr_syn_nodes(db)
@@ -80,7 +80,7 @@ impl AttrSynNode {
         path: AttrItemPath,
         ast_idx: AstIdx,
         registry: &mut ItemSynNodePathRegistry,
-        db: &dyn EntitySynTreeDb,
+        db: &::salsa::Db,
     ) -> (AttrSynNodePath, Self) {
         let syn_node_path = AttrSynNodePath::new(parent_path, path, registry, db);
         (

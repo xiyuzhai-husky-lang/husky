@@ -16,7 +16,7 @@ impl TypeItemPath {
         impl_block: TypeImplBlockPath,
         ident: Ident,
         item_kind: TypeItemKind,
-        db: &dyn EntityPathDb,
+        db: &::salsa::Db,
     ) -> Self {
         Self(ItemPathId::new(
             db,
@@ -28,34 +28,34 @@ impl TypeItemPath {
         ))
     }
 
-    pub fn data(self, db: &dyn EntityPathDb) -> TypeItemPathData {
+    pub fn data(self, db: &::salsa::Db) -> TypeItemPathData {
         match self.0.data(db) {
             ItemPathData::AssociatedItem(AssociatedItemPathData::TypeItem(data)) => data,
             _ => unreachable!(),
         }
     }
 
-    pub fn impl_block(self, db: &dyn EntityPathDb) -> TypeImplBlockPath {
+    pub fn impl_block(self, db: &::salsa::Db) -> TypeImplBlockPath {
         self.data(db).impl_block
     }
 
-    pub fn item_kind(self, db: &dyn EntityPathDb) -> TypeItemKind {
+    pub fn item_kind(self, db: &::salsa::Db) -> TypeItemKind {
         self.data(db).item_kind
     }
 
     #[inline(never)]
-    fn show_aux(
-        self,
-        _f: &mut std::fmt::Formatter<'_>,
-        _db: &dyn EntityPathDb,
-    ) -> std::fmt::Result {
+    fn show_aux(self, _f: &mut std::fmt::Formatter<'_>, _db: &::salsa::Db) -> std::fmt::Result {
         todo!()
     }
 }
 
 impl salsa::DisplayWithDb for TypeItemPath {
-    fn display_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &Db) -> std::fmt::Result {
-        self.show_aux(f, db())
+    fn display_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.show_aux(f, db)
     }
 }
 
@@ -72,7 +72,7 @@ impl TypeItemPathData {
         self.item_kind
     }
 
-    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         self.impl_block.module_path(db)
     }
 }

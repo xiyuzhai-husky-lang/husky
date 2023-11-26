@@ -11,7 +11,7 @@ fn item_path_debug_works() {
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
-    let item_path_menu = db.item_path_menu(toolchain);
+    let item_path_menu = item_path_menu(db, toolchain);
     expect_test::expect![[r#"
         TypePath(`core::num::i32`, `Extern`)
     "#]]
