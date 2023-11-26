@@ -2,6 +2,7 @@ pub mod accumulator;
 pub mod cancelled;
 pub mod cycle;
 pub mod database;
+pub mod db;
 pub mod debug;
 pub mod display;
 pub mod durability;

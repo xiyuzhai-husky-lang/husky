@@ -2,11 +2,11 @@ use std::{fmt, sync::Arc};
 
 use parking_lot::Condvar;
 
-use crate::cycle::CycleRecoveryStrategy;
 use crate::jar::Jar;
 use crate::key::DependencyIndex;
 use crate::runtime::local_state::QueryOrigin;
 use crate::runtime::Runtime;
+use crate::{cycle::CycleRecoveryStrategy, test_utils::TestJarIndex};
 use crate::{ingredient::Ingredient, test_utils::HasTestJarIndex};
 use crate::{Database, DatabaseKeyIndex, Id, IngredientIndex};
 
@@ -212,13 +212,6 @@ impl<'a> dyn Database + 'a {
     {
         todo!()
     }
-
-    pub fn as_jar_db_dyn_mut<'db, Jar>(&mut self) -> &mut <Jar as crate::jar::Jar<'db>>::DynDb
-    where
-        Jar: crate::jar::Jar<'db> + HasTestJarIndex,
-    {
-        todo!()
-    }
 }
 
 pub trait JarFromJars<J>: HasJars {
@@ -231,6 +224,11 @@ pub trait HasJar<J> {
     fn jar(&self) -> (&J, &Runtime);
 
     fn jar_mut(&mut self) -> (&mut J, &mut Runtime);
+}
+
+pub trait HasJarDyn {
+    fn jar_dyn(&self, jar_index: TestJarIndex) -> &dyn std::any::Any;
+    fn jar_dyn_mut(&mut self, jar_index: TestJarIndex) -> &mut dyn std::any::Any;
 }
 
 // ANCHOR: HasJarsDyn

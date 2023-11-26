@@ -2,7 +2,7 @@ use std::mem::MaybeUninit;
 
 use crate::{
     routes::Routes,
-    storage::{HasJars, HasJarsDyn, JarFromJars},
+    storage::{HasJarDyn, HasJars, HasJarsDyn, JarFromJars},
     Database,
 };
 use enum_index::full_map::EnumFullMap;
@@ -118,6 +118,16 @@ impl TestJars {
 impl crate::database::AsSalsaDatabase for TestDb {
     fn as_salsa_database(&self) -> &dyn crate::Database {
         self
+    }
+}
+
+impl HasJarDyn for TestDb {
+    fn jar_dyn(&self, jar_index: TestJarIndex) -> &dyn std::any::Any {
+        &**self.jars().0.map[jar_index].as_ref().unwrap()
+    }
+
+    fn jar_dyn_mut(&mut self, jar_index: TestJarIndex) -> &mut dyn std::any::Any {
+        &mut **self.jars_mut().0.map[jar_index].as_mut().unwrap()
     }
 }
 

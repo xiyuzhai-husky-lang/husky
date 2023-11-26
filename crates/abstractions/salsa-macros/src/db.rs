@@ -33,7 +33,7 @@ pub(crate) fn db(
     let initialize_jars_impl = initialize_jars_impl(&args, &input, &storage);
     let has_jars_dyn_impl = has_jars_dyn_impl(&input, &storage);
     let per_jar_impls = per_jar_impls(&args, &input, &storage);
-    let debug_db_impl = debug_db_impl(&input);
+    let has_jar_dyn_impl = has_jar_dyn_impl(&input);
 
     quote! {
         #input
@@ -41,6 +41,7 @@ pub(crate) fn db(
         #has_jars_impl
         #initialize_jars_impl
         #has_jars_dyn_impl
+        #has_jar_dyn_impl
         #(#per_jar_impls)*
     }
     .into()
@@ -243,13 +244,17 @@ fn per_jar_impls(args: &Args, input: &syn::ItemStruct, storage: &syn::Ident) -> 
         .collect()
 }
 
-fn debug_db_impl(input: &syn::ItemStruct) -> syn::ItemImpl {
+fn has_jar_dyn_impl(input: &syn::ItemStruct) -> syn::ItemImpl {
     let db = &input.ident;
     parse_quote! {
         // ANCHOR: HasJars
-        impl ::salsa::Database for #db {
-            fn database(&self) -> &dyn ::salsa::Database {
-                self
+        impl ::salsa::storage::HasJarDyn for #db {
+            fn jar_dyn(&self, jar_index: ::salsa::test_utils::TestJarIndex) -> &dyn std::any::Any {
+                todo!()
+            }
+
+            fn jar_dyn_mut(&mut self, jar_index: ::salsa::test_utils::TestJarIndex) -> &mut dyn std::any::Any {
+                todo!()
             }
         }
     }
