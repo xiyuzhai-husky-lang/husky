@@ -88,6 +88,7 @@ impl HasSynNodePath for MajorItemPath {
     }
 }
 
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub(crate) struct MajorItemSynNodeData {
     syn_node_path: MajorItemSynNodePath,
     visibility: Scope,

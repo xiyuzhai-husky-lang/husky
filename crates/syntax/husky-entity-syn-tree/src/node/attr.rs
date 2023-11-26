@@ -57,6 +57,7 @@ fn attr_node(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrSynNodeDat
         .1
 }
 
+#[derive(Debug, PartialEq, Eq)]
 pub(crate) struct AttrSynNodeData {
     syn_node_path: AttrSynNodePath,
     ast_idx: AstIdx,

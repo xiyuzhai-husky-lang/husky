@@ -68,7 +68,7 @@ impl HasSynNodePath for ImplBlockPath {
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
 pub(crate) enum ImplBlockSynNodeData {
-    TypeImplBlock(TypeImplBlockSynNode),
+    TypeImplBlock(TypeImplBlockSynNodeData),
     TraitForTypeImplBlock(TraitForTypeImplBlockSynNodeData),
     IllFormedImplBlock(IllFormedImplBlockSynNodeData),
 }
@@ -164,7 +164,7 @@ impl ImplBlockSynNodeData {
                 let Some(ImplBlockItems::Type(items)) = items else {
                     unreachable!("it should be guaranteed in `husky-ast` that items are not none")
                 };
-                TypeImplBlockSynNode::new(
+                TypeImplBlockSynNodeData::new(
                     db,
                     impl_token,
                     registry,

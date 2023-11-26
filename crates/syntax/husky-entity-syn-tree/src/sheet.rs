@@ -79,14 +79,17 @@ impl EntitySynTreeSheet {
             .filter_map(|syn_node_path| syn_node_path.path(db))
     }
 
-    pub(crate) fn major_item_node(&self, syn_node_path: ItemSynNodePath) -> Option<ItemSynNode> {
+    pub(crate) fn major_item_node(
+        &self,
+        syn_node_path: ItemSynNodePath,
+    ) -> Option<ItemSynNodeData> {
         self.major_item_node_table.node(syn_node_path)
     }
 
     pub(crate) fn ty_impl_block_syn_node(
         &self,
         syn_node_path: TypeImplBlockSynNodePath,
-    ) -> TypeImplBlockSynNode {
+    ) -> TypeImplBlockSynNodeData {
         self.impl_block_syn_node_table
             .iter()
             .find_map(|(node_path1, node)| {
@@ -141,24 +144,23 @@ impl EntitySynTreeSheet {
     pub fn all_ty_impl_block_syn_node_paths<'a>(
         &'a self,
     ) -> impl Iterator<Item = TypeImplBlockSynNodePath> + 'a {
-        self.impl_block_syn_node_table
-            .iter()
-            .copied()
-            .filter_map(|(syn_node_path, _)| match syn_node_path {
+        self.impl_block_syn_node_table.iter().filter_map(
+            |(syn_node_path, _)| match *syn_node_path {
                 ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => Some(syn_node_path),
                 _ => None,
-            })
+            },
+        )
     }
 
     pub(crate) fn all_ty_impl_block_syn_nodes<'a>(
         &'a self,
-    ) -> impl Iterator<Item = TypeImplBlockSynNode> + 'a {
-        self.impl_block_syn_node_table.iter().copied().filter_map(
-            |(_, impl_block)| match impl_block {
+    ) -> impl Iterator<Item = &'a TypeImplBlockSynNodeData> + 'a {
+        self.impl_block_syn_node_table
+            .iter()
+            .filter_map(|(_, impl_block)| match impl_block {
                 ImplBlockSynNodeData::TypeImplBlock(impl_block) => Some(impl_block),
                 _ => None,
-            },
-        )
+            })
     }
 
     pub fn all_trai_for_ty_impl_block_paths<'a>(
@@ -167,7 +169,6 @@ impl EntitySynTreeSheet {
     ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
         self.impl_block_syn_node_table
             .iter()
-            .copied()
             .filter_map(|(syn_node_path, _)| match syn_node_path.path(db)? {
                 ImplBlockPath::TraitForTypeImplBlock(path) => Some(path),
                 ImplBlockPath::TypeImplBlock(_) => None,
@@ -176,29 +177,27 @@ impl EntitySynTreeSheet {
 
     pub(crate) fn all_trai_for_ty_impl_block_syn_nodes<'a>(
         &'a self,
-    ) -> impl Iterator<Item = TraitForTypeImplBlockSynNodeData> + 'a {
-        self.impl_block_syn_node_table.iter().copied().filter_map(
-            |(_, impl_block)| match impl_block {
+    ) -> impl Iterator<Item = &'a TraitForTypeImplBlockSynNodeData> + 'a {
+        self.impl_block_syn_node_table
+            .iter()
+            .filter_map(|(_, impl_block)| match impl_block {
                 ImplBlockSynNodeData::TypeImplBlock(_) => None,
-                ImplBlockSynNodeData::TraitForTypeImplBlock(impl_block) => Some(impl_block),
+                ImplBlockSynNodeData::TraitForTypeImplBlock(data) => Some(data),
                 ImplBlockSynNodeData::IllFormedImplBlock(_) => None,
-            },
-        )
+            })
     }
 
-    pub fn all_ill_formed_impl_block_syn_nodes<'a>(
+    pub fn all_impl_block_ill_forms<'a>(
         &'a self,
         db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = &'a ImplBlockIllForm> + 'a {
-        self.impl_block_syn_node_table.iter().copied().filter_map(
-            |(_, impl_block)| match impl_block {
+        self.impl_block_syn_node_table
+            .iter()
+            .filter_map(|(_, impl_block)| match impl_block {
                 ImplBlockSynNodeData::TypeImplBlock(_) => None,
                 ImplBlockSynNodeData::TraitForTypeImplBlock(_) => None,
-                ImplBlockSynNodeData::IllFormedImplBlock(impl_block) => {
-                    Some(impl_block.ill_form(db))
-                }
-            },
-        )
+                ImplBlockSynNodeData::IllFormedImplBlock(impl_block) => Some(impl_block.ill_form()),
+            })
     }
 }
 

@@ -59,15 +59,14 @@ impl HasSynNodePath for TraitItemPath {
     }
 }
 
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
+#[derive(Debug, PartialEq, Eq)]
 pub(crate) struct TraitItemSynNodeData {
-    #[id]
-    pub syn_node_path: TraitItemSynNodePath,
-    pub ast_idx: AstIdx,
-    pub ident: Ident,
-    pub item_kind: TraitItemKind,
-    pub visibility: Scope,
-    pub is_generic: bool,
+    syn_node_path: TraitItemSynNodePath,
+    ast_idx: AstIdx,
+    ident: Ident,
+    item_kind: TraitItemKind,
+    visibility: Scope,
+    is_generic: bool,
 }
 
 impl TraitItemSynNodeData {
@@ -104,7 +103,6 @@ impl TraitItemSynNodeData {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn trai_item_syn_nodes(
     db: &::salsa::Db,
     trai_node_path: TraitSynNodePath,
@@ -160,7 +158,6 @@ pub(crate) fn trai_item_syn_nodes(
         .collect()
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn trai_item_syn_node(
     db: &::salsa::Db,
     syn_node_path: TraitItemSynNodePath,

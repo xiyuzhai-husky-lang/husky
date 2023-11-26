@@ -120,7 +120,6 @@ impl TypeItemSynNodeData {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn ty_item_syn_node(
     db: &::salsa::Db,
     syn_node_path: TypeItemSynNodePath,
@@ -134,7 +133,6 @@ pub(crate) fn ty_item_syn_node(
         .expect("some")
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn ty_impl_block_items(
     db: &::salsa::Db,
     syn_node_path: TypeImplBlockSynNodePath,

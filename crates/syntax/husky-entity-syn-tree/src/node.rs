@@ -43,6 +43,7 @@ pub struct ItemSynNodePathId {
     data: ItemSynNodePathData,
 }
 
+#[derive(Debug, PartialEq, Eq)]
 pub enum ItemSynNodePathData {
     Submodule(SubmoduleSynNodePathData),
     MajorItem(MajorItemSynNodePathData),
@@ -53,7 +54,7 @@ pub enum ItemSynNodePathData {
 }
 
 impl ItemSynNodePathId {
-    pub fn syn_node(self, db: &::salsa::Db) -> ItemSynNode {
+    pub fn syn_node_data(self, db: &::salsa::Db) -> ItemSynNodeData {
         todo!()
     }
 
@@ -62,30 +63,19 @@ impl ItemSynNodePathId {
     }
 }
 
-pub struct ItemSynNodeId {
-    data: ItemSynNodeData,
-}
-
-pub enum ItemSynNodeData {
-    Submodule(SubmoduleSynNodeData),
-    MajorItem(MajorItemSynNodeData),
-    TypeVariant(TypeVariantSynNodeData),
-    ImplBlock(ImplBlockSynNodeData),
-    AssociatedItem(AssociatedItemSynNodeData),
-    Attr(AttrSynNodeData),
-}
-
 impl ItemSynNodePath {
     pub fn path(self, db: &::salsa::Db) -> Option<ItemPath> {
         match self {
-            ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.path(db).map(Into::into),
+            ItemSynNodePath::Submodule(_, syn_node_path) => syn_node_path.path(db).map(Into::into),
             ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.path(db).map(Into::into),
-            ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.path(db).map(Into::into),
+            ItemSynNodePath::TypeVariant(_, syn_node_path) => {
+                syn_node_path.path(db).map(Into::into)
+            }
             ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.path(db).map(Into::into),
             ItemSynNodePath::AssociatedItem(syn_node_path) => {
                 syn_node_path.path(db).map(Into::into)
             }
-            ItemSynNodePath::Attr(syn_node_path) => syn_node_path.path(db).map(Into::into),
+            ItemSynNodePath::Attr(_, syn_node_path) => syn_node_path.path(db).map(Into::into),
         }
     }
 
@@ -97,12 +87,12 @@ impl ItemSynNodePath {
     pub(crate) fn attr_syn_nodes(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNodeData)] {
         // ad hoc
         match self {
-            ItemSynNodePath::Submodule(_) => &[],
+            ItemSynNodePath::Submodule(_, _) => &[],
             ItemSynNodePath::MajorItem(path) => path.attrs(db),
-            ItemSynNodePath::TypeVariant(_) => &[],
+            ItemSynNodePath::TypeVariant(_, _) => &[],
             ItemSynNodePath::ImplBlock(_) => &[],
             ItemSynNodePath::AssociatedItem(_) => &[],
-            ItemSynNodePath::Attr(_) => &[],
+            ItemSynNodePath::Attr(_, _) => &[],
         }
     }
 }
@@ -176,18 +166,19 @@ impl<P> MaybeAmbiguousPath<P> {
 }
 
 /// this is pub(crate) because it contains AstIdx which affects incremental computation
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
-pub(crate) enum ItemSynNode {
+pub(crate) enum ItemSynNodeData {
     Submodule(SubmoduleSynNodeData),
     MajorItem(MajorItemSynNodeData),
     AssociatedItem(AssociatedItemSynNodeData),
     TypeVariant(TypeVariantSynNodeData),
     ImplBlock(ImplBlockSynNodeData),
+    Attr(AttrSynNodeData),
 }
 
-impl ItemSynNode {
+impl ItemSynNodeData {
     pub(crate) fn try_new(
         db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
@@ -229,31 +220,34 @@ impl ItemSynNode {
 
     pub fn syn_node_path(self, db: &::salsa::Db) -> ItemSynNodePath {
         match self {
-            ItemSynNode::Submodule(node) => node.syn_node_path(db).into(),
-            ItemSynNode::MajorItem(node) => node.syn_node_path(db).into(),
-            ItemSynNode::AssociatedItem(node) => node.syn_node_path(db).into(),
-            ItemSynNode::TypeVariant(node) => node.syn_node_path(db).into(),
-            ItemSynNode::ImplBlock(node) => node.syn_node_path(db).into(),
+            ItemSynNodeData::Submodule(node) => node.syn_node_path(db).into(),
+            ItemSynNodeData::MajorItem(node) => node.syn_node_path(db).into(),
+            ItemSynNodeData::AssociatedItem(node) => node.syn_node_path(db).into(),
+            ItemSynNodeData::TypeVariant(node) => node.syn_node_path(db).into(),
+            ItemSynNodeData::ImplBlock(node) => node.syn_node_path(db).into(),
+            ItemSynNodeData::Attr(_) => todo!(),
         }
     }
 
     pub fn ast_idx(self, db: &::salsa::Db) -> AstIdx {
         match self {
-            ItemSynNode::Submodule(node) => node.ast_idx(db),
-            ItemSynNode::MajorItem(node) => node.ast_idx(db),
-            ItemSynNode::AssociatedItem(_) => todo!(),
-            ItemSynNode::TypeVariant(_) => todo!(),
-            ItemSynNode::ImplBlock(_) => todo!(),
+            ItemSynNodeData::Submodule(node) => node.ast_idx(db),
+            ItemSynNodeData::MajorItem(node) => node.ast_idx(db),
+            ItemSynNodeData::AssociatedItem(_) => todo!(),
+            ItemSynNodeData::TypeVariant(_) => todo!(),
+            ItemSynNodeData::ImplBlock(_) => todo!(),
+            ItemSynNodeData::Attr(_) => todo!(),
         }
     }
 
     pub fn ident_token(self, db: &::salsa::Db) -> IdentToken {
         match self {
-            ItemSynNode::Submodule(symbol) => symbol.ident_token(db),
-            ItemSynNode::MajorItem(symbol) => symbol.ident_token(db),
-            ItemSynNode::AssociatedItem(_) => todo!(),
-            ItemSynNode::TypeVariant(_) => todo!(),
-            ItemSynNode::ImplBlock(_) => todo!(),
+            ItemSynNodeData::Submodule(symbol) => symbol.ident_token(db),
+            ItemSynNodeData::MajorItem(symbol) => symbol.ident_token(db),
+            ItemSynNodeData::AssociatedItem(_) => todo!(),
+            ItemSynNodeData::TypeVariant(_) => todo!(),
+            ItemSynNodeData::ImplBlock(_) => todo!(),
+            ItemSynNodeData::Attr(_) => todo!(),
         }
     }
 }

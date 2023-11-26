@@ -2,10 +2,13 @@ use super::*;
 
 use husky_entity_kind::TypeKind;
 
-#[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct TypeVariantSynNodePath {
-    pub parent_ty_node_path: TypeSynNodePath,
-    pub maybe_ambiguous_path: MaybeAmbiguousPath<TypeVariantPath>,
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct TypeVariantSynNodePath(ItemSynNodePathId);
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct TypeVariantSynNodePathData {
+    parent_ty_node_path: TypeSynNodePath,
+    maybe_ambiguous_path: MaybeAmbiguousPath<TypeVariantPath>,
 }
 
 impl TypeVariantSynNodePath {
@@ -134,7 +137,6 @@ pub(crate) fn ty_variant_syn_nodes(
         .collect()
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn ty_variant_syn_node(
     db: &::salsa::Db,
     syn_node_path: TypeVariantSynNodePath,

@@ -61,6 +61,7 @@ impl HasSynNodePath for TraitForTypeItemPath {
     }
 }
 
+#[derive(Debug, PartialEq, Eq)]
 pub(crate) struct TraitForTypeItemSynNodeData {
     syn_node_path: TraitForTypeItemSynNodePath,
     ast_idx: AstIdx,
@@ -72,7 +73,7 @@ pub(crate) struct TraitForTypeItemSynNodeData {
 
 impl TraitForTypeItemSynNodeData {
     #[inline(always)]
-    fn new(
+    pub(crate) fn new(
         db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         impl_block_syn_node_path: TraitForTypeImplBlockSynNodePath,
@@ -99,7 +100,6 @@ impl TraitForTypeItemSynNodeData {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn trai_for_ty_item_syn_node(
     db: &::salsa::Db,
     syn_node_path: TraitForTypeItemSynNodePath,
@@ -111,58 +111,4 @@ pub(crate) fn trai_for_ty_item_syn_node(
         .copied()
         .find_map(|(_, node_path1, node)| (node_path1 == syn_node_path).then_some(node))
         .expect("some")
-}
-
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-pub(crate) fn trai_for_ty_impl_block_items(
-    db: &::salsa::Db,
-    impl_block_syn_node_path: TraitForTypeImplBlockSynNodePath,
-) -> Vec<(
-    Ident,
-    TraitForTypeItemSynNodePath,
-    TraitForTypeItemSynNodeData,
-)> {
-    let impl_block_syn_node = impl_block_syn_node_path.syn_node(db);
-    let module_path = todo!(); //impl_block_syn_node_path.module_path(db);
-    let ast_sheet = db.ast_sheet(module_path);
-    let Some(items) = impl_block_syn_node.items(db) else {
-        return vec![];
-    };
-    let mut registry = ItemSynNodePathRegistry::default();
-    items
-        .ast_idx_range()
-        .into_iter()
-        .filter_map(|ast_idx| {
-            let ast = &ast_sheet[ast_idx];
-            match ast {
-                Ast::Identifiable {
-                    visibility_expr,
-                    item_kind,
-                    ident_token,
-                    is_generic,
-                    ..
-                } => {
-                    let item_kind = match item_kind {
-                        EntityKind::AssociatedItem {
-                            associated_item_kind: AssociatedItemKind::TraitForTypeItem(ty_item_kind),
-                        } => *ty_item_kind,
-                        _ => unreachable!(),
-                    };
-                    let (syn_node_path, node) = TraitForTypeItemSynNodeData::new(
-                        db,
-                        &mut registry,
-                        impl_block_syn_node_path,
-                        ast_idx,
-                        ident_token.ident(),
-                        item_kind,
-                        visibility_expr.visibility(),
-                        *is_generic,
-                    );
-                    Some((ident_token.ident(), syn_node_path, node))
-                }
-                Ast::Err { .. } => None,
-                _ => unreachable!(),
-            }
-        })
-        .collect()
 }

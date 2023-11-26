@@ -228,7 +228,7 @@ impl MajorEntityNodeTable {
         }
     }
 
-    pub(crate) fn node(&self, syn_node_path: ItemSynNodePath) -> Option<ItemSynNode> {
+    pub(crate) fn node(&self, syn_node_path: ItemSynNodePath) -> Option<ItemSynNodeData> {
         self.entries
             .iter()
             .find_map(|entry| (entry.syn_node_path == syn_node_path).then_some(entry.node))
@@ -242,7 +242,7 @@ impl MajorEntityNodeTable {
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct ItemNodeEntry {
-    node: ItemSynNode,
+    node: ItemSynNodeData,
     /// cached for performance, always equal to node.syn_node_path(db)
     syn_node_path: ItemSynNodePath,
     /// cached for performance, always equal to node.ident(db)
@@ -271,7 +271,7 @@ impl ItemNodeEntry {
         item_path: ItemPath,
         block: DefnBlock,
     ) -> Option<Self> {
-        let node = ItemSynNode::try_new(
+        let node = ItemSynNodeData::try_new(
             db,
             registry,
             visibility,
@@ -288,7 +288,7 @@ impl ItemNodeEntry {
         })
     }
 
-    pub(crate) fn syn_node(&self) -> ItemSynNode {
+    pub(crate) fn syn_node(&self) -> ItemSynNodeData {
         self.node
     }
 }

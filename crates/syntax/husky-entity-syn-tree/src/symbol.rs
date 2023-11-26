@@ -50,19 +50,20 @@ pub enum EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub(crate) fn from_node(db: &::salsa::Db, node: ItemSynNode) -> Option<Self> {
+    pub(crate) fn from_node(db: &::salsa::Db, node: ItemSynNodeData) -> Option<Self> {
         match node {
-            ItemSynNode::Submodule(node) => Some(EntitySymbol::Submodule {
+            ItemSynNodeData::Submodule(node) => Some(EntitySymbol::Submodule {
                 submodule_path: node.unambiguous_path(db)?,
             }),
-            ItemSynNode::MajorItem(node) => Some(EntitySymbol::MajorItem {
+            ItemSynNodeData::MajorItem(node) => Some(EntitySymbol::MajorItem {
                 module_item_path: node.unambiguous_path(db)?,
             }),
-            ItemSynNode::AssociatedItem(_)
-            | ItemSynNode::TypeVariant(_)
-            | ItemSynNode::ImplBlock(_) => {
+            ItemSynNodeData::AssociatedItem(_)
+            | ItemSynNodeData::TypeVariant(_)
+            | ItemSynNodeData::ImplBlock(_) => {
                 unreachable!()
             }
+            ItemSynNodeData::Attr(_) => todo!(),
         }
     }
 }

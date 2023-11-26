@@ -1,6 +1,6 @@
-mod decl;
-mod defn;
-mod snippet;
+pub mod decl;
+pub mod defn;
+pub mod snippet;
 
 pub use self::decl::*;
 pub use self::defn::*;
