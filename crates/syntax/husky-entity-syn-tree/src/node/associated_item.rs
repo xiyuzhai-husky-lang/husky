@@ -45,7 +45,7 @@ impl AssociatedItemSynNodePath {
 
 // impl HasModulePath<Db> for AssociatedItemSynNodePath
 // where
-//     Db: ?Sized + EntitySynTreeDb,
+//      + EntitySynTreeDb,
 // {
 //     fn module_path(self, db: &Db) -> ModulePath {
 //         match self {

@@ -1,8 +1,6 @@
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, lru_can_not_be_used_with_specify);
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 #[salsa::input(jar = Jar)]
 struct MyInput {
     field: u32,

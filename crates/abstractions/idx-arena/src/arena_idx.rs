@@ -1,5 +1,3 @@
-use salsa::Database;
-
 use crate::*;
 use std::num::NonZeroU32;
 

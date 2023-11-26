@@ -1,11 +1,15 @@
+use enum_index::full_map::EnumFullVecMap;
+
 use super::routes::Routes;
-use crate::{test_utils::HasTestJarIndex, DbWithJar};
+use crate::test_utils::{HasTestJarIndex, TestJarIndex};
 
 pub trait Jar<'db>: Sized {
     fn initialize(&mut self, routes: &mut Routes);
 }
 
-pub struct Jars;
+pub struct Jars {
+    map: EnumFullVecMap<TestJarIndex, Option<Box<dyn std::any::Any + Sync + Send>>>,
+}
 
 impl Jars {
     fn jar<Jar>(&self) -> &Jar

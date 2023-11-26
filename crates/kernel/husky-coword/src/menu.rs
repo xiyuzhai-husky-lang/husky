@@ -1,3 +1,5 @@
+use salsa::Db;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -39,7 +41,7 @@ pub struct CowordMenu {
 }
 
 impl CowordMenu {
-    pub(crate) fn new(db: &dyn CowordDb) -> Self {
+    pub(crate) fn new(db: &Db) -> Self {
         Self {
             core_name: Kebab::from_ref(db, "core").unwrap(),
             core_ident: Ident::from_borrowed(db, "core").unwrap(),
@@ -216,7 +218,7 @@ impl CowordMenu {
 }
 
 // #[salsa::tracked(jar = CowordJar, return_ref)]
-// pub(crate) fn ident_menu(db: &dyn CowordDb) -> CowordMenu {
+// pub(crate) fn ident_menu(db: &Db) -> CowordMenu {
 //     CowordMenu::new(db)
 // }
 
@@ -235,8 +237,8 @@ impl salsa::function::Configuration for ident_menu {
     fn should_backdate_value(v1: &Self::Value, v2: &Self::Value) -> bool {
         salsa::function::should_backdate_value(v1, v2)
     }
-    fn execute(__db: &salsa::function::Db, __id: Self::Key) -> Self::Value {
-        pub(crate) fn __fn(db: &dyn CowordDb) -> CowordMenu {
+    fn execute(__db: &Db, __id: Self::Key) -> Self::Value {
+        pub(crate) fn __fn(db: &Db) -> CowordMenu {
             CowordMenu::new(db)
         }
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar(__db);
@@ -244,11 +246,7 @@ impl salsa::function::Configuration for ident_menu {
         let __key = __ingredients.intern_map.data(__runtime, __id).clone();
         __fn(__db)
     }
-    fn recover_from_cycle(
-        _db: &salsa::function::Db,
-        _cycle: &salsa::Cycle,
-        _key: Self::Key,
-    ) -> Self::Value {
+    fn recover_from_cycle(_db: &Db, _cycle: &salsa::Cycle, _key: Self::Key) -> Self::Value {
         panic!()
     }
 }
@@ -289,15 +287,15 @@ impl salsa::storage::IngredientsFor for ident_menu {
 }
 impl ident_menu {
     #[allow(dead_code, clippy::needless_lifetimes)]
-    pub(crate) fn get<'__db>(db: &'__db dyn CowordDb) -> &'__db CowordMenu {
+    pub(crate) fn get<'__db>(db: &'__db Db) -> &'__db CowordMenu {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar(db);
         let __ingredients = <_ as salsa::storage::HasIngredientsFor<ident_menu>>::ingredient(__jar);
         let __key = __ingredients.intern_map.intern(__runtime, ());
         __ingredients.function.fetch(db, __key)
     }
     #[allow(dead_code, clippy::needless_lifetimes)]
-    pub(crate) fn set(db: &mut dyn CowordDb, __value: CowordMenu) {
-        let (__jar, __runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar_mut(db);
+    pub(crate) fn set(db: &mut Db, __value: CowordMenu) {
+        let (__jar, __runtime) = db.jar_mut();
         let __ingredients =
             <_ as salsa::storage::HasIngredientsFor<ident_menu>>::ingredient_mut(__jar);
         let __key = __ingredients.intern_map.intern(__runtime, ());
@@ -307,12 +305,8 @@ impl ident_menu {
     }
     #[allow(dead_code, clippy::needless_lifetimes)]
     pub(crate) fn accumulated<'__db, __A: salsa::accumulator::Accumulator>(
-        db: &'__db dyn CowordDb,
-    ) -> Vec<<__A as salsa::accumulator::Accumulator>::Data>
-    where
-        <CowordJar as salsa::jar::Jar<'__db>>::DynDb:
-            salsa::storage::HasJar<<__A as salsa::accumulator::Accumulator>::Jar>,
-    {
+        db: &'__db Db,
+    ) -> Vec<<__A as salsa::accumulator::Accumulator>::Data> {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar(db);
         let __ingredients = <_ as salsa::storage::HasIngredientsFor<ident_menu>>::ingredient(__jar);
         let __key = __ingredients.intern_map.intern(__runtime, ());
@@ -320,6 +314,6 @@ impl ident_menu {
     }
 }
 #[allow(clippy::needless_lifetimes)]
-pub(crate) fn ident_menu<'__db>(db: &'__db dyn CowordDb) -> &'__db CowordMenu {
+pub(crate) fn ident_menu<'__db>(db: &'__db Db) -> &'__db CowordMenu {
     ident_menu::get(db)
 }

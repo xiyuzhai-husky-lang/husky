@@ -6,10 +6,6 @@ use crate::setup::Database;
 use crate::setup::Knobs;
 use salsa::ParallelDatabase;
 
-pub(crate) trait Db: salsa::DbWithJar<Jar> + Knobs {}
-
-impl<T: salsa::DbWithJar<Jar> + Knobs> Db for T {}
-
 #[salsa::jar(db = Db)]
 pub(crate) struct Jar(MyInput, a1, a2, b1, b2, b3);
 

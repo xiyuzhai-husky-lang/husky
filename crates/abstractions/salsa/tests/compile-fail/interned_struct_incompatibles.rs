@@ -8,8 +8,6 @@ struct Jar(
     InternedWithLru,
 );
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 #[salsa::interned(jar = Jar, return_ref)]
 struct InternedWithRetRef {
     field: u32,

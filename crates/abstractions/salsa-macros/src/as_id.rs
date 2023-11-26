@@ -87,11 +87,9 @@ pub(crate) fn as_id(
                     }
                 }
 
-                impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for #self_ty
-                where
-                    DB: ?Sized + salsa::DbWithJar<#jar_ty>,
+                impl salsa::salsa_struct::SalsaStructInDb for #self_ty
                 {
-                    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
+                    fn register_dependent_fn(_db: &::salsa::Db, _index: salsa::routes::IngredientIndex) {}
                 }
             }
             .into()
@@ -139,11 +137,9 @@ pub(crate) fn as_id(
                     }
                 }
 
-                impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for #self_ty
-                where
-                    DB: ?Sized + salsa::DbWithJar<#jar_ty>,
+                impl salsa::salsa_struct::SalsaStructInDb for #self_ty
                 {
-                    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
+                    fn register_dependent_fn(_db: &::salsa::Db, _index: salsa::routes::IngredientIndex) {}
                 }
             }
             .into()

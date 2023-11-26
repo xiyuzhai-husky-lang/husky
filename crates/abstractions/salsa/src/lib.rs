@@ -48,7 +48,6 @@ pub use self::key::DatabaseKeyIndex;
 pub use self::revision::Revision;
 pub use self::routes::IngredientIndex;
 pub use self::runtime::Runtime;
-pub use self::storage::DbWithJar;
 pub use self::storage::Storage;
 pub use self::tracked_struct::TrackedStructData;
 pub use self::tracked_struct::TrackedStructId;

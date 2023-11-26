@@ -1,77 +1,3 @@
-// use crate::{
-//     storage::{HasJar, HasJarsDyn},
-//     DbWithJar, DebugWithDb, Durability, Event,
-// };
-
-// pub trait Database: DatabaseDyn + HasJarDyn+HasJarsDyn + AsSalsaDatabase {
-//     /// This function is invoked at key points in the salsa
-//     /// runtime. It permits the database to be customized and to
-//     /// inject logging or other custom behavior.
-//     ///
-//     /// By default, the event is logged at level debug using
-//     /// the standard `log` facade.
-//     fn salsa_event(&self, event: Event) {
-//         log::debug!("salsa_event: {:?}", event.debug(self.database_dyn()));
-//     }
-
-//     /// A "synthetic write" causes the system to act *as though* some
-//     /// input of durability `durability` has changed. This is mostly
-//     /// useful for profiling scenarios.
-//     ///
-//     /// **WARNING:** Just like an ordinary write, this method triggers
-//     /// cancellation. If you invoke it while a snapshot exists, it
-//     /// will block until that snapshot is dropped -- if that snapshot
-//     /// is owned by the current thread, this could trigger deadlock.
-//     fn synthetic_write(&mut self, durability: Durability) {
-//         self.runtime_mut().report_tracked_write(durability);
-//     }
-
-//     /// Reports that the query depends on some state unknown to salsa.
-//     ///
-//     /// Queries which report untracked reads will be re-executed in the next
-//     /// revision.
-//     fn report_untracked_read(&self) {
-//         self.runtime().report_untracked_read();
-//     }
-// }
-
-// impl<'a, Jar> HasJar<Jar> for Db + 'a {
-//     fn jar(&self) -> (&Jar, &crate::Runtime) {
-//         todo!()
-//     }
-
-//     fn jar_mut(&mut self) -> (&mut Jar, &mut crate::Runtime) {
-//         todo!()
-//     }
-// }
-
-// impl<'a, Jar> DbWithJar<Jar> for Db + 'a {
-//     fn as_jar_db<'db>(&self) -> &<Jar as crate::jar::Jar<'db>>::DynDb
-//     where
-//         Jar: crate::jar::Jar<'db>,
-//     {
-//         todo!()
-//     }
-// }
-
-// pub trait DatabaseDyn {
-//     fn database_dyn(&self) -> &Db;
-//     fn database_dyn_mut(&mut self) -> &mut Db;
-// }
-
-// impl<T> DatabaseDyn for T
-// where
-//     T: Database,
-// {
-//     fn database_dyn(&self) -> &Db {
-//         self
-//     }
-
-//     fn database_dyn_mut(&mut self) -> &mut Db {
-//         self
-//     }
-// }
-
 // /// Indicates a database that also supports parallel query
 // /// evaluation. All of Salsa's base query support is capable of
 // /// parallel execution, but for it to work, your query key/value types
@@ -156,7 +82,7 @@
 //     db: DB,
 // }
 
-// impl<DB> Snapshot<DB>
+// implSnapshot<DB>
 // where
 //     DB: ParallelDatabase,
 // {
@@ -168,7 +94,7 @@
 //     }
 // }
 
-// impl<DB> std::ops::Deref for Snapshot<DB>
+// implstd::ops::Deref for Snapshot<DB>
 // where
 //     DB: ParallelDatabase,
 // {

@@ -60,7 +60,7 @@ macro_rules! define_specific_punctuation_token {
         }
         #[test]
         fn $test_name() {
-            fn t(db: &DB, input: &str) -> TokenDataResult<Option<$ty>> {
+            fn t(db: &::salsa::Db, input: &str) -> TokenDataResult<Option<$ty>> {
                 quick_parse(db, input)
             }
 
@@ -263,7 +263,7 @@ where
 
 #[test]
 fn eol_colon_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<EolToken>> {
+    fn t(db: &::salsa::Db, input: &str) -> TokenDataResult<Option<EolToken>> {
         quick_parse(db, input)
     }
 

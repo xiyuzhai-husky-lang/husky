@@ -8,7 +8,7 @@ use crate::{
     ingredient::{fmt_index, Ingredient, IngredientRequiresReset},
     key::{DatabaseKeyIndex, DependencyIndex},
     runtime::{local_state::QueryOrigin, Runtime},
-    AsId, IngredientIndex, Revision,
+    AsId, Db, IngredientIndex, Revision,
 };
 
 // why bother?
@@ -65,11 +65,11 @@ where
     }
 }
 
-impl<DB: ?Sized, Id> Ingredient for InputIngredient<Id>
+impl<Id> Ingredient for InputIngredient<Id>
 where
     Id: InputId,
 {
-    fn maybe_changed_after(&self, _db: &DB, _input: DependencyIndex, _revision: Revision) -> bool {
+    fn maybe_changed_after(&self, _db: &Db, _input: DependencyIndex, _revision: Revision) -> bool {
         // Input ingredients are just a counter, they store no data, they are immortal.
         // Their *fields* are stored in function ingredients elsewhere.
         false
@@ -85,7 +85,7 @@ where
 
     fn mark_validated_output(
         &self,
-        _db: &DB,
+        _db: &Db,
         executor: DatabaseKeyIndex,
         output_key: Option<crate::Id>,
     ) {
@@ -97,7 +97,7 @@ where
 
     fn remove_stale_output(
         &self,
-        _db: &DB,
+        _db: &Db,
         executor: DatabaseKeyIndex,
         stale_output_key: Option<crate::Id>,
     ) {
@@ -111,7 +111,7 @@ where
         panic!("unexpected call to `reset_for_new_revision`")
     }
 
-    fn salsa_struct_deleted(&self, _db: &DB, _id: crate::Id) {
+    fn salsa_struct_deleted(&self, _db: &Db, _id: crate::Id) {
         panic!(
             "unexpected call: input ingredients do not register for salsa struct deletion events"
         );

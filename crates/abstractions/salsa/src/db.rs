@@ -1,6 +1,8 @@
-use crate::*;
+use crate::{Runtime, *};
 
-pub struct Db {}
+pub struct Db {
+    storage: crate::storage::Storage,
+}
 
 impl Db {
     pub fn jars(&self) -> (&Jars, &Runtime) {
@@ -13,10 +15,18 @@ impl Db {
         todo!()
     }
 
-    pub fn runtime(&self) -> &crate::Runtime {
+    pub fn jar<Jar>(&self) -> (&Jar, &Runtime) {
+        todo!()
+    }
+
+    pub fn jar_mut<Jar>(&mut self) -> (&mut Jar, &Runtime) {
+        todo!()
+    }
+
+    pub fn runtime(&self) -> &Runtime {
         self.storage.runtime()
     }
-    pub fn runtime_mut(&mut self) -> &mut crate::Runtime {
+    pub fn runtime_mut(&mut self) -> &mut Runtime {
         self.storage.runtime_mut()
     }
     pub fn maybe_changed_after(
@@ -68,5 +78,35 @@ impl Db {
     ) -> std::fmt::Result {
         let ingredient = self.storage.ingredient(index.ingredient_index());
         ingredient.fmt_index(index.key_index(), fmt)
+    }
+
+    /// This function is invoked at key points in the salsa
+    /// runtime. It permits the database to be customized and to
+    /// inject logging or other custom behavior.
+    ///
+    /// By default, the event is logged at level debug using
+    /// the standard `log` facade.
+    pub fn salsa_event(&self, event: Event) {
+        log::debug!("salsa_event: {:?}", event.debug(self));
+    }
+
+    /// A "synthetic write" causes the system to act *as though* some
+    /// input of durability `durability` has changed. This is mostly
+    /// useful for profiling scenarios.
+    ///
+    /// **WARNING:** Just like an ordinary write, this method triggers
+    /// cancellation. If you invoke it while a snapshot exists, it
+    /// will block until that snapshot is dropped -- if that snapshot
+    /// is owned by the current thread, this could trigger deadlock.
+    pub fn synthetic_write(&mut self, durability: Durability) {
+        self.runtime_mut().report_tracked_write(durability);
+    }
+
+    /// Reports that the query depends on some state unknown to salsa.
+    ///
+    /// Queries which report untracked reads will be re-executed in the next
+    /// revision.
+    pub fn report_untracked_read(&self) {
+        self.runtime().report_untracked_read();
     }
 }

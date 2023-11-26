@@ -98,11 +98,9 @@ fn inherent_impl(args: &Args, struct_ty: &syn::Type, data_ty: &syn::Type) -> syn
     let jar_ty = args.jar_ty();
     parse_quote! {
         impl #struct_ty {
-            pub fn push<DB: ?Sized>(db: &DB, data: #data_ty)
-            where
-                DB: salsa::storage::HasJar<#jar_ty>,
+            pub fn push(db: &::salsa::Db, data: #data_ty)
             {
-                let (jar, runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
+                let (jar, runtime) = db.jar::<#jar_ty>();
                 let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #struct_ty >>::ingredient(jar);
                 ingredients.push(runtime, data)
             }
@@ -122,17 +120,15 @@ fn ingredients_for_impl(
             type Ingredients = salsa::accumulator::AccumulatorIngredient<#data_ty>;
             type Jar = #jar_ty;
 
-            fn create_ingredients<DB>(routes: &mut salsa::routes::Routes) -> Self::Ingredients
-            where
-                DB: salsa::Database + salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
+            fn create_ingredients (routes: &mut salsa::routes::Routes) -> Self::Ingredients
             {
                     let index = routes.push(
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                            let jar = jars.jar::<Self::Jar>>();
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar)
                         },
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                            let jar = jars.jar_mut::<Self::Jar>>();
                             <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar)
                         },
                     );
@@ -149,13 +145,11 @@ fn accumulator_impl(args: &Args, struct_ty: &syn::Type, data_ty: &syn::Type) -> 
             type Data = #data_ty;
             type Jar = #jar_ty;
 
-            fn accumulator_ingredient<'db, Db>(
+            fn accumulator_ingredient<'db>(
                 db: &'db Db,
             ) -> &'db salsa::accumulator::AccumulatorIngredient<Self::Data>
-            where
-                Db: ?Sized + salsa::storage::HasJar<Self::Jar>
             {
-                let (jar, _) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
+                let (jar, _) = db.jar::<#jar_ty>();
                 let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor<#struct_ty>>::ingredient(jar);
                 ingredients
             }

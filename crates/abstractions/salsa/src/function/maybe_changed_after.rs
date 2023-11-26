@@ -25,7 +25,7 @@ where
 
             log::debug!(
                 "{:?}: maybe_changed_after(revision = {:?})",
-                database_key_index.debug(db.database_dyn()),
+                database_key_index.debug(db),
                 revision,
             );
 
@@ -57,9 +57,7 @@ where
         let runtime = db.runtime();
         let database_key_index = self.database_key_index(key_index);
 
-        let _claim_guard = self
-            .sync_map
-            .claim(db.as_salsa_database(), database_key_index)?;
+        let _claim_guard = self.sync_map.claim(db, database_key_index)?;
         let active_query = runtime.push_query(database_key_index);
 
         // Load the current memo, if any. Use a real arc, not an arc-swap guard,
@@ -71,7 +69,7 @@ where
 
         log::debug!(
             "{:?}: maybe_changed_after_cold, successful claim, revision = {:?}, old_memo = {:#?}",
-            database_key_index.debug(db.database_dyn()),
+            database_key_index.debug(db),
             revision,
             old_memo
         );
@@ -109,7 +107,7 @@ where
 
         log::debug!(
             "{:?}: shallow_verify_memo(memo = {:#?})",
-            database_key_index.debug(db.database_dyn()),
+            database_key_index.debug(db),
             memo,
         );
 
@@ -120,7 +118,7 @@ where
 
         if memo.check_durability(runtime) {
             // No input of the suitable durability has changed since last verified.
-            memo.mark_as_verified(db.as_salsa_database(), runtime, database_key_index);
+            memo.mark_as_verified(db, runtime, database_key_index);
             return true;
         }
 
@@ -146,7 +144,7 @@ where
 
         log::debug!(
             "{:?}: deep_verify_memo(old_memo = {:#?})",
-            database_key_index.debug(db.database_dyn()),
+            database_key_index.debug(db),
             old_memo
         );
 
@@ -210,7 +208,7 @@ where
             }
         }
 
-        old_memo.mark_as_verified(db.as_salsa_database(), runtime, database_key_index);
+        old_memo.mark_as_verified(db, runtime, database_key_index);
         true
     }
 }

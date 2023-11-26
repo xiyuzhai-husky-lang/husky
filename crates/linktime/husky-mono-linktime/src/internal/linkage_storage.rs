@@ -8,7 +8,7 @@ use husky_vfs::PackagePath;
 pub struct MonoLinkageStorage {}
 
 impl MonoLinkageStorage {
-    pub(super) fn generate<Db: ?Sized>(target_path: LinktimeTargetPath, db: &Db) -> Self
+    pub(super) fn generate(target_path: LinktimeTargetPath, db: &Db) -> Self
     where
         Db: RustTranspilationDb,
     {

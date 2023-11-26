@@ -11,10 +11,6 @@ struct Jar(
     tracked_struct_created_in_another_query,
 );
 
-trait Db: salsa::DbWithJar<Jar> {}
-
-impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> {}
-
 #[salsa::input(db = Db, jar = Jar)]
 struct MyInput {
     field: u32,

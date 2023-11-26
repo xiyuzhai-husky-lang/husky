@@ -86,7 +86,6 @@ impl InternedStruct {
     fn inherent_impl_for_named_fields(&self) -> syn::ItemImpl {
         let constructor_visibility = self.constructor_visibility();
         let id_ident = self.id_ident();
-        let db_dyn_ty = self.db_dyn_ty();
         let jar_ty = self.jar_ty();
 
         let field_getters: Vec<syn::ImplItemMethod> = self
@@ -98,16 +97,16 @@ impl InternedStruct {
                 let field_get_name = field.get_name();
                 if field.is_clone_field() {
                     parse_quote! {
-                        #field_vis fn #field_get_name(self, db: &#db_dyn_ty) -> #field_ty {
-                            let (jar, runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
+                        #field_vis fn #field_get_name(self, db: &::salsa::Db) -> #field_ty {
+                            let (jar, runtime) = db.jar::<#jar_ty>();
                             let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #id_ident >>::ingredient(jar);
                             std::clone::Clone::clone(&ingredients.data(runtime, self).#field_name)
                         }
                     }
                 } else {
                     parse_quote! {
-                        #field_vis fn #field_get_name<'db>(self, db: &'db #db_dyn_ty) -> &'db #field_ty {
-                            let (jar, runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
+                        #field_vis fn #field_get_name<'db>(self, db: &'db ::salsa::Db) -> &'db #field_ty {
+                            let (jar, runtime) = db.jar::<#jar_ty>();
                             let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #id_ident >>::ingredient(jar);
                             &ingredients.data(runtime, self).#field_name
                         }
@@ -122,10 +121,10 @@ impl InternedStruct {
         let constructor_name = self.constructor_name();
         let new_method: syn::ImplItemMethod = parse_quote! {
             #constructor_visibility fn #constructor_name(
-                db: &#db_dyn_ty,
+                db: &::salsa::Db,
                 #(#field_names: #field_tys,)*
             ) -> Self {
-                let (jar, runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
+                let (jar, runtime) = db.jar::<#jar_ty>();
                 let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #id_ident >>::ingredient(jar);
                 ingredients.intern(runtime, #data_ident {
                     #(#field_names,)*
@@ -182,11 +181,9 @@ impl InternedStruct {
         let ident = self.id_ident();
         let jar_ty = self.jar_ty();
         parse_quote! {
-            impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for #ident
-            where
-                DB: ?Sized + salsa::DbWithJar<#jar_ty>,
+            impl salsa::salsa_struct::SalsaStructInDb for #ident
             {
-                fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {
+                fn register_dependent_fn(_db: &::salsa::Db, _index: salsa::routes::IngredientIndex) {
                     // Do nothing here, at least for now.
                     // If/when we add ability to delete inputs, this would become relevant.
                 }

@@ -1,8 +1,8 @@
-use crate::cycle::CycleRecoveryStrategy;
 use crate::ingredient::{fmt_index, Ingredient, IngredientRequiresReset};
 use crate::key::DependencyIndex;
 use crate::runtime::local_state::QueryOrigin;
 use crate::runtime::StampedValue;
+use crate::{cycle::CycleRecoveryStrategy, Db};
 use crate::{AsId, DatabaseKeyIndex, Durability, Id, IngredientIndex, Revision, Runtime};
 use dashmap::mapref::entry::Entry;
 use dashmap::DashMap;
@@ -116,7 +116,7 @@ unsafe fn transmute_lifetime<'t, 'u, T, U>(_t: &'t T, u: &'u U) -> &'t U {
     std::mem::transmute(u)
 }
 
-impl<DB: ?Sized, K, V> Ingredient for InputFieldIngredient<K, V>
+impl<K, V> Ingredient for InputFieldIngredient<K, V>
 where
     K: AsId,
 {
@@ -124,7 +124,7 @@ where
         CycleRecoveryStrategy::Panic
     }
 
-    fn maybe_changed_after(&self, _db: &DB, input: DependencyIndex, revision: Revision) -> bool {
+    fn maybe_changed_after(&self, _db: &Db, input: DependencyIndex, revision: Revision) -> bool {
         let key = K::from_id(input.key_index.unwrap());
         self.map.get(&key).unwrap().changed_at > revision
     }
@@ -135,7 +135,7 @@ where
 
     fn mark_validated_output(
         &self,
-        _db: &DB,
+        _db: &Db,
         _executor: DatabaseKeyIndex,
         _output_key: Option<Id>,
     ) {
@@ -143,13 +143,13 @@ where
 
     fn remove_stale_output(
         &self,
-        _db: &DB,
+        _db: &Db,
         _executor: DatabaseKeyIndex,
         _stale_output_key: Option<Id>,
     ) {
     }
 
-    fn salsa_struct_deleted(&self, _db: &DB, _id: Id) {
+    fn salsa_struct_deleted(&self, _db: &Db, _id: Id) {
         panic!("unexpected call: input fields are never deleted");
     }
 

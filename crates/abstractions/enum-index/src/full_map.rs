@@ -4,9 +4,15 @@ use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-pub struct EnumFullMap<I: IsEnumIndex, T>(Vec<T>, PhantomData<I>);
+pub struct EnumFullVecMap<I: IsEnumIndex, T>(Vec<T>, PhantomData<I>);
 
-impl<I: IsEnumIndex, T> std::ops::Index<I> for EnumFullMap<I, T> {
+#[derive(Debug, Clone, PartialEq, Eq)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+pub struct EnumFullArrayMap<I: IsEnumIndex, T>([T; <I as IsEnumIndex>::N], PhantomData<I>)
+where
+    [(); <I as IsEnumIndex>::N]:;
+
+impl<I: IsEnumIndex, T> std::ops::Index<I> for EnumFullVecMap<I, T> {
     type Output = T;
 
     fn index(&self, index: I) -> &Self::Output {
@@ -14,13 +20,13 @@ impl<I: IsEnumIndex, T> std::ops::Index<I> for EnumFullMap<I, T> {
     }
 }
 
-impl<I: IsEnumIndex, T> std::ops::IndexMut<I> for EnumFullMap<I, T> {
+impl<I: IsEnumIndex, T> std::ops::IndexMut<I> for EnumFullVecMap<I, T> {
     fn index_mut(&mut self, index: I) -> &mut Self::Output {
         &mut self.0[index.index()]
     }
 }
 
-impl<I: IsEnumIndex, T> Default for EnumFullMap<I, T>
+impl<I: IsEnumIndex, T> Default for EnumFullVecMap<I, T>
 where
     T: Default,
 {
@@ -32,7 +38,7 @@ where
     }
 }
 
-impl<I: IsEnumIndex, T> EnumFullMap<I, T> {
+impl<I: IsEnumIndex, T> EnumFullVecMap<I, T> {
     pub fn new(f: impl Fn(I) -> T) -> Self {
         Self(
             (0..I::N).into_iter().map(|i| f(I::from_index(i))).collect(),

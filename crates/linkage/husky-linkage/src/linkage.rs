@@ -57,7 +57,7 @@ impl Linkage {
     }
 }
 
-impl<Db: ?Sized> HasVersionStamp<Db> for Linkage
+impl HasVersionStamp<Db> for Linkage
 where
     Db: LinkageDb,
 {

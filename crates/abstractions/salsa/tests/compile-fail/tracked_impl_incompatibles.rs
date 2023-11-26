@@ -49,6 +49,4 @@ impl std::default::Default for [MyTracked; 12] {
     fn default() -> Self {}
 }
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 fn main() {}

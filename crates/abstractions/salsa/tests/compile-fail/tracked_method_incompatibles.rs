@@ -11,6 +11,4 @@ impl Tracked {
     fn use_tracked(&self) {}
 }
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 fn main() {}

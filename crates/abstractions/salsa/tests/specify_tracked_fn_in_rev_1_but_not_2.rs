@@ -16,10 +16,6 @@ struct Jar(
     final_result,
 );
 
-trait Db: salsa::DbWithJar<Jar> + HasLogger {}
-
-impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
-
 #[salsa::input(db = Db)]
 struct MyInput {
     field: u32,
@@ -68,22 +64,7 @@ fn final_result(db: &dyn Db, input: MyInput) -> u32 {
 
 #[salsa::db(Jar)]
 #[derive(Default)]
-struct Database {
-    storage: salsa::Storage<Self>,
-    logger: Logger,
-}
-
-impl salsa::Database for Database {
-    fn salsa_event(&self, event: salsa::Event) {
-        self.push_log(format!("{:?}", event.debug(self)));
-    }
-}
-
-impl HasLogger for Database {
-    fn logger(&self) -> &Logger {
-        &self.logger
-    }
-}
+struct Database;
 
 #[test]
 fn test_run_0() {

@@ -81,7 +81,7 @@ impl TraitPathData {
 }
 
 impl salsa::DebugWithDb for TraitPath {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         f.write_str("TraitPath(`")?;
         self.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())?;
         f.write_str("`)")

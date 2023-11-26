@@ -64,23 +64,23 @@ impl salsa::AsId for Coword {
 }
 
 impl Coword {
-    pub fn data<'db>(self, db: &'db <CowordJar as salsa::jar::Jar<'_>>::DynDb) -> &'db str {
+    pub fn data<'db>(self, db: &'db Db) -> &'db str {
         let (jar, runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar(db);
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         &ingredients.data(runtime, self).data
     }
-    pub fn new(db: &<CowordJar as salsa::jar::Jar<'_>>::DynDb, data: String) -> Self {
+    pub fn new(db: &Db, data: String) -> Self {
         let (jar, runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar(db);
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern(runtime, __CowordData { data })
     }
 }
 
-impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for Coword
+implsalsa::salsa_struct::SalsaStructInDb for Coword
 where
     DB: ?Sized + salsa::DbWithJar<CowordJar>,
 {
-    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
+    fn register_dependent_fn(_db: &::salsa::Db, _index: salsa::routes::IngredientIndex) {}
 }
 
 impl ::salsa::DebugWithDb for Coword {
@@ -104,13 +104,13 @@ impl<'a> From<&'a str> for __CowordData {
 }
 
 impl Coword {
-    pub fn from_owned(db: &<CowordJar as salsa::jar::Jar<'_>>::DynDb, data: String) -> Self {
+    pub fn from_owned(db: &Db, data: String) -> Self {
         let (jar, runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar(db);
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern(runtime, __CowordData { data })
     }
 
-    pub fn from_ref(db: &<CowordJar as salsa::jar::Jar<'_>>::DynDb, data: &str) -> Self {
+    pub fn from_ref(db: &Db, data: &str) -> Self {
         let (jar, runtime) = <_ as salsa::storage::HasJar<CowordJar>>::jar(db);
         let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern_borrowed(runtime, data)

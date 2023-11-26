@@ -53,7 +53,7 @@ where
     phantom: PhantomData<DB>,
 }
 
-impl<DB> Default for WatchedVfs<DB>
+implDefault for WatchedVfs<DB>
 where
     DB: Default + WatchableVfsDb + ParallelDatabase + 'static,
 {

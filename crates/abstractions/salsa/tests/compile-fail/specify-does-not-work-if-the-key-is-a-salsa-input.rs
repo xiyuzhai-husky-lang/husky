@@ -5,8 +5,6 @@
 #[salsa::jar(db = Db)]
 struct Jar(MyInput, MyTracked, tracked_fn);
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 #[salsa::input(jar = Jar)]
 struct MyInput {
     field: u32,

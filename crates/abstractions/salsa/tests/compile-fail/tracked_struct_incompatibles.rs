@@ -8,8 +8,6 @@ struct Jar(
     TrackedStructWithLru,
 );
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 #[salsa::tracked(jar = Jar, return_ref)]
 struct TrackedWithRetRef {
     field: u32,

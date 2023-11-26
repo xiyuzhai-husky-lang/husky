@@ -8,10 +8,6 @@ use test_log::test;
 #[salsa::jar(db = Db)]
 struct Jar(MyInput);
 
-trait Db: salsa::DbWithJar<Jar> + HasLogger {}
-
-impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
-
 #[salsa::input(db = Db, jar = Jar)]
 struct MyInput {
     field: String,

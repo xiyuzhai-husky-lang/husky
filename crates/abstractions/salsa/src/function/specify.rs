@@ -128,12 +128,12 @@ where
             QueryOrigin::Assigned(by_query) => assert_eq!(by_query, executor),
             _ => panic!(
                 "expected a query assigned by `{:?}`, not `{:?}`",
-                executor.debug(db.database_dyn()),
+                executor.debug(db),
                 memo.revisions.origin,
             ),
         }
 
         let database_key_index = self.database_key_index(key);
-        memo.mark_as_verified(db.as_salsa_database(), runtime, database_key_index);
+        memo.mark_as_verified(db, runtime, database_key_index);
     }
 }

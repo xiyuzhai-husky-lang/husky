@@ -4,22 +4,16 @@ use husky_fs_specs::FsSpecsError;
 use husky_path_utils::collect_husky_package_dirs;
 use vec_like::VecSet;
 
-pub trait VfsDb: salsa::DbWithJar<VfsJar> + CowordDb + Send + VfsDbInner {
-    fn vfs_path_menu(&self, toolchain: Toolchain) -> &VfsPathMenu;
-    fn current_toolchain(&self) -> VfsResult<Toolchain>;
-    fn live_packages(
-        &self,
-    ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
-    fn collect_local_packages(
-        &self,
-        toolchain: Toolchain,
-        dir: &Path,
-    ) -> VfsResult<Vec<PackagePath>>;
-    fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
-    fn collect_probable_modules(&self, package_path: PackagePath) -> Vec<ModulePath>;
-    fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
-    fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
-}
+pub fn vfs_path_menu(&Db, toolchain: Toolchain) -> &VfsPathMenu;
+pub fn current_toolchain(&Db) -> VfsResult<Toolchain>;
+pub fn live_packages(
+    &Db,
+) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
+pub fn collect_local_packages(&Db, toolchain: Toolchain, dir: &Path) -> VfsResult<Vec<PackagePath>>;
+pub fn collect_crates(&Db, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
+pub fn collect_probable_modules(&Db, package_path: PackagePath) -> Vec<ModulePath>;
+pub fn resolve_module_path(&Db, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
+pub fn published_toolchain_library_path(&Db, toolchain: PublishedToolchain) -> &Path;
 
 // don't leak this outside the crate
 pub trait VfsDbInner {

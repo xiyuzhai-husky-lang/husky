@@ -10,8 +10,6 @@ struct Jar(
     MyInput_TrackedTrait_tracked_trait_fn,
 );
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 trait TrackedTrait {
     fn tracked_trait_fn(self, db: &dyn Db) -> u32;
 }
@@ -51,7 +49,7 @@ fn execute() {
     }
 
     impl salsa::Database for Database {
-        fn database(&self) -> &dyn ::salsa::Database {
+        fn database(&self) -> &::salsa::Db {
             self
         }
     }

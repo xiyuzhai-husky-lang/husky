@@ -121,12 +121,7 @@ impl VfsTestUtils for TestDb {
     {
         vfs_expect_test(
             self,
-            |db, u| {
-                format!(
-                    "{:#?}",
-                    &f(unsafe { std::mem::transmute(db) }, u).debug(db.database_dyn())
-                )
-            },
+            |db, u| format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u).debug(db)),
             config,
         )
     }

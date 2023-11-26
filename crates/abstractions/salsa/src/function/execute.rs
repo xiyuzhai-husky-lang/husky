@@ -47,7 +47,7 @@ where
             Err(cycle) => {
                 log::debug!(
                     "{:?}: caught cycle {:?}, have strategy {:?}",
-                    database_key_index.debug(db.database_dyn()),
+                    database_key_index.debug(db),
                     cycle,
                     C::CYCLE_STRATEGY
                 );
@@ -100,7 +100,7 @@ where
 
         log::debug!(
             "{:?}: read_upgrade: result.revisions = {:#?}",
-            database_key_index.debug(db.database_dyn()),
+            database_key_index.debug(db),
             revisions
         );
 

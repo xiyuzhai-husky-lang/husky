@@ -475,7 +475,7 @@ where
 
 #[test]
 fn use_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<UseToken>> {
+    fn t(db: &::salsa::Db, input: &str) -> TokenDataResult<Option<UseToken>> {
         quick_parse(db, input)
     }
 
@@ -532,7 +532,7 @@ where
 
 #[test]
 fn self_value_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<SelfValueToken>> {
+    fn t(db: &::salsa::Db, input: &str) -> TokenDataResult<Option<SelfValueToken>> {
         quick_parse(db, input)
     }
 
@@ -588,7 +588,7 @@ where
 
 #[test]
 fn self_type_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<SelfTypeToken>> {
+    fn t(db: &::salsa::Db, input: &str) -> TokenDataResult<Option<SelfTypeToken>> {
         quick_parse(db, input)
     }
 
@@ -656,7 +656,7 @@ where
 
 #[test]
 fn variance_token_works() {
-    fn t(db: &DB, input: &str) -> TokenDataResult<Option<VarianceToken>> {
+    fn t(db: &::salsa::Db, input: &str) -> TokenDataResult<Option<VarianceToken>> {
         quick_parse(db, input)
     }
 

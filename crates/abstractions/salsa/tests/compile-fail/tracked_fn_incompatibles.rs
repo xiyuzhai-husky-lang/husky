@@ -8,8 +8,6 @@ struct Jar(
     tracked_fn_with_receiver_not_applied_to_impl_block,
 );
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 #[salsa::input(jar = Jar)]
 struct MyInput {
     field: u32,

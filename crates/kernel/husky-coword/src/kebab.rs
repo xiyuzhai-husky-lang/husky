@@ -10,7 +10,7 @@ impl Kebab {
         self.0
     }
 
-    pub fn ident(self, db: &dyn CowordDb) -> Ident {
+    pub fn ident(self, db: &Db) -> Ident {
         kebab_to_ident(db, self.0)
     }
 
@@ -18,11 +18,11 @@ impl Kebab {
         Self(coword)
     }
 
-    pub fn from_coword(db: &dyn CowordDb, coword: Coword) -> Option<Self> {
+    pub fn from_coword(db: &Db, coword: Coword) -> Option<Self> {
         is_coword_valid_kebab(db, coword).then_some(Kebab(coword))
     }
 
-    pub fn from_owned(db: &dyn CowordDb, data: String) -> Option<Self> {
+    pub fn from_owned(db: &Db, data: String) -> Option<Self> {
         if is_str_valid_kebab(&data) {
             Some(Self(db.it_coword_owned(data)))
         } else {
@@ -30,7 +30,7 @@ impl Kebab {
         }
     }
 
-    pub fn from_ref(db: &dyn CowordDb, data: &str) -> Option<Self> {
+    pub fn from_ref(db: &Db, data: &str) -> Option<Self> {
         if is_str_valid_kebab(data) {
             Some(Self(db.it_coword_borrowed(data)))
         } else {
@@ -38,14 +38,14 @@ impl Kebab {
         }
     }
 
-    pub fn data(self, db: &dyn CowordDb) -> &str {
+    pub fn data(self, db: &Db) -> &str {
         db.dt_coword(self.0)
     }
 }
 
 /// only use in this module
 #[salsa::tracked(jar = CowordJar)]
-pub(crate) fn kebab_to_ident(db: &dyn CowordDb, coword: Coword) -> Ident {
+pub(crate) fn kebab_to_ident(db: &Db, coword: Coword) -> Ident {
     let kebab = coword.data(db);
     if !kebab.contains("-") {
         return Ident::from_borrowed(db, kebab).unwrap();
@@ -55,7 +55,7 @@ pub(crate) fn kebab_to_ident(db: &dyn CowordDb, coword: Coword) -> Ident {
 }
 
 #[salsa::tracked(jar = CowordJar)]
-pub fn is_coword_valid_kebab(db: &dyn CowordDb, coword: Coword) -> bool {
+pub fn is_coword_valid_kebab(db: &Db, coword: Coword) -> bool {
     is_str_valid_kebab(coword.data(db))
 }
 
@@ -85,7 +85,7 @@ pub fn is_char_valid_kebab_nonfirst_char(c: char) -> bool {
 }
 
 impl salsa::DebugWithDb for Kebab {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         f.write_fmt(format_args!(
             "`{}`",
             self.data(db.as_jar_db_dyn::<CowordJar>())

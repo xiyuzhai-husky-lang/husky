@@ -8,8 +8,6 @@ struct Jar(
     InputWithLru,
 );
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 #[salsa::input(jar = Jar, return_ref)]
 struct InputWithRetRef(u32);
 

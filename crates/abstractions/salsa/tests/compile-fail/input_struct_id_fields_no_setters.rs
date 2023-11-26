@@ -1,8 +1,6 @@
 #[salsa::jar(db = Db)]
 struct Jar(MyInput);
 
-trait Db: salsa::DbWithJar<Jar> {}
-
 #[salsa::input(jar = Jar)]
 struct MyInput {
     field: u32,
@@ -15,10 +13,6 @@ struct MyInput {
 struct Database {
     storage: salsa::Storage<Self>,
 }
-
-impl salsa::Database for Database {}
-
-impl Db for Database {}
 
 fn main() {
     let mut db = Database::default();

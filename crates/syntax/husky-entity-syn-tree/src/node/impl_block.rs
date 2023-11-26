@@ -49,7 +49,7 @@ impl ImplBlockSynNodePath {
 
 // impl HasModulePath<Db> for ImplBlockSynNodePath
 // where
-//     Db: ?Sized + EntitySynTreeDb,
+//      + EntitySynTreeDb,
 // {
 //     fn module_path(self, db: &Db) -> ModulePath {
 //         match self {

@@ -30,7 +30,7 @@ pub enum ItemSynNodePath {
 
 // impl HasModulePath<Db> for ItemSynNodePath
 // where
-//     Db: ?Sized + EntitySynTreeDb,
+//      + EntitySynTreeDb,
 // {
 //     fn module_path(self, db: &Db) -> ModulePath {
 //         match self {

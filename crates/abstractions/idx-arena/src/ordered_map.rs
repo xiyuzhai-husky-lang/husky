@@ -1,5 +1,3 @@
-use salsa::Database;
-
 use crate::*;
 
 use std::marker::PhantomData;
@@ -61,7 +59,7 @@ where
     T: salsa::DebugWithDb,
     V: salsa::DebugWithDb,
 {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         let elements = self.data.iter().map(|v| v.debug_with(db));
         f.debug_list().entries(elements).finish()
     }
