@@ -14,11 +14,12 @@ pub enum SynNodeRegionPath {
 
 impl SynNodeRegionPath {
     pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        match self {
-            SynNodeRegionPath::Snippet(module_path) => module_path,
-            SynNodeRegionPath::Decl(path) => path.module_path(db),
-            SynNodeRegionPath::Defn(path) => path.module_path(db),
-        }
+        todo!()
+        // match self {
+        //     SynNodeRegionPath::Snippet(module_path) => module_path,
+        //     SynNodeRegionPath::Decl(path) => path.module_path(db),
+        //     SynNodeRegionPath::Defn(path) => path.module_path(db),
+        // }
     }
 
     pub fn toolchain(self, db: &dyn EntitySynTreeDb) -> Toolchain {

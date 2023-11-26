@@ -1,11 +1,11 @@
 use crossbeam::atomic::AtomicCell;
 
 use crate::{
-    database::AsSalsaDatabase,
+    database::{AsSalsaDatabase, DatabaseDyn},
     runtime::local_state::{QueryOrigin, QueryRevisions},
     storage::HasJarsDyn,
     tracked_struct::TrackedStructInDb,
-    DatabaseKeyIndex, DebugWithDb,
+    Database, DatabaseKeyIndex, DebugWithDb,
 };
 
 use super::{memo::Memo, Configuration, DynDb, FunctionIngredient};
@@ -130,7 +130,7 @@ where
             QueryOrigin::Assigned(by_query) => assert_eq!(by_query, executor),
             _ => panic!(
                 "expected a query assigned by `{:?}`, not `{:?}`",
-                executor.debug(db),
+                executor.debug(db.database_dyn()),
                 memo.revisions.origin,
             ),
         }

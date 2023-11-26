@@ -47,7 +47,7 @@ pub trait VfsDbInner {
 
 impl<Db> VfsDbInner for Db
 where
-    Db: salsa::DbWithJar<VfsJar> + CowordDb + Send + 'static,
+    Db: Sized + salsa::DbWithJar<VfsJar> + CowordDb + Send + 'static,
 {
     fn file_from_virtual_path(&self, abs_path: VirtualPath) -> VfsResult<File> {
         Ok(

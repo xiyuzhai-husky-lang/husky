@@ -5,6 +5,7 @@ pub use self::index::*;
 pub use self::set::*;
 
 use super::*;
+use salsa::Database;
 use thiserror::Error;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = pub new_inner)]
@@ -59,15 +60,14 @@ pub enum TermSymbolTypeErrorKind {
 }
 pub type TermSymbolTypeResult<T> = Result<T, TermSymbolTypeErrorKind>;
 
-impl<Db: EtherealTermDb + ?Sized> salsa::DisplayWithDb<Db> for EtherealTermSymbol {
+impl salsa::DisplayWithDb for EtherealTermSymbol {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
         // ad hoc
+        let db = db.as_jar_db_dyn::<EtherealTermJar>();
         f.write_fmt(format_args!("${:?}", self.index(db)))
     }
 }

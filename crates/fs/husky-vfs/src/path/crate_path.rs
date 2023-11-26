@@ -37,8 +37,7 @@ impl CratePath {
         self.package_path(db).ident(db)
     }
 
-    pub fn root_module_path<Db: ?Sized + VfsDb>(self, db: &Db) -> ModulePath {
-        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+    pub fn root_module_path(self, db: &dyn VfsDb) -> ModulePath {
         ModulePath::new_root(db, self).expect("guaranteed to be valid")
     }
 }

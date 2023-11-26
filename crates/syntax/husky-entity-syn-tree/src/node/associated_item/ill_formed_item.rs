@@ -9,15 +9,6 @@ impl From<IllFormedItemSynNodePath> for ItemSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for IllFormedItemSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, _db: &Db) -> ModulePath {
-        todo!()
-    }
-}
-
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub(crate) struct IllFormedItemSynNode {
     #[id]

@@ -13,14 +13,15 @@ pub struct AdHocPackage {
 
 impl AdHocPackage {
     pub fn new_lib(
-        db: &mut dyn VfsDb,
+        db: &mut TestDb,
         lib_content: &'static str,
         non_root_modules: impl IntoIterator<Item = (&'static str, &'static str)>,
     ) -> Self {
         let package_fs_path = PathBuf::from_str("ad_hoc_314").unwrap();
+        let toolchain = db.dev_toolchain().unwrap();
         let package_path = PackagePath::new_local_or_toolchain_package(
             db,
-            db.dev_toolchain().unwrap(),
+            toolchain,
             Kebab::from_ref(db, "ad-hoc-314").unwrap(),
             &package_fs_path,
         )

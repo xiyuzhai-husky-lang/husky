@@ -2,7 +2,7 @@ use husky_coword::Ident;
 use husky_entity_path::*;
 
 use husky_vfs::Toolchain;
-use salsa::DisplayWithDb;
+use salsa::{Database, DisplayWithDb};
 
 use super::*;
 
@@ -78,37 +78,36 @@ impl TermEntityPath {
     }
 }
 
-impl<Db: ?Sized + TermPreludeDb> DisplayWithDb<Db> for TermEntityPath {
+impl DisplayWithDb for TermEntityPath {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
         match self {
             TermEntityPath::Fugitive(path) => {
                 f.write_str("Form(")?;
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
+                path.display_with_db_fmt(f, db)?;
                 f.write_str(")")
             }
             TermEntityPath::Trait(path) => {
                 f.write_str("Trait(")?;
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
+                path.display_with_db_fmt(f, db)?;
                 f.write_str(")")
             }
             TermEntityPath::TypeOntology(path) => {
                 f.write_str("TypeOntology(")?;
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
+                path.display_with_db_fmt(f, db)?;
                 f.write_str(")")
             }
             TermEntityPath::TypeInstance(path) => {
                 f.write_str("TypeConstructor(")?;
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
+                path.display_with_db_fmt(f, db)?;
                 f.write_str(")")
             }
             TermEntityPath::TypeVariant(path) => {
                 f.write_str("TypeVariant(")?;
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
+                path.display_with_db_fmt(f, db)?;
                 f.write_str(")")
             }
         }

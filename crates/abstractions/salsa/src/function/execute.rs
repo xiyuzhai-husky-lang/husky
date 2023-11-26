@@ -1,6 +1,7 @@
 use std::sync::Arc;
 
 use crate::{
+    database::DatabaseDyn,
     debug::DebugWithDb,
     runtime::{local_state::ActiveQueryGuard, StampedValue},
     storage::HasJarsDyn,
@@ -50,7 +51,7 @@ where
             Err(cycle) => {
                 log::debug!(
                     "{:?}: caught cycle {:?}, have strategy {:?}",
-                    database_key_index.debug(db),
+                    database_key_index.debug(db.database_dyn()),
                     cycle,
                     C::CYCLE_STRATEGY
                 );
@@ -103,7 +104,7 @@ where
 
         log::debug!(
             "{:?}: read_upgrade: result.revisions = {:#?}",
-            database_key_index.debug(db),
+            database_key_index.debug(db.database_dyn()),
             revisions
         );
 

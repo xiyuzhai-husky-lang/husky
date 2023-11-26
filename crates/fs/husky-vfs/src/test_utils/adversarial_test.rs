@@ -35,22 +35,18 @@ impl std::fmt::Display for AdversarialKind {
     }
 }
 
-pub(super) fn vfs_adversarial_test<Db, U, R>(
-    db: &mut Db,
+pub(super) fn vfs_adversarial_test<U, R>(
+    db: &mut TestDb,
     package_adversarials_dir: &Path,
     unit: U,
-    f: &impl Fn(&Db, U) -> R,
+    f: &impl Fn(&TestDb, U) -> R,
     config: &VfsTestConfig,
 ) where
-    Db: VfsDb + ?Sized,
     U: VfsTestUnit,
 {
-    let Some(adversarial_path) = unit.determine_adversarial_path(
-        <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db),
-        AdversarialKind::Vfs,
-        package_adversarials_dir,
-        config,
-    ) else {
+    let Some(adversarial_path) =
+        unit.determine_adversarial_path(db, AdversarialKind::Vfs, package_adversarials_dir, config)
+    else {
         return;
     };
     let module = unit.vfs_test_unit_downcast_as_module_path().unwrap();

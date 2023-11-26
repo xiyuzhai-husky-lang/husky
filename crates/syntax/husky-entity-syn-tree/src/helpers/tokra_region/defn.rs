@@ -336,9 +336,7 @@ fn build_defn_tokra_region(
     Some(builder.build())
 }
 
-pub trait HasSynDefnTokraRegion:
-    for<'a> HasModulePath<dyn EntitySynTreeDb + 'a> + Copy + Into<ItemSynNodePath>
-{
+pub trait HasSynDefnTokraRegion: Copy + Into<ItemSynNodePath> {
     fn defn_tokra_region(self, db: &dyn EntitySynTreeDb) -> Option<DefnTokraRegion>;
     // use this only when necessary
     fn defn_tokra_region_source_map(
@@ -487,7 +485,7 @@ fn fugitive_defn_tokra_region_with_source_map(
     syn_node_path: FugitiveSynNodePath,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     build_defn_tokra_region(
-        syn_node_path.module_path(db),
+        todo!(), //syn_node_path.module_path(db),
         syn_node_path.syn_node(db).ast_idx(db),
         db,
     )
@@ -636,7 +634,8 @@ fn ty_item_defn_tokra_region_with_source_map(
     syn_node_path: TypeItemSynNodePath,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     build_defn_tokra_region(
-        syn_node_path.module_path(db),
+        todo!(),
+        // syn_node_path.module_path(db),
         syn_node_path.syn_node(db).ast_idx(db),
         db,
     )
@@ -703,7 +702,8 @@ fn trai_for_ty_item_defn_tokra_region_with_source_map(
     syn_node_path: TraitForTypeItemSynNodePath,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     build_defn_tokra_region(
-        syn_node_path.module_path(db),
+        todo!(),
+        // syn_node_path.module_path(db),
         syn_node_path.syn_node(db).ast_idx(db),
         db,
     )

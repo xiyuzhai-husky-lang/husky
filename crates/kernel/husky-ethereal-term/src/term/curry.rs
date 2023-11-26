@@ -1,5 +1,7 @@
 mod utils;
 
+use salsa::Database;
+
 pub(crate) use self::utils::*;
 
 use super::*;
@@ -90,14 +92,16 @@ pub(crate) fn term_curry_from_declarative(
     ))
 }
 
-impl<Db: EtherealTermDb + ?Sized> salsa::DisplayWithDb<Db> for EtherealTermCurry {
+impl salsa::DisplayWithDb for EtherealTermCurry {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
-        self.show_with_db_fmt(f, db, &mut Default::default())
+        self.show_with_db_fmt(
+            f,
+            db.as_jar_db_dyn::<EtherealTermJar>(),
+            &mut Default::default(),
+        )
     }
 }

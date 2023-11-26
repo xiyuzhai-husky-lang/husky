@@ -40,27 +40,23 @@ impl DeclarativeTermRitchie {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for DeclarativeTermRitchie
-where
-    Db: DeclarativeTermDb + ?Sized,
-{
+impl salsa::DisplayWithDb for DeclarativeTermRitchie {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
+        let db = db.as_jar_db_dyn::<DeclarativeTermJar>();
         f.write_str(self.ritchie_kind(db).code())?;
         f.write_str("(")?;
         for (i, parameter_ty) in self.params(db).iter().enumerate() {
             if i > 0 {
                 f.write_str(", ")?
             }
-            parameter_ty.display_with_db_fmt(f, db, level.next())?
+            parameter_ty.display_with_db_fmt(f, db)?
         }
         f.write_str(") -> ")?;
-        self.return_ty(db).display_with_db_fmt(f, db, level.next())
+        self.return_ty(db).display_with_db_fmt(f, db)
     }
 }
 
@@ -104,20 +100,14 @@ impl DeclarativeRitchieParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for DeclarativeRitchieParameter
-where
-    Db: DeclarativeTermDb + ?Sized,
-{
+impl salsa::DisplayWithDb for DeclarativeRitchieParameter {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
         match self {
-            DeclarativeRitchieParameter::Regular(parameter) => {
-                parameter.display_with_db_fmt(f, db, level)
-            }
+            DeclarativeRitchieParameter::Regular(parameter) => parameter.display_with_db_fmt(f, db),
             DeclarativeRitchieParameter::Variadic(_) => todo!(),
             DeclarativeRitchieParameter::Keyed(_) => todo!(),
         }

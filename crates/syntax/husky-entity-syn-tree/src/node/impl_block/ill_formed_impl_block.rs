@@ -19,16 +19,16 @@ impl IllFormedImplBlockSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for IllFormedImplBlockSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        let db = entity_syn_tree_db(db);
-        // self.path.module_path(db)
-        todo!()
-    }
-}
+// impl HasModulePath<Db> for IllFormedImplBlockSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         let db = entity_syn_tree_db(db);
+//         // self.path.module_path(db)
+//         todo!()
+//     }
+// }
 
 impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
     fn from(id: IllFormedImplBlockSynNodePath) -> Self {

@@ -13,15 +13,15 @@ impl From<TraitSynNodePath> for ItemSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for TraitSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        let db = entity_syn_tree_db(db);
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-}
+// impl HasModulePath<Db> for TraitSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         let db = entity_syn_tree_db(db);
+//         self.maybe_ambiguous_path(db).path.module_path(db)
+//     }
+// }
 
 impl TraitSynNodePath {
     pub(super) fn new(
@@ -69,7 +69,7 @@ impl HasSynNodePath for TraitPath {
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn trai_node(db: &dyn EntitySynTreeDb, syn_node_path: TraitSynNodePath) -> MajorItemSynNode {
-    let module_path = syn_node_path.module_path(db);
+    let module_path: ModulePath = todo!(); // syn_node_path.module_path(db);
     let item_sheet = module_path.item_tree_sheet(db);
     match item_sheet
         .major_item_node(syn_node_path.into())

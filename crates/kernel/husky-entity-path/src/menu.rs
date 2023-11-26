@@ -1,3 +1,5 @@
+use salsa::database::DatabaseDyn;
+
 use crate::*;
 
 #[salsa::tracked(jar = EntityPathJar, return_ref)]

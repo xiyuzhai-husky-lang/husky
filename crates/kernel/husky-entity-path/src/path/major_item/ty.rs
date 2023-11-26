@@ -1,6 +1,8 @@
 mod custom;
 mod prelude;
 
+use salsa::Database;
+
 pub use self::custom::*;
 pub use self::prelude::*;
 
@@ -111,34 +113,23 @@ impl TypePathData {
     }
 }
 
-impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for TypePath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
-        let data = self.data(db);
+impl salsa::DebugWithDb for TypePath {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+        let data = self.data(db.as_jar_db_dyn::<EntityPathJar>());
         f.write_str("TypePath(`")?;
-        data.show_aux(f, db)?;
+        data.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())?;
         f.write_str("`, `")?;
         data.ty_kind.fmt(f)?;
         f.write_str("`)")
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for TypePath
-where
-    Db: EntityPathDb + ?Sized,
-{
+impl salsa::DisplayWithDb for TypePath {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
-        self.show_aux(f, db)
+        self.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())
     }
 }

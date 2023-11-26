@@ -41,7 +41,7 @@ use husky_toml_token::TomlTokenJar;
 pub(crate) struct DB;
 
 fn module_declarative_signature_templates(
-    db: &TestDb,
+    db: &dyn DeclarativeSignatureDb,
     module_path: ModulePath,
 ) -> Vec<(ItemPath, DeclarativeSignatureResult<SignatureTemplate>)> {
     syn_decl_sheet(db, module_path)
@@ -55,7 +55,7 @@ fn module_declarative_signature_templates(
 #[test]
 fn module_declarative_signature_templates_works() {
     DB::default().ast_expect_test_debug_with_db(
-        module_declarative_signature_templates,
+        |db, module_path| module_declarative_signature_templates(db, module_path),
         &AstTestConfig::new("module_declarative_signature"),
     )
 }

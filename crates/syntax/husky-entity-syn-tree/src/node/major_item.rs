@@ -18,18 +18,18 @@ pub enum MajorItemSynNodePath {
     Fugitive(FugitiveSynNodePath),
 }
 
-impl<Db> HasModulePath<Db> for MajorItemSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        match self {
-            MajorItemSynNodePath::Trait(node) => node.module_path(db),
-            MajorItemSynNodePath::Type(node) => node.module_path(db),
-            MajorItemSynNodePath::Fugitive(node) => node.module_path(db),
-        }
-    }
-}
+// impl HasModulePath<Db> for MajorItemSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         match self {
+//             MajorItemSynNodePath::Trait(node) => node.module_path(db),
+//             MajorItemSynNodePath::Type(node) => node.module_path(db),
+//             MajorItemSynNodePath::Fugitive(node) => node.module_path(db),
+//         }
+//     }
+// }
 
 impl MajorItemSynNodePath {
     pub(super) fn new(

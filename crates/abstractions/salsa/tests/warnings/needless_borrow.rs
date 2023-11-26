@@ -8,12 +8,11 @@ struct Jar(TokenTree);
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
 enum Token {}
 
-impl salsa::DebugWithDb<dyn Db + '_> for Token {
+impl salsa::DebugWithDb for Token {
     fn fmt(
         &self,
         _f: &mut std::fmt::Formatter<'_>,
-        _db: &dyn Db,
-        _level: salsa::DebugFormatLevel,
+        _db: &dyn ::salsa::Database,
     ) -> std::fmt::Result {
         unreachable!()
     }

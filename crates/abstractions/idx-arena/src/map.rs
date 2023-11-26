@@ -1,5 +1,6 @@
 use crate::*;
 use husky_check_utils::should;
+use salsa::Database;
 use std::marker::PhantomData;
 
 pub struct ArenaMap<T, V> {
@@ -7,21 +8,16 @@ pub struct ArenaMap<T, V> {
     phantom: PhantomData<T>,
 }
 
-impl<Db: ?Sized, T, V> salsa::DebugWithDb<Db> for ArenaMap<T, V>
+impl<T, V> salsa::DebugWithDb for ArenaMap<T, V>
 where
-    T: salsa::DebugWithDb<Db>,
-    V: salsa::DebugWithDb<Db>,
+    T: salsa::DebugWithDb,
+    V: salsa::DebugWithDb,
 {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
         let elements = self
             .data
             .iter()
-            .filter_map(|v| Some(v.as_ref()?.debug_with(db, level.next())));
+            .filter_map(|v| Some(v.as_ref()?.debug_with(db)));
         f.debug_list().entries(elements).finish()
     }
 }

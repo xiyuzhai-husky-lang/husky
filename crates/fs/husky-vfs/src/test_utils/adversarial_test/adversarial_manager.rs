@@ -23,10 +23,7 @@ impl VfsAdversarialManager {
         }
     }
 
-    pub(super) fn run<Db>(mut self, db: &mut Db, f: &impl Fn(&Db))
-    where
-        Db: VfsDb + ?Sized,
-    {
+    pub(super) fn run(mut self, db: &mut TestDb, f: &impl Fn(&TestDb)) {
         for adversarial in &self.adversarials {
             if adversarial.test(db, self.module, f).is_err() {
                 println!(

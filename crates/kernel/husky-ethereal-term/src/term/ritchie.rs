@@ -2,6 +2,8 @@ mod keyed;
 mod regular;
 mod variadic;
 
+use salsa::Database;
+
 pub use self::keyed::*;
 pub use self::regular::*;
 pub use self::variadic::*;
@@ -167,27 +169,23 @@ impl EtherealTermInstantiate for EtherealRitchieParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for EtherealTermRitchie
-where
-    Db: EtherealTermDb + ?Sized,
-{
+impl salsa::DisplayWithDb for EtherealTermRitchie {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
+        let db = db.as_jar_db_dyn::<EtherealTermJar>();
         f.write_str(self.ritchie_kind(db).code())?;
         f.write_str("(")?;
         for (i, parameter_ty) in self.parameter_contracted_tys(db).iter().enumerate() {
             if i > 0 {
                 f.write_str(", ")?
             }
-            parameter_ty.display_with_db_fmt(f, db, level.next())?
+            parameter_ty.display_with_db_fmt(f, db)?
         }
         f.write_str(") -> ")?;
-        self.return_ty(db).display_with_db_fmt(f, db, level.next())
+        self.return_ty(db).display_with_db_fmt(f, db)
     }
 }
 
@@ -223,20 +221,16 @@ impl EtherealRitchieParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for EtherealRitchieParameter
-where
-    Db: EtherealTermDb + ?Sized,
-{
+impl salsa::DisplayWithDb for EtherealRitchieParameter {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
         match self {
-            EtherealRitchieParameter::Regular(param) => param.display_with_db_fmt(f, db, level),
-            EtherealRitchieParameter::Variadic(param) => param.display_with_db_fmt(f, db, level),
-            EtherealRitchieParameter::Keyed(param) => param.display_with_db_fmt(f, db, level),
+            EtherealRitchieParameter::Regular(param) => param.display_with_db_fmt(f, db),
+            EtherealRitchieParameter::Variadic(param) => param.display_with_db_fmt(f, db),
+            EtherealRitchieParameter::Keyed(param) => param.display_with_db_fmt(f, db),
         }
     }
 }

@@ -37,15 +37,15 @@ impl TypeSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for TypeSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        let db = entity_syn_tree_db(db);
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-}
+// impl HasModulePath<Db> for TypeSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         let db = entity_syn_tree_db(db);
+//         self.maybe_ambiguous_path(db).path.module_path(db)
+//     }
+// }
 
 impl HasSynNodePath for TypePath {
     type SynNodePath = TypeSynNodePath;
@@ -63,9 +63,9 @@ impl From<TypeSynNodePath> for ItemSynNodePath {
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn ty_node(db: &dyn EntitySynTreeDb, syn_node_path: TypeSynNodePath) -> MajorItemSynNode {
-    let module_path = syn_node_path.module_path(db);
-    // it's important to use presheet instead of sheet
-    // otherwise cyclic when use all type variant paths
+    let module_path: ModulePath = todo!(); //= syn_node_path.module_path(db);
+                                           // it's important to use presheet instead of sheet
+                                           // otherwise cyclic when use all type variant paths
     let item_presheet = db.item_syn_tree_presheet(module_path);
     let Some(major_item_node) = item_presheet.major_item_node(syn_node_path.into()) else {
         p!(syn_node_path.debug(db));
@@ -90,7 +90,7 @@ fn ty_attrs(
     db: &dyn EntitySynTreeDb,
     ty_syn_node_path: TypeSynNodePath,
 ) -> SmallVec<[(AttrSynNodePath, AttrSynNode); 2]> {
-    let ast_sheet = ty_syn_node_path.module_path(db).ast_sheet(db);
+    let ast_sheet: AstSheet = todo!(); // = ty_syn_node_path.module_path(db).ast_sheet(db);
     let mut registry = ItemSynNodePathRegistry::default();
     ast_sheet.procure_attrs(
         ty_syn_node_path.maybe_ambiguous_path(db).path.into(),

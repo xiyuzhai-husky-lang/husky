@@ -1,4 +1,5 @@
 use super::*;
+use salsa::Database;
 use vec_like::VecPairMap;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -215,14 +216,9 @@ impl TraitForTypeImplBlockPath {
     }
 }
 
-impl<Db: ?Sized + EntityPathDb> salsa::DebugWithDb<Db> for TraitForTypeImplBlockPath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        self.show(f, <Db as DbWithJar<EntityPathJar>>::as_jar_db(db))
+impl salsa::DebugWithDb for TraitForTypeImplBlockPath {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+        self.show(f, db.as_jar_db_dyn::<EntityPathJar>())
     }
 }
 

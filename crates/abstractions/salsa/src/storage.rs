@@ -3,11 +3,11 @@ use std::{fmt, sync::Arc};
 use parking_lot::Condvar;
 
 use crate::cycle::CycleRecoveryStrategy;
-use crate::ingredient::Ingredient;
 use crate::jar::Jar;
 use crate::key::DependencyIndex;
 use crate::runtime::local_state::QueryOrigin;
 use crate::runtime::Runtime;
+use crate::{ingredient::Ingredient, test_utils::HasTestJarIndex};
 use crate::{Database, DatabaseKeyIndex, Id, IngredientIndex};
 
 use super::routes::Routes;
@@ -205,6 +205,22 @@ pub trait DbWithJar<J>: HasJar<J> + Database {
         J: Jar<'db>;
 }
 
+impl<'a> dyn Database + 'a {
+    pub fn as_jar_db_dyn<'db, Jar>(&self) -> &<Jar as crate::jar::Jar<'db>>::DynDb
+    where
+        Jar: crate::jar::Jar<'db> + HasTestJarIndex,
+    {
+        todo!()
+    }
+
+    pub fn as_jar_db_dyn_mut<'db, Jar>(&mut self) -> &mut <Jar as crate::jar::Jar<'db>>::DynDb
+    where
+        Jar: crate::jar::Jar<'db> + HasTestJarIndex,
+    {
+        todo!()
+    }
+}
+
 pub trait JarFromJars<J>: HasJars {
     fn jar_from_jars(jars: &Self::Jars) -> &J;
 
@@ -264,5 +280,5 @@ pub trait IngredientsFor {
 
     fn create_ingredients<DB>(routes: &mut Routes<DB>) -> Self::Ingredients
     where
-        DB: DbWithJar<Self::Jar> + JarFromJars<Self::Jar>;
+        DB: Database + DbWithJar<Self::Jar> + JarFromJars<Self::Jar>;
 }

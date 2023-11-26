@@ -23,15 +23,15 @@ impl SubmoduleSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for SubmoduleSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        let db = entity_syn_tree_db(db);
-        self.maybe_ambiguous_path(db).path.parent(db)
-    }
-}
+// impl HasModulePath<Db> for SubmoduleSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         let db = entity_syn_tree_db(db);
+//         self.maybe_ambiguous_path(db).path.parent(db)
+//     }
+// }
 
 impl HasSynNodePath for SubmodulePath {
     type SynNodePath = SubmoduleSynNodePath;
@@ -78,7 +78,7 @@ pub(crate) fn submodule_syn_node(
     db: &dyn EntitySynTreeDb,
     syn_node_path: SubmoduleSynNodePath,
 ) -> SubmoduleSynNode {
-    let module_path = syn_node_path.module_path(db);
+    let module_path: ModulePath = todo!(); //= syn_node_path.module_path(db);
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     match item_tree_sheet.major_item_node(syn_node_path.into()) {
         Some(ItemSynNode::Submodule(node)) => node,

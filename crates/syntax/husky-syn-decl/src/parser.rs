@@ -23,7 +23,7 @@ where
     P: HasDeclTokraRegion,
 {
     pub(crate) fn new(db: &'a dyn SynDeclDb, syn_node_path: P) -> Self {
-        let path = syn_node_path.module_path(db);
+        let path = todo!(); // syn_node_path.module_path(db);
         let Ok(module_symbol_context) = db.module_symbol_context(path) else {
             use salsa::DebugWithDb;
             p!(path.debug(db));

@@ -13,6 +13,8 @@ mod subitem;
 mod symbol;
 mod wrapper;
 
+use salsa::{Database, DisplayWithDb};
+
 pub use self::abstraction::*;
 pub use self::as_trai_subitem::*;
 pub use self::constraint::*;
@@ -82,31 +84,24 @@ pub enum DeclarativeTerm {
     List(DeclarativeTermList),
 }
 
-impl<Db: DeclarativeTermDb + ?Sized> salsa::DebugWithDb<Db> for DeclarativeTerm {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
+impl salsa::DebugWithDb for DeclarativeTerm {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn Database) -> std::fmt::Result {
         use salsa::DisplayWithDb;
-        f.write_fmt(format_args!(
-            "DeclarativeTerm(`{}`)",
-            self.display_with(db, salsa::DisplayFormatLevel::root())
-        ))
+        f.write_fmt(format_args!("DeclarativeTerm(`{}`)", self.display_with(db)))
     }
 }
 
-impl<Db: DeclarativeTermDb + ?Sized> salsa::DisplayWithDb<Db> for DeclarativeTerm {
+impl DisplayWithDb for DeclarativeTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
-        self.show_with_db_fmt(f, db, &mut Default::default())
+        self.show_with_db_fmt(
+            f,
+            db.as_jar_db_dyn::<DeclarativeTermJar>(),
+            &mut Default::default(),
+        )
     }
 }
 

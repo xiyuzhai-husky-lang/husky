@@ -1,5 +1,5 @@
 use crate::*;
-use salsa::{input::InputIngredient, input_field::InputFieldIngredient, Durability};
+use salsa::{input::InputIngredient, input_field::InputFieldIngredient, Database, Durability};
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct File(salsa::Id);
@@ -83,7 +83,7 @@ impl salsa::storage::IngredientsFor for File {
     );
     fn create_ingredients<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
     where
-        DB: salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
+        DB: salsa::Database + salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
     {
         (
             {
@@ -154,42 +154,31 @@ impl salsa::AsId for File {
         File(id)
     }
 }
-impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for File {
+impl ::salsa::DebugWithDb for File {
     fn fmt(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
-        _db: &<VfsJar as salsa::jar::Jar<'_>>::DynDb,
-        _level: salsa::DebugFormatLevel,
+        _db: &dyn ::salsa::Database,
     ) -> ::std::fmt::Result {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
         let mut debug_struct = &mut f.debug_struct("HuskyFile");
         debug_struct = debug_struct.field(
             "path",
-            &::salsa::debug::helper::SalsaDebug::<
-                VirtualPath,
-                <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-            >::salsa_debug(
+            &::salsa::debug::helper::SalsaDebug::<VirtualPath>::salsa_debug(
                 #[allow(clippy::needless_borrow)]
-                &self.path(_db),
+                &self.path(_db.as_jar_db_dyn::<VfsJar>()),
                 _db,
-                _level.next(),
             ),
         );
-        if _level.is_root() {
-            debug_struct = debug_struct.field(
-                "content",
-                &::salsa::debug::helper::SalsaDebug::<
-                    FileContent,
-                    <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-                >::salsa_debug(
-                    #[allow(clippy::needless_borrow)]
-                    &self.content(_db),
-                    _db,
-                    _level.next(),
-                ),
-            );
-        }
+        debug_struct = debug_struct.field(
+            "content",
+            &::salsa::debug::helper::SalsaDebug::<FileContent>::salsa_debug(
+                #[allow(clippy::needless_borrow)]
+                &self.content(_db.as_jar_db_dyn::<VfsJar>()),
+                _db,
+            ),
+        );
         debug_struct.finish()
     }
 }

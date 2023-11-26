@@ -44,15 +44,15 @@ impl TraitForTypeImplBlockSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for TraitForTypeImplBlockSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        let db = entity_syn_tree_db(db);
-        self.path.module_path(db)
-    }
-}
+// impl HasModulePath<Db> for TraitForTypeImplBlockSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         let db = entity_syn_tree_db(db);
+//         self.path.module_path(db)
+//     }
+// }
 
 impl From<TraitForTypeImplBlockSynNodePath> for ItemSynNodePath {
     fn from(id: TraitForTypeImplBlockSynNodePath) -> Self {
@@ -144,7 +144,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_node(
     db: &dyn EntitySynTreeDb,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockSynNode {
-    let module_path = syn_node_path.module_path(db);
+    let module_path = todo!(); //syn_node_path.module_path(db);
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     item_tree_sheet.trai_for_ty_impl_block_syn_node(db, syn_node_path)
 }

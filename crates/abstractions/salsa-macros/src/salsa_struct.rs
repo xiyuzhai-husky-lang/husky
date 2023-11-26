@@ -339,11 +339,10 @@ impl<A: AllowedOptions> SalsaStruct<A> {
                 let field_debug = quote_spanned! { field.field.span() =>
                     debug_struct = debug_struct.field(
                         #field_name_string,
-                        &::salsa::debug::helper::SalsaDebug::<#field_ty, #db_dyn_ty>::salsa_debug(
+                        &::salsa::debug::helper::SalsaDebug::<#field_ty>::salsa_debug(
                             #[allow(clippy::needless_borrow)]
-                            &self.#field_getter(_db),
-                            _db,
-                            _level.next()
+                            &self.#field_getter(_db.as_jar_db_dyn::<#jar_ty>()),
+                            _db
                         )
                     );
                 };
@@ -356,21 +355,12 @@ impl<A: AllowedOptions> SalsaStruct<A> {
 
         // `use ::salsa::debug::helper::Fallback` is needed for the fallback to `Debug` impl
         quote_spanned! {ident.span()=>
-            impl<_Db: #db_trai + ?Sized> ::salsa::DebugWithDb<_Db> for #ident {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: salsa::DebugFormatLevel) -> ::std::fmt::Result {
-                    self.__fmt_with_db_aux(f, <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db), _level)
-                }
-            }
-
-            impl #ident {
-                #[inline(never)]
-                fn __fmt_with_db_aux(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &dyn #db_trai, _level: salsa::DebugFormatLevel) -> ::std::fmt::Result {
+            impl ::salsa::DebugWithDb for #ident {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &dyn ::salsa::Database) -> ::std::fmt::Result {
                     #[allow(unused_imports)]
                     use ::salsa::debug::helper::Fallback;
                     let mut debug_struct = &mut f.debug_struct(#ident_string);
-                    if _level.is_root() {
-                        debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
-                    }
+                    debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
                     #fields
                     debug_struct.finish()
                 }

@@ -1,5 +1,6 @@
 use crate::*;
 use ordered_float::{NotNan, OrderedFloat};
+use salsa::Database;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]
@@ -228,14 +229,12 @@ pub struct TermNatLiteral {
     pub bits: Vec<usize>,
 }
 
-impl<Db: TermPreludeDb + ?Sized> salsa::DisplayWithDb<Db> for TermLiteral {
+impl salsa::DisplayWithDb for TermLiteral {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<TermPreludeJar>>::as_jar_db(db);
-        self.show_with_db_fmt(f, db)
+        self.show_with_db_fmt(f, db.as_jar_db_dyn::<TermPreludeJar>())
     }
 }

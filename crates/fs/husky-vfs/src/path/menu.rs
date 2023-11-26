@@ -278,23 +278,21 @@ impl VfsPathMenu {
 #[test]
 fn vfs_path_menu_works() {
     let db = DB::default();
+    let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
     let menu = db.vfs_path_menu(toolchain);
-    assert_eq!(menu.core_root().to_string_with_db(&db), "core");
-    assert_eq!(menu.std_root().to_string_with_db(&db), "std");
-    assert_eq!(menu.core_basic().to_string_with_db(&db), "core::basic");
-    assert_eq!(menu.core_default().to_string_with_db(&db), "core::default");
-    assert_eq!(menu.core_mem().to_string_with_db(&db), "core::mem");
-    assert_eq!(menu.core_num().to_string_with_db(&db), "core::num");
-    assert_eq!(menu.core_slice().to_string_with_db(&db), "core::slice");
-    assert_eq!(menu.core_str().to_string_with_db(&db), "core::str");
-    assert_eq!(menu.core_ops().to_string_with_db(&db), "core::ops");
-    assert_eq!(menu.core_option().to_string_with_db(&db), "core::option");
-    assert_eq!(menu.core_prelude().to_string_with_db(&db), "core::prelude");
-    assert_eq!(
-        menu.core_raw_bits().to_string_with_db(&db),
-        "core::raw_bits"
-    );
-    assert_eq!(menu.core_vec().to_string_with_db(&db), "core::vec");
-    assert_eq!(menu.core_visual().to_string_with_db(&db), "core::visual");
+    assert_eq!(menu.core_root().to_string_with_db(db), "core");
+    assert_eq!(menu.std_root().to_string_with_db(db), "std");
+    assert_eq!(menu.core_basic().to_string_with_db(db), "core::basic");
+    assert_eq!(menu.core_default().to_string_with_db(db), "core::default");
+    assert_eq!(menu.core_mem().to_string_with_db(db), "core::mem");
+    assert_eq!(menu.core_num().to_string_with_db(db), "core::num");
+    assert_eq!(menu.core_slice().to_string_with_db(db), "core::slice");
+    assert_eq!(menu.core_str().to_string_with_db(db), "core::str");
+    assert_eq!(menu.core_ops().to_string_with_db(db), "core::ops");
+    assert_eq!(menu.core_option().to_string_with_db(db), "core::option");
+    assert_eq!(menu.core_prelude().to_string_with_db(db), "core::prelude");
+    assert_eq!(menu.core_raw_bits().to_string_with_db(db), "core::raw_bits");
+    assert_eq!(menu.core_vec().to_string_with_db(db), "core::vec");
+    assert_eq!(menu.core_visual().to_string_with_db(db), "core::visual");
 }

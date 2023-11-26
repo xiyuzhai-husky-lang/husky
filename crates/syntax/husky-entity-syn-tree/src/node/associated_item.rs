@@ -43,23 +43,23 @@ impl AssociatedItemSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for AssociatedItemSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        match self {
-            AssociatedItemSynNodePath::TypeItem(syn_node_path) => syn_node_path.module_path(db),
-            AssociatedItemSynNodePath::TraitItem(syn_node_path) => syn_node_path.module_path(db),
-            AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
-                syn_node_path.module_path(db)
-            }
-            AssociatedItemSynNodePath::IllFormedItem(syn_node_path) => {
-                syn_node_path.module_path(db)
-            }
-        }
-    }
-}
+// impl HasModulePath<Db> for AssociatedItemSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         match self {
+//             AssociatedItemSynNodePath::TypeItem(syn_node_path) => syn_node_path.module_path(db),
+//             AssociatedItemSynNodePath::TraitItem(syn_node_path) => syn_node_path.module_path(db),
+//             AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
+//                 syn_node_path.module_path(db)
+//             }
+//             AssociatedItemSynNodePath::IllFormedItem(syn_node_path) => {
+//                 syn_node_path.module_path(db)
+//             }
+//         }
+//     }
+// }
 
 impl HasSynNodePath for AssociatedItemPath {
     type SynNodePath = AssociatedItemSynNodePath;

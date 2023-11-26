@@ -23,7 +23,7 @@ pub struct DB;
 #[test]
 fn folding_ranges_works() {
     DB::default().ast_expect_test_debug(
-        FoldingRangeDb::folding_ranges,
+        |db, module_path| db.folding_ranges(module_path),
         &AstTestConfig::new("folding_ranges"),
     );
 }

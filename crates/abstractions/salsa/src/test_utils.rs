@@ -3,6 +3,7 @@ use std::mem::MaybeUninit;
 use crate::{
     routes::Routes,
     storage::{HasJars, HasJarsDyn, JarFromJars},
+    Database,
 };
 use enum_index::full_map::EnumFullMap;
 use husky_salsa_log_utils::HasLogger;

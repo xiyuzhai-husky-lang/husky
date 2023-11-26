@@ -32,7 +32,7 @@ impl<'a> SynStmtContext<'a> {
     where
         P: HasSynDefnTokraRegion,
     {
-        let module_path = syn_node_path.module_path(db);
+        let module_path = todo!(); // syn_node_path.module_path(db);
         let expr_context = SynExprContext::new(
             db,
             SynNodeRegionPath::Defn(syn_node_path.into()),

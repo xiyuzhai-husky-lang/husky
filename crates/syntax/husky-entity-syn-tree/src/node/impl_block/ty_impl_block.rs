@@ -53,15 +53,15 @@ impl TypeImplBlockSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for TypeImplBlockSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        let db = entity_syn_tree_db(db);
-        self.path.module_path(db)
-    }
-}
+// impl HasModulePath<Db> for TypeImplBlockSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         let db = entity_syn_tree_db(db);
+//         self.path.module_path(db)
+//     }
+// }
 
 impl HasSynNodePath for TypeImplBlockPath {
     type SynNodePath = TypeImplBlockSynNodePath;
@@ -119,7 +119,7 @@ pub(crate) fn ty_impl_block_syn_node(
     db: &dyn EntitySynTreeDb,
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockSynNode {
-    let module_path = syn_node_path.module_path(db);
+    let module_path = todo!(); //syn_node_path.module_path(db);
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     item_tree_sheet.ty_impl_block_syn_node(syn_node_path)
 }

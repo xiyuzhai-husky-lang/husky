@@ -47,22 +47,22 @@ impl ImplBlockSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for ImplBlockSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        match self {
-            ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => syn_node_path.module_path(db),
-            ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
-                syn_node_path.module_path(db)
-            }
-            ImplBlockSynNodePath::IllFormedImplBlock(syn_node_path) => {
-                syn_node_path.module_path(db)
-            }
-        }
-    }
-}
+// impl HasModulePath<Db> for ImplBlockSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         match self {
+//             ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => syn_node_path.module_path(db),
+//             ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
+//                 syn_node_path.module_path(db)
+//             }
+//             ImplBlockSynNodePath::IllFormedImplBlock(syn_node_path) => {
+//                 syn_node_path.module_path(db)
+//             }
+//         }
+//     }
+// }
 
 impl HasSynNodePath for ImplBlockPath {
     type SynNodePath = ImplBlockSynNodePath;
