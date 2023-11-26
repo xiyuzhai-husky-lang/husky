@@ -1,9 +1,9 @@
 use crate::{
-    storage::{HasJar, HasJarsDyn},
+    storage::{HasJar, HasJarDyn, HasJarsDyn},
     DbWithJar, DebugWithDb, Durability, Event,
 };
 
-pub trait Database: DatabaseDyn + HasJarsDyn + AsSalsaDatabase {
+pub trait Database: DatabaseDyn + HasJarsDyn + HasJarDyn + AsSalsaDatabase {
     /// This function is invoked at key points in the salsa
     /// runtime. It permits the database to be customized and to
     /// inject logging or other custom behavior.
@@ -56,7 +56,6 @@ impl<'a, Jar> DbWithJar<Jar> for dyn Database + 'a {
 
 pub trait DatabaseDyn {
     fn database_dyn(&self) -> &dyn Database;
-    fn database_dyn_mut(&mut self) -> &mut dyn Database;
 }
 
 impl<T> DatabaseDyn for T
@@ -64,10 +63,6 @@ where
     T: Database,
 {
     fn database_dyn(&self) -> &dyn Database {
-        self
-    }
-
-    fn database_dyn_mut(&mut self) -> &mut dyn Database {
         self
     }
 }
