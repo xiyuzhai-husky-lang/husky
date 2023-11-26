@@ -1,10 +1,5 @@
 use crate::*;
 
-pub trait DeclarativeTypeDb: salsa::DbWithJar<DeclarativeTypeJar> + DeclarativeSignatureDb {}
-
-impl DeclarativeTypeDb for Db where Db: salsa::DbWithJar<DeclarativeTypeJar> + DeclarativeSignatureDb
-{}
-
 #[salsa::jar(db = DeclarativeTypeDb)]
 pub struct DeclarativeTypeJar(
     ty_ontology_path_declarative_ty,

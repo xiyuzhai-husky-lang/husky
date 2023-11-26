@@ -1,5 +1,7 @@
 mod derive;
 
+use husky_coword::coword_menu;
+
 pub use self::derive::*;
 
 use super::*;

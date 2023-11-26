@@ -14,7 +14,6 @@ use self::incomplete_expr::*;
 use crate::symbol::*;
 use crate::*;
 use husky_opr::precedence::*;
-use husky_token_data::db::{HasTokenDataDb, TokenDataDb};
 use original_error::OriginalError;
 use parsec::{HasStreamState, IsStreamParser};
 use std::ops::ControlFlow;

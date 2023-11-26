@@ -29,9 +29,8 @@ pub struct RegionScope {
     token_idx_range: RegionalTokenIdxRange,
 }
 
-impl<Db: VfsDb + ?Sized> PartialOrdWithDb<Db> for Scope {
+impl PartialOrdWithDb for Scope {
     fn partial_cmp_with_db(&self, db: &::salsa::Db, other: &Self) -> Option<Ordering> {
-        let db = <Db as salsa::DbWithJar<husky_vfs::VfsJar>>::as_jar_db(db);
         match (self, other) {
             (Scope::Pub, Scope::Pub) => Some(Ordering::Equal),
             (Scope::Pub, _) => Some(Ordering::Greater),

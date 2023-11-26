@@ -1,5 +1,5 @@
 use husky_defn_ast::{DefnAst, DefnAstArena, DefnAstArenaRef, DefnAstIdx, DefnAstIdxRange};
-use husky_token::{TokenIdxRange, TokenSheetData};
+use husky_token::{TokenDb, TokenIdxRange, TokenSheetData};
 
 use super::*;
 

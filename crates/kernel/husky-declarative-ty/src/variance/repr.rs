@@ -25,7 +25,7 @@ impl VarianceRepr {
 }
 
 pub(crate) fn item_variance_reprs(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: ItemPath,
 ) -> VarianceResultRef<&[VarianceRepr]> {
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
@@ -52,7 +52,7 @@ pub(crate) fn item_variance_reprs(
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn ty_template_parameter_variance_reprs(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TypePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
@@ -96,7 +96,7 @@ pub(crate) fn ty_template_parameter_variance_reprs(
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn trai_item_variance_reprs(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TraitPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
@@ -133,7 +133,7 @@ pub(crate) fn trai_item_variance_reprs(
 
 // #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variance_reprs(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: FugitivePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
     let signature = match path.declarative_signature_template(db) {
@@ -159,7 +159,7 @@ pub(crate) fn form_item_variance_reprs(
 
 // #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn ty_item_item_variance_reprs(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TypeItemPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
     let signature = match path.declarative_signature_template(db) {

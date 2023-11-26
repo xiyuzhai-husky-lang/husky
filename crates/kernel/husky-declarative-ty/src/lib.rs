@@ -28,5 +28,5 @@ use husky_entity_path::*;
 use husky_term_prelude::*;
 
 pub trait HasDeclarativeType: Copy {
-    fn declarative_ty(self, db: &dyn DeclarativeTypeDb) -> DeclarativeTypeResult<DeclarativeTerm>;
+    fn declarative_ty(self, db: &::salsa::Db) -> DeclarativeTypeResult<DeclarativeTerm>;
 }

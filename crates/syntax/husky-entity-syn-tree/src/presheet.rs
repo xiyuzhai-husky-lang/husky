@@ -9,7 +9,7 @@ pub use once_use_rule::*;
 pub(crate) use action::*;
 
 use crate::*;
-use husky_token::TokenSheetData;
+use husky_token::{TokenDb, TokenSheetData};
 use vec_like::{AsVecMapEntry, VecPairMap};
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]

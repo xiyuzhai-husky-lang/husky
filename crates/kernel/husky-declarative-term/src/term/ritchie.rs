@@ -46,7 +46,6 @@ impl salsa::DisplayWithDb for DeclarativeTermRitchie {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        let db = db();
         f.write_str(self.ritchie_kind(db).code())?;
         f.write_str("(")?;
         for (i, parameter_ty) in self.params(db).iter().enumerate() {

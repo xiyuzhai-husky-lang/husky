@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_path_ty_method_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TypePath,
     _ident: Ident,
 ) -> DeclarativeTypeResult<Option<DeclarativeTerm>> {

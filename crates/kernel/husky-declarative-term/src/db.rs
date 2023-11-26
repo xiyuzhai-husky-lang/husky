@@ -1,19 +1,15 @@
 use crate::*;
 
-use husky_term_prelude::TermPreludeDb;
 use husky_vfs::Toolchain;
 
-pub trait DeclarativeTermDb: DbWithJar<DeclarativeTermJar> + TermPreludeDb {
+pub trait DeclarativeTermDb {
     fn declarative_term_menu(
         &self,
         toolchain: Toolchain,
     ) -> DeclarativeTermResultRef<&DeclarativeTermMenu>;
 }
 
-impl DeclarativeTermDb for Db
-where
-    Db: DbWithJar<DeclarativeTermJar> + TermPreludeDb,
-{
+impl DeclarativeTermDb for ::salsa::Db {
     fn declarative_term_menu(
         &self,
         toolchain: Toolchain,

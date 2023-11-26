@@ -4,7 +4,7 @@ use super::*;
 
 // #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn fugitive_path_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: FugitivePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let signature = match path.declarative_signature_template(db) {
@@ -32,7 +32,7 @@ pub fn fugitive_path_declarative_ty(
 }
 
 pub(crate) fn fn_path_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     variances: &[Variance],
     signature: FnFugitiveDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -53,7 +53,7 @@ pub(crate) fn fn_path_declarative_ty(
 }
 
 pub(crate) fn gn_path_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     variances: &[Variance],
     signature: GnFugitiveDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -75,7 +75,7 @@ pub(crate) fn gn_path_declarative_ty(
 }
 
 pub(crate) fn val_path_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     signature: ValFugitiveDeclarativeSignatureTemplate,
     _declarative_term_menu: &DeclarativeTermMenu,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {

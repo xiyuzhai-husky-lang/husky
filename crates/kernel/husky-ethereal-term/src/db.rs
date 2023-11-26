@@ -1,17 +1,11 @@
+use crate::*;
 use std::sync::Arc;
 
-use crate::*;
-use husky_declarative_ty::DeclarativeTypeDb;
-use husky_entity_path::EntityPathDb;
-
-pub trait EtherealTermDb: DbWithJar<EtherealTermJar> + DeclarativeTypeDb {
+pub trait EtherealTermDb {
     fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EtherealTermMenu;
 }
 
-impl EtherealTermDb for Db
-where
-    Db: DbWithJar<EtherealTermJar> + DeclarativeTypeDb,
-{
+impl EtherealTermDb for ::salsa::Db {
     fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EtherealTermMenu {
         term_menu(self, toolchain)
     }

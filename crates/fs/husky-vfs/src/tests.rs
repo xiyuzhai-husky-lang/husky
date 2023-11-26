@@ -1,10 +1,9 @@
 use crate::{
     db::VfsDbInner,
-    watch::{WatchedVfs, DEBOUNCE_TEST_SLEEP_TIME},
+    // watch::{WatchedVfs, DEBOUNCE_TEST_SLEEP_TIME},
     *,
 };
 use husky_coword::CowordJar;
-use salsa::ParallelDatabase;
 use std::ops::Deref;
 
 #[salsa::test_db(VfsJar, CowordJar)]

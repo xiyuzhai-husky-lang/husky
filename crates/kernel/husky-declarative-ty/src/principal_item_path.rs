@@ -16,7 +16,7 @@ use utils::*;
 
 #[inline(always)]
 pub fn declarative_term_item_path_declarative_ty(
-    _db: &dyn DeclarativeTypeDb,
+    _db: &::salsa::Db,
     path: DeclarativeTermEntityPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     match path {
@@ -29,7 +29,7 @@ pub fn declarative_term_item_path_declarative_ty(
 
 #[inline(always)]
 pub fn item_path_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     disambiguation: TypePathDisambiguation,
     path: ItemPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -215,7 +215,7 @@ fn item_path_declarative_ty_works() {
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_ontology_path_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TypePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
@@ -253,7 +253,7 @@ fn ty_ontology_path_declarative_ty_works() {
 #[deprecated(note = "it's better to use signature directly instead of invoking this function")]
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_variant_path_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TypeVariantPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     // todo: GADT
@@ -303,7 +303,7 @@ pub fn ty_variant_path_declarative_ty(
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn trai_path_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TraitPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();

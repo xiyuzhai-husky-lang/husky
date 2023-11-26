@@ -12,7 +12,7 @@ impl ManifestDependency {
     }
 
     pub(crate) fn from_ast(
-        db: &dyn ManifestDb,
+        db: &::salsa::Db,
         toolchain: Toolchain,
         registry_path: RegistryPath,
         ast: &ManifestDependencyAst,

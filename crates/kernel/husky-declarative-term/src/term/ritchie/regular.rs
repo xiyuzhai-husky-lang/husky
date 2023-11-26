@@ -44,7 +44,6 @@ impl salsa::DisplayWithDb for DeclarativeRitchieRegularParameter {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        let db = db();
         self.ty.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

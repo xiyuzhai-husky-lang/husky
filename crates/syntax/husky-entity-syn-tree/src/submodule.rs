@@ -1,7 +1,6 @@
 use crate::*;
 
 use husky_vfs::{error::VfsResult, *};
-use salsa::test_utils::Db;
 use vec_like::VecSet;
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]

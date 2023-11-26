@@ -3,6 +3,7 @@ mod prelude;
 pub use self::prelude::*;
 
 use crate::*;
+use husky_coword::coword_menu;
 use husky_manifest::ManifestDependency;
 
 use husky_token::IdentToken;

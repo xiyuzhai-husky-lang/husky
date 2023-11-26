@@ -21,6 +21,7 @@ enum-class = { path = "../../abstractions/enum-class" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 # `husky-token` shouldn't be included for dependencies!!
+husky-token = { path = "../../lex/husky-token" }
 husky-token-data = { path = "../../lex/husky-token-data" }
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 # kernel
@@ -52,7 +53,6 @@ husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 # lex
-husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

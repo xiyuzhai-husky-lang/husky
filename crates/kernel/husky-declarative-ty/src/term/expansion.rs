@@ -1,7 +1,7 @@
 use super::*;
 // deprecated
 fn application_expansion_aux(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     declarative_term: DeclarativeTerm,
 ) -> ApplicationExpansion {
     match declarative_term {
@@ -17,7 +17,7 @@ fn application_expansion_aux(
 
 #[salsa::tracked(jar=DeclarativeTypeJar)]
 pub(crate) fn application_expansion_salsa(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     declarative_term: DeclarativeTermExplicitApplication,
 ) -> ApplicationExpansion {
     let function = declarative_term.function(db);
@@ -43,18 +43,15 @@ impl ApplicationExpansion {
         self.f
     }
 
-    pub fn opt_arguments<'a>(
-        &self,
-        db: &'a dyn DeclarativeTypeDb,
-    ) -> Option<&'a [DeclarativeTerm]> {
+    pub fn opt_arguments<'a>(&self, db: &'a ::salsa::Db) -> Option<&'a [DeclarativeTerm]> {
         self.arguments.map(|arguments| arguments.data(db) as &[_])
     }
 
-    pub fn arguments<'a>(&self, db: &'a dyn DeclarativeTypeDb) -> &'a [DeclarativeTerm] {
+    pub fn arguments<'a>(&self, db: &'a ::salsa::Db) -> &'a [DeclarativeTerm] {
         self.opt_arguments(db).unwrap_or_default()
     }
 
-    fn apply(&self, db: &dyn DeclarativeTypeDb, argument: DeclarativeTerm) -> Self {
+    fn apply(&self, db: &::salsa::Db, argument: DeclarativeTerm) -> Self {
         let arguments = self.arguments(db);
         let mut arguments = arguments.to_vec();
         arguments.push(argument);

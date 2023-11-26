@@ -44,7 +44,6 @@ impl salsa::DisplayWithDb for DeclarativeRitchieVariadicParameter {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        let db = db();
         f.write_str("...")?;
         self.ty.show_with_db_fmt(f, db, &mut Default::default())
     }

@@ -4,16 +4,13 @@ use husky_entity_syn_tree::EntitySynTreeResult;
 
 use husky_vfs::ModulePath;
 
-pub trait SynDeclDb: DbWithJar<SynDeclJar> + SynExprDb {
+pub trait SynDeclDb {
     fn syn_node_decl_sheet(&self, module_path: ModulePath) -> SynNodeDeclSheet;
 
     fn syn_decl_sheet(&self, module_path: ModulePath) -> SynDeclSheet;
 }
 
-impl SynDeclDb for Db
-where
-    Db: DbWithJar<SynDeclJar> + SynExprDb,
-{
+impl SynDeclDb for ::salsa::Db {
     fn syn_node_decl_sheet(&self, module_path: ModulePath) -> SynNodeDeclSheet {
         syn_node_decl_sheet(self, module_path)
     }

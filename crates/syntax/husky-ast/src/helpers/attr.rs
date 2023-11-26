@@ -9,7 +9,7 @@ impl AstSheet {
         parent: ItemPath,
         attr_parent_ast_idx: AstIdx,
         mut f: impl FnMut(AstIdx, TokenGroupIdx, AttrItemPath) -> D,
-        db: &dyn AstDb,
+        db: &::salsa::Db,
     ) -> smallvec::SmallVec<A> {
         let mut registry = AttrRegistry::new(parent);
         let mut attrs: smallvec::SmallVec<A> = smallvec::smallvec![];

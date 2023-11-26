@@ -1,6 +1,6 @@
 use super::*;
 use husky_decl_ast::DeclAst;
-use husky_token::TokenIdxRange;
+use husky_token::{TokenDb, TokenIdxRange};
 
 ///
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]

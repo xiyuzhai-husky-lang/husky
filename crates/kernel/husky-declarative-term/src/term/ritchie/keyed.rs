@@ -61,7 +61,6 @@ impl salsa::DisplayWithDb for DeclarativeRitchieKeyedParameter {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        let db = db();
         let mut ctx = Default::default();
         f.write_str(self.key.data(db))?;
         f.write_str(": ")?;

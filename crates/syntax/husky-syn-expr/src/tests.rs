@@ -1,5 +1,4 @@
 pub(crate) use husky_vfs::*;
-pub(crate) use salsa::test_utils::Db;
 
 use crate::*;
 use husky_ast::AstJar;

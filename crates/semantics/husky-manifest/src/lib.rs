@@ -37,7 +37,7 @@ pub struct PackageManifest {
 }
 
 pub(crate) fn package_manifest(
-    db: &dyn ManifestDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> ManifestResultRef<PackageManifest> {
     package_manifest_aux(db, package_path).as_ref().copied()
@@ -45,7 +45,7 @@ pub(crate) fn package_manifest(
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn package_manifest_aux(
-    db: &dyn ManifestDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> ManifestResult<PackageManifest> {
     Ok(PackageManifest::from_ast(
@@ -58,7 +58,7 @@ pub(crate) fn package_manifest_aux(
 
 impl PackageManifest {
     fn from_ast(
-        db: &dyn ManifestDb,
+        db: &::salsa::Db,
         toolchain: Toolchain,
         registry_path: RegistryPath,
         manifest_ast: &PackageManifestAstSheet,
