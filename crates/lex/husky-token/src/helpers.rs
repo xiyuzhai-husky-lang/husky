@@ -18,7 +18,7 @@ pub use self::symbol_modifier::*;
 use crate::*;
 use parsec::*;
 #[cfg(test)]
-use salsa::test_utils::TestDb;
+use salsa::test_utils::Db;
 
 #[cfg(test)]
 fn quick_parse<T, Error>(db: &::salsa::Db input: &str) -> Result<Option<T>, Error>

@@ -1,5 +1,5 @@
 pub(crate) use husky_vfs::*;
-pub(crate) use salsa::test_utils::TestDb;
+pub(crate) use salsa::test_utils::Db;
 
 use crate::*;
 use husky_ast::AstJar;
@@ -35,7 +35,7 @@ use husky_vfs::snippet::Snippet;
 )]
 pub(crate) struct DB;
 
-pub(crate) fn t<'a>(db: &'a TestDb, input: &str) -> (&'a SynExprRegionData, Option<SynExprIdx>) {
+pub(crate) fn t<'a>(db: &'a Db, input: &str) -> (&'a SynExprRegionData, Option<SynExprIdx>) {
     let toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.vfs_path_menu(toolchain);
     let snippet = Snippet::new(db, input.to_owned());

@@ -1,6 +1,6 @@
 use std::{cell::Cell, sync::Arc};
 
-use salsa::test_utils::TestDb;
+use salsa::test_utils::Db;
 
 use crate::signal::Signal;
 
@@ -14,7 +14,7 @@ pub(crate) trait Knobs {
     fn wait_for(&self, stage: usize);
 }
 
-impl Knobs for TestDb {
+impl Knobs for Db {
     fn knobs(&self) -> &KnobsStruct {
         todo!()
     }

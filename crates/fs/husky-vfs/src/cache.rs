@@ -10,7 +10,7 @@ pub struct VfsCache {
     corgi_install_path: FsSpecsResult<PathBuf>,
     huskyup_install_path: FsSpecsResult<PathBuf>,
     current_dir: PathBuf,
-    watcher: Option<VfsWatcher>,
+    // watcher: Option<VfsWatcher>,
 }
 
 impl Default for VfsCache {
@@ -34,7 +34,7 @@ impl Default for VfsCache {
                 Ok(dir) => std::path::absolute(dir).expect("valid path"),
                 Err(_e) => todo!(),
             },
-            watcher: None,
+            // watcher: None,
         }
     }
 }
@@ -58,14 +58,14 @@ impl VfsCache {
         self.huskyup_install_path.as_ref()
     }
 
-    pub fn watcher(&self) -> Option<&VfsWatcher> {
-        self.watcher.as_ref()
-    }
+    // pub fn watcher(&self) -> Option<&VfsWatcher> {
+    //     self.watcher.as_ref()
+    // }
 
-    pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
-        assert!(self.watcher.is_none());
-        self.watcher = Some(watcher)
-    }
+    // pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
+    //     assert!(self.watcher.is_none());
+    //     self.watcher = Some(watcher)
+    // }
 
     pub fn current_dir(&self) -> &Path {
         &self.current_dir

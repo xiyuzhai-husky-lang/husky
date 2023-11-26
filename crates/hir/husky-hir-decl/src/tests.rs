@@ -1,6 +1,6 @@
 pub(crate) use husky_ast::test_utils::*;
 #[cfg(test)]
-use salsa::test_utils::TestDb;
+use salsa::test_utils::Db;
 
 use crate::{db::*, *};
 use husky_ast::AstJar;

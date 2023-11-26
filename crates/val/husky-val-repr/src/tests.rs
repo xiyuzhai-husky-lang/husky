@@ -1,6 +1,6 @@
 pub(crate) use husky_ast::test_utils::{AstTestConfig, AstTestUtils};
 pub(crate) use husky_vfs::ModulePath;
-pub(crate) use salsa::test_utils::TestDb;
+pub(crate) use salsa::test_utils::Db;
 
 use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;

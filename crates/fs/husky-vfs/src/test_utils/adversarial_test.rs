@@ -36,10 +36,10 @@ impl std::fmt::Display for AdversarialKind {
 }
 
 pub(super) fn vfs_adversarial_test<U, R>(
-    db: &mut TestDb,
+    db: &mut Db,
     package_adversarials_dir: &Path,
     unit: U,
-    f: &impl Fn(&TestDb, U) -> R,
+    f: &impl Fn(&Db, U) -> R,
     config: &VfsTestConfig,
 ) where
     U: VfsTestUnit,

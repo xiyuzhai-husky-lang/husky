@@ -1,5 +1,5 @@
 use crate::*;
-use salsa::{input::InputIngredient, input_field::InputFieldIngredient, Database, Db, Durability};
+use salsa::{input::InputIngredient, input_field::InputFieldIngredient, Db, Durability};
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct File(salsa::Id);

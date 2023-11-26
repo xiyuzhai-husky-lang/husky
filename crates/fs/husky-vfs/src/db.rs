@@ -80,11 +80,11 @@ impl VfsDbInner for Db {
     }
 
     fn vfs_jar(&self) -> &VfsJar {
-        <Self as HasJar<VfsJar>>::jar(self).0
+        self.jar::<VfsJar>()
     }
 
     fn vfs_jar_mut(&mut self) -> &mut VfsJar {
-        <Self as HasJar<VfsJar>>::jar_mut(self).0
+        self.jar_mut::<VfsJar>()
     }
 
     fn vfs_cache(&self) -> &VfsCache {
@@ -232,7 +232,7 @@ impl VfsDb for Db {
                             _ => true,
                         };
                         if push_flag {
-                            if let Some(ident) = Ident::from_borrowed(file_stem) {
+                            if let Some(ident) = Ident::from_borrowed(db, file_stem) {
                                 if let Ok(new_child) = ModulePath::new_child(db, parent, ident) {
                                     modules.push(new_child.into())
                                 }
@@ -354,7 +354,7 @@ impl VfsJar {
         &self.0
     }
 
-    pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
-        self.0.set_watcher(watcher)
-    }
+    // pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
+    //     self.0.set_watcher(watcher)
+    // }
 }

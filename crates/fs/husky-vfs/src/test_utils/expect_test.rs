@@ -1,10 +1,7 @@
 use super::*;
 
-pub(super) fn vfs_expect_test<U>(
-    db: &mut TestDb,
-    f: impl Fn(&TestDb, U) -> String,
-    config: &VfsTestConfig,
-) where
+pub(super) fn vfs_expect_test<U>(db: &mut Db, f: impl Fn(&Db, U) -> String, config: &VfsTestConfig)
+where
     U: VfsTestUnit + salsa::DebugWithDb,
 {
     let toolchain = db.dev_toolchain().unwrap();

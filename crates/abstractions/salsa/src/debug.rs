@@ -13,7 +13,7 @@ use vec_like::{
     error::InsertEntryRepeatError, AsVecMapEntry, SmallVecMap, SmallVecSet, VecMap, VecSet,
 };
 
-use crate::{test_utils::HasTestJarIndex, Db};
+use crate::Db;
 
 pub trait DebugWithDb {
     fn debug<'me, 'db>(&'me self, db: &'me Db) -> DebugWith<'me>

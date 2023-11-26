@@ -98,7 +98,7 @@ impl FugitivePathData {
 
 impl salsa::DebugWithDb for FugitivePath {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
-        let data = self.data(db());
+        let data = self.data(db);
         f.write_str("FugitivePath(`")?;
         data.show_aux(f, db())?;
         f.write_str("`, `")?;

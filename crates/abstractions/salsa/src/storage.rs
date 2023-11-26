@@ -1,10 +1,10 @@
+use crate::cycle::CycleRecoveryStrategy;
+use crate::ingredient::Ingredient;
 use crate::jar::Jar;
 use crate::key::DependencyIndex;
 use crate::runtime::local_state::QueryOrigin;
 use crate::runtime::Runtime;
 use crate::*;
-use crate::{cycle::CycleRecoveryStrategy, test_utils::TestJarIndex};
-use crate::{ingredient::Ingredient, test_utils::HasTestJarIndex};
 use crate::{DatabaseKeyIndex, Id, IngredientIndex};
 use parking_lot::Condvar;
 use std::{fmt, sync::Arc};
