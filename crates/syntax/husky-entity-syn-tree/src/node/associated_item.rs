@@ -1,7 +1,9 @@
-mod trai_for_ty_item;
-mod trai_item;
-mod ty_item;
+pub mod ill_formed_item;
+pub mod trai_for_ty_item;
+pub mod trai_item;
+pub mod ty_item;
 
+pub use self::ill_formed_item::*;
 pub use self::trai_for_ty_item::*;
 pub use self::trai_item::*;
 pub use self::ty_item::*;
@@ -61,7 +63,7 @@ impl HasSynNodePath for AssociatedItemPath {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub(crate) enum AssociatedItemSynNodeData {
     TypeItem(TypeItemSynNodeData),

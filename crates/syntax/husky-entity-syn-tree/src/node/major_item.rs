@@ -88,15 +88,12 @@ impl HasSynNodePath for MajorItemPath {
     }
 }
 
-// todo: change this to enum and create FugitiveNode etc.
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub(crate) struct MajorItemSynNodeData {
-    #[id]
-    pub syn_node_path: MajorItemSynNodePath,
-    pub visibility: Scope,
-    pub ast_idx: AstIdx,
-    pub ident_token: IdentToken,
-    pub block: DefnBlock,
+    syn_node_path: MajorItemSynNodePath,
+    visibility: Scope,
+    ast_idx: AstIdx,
+    ident_token: IdentToken,
+    block: DefnBlock,
 }
 
 impl MajorItemSynNodeData {

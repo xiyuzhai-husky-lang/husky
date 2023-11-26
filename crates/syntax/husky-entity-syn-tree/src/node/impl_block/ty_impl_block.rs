@@ -2,11 +2,12 @@ use super::*;
 
 use vec_like::SmallVecPairMap;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct TypeImplBlockSynNodePath(ItemSynNodePathId);
+
 // basically a wrapper type
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
-#[salsa::as_id(jar = EntitySynTreeJar)]
-pub struct TypeImplBlockSynNodePath {
+pub struct TypeImplBlockSynNodePathData {
     path: TypeImplBlockPath,
 }
 
@@ -53,33 +54,26 @@ impl TypeImplBlockSynNodePath {
     }
 }
 
-// impl HasModulePath<Db> for TypeImplBlockSynNodePath
-// where
-//      + EntitySynTreeDb,
-// {
-//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
-//         let db = entity_syn_tree_db(db);
-//         self.path.module_path(db)
-//     }
-// }
-
 impl HasSynNodePath for TypeImplBlockPath {
     type SynNodePath = TypeImplBlockSynNodePath;
 
     #[inline(always)]
-    fn syn_node_path(self, _db: &::salsa::Db) -> Self::SynNodePath {
-        TypeImplBlockSynNodePath { path: self }
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
+        TypeImplBlockSynNodePath(ItemSynNodePathId::new(
+            db,
+            ItemSynNodePathData::ImplBlock(ImplBlockSynNodePathData::TypeImplBlock(
+                TypeImplBlockSynNodePathData { path: self },
+            )),
+        ))
     }
 }
 
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub(crate) struct TypeImplBlockSynNode {
-    #[id]
-    pub syn_node_path: TypeImplBlockSynNodePath,
-    pub ast_idx: AstIdx,
-    pub impl_regional_token: ImplToken,
-    pub ty_expr: MajorItemPathExprIdx,
-    pub items: TypeItems,
+    syn_node_path: TypeImplBlockSynNodePath,
+    ast_idx: AstIdx,
+    impl_regional_token: ImplToken,
+    ty_expr: MajorItemPathExprIdx,
+    items: TypeItems,
 }
 
 impl TypeImplBlockSynNode {
@@ -95,9 +89,14 @@ impl TypeImplBlockSynNode {
     ) -> Self {
         Self::new_inner(
             db,
-            TypeImplBlockSynNodePath {
-                path: TypeImplBlockPath::new(db, registry, module_path, ty_path),
-            },
+            TypeImplBlockSynNodePath(ItemSynNodePathId::new(
+                db,
+                ItemSynNodePathData::ImplBlock(ImplBlockSynNodePathData::TypeImplBlock(
+                    TypeImplBlockSynNodePathData {
+                        path: TypeImplBlockPath::new(db, registry, module_path, ty_path),
+                    },
+                )),
+            )),
             ast_idx,
             impl_token,
             ty_expr,

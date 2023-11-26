@@ -20,8 +20,11 @@ impl SubmoduleSynNodePath {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> SubmoduleSynNodeData {
-        match self.0.syn_node(db) {}
+    pub(crate) fn syn_node_data(self, db: &::salsa::Db) -> SubmoduleSynNodeData {
+        match self.0.syn_node(db) {
+            ItemSynNode::Submodule(data) => data,
+            _ => unreachable!(),
+        }
     }
 }
 

@@ -2,8 +2,10 @@ use original_error::OriginalError;
 
 use super::*;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct IllFormedImplBlockSynNodePath(ItemSynNodePathId);
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct IllFormedImplBlockSynNodePathData {
     module_path: ModulePath,
     disambiguator: u8,
@@ -15,7 +17,7 @@ impl IllFormedImplBlockSynNodePath {
         &[]
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> IllFormedImplBlockSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> IllFormedImplBlockSynNodeData {
         ill_formed_impl_block_syn_node(db, self)
     }
 }
@@ -26,18 +28,16 @@ impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
     }
 }
 
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub(crate) struct IllFormedImplBlockSynNode {
-    #[id]
-    pub syn_node_path: IllFormedImplBlockSynNodePath,
-    pub impl_token: ImplToken,
-    pub ast_idx: AstIdx,
-    pub items: Option<ImplBlockItems>,
-    #[return_ref]
-    pub ill_form: ImplBlockIllForm,
+#[derive(Debug, PartialEq, Eq, Hash)]
+pub(crate) struct IllFormedImplBlockSynNodeData {
+    syn_node_path: IllFormedImplBlockSynNodePath,
+    impl_token: ImplToken,
+    ast_idx: AstIdx,
+    items: Option<ImplBlockItems>,
+    ill_form: ImplBlockIllForm,
 }
 
-impl IllFormedImplBlockSynNode {
+impl IllFormedImplBlockSynNodeData {
     pub(super) fn new(
         db: &::salsa::Db,
         registry: &mut ImplBlockRegistry,
@@ -86,7 +86,7 @@ impl OriginalError for ImplBlockIllForm {
 pub(crate) fn ill_formed_impl_block_syn_node(
     db: &::salsa::Db,
     syn_node_path: IllFormedImplBlockSynNodePath,
-) -> IllFormedImplBlockSynNode {
+) -> IllFormedImplBlockSynNodeData {
     let module_path = syn_node_path.module_path(db);
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     item_tree_sheet.ill_formed_impl_block_syn_node(db, syn_node_path)

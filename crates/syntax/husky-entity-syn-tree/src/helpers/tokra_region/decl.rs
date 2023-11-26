@@ -204,7 +204,7 @@ fn submodule_decl_tokra_region_with_source_map(
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
         todo!(), /* syn_node_path.module_path(db),*/
-        syn_node_path.syn_node(db).ast_idx(db),
+        syn_node_path.syn_node_data(db).ast_idx(db),
         db,
     )
 }

@@ -25,6 +25,15 @@ pub enum ImplBlockSynNodePath {
     IllFormedImplBlock(IllFormedImplBlockSynNodePath),
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[enum_class::from_variants]
+pub enum ImplBlockSynNodePathData {
+    TypeImplBlock(TypeImplBlockSynNodePathData),
+    TraitForTypeImplBlock(TraitForTypeImplBlockSynNodePathData),
+    IllFormedImplBlock(IllFormedImplBlockSynNodePathData),
+}
+
 pub(crate) struct ImplBlockNodePathRegistry {}
 
 impl ImplBlockSynNodePath {
@@ -47,23 +56,6 @@ impl ImplBlockSynNodePath {
     }
 }
 
-// impl HasModulePath<Db> for ImplBlockSynNodePath
-// where
-//      + EntitySynTreeDb,
-// {
-//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
-//         match self {
-//             ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => syn_node_path.module_path(db),
-//             ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
-//                 syn_node_path.module_path(db)
-//             }
-//             ImplBlockSynNodePath::IllFormedImplBlock(syn_node_path) => {
-//                 syn_node_path.module_path(db)
-//             }
-//         }
-//     }
-// }
-
 impl HasSynNodePath for ImplBlockPath {
     type SynNodePath = ImplBlockSynNodePath;
 
@@ -72,13 +64,13 @@ impl HasSynNodePath for ImplBlockPath {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
 pub(crate) enum ImplBlockSynNodeData {
     TypeImplBlock(TypeImplBlockSynNode),
-    TraitForTypeImplBlock(TraitForTypeImplBlockSynNode),
-    IllFormedImplBlock(IllFormedImplBlockSynNode),
+    TraitForTypeImplBlock(TraitForTypeImplBlockSynNodeData),
+    IllFormedImplBlock(IllFormedImplBlockSynNodeData),
 }
 
 impl ImplBlockSynNodeData {
@@ -137,7 +129,7 @@ impl ImplBlockSynNodeData {
             impl_regional_token,
         ) {
             Ok(node) => node,
-            Err(ill_form) => IllFormedImplBlockSynNode::new(
+            Err(ill_form) => IllFormedImplBlockSynNodeData::new(
                 db,
                 registry,
                 impl_regional_token,
@@ -221,7 +213,7 @@ impl ImplBlockSynNodeData {
                             }
                         }
                     };
-                match TraitForTypeImplBlockSynNode::new(
+                match TraitForTypeImplBlockSynNodeData::new(
                     db,
                     registry,
                     module_path,
