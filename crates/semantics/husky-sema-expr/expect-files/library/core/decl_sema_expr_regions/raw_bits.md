@@ -441,7 +441,7 @@
         [salsa id]: 129,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+                AssociatedItemSynNodeDataPath::TypeItem(
                     TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
@@ -555,7 +555,7 @@
                 ),
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TypeItem(
+                        AssociatedItemSynNodeDataPath::TypeItem(
                             TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -1043,7 +1043,7 @@
         [salsa id]: 130,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+                AssociatedItemSynNodeDataPath::TypeItem(
                     TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
@@ -1157,7 +1157,7 @@
                 ),
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TypeItem(
+                        AssociatedItemSynNodeDataPath::TypeItem(
                             TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -1434,7 +1434,7 @@
         [salsa id]: 131,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+                AssociatedItemSynNodeDataPath::TypeItem(
                     TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
@@ -1548,7 +1548,7 @@
                 ),
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TypeItem(
+                        AssociatedItemSynNodeDataPath::TypeItem(
                             TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -1825,7 +1825,7 @@
         [salsa id]: 132,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+                AssociatedItemSynNodeDataPath::TypeItem(
                     TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
@@ -1939,7 +1939,7 @@
                 ),
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TypeItem(
+                        AssociatedItemSynNodeDataPath::TypeItem(
                             TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -2216,7 +2216,7 @@
         [salsa id]: 133,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodePath::TypeItem(
+                AssociatedItemSynNodeDataPath::TypeItem(
                     TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
@@ -2330,7 +2330,7 @@
                 ),
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TypeItem(
+                        AssociatedItemSynNodeDataPath::TypeItem(
                             TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {

@@ -558,19 +558,19 @@ impl HasSynDefnTokraRegion for IllFormedImplBlockSynNodePath {
     }
 }
 
-impl HasSynDefnTokraRegion for AssociatedItemSynNodePath {
+impl HasSynDefnTokraRegion for AssociatedItemSynNodeDataPath {
     fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
         match self {
-            AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
+            AssociatedItemSynNodeDataPath::TypeItem(syn_node_path) => {
                 syn_node_path.defn_tokra_region(db)
             }
-            AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
+            AssociatedItemSynNodeDataPath::TraitItem(syn_node_path) => {
                 syn_node_path.defn_tokra_region(db)
             }
-            AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
+            AssociatedItemSynNodeDataPath::TraitForTypeItem(syn_node_path) => {
                 syn_node_path.defn_tokra_region(db)
             }
-            AssociatedItemSynNodePath::IllFormedItem(syn_node_path) => {
+            AssociatedItemSynNodeDataPath::IllFormedItem(syn_node_path) => {
                 syn_node_path.defn_tokra_region(db)
             }
         }
@@ -578,16 +578,16 @@ impl HasSynDefnTokraRegion for AssociatedItemSynNodePath {
 
     fn defn_tokra_region_source_map(self, db: &::salsa::Db) -> Option<SynDefnTokraRegionSourceMap> {
         match self {
-            AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
+            AssociatedItemSynNodeDataPath::TypeItem(syn_node_path) => {
                 syn_node_path.defn_tokra_region_source_map(db)
             }
-            AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
+            AssociatedItemSynNodeDataPath::TraitItem(syn_node_path) => {
                 syn_node_path.defn_tokra_region_source_map(db)
             }
-            AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
+            AssociatedItemSynNodeDataPath::TraitForTypeItem(syn_node_path) => {
                 syn_node_path.defn_tokra_region_source_map(db)
             }
-            AssociatedItemSynNodePath::IllFormedItem(syn_node_path) => {
+            AssociatedItemSynNodeDataPath::IllFormedItem(syn_node_path) => {
                 syn_node_path.defn_tokra_region_source_map(db)
             }
         }

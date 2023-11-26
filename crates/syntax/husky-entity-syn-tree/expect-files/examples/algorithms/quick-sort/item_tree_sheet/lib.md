@@ -4,7 +4,7 @@ EntitySynTreeSheet {
         entries: [
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -48,7 +48,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -96,7 +96,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -144,7 +144,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -192,7 +192,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {

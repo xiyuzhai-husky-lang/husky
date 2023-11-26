@@ -37,7 +37,7 @@ impl TypeImplBlockSynNodePath {
     pub(crate) fn associated_items(
         self,
         db: &::salsa::Db,
-    ) -> &[(Ident, TypeItemSynNodePath, TypeItemSynNode)] {
+    ) -> &[(Ident, TypeItemSynNodePath, TypeItemSynNodeData)] {
         ty_impl_block_items(db, self)
     }
 

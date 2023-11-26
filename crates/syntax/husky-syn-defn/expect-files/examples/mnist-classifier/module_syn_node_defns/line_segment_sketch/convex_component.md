@@ -525,7 +525,7 @@
         ),
     ),
     ItemSynNodeDefn::AssociatedItem(
-        AssociatedItemSynNodeDefn::TraitForTypeItem(
+        AssociatedItemSynNodeDataDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
                     syn_node_path: TraitForTypeItemSynNodePath {
@@ -737,7 +737,7 @@
                                 ),
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::AssociatedItem(
-                                        AssociatedItemSynNodePath::TraitForTypeItem(
+                                        AssociatedItemSynNodeDataPath::TraitForTypeItem(
                                             TraitForTypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitForTypeItemPath {
@@ -967,7 +967,7 @@
                                                 ),
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::AssociatedItem(
-                                                        AssociatedItemSynNodePath::TraitForTypeItem(
+                                                        AssociatedItemSynNodeDataPath::TraitForTypeItem(
                                                             TraitForTypeItemSynNodePath {
                                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                     path: TraitForTypeItemPath {
@@ -1065,7 +1065,7 @@
                                     ),
                                     path: SynNodeRegionPath::Defn(
                                         ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                            AssociatedItemSynNodeDataPath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath {

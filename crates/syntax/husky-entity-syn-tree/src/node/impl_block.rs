@@ -38,7 +38,7 @@ impl ImplBlockSynNodePath {
         }
     }
 
-    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> ImplBlockSynNode {
+    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> ImplBlockSynNodeData {
         todo!()
     }
 
@@ -75,20 +75,22 @@ impl HasSynNodePath for ImplBlockPath {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
-pub(crate) enum ImplBlockSynNode {
+pub(crate) enum ImplBlockSynNodeData {
     TypeImplBlock(TypeImplBlockSynNode),
     TraitForTypeImplBlock(TraitForTypeImplBlockSynNode),
     IllFormedImplBlock(IllFormedImplBlockSynNode),
 }
 
-impl ImplBlockSynNode {
+impl ImplBlockSynNodeData {
     pub fn syn_node_path(self, db: &::salsa::Db) -> ImplBlockSynNodePath {
         match self {
-            ImplBlockSynNode::TypeImplBlock(impl_block) => impl_block.syn_node_path(db).into(),
-            ImplBlockSynNode::TraitForTypeImplBlock(impl_block) => {
+            ImplBlockSynNodeData::TypeImplBlock(impl_block) => impl_block.syn_node_path(db).into(),
+            ImplBlockSynNodeData::TraitForTypeImplBlock(impl_block) => {
                 impl_block.syn_node_path(db).into()
             }
-            ImplBlockSynNode::IllFormedImplBlock(impl_block) => impl_block.syn_node_path(db).into(),
+            ImplBlockSynNodeData::IllFormedImplBlock(impl_block) => {
+                impl_block.syn_node_path(db).into()
+            }
         }
     }
 
@@ -96,12 +98,12 @@ impl ImplBlockSynNode {
         self,
         _db: &::salsa::Db,
         _f: impl FnMut(),
-    ) -> &[AssociatedItemSynNodePath] {
+    ) -> &[AssociatedItemSynNodeDataPath] {
         todo!()
     }
 }
 
-impl ImplBlockSynNode {
+impl ImplBlockSynNodeData {
     pub(crate) fn parse_from_token_group<'a, 'b>(
         db: &::salsa::Db,
         crate_root_path: ModulePath,

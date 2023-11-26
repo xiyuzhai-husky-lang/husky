@@ -11,7 +11,7 @@ pub struct UseSymbol {
     pub use_expr_idx: UseExprIdx,
 }
 
-impl MajorItemSynNode {
+impl MajorItemSynNodeData {
     pub fn ident(&self, db: &::salsa::Db) -> Ident {
         self.syn_node_path(db).ident(db)
     }
@@ -87,7 +87,7 @@ impl EntitySymbol {
         }
     }
 
-    // pub(crate) fn module_item_syn_node(self) -> Option<MajorItemSynNode> {
+    // pub(crate) fn module_item_syn_node(self) -> Option<MajorItemSynNodeData> {
     //     match self {
     //         EntitySymbol::MajorItem { node, .. } => Some(node),
     //         _ => None,

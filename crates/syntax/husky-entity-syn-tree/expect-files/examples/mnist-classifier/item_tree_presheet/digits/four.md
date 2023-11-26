@@ -4,7 +4,7 @@ EntitySynTreePresheet {
         entries: [
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -52,7 +52,7 @@ EntitySynTreePresheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -100,7 +100,7 @@ EntitySynTreePresheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -148,7 +148,7 @@ EntitySynTreePresheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -196,7 +196,7 @@ EntitySynTreePresheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -244,7 +244,7 @@ EntitySynTreePresheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -292,7 +292,7 @@ EntitySynTreePresheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
+                    MajorItemSynNodeData {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {

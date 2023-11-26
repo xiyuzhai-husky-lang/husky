@@ -25,7 +25,11 @@ impl TraitForTypeImplBlockSynNodePath {
     pub(crate) fn associated_items(
         self,
         db: &::salsa::Db,
-    ) -> &[(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemSynNode)] {
+    ) -> &[(
+        Ident,
+        TraitForTypeItemSynNodePath,
+        TraitForTypeItemSynNodeData,
+    )] {
         trai_for_ty_impl_block_items(db, self)
     }
 

@@ -13,6 +13,7 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
+use enum_class::Room32;
 use husky_token::IdentToken;
 use vec_like::VecPairMap;
 
@@ -20,29 +21,59 @@ use vec_like::VecPairMap;
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
 pub enum ItemSynNodePath {
-    Submodule(SubmoduleSynNodePath),
+    Submodule(Room32, SubmoduleSynNodePath),
     MajorItem(MajorItemSynNodePath),
-    TypeVariant(TypeVariantSynNodePath),
+    TypeVariant(Room32, TypeVariantSynNodePath),
     ImplBlock(ImplBlockSynNodePath),
-    AssociatedItem(AssociatedItemSynNodePath),
+    AssociatedItem(AssociatedItemSynNodeDataPath),
+    Attr(Room32, AttrSynNodePath),
+}
+
+impl std::ops::Deref for ItemSynNodePath {
+    type Target = ItemSynNodePathId;
+
+    fn deref(&self) -> &Self::Target {
+        let slf: &(u32, u32, ItemSynNodePathId) = unsafe { std::mem::transmute(self) };
+        &slf.2
+    }
+}
+
+#[salsa::interned(jar = EntitySynTreeJar)]
+pub struct ItemSynNodePathId {
+    data: ItemSynNodePathData,
+}
+
+pub enum ItemSynNodePathData {
+    Submodule(SubmoduleSynNodePathData),
+    MajorItem(MajorItemSynNodePathData),
+    TypeVariant(TypeVariantSynNodePathData),
+    ImplBlock(ImplBlockSynNodePathData),
+    AssociatedItem(AssociatedItemSynNodeDataPathData),
     Attr(AttrSynNodePath),
 }
 
-// impl HasModulePath<Db> for ItemSynNodePath
-// where
-//      + EntitySynTreeDb,
-// {
-//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
-//         match self {
-//             ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.module_path(db),
-//             ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.module_path(db),
-//             ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.module_path(db),
-//             ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.module_path(db),
-//             ItemSynNodePath::AssociatedItem(syn_node_path) => syn_node_path.module_path(db),
-//             ItemSynNodePath::Attr(syn_node_path) => syn_node_path.module_path(db),
-//         }
-//     }
-// }
+impl ItemSynNodePathId {
+    pub fn syn_node(self, db: &::salsa::Db) -> ItemSynNode {
+        todo!()
+    }
+
+    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
+        todo!()
+    }
+}
+
+pub struct ItemSynNodeId {
+    data: ItemSynNodeData,
+}
+
+pub enum ItemSynNodeData {
+    Submodule(SubmoduleSynNodeData),
+    MajorItem(MajorItemSynNodeData),
+    TypeVariant(TypeVariantSynNodeData),
+    ImplBlock(ImplBlockSynNodeData),
+    AssociatedItem(AssociatedItemSynNodeData),
+    Attr(AttrSynNodeData),
+}
 
 impl ItemSynNodePath {
     pub fn path(self, db: &::salsa::Db) -> Option<ItemPath> {
@@ -63,7 +94,7 @@ impl ItemSynNodePath {
         todo!()
     }
 
-    pub(crate) fn attr_syn_nodes(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNode)] {
+    pub(crate) fn attr_syn_nodes(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNodeData)] {
         // ad hoc
         match self {
             ItemSynNodePath::Submodule(_) => &[],
@@ -149,11 +180,11 @@ impl<P> MaybeAmbiguousPath<P> {
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
 pub(crate) enum ItemSynNode {
-    Submodule(SubmoduleSynNode),
-    MajorItem(MajorItemSynNode),
-    AssociatedItem(AssociatedItemSynNode),
-    TypeVariant(TypeVariantSynNode),
-    ImplBlock(ImplBlockSynNode),
+    Submodule(SubmoduleSynNodeData),
+    MajorItem(MajorItemSynNodeData),
+    AssociatedItem(AssociatedItemSynNodeData),
+    TypeVariant(TypeVariantSynNodeData),
+    ImplBlock(ImplBlockSynNodeData),
 }
 
 impl ItemSynNode {
@@ -168,7 +199,7 @@ impl ItemSynNode {
     ) -> Option<Self> {
         match item_path {
             ItemPath::Submodule(_, submodule_path) => Some(
-                SubmoduleSynNode::new(
+                SubmoduleSynNodeData::new(
                     db,
                     registry,
                     submodule_path,
@@ -179,7 +210,7 @@ impl ItemSynNode {
                 .into(),
             ),
             ItemPath::MajorItem(module_item_path) => Some(
-                MajorItemSynNode::new(
+                MajorItemSynNodeData::new(
                     db,
                     registry,
                     module_item_path,

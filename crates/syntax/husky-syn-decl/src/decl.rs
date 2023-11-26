@@ -26,7 +26,7 @@ pub enum ItemSynNodeDecl {
     Submodule(SubmoduleSynNodeDecl),
     MajorItem(MajorItemSynNodeDecl),
     ImplBlock(ImplBlockSynNodeDecl),
-    AssociatedItem(AssociatedItemSynNodeDecl),
+    AssociatedItem(AssociatedItemSynNodeDataDecl),
     TypeVariant(TypeVariantSynNodeDecl),
     Attr(AttrSynNodeDecl),
 }
