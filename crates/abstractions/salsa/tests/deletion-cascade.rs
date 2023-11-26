@@ -18,7 +18,7 @@ struct Jar(
     copy_field,
 );
 
-#[salsa::input(db = Db, singleton)]
+#[salsa::input(singleton)]
 struct MyInput {
     field: u32,
 }

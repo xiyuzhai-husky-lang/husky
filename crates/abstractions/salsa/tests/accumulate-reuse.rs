@@ -6,6 +6,7 @@
 use husky_salsa_log_utils::{HasLogger, Logger};
 
 use expect_test::expect;
+use salsa::Db;
 use test_log::test;
 
 #[salsa::jar(db = Db)]
