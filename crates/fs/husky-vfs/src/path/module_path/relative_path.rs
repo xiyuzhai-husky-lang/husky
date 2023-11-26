@@ -35,7 +35,7 @@ fn module_relative_stem(db: &dyn VfsDb, module_path: ModulePath) -> RelativePath
 fn module_relative_path_works() {
     let mut db = DB::default();
     db.vfs_expect_test_debug_with_db(
-        |db, module_path: ModulePath| module_relative_path(db, module_path),
+        |db, module_path| module_relative_path(db, module_path),
         &VfsTestConfig::new("module_relative_path"),
     )
 }

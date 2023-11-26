@@ -7,7 +7,7 @@ pub trait TraceDb: salsa::DbWithJar<TraceJar> + TokenInfoDb + TextDb + ValReprDb
     fn root_traces(&self, crate_path: CratePath) -> &[Trace];
 }
 
-impl<Db> TraceDb for Db
+impl TraceDb for Db
 where
     Db: salsa::DbWithJar<TraceJar> + TokenInfoDb + TextDb + ValReprDb,
 {

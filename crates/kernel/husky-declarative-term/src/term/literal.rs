@@ -1,3 +1,5 @@
+use salsa::Database;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -18,21 +20,20 @@ impl DeclarativeTermLiteral {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        _db: &dyn DeclarativeTermDb,
+        _db: &dyn Database,
         _ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         f.write_str("DeclarativeTermLiteralTodo")
     }
 }
 
-impl<Db: DeclarativeTermDb + ?Sized> salsa::DisplayWithDb<Db> for DeclarativeTermLiteral {
+impl salsa::DisplayWithDb for DeclarativeTermLiteral {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
+        let db = db.as_jar_db_dyn::<DeclarativeTermJar>();
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

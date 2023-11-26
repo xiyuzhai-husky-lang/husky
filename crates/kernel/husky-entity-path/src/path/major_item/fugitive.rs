@@ -1,3 +1,5 @@
+use salsa::Database;
+
 use super::*;
 use std::fmt::Debug;
 
@@ -94,34 +96,23 @@ impl FugitivePathData {
     }
 }
 
-impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for FugitivePath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
-        let data = self.data(db);
+impl salsa::DebugWithDb for FugitivePath {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+        let data = self.data(db.as_jar_db_dyn::<EntityPathJar>());
         f.write_str("FugitivePath(`")?;
-        data.show_aux(f, db)?;
+        data.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())?;
         f.write_str("`, `")?;
         data.fugitive_kind.fmt(f)?;
         f.write_str("`)")
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for FugitivePath
-where
-    Db: EntityPathDb + ?Sized,
-{
+impl salsa::DisplayWithDb for FugitivePath {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
-        self.show_aux(f, db)
+        self.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())
     }
 }

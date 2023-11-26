@@ -34,16 +34,13 @@ impl DeclarativeTermExplicitApplication {
     }
 }
 
-impl<Db: DeclarativeTermDb + ?Sized> salsa::DisplayWithDb<Db>
-    for DeclarativeTermExplicitApplication
-{
+impl salsa::DisplayWithDb for DeclarativeTermExplicitApplication {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
+        let db = db.as_jar_db_dyn::<DeclarativeTermJar>();
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

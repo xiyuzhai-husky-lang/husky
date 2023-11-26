@@ -2,6 +2,8 @@ mod expansion;
 mod reduction;
 mod utils;
 
+use salsa::Database;
+
 pub use self::expansion::*;
 pub use self::reduction::*;
 
@@ -316,15 +318,17 @@ impl EtherealTerm {
     }
 }
 
-impl<Db: EtherealTermDb + ?Sized> salsa::DisplayWithDb<Db> for EtherealTermApplication {
+impl salsa::DisplayWithDb for EtherealTermApplication {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
-        self.show_with_db_fmt(f, db, &mut Default::default())
+        self.show_with_db_fmt(
+            f,
+            db.as_jar_db_dyn::<EtherealTermJar>(),
+            &mut Default::default(),
+        )
     }
 }
 

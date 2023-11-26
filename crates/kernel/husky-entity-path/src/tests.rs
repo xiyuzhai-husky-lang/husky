@@ -1,6 +1,6 @@
 use crate::*;
 use husky_coword::CowordJar;
-use salsa::DebugWithDb;
+use salsa::{database::DatabaseDyn, DebugWithDb};
 
 #[salsa::test_db(CowordJar, VfsJar, EntityPathJar)]
 #[derive(Default)]

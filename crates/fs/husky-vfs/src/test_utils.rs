@@ -11,49 +11,89 @@ pub use self::unit::*;
 use self::expect_test::*;
 use crate::*;
 use husky_path_utils::*;
+use salsa::{database::DatabaseDyn, test_utils::TestDb, Database, DebugWith};
 use std::path::PathBuf;
 
-pub trait VfsTestUtils: VfsDb {
+pub trait VfsTestUtils {
+    // toolchain
+    fn dev_toolchain(&self) -> ToolchainResult<Toolchain>;
+
+    fn dev_path_menu(&self) -> ToolchainResult<&VfsPathMenu>;
+
+    /// only run to see whether the program will panic
+    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
+    fn vfs_plain_test<U>(&mut self, f: impl Fn(&TestDb, U), config: &VfsTestConfig)
+    where
+        U: VfsTestUnit;
+
+    /// run to see whether the output agrees with previous
+    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
+    fn vfs_expect_test_debug_with_db<'a, U, R>(
+        &mut self,
+        f: impl Fn(&'a TestDb, U) -> R,
+        config: &VfsTestConfig,
+    ) where
+        U: VfsTestUnit + salsa::DebugWithDb,
+        R: salsa::DebugWithDb;
+
+    /// run to see whether the output agrees with previous
+    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
+    fn vfs_expect_test_debug<'a, U, R>(
+        &'a mut self,
+        f: impl Fn(&'a TestDb, U) -> R,
+        config: &VfsTestConfig,
+    ) where
+        U: VfsTestUnit + salsa::DebugWithDb,
+        R: std::fmt::Debug;
+
+    fn vfs_expect_test_display<U, R>(
+        &mut self,
+        f: impl Fn(&TestDb, U) -> R,
+        config: &VfsTestConfig,
+    ) where
+        U: VfsTestUnit + salsa::DebugWithDb,
+        R: std::fmt::Display;
+}
+
+const ADVERSARIAL_EXTENSION: &'static str = "json";
+
+impl VfsTestUtils for TestDb {
     // toolchain
     fn dev_toolchain(&self) -> ToolchainResult<Toolchain> {
         let library_path = find_lang_dev_library_path()?;
-        let db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(&self);
         Ok(Toolchain::new(
-            db,
+            self,
             ToolchainData::Local {
-                library_path: VirtualPath::try_new(db, &library_path).unwrap(),
+                library_path: VirtualPath::try_new(self, &library_path).unwrap(),
             },
         ))
     }
 
     fn dev_path_menu(&self) -> ToolchainResult<&VfsPathMenu> {
         let toolchain = self.dev_toolchain()?;
-        Ok(self.vfs_path_menu(toolchain))
+        let db = self.database_dyn().as_jar_db_dyn::<VfsJar>();
+        Ok(db.vfs_path_menu(toolchain))
     }
 
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_plain_test<U>(&mut self, f: impl Fn(&Self, U), config: &VfsTestConfig)
+    fn vfs_plain_test<U>(&mut self, f: impl Fn(&TestDb, U), config: &VfsTestConfig)
     where
         U: VfsTestUnit,
     {
         let toolchain = self.dev_toolchain().unwrap();
         for test_suite in config.test_domains() {
-            for (path, name) in collect_package_relative_dirs(
-                <Self as salsa::DbWithJar<CowordJar>>::as_jar_db(self),
-                &test_suite.src_base(),
-            )
-            .into_iter()
+            for (path, name) in
+                collect_package_relative_dirs(self, &test_suite.src_base()).into_iter()
             {
-                let vfs_db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(self);
                 let package_path = PackagePath::new_local_or_toolchain_package(
-                    vfs_db,
+                    self,
                     toolchain,
                     name,
                     &path.to_logical_path(&test_suite.src_base()),
                 )
                 .unwrap();
-                for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path) {
+                for unit in <U as VfsTestUnit>::collect_from_package_path(self, package_path) {
                     f(self, unit);
                     if let Some(adversarials_base) = test_suite.adversarials_base() {
                         vfs_adversarial_test(
@@ -72,16 +112,21 @@ pub trait VfsTestUtils: VfsDb {
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug_with_db<'a, U, R>(
-        &'a mut self,
-        f: impl Fn(&'a Self, U) -> R,
+        &mut self,
+        f: impl Fn(&'a TestDb, U) -> R,
         config: &VfsTestConfig,
     ) where
-        U: VfsTestUnit + salsa::DebugWithDb<Self>,
-        R: salsa::DebugWithDb<Self>,
+        U: VfsTestUnit + salsa::DebugWithDb,
+        R: salsa::DebugWithDb,
     {
         vfs_expect_test(
             self,
-            |db, u| format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u).debug(db)),
+            |db, u| {
+                format!(
+                    "{:#?}",
+                    &f(unsafe { std::mem::transmute(db) }, u).debug(db.database_dyn())
+                )
+            },
             config,
         )
     }
@@ -90,10 +135,10 @@ pub trait VfsTestUtils: VfsDb {
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug<'a, U, R>(
         &'a mut self,
-        f: impl Fn(&'a Self, U) -> R,
+        f: impl Fn(&'a TestDb, U) -> R,
         config: &VfsTestConfig,
     ) where
-        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+        U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug,
     {
         vfs_expect_test(
@@ -103,26 +148,14 @@ pub trait VfsTestUtils: VfsDb {
         )
     }
 
-    fn vfs_expect_test_display<'a, U, R>(
-        &'a mut self,
-        f: impl Fn(&'a Self, U) -> R,
-        config: &VfsTestConfig,
-    ) where
-        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+    fn vfs_expect_test_display<U, R>(&mut self, f: impl Fn(&TestDb, U) -> R, config: &VfsTestConfig)
+    where
+        U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display,
     {
-        self::expect_test::vfs_expect_test(
-            self,
-            |db, u| format!("{}", &f(unsafe { std::mem::transmute(db) }, u)),
-            config,
-        )
+        self::expect_test::vfs_expect_test(self, |db, u| format!("{}", &f(db, u)), config)
     }
 }
-
-const ADVERSARIAL_EXTENSION: &'static str = "json";
-
-impl<Db> VfsTestUtils for Db where Db: VfsDb + ?Sized {}
-
 pub struct VfsTestConfig<'a> {
     test_name: &'a str,
     expect_file_extension: &'a str,

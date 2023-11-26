@@ -69,7 +69,7 @@ fn syn_node_decl_sheet_works() {
     use tests::*;
 
     DB::default().ast_expect_test_debug_with_db(
-        SynDeclDb::syn_node_decl_sheet,
+        |db, module_path| db.syn_node_decl_sheet(module_path),
         &AstTestConfig::new("syn_node_decl_sheet"),
     );
 }
@@ -129,7 +129,7 @@ fn syn_decl_sheet_works() {
     use tests::*;
 
     DB::default().ast_expect_test_debug_with_db(
-        SynDeclDb::syn_decl_sheet,
+        |db, module_path| db.syn_decl_sheet(module_path),
         &AstTestConfig::new("syn_decl_sheet"),
     );
 }

@@ -19,15 +19,12 @@ impl VfsAdversarialGenerator {
         })
     }
 
-    pub(super) fn run<Db>(
+    pub(super) fn run(
         mut self,
-        db: &mut Db,
+        db: &mut TestDb,
         module_path: ModulePath,
-        f: &impl Fn(&Db),
-    ) -> Result<(), VfsAdversarial>
-    where
-        Db: VfsDb + ?Sized,
-    {
+        f: &impl Fn(&TestDb),
+    ) -> Result<(), VfsAdversarial> {
         use indicatif::ProgressBar;
 
         let bar = ProgressBar::new(self.round as u64);
@@ -38,15 +35,12 @@ impl VfsAdversarialGenerator {
         Ok(())
     }
 
-    fn run_step<Db>(
+    fn run_step(
         &mut self,
-        db: &mut Db,
+        db: &mut TestDb,
         module_path: ModulePath,
-        f: &impl Fn(&Db),
-    ) -> Result<(), VfsAdversarial>
-    where
-        Db: VfsDb + ?Sized,
-    {
+        f: &impl Fn(&TestDb),
+    ) -> Result<(), VfsAdversarial> {
         let text = module_path.raw_text(db);
         let Some(adversarial) = self.generate_adversarial(text) else {
             return Ok(());

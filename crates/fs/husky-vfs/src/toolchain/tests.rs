@@ -5,6 +5,7 @@ use crate::*;
 #[test]
 fn toolchain_debug_works() {
     let db = DB::default();
+    let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();
     expect_test::expect![[r#"
         Toolchain {
@@ -18,5 +19,5 @@ fn toolchain_debug_works() {
             },
         }
     "#]]
-    .assert_debug_eq(&toolchain.debug(&db));
+    .assert_debug_eq(&toolchain.debug(db));
 }

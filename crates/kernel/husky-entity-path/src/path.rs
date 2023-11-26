@@ -5,6 +5,7 @@ mod major_item;
 mod ty_variant;
 
 use enum_class::Room32;
+use salsa::Database;
 
 pub use self::associated_item::*;
 pub use self::attr::*;
@@ -77,7 +78,7 @@ pub enum ItemPathData {
 impl ItemPathData {
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
         match self {
-            ItemPathData::Submodule(data) => data.module_path(db),
+            ItemPathData::Submodule(data) => data.parent(db),
             ItemPathData::MajorItem(data) => data.module_path(db),
             ItemPathData::AssociatedItem(data) => data.module_path(db),
             ItemPathData::TypeVariant(data) => data.module_path(db),
@@ -242,22 +243,17 @@ impl ItemPath {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for ItemPath
-where
-    Db: EntityPathDb + ?Sized,
-{
+impl salsa::DisplayWithDb for ItemPath {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
         match self {
-            ItemPath::Submodule(_, path) => path.display_with_db_fmt(f, db, level),
-            ItemPath::MajorItem(path) => path.display_with_db_fmt(f, db, level),
-            ItemPath::AssociatedItem(path) => path.display_with_db_fmt(f, db, level),
-            ItemPath::TypeVariant(_, path) => path.display_with_db_fmt(f, db, level),
+            ItemPath::Submodule(_, path) => path.display_with_db_fmt(f, db),
+            ItemPath::MajorItem(path) => path.display_with_db_fmt(f, db),
+            ItemPath::AssociatedItem(path) => path.display_with_db_fmt(f, db),
+            ItemPath::TypeVariant(_, path) => path.display_with_db_fmt(f, db),
             ItemPath::ImplBlock(path) => todo!(),
             ItemPath::Attr(_, _) => todo!(),
         }

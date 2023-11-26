@@ -1,3 +1,5 @@
+use salsa::Database;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash, PartialOrd, Ord, Clone, Copy)]
@@ -82,18 +84,11 @@ pub fn is_char_valid_kebab_nonfirst_char(c: char) -> bool {
     c.is_alphanumeric() || c == '-'
 }
 
-impl<Db: CowordDb + ?Sized> salsa::DebugWithDb<Db> for Kebab {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<CowordJar>>::as_jar_db(db);
-        if level.is_root() {
-            f.debug_tuple("Name").field(&self.data(db)).finish()
-        } else {
-            f.write_fmt(format_args!("`{}`", self.data(db)))
-        }
+impl salsa::DebugWithDb for Kebab {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+        f.write_fmt(format_args!(
+            "`{}`",
+            self.data(db.as_jar_db_dyn::<CowordJar>())
+        ))
     }
 }

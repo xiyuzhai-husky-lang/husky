@@ -10,6 +10,7 @@ pub use self::trai::*;
 pub use self::ty::*;
 
 use crate::*;
+use salsa::Database;
 use utils::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -93,25 +94,16 @@ impl MajorItemPathData {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for MajorItemPath
-where
-    Db: EntityPathDb + ?Sized,
-{
+impl salsa::DisplayWithDb for MajorItemPath {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
-        if level.is_root() {
-            match self {
-                MajorItemPath::Fugitive(path) => path.display_with_db_fmt(f, db, level.next()),
-                MajorItemPath::Type(path) => path.display_with_db_fmt(f, db, level.next()),
-                MajorItemPath::Trait(path) => path.display_with_db_fmt(f, db, level.next()),
-            }
-        } else {
-            f.write_str(self.ident(db).data(db))
+        match self {
+            MajorItemPath::Fugitive(path) => path.display_with_db_fmt(f, db),
+            MajorItemPath::Type(path) => path.display_with_db_fmt(f, db),
+            MajorItemPath::Trait(path) => path.display_with_db_fmt(f, db),
         }
     }
 }

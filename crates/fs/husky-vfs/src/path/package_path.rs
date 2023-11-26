@@ -9,11 +9,12 @@ use url::Url;
 #[test]
 fn package_ident_works() {
     let db = DB::default();
+    let db = &*db;
     let _toolchain = db.dev_toolchain().unwrap();
     let ident_menu = db.coword_menu();
     let path_menu = db.dev_path_menu().unwrap();
-    assert_eq!(path_menu.core_package().ident(&db), ident_menu.core_ident());
-    assert_eq!(path_menu.std_package().ident(&db), ident_menu.std_ident());
+    assert_eq!(path_menu.core_package().ident(db), ident_menu.core_ident());
+    assert_eq!(path_menu.std_package().ident(db), ident_menu.std_ident());
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]

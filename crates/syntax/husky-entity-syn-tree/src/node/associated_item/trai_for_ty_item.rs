@@ -34,15 +34,15 @@ impl TraitForTypeItemSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for TraitForTypeItemSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        let db = entity_syn_tree_db(db);
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-}
+// impl HasModulePath<Db> for TraitForTypeItemSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         let db = entity_syn_tree_db(db);
+//         self.maybe_ambiguous_path(db).path.module_path(db)
+//     }
+// }
 
 impl From<TraitForTypeItemSynNodePath> for ItemSynNodePath {
     fn from(id: TraitForTypeItemSynNodePath) -> Self {
@@ -118,7 +118,7 @@ pub(crate) fn trai_for_ty_impl_block_items(
     impl_block_syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> Vec<(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemSynNode)> {
     let impl_block_syn_node = impl_block_syn_node_path.syn_node(db);
-    let module_path = impl_block_syn_node_path.module_path(db);
+    let module_path = todo!(); //impl_block_syn_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path);
     let Some(items) = impl_block_syn_node.items(db) else {
         return vec![];

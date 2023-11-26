@@ -33,6 +33,7 @@ pub(crate) fn db(
     let initialize_jars_impl = initialize_jars_impl(&args, &input, &storage);
     let has_jars_dyn_impl = has_jars_dyn_impl(&input, &storage);
     let per_jar_impls = per_jar_impls(&args, &input, &storage);
+    let debug_db_impl = debug_db_impl(&input);
 
     quote! {
         #input
@@ -240,4 +241,16 @@ fn per_jar_impls(args: &Args, input: &syn::ItemStruct, storage: &syn::Ident) -> 
             ]
         })
         .collect()
+}
+
+fn debug_db_impl(input: &syn::ItemStruct) -> syn::ItemImpl {
+    let db = &input.ident;
+    parse_quote! {
+        // ANCHOR: HasJars
+        impl ::salsa::Database for #db {
+            fn database(&self) -> &dyn ::salsa::Database {
+                self
+            }
+        }
+    }
 }

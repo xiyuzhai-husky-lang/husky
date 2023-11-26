@@ -59,7 +59,7 @@ impl Cycle {
 
     /// Returns a vector with the debug information for
     /// all the participants in the cycle.
-    pub fn all_participants<DB: ?Sized + Database>(&self, db: &DB) -> Vec<String> {
+    pub fn all_participants(&self, db: &dyn Database) -> Vec<String> {
         self.participant_keys()
             .map(|d| format!("{:?}", d.debug(db)))
             .collect()
@@ -68,7 +68,7 @@ impl Cycle {
     /// Returns a vector with the debug information for
     /// those participants in the cycle that lacked recovery
     /// information.
-    pub fn unexpected_participants<DB: ?Sized + Database>(&self, db: &DB) -> Vec<String> {
+    pub fn unexpected_participants(&self, db: &dyn Database) -> Vec<String> {
         self.participant_keys()
             .filter(|&d| {
                 db.cycle_recovery_strategy(d.ingredient_index) == CycleRecoveryStrategy::Panic

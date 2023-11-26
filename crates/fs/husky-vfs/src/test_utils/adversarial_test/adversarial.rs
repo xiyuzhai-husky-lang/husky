@@ -30,15 +30,12 @@ impl VfsAdversarial {
         }
     }
 
-    pub(super) fn test<Db>(
+    pub(super) fn test(
         &self,
-        db: &mut Db,
+        db: &mut TestDb,
         module_path: ModulePath,
-        f: &impl Fn(&Db),
-    ) -> Result<(), ()>
-    where
-        Db: VfsDb + ?Sized,
-    {
+        f: &impl Fn(&TestDb),
+    ) -> Result<(), ()> {
         let original_text = module_path.raw_text(db);
         let original_text = original_text.to_owned();
         let edited_text = self.edit(&original_text);
@@ -51,8 +48,7 @@ impl VfsAdversarial {
         // run the function to see if it panicked
         let catch_unwind = std::panic::catch_unwind(AssertUnwindSafe(|| f(db)));
         // then rollback to original
-        file.set_content(db.vfs_db_mut())
-            .to(FileContent::LiveDoc(original_text));
+        file.set_content(db).to(FileContent::LiveDoc(original_text));
         match catch_unwind {
             Ok(_) => Ok(()),
             Err(_) => Err(()),

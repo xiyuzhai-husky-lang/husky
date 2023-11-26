@@ -1,7 +1,7 @@
 use arc_swap::Guard;
 
 use crate::{
-    database::AsSalsaDatabase,
+    database::{AsSalsaDatabase, DatabaseDyn},
     debug::DebugWithDb,
     key::DatabaseKeyIndex,
     runtime::{
@@ -9,7 +9,7 @@ use crate::{
         StampedValue,
     },
     storage::HasJarsDyn,
-    Revision, Runtime,
+    Database, Revision, Runtime,
 };
 
 use super::{memo::Memo, Configuration, DynDb, FunctionIngredient};
@@ -32,7 +32,7 @@ where
 
             log::debug!(
                 "{:?}: maybe_changed_after(revision = {:?})",
-                database_key_index.debug(db),
+                database_key_index.debug(db.database_dyn()),
                 revision,
             );
 
@@ -78,7 +78,7 @@ where
 
         log::debug!(
             "{:?}: maybe_changed_after_cold, successful claim, revision = {:?}, old_memo = {:#?}",
-            database_key_index.debug(db),
+            database_key_index.debug(db.database_dyn()),
             revision,
             old_memo
         );
@@ -116,7 +116,7 @@ where
 
         log::debug!(
             "{:?}: shallow_verify_memo(memo = {:#?})",
-            database_key_index.debug(db),
+            database_key_index.debug(db.database_dyn()),
             memo,
         );
 
@@ -153,7 +153,7 @@ where
 
         log::debug!(
             "{:?}: deep_verify_memo(old_memo = {:#?})",
-            database_key_index.debug(db),
+            database_key_index.debug(db.database_dyn()),
             old_memo
         );
 

@@ -10,6 +10,7 @@ pub use self::error::*;
 pub use self::rel::*;
 use husky_minimal_toml_utils::read_package_name_from_manifest;
 pub use module_tree::*;
+use salsa::Database;
 
 pub use std::path::{Path, PathBuf};
 
@@ -109,10 +110,7 @@ fn collect_rust_package_dirs_aux(dir: impl AsRef<Path>, pack_paths: &mut Vec<Pat
     }
 }
 
-pub fn collect_husky_package_dirs<Db: ?Sized + CowordDb>(
-    db: &Db,
-    dir: &Path,
-) -> Vec<(PathBuf, Kebab)> {
+pub fn collect_husky_package_dirs(db: &dyn Database, dir: &Path) -> Vec<(PathBuf, Kebab)> {
     should_satisfy!(&dir, |dir: &Path| dir.is_dir());
     let mut pack_paths = vec![];
     collect_husky_package_dirs_aux(db, dir, &mut pack_paths);
@@ -120,8 +118,8 @@ pub fn collect_husky_package_dirs<Db: ?Sized + CowordDb>(
     pack_paths
 }
 
-fn collect_husky_package_dirs_aux<Db: ?Sized + CowordDb>(
-    db: &Db,
+fn collect_husky_package_dirs_aux(
+    db: &dyn Database,
     dir: &Path,
     pack_paths: &mut Vec<(PathBuf, Kebab)>,
 ) {
@@ -138,8 +136,8 @@ fn collect_husky_package_dirs_aux<Db: ?Sized + CowordDb>(
     }
 }
 
-pub fn collect_package_relative_dirs<Db: ?Sized + CowordDb>(
-    db: &Db,
+pub fn collect_package_relative_dirs(
+    db: &dyn Database,
     base: &Path,
 ) -> Vec<(RelativePathBuf, Kebab)> {
     should_satisfy!(&base, |dir: &Path| dir.is_dir());
@@ -150,8 +148,8 @@ pub fn collect_package_relative_dirs<Db: ?Sized + CowordDb>(
     pack_paths
 }
 
-fn collect_package_relative_dirs_aux<Db: ?Sized + CowordDb>(
-    db: &Db,
+fn collect_package_relative_dirs_aux(
+    db: &dyn Database,
     base: &Path,
     dir: &RelativePath,
     pack_paths: &mut Vec<(RelativePathBuf, Kebab)>,

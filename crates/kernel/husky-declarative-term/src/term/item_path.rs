@@ -69,18 +69,10 @@ impl DeclarativeTermEntityPath {
         _ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         match self {
-            DeclarativeTermEntityPath::Fugitive(path) => {
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
-            }
-            DeclarativeTermEntityPath::Trait(path) => {
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
-            }
-            DeclarativeTermEntityPath::Type(path) => {
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
-            }
-            DeclarativeTermEntityPath::TypeVariant(path) => {
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
-            }
+            DeclarativeTermEntityPath::Fugitive(path) => path.display_with_db_fmt(f, db),
+            DeclarativeTermEntityPath::Trait(path) => path.display_with_db_fmt(f, db),
+            DeclarativeTermEntityPath::Type(path) => path.display_with_db_fmt(f, db),
+            DeclarativeTermEntityPath::TypeVariant(path) => path.display_with_db_fmt(f, db),
         }
     }
 }

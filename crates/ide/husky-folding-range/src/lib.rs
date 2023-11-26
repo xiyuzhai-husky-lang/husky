@@ -15,9 +15,9 @@ pub trait FoldingRangeDb: salsa::DbWithJar<FoldingRangeJar> + AstDb {
     fn folding_ranges(&self, module: ModulePath) -> &[FoldingRange];
 }
 
-impl<T> FoldingRangeDb for T
+impl<Db> FoldingRangeDb for Db
 where
-    T: salsa::DbWithJar<FoldingRangeJar> + AstDb,
+    Db: salsa::DbWithJar<FoldingRangeJar> + AstDb,
 {
     fn folding_ranges(&self, module_path: ModulePath) -> &[FoldingRange] {
         folding_ranges(self, module_path)

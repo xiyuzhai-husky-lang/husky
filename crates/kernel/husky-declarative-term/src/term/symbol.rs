@@ -169,14 +169,13 @@ pub enum DeclarativeTermSymbolTypeErrorKind {
 
 pub type DeclarativeTermSymbolTypeResult<T> = Result<T, DeclarativeTermSymbolTypeErrorKind>;
 
-impl<Db: DeclarativeTermDb + ?Sized> salsa::DisplayWithDb<Db> for DeclarativeTermSymbol {
+impl salsa::DisplayWithDb for DeclarativeTermSymbol {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
+        let db = db.as_jar_db_dyn::<DeclarativeTermJar>();
         // ad hoc
         f.write_fmt(format_args!("${:?}", self.index(db)))
     }

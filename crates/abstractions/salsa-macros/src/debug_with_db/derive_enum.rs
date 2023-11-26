@@ -9,7 +9,6 @@ pub(super) fn enum_debug_with_db_impl(
 ) -> proc_macro2::TokenStream {
     let ident = &item.ident;
     let generics = &item.generics;
-    let generics_with_db = generics_with_db(generics, db_trai);
     let generics_without_db = generics_without_db(generics, db_trai);
     let self_ty = if item.generics.params.is_empty() {
         quote! { #ident }
@@ -35,8 +34,8 @@ pub(super) fn enum_debug_with_db_impl(
     let where_clause = &item.generics.where_clause;
     if item.variants.is_empty() {
         quote! {
-        impl #generics_with_db ::salsa::DebugWithDb<_Db> for #self_ty #where_clause {
-            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: ::salsa::DebugFormatLevel) -> ::std::fmt::Result {
+        impl #generics_without_db ::salsa::DebugWithDb for #self_ty #where_clause {
+            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &dyn ::salsa::Database) -> ::std::fmt::Result {
                 unreachable!()
             }
         }}
@@ -47,25 +46,20 @@ pub(super) fn enum_debug_with_db_impl(
             .map(|variant| -> proc_macro2::TokenStream {
                 match variant.fields {
                     syn::Fields::Named(_) => {
-                        enum_struct_variant_debug_with_db(ident, variant, db_trai)
+                        enum_struct_variant_debug_with_db(db_trai, jar_ty, ident, variant)
                     }
                     syn::Fields::Unnamed(_) => {
-                        enum_tuple_variant_debug_with_db(ident, variant, db_trai)
+                        enum_tuple_variant_debug_with_db(db_trai, jar_ty, ident, variant)
                     }
-                    syn::Fields::Unit => enum_unit_variant_debug_with_db(ident, variant, db_trai),
+                    syn::Fields::Unit => {
+                        enum_unit_variant_debug_with_db(db_trai, jar_ty, ident, variant)
+                    }
                 }
             })
             .collect::<proc_macro2::TokenStream>();
         quote! {
-            impl #generics_with_db ::salsa::DebugWithDb<_Db> for #self_ty #where_clause {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: ::salsa::DebugFormatLevel) -> ::std::fmt::Result {
-                    self.__fmt_with_db_aux(f, <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db), _level)
-                }
-            }
-
-            impl #generics_without_db #self_ty #where_clause {
-                #[inline(never)]
-                fn __fmt_with_db_aux(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &dyn #db_trai, _level: ::salsa::DebugFormatLevel) -> ::std::fmt::Result {
+            impl #generics_without_db ::salsa::DebugWithDb for #self_ty #where_clause {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &dyn ::salsa::Database) -> ::std::fmt::Result {
                     #[allow(unused_imports)]
                     use ::salsa::debug::helper::Fallback;
                     match self {
@@ -78,9 +72,10 @@ pub(super) fn enum_debug_with_db_impl(
 }
 
 fn enum_struct_variant_debug_with_db(
+    db_trai: &Path,
+    jar_ty: &Type,
     ty_ident: &Ident,
     variant: &Variant,
-    db_trai: &Path,
 ) -> proc_macro2::TokenStream {
     let variant_ident = &variant.ident;
     let variant_string = format!("{}::{}", ty_ident, variant_ident);
@@ -106,11 +101,10 @@ fn enum_struct_variant_debug_with_db(
             let field_debug = quote! {
                 debug_struct = debug_struct.field(
                     #field_ident_string,
-                    &::salsa::debug::helper::SalsaDebug::<#field_ty, dyn #db_trai>::salsa_debug(
+                    &::salsa::debug::helper::SalsaDebug::<#field_ty>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         #field_ident,
-                        _db,
-                        _level.next()
+                        _db.as_jar_db_dyn::<#jar_ty>()
                     )
                 );
             };
@@ -133,9 +127,10 @@ fn enum_struct_variant_debug_with_db(
 }
 
 fn enum_tuple_variant_debug_with_db(
+    db_trai: &Path,
+    jar_ty: &Type,
     ty_ident: &Ident,
     variant: &Variant,
-    db_trai: &Path,
 ) -> proc_macro2::TokenStream {
     let ident = &variant.ident;
     let variant_string = format!("{}::{}", ty_ident, ident);
@@ -162,11 +157,10 @@ fn enum_tuple_variant_debug_with_db(
 
             let field_debug = quote! {
                 debug_tuple = debug_tuple.field(
-                    &::salsa::debug::helper::SalsaDebug::<#field_ty, dyn #db_trai>::salsa_debug(
+                    &::salsa::debug::helper::SalsaDebug::<#field_ty>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         &#field_ident,
-                        _db,
-                        _level.next()
+                        _db.as_jar_db_dyn::<#jar_ty>()
                     )
                 );
             };
@@ -189,9 +183,10 @@ fn enum_tuple_variant_debug_with_db(
 }
 
 fn enum_unit_variant_debug_with_db(
+    db_trai: &Path,
+    jar_ty: &Type,
     ty_ident: &Ident,
     variant: &Variant,
-    db_trai: &Path,
 ) -> proc_macro2::TokenStream {
     let ident = &variant.ident;
     let variant_string = format!("{}::{}", ty_ident, ident);

@@ -31,15 +31,15 @@ impl TypeVariantSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for TypeVariantSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        let db = entity_syn_tree_db(db);
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-}
+// impl HasModulePath<Db> for TypeVariantSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         let db = entity_syn_tree_db(db);
+//         self.maybe_ambiguous_path(db).path.module_path(db)
+//     }
+// }
 
 impl TypeSynNodePath {
     fn ty_variant_syn_nodes<'a>(
@@ -93,7 +93,7 @@ pub(crate) fn ty_variant_syn_nodes(
     db: &dyn EntitySynTreeDb,
     ty_node_path: TypeSynNodePath,
 ) -> Vec<(Ident, TypeVariantSynNodePath, TypeVariantSynNode)> {
-    let module_path = ty_node_path.module_path(db);
+    let module_path: ModulePath = todo!(); // = ty_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path);
     match ty_node_path.ty_kind(db) {
         TypeKind::Enum | TypeKind::Inductive => (),

@@ -1,14 +1,14 @@
 use super::*;
 
 impl<'a> SemaExprEngine<'a> {
-    pub(crate) fn path(&self) -> salsa::DebugWith<'a, dyn SemaExprDb + 'a> {
+    pub(crate) fn path(&self) -> salsa::DebugWith<'a> {
         self.syn_expr_region_data.path_ref().debug(self.db)
     }
 
-    pub(crate) fn debug<'b>(
-        &self,
-        t: &'b impl salsa::DebugWithDb<dyn SemaExprDb + 'a>,
-    ) -> salsa::DebugWith<'b, dyn SemaExprDb + 'a> {
+    pub(crate) fn debug<'b>(&self, t: &'b impl salsa::DebugWithDb) -> salsa::DebugWith<'b>
+    where
+        'a: 'b,
+    {
         t.debug(self.db())
     }
 }

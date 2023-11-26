@@ -1,3 +1,5 @@
+use salsa::Database;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -70,18 +72,16 @@ impl EtherealRitchieKeyedParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for EtherealRitchieKeyedParameter
-where
-    Db: EtherealTermDb + ?Sized,
-{
+impl salsa::DisplayWithDb for EtherealRitchieKeyedParameter {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        todo!();
-        let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
-        self.ty.show_with_db_fmt(f, db, &mut Default::default())
+        self.ty.show_with_db_fmt(
+            f,
+            db.as_jar_db_dyn::<EtherealTermJar>(),
+            &mut Default::default(),
+        )
     }
 }

@@ -40,15 +40,15 @@ impl TraitItemSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for TraitItemSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        let db = entity_syn_tree_db(db);
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-}
+// impl HasModulePath<Db> for TraitItemSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         let db = entity_syn_tree_db(db);
+//         self.maybe_ambiguous_path(db).path.module_path(db)
+//     }
+// }
 
 impl HasSynNodePath for TraitItemPath {
     type SynNodePath = TraitItemSynNodePath;
@@ -103,7 +103,7 @@ impl TraitItemSynNode {
     }
 
     pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.syn_node_path(db).module_path(db)
+        todo!(); // self.syn_node_path(db).module_path(db)
     }
 }
 
@@ -116,7 +116,7 @@ pub(crate) fn trai_item_syn_nodes(
         APPROXIMATE_UPPER_BOUND_ON_NUMBER_OF_TRAIT_ITEMS],
 > {
     let trai_node = trai_node_path.syn_node(db);
-    let module_path = trai_node_path.module_path(db);
+    let module_path = todo!(); // trai_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path);
     let DefnBlock::Trait { path: _, items } = trai_node.block(db) else {
         unreachable!()

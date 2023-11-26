@@ -1,3 +1,5 @@
+use salsa::Database;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -68,17 +70,12 @@ impl TypeVariantPathData {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for TypeVariantPath
-where
-    Db: EntityPathDb + ?Sized,
-{
+impl salsa::DisplayWithDb for TypeVariantPath {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
-        self.show_aux(f, db)
+        self.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())
     }
 }

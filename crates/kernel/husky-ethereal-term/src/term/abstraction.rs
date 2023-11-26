@@ -1,3 +1,5 @@
+use salsa::Database;
+
 use super::*;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]
@@ -44,17 +46,19 @@ impl EtherealTermAbstraction {
     }
 }
 
-impl<Db: EtherealTermDb + ?Sized> salsa::DisplayWithDb<Db> for EtherealTermAbstraction {
+impl salsa::DisplayWithDb for EtherealTermAbstraction {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
         // use std::fmt::Write;
         // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
         // todo!()
-        let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
-        self.show_with_db_fmt(f, db, &mut Default::default())
+        self.show_with_db_fmt(
+            f,
+            db.as_jar_db_dyn::<EtherealTermJar>(),
+            &mut Default::default(),
+        )
     }
 }

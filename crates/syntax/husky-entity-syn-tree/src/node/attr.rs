@@ -35,15 +35,15 @@ impl AttrSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for AttrSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        let db = entity_syn_tree_db(db);
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-}
+// impl HasModulePath<Db> for AttrSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         let db = entity_syn_tree_db(db);
+//         self.maybe_ambiguous_path(db).path.module_path(db)
+//     }
+// }
 
 impl HasSynNodePath for AttrItemPath {
     type SynNodePath = AttrSynNodePath;

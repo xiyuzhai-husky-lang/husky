@@ -1,3 +1,5 @@
+use salsa::Database;
+
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -13,18 +15,13 @@ impl<T> Default for Arena<T> {
     }
 }
 
-impl<T, Db: ?Sized> salsa::DebugWithDb<Db> for Arena<T>
+impl<T> salsa::DebugWithDb for Arena<T>
 where
-    T: salsa::DebugWithDb<Db>,
+    T: salsa::DebugWithDb,
 {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
         f.debug_struct("Arena")
-            .field("data", &self.data.debug_with(db, level.next()))
+            .field("data", &self.data.debug_with(db))
             .finish()
     }
 }

@@ -67,18 +67,11 @@ impl Label {
     }
 }
 
-impl<Db: CowordDb + ?Sized> salsa::DebugWithDb<Db> for Label {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<CowordJar>>::as_jar_db(db);
-        if level.is_root() {
-            f.debug_tuple("Label").field(&self.ident.data(db)).finish()
-        } else {
-            f.write_fmt(format_args!("`'{}`", &self.ident.data(db)))
-        }
+impl salsa::DebugWithDb for Label {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
+        f.write_fmt(format_args!(
+            "`'{}`",
+            &self.ident.data(db.as_jar_db_dyn::<CowordJar>())
+        ))
     }
 }

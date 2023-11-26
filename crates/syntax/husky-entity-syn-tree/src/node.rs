@@ -28,21 +28,21 @@ pub enum ItemSynNodePath {
     Attr(AttrSynNodePath),
 }
 
-impl<Db> HasModulePath<Db> for ItemSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        match self {
-            ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.module_path(db),
-            ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.module_path(db),
-            ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.module_path(db),
-            ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.module_path(db),
-            ItemSynNodePath::AssociatedItem(syn_node_path) => syn_node_path.module_path(db),
-            ItemSynNodePath::Attr(syn_node_path) => syn_node_path.module_path(db),
-        }
-    }
-}
+// impl HasModulePath<Db> for ItemSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         match self {
+//             ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.module_path(db),
+//             ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.module_path(db),
+//             ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.module_path(db),
+//             ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.module_path(db),
+//             ItemSynNodePath::AssociatedItem(syn_node_path) => syn_node_path.module_path(db),
+//             ItemSynNodePath::Attr(syn_node_path) => syn_node_path.module_path(db),
+//         }
+//     }
+// }
 
 impl ItemSynNodePath {
     pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<ItemPath> {
@@ -59,7 +59,8 @@ impl ItemSynNodePath {
     }
 
     pub fn toolchain(self, db: &dyn EntitySynTreeDb) -> Toolchain {
-        self.module_path(db).toolchain(db)
+        // self.module_path(db).toolchain(db)
+        todo!()
     }
 
     pub(crate) fn attr_syn_nodes(

@@ -24,11 +24,7 @@ use crate::instantiation::*;
 use crate::*;
 use husky_coword::Ident;
 use husky_declarative_term::DeclarativeTerm;
-use husky_declarative_ty::{
-    ty_instance_constructor_path_declarative_ty, ty_ontology_path_declarative_ty,
-};
-use husky_entity_path::ItemPath;
-use salsa::{DebugWithDb, DisplayWithDb};
+use salsa::{Database, DebugWithDb, DisplayWithDb};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -501,30 +497,23 @@ fn term_size_works() {
     )
 }
 
-impl<Db: EtherealTermDb + ?Sized> salsa::DebugWithDb<Db> for EtherealTerm {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
-        f.write_fmt(format_args!(
-            "EtherealTerm(`{}`)",
-            self.display_with(db, salsa::DisplayFormatLevel::root())
-        ))
+impl salsa::DebugWithDb for EtherealTerm {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn Database) -> std::fmt::Result {
+        f.write_fmt(format_args!("EtherealTerm(`{}`)", self.display_with(db,)))
     }
 }
 
-impl<Db: EtherealTermDb + ?Sized> salsa::DisplayWithDb<Db> for EtherealTerm {
+impl salsa::DisplayWithDb for EtherealTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
-        self.show_with_db_fmt(f, db, &mut Default::default())
+        self.show_with_db_fmt(
+            f,
+            db.as_jar_db_dyn::<EtherealTermJar>(),
+            &mut Default::default(),
+        )
     }
 }
 

@@ -1,3 +1,5 @@
+use salsa::Database;
+
 use crate::*;
 use std::num::NonZeroU32;
 
@@ -105,12 +107,11 @@ impl<T> Debug for ArenaIdx<T> {
     }
 }
 
-impl<T, Db: ?Sized> salsa::DebugWithDb<Db> for ArenaIdx<T> {
+impl<T> salsa::DebugWithDb for ArenaIdx<T> {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        _db: &Db,
-        _level: salsa::DebugFormatLevel,
+        _db: &dyn ::salsa::Database,
     ) -> std::fmt::Result {
         Debug::fmt(&self.raw, f)
     }

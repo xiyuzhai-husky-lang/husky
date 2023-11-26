@@ -3,7 +3,7 @@ pub mod relative_path;
 
 use super::*;
 pub use ancestry::*;
-use salsa::{DbWithJar, DisplayWithDb};
+use salsa::{test_utils::TestDb, Database, DbWithJar, DisplayWithDb};
 use with_db::PartialOrdWithDb;
 #[cfg(test)]
 use with_db::WithDb;
@@ -21,22 +21,6 @@ impl ModulePath {
             .text(db)?
             .ok_or(VfsError::FileNotExists(diff_path))?;
         Ok(slf)
-    }
-}
-
-pub trait HasModulePath<Db>: Copy
-where
-    Db: ?Sized,
-{
-    fn module_path(self, db: &Db) -> ModulePath;
-}
-
-impl<Db> HasModulePath<Db> for ModulePath
-where
-    Db: ?Sized + VfsDb,
-{
-    fn module_path(self, _db: &Db) -> ModulePath {
-        self
     }
 }
 
@@ -153,40 +137,36 @@ impl<Db: VfsDb> PartialOrdWithDb<Db> for ModulePath {
 #[test]
 fn module_path_partial_ord_works() {
     let db = DB::default();
+    let db = &*db;
     let path_menu = db.dev_path_menu().unwrap();
 
-    assert!(path_menu.core_root().with_db(&db) > (path_menu.core_num().inner()).with_db(&db));
-    assert!(!(path_menu.core_root().with_db(&db) == (path_menu.core_num().inner()).with_db(&db)));
-    assert!(!(path_menu.core_root().with_db(&db) < (path_menu.core_num().inner()).with_db(&db)));
-    assert!(!(path_menu.core_root().with_db(&db) <= (path_menu.core_num().inner()).with_db(&db)));
-    assert!(path_menu.core_root().with_db(&db) >= (path_menu.core_num().inner()).with_db(&db));
-    assert!(path_menu.core_root().with_db(&db) != (path_menu.core_num().inner()).with_db(&db));
+    assert!(path_menu.core_root().with_db(db) > (path_menu.core_num().inner()).with_db(db));
+    assert!(!(path_menu.core_root().with_db(db) == (path_menu.core_num().inner()).with_db(db)));
+    assert!(!(path_menu.core_root().with_db(db) < (path_menu.core_num().inner()).with_db(db)));
+    assert!(!(path_menu.core_root().with_db(db) <= (path_menu.core_num().inner()).with_db(db)));
+    assert!(path_menu.core_root().with_db(db) >= (path_menu.core_num().inner()).with_db(db));
+    assert!(path_menu.core_root().with_db(db) != (path_menu.core_num().inner()).with_db(db));
 
     assert!(
-        !(path_menu.core_prelude().inner().with_db(&db)
-            > path_menu.core_num().inner().with_db(&db))
+        !(path_menu.core_prelude().inner().with_db(db) > path_menu.core_num().inner().with_db(db))
     );
     assert!(
-        !(path_menu.core_prelude().inner().with_db(&db)
-            == path_menu.core_num().inner().with_db(&db))
+        !(path_menu.core_prelude().inner().with_db(db) == path_menu.core_num().inner().with_db(db))
     );
     assert!(
-        !(path_menu.core_prelude().inner().with_db(&db)
-            < path_menu.core_num().inner().with_db(&db))
+        !(path_menu.core_prelude().inner().with_db(db) < path_menu.core_num().inner().with_db(db))
     );
     assert!(
-        !(path_menu.core_prelude().inner().with_db(&db)
-            <= path_menu.core_num().inner().with_db(&db))
+        !(path_menu.core_prelude().inner().with_db(db) <= path_menu.core_num().inner().with_db(db))
     );
     assert!(
-        !(path_menu.core_prelude().inner().with_db(&db)
-            >= path_menu.core_num().inner().with_db(&db))
+        !(path_menu.core_prelude().inner().with_db(db) >= path_menu.core_num().inner().with_db(db))
     );
-    assert!(path_menu.core_prelude().with_db(&db) != path_menu.core_num().with_db(&db));
+    assert!(path_menu.core_prelude().with_db(db) != path_menu.core_num().with_db(db));
 
     assert_ne!(
-        path_menu.std_root().with_db(&db),
-        path_menu.core_ops().inner().with_db(&db),
+        path_menu.std_root().with_db(db),
+        path_menu.core_ops().inner().with_db(db),
     )
 }
 
@@ -215,7 +195,11 @@ impl ModulePath {
     }
 
     #[inline(never)]
-    pub fn show(&self, f: &mut ::std::fmt::Formatter<'_>, db: &dyn VfsDb) -> ::std::fmt::Result {
+    pub fn show(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        db: &dyn ::salsa::Database,
+    ) -> ::std::fmt::Result {
         f.write_str("`")?;
         self.show_aux(f, db)?;
         f.write_str("`")
@@ -225,45 +209,39 @@ impl ModulePath {
     pub fn show_aux(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
-        db: &dyn VfsDb,
+        db: &dyn ::salsa::Database,
     ) -> ::std::fmt::Result {
-        match self.data(db) {
-            ModulePathData::Root(crate_path) => f.write_str(crate_path.package_ident(db).data(db)),
+        match self.data(db.as_jar_db_dyn::<VfsJar>()) {
+            ModulePathData::Root(crate_path) => f.write_str(
+                crate_path
+                    .package_ident(db.as_jar_db_dyn::<VfsJar>())
+                    .data(db.as_jar_db_dyn::<VfsJar>()),
+            ),
             ModulePathData::Child { parent, ident } => {
                 parent.show_aux(f, db)?;
                 f.write_str("::")?;
-                f.write_str(ident.data(db))
+                f.write_str(ident.data(db.as_jar_db_dyn::<VfsJar>()))
             }
         }
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for ModulePath
-where
-    Db: VfsDb + ?Sized,
-{
+impl salsa::DisplayWithDb for ModulePath {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
         self.show_aux(f, db)
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for SubmodulePath
-where
-    Db: VfsDb + ?Sized,
-{
+impl salsa::DisplayWithDb for SubmodulePath {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
         self.inner().show_aux(f, db)
     }
 }
@@ -271,58 +249,35 @@ where
 #[test]
 fn module_path_debug_with_db_works() {
     use salsa::DebugWithDb;
-    fn t(db: &DB, module_path: ModulePath, level: salsa::DebugFormatLevel, expect: &str) {
-        assert_eq!(
-            format!("{:?}", module_path.debug_with(db, level.next())),
-            expect
-        )
+    fn t(db: &TestDb, module_path: ModulePath, expect: &str) {
+        assert_eq!(format!("{:?}", module_path.debug_with(db,)), expect)
     }
     let db = DB::default();
+    let db = &*db;
     let path_menu = db.dev_path_menu().unwrap();
-    t(
-        &db,
-        path_menu.core_num().inner(),
-        salsa::DebugFormatLevel::root(),
-        "`core::num`",
-    );
-    t(
-        &db,
-        path_menu.core_root(),
-        salsa::DebugFormatLevel::root(),
-        "`core`",
-    );
-    t(
-        &db,
-        path_menu.std_root(),
-        salsa::DebugFormatLevel::root(),
-        "`std`",
-    );
+    t(db, path_menu.core_num().inner(), "`core::num`");
+    t(db, path_menu.core_root(), "`core`");
+    t(db, path_menu.std_root(), "`std`");
     expect_test::expect![[r#"
         `core`
     "#]]
-    .assert_debug_eq(&path_menu.core_root().debug(&db));
+    .assert_debug_eq(&path_menu.core_root().debug(db));
     expect_test::expect![[r#"
         SubmodulePath(
             `core::num`,
         )
     "#]]
-    .assert_debug_eq(&path_menu.core_num().debug(&db));
+    .assert_debug_eq(&path_menu.core_num().debug(db));
     expect_test::expect![[r#"
         `std`
     "#]]
-    .assert_debug_eq(&path_menu.std_root().debug(&db));
+    .assert_debug_eq(&path_menu.std_root().debug(db));
 }
 
-impl<Db: VfsDb + ?Sized> salsa::DebugWithDb<Db> for ModulePath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
+impl salsa::DebugWithDb for ModulePath {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
-        let db = <Db as DbWithJar<VfsJar>>::as_jar_db(db);
         self.show(f, db)
     }
 }

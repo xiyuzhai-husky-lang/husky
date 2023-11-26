@@ -1,4 +1,4 @@
-use salsa::DisplayWithDb;
+use salsa::{Database, DisplayWithDb};
 
 use super::*;
 
@@ -80,31 +80,20 @@ impl TraitPathData {
     }
 }
 
-impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for TraitPath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
+impl salsa::DebugWithDb for TraitPath {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &dyn ::salsa::Database) -> std::fmt::Result {
         f.write_str("TraitPath(`")?;
-        self.show_aux(f, db)?;
+        self.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())?;
         f.write_str("`)")
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for TraitPath
-where
-    Db: EntityPathDb + ?Sized,
-{
+impl salsa::DisplayWithDb for TraitPath {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
-        self.show_aux(f, db)
+        self.show_aux(f, db.as_jar_db_dyn::<EntityPathJar>())
     }
 }

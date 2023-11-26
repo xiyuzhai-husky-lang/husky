@@ -10,7 +10,7 @@ use crate::{
     key::{DatabaseKeyIndex, DependencyIndex},
     runtime::local_state::QueryOrigin,
     salsa_struct::SalsaStructInDb,
-    Cycle, DbWithJar, Event, EventKind, Id, Revision,
+    Cycle, Database, DbWithJar, Event, EventKind, Id, Revision,
 };
 
 use super::{ingredient::Ingredient, routes::IngredientIndex, AsId};

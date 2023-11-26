@@ -10,16 +10,15 @@ pub(super) fn struct_debug_with_db_impl(
 
     let body = match item.fields {
         syn::Fields::Named(_) => {
-            struct_regular_fields_debug_with_db(db_trai, &item.ident, &item.fields)
+            struct_regular_fields_debug_with_db(db_trai, jar_ty, &item.ident, &item.fields)
         }
         syn::Fields::Unnamed(_) => {
-            struct_tuple_fields_debug_with_db(db_trai, &item.ident, &item.fields)
+            struct_tuple_fields_debug_with_db(db_trai, jar_ty, &item.ident, &item.fields)
         }
         syn::Fields::Unit => todo!("unit struct debug with db"),
     };
     // todo: refactor this as a function
     let generics = &item.generics;
-    let generics_with_db = generics_with_db(generics, db_trai);
     let generics_without_db = generics_without_db(generics, db_trai);
     let self_ty = if item.generics.params.is_empty() {
         quote! { #ident }
@@ -44,15 +43,8 @@ pub(super) fn struct_debug_with_db_impl(
     };
     let where_clause = &item.generics.where_clause;
     quote! {
-        impl #generics_with_db ::salsa::DebugWithDb<_Db> for #self_ty #where_clause {
-            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: salsa::DebugFormatLevel) -> ::std::fmt::Result {
-                self.__fmt_with_db_aux(f, <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db), _level)
-            }
-        }
-
-        impl #generics_without_db #self_ty #where_clause {
-            #[inline(never)]
-            fn __fmt_with_db_aux(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &dyn #db_trai, _level: ::salsa::DebugFormatLevel) -> ::std::fmt::Result {
+        impl #generics_without_db ::salsa::DebugWithDb for #self_ty #where_clause {
+            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &dyn ::salsa::Database) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;
                 #body
@@ -63,6 +55,7 @@ pub(super) fn struct_debug_with_db_impl(
 
 fn struct_regular_fields_debug_with_db(
     db_trai: &Path,
+    jar_ty: &Type,
     ident: &Ident,
     fields: &Fields,
 ) -> proc_macro2::TokenStream {
@@ -80,11 +73,10 @@ fn struct_regular_fields_debug_with_db(
             let field_debug = quote! {
                 debug_struct = debug_struct.field(
                     #field_ident_string,
-                    &::salsa::debug::helper::SalsaDebug::<#field_ty, dyn #db_trai>::salsa_debug(
+                    &::salsa::debug::helper::SalsaDebug::<#field_ty>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         &self.#field_ident,
-                        _db,
-                        _level.next()
+                        _db.as_jar_db_dyn::<#jar_ty>()
                     )
                 );
             };
@@ -106,6 +98,7 @@ fn struct_regular_fields_debug_with_db(
 
 fn struct_tuple_fields_debug_with_db(
     db_trai: &Path,
+    jar_ty: &Type,
     ident: &Ident,
     fields: &Fields,
 ) -> proc_macro2::TokenStream {
@@ -123,11 +116,10 @@ fn struct_tuple_fields_debug_with_db(
 
             let field_debug = quote! {
                 debug_tuple = debug_tuple.field(
-                    &::salsa::debug::helper::SalsaDebug::<#field_ty, dyn #db_trai>::salsa_debug(
+                    &::salsa::debug::helper::SalsaDebug::<#field_ty>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         &self.#field_idx,
-                        _db,
-                        _level.next()
+                        _db.as_jar_db_dyn::<#jar_ty>()
                     )
                 );
             };

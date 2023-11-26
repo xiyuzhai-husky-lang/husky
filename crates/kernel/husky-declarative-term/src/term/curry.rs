@@ -114,14 +114,13 @@ pub(crate) fn curry_parameter_count(db: &dyn DeclarativeTermDb, term: Declarativ
     term.return_ty(db).curry_parameter_count(db) + 1
 }
 
-impl<Db: DeclarativeTermDb + ?Sized> salsa::DisplayWithDb<Db> for DeclarativeTermCurry {
+impl salsa::DisplayWithDb for DeclarativeTermCurry {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
+        let db = db.as_jar_db_dyn::<DeclarativeTermJar>();
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

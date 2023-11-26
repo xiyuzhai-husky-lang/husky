@@ -1,6 +1,9 @@
-use crate::{storage::HasJarsDyn, DebugWithDb, Durability, Event};
+use crate::{
+    storage::{HasJar, HasJarsDyn},
+    DbWithJar, DebugWithDb, Durability, Event,
+};
 
-pub trait Database: HasJarsDyn + AsSalsaDatabase {
+pub trait Database: DatabaseDyn + HasJarsDyn + AsSalsaDatabase {
     /// This function is invoked at key points in the salsa
     /// runtime. It permits the database to be customized and to
     /// inject logging or other custom behavior.
@@ -8,7 +11,7 @@ pub trait Database: HasJarsDyn + AsSalsaDatabase {
     /// By default, the event is logged at level debug using
     /// the standard `log` facade.
     fn salsa_event(&self, event: Event) {
-        log::debug!("salsa_event: {:?}", event.debug(self));
+        log::debug!("salsa_event: {:?}", event.debug(self.database_dyn()));
     }
 
     /// A "synthetic write" causes the system to act *as though* some
@@ -29,6 +32,43 @@ pub trait Database: HasJarsDyn + AsSalsaDatabase {
     /// revision.
     fn report_untracked_read(&self) {
         self.runtime().report_untracked_read();
+    }
+}
+
+impl<'a, Jar> HasJar<Jar> for dyn Database + 'a {
+    fn jar(&self) -> (&Jar, &crate::Runtime) {
+        todo!()
+    }
+
+    fn jar_mut(&mut self) -> (&mut Jar, &mut crate::Runtime) {
+        todo!()
+    }
+}
+
+impl<'a, Jar> DbWithJar<Jar> for dyn Database + 'a {
+    fn as_jar_db<'db>(&self) -> &<Jar as crate::jar::Jar<'db>>::DynDb
+    where
+        Jar: crate::jar::Jar<'db>,
+    {
+        todo!()
+    }
+}
+
+pub trait DatabaseDyn {
+    fn database_dyn(&self) -> &dyn Database;
+    fn database_dyn_mut(&mut self) -> &mut dyn Database;
+}
+
+impl<T> DatabaseDyn for T
+where
+    T: Database,
+{
+    fn database_dyn(&self) -> &dyn Database {
+        self
+    }
+
+    fn database_dyn_mut(&mut self) -> &mut dyn Database {
+        self
     }
 }
 

@@ -38,17 +38,13 @@ impl DeclarativeRitchieVariadicParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for DeclarativeRitchieVariadicParameter
-where
-    Db: DeclarativeTermDb + ?Sized,
-{
+impl salsa::DisplayWithDb for DeclarativeRitchieVariadicParameter {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        db: &dyn Database,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
+        let db = db.as_jar_db_dyn::<DeclarativeTermJar>();
         f.write_str("...")?;
         self.ty.show_with_db_fmt(f, db, &mut Default::default())
     }

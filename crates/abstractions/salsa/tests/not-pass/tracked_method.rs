@@ -50,7 +50,11 @@ fn execute() {
         storage: salsa::Storage<Self>,
     }
 
-    impl salsa::Database for Database {}
+    impl salsa::Database for Database {
+        fn database(&self) -> &dyn ::salsa::Database {
+            self
+        }
+    }
 
     impl Db for Database {}
 

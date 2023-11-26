@@ -42,15 +42,15 @@ impl TypeItemSynNodePath {
     }
 }
 
-impl<Db> HasModulePath<Db> for TypeItemSynNodePath
-where
-    Db: ?Sized + EntitySynTreeDb,
-{
-    fn module_path(self, db: &Db) -> ModulePath {
-        let db = entity_syn_tree_db(db);
-        self.maybe_ambiguous_path(db).path.module_path(db)
-    }
-}
+// impl HasModulePath<Db> for TypeItemSynNodePath
+// where
+//     Db: ?Sized + EntitySynTreeDb,
+// {
+//     fn module_path(self, db: &Db) -> ModulePath {
+//         let db = entity_syn_tree_db(db);
+//         self.maybe_ambiguous_path(db).path.module_path(db)
+//     }
+// }
 
 impl From<TypeItemSynNodePath> for ItemSynNodePath {
     fn from(id: TypeItemSynNodePath) -> Self {
@@ -106,7 +106,7 @@ impl TypeItemSynNode {
     }
 
     pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        self.syn_node_path(db).module_path(db)
+        todo!(); //    self.syn_node_path(db).module_path(db)
     }
 }
 
@@ -130,7 +130,7 @@ pub(crate) fn ty_impl_block_items(
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> Vec<(Ident, TypeItemSynNodePath, TypeItemSynNode)> {
     let impl_block_syn_node = syn_node_path.syn_node(db);
-    let module_path = syn_node_path.module_path(db);
+    let module_path = todo!(); // syn_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path);
     let items = impl_block_syn_node.items(db);
     let mut registry = ItemSynNodePathRegistry::default();

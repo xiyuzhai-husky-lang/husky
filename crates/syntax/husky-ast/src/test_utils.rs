@@ -1,51 +1,49 @@
 pub use husky_token::test_utils::*;
+use salsa::{test_utils::TestDb, Database};
 
 use crate::*;
 
 /// will have more robustness tests based on token level information than `TokenTestUtils`
-pub trait AstTestUtils {
+pub trait AstTestUtils: TokenTestUtils {
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn ast_plain_test<U>(&mut self, f: impl Fn(&Self, U), config: &AstTestConfig)
+    fn ast_plain_test<U>(&mut self, f: impl Fn(&TestDb, U), config: &AstTestConfig)
     where
-        U: VfsTestUnit + salsa::DebugWithDb<Self>;
+        U: VfsTestUnit + salsa::DebugWithDb;
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn ast_expect_test_debug_with_db<'a, U, R>(
         &'a mut self,
-        f: impl Fn(&'a Self, U) -> R,
+        f: impl Fn(&'a TestDb, U) -> R,
         config: &AstTestConfig<'a>,
     ) where
-        U: VfsTestUnit + salsa::DebugWithDb<Self>,
-        R: salsa::DebugWithDb<Self>;
+        U: VfsTestUnit + salsa::DebugWithDb,
+        R: salsa::DebugWithDb;
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn ast_expect_test_debug<'a, U, R>(
         &'a mut self,
-        f: impl Fn(&'a Self, U) -> R,
-        config: &AstTestConfig<'a>,
+        f: impl Fn(&'a TestDb, U) -> R,
+        config: &AstTestConfig,
     ) where
-        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+        U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug;
 
-    fn ast_expect_test_display<'a, U, R>(
-        &'a mut self,
-        f: impl Fn(&'a Self, U) -> R,
-        config: &AstTestConfig<'a>,
+    fn ast_expect_test_display<U, R>(
+        &mut self,
+        f: impl Fn(&TestDb, U) -> R,
+        config: &AstTestConfig,
     ) where
-        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+        U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display;
 }
 
-impl<Db> AstTestUtils for Db
-where
-    Db: AstDb + ?Sized,
-{
-    fn ast_plain_test<U>(&mut self, f: impl Fn(&Self, U), config: &AstTestConfig)
+impl AstTestUtils for TestDb {
+    fn ast_plain_test<U>(&mut self, f: impl Fn(&TestDb, U), config: &AstTestConfig)
     where
-        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+        U: VfsTestUnit + salsa::DebugWithDb,
     {
         // todo: robustness
         self.token_plain_test(f, config);
@@ -53,11 +51,11 @@ where
 
     fn ast_expect_test_debug_with_db<'a, U, R>(
         &'a mut self,
-        f: impl Fn(&'a Self, U) -> R,
+        f: impl Fn(&'a TestDb, U) -> R,
         config: &AstTestConfig<'a>,
     ) where
-        U: VfsTestUnit + salsa::DebugWithDb<Self>,
-        R: salsa::DebugWithDb<Self>,
+        U: VfsTestUnit + salsa::DebugWithDb,
+        R: salsa::DebugWithDb,
     {
         // todo: robustness
         self.token_expect_test_debug_with_db(f, &config.token)
@@ -65,22 +63,19 @@ where
 
     fn ast_expect_test_debug<'a, U, R>(
         &'a mut self,
-        f: impl Fn(&'a Self, U) -> R,
-        config: &AstTestConfig<'a>,
+        f: impl Fn(&'a TestDb, U) -> R,
+        config: &AstTestConfig,
     ) where
-        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+        U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug,
     {
         // todo: robustness
         self.token_expect_test_debug(f, &config.token)
     }
 
-    fn ast_expect_test_display<'a, U, R>(
-        &'a mut self,
-        f: impl Fn(&'a Self, U) -> R,
-        config: &AstTestConfig<'a>,
-    ) where
-        U: VfsTestUnit + salsa::DebugWithDb<Self>,
+    fn ast_expect_test_display<U, R>(&mut self, f: impl Fn(&TestDb, U) -> R, config: &AstTestConfig)
+    where
+        U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display,
     {
         // todo: robustness

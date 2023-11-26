@@ -12,7 +12,7 @@ struct DB;
 #[test]
 fn manifest_ast_works() {
     DB::default().vfs_expect_test_debug_with_db(
-        TomlAstDb::package_manifest_toml_ast_sheet,
+        |db, path| db.package_manifest_toml_ast_sheet(path),
         &VfsTestConfig::new("package_manifest_ast_sheet_sheet"),
     )
 }

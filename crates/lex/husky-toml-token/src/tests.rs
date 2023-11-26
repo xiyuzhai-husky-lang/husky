@@ -3,7 +3,7 @@ use expect_test::expect_file;
 
 use husky_coword::{CowordDb, CowordJar};
 use husky_vfs::*;
-use salsa::Database;
+use salsa::{database::DatabaseDyn, Database};
 use std::sync::Arc;
 
 #[salsa::test_db(CowordJar, VfsJar, TomlTokenJar)]

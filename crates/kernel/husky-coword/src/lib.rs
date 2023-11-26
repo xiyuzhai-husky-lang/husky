@@ -7,6 +7,8 @@ mod style;
 #[cfg(test)]
 mod tests;
 
+use salsa::Database;
+
 pub use self::db::*;
 pub use self::ident::*;
 pub use self::kebab::*;
@@ -81,15 +83,15 @@ where
     fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
 }
 
-impl<Db: CowordDb + ?Sized> ::salsa::DebugWithDb<Db> for Coword {
+impl ::salsa::DebugWithDb for Coword {
     fn fmt(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
+        db: &dyn ::salsa::Database,
     ) -> ::std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<CowordJar>>::as_jar_db(db);
-        f.debug_tuple("Word").field(&self.data(db)).finish()
+        f.debug_tuple("Word")
+            .field(&self.data(db.as_jar_db_dyn::<CowordJar>()))
+            .finish()
     }
 }
 

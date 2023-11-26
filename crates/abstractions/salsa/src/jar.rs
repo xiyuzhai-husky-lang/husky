@@ -6,7 +6,7 @@ use crate::{
 use super::routes::Routes;
 
 pub trait Jar<'db>: Sized {
-    type DynDb: ?Sized + HasJar<Self> + Database + 'db;
+    type DynDb: ?Sized + HasJar<Self> + Database + Database + 'db;
 
     fn initialize<DB>(&mut self, routes: &mut Routes<DB>)
     where
