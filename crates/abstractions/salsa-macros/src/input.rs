@@ -135,7 +135,7 @@ impl InputStruct {
                 /// If called when an instance already exists
                 pub fn #constructor_name(__db: &::salsa::Db, #(#field_names: #field_tys,)*) -> Self
                 {
-                    let (__jar, __runtime) = db.jar();
+                    let (__jar, __runtime) = __db.jar::<jar_ty>();
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     let __id = __ingredients.#input_index.new_singleton_input(__runtime);
                     #(

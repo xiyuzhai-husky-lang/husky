@@ -73,6 +73,7 @@ pub(crate) fn b2(db: &Db, input: MyInput) -> i32 {
 #[test]
 fn execute() {
     let db = Database::default();
+    let db = &*db;
     db.knobs().signal_on_will_block.set(3);
 
     let input = MyInput::new(&db, 1);

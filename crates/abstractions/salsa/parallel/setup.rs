@@ -53,16 +53,16 @@ pub(crate) struct Database {
     knobs: KnobsStruct,
 }
 
-// impl Knobs for Database {
-//     fn knobs(&self) -> &KnobsStruct {
-//         &self.knobs
-//     }
+impl Knobs for Database {
+    fn knobs(&self) -> &KnobsStruct {
+        &self.knobs
+    }
 
-//     fn signal(&self, stage: usize) {
-//         self.knobs.signal.signal(stage);
-//     }
+    fn signal(&self, stage: usize) {
+        self.knobs.signal.signal(stage);
+    }
 
-//     fn wait_for(&self, stage: usize) {
-//         self.knobs.signal.wait_for(stage);
-//     }
-// }
+    fn wait_for(&self, stage: usize) {
+        self.knobs.signal.wait_for(stage);
+    }
+}
