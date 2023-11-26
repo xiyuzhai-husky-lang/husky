@@ -15,7 +15,7 @@ use parsec::{HasStreamState, IsStreamParser};
 use utils::*;
 
 pub(crate) struct AstParser<'a> {
-    db: &'a dyn AstDb,
+    db: &'a ::salsa::Db,
     module_path: ModulePath,
     token_sheet: &'a TokenSheetData,
     token_groups: TokenGroupIter<'a>,
@@ -43,7 +43,7 @@ impl<'a> HasStreamState for AstParser<'a> {
 }
 
 impl<'a> AstParser<'a> {
-    pub(crate) fn new(db: &'a dyn AstDb, module_path: ModulePath) -> Self {
+    pub(crate) fn new(db: &'a ::salsa::Db, module_path: ModulePath) -> Self {
         let token_sheet = db.token_sheet_data(module_path);
         Self {
             db,

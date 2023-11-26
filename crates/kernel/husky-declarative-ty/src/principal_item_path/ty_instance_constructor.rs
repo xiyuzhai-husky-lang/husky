@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_instance_constructor_path_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TypePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
@@ -37,7 +37,7 @@ pub fn ty_instance_constructor_path_declarative_ty(
 }
 
 fn props_struct_ty_instance_constructor_path_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     _path: TypePath,
     variances: &[Variance],
     signature: PropsStructTypeDeclarativeSignatureTemplate,
@@ -64,7 +64,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
 }
 
 fn tuple_struct_ty_constructor_path_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     _path: TypePath,
     variances: &[Variance],
     signature: TupleStructTypeDeclarativeSignatureTemplate,

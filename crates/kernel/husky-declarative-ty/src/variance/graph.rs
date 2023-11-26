@@ -28,7 +28,7 @@ impl<'a> Graph for VarianceGraph<'a> {
 }
 
 impl<'a> VarianceGraph<'a> {
-    pub(super) fn new(db: &'a dyn DeclarativeTypeDb, path: ItemPath) -> VarianceResult<Self> {
+    pub(super) fn new(db: &'a ::salsa::Db, path: ItemPath) -> VarianceResult<Self> {
         let Ok(item_variance_reprs) = item_variance_reprs(db, path) else {
             todo!()
         };

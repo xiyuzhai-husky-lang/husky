@@ -3,7 +3,7 @@ use husky_vfs::Toolchain;
 
 #[inline(always)]
 pub fn declarative_term_declarative_ty(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     _disambiguation: TypePathDisambiguation,
     declarative_term: DeclarativeTerm,
     _toolchain: Toolchain,
@@ -37,7 +37,7 @@ pub fn declarative_term_declarative_ty(
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub(crate) fn application_declarative_term_declarative_ty(
-    _db: &dyn DeclarativeTypeDb,
+    _db: &::salsa::Db,
     _declarative_term: DeclarativeTermExplicitApplication,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     Err(OriginalDeclarativeTypeError::Todo.into())

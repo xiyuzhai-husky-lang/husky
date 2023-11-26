@@ -1,11 +1,7 @@
 use crate::*;
-
-use husky_ast::AstDb;
-
-use husky_manifest::ManifestDb;
 use husky_vfs::{error::VfsResult, *};
 
-pub trait EntitySynTreeDb: DbWithJar<EntitySynTreeJar> + AstDb + EntityPathDb + ManifestDb {
+pub trait EntitySynTreeDb {
     fn submodules(&self, module_path: ModulePath) -> &[SubmodulePath];
     fn all_modules_within_crate(&self, crate_path: CratePath) -> &[ModulePath];
     fn item_syn_tree_bundle(&self, crate_path: CratePath) -> &EntitySynTreeCrateBundle;
@@ -22,10 +18,7 @@ pub trait EntitySynTreeDb: DbWithJar<EntitySynTreeJar> + AstDb + EntityPathDb + 
     ) -> EntitySynTreeResult<SubitemPath>;
 }
 
-impl<T> EntitySynTreeDb for T
-where
-    T: DbWithJar<EntitySynTreeJar> + AstDb + EntityPathDb + ManifestDb,
-{
+impl EntitySynTreeDb for ::salsa::Db {
     fn submodules(&self, module_path: ModulePath) -> &[SubmodulePath] {
         submodules(self, module_path)
     }

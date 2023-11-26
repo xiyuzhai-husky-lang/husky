@@ -1,10 +1,8 @@
 use super::*;
 
-
 use husky_scope_expr::VisibilityExprResult;
 use husky_token::*;
 use parsec::StreamWrapper;
-
 
 pub(super) trait AstTokenParseContext<'a>: TokenStreamParser<'a> {
     fn module_path(&self) -> ModulePath;
@@ -68,14 +66,14 @@ impl<'a> AstTokenParseContext<'a> for BasicAuxAstParser<'a> {
 }
 
 pub(crate) struct BasicAuxAstParser<'a> {
-    db: &'a dyn AstDb,
+    db: &'a ::salsa::Db,
     module_path: ModulePath,
     token_iter: TokenStream<'a>,
 }
 
 impl<'a> BasicAuxAstParser<'a> {
     pub(super) fn new(
-        db: &'a dyn AstDb,
+        db: &'a ::salsa::Db,
         module_path: ModulePath,
         token_iter: TokenStream<'a>,
     ) -> Self {
@@ -90,7 +88,7 @@ impl<'a> BasicAuxAstParser<'a> {
         self.token_iter.save_state()
     }
 
-    pub(crate) fn db(&self) -> &dyn AstDb {
+    pub(crate) fn db(&self) -> &::salsa::Db {
         self.db
     }
     // todo: where to put this?

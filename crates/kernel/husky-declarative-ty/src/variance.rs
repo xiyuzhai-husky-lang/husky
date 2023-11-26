@@ -45,10 +45,7 @@ pub enum DerivedVarianceError {
     TypeItemNotFound,
 }
 
-pub(crate) fn item_variances(
-    db: &dyn DeclarativeTypeDb,
-    path: ItemPath,
-) -> VarianceResultRef<&[Variance]> {
+pub(crate) fn item_variances(db: &::salsa::Db, path: ItemPath) -> VarianceResultRef<&[Variance]> {
     match path {
         ItemPath::Submodule(_, _) => Ok(&[]),
         ItemPath::MajorItem(path) => match path {
@@ -70,7 +67,7 @@ pub(crate) fn item_variances(
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn ty_template_parameter_variances(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TypePath,
 ) -> VarianceResult<Vec<Variance>> {
     calc_item_variances(db, path)
@@ -78,7 +75,7 @@ pub(crate) fn ty_template_parameter_variances(
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn trai_item_variances(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TraitPath,
 ) -> VarianceResult<Vec<Variance>> {
     calc_item_variances(db, path)
@@ -86,7 +83,7 @@ pub(crate) fn trai_item_variances(
 
 // #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variances(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: FugitivePath,
 ) -> VarianceResult<Vec<Variance>> {
     calc_item_variances(db, path)
@@ -94,14 +91,14 @@ pub(crate) fn form_item_variances(
 
 // #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn ty_item_item_variances(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TypeItemPath,
 ) -> VarianceResult<Vec<Variance>> {
     calc_item_variances(db, path)
 }
 
 fn calc_item_variances(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: impl Into<ItemPath>,
 ) -> VarianceResult<Vec<Variance>> {
     let mut graph = VarianceGraph::new(db, path.into())?;

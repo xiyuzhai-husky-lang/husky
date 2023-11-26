@@ -2,16 +2,11 @@ use husky_syn_expr::SynExprRegion;
 
 use crate::*;
 
-pub trait DeclarativeSignatureDb:
-    salsa::DbWithJar<DeclarativeSignatureJar> + SynDeclDb + DeclarativeTermDb
-{
+pub trait DeclarativeSignatureDb {
     fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DeclarativeTermRegion;
 }
 
-impl DeclarativeSignatureDb for Db
-where
-    Db: salsa::DbWithJar<DeclarativeSignatureJar> + SynDeclDb + DeclarativeTermDb,
-{
+impl DeclarativeSignatureDb for ::salsa::Db {
     fn declarative_term_region(&self, syn_expr_region: SynExprRegion) -> &DeclarativeTermRegion {
         declarative_term_region(self, syn_expr_region)
     }

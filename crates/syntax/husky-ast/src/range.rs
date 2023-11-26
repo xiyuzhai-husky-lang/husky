@@ -1,4 +1,4 @@
-use husky_token::{HasTokenIdxRange, TokenIdxRange, TokenSheetData};
+use husky_token::{HasTokenIdxRange, TokenDb, TokenIdxRange, TokenSheetData};
 use husky_vfs::error::VfsResult;
 
 use crate::*;
@@ -11,7 +11,7 @@ pub struct AstTokenIdxRangeSheet {
 
 #[salsa::tracked(jar = AstJar, return_ref)]
 pub(crate) fn ast_token_idx_range_sheet(
-    db: &dyn AstDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> AstTokenIdxRangeSheet {
     let token_sheet_data = db.token_sheet_data(module_path);

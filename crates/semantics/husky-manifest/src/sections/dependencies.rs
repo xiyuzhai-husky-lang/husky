@@ -8,7 +8,7 @@ pub struct PackageDependenciesSection {
 }
 
 pub(crate) fn package_dependencies(
-    db: &dyn ManifestDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> ManifestResultRef<&[ManifestDependency]> {
     // todo!(): check for cycles!
@@ -16,7 +16,7 @@ pub(crate) fn package_dependencies(
 }
 
 fn package_dependencies_unchecked(
-    db: &dyn ManifestDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> ManifestResultRef<&[ManifestDependency]> {
     package_dependencies_unchecked_aux(db, package_path)
@@ -26,14 +26,14 @@ fn package_dependencies_unchecked(
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn package_dependencies_unchecked_aux(
-    db: &dyn ManifestDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> ManifestResult<PackageDependenciesSection> {
     Ok(package_path.package_manifest(db)?.dependencies(db))
 }
 
 fn cyclic_dependent_package_paths(
-    db: &dyn ManifestDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> ManifestResultRef<&[PackagePath]> {
     cyclic_dependent_package_paths_aux(db, package_path)
@@ -43,14 +43,14 @@ fn cyclic_dependent_package_paths(
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn cyclic_dependent_package_paths_aux(
-    _db: &dyn ManifestDb,
+    _db: &::salsa::Db,
     _package_path: PackagePath,
 ) -> ManifestResult<VecSet<PackagePath>> {
     todo!()
 }
 
 fn full_dependent_package_paths(
-    db: &dyn ManifestDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> ManifestResultRef<&[PackagePath]> {
     full_dependent_package_paths_aux(db, package_path)
@@ -60,7 +60,7 @@ fn full_dependent_package_paths(
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn full_dependent_package_paths_aux(
-    _db: &dyn ManifestDb,
+    _db: &::salsa::Db,
     _package_path: PackagePath,
 ) -> ManifestResult<VecSet<PackagePath>> {
     todo!()

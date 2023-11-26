@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_syn_tree::{ModuleSymbolContext, PreludeResult};
+use husky_token::TokenDb;
 use husky_vfs::{snippet::Snippet, CratePath};
 
 #[salsa::tracked(jar = SynExprJar, return_ref)]

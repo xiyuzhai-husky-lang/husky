@@ -11,7 +11,7 @@ pub(crate) struct VarianceId {
 
 impl VarianceId {
     pub(super) fn new(
-        db: &dyn DeclarativeTypeDb,
+        db: &::salsa::Db,
         crate_path: CratePath,
         path: ItemPath,
         idx: u8,
@@ -21,7 +21,7 @@ impl VarianceId {
 }
 
 pub(crate) fn item_variance_crate_dependencies(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     id: VarianceId,
 ) -> VarianceResultRef<&[VarianceId]> {
     let _declarative_term_menu = db
@@ -55,7 +55,7 @@ pub(crate) fn item_variance_crate_dependencies(
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn declarative_ty_item_variance_crate_dependencies(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: TypePath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
@@ -80,7 +80,7 @@ pub(crate) fn declarative_ty_item_variance_crate_dependencies(
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn trai_item_variance_crate_dependencies(
-    _db: &dyn DeclarativeTypeDb,
+    _db: &::salsa::Db,
     _path: TraitPath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
@@ -89,7 +89,7 @@ pub(crate) fn trai_item_variance_crate_dependencies(
 
 // #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variance_crate_dependencies(
-    db: &dyn DeclarativeTypeDb,
+    db: &::salsa::Db,
     path: FugitivePath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {

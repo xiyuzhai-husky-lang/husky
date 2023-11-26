@@ -171,7 +171,6 @@ impl salsa::DisplayWithDb for DeclarativeTermSymbol {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        let db = db();
         // ad hoc
         f.write_fmt(format_args!("${:?}", self.index(db)))
     }

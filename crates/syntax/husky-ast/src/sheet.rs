@@ -2,22 +2,22 @@ use crate::*;
 use husky_vfs::error::VfsResult;
 
 pub trait HasAstSheet: Copy {
-    fn ast_sheet(self, db: &dyn AstDb) -> &AstSheet;
-    fn ast_token_idx_range_sheet(self, db: &dyn AstDb) -> &AstTokenIdxRangeSheet;
+    fn ast_sheet(self, db: &::salsa::Db) -> &AstSheet;
+    fn ast_token_idx_range_sheet(self, db: &::salsa::Db) -> &AstTokenIdxRangeSheet;
 }
 
 impl HasAstSheet for ModulePath {
-    fn ast_sheet(self, db: &dyn AstDb) -> &AstSheet {
+    fn ast_sheet(self, db: &::salsa::Db) -> &AstSheet {
         ast_sheet(db, self)
     }
 
-    fn ast_token_idx_range_sheet(self, db: &dyn AstDb) -> &AstTokenIdxRangeSheet {
+    fn ast_token_idx_range_sheet(self, db: &::salsa::Db) -> &AstTokenIdxRangeSheet {
         ast_token_idx_range_sheet(db, self)
     }
 }
 
 #[salsa::tracked(jar = AstJar, return_ref)]
-pub(crate) fn ast_sheet(db: &dyn AstDb, module_path: ModulePath) -> AstSheet {
+pub(crate) fn ast_sheet(db: &::salsa::Db, module_path: ModulePath) -> AstSheet {
     AstParser::new(db, module_path).parse_all()
 }
 

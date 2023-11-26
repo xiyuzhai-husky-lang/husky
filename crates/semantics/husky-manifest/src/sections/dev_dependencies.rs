@@ -8,7 +8,7 @@ pub struct PackageDevDependenciesSection {
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn package_dev_dependencies_unchecked(
-    db: &dyn ManifestDb,
+    db: &::salsa::Db,
     package_path: PackagePath,
 ) -> ManifestResult<PackageDevDependenciesSection> {
     Ok(package_path.package_manifest(db)?.dev_dependencies(db))

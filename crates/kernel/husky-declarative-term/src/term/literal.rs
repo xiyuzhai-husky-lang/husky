@@ -33,7 +33,6 @@ impl salsa::DisplayWithDb for DeclarativeTermLiteral {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        let db = db();
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
