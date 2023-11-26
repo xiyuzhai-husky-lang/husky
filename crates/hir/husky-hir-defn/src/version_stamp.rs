@@ -88,7 +88,6 @@ pub(crate) fn module_hir_defn_version_stamps(
     module_path: ModulePath,
 ) -> Vec<(ItemPath, Option<Option<HirDefnVersionStamp>>)> {
     use husky_entity_syn_tree::helpers::paths::module_item_paths;
-    use salsa::test_utils::Db;
     module_item_paths(db, module_path)
         .iter()
         .map(|&path| {

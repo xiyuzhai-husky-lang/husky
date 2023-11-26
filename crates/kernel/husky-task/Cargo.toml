@@ -9,6 +9,7 @@ smallvec.workspace = true
 # abstractions
 small-cell-stack = { path = "../../abstractions/small-cell-stack" }
 enum-class = { path = "../../abstractions/enum-class" }
+salsa = { path = "../../abstractions/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel

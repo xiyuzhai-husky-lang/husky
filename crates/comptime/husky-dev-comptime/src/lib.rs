@@ -1,5 +1,5 @@
 use husky_coword::Kebab;
-use husky_task::{helpers::TaskDevComptimeDb, helpers::TaskDevLinkTime, link::IsLinktime, IsTask};
+use husky_task::{helpers::TaskDevLinkTime, link::IsLinktime, IsTask};
 use husky_vfs::{
     error::VfsResult, linktime_target_path::LinktimeTargetPath, CrateKind, CratePath, PackagePath,
     VfsDb, VfsJar,
@@ -7,7 +7,7 @@ use husky_vfs::{
 use std::path::Path;
 
 pub struct DevComptime<Task: IsTask> {
-    db: TaskDevComptimeDb<Task>,
+    db: ::salsa::Db,
     target: DevComptimeTarget,
     linktime: TaskDevLinkTime<Task>,
 }
@@ -21,7 +21,7 @@ pub enum DevComptimeTarget {
 
 impl<Task: IsTask> DevComptime<Task> {
     pub fn new(target_crate_path: &Path) -> VfsResult<Self> {
-        let db: TaskDevComptimeDb<Task> = Default::default();
+        let db: ::salsa::Db = ::salsa::Db::new(todo!());
         let toolchain = match db.current_toolchain() {
             Ok(toolchain) => toolchain,
             Err(_) => todo!(),
@@ -53,7 +53,7 @@ impl<Task: IsTask> DevComptime<Task> {
 }
 
 impl<Task: IsTask> DevComptime<Task> {
-    pub fn db(&self) -> &TaskDevComptimeDb<Task> {
+    pub fn db(&self) -> &::salsa::Db {
         &self.db
     }
 }
@@ -65,7 +65,7 @@ where
     fn default() -> Self {
         Self {
             target: DevComptimeTarget::None,
-            db: Default::default(),
+            db: todo!(),
             linktime: Default::default(),
         }
     }

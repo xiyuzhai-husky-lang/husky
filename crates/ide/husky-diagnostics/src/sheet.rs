@@ -28,7 +28,7 @@ pub struct DiagnosticSheet {
 }
 
 #[salsa::tracked(jar = DiagnosticsJar)]
-pub(crate) fn diagnostic_sheet(db: &dyn DiagnosticsDb, module_path: ModulePath) -> DiagnosticSheet {
+pub(crate) fn diagnostic_sheet(db: &::salsa::Db, module_path: ModulePath) -> DiagnosticSheet {
     DiagnosticSheet::new(
         db,
         item_tree_diagnostic_sheet(db, module_path),
@@ -44,7 +44,7 @@ pub(crate) fn diagnostic_sheet(db: &dyn DiagnosticsDb, module_path: ModulePath) 
 impl DiagnosticSheet {
     pub fn diagnostic_iter<'a>(
         self,
-        db: &'a dyn DiagnosticsDb,
+        db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = &'a Diagnostic> + 'a {
         self.item_tree_diagnostic_sheet(db)
             .diagnostics(db)

@@ -1,7 +1,6 @@
 use super::*;
 use husky_syn_decl::*;
 
-
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct DeclDiagnosticSheet {
     #[return_ref]
@@ -10,7 +9,7 @@ pub struct DeclDiagnosticSheet {
 
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn decl_diagnostic_sheet(
-    db: &dyn DiagnosticsDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> DeclDiagnosticSheet {
     let mut collector = ModuleDiagnosticsCollector::new(db, module_path);

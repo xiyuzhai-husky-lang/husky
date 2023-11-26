@@ -4,7 +4,7 @@ use crate::*;
 pub struct ValDeps {}
 
 impl Val {
-    pub fn deps(self, db: &dyn ValDb) -> ValDeps {
+    pub fn deps(self, db: &::salsa::Db) -> ValDeps {
         todo!()
     }
 }

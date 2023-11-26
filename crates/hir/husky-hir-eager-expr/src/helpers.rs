@@ -1,10 +1,10 @@
 use crate::*;
-use husky_sema_expr::SemaExprRegion;
+use husky_sema_expr::{SemaExprDb, SemaExprRegion};
 use husky_syn_expr::{SynExprIdx, SynExprRegion};
 
 pub fn hir_eager_body_with_expr_region(
     body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
-    db: &dyn HirEagerExprDb,
+    db: &::salsa::Db,
 ) -> Option<(HirEagerExprIdx, HirEagerExprRegion)> {
     let (body, syn_expr_region) = body_with_syn_expr_region?;
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
@@ -20,7 +20,7 @@ pub fn hir_eager_body_with_expr_region(
 
 pub fn hir_eager_expr_region(
     syn_expr_region: SynExprRegion,
-    db: &dyn HirEagerExprDb,
+    db: &::salsa::Db,
 ) -> HirEagerExprRegion {
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
     hir_eager_expr_region_with_source_map(db, sema_expr_region).0
@@ -28,7 +28,7 @@ pub fn hir_eager_expr_region(
 
 pub fn hir_eager_expr_source_map_from_sema(
     sema_expr_region: SemaExprRegion,
-    db: &dyn HirEagerExprDb,
+    db: &::salsa::Db,
 ) -> HirEagerExprSourceMap {
     hir_eager_expr_region_with_source_map(db, sema_expr_region).1
 }

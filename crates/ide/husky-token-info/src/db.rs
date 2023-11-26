@@ -2,7 +2,7 @@ use crate::*;
 
 use husky_sema_expr::SemaExprDb;
 
-pub trait TokenInfoDb: DbWithJar<TokenInfoJar> + SemaExprDb {
+pub trait TokenInfoDb {
     #[deprecated]
     fn token_info_sheet(&self, module_path: ModulePath) -> EntitySynTreeResult<&TokenInfoSheet>;
     fn token_info_sheet_ref(
@@ -11,10 +11,7 @@ pub trait TokenInfoDb: DbWithJar<TokenInfoJar> + SemaExprDb {
     ) -> EntitySynTreeResult<TokenInfoSheetRef>;
 }
 
-impl TokenInfoDb for Db
-where
-    Db: DbWithJar<TokenInfoJar> + SemaExprDb,
-{
+impl TokenInfoDb for ::salsa::Db {
     fn token_info_sheet(&self, module_path: ModulePath) -> EntitySynTreeResult<&TokenInfoSheet> {
         Ok(token_info_sheet(self, module_path)
             .as_ref()

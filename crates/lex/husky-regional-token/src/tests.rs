@@ -1,8 +1,6 @@
-pub use salsa::test_utils::Db;
-
 use salsa::Storage;
 
-#[salsa::test_db(
+#[salsa::db(
     husky_coword::CowordJar,
     husky_vfs::VfsJar,
     husky_token_data::db::TokenDataJar,

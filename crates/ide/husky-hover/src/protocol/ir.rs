@@ -11,7 +11,7 @@ pub enum HoverActionIR {
 }
 
 impl HoverActionIR {
-    fn new_goto_type_from_targets(_db: &dyn HoverDb, targets: Vec<EtherealTerm>) -> Self {
+    fn new_goto_type_from_targets(_db: &::salsa::Db, targets: Vec<EtherealTerm>) -> Self {
         let targets = targets
             .into_iter()
             .filter_map(|_target| {

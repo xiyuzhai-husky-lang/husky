@@ -58,7 +58,7 @@ impl HirEagerComptimeSymbolRegionData {
     pub(crate) fn from_sema(
         sema_expr_region_data: &SemaExprRegionData,
         syn_symobl_region_data: &SynSymbolRegionData,
-        db: &dyn HirEagerExprDb,
+        db: &::salsa::Db,
     ) -> Self {
         let mut arena = HirEagerComptimeSymbolArena::default();
         let terms = sema_expr_region_data.fluffy_term_region().terms();

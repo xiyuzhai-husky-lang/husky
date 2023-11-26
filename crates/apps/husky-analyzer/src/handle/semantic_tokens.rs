@@ -2,7 +2,7 @@ use dashmap::mapref::entry::Entry;
 use lsp_types::{SemanticToken, SemanticTokens, SemanticTokensEdit, Url};
 
 use super::*;
-use std::{sync::atomic::AtomicU32};
+use std::sync::atomic::AtomicU32;
 
 pub(crate) fn handle_semantic_tokens_full(
     snapshot: AnalyzerDBSnapshot,
@@ -56,7 +56,7 @@ pub(crate) fn handle_semantic_tokens_range(
 }
 
 fn semantic_tokens(
-    snapshot: &salsa::Snapshot<AnalyzerDB>,
+    snapshot: &AnalyzerDBSnapshot,
     uri: &Url,
     range: Option<TextRange>,
 ) -> Result<SemanticTokens> {

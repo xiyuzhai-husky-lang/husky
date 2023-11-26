@@ -10,6 +10,7 @@ dashmap.workspace = true
 either.workspace = true
 serde.workspace = true
 # abstractions
+salsa = { path = "../../abstractions/salsa" }
 # comptime
 husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
 # fs

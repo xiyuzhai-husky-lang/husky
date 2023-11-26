@@ -4,7 +4,7 @@ use husky_token_protocol::TokenClass;
 use crate::*;
 
 pub(crate) fn collect_semantic_tokens(
-    db: &dyn SemanticTokenDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> EntitySynTreeResult<Vec<SemanticToken>> {
     let ranged_token_sheet = db.ranged_token_sheet(module_path);
@@ -21,7 +21,7 @@ pub(crate) fn collect_semantic_tokens(
 }
 
 fn token_to_semantic_token(
-    db: &dyn SemanticTokenDb,
+    db: &::salsa::Db,
     info: Option<&TokenInfo>,
     token_data: &TokenData,
     range: &husky_text_protocol::range::TextRange,

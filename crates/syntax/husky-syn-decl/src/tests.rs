@@ -15,7 +15,7 @@ use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 use husky_vfs::VfsTestUtils;
 
-#[salsa::test_db(
+#[salsa::db(
     CowordJar,
     husky_vfs::VfsJar,
     EntityPathJar,

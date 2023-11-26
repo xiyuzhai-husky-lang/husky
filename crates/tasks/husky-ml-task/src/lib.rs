@@ -1,28 +1,23 @@
 mod runtime_storage;
 
 use self::runtime_storage::*;
-use husky_linkage::db::LinkageDb;
 use husky_mono_linktime::MonoLinkTime;
 use husky_regular_value::RegularValue;
-use husky_rust_transpilation::db::RustTranspilationDb;
 use husky_task::{ascension::IsDevAscension, link::IsLinkageImpl, IsTask};
 use husky_trace_protocol::protocol::IsTraceProtocol;
-use husky_val::ValDb;
 use husky_visual_protocol::IsVisualProtocol;
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
-pub struct MlTask<ComptimeDb, VisualProtocol>
+pub struct MlTask<VisualProtocol>
 where
-    ComptimeDb: ValDb,
     VisualProtocol: IsVisualProtocol,
 {
-    _marker: PhantomData<(ComptimeDb, VisualProtocol)>,
+    _marker: PhantomData<VisualProtocol>,
 }
 
-impl<ComptimeDb, VisualProtocol> MlTask<ComptimeDb, VisualProtocol>
+impl<VisualProtocol> MlTask<VisualProtocol>
 where
-    ComptimeDb: ValDb,
     VisualProtocol: IsVisualProtocol,
 {
     pub fn new() -> Self {
@@ -32,28 +27,24 @@ where
     }
 }
 
-impl<ComptimeDb, VisualProtocol> IsTask for MlTask<ComptimeDb, VisualProtocol>
+impl<VisualProtocol> IsTask for MlTask<VisualProtocol>
 where
-    ComptimeDb:
-        Default + husky_vfs::VfsDb + ValDb + RustTranspilationDb + LinkageDb + Send + 'static,
     VisualProtocol: IsVisualProtocol + Send,
 {
-    type DevAscension = MlDevAscension<ComptimeDb, VisualProtocol>;
+    type DevAscension = MlDevAscension<VisualProtocol>;
 }
 
-pub struct MlDevAscension<ComptimeDb, VisualProtocol>(PhantomData<(ComptimeDb, VisualProtocol)>)
+pub struct MlDevAscension<VisualProtocol>(PhantomData<VisualProtocol>)
 where
-    ComptimeDb: ValDb,
     VisualProtocol: IsVisualProtocol;
 
-impl<ComptimeDb, VisualProtocol> IsDevAscension for MlDevAscension<ComptimeDb, VisualProtocol>
+impl<VisualProtocol> IsDevAscension for MlDevAscension<VisualProtocol>
 where
-    ComptimeDb: Default + husky_vfs::VfsDb + ValDb + RustTranspilationDb + LinkageDb + Send,
     VisualProtocol: IsVisualProtocol,
 {
     type Base = DevInput;
 
-    type Linktime = MonoLinkTime<ComptimeDb, MlLinkage>;
+    type Linktime = MonoLinkTime<MlLinkage>;
 
     type Value = RegularValue;
 
@@ -62,8 +53,6 @@ where
     type RuntimeSpecificConfig = ();
 
     type TraceProtocol = MlTraceProtocol<VisualProtocol>;
-
-    type ComptimeDb = ComptimeDb;
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, PartialEq, Eq, Clone)]

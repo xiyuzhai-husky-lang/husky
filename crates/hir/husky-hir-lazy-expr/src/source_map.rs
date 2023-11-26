@@ -1,7 +1,6 @@
 use crate::{
-    db::{HirLazyExprDb, HirLazyExprJar},
-    variable::HirLazyVariableIdx,
-    HirLazyExprIdx, HirLazyPatternExprIdx, HirLazyStmtIdx,
+    db::HirLazyExprJar, variable::HirLazyVariableIdx, HirLazyExprIdx, HirLazyPatternExprIdx,
+    HirLazyStmtIdx,
 };
 use husky_sema_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
 use husky_syn_expr::{
@@ -62,7 +61,7 @@ impl HirLazyExprSourceMapData {
 
 impl HirLazyExprSourceMap {
     pub fn new(
-        db: &dyn HirLazyExprDb,
+        db: &::salsa::Db,
         syn_to_hir_lazy_pattern_expr_idx_map: SynPatternExprMap<HirLazyPatternExprIdx>,
         sema_to_hir_lazy_expr_idx_map: SemaExprMap<HirLazyExprIdx>,
         sema_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,

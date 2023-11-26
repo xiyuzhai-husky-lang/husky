@@ -8,7 +8,7 @@ pub(crate) struct ModuleDiagnosticsCollector<'a> {
 }
 
 impl<'a> ModuleDiagnosticsCollector<'a> {
-    pub(crate) fn new(db: &'a dyn DiagnosticsDb, module_path: ModulePath) -> Self {
+    pub(crate) fn new(db: &'a ::salsa::Db, module_path: ModulePath) -> Self {
         Self {
             diagnostics: vec![],
             context: SheetDiagnosticsContext::new(db, module_path),
@@ -33,7 +33,7 @@ impl<'a> ModuleDiagnosticsCollector<'a> {
         self.diagnostics
     }
 
-    pub(crate) fn db(&self) -> &'a dyn DiagnosticsDb {
+    pub(crate) fn db(&self) -> &'a ::salsa::Db {
         self.context.db()
     }
 
@@ -51,7 +51,7 @@ pub(crate) struct RegionDiagnosticsCollector<'a, 'b> {
 
 impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     pub(crate) fn new(
-        db: &'a dyn DiagnosticsDb,
+        db: &'a ::salsa::Db,
         syn_expr_region: SynExprRegion,
         sheet_collector: &'b mut ModuleDiagnosticsCollector<'a>,
     ) -> Self {
@@ -70,7 +70,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
             .push(atom.to_diagnostic(&self.context))
     }
 
-    pub(crate) fn db(&self) -> &'a dyn DiagnosticsDb {
+    pub(crate) fn db(&self) -> &'a ::salsa::Db {
         self.context.db()
     }
 }

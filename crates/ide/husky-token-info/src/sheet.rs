@@ -66,7 +66,7 @@ impl TokenInfoSheet {
     pub fn informative_ranged_token_iter<'a>(
         &'a self,
         ranged_token_sheet: &'a RangedTokenSheet,
-        db: &'a dyn TokenInfoDb,
+        db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = (Option<&'a TokenInfo>, (&'a TextRange, &'a TokenData))> + 'a {
         std::iter::zip(
             self.token_infos.iter(),

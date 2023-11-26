@@ -1,7 +1,7 @@
 mod internal;
 
 use self::internal::BootLinkTimeInternal;
-use husky_linkage::{db::LinkageDb, linkage::Linkage};
+use husky_linkage::linkage::Linkage;
 
 use husky_task::link::{IsLinkageImpl, IsLinktime};
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
@@ -9,17 +9,15 @@ use std::{collections::HashMap, marker::PhantomData};
 
 // this will transpile everything compilable to Rust
 // then use rustc to obtain a single dylib
-pub struct BootLinkTime<Db, LinkageImpl>
+pub struct BootLinkTime<LinkageImpl>
 where
-    Db: LinkageDb,
     LinkageImpl: IsLinkageImpl,
 {
-    internal: std::sync::RwLock<BootLinkTimeInternal<Db, LinkageImpl>>,
+    internal: std::sync::RwLock<BootLinkTimeInternal<LinkageImpl>>,
 }
 
-impl<Db, LinkageImpl> Default for BootLinkTime<Db, LinkageImpl>
+impl<LinkageImpl> Default for BootLinkTime<LinkageImpl>
 where
-    Db: LinkageDb,
     LinkageImpl: IsLinkageImpl,
 {
     fn default() -> Self {
@@ -30,16 +28,10 @@ where
 }
 
 // ad hoc
-unsafe impl<Db, LinkageImpl> Send for BootLinkTime<Db, LinkageImpl>
-where
-    Db: LinkageDb,
-    LinkageImpl: IsLinkageImpl,
-{
-}
+unsafe impl<LinkageImpl> Send for BootLinkTime<LinkageImpl> where LinkageImpl: IsLinkageImpl {}
 
-impl<Db, LinkageImpl> IsLinktime<Db> for BootLinkTime<Db, LinkageImpl>
+impl<LinkageImpl> IsLinktime for BootLinkTime<LinkageImpl>
 where
-    Db: LinkageDb,
     LinkageImpl: IsLinkageImpl,
 {
     type LinkageImpl = LinkageImpl;

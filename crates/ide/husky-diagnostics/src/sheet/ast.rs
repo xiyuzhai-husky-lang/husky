@@ -1,4 +1,4 @@
-use husky_ast::{Ast, AstError, OriginalAstError};
+use husky_ast::{Ast, AstDb, AstError, OriginalAstError};
 use husky_scope_expr::OriginalVisibilityExprError;
 use husky_token::TokenGroupIdx;
 
@@ -12,7 +12,7 @@ pub struct AstDiagnosticSheet {
 
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn ast_diagnostic_sheet(
-    db: &dyn DiagnosticsDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> AstDiagnosticSheet {
     let mut diagnostics = vec![];

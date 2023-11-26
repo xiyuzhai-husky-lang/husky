@@ -1,9 +1,4 @@
 use crate::*;
-use husky_hir_expr::db::*;
-
-pub trait HirDeclDb: salsa::DbWithJar<HirDeclJar> + HirExprDb {}
-
-impl HirDeclDb for Db where Db: salsa::DbWithJar<HirDeclJar> + HirExprDb {}
 
 #[salsa::jar(db = HirDeclDb)]
 pub struct HirDeclJar(

@@ -1,4 +1,3 @@
-use crate::db::HirDeclDb;
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::FluffyTermBase;
 use husky_hir_eager_expr::HirEagerPatternExprIdx;
@@ -6,8 +5,8 @@ use husky_hir_expr::{
     helpers::hir_expr_region_with_source_map, source_map::HirExprSourceMap, HirExprRegion,
 };
 use husky_hir_lazy_expr::HirLazyPatternExprIdx;
-use husky_hir_ty::{menu::HirTypeMenu, HirType};
-use husky_sema_expr::SemaExprRegionData;
+use husky_hir_ty::{db::HirTypeDb, menu::HirTypeMenu, HirType};
+use husky_sema_expr::{SemaExprDb, SemaExprRegionData};
 use husky_syn_expr::{
     CurrentSynSymbolIdx, ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynExprIdx,
     SynExprRegion, SynPatternExprRoot,

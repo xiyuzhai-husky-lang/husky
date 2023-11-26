@@ -1,18 +1,13 @@
 //! See [RequestDispatcher].
-use std::{fmt, panic, thread};
-
-use lsp_server::ExtractError;
-use serde::{de::DeserializeOwned, Serialize};
-
-use salsa::ParallelDatabase;
-type HuskyComptimeSnapshot = salsa::Snapshot<AnalyzerDB>;
-
 use crate::{
-    db::AnalyzerDB,
+    db::{AnalyzerDB, AnalyzerDBSnapshot},
     server::{Server, TaskSet},
     utils::from_json,
     *,
 };
+use lsp_server::ExtractError;
+use serde::{de::DeserializeOwned, Serialize};
+use std::{fmt, panic, thread};
 
 /// A visitor for routing a raw JSON request to an appropriate handler function.
 ///
@@ -38,7 +33,7 @@ impl<'a> RequestDispatcher<'a> {
     /// Dispatches the request onto the current thread.
     pub(crate) fn on_sync<R>(
         &mut self,
-        f: fn(HuskyComptimeSnapshot, R::Params) -> Result<R::Result>,
+        f: fn(AnalyzerDBSnapshot, R::Params) -> Result<R::Result>,
     ) -> Result<&mut Self>
     where
         R: lsp_types::request::Request + 'static,
@@ -65,7 +60,7 @@ impl<'a> RequestDispatcher<'a> {
     /// Dispatches the request onto the current thread.
     pub(crate) fn on_control<R>(
         &mut self,
-        f: fn(HuskyComptimeSnapshot, R::Params) -> TaskSet,
+        f: fn(AnalyzerDBSnapshot, R::Params) -> TaskSet,
     ) -> Result<&mut Self>
     where
         R: lsp_types::request::Request + 'static,
@@ -93,7 +88,7 @@ impl<'a> RequestDispatcher<'a> {
     /// Dispatches the request onto thread pool
     pub(crate) fn on<R>(
         &mut self,
-        f: fn(HuskyComptimeSnapshot, R::Params) -> Result<R::Result>,
+        f: fn(AnalyzerDBSnapshot, R::Params) -> Result<R::Result>,
     ) -> &mut Self
     where
         R: lsp_types::request::Request + 'static,

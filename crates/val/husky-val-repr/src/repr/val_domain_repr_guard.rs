@@ -4,12 +4,12 @@ use super::*;
 
 #[derive(Clone)]
 pub(crate) struct ValDomainReprGuard<'a> {
-    db: &'a dyn ValReprDb,
+    db: &'a ::salsa::Db,
     val_domain_repr: ValDomainRepr,
 }
 
 impl<'a> ValDomainReprGuard<'a> {
-    pub(crate) fn new(db: &'a dyn ValReprDb, val_domain_repr: ValDomainRepr) -> Self {
+    pub(crate) fn new(db: &'a ::salsa::Db, val_domain_repr: ValDomainRepr) -> Self {
         Self {
             db,
             val_domain_repr,

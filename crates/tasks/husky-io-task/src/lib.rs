@@ -7,7 +7,7 @@
 // use husky_task::{linkage::IsLinkage, IsDevAscension, IsTask};
 // use std::marker::PhantomData;
 
-// pub struct MlTask<ComptimeDb, VisualProtocol>
+// pub struct MlTask< VisualProtocol>
 // where
 //     ComptimeDb: HirDepsDb,
 //     VisualProtocol: IsVisualProtocol,
@@ -15,20 +15,20 @@
 //     _marker: PhantomData<(ComptimeDb, VisualProtocol)>,
 // }
 
-// impl<ComptimeDb, VisualProtocol> IsTask for MlTask<ComptimeDb, VisualProtocol>
+// impl< VisualProtocol> IsTask for MlTask< VisualProtocol>
 // where
 //     ComptimeDb: HirDepsDb,
 //     VisualProtocol: IsVisualProtocol,
 // {
-//     type DevAscension = MlDevAscension<ComptimeDb, VisualProtocol>;
+//     type DevAscension = MlDevAscension<VisualProtocol>;
 // }
 
-// pub struct MlDevAscension<ComptimeDb, VisualProtocol>(PhantomData<(ComptimeDb, VisualProtocol)>)
+// pub struct MlDevAscension<VisualProtocol>(PhantomData<(ComptimeDb, VisualProtocol)>)
 // where
 //     ComptimeDb: HirDepsDb,
 //     VisualProtocol: IsVisualProtocol;
 
-// impl<ComptimeDb, VisualProtocol> IsDevAscension for MlDevAscension<ComptimeDb, VisualProtocol>
+// impl< VisualProtocol> IsDevAscension for MlDevAscension<VisualProtocol>
 // where
 //     ComptimeDb: HirDepsDb,
 //     VisualProtocol: IsVisualProtocol,

@@ -7,7 +7,7 @@ use husky_expect_test_snippets_utils::*;
 use husky_vfs::{snippet::Snippet, *};
 use salsa::{DebugWithDb, Storage};
 
-#[salsa::test_db(
+#[salsa::db(
     CowordJar,
     VfsJar,
     husky_token_data::db::TokenDataJar,

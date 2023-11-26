@@ -29,14 +29,14 @@ pub enum ValArgumentRepr {
 }
 
 impl ValRepr {
-    pub fn new_val_item(path: FugitivePath, db: &dyn ValReprDb) -> Self {
+    pub fn new_val_item(path: FugitivePath, db: &::salsa::Db) -> Self {
         val_item_val_repr(db, path)
     }
 
     pub(crate) fn with_caching_class(
         self,
         caching_class: ValCachingClass,
-        db: &dyn ValReprDb,
+        db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
@@ -49,7 +49,7 @@ impl ValRepr {
 }
 
 // #[salsa::tracked(jar = ValReprJar)]
-fn val_item_val_repr(db: &dyn ValReprDb, path: FugitivePath) -> ValRepr {
+fn val_item_val_repr(db: &::salsa::Db, path: FugitivePath) -> ValRepr {
     let domain = ValDomainRepr::Omni;
     let opr = ValOpn::ValItem(path);
     let opds = smallvec![];
@@ -78,13 +78,13 @@ pub enum ValCachingClass {
 }
 
 impl ValRepr {
-    pub fn val(self, db: &dyn ValReprDb) -> Val {
+    pub fn val(self, db: &::salsa::Db) -> Val {
         val_repr_val(db, self)
     }
 }
 
 #[salsa::tracked(jar = ValReprJar)]
-fn val_repr_val(db: &dyn ValReprDb, val_repr: ValRepr) -> Val {
+fn val_repr_val(db: &::salsa::Db, val_repr: ValRepr) -> Val {
     Val::new(
         db,
         val_repr.val_domain_repr(db).val(db),
@@ -98,7 +98,7 @@ fn val_repr_val(db: &dyn ValReprDb, val_repr: ValRepr) -> Val {
 }
 
 impl ValArgumentRepr {
-    fn val_argument(&self, db: &dyn ValReprDb) -> ValArgument {
+    fn val_argument(&self, db: &::salsa::Db) -> ValArgument {
         match *self {
             ValArgumentRepr::Ordinary(val_repr) => ValArgument::Ordinary(val_repr.val(db)),
             ValArgumentRepr::Keyed(ident, val_repr) => {
@@ -119,7 +119,7 @@ impl ValArgumentRepr {
 }
 
 impl ValDomainRepr {
-    pub fn val(self, db: &dyn ValReprDb) -> ValDomain {
+    pub fn val(self, db: &::salsa::Db) -> ValDomain {
         match self {
             ValDomainRepr::Omni => ValDomain::Omni,
             ValDomainRepr::ConditionSatisfied(val_repr) => {

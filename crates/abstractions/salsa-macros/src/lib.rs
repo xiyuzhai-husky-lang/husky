@@ -72,12 +72,12 @@ pub fn deref_id(args: TokenStream, input: TokenStream) -> TokenStream {
 
 #[proc_macro_attribute]
 pub fn db(args: TokenStream, input: TokenStream) -> TokenStream {
-    db::test_db(args, input)
+    db::db(args, input)
 }
 
 #[proc_macro_attribute]
 pub fn test_db(args: TokenStream, input: TokenStream) -> TokenStream {
-    db::test_db(args, input)
+    db::db(args, input)
 }
 
 #[proc_macro_attribute]

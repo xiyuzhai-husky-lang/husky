@@ -1,7 +1,7 @@
 use proc_macro2::Literal;
 use syn::Token;
 
-pub(crate) fn test_db(
+pub(crate) fn db(
     args: proc_macro::TokenStream,
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
@@ -20,10 +20,8 @@ pub(crate) fn test_db(
         .collect();
 
     quote! {
-        #[cfg(test)]
         #vis struct #ident(::salsa::Db);
 
-        #[cfg(test)]
         impl std::ops::Deref for #ident {
             type Target = ::salsa::Db;
 
@@ -32,14 +30,12 @@ pub(crate) fn test_db(
             }
         }
 
-        #[cfg(test)]
         impl std::ops::DerefMut for #ident {
             fn deref_mut(&mut self) -> &mut Self::Target {
                 &mut self.0
             }
         }
 
-        #[cfg(test)]
         impl Default for #ident {
             fn default() -> Self {
                 Self(::salsa::Db::new(|jars, routes| {

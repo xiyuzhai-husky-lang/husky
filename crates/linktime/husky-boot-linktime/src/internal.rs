@@ -6,38 +6,33 @@ use husky_linkage::version_stamp::LinkageVersionStamp;
 use husky_vfs::CratePath;
 use version_stamp::HasVersionStamp;
 
-pub struct BootLinkTimeInternal<ComptimeDb, LinkageImpl>
+pub struct BootLinkTimeInternal<LinkageImpl>
 where
-    ComptimeDb: LinkageDb,
     LinkageImpl: IsLinkageImpl,
 {
     library_storage: BootLibraryStorage,
     map: HashMap<Linkage, (LinkageVersionStamp, LinkageImpl)>,
-    _marker: PhantomData<ComptimeDb>,
 }
 
-impl<Db, LinkageImpl> Default for BootLinkTimeInternal<Db, LinkageImpl>
+impl<LinkageImpl> Default for BootLinkTimeInternal<LinkageImpl>
 where
-    Db: LinkageDb,
     LinkageImpl: IsLinkageImpl,
 {
     fn default() -> Self {
         Self {
             library_storage: todo!(),
             map: todo!(),
-            _marker: PhantomData,
         }
     }
 }
 
 pub struct BootLibraryStorage {}
 
-impl<ComptimeDb, LinkageImpl: IsLinkageImpl> BootLinkTimeInternal<ComptimeDb, LinkageImpl>
+impl<LinkageImpl: IsLinkageImpl> BootLinkTimeInternal<LinkageImpl>
 where
-    ComptimeDb: LinkageDb,
     LinkageImpl: IsLinkageImpl,
 {
-    pub(crate) fn new(target_path: LinktimeTargetPath, _db: &ComptimeDb) -> Self {
+    pub(crate) fn new(target_path: LinktimeTargetPath, _db: &::salsa::Db) -> Self {
         todo!()
         // let library_storage = generate_library(target_crate, db);
         // let map = generate_map(target_crate, &library_storage, db);
@@ -49,7 +44,7 @@ where
         // }
     }
 
-    pub(crate) fn get_linkage(&self, linkage: Linkage, db: &ComptimeDb) -> Option<LinkageImpl> {
+    pub(crate) fn get_linkage(&self, linkage: Linkage, db: &::salsa::Db) -> Option<LinkageImpl> {
         let (version_stamp, linkage_impl) = self.map.get(&linkage).copied().expect("todo");
         (version_stamp == linkage.version_stamp(db)).then_some(linkage_impl)
     }
@@ -58,7 +53,7 @@ where
     pub(crate) fn get_linkage_with_reload(
         &mut self,
         linkage: Linkage,
-        db: &ComptimeDb,
+        db: &::salsa::Db,
     ) -> LinkageImpl {
         let (deps, linkage_impl) = self.map.get(&linkage).copied().expect("todo");
         if deps == linkage.version_stamp(db) {

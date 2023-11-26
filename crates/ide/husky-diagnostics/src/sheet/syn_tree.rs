@@ -1,10 +1,9 @@
 use super::*;
 use husky_ast::Ast;
 use husky_entity_syn_tree::{
-    helpers::tokra_region::HasDeclTokraRegion, EntitySynTreeError, ImplBlockIllForm,
-    MajorPathExprError, OriginalEntityTreeError, OriginalMajorPathExprError,
+    helpers::tokra_region::HasDeclTokraRegion, EntitySynTreeDb, EntitySynTreeError,
+    ImplBlockIllForm, MajorPathExprError, OriginalEntityTreeError, OriginalMajorPathExprError,
 };
-
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct EntityTreeDiagnosticSheet {
@@ -14,7 +13,7 @@ pub struct EntityTreeDiagnosticSheet {
 
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn item_tree_diagnostic_sheet(
-    db: &dyn DiagnosticsDb,
+    db: &::salsa::Db,
     module_path: ModulePath,
 ) -> EntityTreeDiagnosticSheet {
     let mut diagnostics = vec![];

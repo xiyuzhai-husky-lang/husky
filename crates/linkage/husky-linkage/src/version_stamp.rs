@@ -38,7 +38,7 @@ impl<'a> LinkageVersionStampBuilder<'a> {
 
     pub(crate) fn add(
         &mut self,
-        item: impl HasVersionStamp<::salsa::Db + 'a, VersionStamp: Into<LinkageVersionStampDependency>>,
+        item: impl HasVersionStamp<VersionStamp: Into<LinkageVersionStampDependency>>,
     ) {
         self.substamps.push(item.version_stamp(self.db).into())
     }

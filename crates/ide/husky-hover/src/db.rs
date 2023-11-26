@@ -4,9 +4,10 @@ use husky_text_protocol::{
     position::{FilePosition, TextPosition},
     range::RangeInfo,
 };
+use husky_token::TokenDb;
 use husky_token_info::TokenInfoDb;
 
-pub trait HoverDb: salsa::DbWithJar<HoverJar> + TokenInfoDb {
+pub trait HoverDb {
     fn hover_result(&self, module_path: ModulePath, position: TextPosition) -> Option<HoverResult>;
 
     fn goto_implementation(
@@ -19,10 +20,7 @@ pub trait HoverDb: salsa::DbWithJar<HoverJar> + TokenInfoDb {
     fn hover_config(&self) -> HoverConfig;
 }
 
-impl HoverDb for Db
-where
-    Db: salsa::DbWithJar<HoverJar> + TokenInfoDb,
-{
+impl HoverDb for ::salsa::Db {
     fn hover_result(&self, module_path: ModulePath, pos: TextPosition) -> Option<HoverResult> {
         let ranged_token_sheet = self.ranged_token_sheet(module_path);
         let Some(token_idx) = ranged_token_sheet.search_token_by_position(pos) else {

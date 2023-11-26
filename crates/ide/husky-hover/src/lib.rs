@@ -20,6 +20,6 @@ use serde::{Deserialize, Serialize};
 pub struct HoverJar(HoverConfig, hover_config);
 
 #[salsa::tracked(jar = HoverJar)]
-pub(crate) fn hover_config(db: &dyn HoverDb) -> HoverConfig {
+pub(crate) fn hover_config(db: &::salsa::Db) -> HoverConfig {
     HoverConfig::new(db, HoverConfigData { debug: true })
 }

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{AstIdx, AstSheet, AstTokenIdxRangeSheet, HasAstSheet};
+use husky_ast::{AstDb, AstIdx, AstSheet, AstTokenIdxRangeSheet, HasAstSheet};
 use husky_entity_syn_tree::{
     helpers::tokra_region::{HasDeclTokraRegion, HasSynDefnTokraRegion},
     SynNodeRegionPath,
@@ -9,11 +9,11 @@ use husky_regional_token::{
     RegionalTokenIdx, RegionalTokenIdxBase, RegionalTokenIdxRange, RegionalTokenStreamState,
 };
 use husky_sema_expr::*;
-use husky_syn_expr::{SynExprIdx, SynExprRangeRegion, SynExprRegion, SynExprRegionData};
-use husky_token::{TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamState};
+use husky_syn_expr::{SynExprDb, SynExprIdx, SynExprRangeRegion, SynExprRegion, SynExprRegionData};
+use husky_token::{TokenDb, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamState};
 
 pub(crate) struct SheetDiagnosticsContext<'a> {
-    db: &'a dyn DiagnosticsDb,
+    db: &'a ::salsa::Db,
     token_sheet_data: &'a TokenSheetData,
     ranged_token_sheet: &'a RangedTokenSheet,
     ast_sheet: &'a AstSheet,
@@ -21,7 +21,7 @@ pub(crate) struct SheetDiagnosticsContext<'a> {
 }
 
 impl<'a> SheetDiagnosticsContext<'a> {
-    pub(crate) fn new(db: &'a dyn DiagnosticsDb, module_path: ModulePath) -> Self {
+    pub(crate) fn new(db: &'a ::salsa::Db, module_path: ModulePath) -> Self {
         let ranged_token_sheet = db.ranged_token_sheet(module_path);
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         Self {
@@ -33,7 +33,7 @@ impl<'a> SheetDiagnosticsContext<'a> {
         }
     }
 
-    pub(crate) fn db(&self) -> &'a dyn DiagnosticsDb {
+    pub(crate) fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
 
@@ -79,7 +79,7 @@ impl<'a> SheetDiagnosticsContext<'a> {
 }
 
 pub(crate) struct RegionDiagnosticsContext<'a> {
-    db: &'a dyn DiagnosticsDb,
+    db: &'a ::salsa::Db,
     token_sheet_data: &'a TokenSheetData,
     ranged_token_sheet: &'a RangedTokenSheet,
     syn_expr_region_data: &'a SynExprRegionData,
@@ -89,7 +89,7 @@ pub(crate) struct RegionDiagnosticsContext<'a> {
 }
 
 impl<'a> RegionDiagnosticsContext<'a> {
-    pub(crate) fn new(db: &'a dyn DiagnosticsDb, syn_expr_region: SynExprRegion) -> Self {
+    pub(crate) fn new(db: &'a ::salsa::Db, syn_expr_region: SynExprRegion) -> Self {
         let syn_expr_region_data = &syn_expr_region.data(db);
         let module_path = syn_expr_region_data.path().module_path(db);
         let ranged_token_sheet = db.ranged_token_sheet(module_path);
@@ -112,7 +112,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
         }
     }
 
-    pub(crate) fn db(&self) -> &'a dyn DiagnosticsDb {
+    pub(crate) fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
 
