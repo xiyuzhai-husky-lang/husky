@@ -46,16 +46,6 @@ impl FugitiveSynNodePath {
     }
 }
 
-// impl HasModulePath<Db> for FugitiveSynNodePath
-// where
-//      + EntitySynTreeDb,
-// {
-//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
-//         let db = entity_syn_tree_db(db);
-//         self.maybe_ambiguous_path(db).path.module_path(db)
-//     }
-// }
-
 #[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn fugitive_syn_node(
     db: &::salsa::Db,

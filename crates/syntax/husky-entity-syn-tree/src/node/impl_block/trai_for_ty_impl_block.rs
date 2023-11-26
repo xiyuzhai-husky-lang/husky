@@ -3,9 +3,12 @@ use vec_like::SmallVecPairMap;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct TraitForTypeImplBlockSynNodePath(ItemSynNodePathId);
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[salsa::as_id(jar = EntitySynTreeJar)]
-pub struct TraitForTypeImplBlockSynNodePath {
+pub struct TraitForTypeImplBlockSynNodePathData {
     path: TraitForTypeImplBlockPath,
 }
 
@@ -43,20 +46,10 @@ impl TraitForTypeImplBlockSynNodePath {
             .map(|(_, syn_node_path, _)| syn_node_path)
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TraitForTypeImplBlockSynNode {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TraitForTypeImplBlockSynNodeData {
         trai_for_ty_impl_block_syn_node(db, self)
     }
 }
-
-// impl HasModulePath<Db> for TraitForTypeImplBlockSynNodePath
-// where
-//      + EntitySynTreeDb,
-// {
-//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
-//         let db = entity_syn_tree_db(db);
-//         self.path.module_path(db)
-//     }
-// }
 
 impl From<TraitForTypeImplBlockSynNodePath> for ItemSynNodePath {
     fn from(id: TraitForTypeImplBlockSynNodePath) -> Self {
@@ -68,20 +61,20 @@ impl HasSynNodePath for TraitForTypeImplBlockPath {
     type SynNodePath = TraitForTypeImplBlockSynNodePath;
 
     fn syn_node_path(self, _db: &::salsa::Db) -> Self::SynNodePath {
-        TraitForTypeImplBlockSynNodePath { path: self }
+        TraitForTypeImplBlockSynNodePath(todo!())
+        // { path: self })
     }
 }
 
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub(crate) struct TraitForTypeImplBlockSynNode {
-    #[id]
-    pub syn_node_path: TraitForTypeImplBlockSynNodePath,
-    pub ast_idx: AstIdx,
-    pub impl_regional_token: ImplToken,
-    pub trai_expr: MajorItemPathExprIdx,
-    pub for_token: TokenIdx,
-    pub ty_sketch_expr: SelfTypeSketchExpr,
-    pub items: Option<ImplBlockItems>,
+#[derive(Debug, PartialEq, Eq, Hash)]
+pub(crate) struct TraitForTypeImplBlockSynNodeData {
+    syn_node_path: TraitForTypeImplBlockSynNodePath,
+    ast_idx: AstIdx,
+    impl_regional_token: ImplToken,
+    trai_expr: MajorItemPathExprIdx,
+    for_token: TokenIdx,
+    ty_sketch_expr: SelfTypeSketchExpr,
+    items: Option<ImplBlockItems>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -94,13 +87,13 @@ pub enum SelfTypeSketchExpr {
     },
 }
 
-impl TraitForTypeImplBlockSynNode {
+impl TraitForTypeImplBlockSynNodeData {
     pub(super) fn new(
         db: &::salsa::Db,
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
         ast_idx: AstIdx,
-        impl_token: ImplToken,
+        impl_regional_token: ImplToken,
         trai_expr: MajorItemPathExprIdx,
         trai_path: TraitPath,
         for_token: TokenIdx,
@@ -110,24 +103,28 @@ impl TraitForTypeImplBlockSynNode {
     ) -> Result<Self, ImplBlockIllForm> {
         // todo: check trai_path and ty_sketch
         // should check that if one of trai_path and ty_sketch must be always contained inside the crate
-        Ok(TraitForTypeImplBlockSynNode::new_inner(
-            db,
-            TraitForTypeImplBlockSynNodePath {
-                path: TraitForTypeImplBlockPath::new(
-                    db,
-                    registry,
-                    module_path,
-                    trai_path,
-                    ty_sketch,
-                ),
-            },
+        Ok(TraitForTypeImplBlockSynNodeData {
+            syn_node_path: TraitForTypeImplBlockSynNodePath(ItemSynNodePathId::new(
+                db,
+                ItemSynNodePathData::ImplBlock(ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNodePathData {
+                        path: TraitForTypeImplBlockPath::new(
+                            db,
+                            registry,
+                            module_path,
+                            trai_path,
+                            ty_sketch,
+                        ),
+                    },
+                )),
+            )),
             ast_idx,
-            impl_token,
+            impl_regional_token,
             trai_expr,
             for_token,
             ty_sketch_expr,
             items,
-        ))
+        })
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
@@ -147,7 +144,7 @@ impl TraitForTypeImplBlockSynNode {
 pub(crate) fn trai_for_ty_impl_block_syn_node(
     db: &::salsa::Db,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
-) -> TraitForTypeImplBlockSynNode {
+) -> TraitForTypeImplBlockSynNodeData {
     let module_path = todo!(); //syn_node_path.module_path(db);
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     item_tree_sheet.trai_for_ty_impl_block_syn_node(db, syn_node_path)

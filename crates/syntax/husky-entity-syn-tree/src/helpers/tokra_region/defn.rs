@@ -111,12 +111,12 @@ pub(super) fn defn_token_region(
     _db: &::salsa::Db,
 ) -> Option<DefnTokraRegion> {
     match syn_node_path {
-        ItemSynNodePath::Submodule(_) => None,
+        ItemSynNodePath::Submodule(_, _) => None,
         ItemSynNodePath::MajorItem(_) => todo!(),
-        ItemSynNodePath::TypeVariant(_) => todo!(),
+        ItemSynNodePath::TypeVariant(_, _) => todo!(),
         ItemSynNodePath::ImplBlock(_) => todo!(),
         ItemSynNodePath::AssociatedItem(_) => todo!(),
-        ItemSynNodePath::Attr(_) => todo!(),
+        ItemSynNodePath::Attr(_, _) => todo!(),
     }
 }
 

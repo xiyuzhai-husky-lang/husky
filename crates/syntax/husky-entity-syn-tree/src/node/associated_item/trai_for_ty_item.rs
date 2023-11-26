@@ -61,15 +61,13 @@ impl HasSynNodePath for TraitForTypeItemPath {
     }
 }
 
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub(crate) struct TraitForTypeItemSynNodeData {
-    #[id]
-    pub syn_node_path: TraitForTypeItemSynNodePath,
-    pub ast_idx: AstIdx,
-    pub ident: Ident,
-    pub item_kind: TraitItemKind,
-    pub visibility: Scope,
-    pub is_generic: bool,
+    syn_node_path: TraitForTypeItemSynNodePath,
+    ast_idx: AstIdx,
+    ident: Ident,
+    item_kind: TraitItemKind,
+    visibility: Scope,
+    is_generic: bool,
 }
 
 impl TraitForTypeItemSynNodeData {
