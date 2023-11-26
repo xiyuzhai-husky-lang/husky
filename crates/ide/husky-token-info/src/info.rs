@@ -13,14 +13,14 @@ use husky_syn_expr::{
 use husky_token_protocol::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenInfoDb)]
+#[salsa::debug_with_db(db = TokenInfoDb, jar = TokenInfoJar)]
 pub struct TokenInfo {
     src: TokenInfoSource,
     data: TokenInfoData,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenInfoDb)]
+#[salsa::debug_with_db(db = TokenInfoDb, jar = TokenInfoJar)]
 #[enum_class::from_variants]
 pub enum TokenInfoSource {
     UseExpr(UseExprIdx),
@@ -50,7 +50,7 @@ impl TokenInfo {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenInfoDb)]
+#[salsa::debug_with_db(db = TokenInfoDb, jar = TokenInfoJar)]
 pub enum TokenInfoData {
     Entity(EntityPath),
     EntityNode(ItemSynNodePath, EntityKind),

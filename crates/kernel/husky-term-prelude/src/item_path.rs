@@ -7,7 +7,7 @@ use salsa::DisplayWithDb;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = TermPreludeDb, jar = EtherealTermJar)]
+#[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]
 pub enum TermEntityPath {
     Fugitive(FugitivePath),
     Trait(TraitPath),

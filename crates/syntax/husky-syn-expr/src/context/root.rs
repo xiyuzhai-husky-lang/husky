@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub struct SynExprRoot {
     kind: SynExprRootKind,
     syn_expr_idx: SynExprIdx,
@@ -22,7 +22,7 @@ impl SynExprRoot {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub enum SynExprRootKind {
     SelfType,
     Trait,
@@ -47,7 +47,7 @@ pub enum SynExprRootKind {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub struct SynPatternExprRoot {
     kind: SynPatternExprRootKind,
     syn_pattern_expr_idx: SynPatternExprIdx,
@@ -90,7 +90,7 @@ impl From<CaseSynPatternExprRoot> for SynPatternExprRoot {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub enum SynPatternExprRootKind {
     Parenate,
     Let,

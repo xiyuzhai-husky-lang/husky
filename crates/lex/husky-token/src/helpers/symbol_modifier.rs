@@ -92,7 +92,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct MutToken {
     token_idx: TokenIdx,
 }
@@ -133,7 +133,7 @@ where
 
 /// `ref`
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct RefToken {
     token_idx: TokenIdx,
 }
@@ -146,7 +146,7 @@ impl RefToken {
 
 /// `le`
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct LeToken {
     token_idx: TokenIdx,
 }

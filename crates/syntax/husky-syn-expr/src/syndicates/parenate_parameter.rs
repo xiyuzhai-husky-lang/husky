@@ -3,7 +3,7 @@ use either::*;
 use parsec::{HasStreamState, TryParseOptionFromStream};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum ParenateSynParameterData {
     Ordinary {
         syn_pattern_root: ParenateSynPatternExprRoot,
@@ -34,7 +34,7 @@ pub enum ParenateSynParameterData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum SynVariadicParameterVariant {
     Default,
     Vec {

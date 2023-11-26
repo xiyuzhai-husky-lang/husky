@@ -8,7 +8,7 @@ use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub enum SynExprData {
     Literal(RegionalTokenIdx, LiteralData),
     PrincipalEntityPath {

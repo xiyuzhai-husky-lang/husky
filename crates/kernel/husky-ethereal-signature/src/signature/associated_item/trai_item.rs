@@ -7,7 +7,6 @@ pub use self::associated_fn::*;
 
 pub use self::method_fn::*;
 
-
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

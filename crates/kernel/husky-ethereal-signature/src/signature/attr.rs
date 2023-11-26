@@ -5,7 +5,7 @@ pub use self::derive::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 #[enum_class::from_variants]
 pub enum AttrEtherealSignatureTemplate {
     Derive(DeriveAttrEtherealSignatureTemplate),
@@ -22,7 +22,7 @@ impl HasEtherealSignatureTemplate for AttrItemPath {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar)]
+// #[salsa::tracked(jar = EtherealSignatureJar)]
 fn attr_ethereal_signature_template(
     db: &dyn EtherealSignatureDb,
     path: AttrItemPath,

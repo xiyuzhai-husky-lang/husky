@@ -11,7 +11,7 @@ pub use self::method_fn::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDefnDb)]
+#[salsa::debug_with_db(db = HirDefnDb, jar = HirDefnJar)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemHirDefn {
     AssociatedFn(TraitForTypeAssociatedFnHirDefn),
@@ -86,7 +86,7 @@ impl HasHirDefn for TraitForTypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+// #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn trai_for_ty_item_hir_defn(
     db: &dyn HirDefnDb,
     path: TraitForTypeItemPath,

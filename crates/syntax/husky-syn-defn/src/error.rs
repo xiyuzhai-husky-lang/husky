@@ -2,7 +2,7 @@ use crate::*;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 pub enum SynDefnError {
     #[error("{0}")]
     Original(#[from] OriginalSynDefnError),
@@ -11,7 +11,7 @@ pub enum SynDefnError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 pub enum OriginalSynDefnError {
     #[error("expect body")]
     ExpectBody,

@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct ExpectEqsFunctionType {
     final_destination: FinalDestination,
 }
@@ -101,7 +101,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct ExpectEqsFunctionTypeOutcome {
     pub(crate) template_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
     pub(crate) return_ty: FluffyTerm,
@@ -119,7 +119,7 @@ impl ExpectEqsFunctionTypeOutcome {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum ExpectEqsFunctionTypeOutcomeData {
     Ritchie {
         ritchie_kind: RitchieKind,

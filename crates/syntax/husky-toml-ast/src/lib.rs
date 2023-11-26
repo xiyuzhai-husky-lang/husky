@@ -29,7 +29,7 @@ use parser::TomlAstParser;
 pub struct TomlAstJar(toml_ast_sheet_aux);
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TomlAstDb)]
+#[salsa::debug_with_db(db = TomlAstDb, jar = TomlAstJar)]
 pub struct TomlAstSheet {
     expr_arena: TomlExprArena,
     section_sheet: TomlSectionSheet,

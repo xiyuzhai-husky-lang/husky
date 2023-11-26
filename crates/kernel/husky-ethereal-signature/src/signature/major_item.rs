@@ -9,7 +9,7 @@ pub use self::ty::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 #[enum_class::from_variants]
 pub enum MajorItemEtherealSignatureTemplate {
     Type(TypeEtherealSignatureTemplate),

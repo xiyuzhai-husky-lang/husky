@@ -11,14 +11,11 @@ pub use self::db::*;
 pub use self::defn::*;
 pub use self::error::*;
 
-
-
 use husky_entity_path::*;
 use husky_entity_syn_tree::*;
 use husky_syn_decl::*;
 use husky_syn_expr::*;
 use husky_vfs::{ModulePath, SubmodulePath};
-
 
 #[salsa::jar(db = SynDefnDb)]
 pub struct SynDefnJar(
@@ -45,7 +42,7 @@ pub struct SynDefnJar(
     UnionTypeSynDefn,
     // fugitive
     fugitive_syn_node_defn,
-    fugitive_syn_defn,
+    // fugitive_syn_defn,
     ValSynNodeDefn,
     ValSynDefn,
     FnSynNodeDefn,
@@ -70,7 +67,7 @@ pub struct SynDefnJar(
     PropsVariantSynDefn,
     // type item
     ty_item_syn_node_defn,
-    ty_item_syn_defn,
+    // ty_item_syn_defn,
     TypeAssociatedFnSynNodeDefn,
     TypeAssociatedFnSynDefn,
     TypeMethodFnSynNodeDefn,
@@ -83,7 +80,7 @@ pub struct SynDefnJar(
     TypeMemoizedFieldSynDefn,
     // trait item
     trai_item_syn_node_defn,
-    trai_item_syn_defn,
+    // trai_item_syn_defn,
     TraitAssociatedFnSynNodeDefn,
     TraitAssociatedFnSynDefn,
     TraitMethodFnSynNodeDefn,
@@ -94,7 +91,7 @@ pub struct SynDefnJar(
     TraitAssociatedValSynDefn,
     // trait for type item
     trai_for_ty_item_syn_node_defn,
-    trai_for_ty_item_syn_defn,
+    // trai_for_ty_item_syn_defn,
     TraitForTypeAssociatedFnSynNodeDefn,
     TraitForTypeAssociatedFnSynDefn,
     TraitForTypeMethodFnSynNodeDefn,

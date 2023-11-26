@@ -41,12 +41,12 @@ impl HasDeclarativeSignatureTemplate for ItemPath {
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         Ok(match self {
-            ItemPath::Submodule(_) => SignatureTemplate::Submodule,
+            ItemPath::Submodule(_, _) => SignatureTemplate::Submodule,
             ItemPath::MajorItem(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::AssociatedItem(path) => path.declarative_signature_template(db)?.into(),
-            ItemPath::TypeVariant(path) => path.declarative_signature_template(db)?.into(),
+            ItemPath::TypeVariant(_, path) => path.declarative_signature_template(db)?.into(),
             ItemPath::ImplBlock(path) => path.declarative_signature_template(db)?.into(),
-            ItemPath::Attr(_) => todo!(),
+            ItemPath::Attr(_, _) => todo!(),
         })
     }
 }

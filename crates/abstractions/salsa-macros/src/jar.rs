@@ -138,7 +138,7 @@ pub(crate) fn jar_impl(
             }
 
             #[cfg(debug_assertions)]
-            fn cast_test_db(db: &'salsa_db salsa::test_utils::TestDb) -> &'salsa_db Self::DynDb {
+            fn cast_test_db(db: &salsa::test_utils::TestDb) -> &Self::DynDb {
                 db
             }
         }

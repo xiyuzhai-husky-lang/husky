@@ -4,7 +4,7 @@ use husky_entity_syn_tree::EntityTreeBundleError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub enum EtherealSignatureError {
     #[error("term error")]
     TermError(EtherealTermError),

@@ -8,7 +8,7 @@ use husky_vfs::{
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db(db = RustTranspilationDb)]
+#[salsa::debug_with_db(db = RustTranspilationDb, jar = RustTranspilationJar)]
 pub(crate) enum RustTranspilationPackage {
     Library(RustTranspilationLibraryPackage),
     Registry(RustTranspilationRegistryPackage),
@@ -42,19 +42,19 @@ impl RustTranspilationPackage {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db(db = RustTranspilationDb)]
+#[salsa::debug_with_db(db = RustTranspilationDb, jar = RustTranspilationJar)]
 pub(crate) struct RustTranspilationLibraryPackage {
     package_path: PackagePath,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db(db = RustTranspilationDb)]
+#[salsa::debug_with_db(db = RustTranspilationDb, jar = RustTranspilationJar)]
 pub(crate) struct RustTranspilationRegistryPackage {
     package_path: PackagePath,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db(db = RustTranspilationDb)]
+#[salsa::debug_with_db(db = RustTranspilationDb, jar = RustTranspilationJar)]
 pub(crate) struct RustTranspilationLocalPackage {
     target_path: LinktimeTargetPath,
     package_path: PackagePath,

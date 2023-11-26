@@ -12,9 +12,8 @@ pub use self::method_fn::*;
 
 use super::*;
 
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 #[enum_class::from_variants]
 pub enum TypeItemSynNodeDefn {
     AssociatedFn(TypeAssociatedFnSynNodeDefn),
@@ -106,7 +105,7 @@ pub(crate) fn ty_item_syn_node_defn(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 #[enum_class::from_variants]
 pub enum TypeItemSynDefn {
     AssociatedFn(TypeAssociatedFnSynDefn),
@@ -159,7 +158,7 @@ impl HasSynDefn for TypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = SynDefnJar)]
+// #[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn ty_item_syn_defn(
     db: &dyn SynDefnDb,
     path: TypeItemPath,

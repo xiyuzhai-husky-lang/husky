@@ -25,7 +25,7 @@ pub type HirLazyExprIdxRange = ArenaIdxRange<HirLazyExprData>;
 pub type HirLazyExprMap<V> = ArenaMap<HirLazyExprData, V>;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = HirLazyExprDb)]
+#[salsa::debug_with_db(db = HirLazyExprDb, jar = HirLazyExprJar)]
 pub enum HirLazyExprData {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),

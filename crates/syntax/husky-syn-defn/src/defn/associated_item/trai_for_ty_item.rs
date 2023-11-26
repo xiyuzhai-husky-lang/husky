@@ -11,7 +11,7 @@ pub use self::method_fn::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemSynNodeDefn {
     AssociatedFn(TraitForTypeAssociatedFnSynNodeDefn),
@@ -102,7 +102,7 @@ pub(crate) fn trai_for_ty_item_syn_node_defn(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemSynDefn {
     AssociatedFn(TraitForTypeAssociatedFnSynDefn),

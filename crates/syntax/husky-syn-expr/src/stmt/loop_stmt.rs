@@ -3,7 +3,7 @@ use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
 use husky_opr::BinaryComparisonOpr;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub struct SynForBetweenParticulars {
     pub for_between_loop_var_regional_token_idx: RegionalTokenIdx,
     pub for_between_loop_var_ident: Ident,
@@ -12,7 +12,7 @@ pub struct SynForBetweenParticulars {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub struct SynForBetweenRange {
     pub initial_boundary: SynForBetweenLoopBoundary,
     pub final_boundary: SynForBetweenLoopBoundary,

@@ -13,7 +13,7 @@ use smallvec::SmallVec;
 use vec_like::{AsVecMapEntry, VecMap};
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TomlAstDb)]
+#[salsa::debug_with_db(db = TomlAstDb, jar = TomlAstJar)]
 pub struct TomlSectionSheet {
     arena: TomlSectionArena,
     errors: Vec<TomlAstError>,
@@ -31,7 +31,7 @@ pub type TomlSectionArena = Arena<TomlSection>;
 pub type TomlSectionIdx = ArenaIdx<TomlSection>;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TomlAstDb)]
+#[salsa::debug_with_db(db = TomlAstDb, jar = TomlAstJar)]
 pub struct TomlSection {
     title: TomlSectionTitle,
     kind: TomlSectionKind,
@@ -79,7 +79,7 @@ impl TomlAst for TomlSectionEntry {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TomlAstDb)]
+#[salsa::debug_with_db(db = TomlAstDb, jar = TomlAstJar)]
 pub enum TomlSectionKind {
     Normal,
     Scattered,

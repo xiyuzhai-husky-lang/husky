@@ -3,7 +3,7 @@ use husky_entity_path::TypePath;
 use husky_hir_ty::HirType;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = LinkageDb)]
+#[salsa::debug_with_db(db = LinkageDb, jar = LinkageJar)]
 #[enum_class::from_variants]
 pub enum LinkageType {
     PathLeading(LinkageTypePathLeading),

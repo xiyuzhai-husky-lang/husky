@@ -1,9 +1,8 @@
 use super::*;
 use husky_declarative_signature::DeclarativeParenateParameters;
 
-
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct EtherealTermParenateParameters {
     data: SmallVec<[EtherealRitchieParameter; 4]>,
 }

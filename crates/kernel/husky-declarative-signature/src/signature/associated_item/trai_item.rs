@@ -13,7 +13,7 @@ pub use self::method_fn::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
 pub enum TraitItemDeclarativeSignatureTemplate {
     AssociatedFn(TraitAssociatedFnDeclarativeSignatureTemplate),
@@ -23,7 +23,7 @@ pub enum TraitItemDeclarativeSignatureTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
 pub enum TraitItemDeclarativeSignatureTemplates {
     AssociatedFn(SmallVecImpl<TraitAssociatedFnDeclarativeSignatureTemplate>),
@@ -44,7 +44,7 @@ impl HasDeclarativeSignatureTemplate for TraitItemPath {
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
+// #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn trai_item_syn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: TraitItemPath,

@@ -29,7 +29,7 @@ pub(crate) fn item_variance_crate_dependencies(
         .as_ref()
         .unwrap();
     match id.path {
-        ItemPath::Submodule(_) => todo!(),
+        ItemPath::Submodule(_, _) => todo!(),
         ItemPath::MajorItem(path) => match path {
             MajorItemPath::Type(path) => {
                 declarative_ty_item_variance_crate_dependencies(db, path, id.idx)
@@ -40,15 +40,16 @@ pub(crate) fn item_variance_crate_dependencies(
                 .as_ref()
                 .map(|t| t.as_ref()),
             MajorItemPath::Fugitive(path) => {
-                form_item_variance_crate_dependencies(db, path, id.idx)
-                    .as_ref()
-                    .map(|t| t.as_ref())
+                todo!()
+                // form_item_variance_crate_dependencies(db, path, id.idx)
+                //     .as_ref()
+                //     .map(|t| t.as_ref())
             }
         },
         ItemPath::AssociatedItem(_) => todo!(),
-        ItemPath::TypeVariant(_) => todo!(),
+        ItemPath::TypeVariant(_, _) => todo!(),
         ItemPath::ImplBlock(_) => todo!(),
-        ItemPath::Attr(_) => todo!(),
+        ItemPath::Attr(_, _) => todo!(),
     }
 }
 
@@ -86,7 +87,7 @@ pub(crate) fn trai_item_variance_crate_dependencies(
     todo!()
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+// #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variance_crate_dependencies(
     db: &dyn DeclarativeTypeDb,
     path: FugitivePath,

@@ -8,7 +8,7 @@ use original_error::OriginalError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb, jar = AstJar)]
 pub enum AstError {
     #[error("{0}")]
     Original(#[from] OriginalAstError),
@@ -17,7 +17,7 @@ pub enum AstError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb, jar = AstJar)]
 pub enum OriginalAstError {
     #[error("excessive indent")]
     ExcessiveIndent,
@@ -132,7 +132,7 @@ impl From<TokenDataError> for AstError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb, jar = AstJar)]
 pub enum DerivedAstError {
     #[error("{0}")]
     TokenData(#[from] TokenDataError),

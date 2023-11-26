@@ -7,7 +7,7 @@ use husky_fluffy_term::{
 use vec_like::SmallVecPairMap;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirTypeDb)]
+#[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
 pub struct HirInstantiation {
     symbol_map: SmallVecPairMap<HirComptimeSymbol, HirTermSymbolResolution, 4>,
     separator: Option<u8>,

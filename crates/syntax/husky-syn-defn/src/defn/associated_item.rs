@@ -9,7 +9,7 @@ pub use self::ty_item::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 #[enum_class::from_variants]
 pub enum AssociatedItemSynNodeDefn {
     TypeItem(TypeItemSynNodeDefn),
@@ -78,7 +78,7 @@ impl HasSynNodeDefn for AssociatedItemSynNodePath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 #[enum_class::from_variants]
 pub enum AssociatedItemSynDefn {
     TypeItem(TypeItemSynDefn),

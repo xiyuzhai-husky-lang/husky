@@ -7,7 +7,7 @@ use ordered_float::OrderedFloat;
 use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TomlAstDb)]
+#[salsa::debug_with_db(db = TomlAstDb, jar = TomlAstJar)]
 pub enum TomlExpr {
     /// Represents a TOML string
     String(Arc<String>),

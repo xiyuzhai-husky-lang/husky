@@ -6,7 +6,7 @@ use husky_sema_expr::{
 };
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = HirEagerExprDb)]
+#[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
 pub struct HirEagerForBetweenParticulars {
     pub frame_var_ident: Ident,
     pub range: HirEagerForBetweenRange,
@@ -24,7 +24,7 @@ impl ToHirEager for SemaForBetweenParticulars {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = HirEagerExprDb)]
+#[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
 pub struct HirEagerForBetweenRange {
     pub initial_boundary: HirEagerForBetweenLoopBoundary,
     pub final_boundary: HirEagerForBetweenLoopBoundary,

@@ -88,7 +88,7 @@ impl ItemPathData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 #[enum_class::from_variants]
 pub enum EntityPath {
     Module(ModulePath),
@@ -180,7 +180,7 @@ impl From<TraitPath> for EntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 #[enum_class::from_variants]
 pub enum IdentifiableEntityPath {
     Module(ModulePath),
@@ -190,7 +190,7 @@ pub enum IdentifiableEntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 #[enum_class::from_variants]
 pub enum ItemPath {
     Submodule(Room32, SubmodulePath),
@@ -283,7 +283,7 @@ impl From<TraitPath> for ItemPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 #[enum_class::from_variants]
 pub enum PatternPath {
     Type(TypePath),
@@ -291,7 +291,7 @@ pub enum PatternPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 #[enum_class::from_variants]
 pub enum MajorEntityPath {
     Module(ModulePath),
@@ -326,7 +326,7 @@ impl MajorEntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 #[enum_class::from_variants]
 pub enum PrincipalEntityPath {
     Module(ModulePath),
@@ -375,7 +375,7 @@ impl From<PrincipalEntityPath> for EntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 #[enum_class::from_variants]
 pub enum PrincipalItemPath {
     Submodule(SubmodulePath),

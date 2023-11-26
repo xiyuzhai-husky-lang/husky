@@ -3,7 +3,7 @@ use husky_ethereal_term::EtherealTermTemplateParameter;
 use crate::{symbol::HirTemplateSymbol, trai::HirTrait, *};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = HirTypeDb)]
+#[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
 pub struct HirTemplateParameters {
     data: SmallVec<[HirTemplateParameter; 2]>,
 }

@@ -4,10 +4,9 @@ use husky_ast::*;
 
 use idx_arena::*;
 
-
 /// syntax tree down to TokenGroup level
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb, jar = AstJar)]
 pub enum DeclAst {
     Identifiable {},
     ImplBlock,

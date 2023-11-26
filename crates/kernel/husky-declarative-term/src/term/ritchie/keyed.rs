@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = DeclarativeTermDb)]
+#[salsa::debug_with_db(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeRitchieKeyedParameter {
     key: Ident,
     contract: Contract,

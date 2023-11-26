@@ -3,7 +3,7 @@ use super::*;
 /// source
 ///
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 #[enum_class::from_variants]
 pub enum HoleSource {
     Expr(SynExprIdx),

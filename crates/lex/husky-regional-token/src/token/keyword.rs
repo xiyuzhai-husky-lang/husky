@@ -12,7 +12,7 @@ use super::*;
 // impl
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct ImplRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -54,7 +54,7 @@ where
 // pub
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct PubRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -96,7 +96,7 @@ where
 // use
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct UseRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -153,7 +153,7 @@ fn use_token_works() {
 // self value
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct SelfValueRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -209,7 +209,7 @@ fn self_value_token_works() {
 
 /// `Self` self type token
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct SelfTypeRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -264,7 +264,7 @@ fn self_type_token_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 #[enum_class::from_variants]
 pub enum VarianceRegionalToken {
     Covariant(CovariantRegionalToken),
@@ -336,7 +336,7 @@ fn variance_token_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct CovariantRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -348,7 +348,7 @@ impl CovariantRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct ContravariantRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -360,7 +360,7 @@ impl ContravariantRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb, jar = TokenJar)]
 pub struct InvariantRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }

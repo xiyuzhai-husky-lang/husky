@@ -22,7 +22,7 @@ use husky_vfs::{error::VfsResult, *};
 pub struct ManifestAstJar(package_manifest_ast_sheet_aux, manifest_ast_menu);
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = ManifestAstDb)]
+#[salsa::debug_with_db(db = ManifestAstDb, jar = ManifestAstJar)]
 pub struct PackageManifestAstSheet {
     package_section: ManifestAstResult<ManifestPackageSectionAst>,
     dependencies_section: Option<ManifestAstResult<ManifestDependenciesSectionAst>>,

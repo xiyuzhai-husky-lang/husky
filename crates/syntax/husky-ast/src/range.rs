@@ -4,7 +4,7 @@ use husky_vfs::error::VfsResult;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb, jar = AstJar)]
 pub struct AstTokenIdxRangeSheet {
     ast_token_idx_ranges: Vec<TokenIdxRange>,
 }

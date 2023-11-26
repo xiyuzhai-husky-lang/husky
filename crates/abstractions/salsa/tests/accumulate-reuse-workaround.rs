@@ -14,7 +14,7 @@ trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
 impl<DB> Db for DB where DB: salsa::DbWithJar<Jar> + HasLogger {}
 
-#[salsa::input(db = Db)]
+#[salsa::input(db = Db, jar = Jar)]
 struct List {
     value: u32,
     next: Option<List>,

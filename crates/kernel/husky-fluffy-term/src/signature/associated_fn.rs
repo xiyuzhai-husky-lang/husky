@@ -2,7 +2,7 @@ use super::*;
 use husky_coword::Ident;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct AssociatedFnFluffySignature {
     path: AssociatedItemPath,
     parenate_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,

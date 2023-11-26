@@ -2,7 +2,7 @@ use super::*;
 use husky_regional_token::IdentRegionalToken;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct MethodFnFluffySignature {
     path: AssociatedItemPath,
     // todo: self_parameter_contracted_ty

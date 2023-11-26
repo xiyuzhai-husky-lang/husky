@@ -16,7 +16,6 @@ pub use self::pronoun::*;
 pub use self::stmt::*;
 pub use self::ty::*;
 
-
 use crate::*;
 #[cfg(feature = "protocol_support")]
 use husky_token_protocol::*;
@@ -24,7 +23,7 @@ use serde::{Deserialize, Serialize};
 use std::ops::Deref;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = TokenDataDb)]
+#[salsa::debug_with_db(db = TokenDataDb, jar = TokenDataJar)]
 #[enum_class::from_variants]
 pub enum Keyword {
     Fugitive(FugitiveKeyword),

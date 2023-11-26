@@ -13,5 +13,5 @@ pub trait Jar<'db>: Sized {
         DB: JarFromJars<Self> + DbWithJar<Self>;
 
     #[cfg(debug_assertions)]
-    fn cast_test_db(db: &'db crate::test_utils::TestDb) -> &'db Self::DynDb;
+    fn cast_test_db(db: &crate::test_utils::TestDb) -> &Self::DynDb;
 }

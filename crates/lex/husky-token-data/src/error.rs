@@ -3,7 +3,7 @@ use crate::*;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDataDb)]
+#[salsa::debug_with_db(db = TokenDataDb, jar = TokenDataJar)]
 pub enum TokenDataError {
     #[error("incomplete string literal before end of file")]
     IncompleteStringLiteralBeforeEof,

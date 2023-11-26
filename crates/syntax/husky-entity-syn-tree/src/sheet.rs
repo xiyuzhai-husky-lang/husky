@@ -3,7 +3,7 @@ use crate::*;
 use vec_like::VecPairMap;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct EntitySynTreeSheet {
     module_path: ModulePath,
     major_item_node_table: MajorEntityNodeTable,

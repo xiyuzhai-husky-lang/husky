@@ -3,7 +3,7 @@ use vec_like::VecSet;
 
 // `Default` is derived because we never inherited hollow terms
 #[derive(Debug, Default, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct HollowTerms {
     entries: Vec<HollowTermEntry>,
     first_unresolved_term_idx: usize,
@@ -344,7 +344,7 @@ impl FluffyTerm {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct HollowTermEntry {
     data: HollowTermData,
     resolve_progress: HollowTermResolveProgressBuf,
@@ -372,7 +372,7 @@ impl HollowTermEntry {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum TermResolveProgress {
     UnresolvedHollow,
     ResolvedEthereal(EtherealTerm),
@@ -396,7 +396,7 @@ impl HollowTermResolveProgressBuf {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum HollowTermResolveProgressBuf {
     Unresolved,
     ResolvedEthereal(EtherealTerm),
@@ -405,7 +405,7 @@ pub enum HollowTermResolveProgressBuf {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct HollowTerm(u32);
 
 impl HollowTerm {

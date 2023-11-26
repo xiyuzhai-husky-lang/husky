@@ -1,11 +1,13 @@
-use crate::{EntitySynTreeDb, EntityTreeBundleError, ItemSynNodePath, PreludeError};
+use crate::{
+    EntitySynTreeDb, EntitySynTreeJar, EntityTreeBundleError, ItemSynNodePath, PreludeError,
+};
 use husky_entity_path::{EntityPathError, TypePath};
 use husky_token::IdentToken;
 use husky_vfs::{error::VfsError, ModulePath, ToolchainError};
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[deprecated(note = "put this into syntax error")]
 pub enum EntitySynTreeError {
     #[error("original {0}")]
@@ -51,7 +53,7 @@ impl From<VfsError> for EntitySynTreeError {
 // }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum OriginalEntityTreeError {
     #[error("unresolved root identifier")]
     UnresolvedRootIdent(IdentToken),
@@ -69,7 +71,7 @@ pub enum OriginalEntityTreeError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum DerivedEntityTreeError {
     // derived
     #[error("derived {0}")]

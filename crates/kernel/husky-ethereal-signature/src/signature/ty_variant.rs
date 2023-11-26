@@ -9,7 +9,7 @@ pub use self::enum_unit_ty_variant::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 #[enum_class::from_variants]
 pub enum TypeVariantEtherealSignatureTemplate {
     Props(EnumPropsVariantEtherealSignatureTemplate),

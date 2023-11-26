@@ -15,7 +15,7 @@ use husky_ethereal_term::{
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirTypeDb)]
+#[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
 pub enum HirComptimeSymbol {
     Type(HirTypeSymbol),
     Const(HirConstSymbol),

@@ -32,13 +32,13 @@ pub type VarianceResult<T> = Result<T, VarianceError>;
 pub type VarianceResultRef<'a, T> = Result<T, &'a VarianceError>;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = DeclarativeTypeDb)]
+#[salsa::debug_with_db(db = DeclarativeTypeDb, jar = DeclarativeTypeJar)]
 pub enum OriginalVarianceError {
     Todo,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = DeclarativeTypeDb)]
+#[salsa::debug_with_db(db = DeclarativeTypeDb, jar = DeclarativeTypeJar)]
 pub enum DerivedVarianceError {
     DeclError,
     SignatureError,
@@ -50,20 +50,21 @@ pub(crate) fn item_variances(
     path: ItemPath,
 ) -> VarianceResultRef<&[Variance]> {
     match path {
-        ItemPath::Submodule(_) => Ok(&[]),
+        ItemPath::Submodule(_, _) => Ok(&[]),
         ItemPath::MajorItem(path) => match path {
             MajorItemPath::Type(path) => ty_template_parameter_variances(db, path)
                 .as_ref()
                 .map(Vec::as_ref),
             MajorItemPath::Trait(path) => trai_item_variances(db, path).as_ref().map(Vec::as_ref),
             MajorItemPath::Fugitive(path) => {
-                form_item_variances(db, path).as_ref().map(Vec::as_ref)
+                todo!()
+                // form_item_variances(db, path).as_ref().map(Vec::as_ref)
             }
         },
         ItemPath::AssociatedItem(_) => todo!(),
-        ItemPath::TypeVariant(_) => todo!(),
+        ItemPath::TypeVariant(_, _) => todo!(),
         ItemPath::ImplBlock(_) => todo!(),
-        ItemPath::Attr(_) => todo!(),
+        ItemPath::Attr(_, _) => todo!(),
     }
 }
 
@@ -83,7 +84,7 @@ pub(crate) fn trai_item_variances(
     calc_item_variances(db, path)
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+// #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variances(
     db: &dyn DeclarativeTypeDb,
     path: FugitivePath,
@@ -91,7 +92,7 @@ pub(crate) fn form_item_variances(
     calc_item_variances(db, path)
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+// #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn ty_item_item_variances(
     db: &dyn DeclarativeTypeDb,
     path: TypeItemPath,

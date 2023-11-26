@@ -13,7 +13,7 @@ pub use self::method_fn::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb, jar = SynDeclJar)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemSynNodeDecl {
     AssociatedFn(TraitForTypeAssociatedFnSynNodeDecl),
@@ -96,7 +96,7 @@ impl<'a> DeclParser<'a, TraitForTypeItemSynNodePath> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb, jar = SynDeclJar)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemSynDecl {
     AssociatedFn(TraitForTypeAssociatedFnSynDecl),

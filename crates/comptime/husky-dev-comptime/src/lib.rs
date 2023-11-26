@@ -2,7 +2,7 @@ use husky_coword::Kebab;
 use husky_task::{helpers::TaskDevComptimeDb, helpers::TaskDevLinkTime, link::IsLinktime, IsTask};
 use husky_vfs::{
     error::VfsResult, linktime_target_path::LinktimeTargetPath, CrateKind, CratePath, PackagePath,
-    VfsDb,
+    VfsDb, VfsJar,
 };
 use std::path::Path;
 
@@ -13,7 +13,7 @@ pub struct DevComptime<Task: IsTask> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = VfsDb)]
+#[salsa::debug_with_db(db = VfsDb, jar = VfsJar)]
 pub enum DevComptimeTarget {
     None,
     SingleCrate(CratePath),

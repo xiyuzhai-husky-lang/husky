@@ -45,7 +45,7 @@ impl HasDeclarativeSignatureTemplate for FugitivePath {
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
+// #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn fugitive_syn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: FugitivePath,

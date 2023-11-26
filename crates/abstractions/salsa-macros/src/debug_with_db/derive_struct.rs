@@ -1,19 +1,26 @@
 use super::*;
-use syn::Fields;
+use syn::{Fields, Type};
 
 pub(super) fn struct_debug_with_db_impl(
-    db_path: &Path,
+    db_trai: &Path,
+    jar_ty: &Type,
     item: &ItemStruct,
 ) -> proc_macro2::TokenStream {
     let ident = &item.ident;
 
     let body = match item.fields {
-        syn::Fields::Named(_) => struct_regular_fields_debug_with_db(&item.ident, &item.fields),
-        syn::Fields::Unnamed(_) => struct_tuple_fields_debug_with_db(&item.ident, &item.fields),
+        syn::Fields::Named(_) => {
+            struct_regular_fields_debug_with_db(db_trai, &item.ident, &item.fields)
+        }
+        syn::Fields::Unnamed(_) => {
+            struct_tuple_fields_debug_with_db(db_trai, &item.ident, &item.fields)
+        }
         syn::Fields::Unit => todo!("unit struct debug with db"),
     };
     // todo: refactor this as a function
-    let generic_decls = generic_decls(&item.generics, db_path);
+    let generics = &item.generics;
+    let generics_with_db = generics_with_db(generics, db_trai);
+    let generics_without_db = generics_without_db(generics, db_trai);
     let self_ty = if item.generics.params.is_empty() {
         quote! { #ident }
     } else {
@@ -37,8 +44,15 @@ pub(super) fn struct_debug_with_db_impl(
     };
     let where_clause = &item.generics.where_clause;
     quote! {
-        impl<#generic_decls> ::salsa::DebugWithDb<_Db> for #self_ty #where_clause {
+        impl #generics_with_db ::salsa::DebugWithDb<_Db> for #self_ty #where_clause {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: salsa::DebugFormatLevel) -> ::std::fmt::Result {
+                self.__fmt_with_db_aux(f, <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db), _level)
+            }
+        }
+
+        impl #generics_without_db #self_ty #where_clause {
+            #[inline(never)]
+            fn __fmt_with_db_aux(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &dyn #db_trai, _level: ::salsa::DebugFormatLevel) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;
                 #body
@@ -47,7 +61,11 @@ pub(super) fn struct_debug_with_db_impl(
     }
 }
 
-fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_macro2::TokenStream {
+fn struct_regular_fields_debug_with_db(
+    db_trai: &Path,
+    ident: &Ident,
+    fields: &Fields,
+) -> proc_macro2::TokenStream {
     let ident_string = ident.to_string();
     // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
     let fields = fields
@@ -62,7 +80,7 @@ fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_m
             let field_debug = quote! {
                 debug_struct = debug_struct.field(
                     #field_ident_string,
-                    &::salsa::debug::helper::SalsaDebug::<#field_ty, _Db>::salsa_debug(
+                    &::salsa::debug::helper::SalsaDebug::<#field_ty, dyn #db_trai>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         &self.#field_ident,
                         _db,
@@ -86,7 +104,11 @@ fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_m
     }
 }
 
-fn struct_tuple_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_macro2::TokenStream {
+fn struct_tuple_fields_debug_with_db(
+    db_trai: &Path,
+    ident: &Ident,
+    fields: &Fields,
+) -> proc_macro2::TokenStream {
     let ident_string = ident.to_string();
     // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
     let fields = fields
@@ -101,7 +123,7 @@ fn struct_tuple_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_mac
 
             let field_debug = quote! {
                 debug_tuple = debug_tuple.field(
-                    &::salsa::debug::helper::SalsaDebug::<#field_ty, _Db>::salsa_debug(
+                    &::salsa::debug::helper::SalsaDebug::<#field_ty, dyn #db_trai>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         &self.#field_idx,
                         _db,

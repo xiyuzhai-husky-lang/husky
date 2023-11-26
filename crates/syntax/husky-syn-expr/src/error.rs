@@ -4,7 +4,7 @@ use original_error::OriginalError;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub enum SynExprError {
     #[error("original {0}")]
     Original(#[from] OriginalSynExprError),
@@ -19,7 +19,7 @@ impl From<TokenDataError> for SynExprError {
 }
 
 #[derive(Error, Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 // #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum OriginalSynExprError {
     #[error("expected `>`")]
@@ -278,7 +278,7 @@ impl OriginalError for OriginalSynExprError {
 }
 
 #[derive(Error, Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub enum DerivedSynExprError {
     #[error("token error {0}")]
     TokenData(#[from] TokenDataError),

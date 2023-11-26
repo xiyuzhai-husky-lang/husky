@@ -5,14 +5,14 @@ use husky_syn_expr::{TemplateParameterSyndicateData, TemplateSynParameterData};
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirDeclDb)]
+#[salsa::debug_with_db(db = HirDeclDb, jar = HirDeclJar)]
 pub struct HirTemplateParameter {
     symbol: HirComptimeSymbol,
     data: HirTemplateParameterData,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = HirDeclDb)]
+#[salsa::debug_with_db(db = HirDeclDb, jar = HirDeclJar)]
 pub enum HirTemplateParameterData {
     Type { ident: Ident, traits: Vec<HirTrait> },
     Constant { ident: Ident, ty: HirType },

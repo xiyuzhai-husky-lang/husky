@@ -15,7 +15,7 @@ pub use self::unit_struct::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDefnDb)]
+#[salsa::debug_with_db(db = HirDefnDb, jar = HirDefnJar)]
 #[enum_class::from_variants]
 pub enum TypeHirDefn {
     Enum(EnumHirDefn),

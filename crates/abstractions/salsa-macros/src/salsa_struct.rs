@@ -314,7 +314,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
     }
 
     /// Generate `impl salsa::DebugWithDb for Foo`
-    pub(crate) fn as_debug_with_db_impl(&self) -> syn::ItemImpl {
+    pub(crate) fn as_debug_with_db_impl(&self) -> TokenStream {
         let ident = self.id_ident();
         let jar_ty = self.jar_ty();
         let db_trai = self.db_trai().expect("expect db argument");
@@ -355,12 +355,18 @@ impl<A: AllowedOptions> SalsaStruct<A> {
             .collect::<TokenStream>();
 
         // `use ::salsa::debug::helper::Fallback` is needed for the fallback to `Debug` impl
-        parse_quote_spanned! {ident.span()=>
+        quote_spanned! {ident.span()=>
             impl<_Db: #db_trai + ?Sized> ::salsa::DebugWithDb<_Db> for #ident {
                 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: salsa::DebugFormatLevel) -> ::std::fmt::Result {
+                    self.__fmt_with_db_aux(f, <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db), _level)
+                }
+            }
+
+            impl #ident {
+                #[inline(never)]
+                fn __fmt_with_db_aux(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &dyn #db_trai, _level: salsa::DebugFormatLevel) -> ::std::fmt::Result {
                     #[allow(unused_imports)]
                     use ::salsa::debug::helper::Fallback;
-                    let _db = <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db);
                     let mut debug_struct = &mut f.debug_struct(#ident_string);
                     if _level.is_root() {
                         debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());

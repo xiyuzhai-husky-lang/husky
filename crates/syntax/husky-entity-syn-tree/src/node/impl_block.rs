@@ -17,7 +17,7 @@ use parsec::{HasStreamState, IsStreamParser};
 use thiserror::Error;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
 pub enum ImplBlockSynNodePath {
     TypeImplBlock(TypeImplBlockSynNodePath),
@@ -73,7 +73,7 @@ impl HasSynNodePath for ImplBlockPath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
 pub(crate) enum ImplBlockSynNode {
     TypeImplBlock(TypeImplBlockSynNode),
@@ -251,7 +251,7 @@ impl ImplBlockSynNode {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum ImplError {
     #[error("unmatched angle bras")]
     UnmatchedAngleBras,
