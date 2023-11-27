@@ -29,12 +29,15 @@ impl InductiveTypeSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_inductive_ty_node_decl(&self) -> InductiveTypeSynNodeDecl {
+    pub(super) fn parse_inductive_ty_node_decl(
+        &self,
+        syn_node_path: TypeSynNodePath,
+    ) -> InductiveTypeSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();
         InductiveTypeSynNodeDecl::new(
             self.db(),
-            self.syn_node_path(),
+            syn_node_path,
             template_parameter_decl_list,
             parser.finish(),
         )

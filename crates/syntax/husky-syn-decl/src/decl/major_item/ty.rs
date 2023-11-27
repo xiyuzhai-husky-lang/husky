@@ -90,23 +90,23 @@ impl HasSynNodeDecl for TypeSynNodePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_node_decl(db: &::salsa::Db, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
-    DeclParser::new(db, syn_node_path.into()).parse_ty_node_decl()
+    DeclParser::new(db, syn_node_path.into()).parse_ty_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_node_decl(&self) -> TypeSynNodeDecl {
+    fn parse_ty_node_decl(&self, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
         let ItemSynNodePath::MajorItem(MajorItemSynNodePath::Type(syn_node_path)) =
             self.syn_node_path()
         else {
             unreachable!()
         };
         match syn_node_path.ty_kind(self.db()) {
-            TypeKind::Enum => self.parse_enum_ty_node_decl().into(),
-            TypeKind::Inductive => self.parse_inductive_ty_node_decl().into(),
+            TypeKind::Enum => self.parse_enum_ty_node_decl(syn_node_path).into(),
+            TypeKind::Inductive => self.parse_inductive_ty_node_decl(syn_node_path).into(),
             TypeKind::Record => todo!(),
             TypeKind::Struct => self.parse_struct_ty_node_decl(syn_node_path),
-            TypeKind::Structure => self.parse_structure_ty_node_decl(),
-            TypeKind::Extern => self.parse_extern_ty_node_decl().into(),
+            TypeKind::Structure => self.parse_structure_ty_node_decl(syn_node_path),
+            TypeKind::Extern => self.parse_extern_ty_node_decl(syn_node_path).into(),
         }
     }
 }

@@ -38,7 +38,7 @@ impl FnSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_fn_node_decl(&self) -> FnSynNodeDecl {
+    pub(super) fn parse_fn_node_decl(&self, syn_node_path: FugitiveSynNodePath) -> FnSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();
         let parameter_decl_list =
@@ -54,7 +54,7 @@ impl<'a> DeclParser<'a> {
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         FnSynNodeDecl::new(
             self.db(),
-            self.syn_node_path(),
+            syn_node_path,
             template_parameter_decl_list,
             parameter_decl_list,
             light_arrow_token,

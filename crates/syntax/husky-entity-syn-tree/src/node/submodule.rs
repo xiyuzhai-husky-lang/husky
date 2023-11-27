@@ -45,6 +45,19 @@ impl SubmoduleSynNodePath {
     }
 }
 
+impl HasSynNodePath for SubmodulePath {
+    type SynNodePath = SubmoduleSynNodePath;
+
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
+        SubmoduleSynNodePath(ItemSynNodePathId::new(
+            db,
+            ItemSynNodePathData::Submodule(SubmoduleSynNodePathData {
+                maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+            }),
+        ))
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct SubmoduleSynNode {
     pub(crate) syn_node_path: SubmoduleSynNodePath,

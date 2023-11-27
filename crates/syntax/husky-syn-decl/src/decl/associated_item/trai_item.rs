@@ -74,15 +74,20 @@ fn trai_item_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TraitItemSynNodePath,
 ) -> TraitItemSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path);
-    parser.parse_trai_item_syn_node_decl()
+    let parser = DeclParser::new(db, syn_node_path.into());
+    parser.parse_trai_item_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_trai_item_syn_node_decl(&self) -> TraitItemSynNodeDecl {
-        match self.syn_node_path().item_kind(self.db()) {
-            TraitItemKind::MethodFn => self.parse_trai_method_fn_node_decl().into(),
-            TraitItemKind::AssociatedType => self.parse_trai_associated_ty_node_decl().into(),
+    fn parse_trai_item_syn_node_decl(
+        &self,
+        syn_node_path: TraitItemSynNodePath,
+    ) -> TraitItemSynNodeDecl {
+        match syn_node_path.item_kind(self.db()) {
+            TraitItemKind::MethodFn => self.parse_trai_method_fn_node_decl(syn_node_path).into(),
+            TraitItemKind::AssociatedType => self
+                .parse_trai_associated_ty_node_decl(syn_node_path)
+                .into(),
             TraitItemKind::AssociatedVal => todo!(),
         }
     }

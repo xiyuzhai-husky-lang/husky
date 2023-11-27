@@ -32,6 +32,15 @@ impl TraitForTypeItemSynNodePath {
         ))
     }
 
+    pub fn data(self, db: &::salsa::Db) -> TraitForTypeItemSynNodePathData {
+        match self.0.data(db) {
+            ItemSynNodePathData::AssociatedItem(
+                AssociatedItemSynNodePathData::TraitForTypeItem(data),
+            ) => data,
+            _ => unreachable!(),
+        }
+    }
+
     pub fn path(self, db: &::salsa::Db) -> Option<TraitForTypeItemPath> {
         Some(match self.0.path(db)? {
             ItemPath::AssociatedItem(AssociatedItemPath::TraitForTypeItem(path)) => path,

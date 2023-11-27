@@ -43,10 +43,12 @@ impl TraitMethodFnSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_trai_method_fn_node_decl(&self) -> TraitMethodFnSynNodeDecl {
+    pub(super) fn parse_trai_method_fn_node_decl(
+        &self,
+        syn_node_path: TraitItemSynNodePath,
+    ) -> TraitMethodFnSynNodeDecl {
         let db = self.db();
-        let parent_trai_syn_node_decl = self
-            .syn_node_path()
+        let parent_trai_syn_node_decl = syn_node_path
             .parent_trai_syn_node_path(db)
             .syn_node_decl(db);
         let mut parser = self.expr_parser(
@@ -69,7 +71,7 @@ impl<'a> DeclParser<'a> {
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TraitMethodFnSynNodeDecl::new(
             db,
-            self.syn_node_path(),
+            syn_node_path,
             template_parameter_decl_list,
             parenate_parameter_decl_list,
             light_arrow_token,

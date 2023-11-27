@@ -86,16 +86,22 @@ pub(crate) fn ty_item_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemSynNodeDecl {
-    let ctx = DeclParser::new(db, syn_node_path);
-    ctx.parse_ty_item_syn_node_decl()
+    let ctx = DeclParser::new(db, syn_node_path.into());
+    ctx.parse_ty_item_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_item_syn_node_decl(&self) -> TypeItemSynNodeDecl {
-        match self.syn_node_path().item_kind(self.db()) {
-            TypeItemKind::MethodFn => self.parse_ty_method_node_decl().into(),
-            TypeItemKind::AssociatedFunctionFn => self.parse_ty_associated_fn_node_decl().into(),
-            TypeItemKind::MemoizedField => self.parse_ty_memo_decl().into(),
+    fn parse_ty_item_syn_node_decl(
+        &self,
+        syn_node_path: TypeItemSynNodePath,
+    ) -> TypeItemSynNodeDecl {
+        let db = self.db();
+        match syn_node_path.data(db).item_kind(self.db()) {
+            TypeItemKind::MethodFn => self.parse_ty_method_node_decl(syn_node_path).into(),
+            TypeItemKind::AssociatedFunctionFn => {
+                self.parse_ty_associated_fn_node_decl(syn_node_path).into()
+            }
+            TypeItemKind::MemoizedField => self.parse_ty_memo_decl(syn_node_path).into(),
             TypeItemKind::AssociatedVal => todo!(),
             TypeItemKind::AssociatedType => todo!(),
         }

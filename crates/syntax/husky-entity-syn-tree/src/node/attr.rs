@@ -36,6 +36,14 @@ impl AttrSynNodePath {
         }
     }
 
+    pub fn parent_syn_node_path(self, db: &::salsa::Db) -> ItemSynNodePath {
+        self.data(db).parent_syn_node_path
+    }
+
+    pub fn ident(self, db: &salsa::Db) -> Ident {
+        self.data(db).ident(db)
+    }
+
     pub fn path(self, db: &::salsa::Db) -> Option<AttrItemPath> {
         Some(match self.0.path(db)? {
             ItemPath::Attr(_, path) => path,

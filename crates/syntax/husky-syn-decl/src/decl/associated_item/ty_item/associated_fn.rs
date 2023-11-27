@@ -36,11 +36,15 @@ impl TypeAssociatedFnSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_ty_associated_fn_node_decl(&self) -> TypeAssociatedFnSynNodeDecl {
+    pub(super) fn parse_ty_associated_fn_node_decl(
+        &self,
+        syn_node_path: TypeItemSynNodePath,
+    ) -> TypeAssociatedFnSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(
             Some(
-                self.syn_node_path()
+                syn_node_path
+                    .data(db)
                     .impl_block(db)
                     .syn_node_decl(db)
                     .syn_expr_region(db),
@@ -63,7 +67,7 @@ impl<'a> DeclParser<'a> {
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TypeAssociatedFnSynNodeDecl::new(
             db,
-            self.syn_node_path(),
+            syn_node_path,
             template_parameter_decl_list,
             parameter_decl_list,
             light_arrow_token,

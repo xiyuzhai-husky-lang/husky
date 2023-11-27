@@ -50,7 +50,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path);
+    let parser = DeclParser::new(db, syn_node_path.into());
     parser.parse_trai_for_ty_impl_block_syn_node_decl(syn_node_path)
 }
 
