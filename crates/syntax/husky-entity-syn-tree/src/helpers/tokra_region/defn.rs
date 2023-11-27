@@ -106,35 +106,41 @@ impl<'a> std::ops::Index<DefnAstIdx> for DefnTokraRegionData<'a> {
     }
 }
 
-pub(super) fn defn_token_region(
-    syn_node_path: ItemSynNodePath,
-    _db: &::salsa::Db,
-) -> Option<DefnTokraRegion> {
-    match syn_node_path {
-        ItemSynNodePath::Submodule(_, _) => None,
-        ItemSynNodePath::MajorItem(_) => todo!(),
-        ItemSynNodePath::TypeVariant(_, _) => todo!(),
-        ItemSynNodePath::ImplBlock(_) => todo!(),
-        ItemSynNodePath::AssociatedItem(_) => todo!(),
-        ItemSynNodePath::Attr(_, _) => todo!(),
-    }
-}
-
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
-pub struct SynDefnTokraRegionSourceMap {
+pub struct DefnTokraRegionSourceMap {
     pub regional_token_group_idx_base: RegionalTokenGroupIdxBase,
     pub regional_token_idx_base: RegionalTokenIdxBase,
     #[return_ref]
     pub ast_idx_map: Vec<AstIdx>,
 }
 
+impl ItemSynNodePath {
+    pub fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
+        Some(item_syn_defn_tokra_region_with_source_map(db, *self)?.0)
+    }
+
+    // use this only when necessary
+    pub fn defn_tokra_region_source_map(
+        self,
+        db: &::salsa::Db,
+    ) -> Option<DefnTokraRegionSourceMap> {
+        Some(item_syn_defn_tokra_region_with_source_map(db, *self)?.1)
+    }
+
+    pub fn defn_regional_token_idx_base(self, db: &::salsa::Db) -> Option<RegionalTokenIdxBase> {
+        Some(
+            self.defn_tokra_region_source_map(db)?
+                .regional_token_idx_base(db),
+        )
+    }
+}
+
 #[salsa::tracked(jar = EntitySynTreeJar)]
 fn item_syn_defn_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,
-) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
-    let syn_node = id.syn_node(db);
-    let builder = SynDefnTokraRegionBuilder::new(id.module_path(db), syn_node.ast_idx(db), db)?;
+) -> Option<(DefnTokraRegion, DefnTokraRegionSourceMap)> {
+    let builder = SynDefnTokraRegionBuilder::new(id.module_path(db), id.ast_idx(db), db)?;
     Some(builder.build())
 }
 
@@ -211,7 +217,7 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
         })
     }
 
-    fn build(mut self) -> (DefnTokraRegion, SynDefnTokraRegionSourceMap) {
+    fn build(mut self) -> (DefnTokraRegion, DefnTokraRegionSourceMap) {
         let root_body = self.build_asts(self.root_body);
         self.finish(root_body)
     }
@@ -299,7 +305,7 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
         Some(regional_ast_idx)
     }
 
-    fn finish(self, root_body: DefnAstIdxRange) -> (DefnTokraRegion, SynDefnTokraRegionSourceMap) {
+    fn finish(self, root_body: DefnAstIdxRange) -> (DefnTokraRegion, DefnTokraRegionSourceMap) {
         let regional_token_group_starts = (self.regional_token_group_idx_base.index()..)
             .into_iter()
             .map_while(|token_group_index| {
@@ -327,42 +333,12 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
                 regional_token_group_starts,
                 self.regional_token_idx_range_map,
             ),
-            SynDefnTokraRegionSourceMap::new(
+            DefnTokraRegionSourceMap::new(
                 self.db,
                 self.regional_token_group_idx_base,
                 self.regional_token_idx_base,
                 self.ast_idx_map,
             ),
-        )
-    }
-}
-
-fn build_defn_tokra_region(
-    module_path: ModulePath,
-    ast_idx: AstIdx,
-    db: &::salsa::Db,
-) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
-    let builder = SynDefnTokraRegionBuilder::new(module_path, ast_idx, db)?;
-    Some(builder.build())
-}
-
-impl ItemSynNodePath {
-    pub fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
-        todo!()
-    }
-
-    // use this only when necessary
-    pub fn defn_tokra_region_source_map(
-        self,
-        db: &::salsa::Db,
-    ) -> Option<SynDefnTokraRegionSourceMap> {
-        todo!()
-    }
-
-    pub fn defn_regional_token_idx_base(self, db: &::salsa::Db) -> Option<RegionalTokenIdxBase> {
-        Some(
-            self.defn_tokra_region_source_map(db)?
-                .regional_token_idx_base(db),
         )
     }
 }

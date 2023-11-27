@@ -1,14 +1,15 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::as_id]
 #[salsa::deref_id]
 pub struct TypeItemPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypeItemPathData {
-    impl_block: TypeImplBlockPath,
-    ident: Ident,
-    item_kind: TypeItemKind,
+    pub(crate) impl_block: TypeImplBlockPath,
+    pub(crate) ident: Ident,
+    pub(crate) item_kind: TypeItemKind,
 }
 
 impl TypeItemPath {
@@ -70,6 +71,12 @@ impl TypeItemPathData {
 
     pub fn item_kind(self) -> TypeItemKind {
         self.item_kind
+    }
+
+    pub fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
+        EntityKind::AssociatedItem {
+            associated_item_kind: AssociatedItemKind::TypeItem(self.item_kind),
+        }
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {

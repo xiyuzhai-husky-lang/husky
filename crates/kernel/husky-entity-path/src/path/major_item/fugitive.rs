@@ -4,6 +4,7 @@ use super::*;
 use std::fmt::Debug;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::as_id]
 #[salsa::deref_id]
 pub struct FugitivePath(ItemPathId);
 

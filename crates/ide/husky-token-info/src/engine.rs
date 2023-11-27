@@ -5,13 +5,7 @@ use husky_sema_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 
-use husky_entity_syn_tree::{
-    helpers::{
-        paths::module_item_syn_node_paths,
-        tokra_region::{HasDeclTokraRegion, HasSynDefnTokraRegion},
-    },
-    ParentUseExpr,
-};
+use husky_entity_syn_tree::{helpers::paths::module_item_syn_node_paths, ParentUseExpr};
 use husky_sema_expr::{
     SemaExprData, SemaExprDb, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr,
 };

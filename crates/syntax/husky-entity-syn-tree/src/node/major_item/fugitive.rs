@@ -4,6 +4,7 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]
+#[salsa::deref_id]
 pub struct FugitiveSynNodePath(ItemSynNodePathId);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -60,7 +61,7 @@ impl FugitiveSynNodePath {
     }
 
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a MajorItemSynNode {
-        let module_path: ModulePath = todo!(); //syn_node_path.module_path(db);
+        let module_path = self.module_path(db);
         let item_sheet = module_path.item_tree_sheet(db);
         match item_sheet
             .major_item_node(self.into())
@@ -69,5 +70,19 @@ impl FugitiveSynNodePath {
             ItemSynNode::MajorItem(node) => node,
             _ => unreachable!(),
         }
+    }
+}
+
+impl FugitiveSynNodePathData {
+    pub fn path(self) -> Option<FugitivePath> {
+        self.maybe_ambiguous_path.unambiguous_path()
+    }
+
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.maybe_ambiguous_path.path.module_path(db)
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        FugitiveSynNodePath(id).syn_node(db).ast_idx
     }
 }

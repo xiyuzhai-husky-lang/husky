@@ -6,9 +6,9 @@ pub struct TraitItemPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TraitItemPathData {
-    trai_path: TraitPath,
-    ident: Ident,
-    item_kind: TraitItemKind,
+    pub(crate) trai_path: TraitPath,
+    pub(crate) ident: Ident,
+    pub(crate) item_kind: TraitItemKind,
 }
 
 impl TraitItemPath {
@@ -74,5 +74,11 @@ impl TraitItemPathData {
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         self.trai_path.module_path(db)
+    }
+
+    pub fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
+        EntityKind::AssociatedItem {
+            associated_item_kind: AssociatedItemKind::TraitItem(self.item_kind),
+        }
     }
 }

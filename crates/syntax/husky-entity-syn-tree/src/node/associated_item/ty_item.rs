@@ -35,11 +35,12 @@ impl TypeItemSynNodePath {
     }
 
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a TypeItemSynNode {
-        // ty_item_syn_node(db, self)
-        match self.0.syn_node(db) {
-            ItemSynNode::AssociatedItem(AssociatedItemSynNode::TypeItem(node)) => node,
-            _ => unreachable!(),
-        }
+        self.data(db)
+            .impl_block(db)
+            .associated_items(db)
+            .iter()
+            .find_map(|&(_, node_path1, ref node)| (node_path1 == self).then_some(node))
+            .expect("some")
     }
 
     pub fn data(self, db: &::salsa::Db) -> TypeItemSynNodePathData {
@@ -60,8 +61,16 @@ impl TypeItemSynNodePath {
 }
 
 impl TypeItemSynNodePathData {
-    pub fn path(&self, db: &::salsa::Db) -> Option<TypeItemPath> {
+    pub fn path(&self) -> Option<TypeItemPath> {
         self.maybe_ambiguous_path.unambiguous_path()
+    }
+
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.maybe_ambiguous_path.path.module_path(db)
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        TypeItemSynNodePath(id).syn_node(db).ast_idx
     }
 
     pub fn impl_block(&self, db: &::salsa::Db) -> TypeImplBlockSynNodePath {
@@ -73,18 +82,6 @@ impl TypeItemSynNodePathData {
 
     pub fn item_kind(&self, db: &::salsa::Db) -> TypeItemKind {
         self.maybe_ambiguous_path.path.item_kind(db)
-    }
-
-    pub(crate) fn syn_node<'a>(
-        self,
-        db: &'a ::salsa::Db,
-        syn_node_path: TypeItemSynNodePath,
-    ) -> &'a TypeItemSynNode {
-        self.impl_block(db)
-            .associated_items(db)
-            .iter()
-            .find_map(|&(_, node_path1, ref node)| (node_path1 == syn_node_path).then_some(node))
-            .expect("some")
     }
 }
 
@@ -153,7 +150,7 @@ pub(crate) fn ty_impl_block_items(
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> Vec<(Ident, TypeItemSynNodePath, TypeItemSynNode)> {
     let impl_block_syn_node = syn_node_path.syn_node(db);
-    let module_path = todo!(); // syn_node_path.module_path(db);
+    let module_path = syn_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path);
     let items = impl_block_syn_node.items;
     let mut registry = ItemSynNodePathRegistry::default();

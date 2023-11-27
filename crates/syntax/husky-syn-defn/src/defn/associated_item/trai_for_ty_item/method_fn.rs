@@ -19,7 +19,7 @@ impl TraitForTypeMethodFnSynNodeDefn {
             syn_node_path,
             syn_node_decl,
             parse_defn_block_expr(
-                syn_node_path,
+                syn_node_path.into(),
                 syn_node_decl.syn_expr_region(db),
                 AllowSelfType::True,
                 AllowSelfValue::True,

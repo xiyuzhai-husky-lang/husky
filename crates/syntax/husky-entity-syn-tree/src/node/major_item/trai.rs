@@ -18,16 +18,6 @@ impl From<TraitSynNodePath> for ItemSynNodePath {
     }
 }
 
-// impl HasModulePath<Db> for TraitSynNodePath
-// where
-//      + EntitySynTreeDb,
-// {
-//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
-//         let db = entity_syn_tree_db(db);
-//         self.maybe_ambiguous_path(db).path.module_path(db)
-//     }
-// }
-
 impl TraitSynNodePath {
     pub(super) fn new(
         db: &::salsa::Db,
@@ -80,8 +70,16 @@ impl TraitSynNodePath {
 }
 
 impl TraitSynNodePathData {
-    pub fn path(self, db: &::salsa::Db) -> Option<TraitPath> {
+    pub fn path(self) -> Option<TraitPath> {
         self.maybe_ambiguous_path.unambiguous_path()
+    }
+
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.maybe_ambiguous_path.path.module_path(db)
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        TraitSynNodePath(id).syn_node(db).ast_idx
     }
 }
 

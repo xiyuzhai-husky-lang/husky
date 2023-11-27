@@ -163,5 +163,5 @@ fn item_syn_node_decl_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
-    build_decl_tokra_region(id.module_path(db), id.syn_node(db).ast_idx(db), db)
+    build_decl_tokra_region(id.module_path(db), id.ast_idx(db), db)
 }

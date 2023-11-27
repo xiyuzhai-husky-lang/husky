@@ -28,7 +28,7 @@ impl TypeVariantSynNodePath {
         ))
     }
 
-    pub fn path(self, db: &::salsa::Db) -> Option<TypeVariantPath> {
+    pub fn unambiguous_path(self, db: &::salsa::Db) -> Option<TypeVariantPath> {
         Some(match self.0.path(db)? {
             ItemPath::TypeVariant(_, path) => path,
             _ => unreachable!(),
@@ -53,20 +53,18 @@ impl TypeVariantSynNodePath {
 }
 
 impl TypeVariantSynNodePathData {
-    pub fn path(self, db: &::salsa::Db) -> Option<TypeVariantPath> {
+    pub fn path(self) -> Option<TypeVariantPath> {
         self.maybe_ambiguous_path.unambiguous_path()
     }
-}
 
-// impl HasModulePath<Db> for TypeVariantSynNodePath
-// where
-//      + EntitySynTreeDb,
-// {
-//     fn module_path(self, db: &::salsa::Db,) -> ModulePath {
-//         let db = entity_syn_tree_db(db);
-//         self.maybe_ambiguous_path(db).path.module_path(db)
-//     }
-// }
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.maybe_ambiguous_path.path.module_path(db)
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        TypeVariantSynNodePath(id).syn_node(db).ast_idx
+    }
+}
 
 impl TypeSynNodePath {
     fn ty_variant_syn_nodes<'a>(
@@ -182,6 +180,8 @@ pub(crate) fn ty_variant_paths(db: &::salsa::Db, path: TypePath) -> Vec<(Ident, 
     path.syn_node_path(db)
         .ty_variant_syn_nodes(db)
         .iter()
-        .filter_map(|&(ident, variant_node_path, _)| Some((ident, variant_node_path.path(db)?)))
+        .filter_map(|&(ident, variant_node_path, _)| {
+            Some((ident, variant_node_path.unambiguous_path(db)?))
+        })
         .collect()
 }

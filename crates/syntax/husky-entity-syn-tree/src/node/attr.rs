@@ -63,12 +63,20 @@ impl AttrSynNodePath {
 }
 
 impl AttrSynNodePathData {
-    pub fn path(self, db: &::salsa::Db) -> Option<AttrItemPath> {
+    pub fn path(self) -> Option<AttrItemPath> {
         self.maybe_ambiguous_path.unambiguous_path()
+    }
+
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.maybe_ambiguous_path.path.module_path(db)
     }
 
     pub fn ident(self, db: &::salsa::Db) -> Ident {
         self.maybe_ambiguous_path.path.ident(db)
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        AttrSynNodePath(id).syn_node(db).ast_idx
     }
 }
 

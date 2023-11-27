@@ -62,6 +62,32 @@ impl ImplBlockSynNodePath {
     }
 }
 
+impl ImplBlockSynNodePathData {
+    pub fn path(self) -> Option<ImplBlockPath> {
+        match self {
+            ImplBlockSynNodePathData::TypeImplBlock(slf) => Some(slf.path().into()),
+            ImplBlockSynNodePathData::TraitForTypeImplBlock(slf) => Some(slf.path.into()),
+            ImplBlockSynNodePathData::IllFormedImplBlock(slf) => None,
+        }
+    }
+
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        match self {
+            ImplBlockSynNodePathData::TypeImplBlock(slf) => slf.module_path(db),
+            ImplBlockSynNodePathData::TraitForTypeImplBlock(slf) => slf.module_path(db),
+            ImplBlockSynNodePathData::IllFormedImplBlock(slf) => slf.module_path(db),
+        }
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        match self {
+            ImplBlockSynNodePathData::TypeImplBlock(slf) => slf.ast_idx(id, db),
+            ImplBlockSynNodePathData::TraitForTypeImplBlock(slf) => slf.ast_idx(id, db),
+            ImplBlockSynNodePathData::IllFormedImplBlock(slf) => slf.ast_idx(id, db),
+        }
+    }
+}
+
 impl HasSynNodePath for ImplBlockPath {
     type SynNodePath = ImplBlockSynNodePath;
 

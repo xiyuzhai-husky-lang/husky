@@ -14,7 +14,7 @@ pub(crate) struct DeclParser<'a> {
 
 impl<'a> DeclParser<'a> {
     pub(crate) fn new(db: &'a ::salsa::Db, syn_node_path: ItemSynNodePath) -> Self {
-        let path = todo!(); // syn_node_path.module_path(db);
+        let path = syn_node_path.module_path(db);
         let Ok(module_symbol_context) = db.module_symbol_context(path) else {
             use salsa::DebugWithDb;
             p!(path.debug(db));

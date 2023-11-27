@@ -26,41 +26,19 @@ impl ItemPathId {
     }
 
     pub fn crate_path(self, db: &::salsa::Db) -> CratePath {
-        todo!()
+        self.module_path(db).crate_path(db)
     }
 
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
-        todo!()
+        self.crate_path(db).toolchain(db)
     }
 
     pub fn ident(self, db: &::salsa::Db) -> Option<Ident> {
-        todo!()
-        // match self {
-        //     ItemPath::Submodule(path) => Some(path.ident(db)),
-        //     ItemPath::MajorItem(path) => Some(path.ident(db)),
-        //     ItemPath::AssociatedItem(path) => Some(path.ident(db)),
-        //     ItemPath::TypeVariant(path) => Some(path.ident(db)),
-        //     ItemPath::ImplBlock(_) => None,
-        //     ItemPath::Attr(_) => None,
-        // }
+        self.data(db).ident(db)
     }
 
     pub fn item_kind(self, db: &::salsa::Db) -> EntityKind {
-        todo!()
-        // EntityKind::AssociatedItem {
-        //     associated_item_kind: match self {
-        //         AssociatedItemPath::TypeItem(path) => {
-        //             AssociatedItemKind::TypeItem(path.item_kind(db))
-        //         }
-
-        //         AssociatedItemPath::TraitItem(path) => {
-        //             AssociatedItemKind::TraitItem(path.item_kind(db))
-        //         }
-        //         AssociatedItemPath::TraitForTypeItem(path) => {
-        //             AssociatedItemKind::TraitForTypeItem(path.item_kind(db))
-        //         }
-        //     },
-        // }
+        self.data(db).entity_kind(db)
     }
 }
 
@@ -78,12 +56,34 @@ pub enum ItemPathData {
 impl ItemPathData {
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
-            ItemPathData::Submodule(data) => data.parent(db),
-            ItemPathData::MajorItem(data) => data.module_path(db),
-            ItemPathData::AssociatedItem(data) => data.module_path(db),
-            ItemPathData::TypeVariant(data) => data.module_path(db),
-            ItemPathData::ImplBlock(data) => data.module_path(db),
-            ItemPathData::Attr(data) => data.module_path(db),
+            ItemPathData::Submodule(slf) => slf.module_path(db),
+            ItemPathData::MajorItem(slf) => slf.module_path(db),
+            ItemPathData::AssociatedItem(slf) => slf.module_path(db),
+            ItemPathData::TypeVariant(slf) => slf.module_path(db),
+            ItemPathData::ImplBlock(slf) => slf.module_path(db),
+            ItemPathData::Attr(slf) => slf.module_path(db),
+        }
+    }
+
+    pub fn ident(self, db: &::salsa::Db) -> Option<Ident> {
+        match self {
+            ItemPathData::Submodule(slf) => Some(slf.ident(db)),
+            ItemPathData::MajorItem(slf) => Some(slf.ident()),
+            ItemPathData::AssociatedItem(slf) => Some(slf.ident(db)),
+            ItemPathData::TypeVariant(slf) => Some(slf.ident),
+            ItemPathData::ImplBlock(_) => None,
+            ItemPathData::Attr(slf) => Some(slf.ident),
+        }
+    }
+
+    pub fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
+        match self {
+            ItemPathData::Submodule(_) => EntityKind::Module,
+            ItemPathData::MajorItem(slf) => slf.entity_kind(db),
+            ItemPathData::AssociatedItem(slf) => slf.entity_kind(db),
+            ItemPathData::TypeVariant(slf) => EntityKind::TypeVariant,
+            ItemPathData::ImplBlock(slf) => EntityKind::ImplBlock,
+            ItemPathData::Attr(slf) => EntityKind::Attr,
         }
     }
 }
@@ -361,12 +361,11 @@ impl From<MajorEntityPath> for PrincipalEntityPath {
 
 impl From<PrincipalEntityPath> for EntityPath {
     fn from(path: PrincipalEntityPath) -> Self {
-        todo!()
-        // match path {
-        //     PrincipalEntityPath::Module(path) => path.into(),
-        //     PrincipalEntityPath::MajorItem(path) => path.into(),
-        //     PrincipalEntityPath::TypeVariant(path) => path.into(),
-        // }
+        match path {
+            PrincipalEntityPath::Module(path) => path.into(),
+            PrincipalEntityPath::MajorItem(path) => path.into(),
+            PrincipalEntityPath::TypeVariant(path) => path.into(),
+        }
     }
 }
 

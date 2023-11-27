@@ -18,6 +18,15 @@ pub enum MajorItemSynNodePath {
     Fugitive(FugitiveSynNodePath),
 }
 
+impl std::ops::Deref for MajorItemSynNodePath {
+    type Target = ItemSynNodePathId;
+
+    fn deref(&self) -> &Self::Target {
+        let slf: &(u32, ItemSynNodePathId) = unsafe { std::mem::transmute(self) };
+        &slf.1
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
@@ -41,30 +50,16 @@ impl MajorItemSynNodePath {
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<MajorItemPath> {
-        todo!()
-        // match self {
-        //     MajorItemSynNodePath::Trait(syn_node_path) => syn_node_path
-        //         .maybe_ambiguous_path(db)
-        //         .unambiguous_path()
-        //         .map(Into::into),
-        //     MajorItemSynNodePath::Type(syn_node_path) => syn_node_path
-        //         .maybe_ambiguous_path(db)
-        //         .unambiguous_path()
-        //         .map(Into::into),
-        //     MajorItemSynNodePath::Fugitive(syn_node_path) => syn_node_path
-        //         .maybe_ambiguous_path(db)
-        //         .unambiguous_path()
-        //         .map(Into::into),
-        // }
+        match (*self).path(db) {
+            Some(ItemPath::MajorItem(path)) => Some(path),
+            None => None,
+            _ => unreachable!(),
+        }
     }
 
     pub fn ident(self, _db: &::salsa::Db) -> Ident {
         todo!("")
         // self.path(db).ident(db)
-    }
-
-    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> MajorItemSynNode {
-        todo!()
     }
 
     pub(crate) fn attrs(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNode)] {
@@ -73,6 +68,32 @@ impl MajorItemSynNodePath {
             MajorItemSynNodePath::Trait(_) => &[],
             MajorItemSynNodePath::Type(syn_node_path) => syn_node_path.attr_syn_nodes(db),
             MajorItemSynNodePath::Fugitive(_) => &[],
+        }
+    }
+}
+
+impl MajorItemSynNodePathData {
+    pub fn path(self) -> Option<MajorItemPath> {
+        match self {
+            MajorItemSynNodePathData::Trait(slf) => slf.path().map(Into::into),
+            MajorItemSynNodePathData::Type(slf) => slf.path().map(Into::into),
+            MajorItemSynNodePathData::Fugitive(slf) => slf.path().map(Into::into),
+        }
+    }
+
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        match self {
+            MajorItemSynNodePathData::Trait(slf) => slf.module_path(db),
+            MajorItemSynNodePathData::Type(slf) => slf.module_path(db),
+            MajorItemSynNodePathData::Fugitive(slf) => slf.module_path(db),
+        }
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        match self {
+            MajorItemSynNodePathData::Trait(slf) => slf.ast_idx(id, db),
+            MajorItemSynNodePathData::Type(slf) => slf.ast_idx(id, db),
+            MajorItemSynNodePathData::Fugitive(slf) => slf.ast_idx(id, db),
         }
     }
 }

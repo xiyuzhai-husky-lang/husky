@@ -12,7 +12,7 @@ pub struct TraitForTypeImplBlockSynNodePath(ItemSynNodePathId);
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[salsa::as_id(jar = EntitySynTreeJar)]
 pub struct TraitForTypeImplBlockSynNodePathData {
-    path: TraitForTypeImplBlockPath,
+    pub(crate) path: TraitForTypeImplBlockPath,
 }
 
 impl TraitForTypeImplBlockSynNodePath {
@@ -63,6 +63,16 @@ impl TraitForTypeImplBlockSynNodePath {
     }
 }
 
+impl TraitForTypeImplBlockSynNodePathData {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.path.module_path(db)
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        TraitForTypeImplBlockSynNodePath(id).syn_node(db).ast_idx
+    }
+}
+
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 fn trai_for_ty_impl_block_items(
     db: &::salsa::Db,
@@ -80,9 +90,13 @@ impl From<TraitForTypeImplBlockSynNodePath> for ItemSynNodePath {
 impl HasSynNodePath for TraitForTypeImplBlockPath {
     type SynNodePath = TraitForTypeImplBlockSynNodePath;
 
-    fn syn_node_path(self, _db: &::salsa::Db) -> Self::SynNodePath {
-        TraitForTypeImplBlockSynNodePath(todo!())
-        // { path: self })
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
+        TraitForTypeImplBlockSynNodePath(ItemSynNodePathId::new(
+            db,
+            ItemSynNodePathData::ImplBlock(ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNodePathData { path: self },
+            )),
+        ))
     }
 }
 
@@ -149,15 +163,15 @@ impl TraitForTypeImplBlockSynNode {
         })
     }
 
-    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+    pub fn module_path(&self, db: &::salsa::Db) -> ModulePath {
         self.syn_node_path.path(db).module_path(db)
     }
 
-    pub fn ty_sketch(self, db: &::salsa::Db) -> TypeSketch {
+    pub fn ty_sketch(&self, db: &::salsa::Db) -> TypeSketch {
         self.syn_node_path.ty_sketch(db)
     }
 
-    pub fn trai_path(self, db: &::salsa::Db) -> TraitPath {
+    pub fn trai_path(&self, db: &::salsa::Db) -> TraitPath {
         self.syn_node_path.path(db).trai_path(db)
     }
 
@@ -165,7 +179,7 @@ impl TraitForTypeImplBlockSynNode {
         &self,
         db: &::salsa::Db,
     ) -> Vec<(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemSynNode)> {
-        let module_path = todo!(); //impl_block_syn_node_path.module_path(db);
+        let module_path = self.module_path(db);
         let ast_sheet = db.ast_sheet(module_path);
         let Some(items) = self.items else {
             return vec![];

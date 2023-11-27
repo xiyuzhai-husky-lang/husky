@@ -1,8 +1,8 @@
 use super::*;
 use husky_ast::Ast;
 use husky_entity_syn_tree::{
-    helpers::tokra_region::HasDeclTokraRegion, EntitySynTreeDb, EntitySynTreeError,
-    ImplBlockIllForm, MajorPathExprError, OriginalEntityTreeError, OriginalMajorPathExprError,
+    EntitySynTreeDb, EntitySynTreeError, ImplBlockIllForm, MajorPathExprError,
+    OriginalEntityTreeError, OriginalMajorPathExprError,
 };
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]

@@ -6,9 +6,9 @@ pub struct TraitForTypeItemPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TraitForTypeItemPathData {
-    impl_block: TraitForTypeImplBlockPath,
-    ident: Ident,
-    item_kind: TraitItemKind,
+    pub impl_block: TraitForTypeImplBlockPath,
+    pub ident: Ident,
+    pub item_kind: TraitItemKind,
 }
 
 impl From<TraitForTypeItemPath> for ItemPath {
@@ -64,6 +64,12 @@ impl TraitForTypeItemPathData {
 
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         self.impl_block.toolchain(db)
+    }
+
+    pub fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
+        EntityKind::AssociatedItem {
+            associated_item_kind: AssociatedItemKind::TraitForTypeItem(self.item_kind),
+        }
     }
 }
 

@@ -26,6 +26,16 @@ impl IllFormedImplBlockSynNodePath {
     }
 }
 
+impl IllFormedImplBlockSynNodePathData {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.module_path
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        IllFormedImplBlockSynNodePath(id).syn_node(db).ast_idx
+    }
+}
+
 impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
     fn from(id: IllFormedImplBlockSynNodePath) -> Self {
         ItemSynNodePath::ImplBlock(id.into())

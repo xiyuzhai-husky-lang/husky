@@ -34,7 +34,7 @@ pub(crate) fn item_variance_reprs(
         ItemPath::MajorItem(path) => match path {
             MajorItemPath::Type(path) => ty_template_parameter_variance_reprs(db, path),
             MajorItemPath::Trait(path) => trai_item_variance_reprs(db, path),
-            MajorItemPath::Fugitive(path) => todo!(), // form_item_variance_reprs(db, path),
+            MajorItemPath::Fugitive(path) => form_item_variance_reprs(db, path),
         },
         ItemPath::AssociatedItem(path) => todo!(),
         // match path {
@@ -131,7 +131,7 @@ pub(crate) fn trai_item_variance_reprs(
     Ok(reprs)
 }
 
-// #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variance_reprs(
     db: &::salsa::Db,
     path: FugitivePath,
@@ -157,7 +157,7 @@ pub(crate) fn form_item_variance_reprs(
     Ok(reprs)
 }
 
-// #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn ty_item_item_variance_reprs(
     db: &::salsa::Db,
     path: TypeItemPath,

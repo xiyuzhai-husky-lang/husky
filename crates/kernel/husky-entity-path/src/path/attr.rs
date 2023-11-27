@@ -10,10 +10,10 @@ pub struct AttrItemPath(ItemPathId);
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct AttrItemPathData {
     // todo: change type to AttrParentPath
-    parent: ItemPath,
+    pub parent: ItemPath,
     // ad hoc
     // todo: change it with OriginalAttrPath
-    ident: Ident,
+    pub ident: Ident,
     disambiguator: u8,
 }
 
