@@ -85,16 +85,20 @@ pub(crate) fn trai_for_ty_item_syn_node_decl(
 
 impl<'a> DeclParser<'a> {
     fn parse_trai_for_ty_item_syn_node_decl(&self) -> TraitForTypeItemSynNodeDecl {
-        let ItemSynNodePath::AssociatedItem(AssociatedItemSynNodePath::TraitItem(syn_node_path)) =
-            self.syn_node_path()
+        let db = self.db();
+        let ItemSynNodePath::AssociatedItem(AssociatedItemSynNodePath::TraitForTypeItem(
+            syn_node_path,
+        )) = self.syn_node_path()
         else {
             unreachable!()
         };
-        match syn_node_path.item_kind(self.db()) {
-            TraitItemKind::MethodFn => self.parse_trai_for_ty_method_fn_node_decl().into(),
-            TraitItemKind::AssociatedType => {
-                self.parse_trai_for_ty_associated_ty_node_decl().into()
-            }
+        match syn_node_path.data(db).item_kind(db) {
+            TraitItemKind::MethodFn => self
+                .parse_trai_for_ty_method_fn_node_decl(syn_node_path)
+                .into(),
+            TraitItemKind::AssociatedType => self
+                .parse_trai_for_ty_associated_ty_node_decl(syn_node_path)
+                .into(),
             TraitItemKind::AssociatedVal => todo!(),
         }
     }

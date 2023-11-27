@@ -42,6 +42,15 @@ impl TypeItemSynNodePath {
         }
     }
 
+    pub fn data(self, db: &::salsa::Db) -> TypeItemSynNodePathData {
+        match self.0.data(db) {
+            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TypeItem(data)) => {
+                data
+            }
+            _ => unreachable!(),
+        }
+    }
+
     pub fn path(self, db: &::salsa::Db) -> Option<TypeItemPath> {
         Some(match self.0.path(db)? {
             ItemPath::AssociatedItem(AssociatedItemPath::TypeItem(path)) => path,

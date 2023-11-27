@@ -26,7 +26,10 @@ impl ValFugitiveSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_val_node_decl(&self) -> ValFugitiveSynNodeDecl {
+    pub(super) fn parse_val_node_decl(
+        &self,
+        syn_node_path: FugitiveSynNodePath,
+    ) -> ValFugitiveSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let colon_token = parser.try_parse_option();
         let var_ty = if let Ok(Some(_)) = colon_token {
@@ -41,7 +44,7 @@ impl<'a> DeclParser<'a> {
         let expr = parser.parse_expr_root(None, SynExprRootKind::ValExpr);
         ValFugitiveSynNodeDecl::new(
             self.db(),
-            self.syn_node_path(),
+            syn_node_path,
             colon_token,
             var_ty,
             eq_token,

@@ -29,16 +29,14 @@ impl EnumTypeSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_enum_ty_node_decl(&self) -> EnumTypeSynNodeDecl {
+    pub(super) fn parse_enum_ty_node_decl(
+        &self,
+        syn_node_path: TypeSynNodePath,
+    ) -> EnumTypeSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();
-        EnumTypeSynNodeDecl::new(
-            db,
-            self.syn_node_path(),
-            template_parameters,
-            parser.finish(),
-        )
+        EnumTypeSynNodeDecl::new(db, syn_node_path, template_parameters, parser.finish())
     }
 }
 

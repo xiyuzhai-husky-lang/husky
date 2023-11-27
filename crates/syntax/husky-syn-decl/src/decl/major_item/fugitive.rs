@@ -59,18 +59,21 @@ pub(crate) fn fugitive_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: FugitiveSynNodePath,
 ) -> FugitiveSynNodeDecl {
-    DeclParser::new(db, syn_node_path).parse_fugitive_syn_node_decl()
+    DeclParser::new(db, syn_node_path.into()).parse_fugitive_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_fugitive_syn_node_decl(&self) -> FugitiveSynNodeDecl {
-        match self.syn_node_path().fugitive_kind(self.db()) {
-            FugitiveKind::Val => self.parse_val_node_decl().into(),
-            FugitiveKind::FunctionFn => self.parse_fn_node_decl().into(),
+    fn parse_fugitive_syn_node_decl(
+        &self,
+        syn_node_path: FugitiveSynNodePath,
+    ) -> FugitiveSynNodeDecl {
+        match syn_node_path.fugitive_kind(self.db()) {
+            FugitiveKind::Val => self.parse_val_node_decl(syn_node_path).into(),
+            FugitiveKind::FunctionFn => self.parse_fn_node_decl(syn_node_path).into(),
             FugitiveKind::AliasType => {
                 todo!()
             }
-            FugitiveKind::FunctionGn => self.parse_gn_node_decl().into(),
+            FugitiveKind::FunctionGn => self.parse_gn_node_decl(syn_node_path).into(),
         }
     }
 }

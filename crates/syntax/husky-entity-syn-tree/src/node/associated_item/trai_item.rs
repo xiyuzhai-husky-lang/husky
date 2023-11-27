@@ -7,7 +7,7 @@ pub struct TraitItemSynNodePath(ItemSynNodePathId);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TraitItemSynNodePathData {
-    parent_trai_syn_node_path: TraitSynNodePath,
+    pub parent_trai_syn_node_path: TraitSynNodePath,
     maybe_ambiguous_path: MaybeAmbiguousPath<TraitItemPath>,
 }
 
@@ -49,6 +49,10 @@ impl TraitItemSynNodePath {
             }
             _ => unreachable!(),
         }
+    }
+
+    pub fn parent_trai_syn_node_path(self, db: &::salsa::Db) -> TraitSynNodePath {
+        self.data(db).parent_trai_syn_node_path
     }
 
     pub fn item_kind(self, db: &::salsa::Db) -> TraitItemKind {

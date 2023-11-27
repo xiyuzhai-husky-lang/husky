@@ -31,12 +31,15 @@ pub(crate) fn ty_impl_block_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path);
-    parser.parse_ty_impl_block_syn_node_decl()
+    let parser = DeclParser::new(db, syn_node_path.into());
+    parser.parse_ty_impl_block_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_impl_block_syn_node_decl(&self) -> TypeImplBlockSynNodeDecl {
+    fn parse_ty_impl_block_syn_node_decl(
+        &self,
+        syn_node_path: TypeImplBlockSynNodePath,
+    ) -> TypeImplBlockSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let impl_token = parser.try_parse_option().unwrap().unwrap();
@@ -45,7 +48,7 @@ impl<'a> DeclParser<'a> {
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
         TypeImplBlockSynNodeDecl::new(
             db,
-            self.syn_node_path(),
+            syn_node_path,
             impl_token,
             template_parameter_decl_list,
             ty,

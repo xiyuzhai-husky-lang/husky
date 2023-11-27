@@ -21,12 +21,15 @@ impl StructureTypeSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_structure_ty_node_decl(&self) -> TypeSynNodeDecl {
+    pub(super) fn parse_structure_ty_node_decl(
+        &self,
+        syn_node_path: TypeSynNodePath,
+    ) -> TypeSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::True, None);
         let template_parameters = parser.try_parse_option();
         StructureTypeSynNodeDecl::new(
             self.db(),
-            self.syn_node_path(),
+            syn_node_path,
             template_parameters,
             parser.finish(),
         )

@@ -25,11 +25,14 @@ impl TraitAssociatedTypeSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_trai_associated_ty_node_decl(&self) -> TraitAssociatedTypeSynNodeDecl {
+    pub(super) fn parse_trai_associated_ty_node_decl(
+        &self,
+        syn_node_path: TraitItemSynNodePath,
+    ) -> TraitAssociatedTypeSynNodeDecl {
         let db = self.db();
-        let parent_trai_syn_node_decl = self
-            .syn_node_path()
-            .parent_trai_syn_node_path(db)
+        let parent_trai_syn_node_decl = syn_node_path
+            .data(db)
+            .parent_trai_syn_node_path
             .syn_node_decl(db);
         let mut parser = self.expr_parser(
             Some(parent_trai_syn_node_decl.syn_expr_region(db)),
@@ -47,7 +50,7 @@ impl<'a> DeclParser<'a> {
         let generics = parser.try_parse_option();
         TraitAssociatedTypeSynNodeDecl::new(
             db,
-            self.syn_node_path(),
+            syn_node_path,
             generics,
             eq_token,
             ty_term_expr_idx,
