@@ -35,13 +35,13 @@ impl TypeItemHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
         match self {
-            TypeItemHirDecl::AssociatedFn(_) => todo!(),
-            TypeItemHirDecl::MethodFn(_) => todo!(),
-            TypeItemHirDecl::AssociatedType(_) => todo!(),
-            TypeItemHirDecl::AssociatedVal(_) => todo!(),
-            TypeItemHirDecl::MemoizedField(_) => todo!(),
+            TypeItemHirDecl::AssociatedFn(slf) => slf.template_parameters(db),
+            TypeItemHirDecl::MethodFn(slf) => slf.template_parameters(db),
+            TypeItemHirDecl::AssociatedType(slf) => &[],
+            TypeItemHirDecl::AssociatedVal(slf) => &[],
+            TypeItemHirDecl::MemoizedField(slf) => &[],
         }
     }
 

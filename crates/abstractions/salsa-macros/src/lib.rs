@@ -58,13 +58,11 @@ pub fn debug_with_db(args: TokenStream, input: TokenStream) -> TokenStream {
     debug_with_db::debug_with_db(args, input)
 }
 
-/// jar = ???
 #[proc_macro_attribute]
 pub fn as_id(args: TokenStream, input: TokenStream) -> TokenStream {
     as_id::as_id(args, input)
 }
 
-/// jar = ???
 #[proc_macro_attribute]
 pub fn deref_id(args: TokenStream, input: TokenStream) -> TokenStream {
     deref_id::deref_id(args, input)

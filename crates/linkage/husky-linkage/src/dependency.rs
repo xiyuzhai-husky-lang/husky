@@ -1,17 +1,17 @@
 use super::*;
-use crate::linkage::{Linkage, LinkagePathData};
+use crate::linkage::{Linkage, LinkageData};
 
 #[salsa::tracked(jar = LinkageJar)]
 fn linkage_path_dependencies(db: &::salsa::Db, linkage_path: Linkage) {
     match linkage_path.data(db) {
-        LinkagePathData::Coersion {} => todo!(),
-        LinkagePathData::Item {
-            path,
+        LinkageData::Coersion {} => todo!(),
+        LinkageData::Item {
+            item_path,
             ref instantiation,
         } => todo!(),
-        LinkagePathData::PropsStructField => todo!(),
-        LinkagePathData::MemoizedField => todo!(),
-        LinkagePathData::Index => todo!(),
-        LinkagePathData::Method => todo!(),
+        LinkageData::PropsStructField => todo!(),
+        LinkageData::MemoizedField => todo!(),
+        LinkageData::Index => todo!(),
+        LinkageData::Method => todo!(),
     }
 }

@@ -29,6 +29,13 @@ impl LinkageInstantiation {
             separator: instantiation.separator(),
         }
     }
+
+    pub(crate) fn new_first_born(/* places */) -> Self {
+        Self {
+            symbol_resolutions: Default::default(),
+            separator: None,
+        }
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

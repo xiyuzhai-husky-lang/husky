@@ -573,7 +573,7 @@
                         opn: ValOpn::LinkageImpl(
                             Linkage {
                                 data: Item {
-                                    path: MajorItem(
+                                    item_path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
                                                 ItemPathId(
@@ -1321,7 +1321,7 @@
                         opn: ValOpn::LinkageImpl(
                             Linkage {
                                 data: Item {
-                                    path: MajorItem(
+                                    item_path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
                                                 ItemPathId(
@@ -1695,7 +1695,7 @@
                         opn: ValOpn::LinkageImpl(
                             Linkage {
                                 data: Item {
-                                    path: MajorItem(
+                                    item_path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
                                                 ItemPathId(
@@ -1982,7 +1982,7 @@
                         opn: ValOpn::LinkageImpl(
                             Linkage {
                                 data: Item {
-                                    path: MajorItem(
+                                    item_path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
                                                 ItemPathId(

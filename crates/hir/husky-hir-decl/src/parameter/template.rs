@@ -101,3 +101,34 @@ impl std::ops::Deref for HirTemplateParameters {
         self.0.deref()
     }
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct HirTemplateParameterStats {
+    pub tys: u8,
+    pub constants: u8,
+    pub lifetimes: u8,
+    pub places: u8,
+}
+
+// #[salsa::tracked(jar = HirDeclJar)]
+pub fn item_hir_template_parameter_stats(
+    db: &::salsa::Db,
+    item_path: ItemPath,
+) -> Option<HirTemplateParameterStats> {
+    let mut stats = HirTemplateParameterStats {
+        tys: 0,
+        constants: 0,
+        lifetimes: 0,
+        places: 0,
+    };
+    let hir_decl = item_path.hir_decl(db)?;
+    for param in hir_decl.template_parameters(db) {
+        match param.data {
+            HirTemplateParameterData::Type { .. } => stats.tys += 1,
+            HirTemplateParameterData::Constant { .. } => stats.constants += 1,
+            HirTemplateParameterData::Lifetime { .. } => stats.lifetimes += 1,
+            HirTemplateParameterData::Place { .. } => stats.places += 1,
+        }
+    }
+    Some(stats)
+}
