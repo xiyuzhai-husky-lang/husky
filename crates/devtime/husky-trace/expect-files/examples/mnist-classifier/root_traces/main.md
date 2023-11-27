@@ -1,23 +1,77 @@
 [
-    Trace::Submodule(
-        SubmoduleTrace {
-            submodule_path: SubmodulePath(
-                `mnist_classifier::digits`,
+    TraceId {
+        path: TracePath {
+            data: TracePathData::Submodule(
+                SubmoduleTracePathData {
+                    submodule_path: SubmodulePath(
+                        `mnist_classifier::digits`,
+                    ),
+                },
             ),
         },
-    ),
-    Trace::Submodule(
-        SubmoduleTrace {
-            submodule_path: SubmodulePath(
-                `mnist_classifier::major`,
-            ),
-        },
-    ),
-    Trace::ValItem(
-        ValItemTrace {
-            path: ValItemTracePath {
-                val_item_path: FugitivePath(`mnist_classifier::main`, `Val`),
+        data: Submodule(
+            SubmoduleTraceData {
+                submodule_path: SubmodulePath(
+                    ModulePath(
+                        Id {
+                            value: 32,
+                        },
+                    ),
+                ),
             },
+        ),
+    },
+    TraceId {
+        path: TracePath {
+            data: TracePathData::Submodule(
+                SubmoduleTracePathData {
+                    submodule_path: SubmodulePath(
+                        `mnist_classifier::major`,
+                    ),
+                },
+            ),
         },
-    ),
+        data: Submodule(
+            SubmoduleTraceData {
+                submodule_path: SubmodulePath(
+                    ModulePath(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+            },
+        ),
+    },
+    TraceId {
+        path: TracePath {
+            data: TracePathData::ValItem(
+                ValItemTracePathData {
+                    val_item_path: FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 188,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        },
+        data: ValItem(
+            ValItemTraceData {
+                path: TracePath(
+                    Id {
+                        value: 3,
+                    },
+                ),
+                val_item_path: FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 188,
+                        },
+                    ),
+                ),
+            },
+        ),
+    },
 ]

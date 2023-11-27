@@ -1,13 +1,12 @@
-use crate::{db::TraceDb, Trace};
+use crate::{db::TraceDb, TraceId};
 use husky_token_info::TokenInfoSource;
-use husky_trace_protocol::id::TraceId;
 
 pub(crate) trait IsAssociatedTraceRegistry: Sized {
     fn get_or_issue_associated_trace(
         &mut self,
         source: TokenInfoSource,
         db: &::salsa::Db,
-    ) -> Option<Trace>;
+    ) -> Option<TraceId>;
 
     fn get_or_issue_associated_trace_id(
         &mut self,
@@ -26,7 +25,7 @@ impl IsAssociatedTraceRegistry for VoidAssociatedTraceRegistry {
         &mut self,
         _source: TokenInfoSource,
         _db: &::salsa::Db,
-    ) -> Option<Trace> {
+    ) -> Option<TraceId> {
         None
     }
 }

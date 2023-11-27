@@ -25,7 +25,7 @@ pub enum LazyExprEssence {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LazyExprTraceData {
     path: TracePath,
-    biological_parent: Trace,
+    biological_parent: TraceId,
     sema_expr_idx: SemaExprIdx,
     hir_lazy_expr_idx: Option<HirLazyExprIdx>,
     sema_expr_region: SemaExprRegion,
@@ -33,10 +33,10 @@ pub struct LazyExprTraceData {
     hir_lazy_expr_source_map: HirLazyExprSourceMap,
 }
 
-impl Trace {
+impl TraceId {
     pub(crate) fn new_lazy_expr(
         biological_parent_path: TracePath,
-        biological_parent: Trace,
+        biological_parent: TraceId,
         sema_expr_idx: SemaExprIdx,
         hir_lazy_expr_idx: Option<HirLazyExprIdx>,
         sema_expr_region: SemaExprRegion,
@@ -54,7 +54,7 @@ impl Trace {
             },
             db,
         );
-        Trace::new(
+        TraceId::new(
             path,
             LazyExprTraceData {
                 path,
@@ -72,7 +72,7 @@ impl Trace {
 }
 
 impl LazyExprTraceData {
-    fn view_lines(&self, db: &::salsa::Db, trace: Trace) -> TraceViewLines {
+    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sema_expr_region = self.sema_expr_region;
         let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
         let sema_expr_range_region_data = sema_expr_range_region.data(db);
@@ -88,7 +88,7 @@ impl LazyExprTraceData {
         )
     }
 
-    fn have_subtraces(&self, db: &::salsa::Db) -> bool {
+    pub(super) fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         use husky_hir_defn::defn::HasHirDefn;
         let Some(hir_eager_expr_idx) = self.hir_lazy_expr_idx else {
             return false;
@@ -104,7 +104,7 @@ impl LazyExprTraceData {
         }
     }
 
-    fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
+    pub(super) fn subtraces(&self, trace: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
         let biological_parent_path = self.path;
         let biological_parent = trace;
         let sema_expr_idx = self.sema_expr_idx;
@@ -122,7 +122,7 @@ impl LazyExprTraceData {
                 else {
                     unreachable!()
                 };
-                let mut subtraces: Vec<Trace> = fn_call_lazy_expr_trace_input_traces(
+                let mut subtraces: Vec<TraceId> = fn_call_lazy_expr_trace_input_traces(
                     biological_parent_path,
                     biological_parent,
                     ritchie_parameter_argument_matches,
@@ -130,7 +130,7 @@ impl LazyExprTraceData {
                     db,
                 );
                 subtraces.push(
-                    Trace::new_lazy_call(
+                    TraceId::new_lazy_call(
                         biological_parent_path,
                         biological_parent,
                         path.into(),
@@ -148,7 +148,7 @@ impl LazyExprTraceData {
                 else {
                     unreachable!()
                 };
-                let mut subtraces: Vec<Trace> = fn_call_lazy_expr_trace_input_traces(
+                let mut subtraces: Vec<TraceId> = fn_call_lazy_expr_trace_input_traces(
                     biological_parent_path,
                     biological_parent,
                     ritchie_parameter_argument_matches,
@@ -156,7 +156,7 @@ impl LazyExprTraceData {
                     db,
                 );
                 subtraces.push(
-                    Trace::new_lazy_call(
+                    TraceId::new_lazy_call(
                         biological_parent_path,
                         biological_parent,
                         path.into(),
@@ -174,7 +174,7 @@ impl LazyExprTraceData {
                 else {
                     unreachable!()
                 };
-                let mut subtraces: Vec<Trace> = fn_call_lazy_expr_trace_input_traces(
+                let mut subtraces: Vec<TraceId> = fn_call_lazy_expr_trace_input_traces(
                     biological_parent_path,
                     biological_parent,
                     ritchie_parameter_argument_matches,
@@ -182,7 +182,7 @@ impl LazyExprTraceData {
                     db,
                 );
                 subtraces.push(
-                    Trace::new_lazy_call(
+                    TraceId::new_lazy_call(
                         biological_parent_path,
                         biological_parent,
                         path.into(),
@@ -201,7 +201,7 @@ impl LazyExprTraceData {
                 else {
                     unreachable!()
                 };
-                let mut subtraces: Vec<Trace> = fn_call_lazy_expr_trace_input_traces(
+                let mut subtraces: Vec<TraceId> = fn_call_lazy_expr_trace_input_traces(
                     biological_parent_path,
                     biological_parent,
                     ritchie_parameter_argument_matches,
@@ -209,7 +209,7 @@ impl LazyExprTraceData {
                     db,
                 );
                 subtraces.push(
-                    Trace::new_lazy_call(
+                    TraceId::new_lazy_call(
                         biological_parent_path,
                         biological_parent,
                         path.into(),
@@ -223,7 +223,7 @@ impl LazyExprTraceData {
         }
     }
 
-    fn lazy_expr_trace_val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<ValRepr> {
+    pub(super) fn val_repr(&self, trace_id: TraceId, db: &::salsa::Db) -> Option<ValRepr> {
         let val_repr_expansion = trace_val_repr_expansion(db, trace_id);
         val_repr_expansion
             .hir_lazy_expr_val_repr_map(db)
@@ -231,18 +231,18 @@ impl LazyExprTraceData {
             .copied()
     }
 
-    fn lazy_expr_trace_val_repr_expansion(&self, db: &::salsa::Db) -> ValReprExpansion {
+    pub(super) fn val_repr_expansion(&self, db: &::salsa::Db) -> ValReprExpansion {
         self.biological_parent.val_repr_expansion(db)
     }
 }
 
 fn fn_call_lazy_expr_trace_input_traces(
     trace_path: TracePath,
-    trace: Trace,
+    trace: TraceId,
     ritchie_parameter_argument_matches: &[SemaRitchieParameterArgumentMatch],
     hir_lazy_expr_source_map_data: &HirLazyExprSourceMapData,
     db: &::salsa::Db,
-) -> Vec<Trace> {
+) -> Vec<TraceId> {
     ritchie_parameter_argument_matches
         .iter()
         .map(|m| {
@@ -262,7 +262,7 @@ fn fn_call_lazy_expr_trace_input_traces(
                     todo!()
                 }
             };
-            Trace::new_lazy_call_input(trace_path, trace, data, db).into()
+            TraceId::new_lazy_call_input(trace_path, trace, data, db).into()
         })
         .collect()
 }
