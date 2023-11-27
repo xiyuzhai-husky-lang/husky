@@ -3,6 +3,7 @@ use super::*;
 use vec_like::SmallVecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::as_id(jar = EntitySynTreeJar)]
 pub struct TypeImplBlockSynNodePath(ItemSynNodePathId);
 
 // basically a wrapper type
@@ -19,26 +20,29 @@ impl From<TypeImplBlockSynNodePath> for ItemSynNodePath {
 }
 
 impl TypeImplBlockSynNodePath {
-    #[inline(always)]
-    pub fn path(self) -> TypeImplBlockPath {
-        self.path
+    pub fn data(self, db: &::salsa::Db) -> TypeImplBlockSynNodePathData {
+        match self.0.data(db) {
+            ItemSynNodePathData::ImplBlock(ImplBlockSynNodePathData::TypeImplBlock(data)) => data,
+            _ => unreachable!(),
+        }
     }
 
-    #[inline(always)]
+    pub fn path(self, db: &::salsa::Db) -> TypeImplBlockPath {
+        self.data(db).path
+    }
+
     pub fn ty_path(self, db: &::salsa::Db) -> TypePath {
-        self.path.ty_path(db)
+        self.path(db).ty_path(db)
     }
 
-    #[inline(always)]
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeImplBlockSynNodeData {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeImplBlockSynNode {
         ty_impl_block_syn_node(db, self)
     }
 
-    #[inline(always)]
     pub(crate) fn associated_items(
         self,
         db: &::salsa::Db,
-    ) -> &[(Ident, TypeItemSynNodePath, TypeItemSynNodeData)] {
+    ) -> &[(Ident, TypeItemSynNodePath, TypeItemSynNode)] {
         ty_impl_block_items(db, self)
     }
 
@@ -68,15 +72,17 @@ impl HasSynNodePath for TypeImplBlockPath {
     }
 }
 
-pub(crate) struct TypeImplBlockSynNodeData {
-    syn_node_path: TypeImplBlockSynNodePath,
-    ast_idx: AstIdx,
-    impl_regional_token: ImplToken,
-    ty_expr: MajorItemPathExprIdx,
-    items: TypeItems,
+#[derive(Debug, PartialEq, Eq)]
+#[salsa::debug_with_db]
+pub(crate) struct TypeImplBlockSynNode {
+    pub(crate) syn_node_path: TypeImplBlockSynNodePath,
+    pub(crate) ast_idx: AstIdx,
+    pub(crate) impl_token: ImplToken,
+    pub(crate) ty_expr: MajorItemPathExprIdx,
+    pub(crate) items: TypeItems,
 }
 
-impl TypeImplBlockSynNodeData {
+impl TypeImplBlockSynNode {
     pub(super) fn new(
         db: &::salsa::Db,
         impl_token: ImplToken,
@@ -87,9 +93,8 @@ impl TypeImplBlockSynNodeData {
         ty_path: TypePath,
         ty_expr: MajorItemPathExprIdx,
     ) -> Self {
-        Self::new_inner(
-            db,
-            TypeImplBlockSynNodePath(ItemSynNodePathId::new(
+        Self {
+            syn_node_path: TypeImplBlockSynNodePath(ItemSynNodePathId::new(
                 db,
                 ItemSynNodePathData::ImplBlock(ImplBlockSynNodePathData::TypeImplBlock(
                     TypeImplBlockSynNodePathData {
@@ -101,22 +106,26 @@ impl TypeImplBlockSynNodeData {
             impl_token,
             ty_expr,
             items,
-        )
+        }
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        self.syn_node_path(db).path.module_path(db)
+        self.syn_node_path.path(db).module_path(db)
     }
 
     pub fn ty_path(self, db: &::salsa::Db) -> TypePath {
-        self.syn_node_path(db).path.ty_path(db)
+        self.syn_node_path.path(db).ty_path(db)
+    }
+
+    pub(crate) fn ast_idx(&self) -> AstIdx {
+        self.ast_idx
     }
 }
 
 pub(crate) fn ty_impl_block_syn_node(
     db: &::salsa::Db,
     syn_node_path: TypeImplBlockSynNodePath,
-) -> TypeImplBlockSynNodeData {
+) -> TypeImplBlockSynNode {
     let module_path = todo!(); //syn_node_path.module_path(db);
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     item_tree_sheet.ty_impl_block_syn_node(syn_node_path)

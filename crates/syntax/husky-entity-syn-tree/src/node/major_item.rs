@@ -41,20 +41,21 @@ impl MajorItemSynNodePath {
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<MajorItemPath> {
-        match self {
-            MajorItemSynNodePath::Trait(syn_node_path) => syn_node_path
-                .maybe_ambiguous_path(db)
-                .unambiguous_path()
-                .map(Into::into),
-            MajorItemSynNodePath::Type(syn_node_path) => syn_node_path
-                .maybe_ambiguous_path(db)
-                .unambiguous_path()
-                .map(Into::into),
-            MajorItemSynNodePath::Fugitive(syn_node_path) => syn_node_path
-                .maybe_ambiguous_path(db)
-                .unambiguous_path()
-                .map(Into::into),
-        }
+        todo!()
+        // match self {
+        //     MajorItemSynNodePath::Trait(syn_node_path) => syn_node_path
+        //         .maybe_ambiguous_path(db)
+        //         .unambiguous_path()
+        //         .map(Into::into),
+        //     MajorItemSynNodePath::Type(syn_node_path) => syn_node_path
+        //         .maybe_ambiguous_path(db)
+        //         .unambiguous_path()
+        //         .map(Into::into),
+        //     MajorItemSynNodePath::Fugitive(syn_node_path) => syn_node_path
+        //         .maybe_ambiguous_path(db)
+        //         .unambiguous_path()
+        //         .map(Into::into),
+        // }
     }
 
     pub fn ident(self, _db: &::salsa::Db) -> Ident {
@@ -62,11 +63,11 @@ impl MajorItemSynNodePath {
         // self.path(db).ident(db)
     }
 
-    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> MajorItemSynNodeData {
+    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> MajorItemSynNode {
         todo!()
     }
 
-    pub(crate) fn attrs(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNodeData)] {
+    pub(crate) fn attrs(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNode)] {
         // ad hoc
         match self {
             MajorItemSynNodePath::Trait(_) => &[],
@@ -88,16 +89,16 @@ impl HasSynNodePath for MajorItemPath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Hash)]
-pub(crate) struct MajorItemSynNodeData {
-    syn_node_path: MajorItemSynNodePath,
-    visibility: Scope,
-    ast_idx: AstIdx,
-    ident_token: IdentToken,
-    block: DefnBlock,
+#[derive(Debug, PartialEq, Eq)]
+pub(crate) struct MajorItemSynNode {
+    pub(crate) syn_node_path: MajorItemSynNodePath,
+    pub(crate) visibility: Scope,
+    pub(crate) ast_idx: AstIdx,
+    pub(crate) ident_token: IdentToken,
+    pub(crate) block: DefnBlock,
 }
 
-impl MajorItemSynNodeData {
+impl MajorItemSynNode {
     pub(super) fn new(
         db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
@@ -107,18 +108,17 @@ impl MajorItemSynNodeData {
         ident_token: IdentToken,
         block: DefnBlock,
     ) -> Self {
-        MajorItemSynNodeData::new_inner(
-            db,
-            MajorItemSynNodePath::new(db, registry, module_item_path),
+        MajorItemSynNode {
+            syn_node_path: MajorItemSynNodePath::new(db, registry, module_item_path),
             visibility,
             ast_idx,
             ident_token,
             block,
-        )
+        }
     }
 
     /// only gives a path when valid
     pub fn unambiguous_path(self, db: &::salsa::Db) -> Option<MajorItemPath> {
-        self.syn_node_path(db).path(db)
+        self.syn_node_path.path(db)
     }
 }

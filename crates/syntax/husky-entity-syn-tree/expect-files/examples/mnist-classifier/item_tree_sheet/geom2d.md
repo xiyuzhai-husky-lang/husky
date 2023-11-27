@@ -4,7 +4,7 @@ EntitySynTreeSheet {
         entries: [
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -42,7 +42,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -80,7 +80,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -118,7 +118,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -156,7 +156,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -194,7 +194,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -303,7 +303,7 @@ EntitySynTreeSheet {
                     ),
                 },
             ),
-            ImplBlockSynNodeData::TypeImplBlock(
+            ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath(
@@ -315,7 +315,7 @@ EntitySynTreeSheet {
                         ),
                     },
                     ast_idx: 81,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             23,
                         ),
@@ -341,7 +341,7 @@ EntitySynTreeSheet {
                     ),
                 },
             ),
-            ImplBlockSynNodeData::TypeImplBlock(
+            ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath(
@@ -353,7 +353,7 @@ EntitySynTreeSheet {
                         ),
                     },
                     ast_idx: 84,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             178,
                         ),
@@ -379,7 +379,7 @@ EntitySynTreeSheet {
                     ),
                 },
             ),
-            ImplBlockSynNodeData::TypeImplBlock(
+            ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath(
@@ -391,7 +391,7 @@ EntitySynTreeSheet {
                         ),
                     },
                     ast_idx: 86,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             507,
                         ),
@@ -417,7 +417,7 @@ EntitySynTreeSheet {
                     ),
                 },
             ),
-            ImplBlockSynNodeData::TypeImplBlock(
+            ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath(
@@ -429,7 +429,7 @@ EntitySynTreeSheet {
                         ),
                     },
                     ast_idx: 88,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             617,
                         ),
@@ -455,7 +455,7 @@ EntitySynTreeSheet {
                     ),
                 },
             ),
-            ImplBlockSynNodeData::TypeImplBlock(
+            ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath(
@@ -467,7 +467,7 @@ EntitySynTreeSheet {
                         ),
                     },
                     ast_idx: 90,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             751,
                         ),

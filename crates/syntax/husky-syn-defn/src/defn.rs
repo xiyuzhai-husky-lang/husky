@@ -24,7 +24,7 @@ pub enum ItemSynNodeDefn {
     MajorItem(MajorItemSynNodeDefn),
     TypeVariant(TypeVariantSynNodeDefn),
     ImplBlock(ImplBlockSynNodeDecl),
-    AssociatedItem(AssociatedItemSynNodeDataDefn),
+    AssociatedItem(AssociatedItemSynNodeDefn),
     Attr(AttrSynNodeDefn),
 }
 
@@ -72,12 +72,12 @@ impl HasSynNodeDefn for ItemSynNodePath {
 
     fn syn_node_defn(self, db: &::salsa::Db) -> Self::SynNodeDefn {
         match self {
-            ItemSynNodePath::Submodule(path) => path.syn_node_defn(db).into(),
+            ItemSynNodePath::Submodule(_, path) => path.syn_node_defn(db).into(),
             ItemSynNodePath::MajorItem(path) => path.syn_node_defn(db).into(),
-            ItemSynNodePath::TypeVariant(path) => path.syn_node_defn(db).into(),
+            ItemSynNodePath::TypeVariant(_, path) => path.syn_node_defn(db).into(),
             ItemSynNodePath::ImplBlock(path) => path.syn_node_defn(db).into(),
             ItemSynNodePath::AssociatedItem(path) => path.syn_node_defn(db).into(),
-            ItemSynNodePath::Attr(path) => path.syn_node_defn(db).into(),
+            ItemSynNodePath::Attr(_, path) => path.syn_node_defn(db).into(),
         }
     }
 }

@@ -9,7 +9,7 @@ pub struct EntitySynTreeSheet {
     major_item_node_table: MajorEntityNodeTable,
     item_symbol_table: EntitySymbolTable,
     // todo: split this into ty impl block and trai for ty impl block
-    impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNodeData>,
+    impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
     once_use_rules: OnceUseRules,
     use_all_rules: UseAllModuleSymbolsRules,
     errors: Vec<EntitySynTreeError>,
@@ -38,7 +38,7 @@ impl EntitySynTreeSheet {
         once_use_rules: OnceUseRules,
         use_all_rules: UseAllModuleSymbolsRules,
         errors: Vec<EntitySynTreeError>,
-        impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNodeData>,
+        impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
     ) -> Self {
         Self {
             module_path,
@@ -79,22 +79,19 @@ impl EntitySynTreeSheet {
             .filter_map(|syn_node_path| syn_node_path.path(db))
     }
 
-    pub(crate) fn major_item_node(
-        &self,
-        syn_node_path: ItemSynNodePath,
-    ) -> Option<ItemSynNodeData> {
+    pub(crate) fn major_item_node(&self, syn_node_path: ItemSynNodePath) -> Option<ItemSynNode> {
         self.major_item_node_table.node(syn_node_path)
     }
 
     pub(crate) fn ty_impl_block_syn_node(
         &self,
         syn_node_path: TypeImplBlockSynNodePath,
-    ) -> TypeImplBlockSynNodeData {
+    ) -> TypeImplBlockSynNode {
         self.impl_block_syn_node_table
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
-                    ImplBlockSynNodeData::TypeImplBlock(node) => *node,
+                    ImplBlockSynNode::TypeImplBlock(node) => *node,
                     _ => unreachable!(),
                 })
             })
@@ -105,12 +102,12 @@ impl EntitySynTreeSheet {
         &self,
         _db: &::salsa::Db,
         syn_node_path: TraitForTypeImplBlockSynNodePath,
-    ) -> TraitForTypeImplBlockSynNodeData {
+    ) -> TraitForTypeImplBlockSynNode {
         self.impl_block_syn_node_table
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
-                    ImplBlockSynNodeData::TraitForTypeImplBlock(node) => *node,
+                    ImplBlockSynNode::TraitForTypeImplBlock(node) => *node,
                     _ => unreachable!(),
                 })
             })
@@ -121,12 +118,12 @@ impl EntitySynTreeSheet {
         &self,
         _db: &::salsa::Db,
         syn_node_path: IllFormedImplBlockSynNodePath,
-    ) -> IllFormedImplBlockSynNodeData {
+    ) -> IllFormedImplBlockSynNode {
         self.impl_block_syn_node_table
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
-                    ImplBlockSynNodeData::IllFormedImplBlock(node) => *node,
+                    ImplBlockSynNode::IllFormedImplBlock(node) => *node,
                     _ => unreachable!(),
                 })
             })
@@ -154,11 +151,11 @@ impl EntitySynTreeSheet {
 
     pub(crate) fn all_ty_impl_block_syn_nodes<'a>(
         &'a self,
-    ) -> impl Iterator<Item = &'a TypeImplBlockSynNodeData> + 'a {
+    ) -> impl Iterator<Item = &'a TypeImplBlockSynNode> + 'a {
         self.impl_block_syn_node_table
             .iter()
             .filter_map(|(_, impl_block)| match impl_block {
-                ImplBlockSynNodeData::TypeImplBlock(impl_block) => Some(impl_block),
+                ImplBlockSynNode::TypeImplBlock(impl_block) => Some(impl_block),
                 _ => None,
             })
     }
@@ -177,13 +174,13 @@ impl EntitySynTreeSheet {
 
     pub(crate) fn all_trai_for_ty_impl_block_syn_nodes<'a>(
         &'a self,
-    ) -> impl Iterator<Item = &'a TraitForTypeImplBlockSynNodeData> + 'a {
+    ) -> impl Iterator<Item = &'a TraitForTypeImplBlockSynNode> + 'a {
         self.impl_block_syn_node_table
             .iter()
             .filter_map(|(_, impl_block)| match impl_block {
-                ImplBlockSynNodeData::TypeImplBlock(_) => None,
-                ImplBlockSynNodeData::TraitForTypeImplBlock(data) => Some(data),
-                ImplBlockSynNodeData::IllFormedImplBlock(_) => None,
+                ImplBlockSynNode::TypeImplBlock(_) => None,
+                ImplBlockSynNode::TraitForTypeImplBlock(data) => Some(data),
+                ImplBlockSynNode::IllFormedImplBlock(_) => None,
             })
     }
 
@@ -194,9 +191,9 @@ impl EntitySynTreeSheet {
         self.impl_block_syn_node_table
             .iter()
             .filter_map(|(_, impl_block)| match impl_block {
-                ImplBlockSynNodeData::TypeImplBlock(_) => None,
-                ImplBlockSynNodeData::TraitForTypeImplBlock(_) => None,
-                ImplBlockSynNodeData::IllFormedImplBlock(impl_block) => Some(impl_block.ill_form()),
+                ImplBlockSynNode::TypeImplBlock(_) => None,
+                ImplBlockSynNode::TraitForTypeImplBlock(_) => None,
+                ImplBlockSynNode::IllFormedImplBlock(impl_block) => Some(impl_block.ill_form()),
             })
     }
 }

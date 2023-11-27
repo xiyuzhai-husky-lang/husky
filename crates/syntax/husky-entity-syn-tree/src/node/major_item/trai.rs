@@ -3,6 +3,7 @@ use super::*;
 use vec_like::SmallVecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::as_id(jar = EntitySynTreeJar)]
 pub struct TraitSynNodePath(ItemSynNodePathId);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -35,7 +36,7 @@ impl TraitSynNodePath {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> MajorItemSynNodeData {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> MajorItemSynNode {
         trai_node(db, self)
     }
 
@@ -47,7 +48,7 @@ impl TraitSynNodePath {
     pub(crate) fn associated_items<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> &'a [(Ident, TraitItemSynNodePath, TraitItemSynNodeData)] {
+    ) -> &'a [(Ident, TraitItemSynNodePath, TraitItemSynNode)] {
         trai_item_syn_nodes(db, self)
     }
 
@@ -70,14 +71,14 @@ impl HasSynNodePath for TraitPath {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-fn trai_node(db: &::salsa::Db, syn_node_path: TraitSynNodePath) -> MajorItemSynNodeData {
+fn trai_node(db: &::salsa::Db, syn_node_path: TraitSynNodePath) -> MajorItemSynNode {
     let module_path: ModulePath = todo!(); // syn_node_path.module_path(db);
     let item_sheet = module_path.item_tree_sheet(db);
     match item_sheet
         .major_item_node(syn_node_path.into())
         .expect("should be some")
     {
-        ItemSynNodeData::MajorItem(node) => node,
+        ItemSynNode::MajorItem(node) => node,
         _ => unreachable!(),
     }
 }

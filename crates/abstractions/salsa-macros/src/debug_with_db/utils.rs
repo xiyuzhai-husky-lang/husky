@@ -1,9 +1,6 @@
 use syn::Path;
 
-pub(super) fn generics_without_db(
-    generics: &syn::Generics,
-    db_trai: &Path,
-) -> proc_macro2::TokenStream {
+pub(super) fn generics_without_db(generics: &syn::Generics) -> proc_macro2::TokenStream {
     if generics.params.is_empty() {
         quote! {}
     } else {

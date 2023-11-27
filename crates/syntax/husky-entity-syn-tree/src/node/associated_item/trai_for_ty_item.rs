@@ -32,7 +32,7 @@ impl TraitForTypeItemSynNodePath {
         self.maybe_ambiguous_path(db).path.item_kind(db)
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TraitForTypeItemSynNodeData {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TraitForTypeItemSynNode {
         trai_for_ty_item_syn_node(db, self)
     }
 }
@@ -62,7 +62,7 @@ impl HasSynNodePath for TraitForTypeItemPath {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub(crate) struct TraitForTypeItemSynNodeData {
+pub(crate) struct TraitForTypeItemSynNode {
     syn_node_path: TraitForTypeItemSynNodePath,
     ast_idx: AstIdx,
     ident: Ident,
@@ -71,7 +71,7 @@ pub(crate) struct TraitForTypeItemSynNodeData {
     is_generic: bool,
 }
 
-impl TraitForTypeItemSynNodeData {
+impl TraitForTypeItemSynNode {
     #[inline(always)]
     pub(crate) fn new(
         db: &::salsa::Db,
@@ -103,7 +103,7 @@ impl TraitForTypeItemSynNodeData {
 pub(crate) fn trai_for_ty_item_syn_node(
     db: &::salsa::Db,
     syn_node_path: TraitForTypeItemSynNodePath,
-) -> TraitForTypeItemSynNodeData {
+) -> TraitForTypeItemSynNode {
     syn_node_path
         .impl_block(db)
         .associated_items(db)

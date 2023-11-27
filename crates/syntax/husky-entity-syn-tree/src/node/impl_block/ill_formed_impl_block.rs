@@ -17,7 +17,7 @@ impl IllFormedImplBlockSynNodePath {
         &[]
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> IllFormedImplBlockSynNodeData {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> IllFormedImplBlockSynNode {
         ill_formed_impl_block_syn_node(db, self)
     }
 }
@@ -28,16 +28,16 @@ impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Hash)]
-pub(crate) struct IllFormedImplBlockSynNodeData {
-    syn_node_path: IllFormedImplBlockSynNodePath,
-    impl_token: ImplToken,
-    ast_idx: AstIdx,
-    items: Option<ImplBlockItems>,
-    ill_form: ImplBlockIllForm,
+#[derive(Debug, PartialEq, Eq)]
+pub(crate) struct IllFormedImplBlockSynNode {
+    pub(crate) syn_node_path: IllFormedImplBlockSynNodePath,
+    pub(crate) impl_token: ImplToken,
+    pub(crate) ast_idx: AstIdx,
+    pub(crate) items: Option<ImplBlockItems>,
+    pub(crate) ill_form: ImplBlockIllForm,
 }
 
-impl IllFormedImplBlockSynNodeData {
+impl IllFormedImplBlockSynNode {
     pub(super) fn new(
         db: &::salsa::Db,
         registry: &mut ImplBlockRegistry,
@@ -89,7 +89,7 @@ impl OriginalError for ImplBlockIllForm {
 pub(crate) fn ill_formed_impl_block_syn_node(
     db: &::salsa::Db,
     syn_node_path: IllFormedImplBlockSynNodePath,
-) -> IllFormedImplBlockSynNodeData {
+) -> IllFormedImplBlockSynNode {
     let module_path = syn_node_path.module_path(db);
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     item_tree_sheet.ill_formed_impl_block_syn_node(db, syn_node_path)

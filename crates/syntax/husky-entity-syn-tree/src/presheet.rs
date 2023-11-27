@@ -60,10 +60,7 @@ impl EntitySynTreePresheet {
         }
     }
 
-    pub(crate) fn major_item_node(
-        &self,
-        syn_node_path: ItemSynNodePath,
-    ) -> Option<ItemSynNodeData> {
+    pub(crate) fn major_item_node(&self, syn_node_path: ItemSynNodePath) -> Option<&ItemSynNode> {
         self.major_item_node_table.node(syn_node_path)
     }
 }
@@ -91,7 +88,7 @@ impl<'a> EntityTreePresheetMut<'a> {
 
     pub(crate) fn into_sheet(
         self,
-        impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNodeData>,
+        impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
     ) -> EntitySynTreeSheet {
         EntitySynTreeSheet::new(
             self.module_path,

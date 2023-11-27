@@ -11,7 +11,7 @@ pub struct UseSymbol {
     pub use_expr_idx: UseExprIdx,
 }
 
-impl MajorItemSynNodeData {
+impl MajorItemSynNode {
     pub fn ident(&self, db: &::salsa::Db) -> Ident {
         self.syn_node_path(db).ident(db)
     }
@@ -50,20 +50,20 @@ pub enum EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub(crate) fn from_node(db: &::salsa::Db, node: ItemSynNodeData) -> Option<Self> {
+    pub(crate) fn from_node(db: &::salsa::Db, node: ItemSynNode) -> Option<Self> {
         match node {
-            ItemSynNodeData::Submodule(node) => Some(EntitySymbol::Submodule {
+            ItemSynNode::Submodule(node) => Some(EntitySymbol::Submodule {
                 submodule_path: node.unambiguous_path(db)?,
             }),
-            ItemSynNodeData::MajorItem(node) => Some(EntitySymbol::MajorItem {
+            ItemSynNode::MajorItem(node) => Some(EntitySymbol::MajorItem {
                 module_item_path: node.unambiguous_path(db)?,
             }),
-            ItemSynNodeData::AssociatedItem(_)
-            | ItemSynNodeData::TypeVariant(_)
-            | ItemSynNodeData::ImplBlock(_) => {
+            ItemSynNode::AssociatedItem(_)
+            | ItemSynNode::TypeVariant(_)
+            | ItemSynNode::ImplBlock(_) => {
                 unreachable!()
             }
-            ItemSynNodeData::Attr(_) => todo!(),
+            ItemSynNode::Attr(_) => todo!(),
         }
     }
 }
@@ -88,7 +88,7 @@ impl EntitySymbol {
         }
     }
 
-    // pub(crate) fn module_item_syn_node(self) -> Option<MajorItemSynNodeData> {
+    // pub(crate) fn module_item_syn_node(self) -> Option<MajorItemSynNode> {
     //     match self {
     //         EntitySymbol::MajorItem { node, .. } => Some(node),
     //         _ => None,

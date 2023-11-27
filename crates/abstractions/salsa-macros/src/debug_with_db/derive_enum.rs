@@ -2,14 +2,10 @@ use syn::{ItemEnum, Type, Variant};
 
 use super::*;
 
-pub(super) fn enum_debug_with_db_impl(
-    db_trai: &Path,
-    jar_ty: &Type,
-    item: &ItemEnum,
-) -> proc_macro2::TokenStream {
+pub(super) fn enum_debug_with_db_impl(item: &ItemEnum) -> proc_macro2::TokenStream {
     let ident = &item.ident;
     let generics = &item.generics;
-    let generics_without_db = generics_without_db(generics, db_trai);
+    let generics_without_db = generics_without_db(generics);
     let self_ty = if item.generics.params.is_empty() {
         quote! { #ident }
     } else {
@@ -45,15 +41,9 @@ pub(super) fn enum_debug_with_db_impl(
             .iter()
             .map(|variant| -> proc_macro2::TokenStream {
                 match variant.fields {
-                    syn::Fields::Named(_) => {
-                        enum_struct_variant_debug_with_db(db_trai, jar_ty, ident, variant)
-                    }
-                    syn::Fields::Unnamed(_) => {
-                        enum_tuple_variant_debug_with_db(db_trai, jar_ty, ident, variant)
-                    }
-                    syn::Fields::Unit => {
-                        enum_unit_variant_debug_with_db(db_trai, jar_ty, ident, variant)
-                    }
+                    syn::Fields::Named(_) => enum_struct_variant_debug_with_db(ident, variant),
+                    syn::Fields::Unnamed(_) => enum_tuple_variant_debug_with_db(ident, variant),
+                    syn::Fields::Unit => enum_unit_variant_debug_with_db(ident, variant),
                 }
             })
             .collect::<proc_macro2::TokenStream>();
@@ -72,8 +62,6 @@ pub(super) fn enum_debug_with_db_impl(
 }
 
 fn enum_struct_variant_debug_with_db(
-    db_trai: &Path,
-    jar_ty: &Type,
     ty_ident: &Ident,
     variant: &Variant,
 ) -> proc_macro2::TokenStream {
@@ -127,8 +115,6 @@ fn enum_struct_variant_debug_with_db(
 }
 
 fn enum_tuple_variant_debug_with_db(
-    db_trai: &Path,
-    jar_ty: &Type,
     ty_ident: &Ident,
     variant: &Variant,
 ) -> proc_macro2::TokenStream {
@@ -183,8 +169,6 @@ fn enum_tuple_variant_debug_with_db(
 }
 
 fn enum_unit_variant_debug_with_db(
-    db_trai: &Path,
-    jar_ty: &Type,
     ty_ident: &Ident,
     variant: &Variant,
 ) -> proc_macro2::TokenStream {

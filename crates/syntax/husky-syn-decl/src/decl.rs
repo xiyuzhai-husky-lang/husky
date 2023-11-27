@@ -26,7 +26,7 @@ pub enum ItemSynNodeDecl {
     Submodule(SubmoduleSynNodeDecl),
     MajorItem(MajorItemSynNodeDecl),
     ImplBlock(ImplBlockSynNodeDecl),
-    AssociatedItem(AssociatedItemSynNodeDataDecl),
+    AssociatedItem(AssociatedItemSynNodeDecl),
     TypeVariant(TypeVariantSynNodeDecl),
     Attr(AttrSynNodeDecl),
 }
@@ -130,13 +130,15 @@ impl HasSynNodeDecl for ItemSynNodePath {
     fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         match self {
             ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
-            ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
+            ItemSynNodePath::TypeVariant(_, syn_node_path) => {
+                syn_node_path.syn_node_decl(db).into()
+            }
             ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
             ItemSynNodePath::AssociatedItem(syn_node_path) => {
                 syn_node_path.syn_node_decl(db).into()
             }
-            ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
-            ItemSynNodePath::Attr(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
+            ItemSynNodePath::Submodule(_, syn_node_path) => syn_node_path.syn_node_decl(db).into(),
+            ItemSynNodePath::Attr(_, syn_node_path) => syn_node_path.syn_node_decl(db).into(),
         }
     }
 }

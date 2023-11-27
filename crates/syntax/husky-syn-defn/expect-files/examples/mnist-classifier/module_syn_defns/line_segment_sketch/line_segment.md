@@ -487,7 +487,7 @@ Ok(
                                     ),
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodeDataPath::TypeItem(
+                                            AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
@@ -682,7 +682,7 @@ Ok(
                                                     ),
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
-                                                            AssociatedItemSynNodeDataPath::TypeItem(
+                                                            AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath {
@@ -777,7 +777,7 @@ Ok(
                                         ),
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
-                                                AssociatedItemSynNodeDataPath::TypeItem(
+                                                AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
@@ -1066,7 +1066,7 @@ Ok(
                                     ),
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodeDataPath::TypeItem(
+                                            AssociatedItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
@@ -1349,7 +1349,7 @@ Ok(
                                                     ),
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
-                                                            AssociatedItemSynNodeDataPath::TypeItem(
+                                                            AssociatedItemSynNodePath::TypeItem(
                                                                 TypeItemSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath {
@@ -1532,7 +1532,7 @@ Ok(
                                         ),
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
-                                                AssociatedItemSynNodeDataPath::TypeItem(
+                                                AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {

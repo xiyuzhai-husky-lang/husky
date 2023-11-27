@@ -25,6 +25,15 @@ pub enum ImplBlockSynNodePath {
     IllFormedImplBlock(IllFormedImplBlockSynNodePath),
 }
 
+impl std::ops::Deref for ImplBlockSynNodePath {
+    type Target = ItemSynNodePathId;
+
+    fn deref(&self) -> &Self::Target {
+        let slf: &(u32, ItemSynNodePathId) = unsafe { std::mem::transmute(self) };
+        &slf.1
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
@@ -37,17 +46,14 @@ pub enum ImplBlockSynNodePathData {
 pub(crate) struct ImplBlockNodePathRegistry {}
 
 impl ImplBlockSynNodePath {
-    pub fn path(self, _db: &::salsa::Db) -> Option<ImplBlockPath> {
-        match self {
-            ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => Some(syn_node_path.path().into()),
-            ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
-                Some(syn_node_path.path().into())
-            }
-            ImplBlockSynNodePath::IllFormedImplBlock(_) => None,
-        }
+    pub fn path(self, db: &::salsa::Db) -> Option<ImplBlockPath> {
+        Some(match (*self).path(db)? {
+            ItemPath::ImplBlock(path) => path,
+            _ => unreachable!(),
+        })
     }
 
-    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> ImplBlockSynNodeData {
+    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> ImplBlockSynNode {
         todo!()
     }
 
@@ -64,25 +70,21 @@ impl HasSynNodePath for ImplBlockPath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[derive(Debug, PartialEq, Eq)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub(crate) enum ImplBlockSynNodeData {
-    TypeImplBlock(TypeImplBlockSynNodeData),
-    TraitForTypeImplBlock(TraitForTypeImplBlockSynNodeData),
-    IllFormedImplBlock(IllFormedImplBlockSynNodeData),
+pub(crate) enum ImplBlockSynNode {
+    TypeImplBlock(TypeImplBlockSynNode),
+    TraitForTypeImplBlock(TraitForTypeImplBlockSynNode),
+    IllFormedImplBlock(IllFormedImplBlockSynNode),
 }
 
-impl ImplBlockSynNodeData {
+impl ImplBlockSynNode {
     pub fn syn_node_path(self, db: &::salsa::Db) -> ImplBlockSynNodePath {
         match self {
-            ImplBlockSynNodeData::TypeImplBlock(impl_block) => impl_block.syn_node_path(db).into(),
-            ImplBlockSynNodeData::TraitForTypeImplBlock(impl_block) => {
-                impl_block.syn_node_path(db).into()
-            }
-            ImplBlockSynNodeData::IllFormedImplBlock(impl_block) => {
-                impl_block.syn_node_path(db).into()
-            }
+            ImplBlockSynNode::TypeImplBlock(impl_block) => impl_block.syn_node_path.into(),
+            ImplBlockSynNode::TraitForTypeImplBlock(impl_block) => impl_block.syn_node_path.into(),
+            ImplBlockSynNode::IllFormedImplBlock(impl_block) => impl_block.syn_node_path.into(),
         }
     }
 
@@ -90,12 +92,12 @@ impl ImplBlockSynNodeData {
         self,
         _db: &::salsa::Db,
         _f: impl FnMut(),
-    ) -> &[AssociatedItemSynNodeDataPath] {
+    ) -> &[AssociatedItemSynNodePath] {
         todo!()
     }
 }
 
-impl ImplBlockSynNodeData {
+impl ImplBlockSynNode {
     pub(crate) fn parse_from_token_group<'a, 'b>(
         db: &::salsa::Db,
         crate_root_path: ModulePath,
@@ -129,7 +131,7 @@ impl ImplBlockSynNodeData {
             impl_regional_token,
         ) {
             Ok(node) => node,
-            Err(ill_form) => IllFormedImplBlockSynNodeData::new(
+            Err(ill_form) => IllFormedImplBlockSynNode::new(
                 db,
                 registry,
                 impl_regional_token,
@@ -164,7 +166,7 @@ impl ImplBlockSynNodeData {
                 let Some(ImplBlockItems::Type(items)) = items else {
                     unreachable!("it should be guaranteed in `husky-ast` that items are not none")
                 };
-                TypeImplBlockSynNodeData::new(
+                TypeImplBlockSynNode::new(
                     db,
                     impl_token,
                     registry,
@@ -213,7 +215,7 @@ impl ImplBlockSynNodeData {
                             }
                         }
                     };
-                match TraitForTypeImplBlockSynNodeData::new(
+                match TraitForTypeImplBlockSynNode::new(
                     db,
                     registry,
                     module_path,
@@ -241,6 +243,14 @@ impl ImplBlockSynNodeData {
     pub fn module_path(&self, _db: &::salsa::Db) -> ModulePath {
         todo!()
         // self.id(db).module_path
+    }
+
+    pub(crate) fn ast_idx(&self) -> AstIdx {
+        match self {
+            ImplBlockSynNode::TypeImplBlock(data) => data.ast_idx(),
+            ImplBlockSynNode::TraitForTypeImplBlock(data) => data.ast_idx,
+            ImplBlockSynNode::IllFormedImplBlock(data) => data.ast_idx,
+        }
     }
 }
 

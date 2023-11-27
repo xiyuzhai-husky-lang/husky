@@ -4,7 +4,7 @@ EntitySynTreeSheet {
         entries: [
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -767,7 +767,7 @@ EntitySynTreeSheet {
                     },
                 },
             ),
-            ImplBlockSynNodeData::TraitForTypeImplBlock(
+            ImplBlockSynNode::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNode {
                     syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlock {
@@ -782,7 +782,7 @@ EntitySynTreeSheet {
                         },
                     },
                     ast_idx: 5,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             22,
                         ),

@@ -11,30 +11,30 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 #[enum_class::from_variants]
-pub enum AssociatedItemSynNodeDataDefn {
+pub enum AssociatedItemSynNodeDefn {
     TypeItem(TypeItemSynNodeDefn),
     TraitItem(TraitItemSynNodeDefn),
     TraitForTypeItem(TraitForTypeItemSynNodeDefn),
 }
 
-impl AssociatedItemSynNodeDataDefn {
-    pub fn syn_node_path(self, _db: &::salsa::Db) -> AssociatedItemSynNodeDataPath {
+impl AssociatedItemSynNodeDefn {
+    pub fn syn_node_path(self, _db: &::salsa::Db) -> AssociatedItemSynNodePath {
         match self {
-            AssociatedItemSynNodeDataDefn::TypeItem(_) => todo!(),
-            AssociatedItemSynNodeDataDefn::TraitItem(_) => todo!(),
-            AssociatedItemSynNodeDataDefn::TraitForTypeItem(_) => todo!(),
+            AssociatedItemSynNodeDefn::TypeItem(_) => todo!(),
+            AssociatedItemSynNodeDefn::TraitItem(_) => todo!(),
+            AssociatedItemSynNodeDefn::TraitForTypeItem(_) => todo!(),
         }
     }
 
-    pub fn syn_node_decl(self, db: &::salsa::Db) -> AssociatedItemSynNodeDataDecl {
+    pub fn syn_node_decl(self, db: &::salsa::Db) -> AssociatedItemSynNodeDecl {
         match self {
-            AssociatedItemSynNodeDataDefn::TypeItem(syn_node_defn) => {
+            AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => {
                 syn_node_defn.syn_node_decl(db).into()
             }
-            AssociatedItemSynNodeDataDefn::TraitItem(syn_node_defn) => {
+            AssociatedItemSynNodeDefn::TraitItem(syn_node_defn) => {
                 syn_node_defn.syn_node_decl(db).into()
             }
-            AssociatedItemSynNodeDataDefn::TraitForTypeItem(syn_node_defn) => {
+            AssociatedItemSynNodeDefn::TraitForTypeItem(syn_node_defn) => {
                 syn_node_defn.syn_node_decl(db).into()
             }
         }
@@ -45,34 +45,34 @@ impl AssociatedItemSynNodeDataDefn {
         db: &::salsa::Db,
     ) -> Option<(SynExprIdx, SynExprRegion)> {
         match self {
-            AssociatedItemSynNodeDataDefn::TypeItem(syn_node_defn) => {
+            AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => {
                 syn_node_defn.body_with_syn_expr_region(db)
             }
-            AssociatedItemSynNodeDataDefn::TraitItem(syn_node_defn) => {
+            AssociatedItemSynNodeDefn::TraitItem(syn_node_defn) => {
                 syn_node_defn.body_with_syn_expr_region(db)
             }
-            AssociatedItemSynNodeDataDefn::TraitForTypeItem(syn_node_defn) => {
+            AssociatedItemSynNodeDefn::TraitForTypeItem(syn_node_defn) => {
                 syn_node_defn.body_with_syn_expr_region(db)
             }
         }
     }
 }
 
-impl HasSynNodeDefn for AssociatedItemSynNodeDataPath {
-    type SynNodeDefn = AssociatedItemSynNodeDataDefn;
+impl HasSynNodeDefn for AssociatedItemSynNodePath {
+    type SynNodeDefn = AssociatedItemSynNodeDefn;
 
     fn syn_node_defn(self, db: &::salsa::Db) -> Self::SynNodeDefn {
         match self {
-            AssociatedItemSynNodeDataPath::TypeItem(syn_node_path) => {
+            AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
                 syn_node_path.syn_node_defn(db).into()
             }
-            AssociatedItemSynNodeDataPath::TraitItem(syn_node_path) => {
+            AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
                 syn_node_path.syn_node_defn(db).into()
             }
-            AssociatedItemSynNodeDataPath::TraitForTypeItem(syn_node_path) => {
+            AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
                 syn_node_path.syn_node_defn(db).into()
             }
-            AssociatedItemSynNodeDataPath::IllFormedItem(_) => todo!(),
+            AssociatedItemSynNodePath::IllFormedItem(_) => todo!(),
         }
     }
 }

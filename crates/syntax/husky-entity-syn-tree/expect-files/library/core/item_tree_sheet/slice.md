@@ -4,7 +4,7 @@ EntitySynTreeSheet {
         entries: [
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -42,7 +42,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2554,7 +2554,7 @@ EntitySynTreeSheet {
                     ),
                 },
             ),
-            ImplBlockSynNodeData::TypeImplBlock(
+            ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath(
@@ -2566,7 +2566,7 @@ EntitySynTreeSheet {
                         ),
                     },
                     ast_idx: 11,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             13,
                         ),
@@ -2595,7 +2595,7 @@ EntitySynTreeSheet {
                     },
                 },
             ),
-            ImplBlockSynNodeData::TraitForTypeImplBlock(
+            ImplBlockSynNode::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNode {
                     syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlock {
@@ -2610,7 +2610,7 @@ EntitySynTreeSheet {
                         },
                     },
                     ast_idx: 14,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             60,
                         ),
@@ -2646,7 +2646,7 @@ EntitySynTreeSheet {
                     ),
                 },
             ),
-            ImplBlockSynNodeData::TypeImplBlock(
+            ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath(
@@ -2658,7 +2658,7 @@ EntitySynTreeSheet {
                         ),
                     },
                     ast_idx: 15,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             77,
                         ),
