@@ -4,7 +4,7 @@ use crate::*;
 pub struct LinkageJar(
     crate::linkage::Linkage,
     crate::dependency::linkage_path_dependencies,
-    crate::root::root_linkage_paths,
+    crate::root::crate_specific_linkages,
     crate::version_stamp::LinkageVersionStamp,
     crate::template_argument::ty::LinkageTypePathLeading,
     crate::template_argument::ty::LinkageTypeRitchie,

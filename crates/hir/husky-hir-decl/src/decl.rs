@@ -53,7 +53,7 @@ pub enum HirDecl {
 impl HirDecl {
     pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
         match self {
-            HirDecl::Submodule(_) => todo!(),
+            HirDecl::Submodule(_) => &[],
             HirDecl::MajorItem(decl) => decl.template_parameters(db),
             HirDecl::ImplBlock(decl) => decl.template_parameters(db),
             HirDecl::AssociatedItem(decl) => decl.template_parameters(db),

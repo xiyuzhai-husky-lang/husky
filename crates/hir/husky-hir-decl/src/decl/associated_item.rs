@@ -32,7 +32,7 @@ impl AssociatedItemHirDecl {
         match self {
             AssociatedItemHirDecl::TypeItem(decl) => decl.template_parameters(db),
             AssociatedItemHirDecl::TraitItem(decl) => decl.template_parameters(db),
-            AssociatedItemHirDecl::TraitForTypeItem(_) => todo!(),
+            AssociatedItemHirDecl::TraitForTypeItem(decl) => decl.template_parameters(db),
         }
     }
 
