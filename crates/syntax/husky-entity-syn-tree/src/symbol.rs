@@ -11,12 +11,6 @@ pub struct UseSymbol {
     pub use_expr_idx: UseExprIdx,
 }
 
-impl MajorItemSynNode {
-    pub fn ident(&self, db: &::salsa::Db) -> Ident {
-        self.syn_node_path(db).ident(db)
-    }
-}
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
@@ -50,7 +44,7 @@ pub enum EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub(crate) fn from_node(db: &::salsa::Db, node: ItemSynNode) -> Option<Self> {
+    pub(crate) fn from_node(db: &::salsa::Db, node: &ItemSynNode) -> Option<Self> {
         match node {
             ItemSynNode::Submodule(node) => Some(EntitySymbol::Submodule {
                 submodule_path: node.unambiguous_path(db)?,

@@ -4,6 +4,7 @@ use vec_like::SmallVecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id(jar = EntitySynTreeJar)]
+#[salsa::deref_id]
 pub struct TypeImplBlockSynNodePath(ItemSynNodePathId);
 
 // basically a wrapper type
@@ -35,8 +36,10 @@ impl TypeImplBlockSynNodePath {
         self.path(db).ty_path(db)
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeImplBlockSynNode {
-        ty_impl_block_syn_node(db, self)
+    pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a TypeImplBlockSynNode {
+        let module_path = self.module_path(db);
+        let item_tree_sheet = db.item_syn_tree_sheet(module_path);
+        item_tree_sheet.ty_impl_block_syn_node(self)
     }
 
     pub(crate) fn associated_items(
@@ -53,8 +56,7 @@ impl TypeImplBlockSynNodePath {
     ) -> impl Iterator<Item = TypeItemSynNodePath> + 'a {
         self.associated_items(db)
             .iter()
-            .copied()
-            .map(|(_, syn_node_path, _)| syn_node_path)
+            .map(|&(_, syn_node_path, _)| syn_node_path)
     }
 }
 
@@ -72,7 +74,7 @@ impl HasSynNodePath for TypeImplBlockPath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
 pub(crate) struct TypeImplBlockSynNode {
     pub(crate) syn_node_path: TypeImplBlockSynNodePath,
@@ -120,15 +122,6 @@ impl TypeImplBlockSynNode {
     pub(crate) fn ast_idx(&self) -> AstIdx {
         self.ast_idx
     }
-}
-
-pub(crate) fn ty_impl_block_syn_node(
-    db: &::salsa::Db,
-    syn_node_path: TypeImplBlockSynNodePath,
-) -> TypeImplBlockSynNode {
-    let module_path = todo!(); //syn_node_path.module_path(db);
-    let item_tree_sheet = db.item_syn_tree_sheet(module_path);
-    item_tree_sheet.ty_impl_block_syn_node(syn_node_path)
 }
 
 impl HasAssociatedItemPaths for TypeImplBlockPath {

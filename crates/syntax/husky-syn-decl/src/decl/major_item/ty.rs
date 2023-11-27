@@ -90,24 +90,32 @@ impl HasSynNodeDecl for TypeSynNodePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_node_decl(db: &::salsa::Db, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
-    DeclParser::new(db, syn_node_path).parse_ty_node_decl()
+    DeclParser::new(db, syn_node_path.into()).parse_ty_node_decl()
 }
 
-impl<'a> DeclParser<'a, TypeSynNodePath> {
+impl<'a> DeclParser<'a> {
     fn parse_ty_node_decl(&self) -> TypeSynNodeDecl {
-        match self.syn_node_path().ty_kind(self.db()) {
+        let ItemSynNodePath::MajorItem(MajorItemSynNodePath::Type(syn_node_path)) =
+            self.syn_node_path()
+        else {
+            unreachable!()
+        };
+        match syn_node_path.ty_kind(self.db()) {
             TypeKind::Enum => self.parse_enum_ty_node_decl().into(),
             TypeKind::Inductive => self.parse_inductive_ty_node_decl().into(),
             TypeKind::Record => todo!(),
-            TypeKind::Struct => self.parse_struct_ty_node_decl(),
+            TypeKind::Struct => self.parse_struct_ty_node_decl(syn_node_path),
             TypeKind::Structure => self.parse_structure_ty_node_decl(),
             TypeKind::Extern => self.parse_extern_ty_node_decl().into(),
         }
     }
 }
 
-impl<'a> DeclParser<'a, TypeSynNodePath> {
-    pub(super) fn parse_struct_ty_node_decl(&self) -> TypeSynNodeDecl {
+impl<'a> DeclParser<'a> {
+    pub(super) fn parse_struct_ty_node_decl(
+        &self,
+        syn_node_path: TypeSynNodePath,
+    ) -> TypeSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();
@@ -116,7 +124,7 @@ impl<'a> DeclParser<'a, TypeSynNodePath> {
             let rpar = parser.try_parse();
             TupleStructTypeSynNodeDecl::new(
                 db,
-                self.syn_node_path(),
+                syn_node_path,
                 template_parameters,
                 lpar,
                 field_comma_list,
@@ -133,7 +141,7 @@ impl<'a> DeclParser<'a, TypeSynNodePath> {
             let rcurl = parser.try_parse();
             PropsStructTypeSynNodeDecl::new(
                 db,
-                self.syn_node_path(),
+                syn_node_path,
                 template_parameters,
                 lcurl,
                 field_comma_list,

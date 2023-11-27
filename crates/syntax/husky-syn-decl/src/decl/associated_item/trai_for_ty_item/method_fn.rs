@@ -36,7 +36,7 @@ impl TraitForTypeMethodFnSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a, TraitForTypeItemSynNodePath> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_trai_for_ty_method_fn_node_decl(&self) -> TraitForTypeMethodFnSynNodeDecl {
         let db = self.db();
         let impl_block_syn_node_decl = self.syn_node_path().impl_block(db).syn_node_decl(db);

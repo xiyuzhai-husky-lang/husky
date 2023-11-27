@@ -79,51 +79,51 @@ impl EntitySynTreeSheet {
             .filter_map(|syn_node_path| syn_node_path.path(db))
     }
 
-    pub(crate) fn major_item_node(&self, syn_node_path: ItemSynNodePath) -> Option<ItemSynNode> {
+    pub(crate) fn major_item_node(&self, syn_node_path: ItemSynNodePath) -> Option<&ItemSynNode> {
         self.major_item_node_table.node(syn_node_path)
     }
 
-    pub(crate) fn ty_impl_block_syn_node(
-        &self,
+    pub(crate) fn ty_impl_block_syn_node<'a>(
+        &'a self,
         syn_node_path: TypeImplBlockSynNodePath,
-    ) -> TypeImplBlockSynNode {
+    ) -> &'a TypeImplBlockSynNode {
         self.impl_block_syn_node_table
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
-                    ImplBlockSynNode::TypeImplBlock(node) => *node,
+                    ImplBlockSynNode::TypeImplBlock(node) => node,
                     _ => unreachable!(),
                 })
             })
             .expect("valid node path")
     }
 
-    pub(crate) fn trai_for_ty_impl_block_syn_node(
-        &self,
-        _db: &::salsa::Db,
+    pub(crate) fn trai_for_ty_impl_block_syn_node<'a>(
+        &'a self,
+        _db: &'a ::salsa::Db,
         syn_node_path: TraitForTypeImplBlockSynNodePath,
-    ) -> TraitForTypeImplBlockSynNode {
+    ) -> &'a TraitForTypeImplBlockSynNode {
         self.impl_block_syn_node_table
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
-                    ImplBlockSynNode::TraitForTypeImplBlock(node) => *node,
+                    ImplBlockSynNode::TraitForTypeImplBlock(node) => node,
                     _ => unreachable!(),
                 })
             })
             .expect("valid node path")
     }
 
-    pub(crate) fn ill_formed_impl_block_syn_node(
-        &self,
-        _db: &::salsa::Db,
+    pub(crate) fn ill_formed_impl_block_syn_node<'a>(
+        &'a self,
+        _db: &'a ::salsa::Db,
         syn_node_path: IllFormedImplBlockSynNodePath,
-    ) -> IllFormedImplBlockSynNode {
+    ) -> &'a IllFormedImplBlockSynNode {
         self.impl_block_syn_node_table
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
-                    ImplBlockSynNode::IllFormedImplBlock(node) => *node,
+                    ImplBlockSynNode::IllFormedImplBlock(node) => node,
                     _ => unreachable!(),
                 })
             })

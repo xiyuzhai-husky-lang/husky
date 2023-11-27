@@ -28,7 +28,7 @@ impl InductiveTypeSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a, TypeSynNodePath> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_inductive_ty_node_decl(&self) -> InductiveTypeSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();

@@ -25,7 +25,7 @@ impl ValFugitiveSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a, FugitiveSynNodePath> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_val_node_decl(&self) -> ValFugitiveSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let colon_token = parser.try_parse_option();

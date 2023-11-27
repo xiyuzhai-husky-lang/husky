@@ -50,7 +50,7 @@ pub enum ItemSynNodePathData {
     TypeVariant(TypeVariantSynNodePathData),
     ImplBlock(ImplBlockSynNodePathData),
     AssociatedItem(AssociatedItemSynNodePathData),
-    Attr(AttrSynNodePath),
+    Attr(AttrSynNodePathData),
 }
 
 impl ItemSynNodePathId {
@@ -171,7 +171,7 @@ impl<P> MaybeAmbiguousPath<P> {
 }
 
 /// this is pub(crate) because it contains AstIdx which affects incremental computation
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
 pub(crate) enum ItemSynNode {
@@ -223,18 +223,18 @@ impl ItemSynNode {
         }
     }
 
-    pub fn syn_node_path(self, db: &::salsa::Db) -> ItemSynNodePath {
+    pub fn syn_node_path(&self, db: &::salsa::Db) -> ItemSynNodePath {
         match self {
             ItemSynNode::Submodule(node) => node.syn_node_path.into(),
             ItemSynNode::MajorItem(node) => node.syn_node_path.into(),
-            ItemSynNode::AssociatedItem(node) => node.syn_node_path(db).into(),
-            ItemSynNode::TypeVariant(node) => node.syn_node_path(db).into(),
-            ItemSynNode::ImplBlock(node) => node.syn_node_path(db).into(),
+            ItemSynNode::AssociatedItem(node) => node.syn_node_path().into(),
+            ItemSynNode::TypeVariant(node) => node.syn_node_path.into(),
+            ItemSynNode::ImplBlock(node) => node.syn_node_path().into(),
             ItemSynNode::Attr(_) => todo!(),
         }
     }
 
-    pub fn ast_idx(self, db: &::salsa::Db) -> AstIdx {
+    pub fn ast_idx(&self, db: &::salsa::Db) -> AstIdx {
         match self {
             ItemSynNode::Submodule(node) => node.ast_idx,
             ItemSynNode::MajorItem(node) => node.ast_idx,
@@ -245,7 +245,7 @@ impl ItemSynNode {
         }
     }
 
-    pub fn ident_token(self, db: &::salsa::Db) -> IdentToken {
+    pub fn ident_token(&self, db: &::salsa::Db) -> IdentToken {
         match self {
             ItemSynNode::Submodule(symbol) => symbol.ident_token,
             ItemSynNode::MajorItem(symbol) => symbol.ident_token,

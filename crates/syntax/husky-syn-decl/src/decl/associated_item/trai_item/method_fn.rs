@@ -42,7 +42,7 @@ impl TraitMethodFnSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a, TraitItemSynNodePath> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_trai_method_fn_node_decl(&self) -> TraitMethodFnSynNodeDecl {
         let db = self.db();
         let parent_trai_syn_node_decl = self

@@ -62,7 +62,7 @@ pub(crate) fn fugitive_syn_node_decl(
     DeclParser::new(db, syn_node_path).parse_fugitive_syn_node_decl()
 }
 
-impl<'a> DeclParser<'a, FugitiveSynNodePath> {
+impl<'a> DeclParser<'a> {
     fn parse_fugitive_syn_node_decl(&self) -> FugitiveSynNodeDecl {
         match self.syn_node_path().fugitive_kind(self.db()) {
             FugitiveKind::Val => self.parse_val_node_decl().into(),

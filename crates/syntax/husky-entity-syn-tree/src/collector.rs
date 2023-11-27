@@ -105,10 +105,7 @@ impl<'a> EntityTreeCollector<'a> {
                         _ => None,
                     })
                     .map(|impl_block_syn_node| {
-                        (
-                            impl_block_syn_node.syn_node_path(self.db),
-                            impl_block_syn_node,
-                        )
+                        (impl_block_syn_node.syn_node_path(), impl_block_syn_node)
                     }),
             )
             .expect("no repetitions");

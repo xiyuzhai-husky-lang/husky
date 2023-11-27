@@ -3,11 +3,12 @@ use super::*;
 use husky_entity_kind::TypeKind;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::as_id]
 pub struct TypeVariantSynNodePath(ItemSynNodePathId);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TypeVariantSynNodePathData {
-    parent_ty_node_path: TypeSynNodePath,
+    pub parent_ty_node_path: TypeSynNodePath,
     maybe_ambiguous_path: MaybeAmbiguousPath<TypeVariantPath>,
 }
 
@@ -15,22 +16,45 @@ impl TypeVariantSynNodePath {
     fn new(
         db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
-        ty_node_path: TypeSynNodePath,
+        parent_ty_node_path: TypeSynNodePath,
         ty_variant_path: TypeVariantPath,
     ) -> Self {
-        Self::new_inner(
+        Self(ItemSynNodePathId::new(
             db,
-            ty_node_path,
-            registry.issue_maybe_ambiguous_path(ty_variant_path),
-        )
-    }
-
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeVariantSynNode {
-        ty_variant_syn_node(db, self)
+            ItemSynNodePathData::TypeVariant(TypeVariantSynNodePathData {
+                parent_ty_node_path,
+                maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(ty_variant_path),
+            }),
+        ))
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<TypeVariantPath> {
-        self.maybe_ambiguous_path(db).unambiguous_path()
+        Some(match self.0.path(db)? {
+            ItemPath::TypeVariant(_, path) => path,
+            _ => unreachable!(),
+        })
+    }
+
+    pub fn data(self, db: &::salsa::Db) -> TypeVariantSynNodePathData {
+        match self.0.data(db) {
+            ItemSynNodePathData::TypeVariant(data) => data,
+            _ => unreachable!(),
+        }
+    }
+
+    pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a TypeVariantSynNode {
+        self.data(db)
+            .parent_ty_node_path
+            .ty_variant_syn_nodes(db)
+            .iter()
+            .find_map(|&(_, syn_node_path, ref node)| (self == syn_node_path).then_some(node))
+            .unwrap()
+    }
+}
+
+impl TypeVariantSynNodePathData {
+    pub fn path(self, db: &::salsa::Db) -> Option<TypeVariantPath> {
+        self.maybe_ambiguous_path.unambiguous_path()
     }
 }
 
@@ -57,20 +81,21 @@ impl HasSynNodePath for TypeVariantPath {
     type SynNodePath = TypeVariantSynNodePath;
 
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
-        TypeVariantSynNodePath::new_inner(
+        TypeVariantSynNodePath(ItemSynNodePathId::new(
             db,
-            self.parent_ty_path(db).syn_node_path(db),
-            MaybeAmbiguousPath::from_path(self),
-        )
+            ItemSynNodePathData::TypeVariant(TypeVariantSynNodePathData {
+                parent_ty_node_path: self.parent_ty_path(db).syn_node_path(db),
+                maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+            }),
+        ))
     }
 }
 
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct TypeVariantSynNode {
-    #[id]
-    pub syn_node_path: TypeVariantSynNodePath,
-    pub ast_idx: AstIdx,
-    pub ident_token: IdentToken,
+    pub(crate) syn_node_path: TypeVariantSynNodePath,
+    pub(crate) ast_idx: AstIdx,
+    pub(crate) ident_token: IdentToken,
 }
 
 impl TypeVariantSynNode {
@@ -86,7 +111,11 @@ impl TypeVariantSynNode {
             TypeVariantSynNodePath::new(db, registry, ty_node_path, ty_variant_path);
         (
             syn_node_path,
-            Self::new_inner(db, syn_node_path, ast_idx, ident_token),
+            TypeVariantSynNode {
+                syn_node_path,
+                ast_idx,
+                ident_token,
+            },
         )
     }
 }
@@ -106,7 +135,7 @@ pub(crate) fn ty_variant_syn_nodes(
     let Ast::Identifiable {
         block: DefnBlock::Type { variants, .. },
         ..
-    } = ast_sheet[ty_node_path.syn_node(db).ast_idx(db)]
+    } = ast_sheet[ty_node_path.syn_node(db).ast_idx]
     else {
         unreachable!()
     };
@@ -137,18 +166,6 @@ pub(crate) fn ty_variant_syn_nodes(
         .collect()
 }
 
-pub(crate) fn ty_variant_syn_node(
-    db: &::salsa::Db,
-    syn_node_path: TypeVariantSynNodePath,
-) -> TypeVariantSynNode {
-    syn_node_path
-        .parent_ty_node_path(db)
-        .ty_variant_syn_nodes(db)
-        .iter()
-        .copied()
-        .find_map(|(_, node_path1, node)| (syn_node_path == node_path1).then_some(node))
-        .unwrap()
-}
 pub trait HasTypeVariantPaths: Copy {
     fn ty_variant_paths<'a>(self, db: &'a ::salsa::Db) -> &'a [(Ident, TypeVariantPath)];
 }
@@ -165,7 +182,6 @@ pub(crate) fn ty_variant_paths(db: &::salsa::Db, path: TypePath) -> Vec<(Ident, 
     path.syn_node_path(db)
         .ty_variant_syn_nodes(db)
         .iter()
-        .copied()
-        .filter_map(|(ident, variant_node_path, _)| Some((ident, variant_node_path.path(db)?)))
+        .filter_map(|&(ident, variant_node_path, _)| Some((ident, variant_node_path.path(db)?)))
         .collect()
 }

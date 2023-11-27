@@ -28,7 +28,7 @@ impl ExternTypeSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a, TypeSynNodePath> {
+impl<'a> DeclParser<'a> {
     // get declaration from tokens
     pub(super) fn parse_extern_ty_node_decl(&self) -> ExternTypeSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
