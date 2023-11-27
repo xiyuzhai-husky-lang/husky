@@ -115,7 +115,6 @@ pub enum JarIndex {
     ValReprJar,
 }
 
-#[cfg(debug_assertions)]
 pub trait HasJarIndex {
     const JAR_INDEX: JarIndex;
 }

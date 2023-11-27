@@ -6,6 +6,7 @@ use crate::{
     *,
 };
 use lsp_server::ExtractError;
+use salsa::snapshot::SnapshotClone;
 use serde::{de::DeserializeOwned, Serialize};
 use std::{fmt, panic, thread};
 

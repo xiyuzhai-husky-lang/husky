@@ -1,14 +1,24 @@
-use husky_salsa_log_utils::HasLogger;
-
 use crate::{jar::HasJarIndex, routes::Routes, Runtime, *};
+use ::snapshot::SnapshotClone;
+use husky_salsa_log_utils::HasLogger;
+use std::sync::Arc;
 
 pub struct Db {
-    storage: crate::storage::Storage,
-    logger: husky_salsa_log_utils::Logger,
+    pub(crate) storage: crate::storage::Storage,
+    pub(crate) logger: Arc<husky_salsa_log_utils::Logger>,
 }
 
 pub trait HasDb<'a> {
     fn db(&self) -> &'a Db;
+}
+
+impl SnapshotClone for Db {
+    fn snapshot_clone(&self) -> Self {
+        Self {
+            storage: self.storage.snapshot(),
+            logger: self.logger.clone(),
+        }
+    }
 }
 
 impl Db {

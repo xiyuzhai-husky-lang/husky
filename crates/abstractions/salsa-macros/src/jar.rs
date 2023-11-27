@@ -122,7 +122,6 @@ pub(crate) fn jar_impl(
         })
         .collect();
     quote! {
-        #[cfg(debug_assertions)]
         impl ::salsa::jar::HasJarIndex for #jar_struct {
             const JAR_INDEX: ::salsa::jar::JarIndex = ::salsa::jar::JarIndex::#jar_struct;
         }

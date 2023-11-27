@@ -20,6 +20,7 @@ smallvec.workspace = true
 either.workspace = true
 # abstractions
 salsa-macros = { path = "../../abstractions/salsa-macros" }
+snapshot = { path = "../../abstractions/snapshot" }
 enum-index = { path = "../../abstractions/enum-index" }
 vec-like = { path = "../../abstractions/vec-like" }
 maybe-result = { path = "../../abstractions/maybe-result" }

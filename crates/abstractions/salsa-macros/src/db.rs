@@ -44,6 +44,12 @@ pub(crate) fn db(
                 }))
             }
         }
+
+        impl ::salsa::snapshot::SnapshotClone for #ident {
+            fn snapshot_clone(&self) -> Self {
+                Self(self.0.snapshot_clone())
+            }
+        }
     }
     .into()
 }

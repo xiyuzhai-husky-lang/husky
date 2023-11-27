@@ -21,12 +21,16 @@ pub fn apply_live_file_changes(
 }
 
 fn update_live_packages(db: &::salsa::Db, path: &Path) {
-    if let Ok(toolchain) = db.current_toolchain() {
-        match db.resolve_module_path(toolchain, path) {
-            Ok(_) => todo!(),
-            Err(_) => todo!(),
-        };
-    }
+    // ad hoc
+    // I forgot what to do here
+    // if let Ok(toolchain) = db.current_toolchain() {
+    //     match db.resolve_module_path(toolchain, path) {
+    //         Ok(_) => {
+    //             db.live_packages()
+    //             todo!()},
+    //         Err(_) => todo!(),
+    //     };
+    // }
 }
 
 fn update_content(db: &mut Db, path: &Path, f: impl FnOnce(&mut String)) -> VfsResult<()> {
