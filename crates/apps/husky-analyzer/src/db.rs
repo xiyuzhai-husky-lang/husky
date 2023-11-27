@@ -1,6 +1,7 @@
 use std::sync::Arc;
 
 use dashmap::DashMap;
+use salsa::snapshot::SnapshotClone;
 
 #[salsa::db(
     // fs
@@ -42,51 +43,36 @@ use dashmap::DashMap;
 )]
 pub struct AnalyzerDb;
 
+#[derive(Default)]
 pub struct AnalyzerDB {
     db: AnalyzerDb,
     semantic_tokens_ext_cache: Arc<DashMap<lsp_types::Url, lsp_types::SemanticTokens>>,
 }
 
-impl AnalyzerDB {
-    pub(crate) fn snapshot(&self) -> AnalyzerDBSnapshot {
-        todo!()
+impl SnapshotClone for AnalyzerDB {
+    fn snapshot_clone(&self) -> Self {
+        Self {
+            db: self.db.snapshot_clone(),
+            semantic_tokens_ext_cache: self.semantic_tokens_ext_cache.clone(),
+        }
     }
 }
 
-pub struct AnalyzerDBSnapshot {}
+pub type AnalyzerDBSnapshot = ::salsa::snapshot::Snapshot<AnalyzerDB>;
 
 impl std::ops::Deref for AnalyzerDB {
-    type Target = AnalyzerDb;
+    type Target = ::salsa::Db;
 
     fn deref(&self) -> &Self::Target {
-        &self.db
+        &*self.db
     }
 }
 
 impl std::ops::DerefMut for AnalyzerDB {
     fn deref_mut(&mut self) -> &mut Self::Target {
-        todo!()
+        &mut *self.db
     }
 }
-
-impl std::ops::Deref for AnalyzerDBSnapshot {
-    type Target = AnalyzerDb;
-
-    fn deref(&self) -> &Self::Target {
-        todo!()
-    }
-}
-
-// impl salsa::Database for AnalyzerDB {}
-
-// impl salsa::ParallelDatabase for AnalyzerDB {
-//     fn snapshot(&self) -> salsa::Snapshot<Self> {
-//         salsa::Snapshot::new(AnalyzerDB {
-//             storage: self.storage.snapshot(),
-//             semantic_tokens_ext_cache: self.semantic_tokens_ext_cache.clone(),
-//         })
-//     }
-// }
 
 impl AnalyzerDB {
     pub(crate) fn cache_semantic_tokens(
@@ -102,25 +88,6 @@ impl AnalyzerDB {
         uri: lsp_types::Url,
     ) -> dashmap::mapref::entry::Entry<lsp_types::Url, lsp_types::SemanticTokens> {
         self.semantic_tokens_ext_cache.entry(uri)
-    }
-}
-
-impl AnalyzerDBSnapshot {
-    pub(crate) fn cache_semantic_tokens(
-        &self,
-        uri: lsp_types::Url,
-        semantic_tokens: lsp_types::SemanticTokens,
-    ) {
-        todo!()
-        // self.semantic_tokens_ext_cache.insert(uri, semantic_tokens);
-    }
-
-    pub(crate) fn cached_semantic_tokens_entry(
-        &self,
-        uri: lsp_types::Url,
-    ) -> dashmap::mapref::entry::Entry<lsp_types::Url, lsp_types::SemanticTokens> {
-        todo!()
-        // self.semantic_tokens_ext_cache.entry(uri)
     }
 }
 

@@ -22,8 +22,7 @@ impl Server {
             threadpool: ThreadPool::default(),
             event_loop_comm: EventLoopCommunicator::default(),
             // ad hoc
-            db: todo!(),
-            // Default::default(),
+            db: Default::default(),
         }
     }
 }

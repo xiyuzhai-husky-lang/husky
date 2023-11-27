@@ -1,7 +1,6 @@
 pub mod accumulator;
 pub mod cancelled;
 pub mod cycle;
-// pub mod database;
 pub mod db;
 pub mod debug;
 pub mod display;
@@ -23,6 +22,7 @@ pub mod routes;
 pub mod runtime;
 pub mod salsa_struct;
 pub mod setter;
+pub mod snapshot;
 pub mod storage;
 #[cfg(debug_assertions)]
 pub mod test_utils;
