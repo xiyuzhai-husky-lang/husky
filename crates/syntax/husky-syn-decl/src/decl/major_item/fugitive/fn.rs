@@ -37,7 +37,7 @@ impl FnSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a, FugitiveSynNodePath> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_fn_node_decl(&self) -> FnSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();

@@ -53,10 +53,11 @@ pub fn syn_node_decl_sheet(db: &::salsa::Db, path: ModulePath) -> SynNodeDeclShe
                     .iter()
                     .copied()
                 {
-                    decls.push((
-                        item_syn_node_path.into(),
-                        item_syn_node_path.syn_node_decl(db).into(),
-                    ))
+                    todo!()
+                    // decls.push((
+                    //     item_syn_node_path.into(),
+                    //     item_syn_node_path.syn_node_decl(db).into(),
+                    // ))
                 }
             }
         }

@@ -5,6 +5,7 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id(jar = EntitySynTreeJar)]
+#[salsa::deref_id]
 pub struct TraitForTypeImplBlockSynNodePath(ItemSynNodePathId);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -16,7 +17,7 @@ pub struct TraitForTypeImplBlockSynNodePathData {
 
 impl TraitForTypeImplBlockSynNodePath {
     pub fn path(self, db: &::salsa::Db) -> TraitForTypeImplBlockPath {
-        match self.0.path(db) {
+        match self.0.path(db).expect("no ambiguity") {
             ItemPath::ImplBlock(ImplBlockPath::TraitForTypeImplBlock(path)) => path,
             _ => unreachable!(),
         }
@@ -30,11 +31,19 @@ impl TraitForTypeImplBlockSynNodePath {
         self.path(db).ty_sketch(db)
     }
 
-    pub fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a TraitForTypeImplBlockSynNode {
-        match self.0.syn_node(db) {
-            ItemSynNode::AssociatedItem(AssociatedItemSynNode::TraitForTypeItem(node)) => node,
+    pub fn data(self, db: &::salsa::Db) -> TraitForTypeImplBlockSynNodePathData {
+        match self.0.data(db) {
+            ItemSynNodePathData::ImplBlock(ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                data,
+            )) => data,
             _ => unreachable!(),
         }
+    }
+
+    pub fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a TraitForTypeImplBlockSynNode {
+        let module_path = self.module_path(db);
+        let item_tree_sheet = db.item_syn_tree_sheet(module_path);
+        item_tree_sheet.trai_for_ty_impl_block_syn_node(db, self)
     }
 
     pub(crate) fn associated_items(
@@ -77,7 +86,7 @@ impl HasSynNodePath for TraitForTypeImplBlockPath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct TraitForTypeImplBlockSynNode {
     pub(crate) syn_node_path: TraitForTypeImplBlockSynNodePath,
     pub(crate) ast_idx: AstIdx,
@@ -202,15 +211,6 @@ impl TraitForTypeImplBlockSynNode {
     }
 }
 
-pub(crate) fn trai_for_ty_impl_block_syn_node(
-    db: &::salsa::Db,
-    syn_node_path: TraitForTypeImplBlockSynNodePath,
-) -> TraitForTypeImplBlockSynNode {
-    let module_path = todo!(); //syn_node_path.module_path(db);
-    let item_tree_sheet = db.item_syn_tree_sheet(module_path);
-    item_tree_sheet.trai_for_ty_impl_block_syn_node(db, syn_node_path)
-}
-
 impl HasAssociatedItemPaths for TraitForTypeImplBlockPath {
     type AssociatedItemPath = TraitForTypeItemPath;
 
@@ -227,6 +227,6 @@ fn trai_for_ty_impl_block_item_paths(
     path.syn_node_path(db)
         .associated_items(db)
         .iter()
-        .filter_map(|(ident, syn_node_path, _)| Some((*ident, syn_node_path.path(db)?)))
+        .filter_map(|&(ident, syn_node_path, _)| Some((ident, syn_node_path.path(db)?)))
         .collect()
 }

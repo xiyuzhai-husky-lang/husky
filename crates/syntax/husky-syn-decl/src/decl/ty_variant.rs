@@ -49,17 +49,21 @@ pub(crate) fn ty_variant_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TypeVariantSynNodePath,
 ) -> TypeVariantSynNodeDecl {
-    DeclParser::new(db, syn_node_path).parse_ty_variant_syn_node_decl()
+    DeclParser::new(db, syn_node_path.into()).parse_ty_variant_syn_node_decl()
 }
 
-impl<'a> DeclParser<'a, TypeVariantSynNodePath> {
+impl<'a> DeclParser<'a> {
     fn parse_ty_variant_syn_node_decl(&self) -> TypeVariantSynNodeDecl {
         use parsec::HasStreamState;
         let db = self.db();
+        let ItemSynNodePath::TypeVariant(_, syn_node_path) = self.syn_node_path() else {
+            unreachable!()
+        };
         let mut parser = self.expr_parser(
             Some(
-                self.syn_node_path()
-                    .parent_ty_node_path(db)
+                syn_node_path
+                    .data(db)
+                    .parent_ty_node_path
                     .syn_node_decl(db)
                     .syn_expr_region(db),
             ),
@@ -74,7 +78,7 @@ impl<'a> DeclParser<'a, TypeVariantSynNodePath> {
                 let rpar = parser.try_parse();
                 TypeTupleVariantSynNodeDecl::new(
                     db,
-                    self.syn_node_path(),
+                    syn_node_path,
                     state.next_regional_token_idx(),
                     field_comma_list,
                     rpar,
@@ -83,9 +87,7 @@ impl<'a> DeclParser<'a, TypeVariantSynNodePath> {
                 .into()
             }
             Some(TokenData::Punctuation(Punctuation::LCURL)) => todo!(),
-            None => {
-                UnitTypeVariantSynNodeDecl::new(db, self.syn_node_path(), parser.finish()).into()
-            }
+            None => UnitTypeVariantSynNodeDecl::new(db, syn_node_path, parser.finish()).into(),
             _ => todo!(),
         }
     }

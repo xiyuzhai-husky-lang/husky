@@ -2,6 +2,7 @@ use super::*;
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::as_id]
 pub struct TraitItemSynNodePath(ItemSynNodePathId);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -35,15 +36,45 @@ impl TraitItemSynNodePath {
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<TraitItemPath> {
-        self.maybe_ambiguous_path(db).unambiguous_path()
+        Some(match self.0.path(db)? {
+            ItemPath::AssociatedItem(AssociatedItemPath::TraitItem(path)) => path,
+            _ => unreachable!(),
+        })
+    }
+
+    pub fn data(self, db: &::salsa::Db) -> TraitItemSynNodePathData {
+        match self.0.data(db) {
+            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TraitItem(data)) => {
+                data
+            }
+            _ => unreachable!(),
+        }
     }
 
     pub fn item_kind(self, db: &::salsa::Db) -> TraitItemKind {
-        self.maybe_ambiguous_path(db).path.item_kind(db)
+        self.data(db).item_kind(db)
+    }
+}
+
+impl TraitItemSynNodePathData {
+    pub fn path(self) -> Option<TraitItemPath> {
+        self.maybe_ambiguous_path.unambiguous_path()
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TraitItemSynNode {
-        trai_item_syn_node(db, self)
+    pub fn item_kind(self, db: &::salsa::Db) -> TraitItemKind {
+        self.maybe_ambiguous_path.path.item_kind(db)
+    }
+
+    pub(crate) fn syn_node<'a>(
+        self,
+        syn_node_path: TraitItemSynNodePath,
+        db: &'a ::salsa::Db,
+    ) -> &'a TraitItemSynNode {
+        self.parent_trai_syn_node_path
+            .associated_items(db)
+            .iter()
+            .find_map(|&(_, node_path1, ref node)| (node_path1 == syn_node_path).then_some(node))
+            .expect("some")
     }
 }
 
@@ -51,15 +82,19 @@ impl HasSynNodePath for TraitItemPath {
     type SynNodePath = TraitItemSynNodePath;
 
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
-        TraitItemSynNodePath::new_inner(
+        TraitItemSynNodePath(ItemSynNodePathId::new(
             db,
-            self.trai_path(db).syn_node_path(db),
-            MaybeAmbiguousPath::from_path(self),
-        )
+            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TraitItem(
+                TraitItemSynNodePathData {
+                    parent_trai_syn_node_path: self.trai_path(db).syn_node_path(db),
+                    maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+                },
+            )),
+        ))
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct TraitItemSynNode {
     syn_node_path: TraitItemSynNodePath,
     ast_idx: AstIdx,
@@ -81,20 +116,24 @@ impl TraitItemSynNode {
         visibility: Scope,
         is_generic: bool,
     ) -> (TraitItemSynNodePath, Self) {
-        let trai_item_path = TraitItemPath::new(trai_syn_node_path.path(db), ident, item_kind, db);
+        let trai_item_path = TraitItemPath::new(
+            trai_syn_node_path.data(db).maybe_ambiguous_path.path,
+            ident,
+            item_kind,
+            db,
+        );
         let syn_node_path =
             TraitItemSynNodePath::new(db, registry, trai_syn_node_path, trai_item_path);
         (
             syn_node_path,
-            Self::new_inner(
-                db,
+            Self {
                 syn_node_path,
                 ast_idx,
                 ident,
                 item_kind,
                 visibility,
                 is_generic,
-            ),
+            },
         )
     }
 
@@ -114,7 +153,7 @@ pub(crate) fn trai_item_syn_nodes(
     let trai_node = trai_node_path.syn_node(db);
     let module_path = todo!(); // trai_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path);
-    let DefnBlock::Trait { path: _, items } = trai_node.block(db) else {
+    let DefnBlock::Trait { path: _, items } = trai_node.block else {
         unreachable!()
     };
     let Some(items) = items else {
@@ -157,19 +196,6 @@ pub(crate) fn trai_item_syn_nodes(
             }
         })
         .collect()
-}
-
-pub(crate) fn trai_item_syn_node(
-    db: &::salsa::Db,
-    syn_node_path: TraitItemSynNodePath,
-) -> TraitItemSynNode {
-    syn_node_path
-        .parent_trai_syn_node_path(db)
-        .associated_items(db)
-        .iter()
-        .copied()
-        .find_map(|(_, node_path1, node)| (node_path1 == syn_node_path).then_some(node))
-        .expect("some")
 }
 
 pub(crate) const APPROXIMATE_UPPER_BOUND_ON_NUMBER_OF_TRAIT_ITEMS: usize = 4;

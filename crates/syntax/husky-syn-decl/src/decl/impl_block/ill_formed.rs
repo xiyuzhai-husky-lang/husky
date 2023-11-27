@@ -32,7 +32,7 @@ pub(crate) fn ill_formed_impl_block_syn_node_decl(
     parser.parse_ill_formed_impl_block_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a, IllFormedImplBlockSynNodePath> {
+impl<'a> DeclParser<'a> {
     fn parse_ill_formed_impl_block_syn_node_decl(
         &self,
         _syn_node_path: IllFormedImplBlockSynNodePath,

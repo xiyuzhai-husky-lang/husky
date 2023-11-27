@@ -125,12 +125,12 @@ fn build_decl_tokra_region(
 
 impl ItemSynNodePathId {
     pub fn decl_tokra_region(self, db: &::salsa::Db) -> DeclTokraRegion {
-        item_syn_node_decl_tokra_region(db, self).0
+        item_syn_node_decl_tokra_region_with_source_map(db, self).0
     }
 
     // use this only when necessary
     pub fn decl_tokra_region_source_map(self, db: &::salsa::Db) -> DeclTokraRegionSourceMap {
-        item_syn_node_decl_tokra_region(db, self).1
+        item_syn_node_decl_tokra_region_with_source_map(db, self).1
     }
 
     pub fn decl_ast_idx(self, db: &::salsa::Db) -> AstIdx {
@@ -159,13 +159,9 @@ impl ItemSynNodePathId {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-fn item_syn_node_decl_tokra_region(
+fn item_syn_node_decl_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
-    build_decl_tokra_region(
-        id.syn_node(db).module_path(db),
-        id.syn_node(db).ast_idx(db),
-        db,
-    )
+    build_decl_tokra_region(id.module_path(db), id.syn_node(db).ast_idx(db), db)
 }

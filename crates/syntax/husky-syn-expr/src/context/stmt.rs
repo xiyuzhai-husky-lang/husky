@@ -1,6 +1,6 @@
 use super::*;
 use husky_defn_ast::{DefnAstArenaRef, DefnAstIdx, DefnAstIdxRange};
-use husky_entity_syn_tree::helpers::tokra_region::{DefnTokraRegionData, HasSynDefnTokraRegion};
+use husky_entity_syn_tree::helpers::tokra_region::DefnTokraRegionData;
 
 pub struct SynStmtContext<'a> {
     expr_context: SynExprContext<'a>,
@@ -22,20 +22,17 @@ impl<'a> std::ops::DerefMut for SynStmtContext<'a> {
 }
 
 impl<'a> SynStmtContext<'a> {
-    pub fn new<P>(
-        syn_node_path: P,
+    pub fn new(
+        syn_node_path: ItemSynNodePath,
         decl_expr_region: SynExprRegion,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
         db: &'a ::salsa::Db,
-    ) -> Option<Self>
-    where
-        P: HasSynDefnTokraRegion,
-    {
-        let module_path = todo!(); // syn_node_path.module_path(db);
+    ) -> Option<Self> {
+        let module_path = syn_node_path.module_path(db);
         let expr_context = SynExprContext::new(
             db,
-            SynNodeRegionPath::Defn(syn_node_path.into()),
+            SynNodeRegionPath::Defn(syn_node_path),
             db.module_symbol_context(module_path).unwrap(),
             Some(decl_expr_region),
             allow_self_type,

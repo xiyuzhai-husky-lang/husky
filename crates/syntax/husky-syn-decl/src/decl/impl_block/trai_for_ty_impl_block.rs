@@ -54,7 +54,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_node_decl(
     parser.parse_trai_for_ty_impl_block_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a, TraitForTypeImplBlockSynNodePath> {
+impl<'a> DeclParser<'a> {
     fn parse_trai_for_ty_impl_block_syn_node_decl(
         &self,
         syn_node_path: TraitForTypeImplBlockSynNodePath,

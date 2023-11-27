@@ -25,7 +25,7 @@ pub type MajorPathExprArena = Arena<MajorItemPathExpr>;
 pub type MajorItemPathExprIdx = ArenaIdx<MajorItemPathExpr>;
 pub type MajorPathExprIdxRange = ArenaIdxRange<MajorItemPathExpr>;
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum MajorPathExprError {
     #[error("{0}")]
@@ -34,7 +34,7 @@ pub enum MajorPathExprError {
     Derived(#[from] DerivedMajorPathExprError),
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum OriginalMajorPathExprError {
     #[error("unrecognized identifier")]
@@ -55,7 +55,7 @@ impl From<TokenDataError> for MajorPathExprError {
     }
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum DerivedMajorPathExprError {
     #[error("token error")]

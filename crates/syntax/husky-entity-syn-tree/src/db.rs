@@ -60,24 +60,25 @@ pub struct EntitySynTreeJar(
     ItemSynNodePathId,
     UseSymbol,
     // module items
-    trai_node,
     trai_item_paths,
     ty_attrs,
     ty_attr_paths,
+    trai_item_syn_nodes,
     // ty_impl_blocks,
     ty_item_syn_node_paths,
     ty_item_paths_map,
     ty_impl_block_item_paths,
+    ty_impl_block_items,
+    // ty for ty item
     trai_for_ty_impl_block_item_paths,
     // variants
     ty_variant_syn_nodes,
     ty_variant_paths,
     // impl blocks
     // - type impl block
-    // - trai for ty
+    // - trai for ty impl block
     trai_for_ty_impl_block_items,
     // attr
-    attr_node,
     // other
     item_tree_presheet,
     item_tree_crate_bundle,
@@ -101,5 +102,8 @@ pub struct EntitySynTreeJar(
     crate::helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
     crate::helpers::tokra_region::SnippetTokraRegion,
     crate::helpers::tokra_region::DeclTokraRegion,
+    crate::helpers::tokra_region::decl::item_syn_node_decl_tokra_region_with_source_map,
+    crate::helpers::tokra_region::defn::DefnTokraRegion,
+    crate::helpers::tokra_region::defn::SynDefnTokraRegionSourceMap,
     crate::helpers::tokra_region::defn::item_syn_defn_tokra_region_with_source_map,
 );

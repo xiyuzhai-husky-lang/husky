@@ -256,7 +256,7 @@ impl EntitySymbolEntry {
         Some(EntitySymbolEntry {
             ident: node_entry.ident,
             visibility: node_entry.visibility,
-            symbol: EntitySymbol::from_node(db, node_entry.node)?,
+            symbol: EntitySymbol::from_node(db, &node_entry.node)?,
         })
     }
 }
@@ -288,7 +288,7 @@ impl ItemNodeEntry {
         })
     }
 
-    pub(crate) fn syn_node(&self) -> ItemSynNode {
-        self.node
+    pub(crate) fn syn_node(&self) -> &ItemSynNode {
+        &self.node
     }
 }

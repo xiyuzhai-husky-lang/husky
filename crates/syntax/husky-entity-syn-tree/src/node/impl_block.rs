@@ -70,7 +70,7 @@ impl HasSynNodePath for ImplBlockPath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub(crate) enum ImplBlockSynNode {
@@ -80,7 +80,7 @@ pub(crate) enum ImplBlockSynNode {
 }
 
 impl ImplBlockSynNode {
-    pub fn syn_node_path(self, db: &::salsa::Db) -> ImplBlockSynNodePath {
+    pub fn syn_node_path(&self) -> ImplBlockSynNodePath {
         match self {
             ImplBlockSynNode::TypeImplBlock(impl_block) => impl_block.syn_node_path.into(),
             ImplBlockSynNode::TraitForTypeImplBlock(impl_block) => impl_block.syn_node_path.into(),

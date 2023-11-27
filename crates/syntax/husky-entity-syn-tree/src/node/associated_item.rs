@@ -19,6 +19,7 @@ pub enum AssociatedItemSynNodePath {
     TypeItem(TypeItemSynNodePath),
     TraitItem(TraitItemSynNodePath),
     TraitForTypeItem(TraitForTypeItemSynNodePath),
+    IllFormedItem(IllFormedItemSynNodePath),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -30,20 +31,21 @@ pub enum AssociatedItemSynNodePathData {
     TraitForTypeItem(TraitForTypeItemSynNodePathData),
 }
 
+impl std::ops::Deref for AssociatedItemSynNodePath {
+    type Target = ItemSynNodePathId;
+
+    fn deref(&self) -> &Self::Target {
+        let slf: &(u32, ItemSynNodePathId) = unsafe { std::mem::transmute(self) };
+        &slf.1
+    }
+}
+
 impl AssociatedItemSynNodePath {
     pub fn path(self, db: &::salsa::Db) -> Option<AssociatedItemPath> {
-        match self {
-            AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
-                syn_node_path.path(db).map(Into::into)
-            }
-            AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
-                syn_node_path.path(db).map(Into::into)
-            }
-            AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
-                syn_node_path.path(db).map(Into::into)
-            }
-            AssociatedItemSynNodePath::IllFormedItem(_syn_node_path) => None,
-        }
+        Some(match (*self).path(db)? {
+            ItemPath::AssociatedItem(path) => path,
+            _ => unreachable!(),
+        })
     }
 
     pub(crate) fn syn_node(self, _db: &::salsa::Db) -> AssociatedItemSynNode {
@@ -63,7 +65,7 @@ impl HasSynNodePath for AssociatedItemPath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub(crate) enum AssociatedItemSynNode {
     TypeItem(TypeItemSynNode),
@@ -72,17 +74,9 @@ pub(crate) enum AssociatedItemSynNode {
 }
 
 impl AssociatedItemSynNode {
-    pub fn syn_node_path(self, db: &::salsa::Db) -> AssociatedItemSynNodePath {
+    pub fn syn_node_path(&self) -> AssociatedItemSynNodePath {
         match self {
-            AssociatedItemSynNode::TypeItem(node) => node.syn_node_path(db).into(),
-            AssociatedItemSynNode::TraitItem(_) => todo!(),
-            AssociatedItemSynNode::TraitForTypeItem(_) => todo!(),
-        }
-    }
-
-    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        match self {
-            AssociatedItemSynNode::TypeItem(node) => node.module_path(db),
+            AssociatedItemSynNode::TypeItem(node) => node.syn_node_path.into(),
             AssociatedItemSynNode::TraitItem(_) => todo!(),
             AssociatedItemSynNode::TraitForTypeItem(_) => todo!(),
         }

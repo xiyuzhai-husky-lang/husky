@@ -132,10 +132,9 @@ pub struct SynDefnTokraRegionSourceMap {
 fn item_syn_defn_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,
-) -> Option<()> {
+) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
     let syn_node = id.syn_node(db);
-    let builder =
-        SynDefnTokraRegionBuilder::new(syn_node.module_path(db), syn_node.ast_idx(db), db)?;
+    let builder = SynDefnTokraRegionBuilder::new(id.module_path(db), syn_node.ast_idx(db), db)?;
     Some(builder.build())
 }
 
@@ -343,7 +342,7 @@ fn build_defn_tokra_region(
     ast_idx: AstIdx,
     db: &::salsa::Db,
 ) -> Option<(DefnTokraRegion, SynDefnTokraRegionSourceMap)> {
-    let builder = SynDefnTokraRegionBuilder::new(module_path, db, ast_idx)?;
+    let builder = SynDefnTokraRegionBuilder::new(module_path, ast_idx, db)?;
     Some(builder.build())
 }
 

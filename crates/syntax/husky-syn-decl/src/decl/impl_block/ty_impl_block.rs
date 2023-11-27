@@ -35,7 +35,7 @@ pub(crate) fn ty_impl_block_syn_node_decl(
     parser.parse_ty_impl_block_syn_node_decl()
 }
 
-impl<'a> DeclParser<'a, TypeImplBlockSynNodePath> {
+impl<'a> DeclParser<'a> {
     fn parse_ty_impl_block_syn_node_decl(&self) -> TypeImplBlockSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);

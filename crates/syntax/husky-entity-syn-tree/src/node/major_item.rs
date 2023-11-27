@@ -89,7 +89,7 @@ impl HasSynNodePath for MajorItemPath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct MajorItemSynNode {
     pub(crate) syn_node_path: MajorItemSynNodePath,
     pub(crate) visibility: Scope,
@@ -118,7 +118,11 @@ impl MajorItemSynNode {
     }
 
     /// only gives a path when valid
-    pub fn unambiguous_path(self, db: &::salsa::Db) -> Option<MajorItemPath> {
+    pub fn unambiguous_path(&self, db: &::salsa::Db) -> Option<MajorItemPath> {
         self.syn_node_path.path(db)
+    }
+
+    pub fn ident(&self) -> Ident {
+        self.ident_token.ident()
     }
 }

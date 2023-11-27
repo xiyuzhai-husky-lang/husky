@@ -2,8 +2,13 @@ use vec_like::VecMapGetEntry;
 
 use super::*;
 
-#[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct AttrSynNodePath {
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::as_id(jar = EntitySynTreeJar)]
+#[salsa::deref_id]
+pub struct AttrSynNodePath(ItemSynNodePathId);
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct AttrSynNodePathData {
     pub parent_syn_node_path: ItemSynNodePath,
     maybe_ambiguous_path: MaybeAmbiguousPath<AttrItemPath>,
 }
@@ -15,23 +20,47 @@ impl AttrSynNodePath {
         registry: &mut ItemSynNodePathRegistry,
         db: &::salsa::Db,
     ) -> Self {
-        Self::new_inner(
+        Self(ItemSynNodePathId::new(
             db,
-            parent_syn_node_path,
-            registry.issue_maybe_ambiguous_path(path),
-        )
+            ItemSynNodePathData::Attr(AttrSynNodePathData {
+                parent_syn_node_path,
+                maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
+            }),
+        ))
+    }
+
+    pub fn data(self, db: &salsa::Db) -> AttrSynNodePathData {
+        match self.0.data(db) {
+            ItemSynNodePathData::Attr(data) => data,
+            _ => unreachable!(),
+        }
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<AttrItemPath> {
-        self.maybe_ambiguous_path(db).unambiguous_path()
+        Some(match self.0.path(db)? {
+            ItemPath::Attr(_, path) => path,
+            _ => unreachable!(),
+        })
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> AttrSynNode {
-        attr_node(db, self)
+    pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a AttrSynNode {
+        &self
+            .data(db)
+            .parent_syn_node_path
+            .attr_syn_nodes(db)
+            .get_entry(self)
+            .expect("todo")
+            .1
+    }
+}
+
+impl AttrSynNodePathData {
+    pub fn path(self, db: &::salsa::Db) -> Option<AttrItemPath> {
+        self.maybe_ambiguous_path.unambiguous_path()
     }
 
     pub fn ident(self, db: &::salsa::Db) -> Ident {
-        self.maybe_ambiguous_path(db).path.ident(db)
+        self.maybe_ambiguous_path.path.ident(db)
     }
 }
 
@@ -39,25 +68,17 @@ impl HasSynNodePath for AttrItemPath {
     type SynNodePath = AttrSynNodePath;
 
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
-        AttrSynNodePath::new_inner(
+        AttrSynNodePath(ItemSynNodePathId::new(
             db,
-            self.parent(db).syn_node_path(db),
-            MaybeAmbiguousPath::from_path(self),
-        )
+            ItemSynNodePathData::Attr(AttrSynNodePathData {
+                parent_syn_node_path: self.parent(db).syn_node_path(db),
+                maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+            }),
+        ))
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar)]
-fn attr_node(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrSynNode {
-    syn_node_path
-        .parent_syn_node_path(db)
-        .attr_syn_nodes(db)
-        .get_entry(syn_node_path)
-        .expect("todo")
-        .1
-}
-
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct AttrSynNode {
     syn_node_path: AttrSynNodePath,
     ast_idx: AstIdx,
@@ -74,7 +95,10 @@ impl AttrSynNode {
         let syn_node_path = AttrSynNodePath::new(parent_path, path, registry, db);
         (
             syn_node_path,
-            AttrSynNode::new_inner(db, syn_node_path, ast_idx),
+            AttrSynNode {
+                syn_node_path,
+                ast_idx,
+            },
         )
     }
 }

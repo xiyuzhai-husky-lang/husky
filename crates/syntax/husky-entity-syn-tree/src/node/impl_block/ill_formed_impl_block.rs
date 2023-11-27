@@ -3,6 +3,8 @@ use original_error::OriginalError;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::as_id]
+#[salsa::deref_id]
 pub struct IllFormedImplBlockSynNodePath(ItemSynNodePathId);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -17,8 +19,10 @@ impl IllFormedImplBlockSynNodePath {
         &[]
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> IllFormedImplBlockSynNode {
-        ill_formed_impl_block_syn_node(db, self)
+    pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a IllFormedImplBlockSynNode {
+        let module_path = self.module_path(db);
+        let item_tree_sheet = db.item_syn_tree_sheet(module_path);
+        item_tree_sheet.ill_formed_impl_block_syn_node(db, self)
     }
 }
 
@@ -28,7 +32,7 @@ impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct IllFormedImplBlockSynNode {
     pub(crate) syn_node_path: IllFormedImplBlockSynNodePath,
     pub(crate) impl_token: ImplToken,
@@ -65,7 +69,7 @@ impl IllFormedImplBlockSynNode {
     }
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub enum ImplBlockIllForm {
     #[error("unmatched angle bras")]
@@ -84,13 +88,4 @@ pub enum ImplBlockIllForm {
 
 impl OriginalError for ImplBlockIllForm {
     type Error = Self;
-}
-
-pub(crate) fn ill_formed_impl_block_syn_node(
-    db: &::salsa::Db,
-    syn_node_path: IllFormedImplBlockSynNodePath,
-) -> IllFormedImplBlockSynNode {
-    let module_path = syn_node_path.module_path(db);
-    let item_tree_sheet = db.item_syn_tree_sheet(module_path);
-    item_tree_sheet.ill_formed_impl_block_syn_node(db, syn_node_path)
 }
