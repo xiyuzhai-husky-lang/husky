@@ -1,3 +1,6 @@
+mod db;
+
+use self::db::DevComptimeDb;
 use husky_coword::Kebab;
 use husky_task::{helpers::TaskDevLinkTime, link::IsLinktime, IsTask};
 use husky_vfs::{
@@ -7,7 +10,7 @@ use husky_vfs::{
 use std::path::Path;
 
 pub struct DevComptime<Task: IsTask> {
-    db: ::salsa::Db,
+    db: DevComptimeDb,
     target: DevComptimeTarget,
     linktime: TaskDevLinkTime<Task>,
 }
@@ -21,7 +24,7 @@ pub enum DevComptimeTarget {
 
 impl<Task: IsTask> DevComptime<Task> {
     pub fn new(target_crate_path: &Path) -> VfsResult<Self> {
-        let db: ::salsa::Db = ::salsa::Db::new(todo!());
+        let db = DevComptimeDb::default();
         let toolchain = match db.current_toolchain() {
             Ok(toolchain) => toolchain,
             Err(_) => todo!(),

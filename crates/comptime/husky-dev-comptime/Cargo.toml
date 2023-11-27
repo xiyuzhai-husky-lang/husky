@@ -9,11 +9,20 @@ dashmap.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 # comptime
-husky-val-repr = { path = "../../val/husky-val-repr" }
+husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
 # devtime
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
+# hir
+husky-hir-ty = { path = "../../hir/husky-hir-ty" }
+husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
+husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
+husky-hir-expr = { path = "../../hir/husky-hir-expr" }
+husky-hir-decl = { path = "../../hir/husky-hir-decl" }
+husky-hir-defn = { path = "../../hir/husky-hir-defn" }
+# ide
+husky-token-info = { path = "../../ide/husky-token-info" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
@@ -29,6 +38,10 @@ husky-task = { path = "../../kernel/husky-task" }
 husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
+husky-text = { path = "../../lex/husky-text" }
+# linkage
+husky-linkage = { path = "../../linkage/husky-linkage" }
+# protocols
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # semantics
 husky-manifest = { path = "../../semantics/husky-manifest" }
@@ -43,5 +56,8 @@ husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
+# val
+husky-val = { path = "../../val/husky-val" }
+husky-val-repr = { path = "../../val/husky-val-repr" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }
